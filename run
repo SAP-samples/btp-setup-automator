@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+guid=$(date "+%Y-%m-%d")
+
+buildAndRunContainer(){
+        docker build  -t "$1":"$guid" -t "$1":latest -f "config/containerdefinitions/btp-setup-automator/Dockerfile"  .
+        docker run --rm  -it -d --name "$1" "$1"  
+}
+
+containername="btp-setup-automator"
+imagename="$containername"
+
+docker stop     "$containername"
+docker rm -f    "$containername"
+docker rmi -f   "$imagename"
+
+buildAndRunContainer "$containername"

@@ -1,0 +1,22 @@
+{
+    "myemail": null,
+    "globalaccount": null,
+    "region": "us10",
+    "subaccountid": null,
+    "subaccountname": null,
+    "subdomain": null,
+    "orgid": null,
+    "cfspacename": "development",
+    "iashost": null,
+    "suffixinstancename": null,
+    "fallbackserviceplan": null,
+    "repeatstatusrequest": 4,
+    "repeatstatustimeout": 4200,
+    "usecasefile": "usecases/usecase.json",
+    "parameterfile": "usecases/parameters.json",
+    "logfile": "log/script.log",
+    "metadatafile": "log/metadata_log.json",
+    "logcommands": true,
+    "pruneusecase": false,
+    "prunesubaccount": false
+  }

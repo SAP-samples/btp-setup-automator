@@ -1,0 +1,39 @@
+{
+  "aboutThisUseCase": {
+    "name": "Setup trust",
+    "description": "This usecase provides the configuration of services to setup a trust configuration with the SAP IAS.",
+    "author": "fabian.lehmann02@sap.com",
+    "testStatus": "in development",
+    "usageStatus": "NOT READY TO BE USED"
+  },
+  "services": [
+    {
+      "name": "xsuaa",
+      "plan": "apiaccess",
+      "category": "SDRVICE",
+      "instancename": "xsuaa_api",
+      "repeatstatusrequest": "5",
+      "repeatstatustimeout": "200",
+      "createServiceKeys": [
+        "myServiceKey1"
+      ]
+    }
+  ],
+  "admins": [
+    {
+      "email": "jane.doe@sap.com"
+    },
+    {
+      "email": "john.doe@sap.com"
+    }
+  ],
+  "usersToCreateOnIDP" :[
+    {
+      "email": "jenny.doe@sap.com"
+    },
+    {
+      "email": "johnny.doe@sap.com"
+    }
+
+  ]
+}

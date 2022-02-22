@@ -1,0 +1,33 @@
+{
+    "aboutThisUseCase": {
+        "name": "Setting up an ABAP Steampunk instance",
+        "description": "This usecase sets up an ABAP Steampunk instance on your SAP BTP account.",
+        "author": "rui.nogueira@sap.com",
+        "testStatus": "ready for testing",
+        "usageStatus": "NOT READY TO BE USED",
+        "relatedLinks": []
+    },
+    "services": [
+        {
+            "name": "abap",
+            "plan": "free",
+            "category": "SERVICE",
+            "repeatstatusrequest": "300",
+            "repeatstatustimeout": "7200",
+            "parameters": {
+                "admin_email": "your.emailaddress@somewhere.com",
+                "description": "Main development system",
+                "sapsystemname": "H01"
+            },
+            "createServiceKeys": [
+                "ADT"
+            ]
+        },
+        {
+            "name": "abapcp-web-router",
+            "plan": "default",
+            "category": "APPLICATION"
+        }
+    ],
+    "admins": []
+}

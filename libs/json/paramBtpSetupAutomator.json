@@ -1,0 +1,134 @@
+[
+    {
+        "argument": "myemail",
+        "type": "str",
+        "help": "email address used for your SAP BTP account",
+        "default": null
+    },
+    {
+        "argument": "globalaccount",
+        "type": "str",
+        "help": "your SAP BTP global account",
+        "default": null
+    },
+    {
+        "argument": "region",
+        "type": "str",
+        "help": "region of the subaccount for use case",
+        "default": "us10"
+    },
+    {
+        "argument": "subaccountid",
+        "type": "str",
+        "help": "subaccount id for use case",
+        "default": null
+    },
+    {
+        "argument": "subaccountname",
+        "type": "str",
+        "help": "subaccount name for use case",
+        "default": null
+    },
+    {
+        "argument": "subdomain",
+        "type": "str",
+        "help": "subdomain of subaccount",
+        "default": null
+    },
+    {
+        "argument": "org",
+        "type": "str",
+        "help": "org name of the CF environment for use case",
+        "default": null
+    },
+    {
+        "argument": "orgid",
+        "type": "str",
+        "help": "org id of the CF environment for use case",
+        "default": null
+    },
+    {
+        "argument": "cfspacename",
+        "type": "str",
+        "help": "name for the Cloudfoundry space ",
+        "default": "development"
+    },
+    {
+        "argument": "iashost",
+        "type": "str",
+        "help": "IAS host for your SAP BTP sub account",
+        "default": null
+    },
+    {
+        "argument": "suffixinstancename",
+        "type": "str",
+        "help": "suffix attached to each service instance created",
+        "default": null
+    },
+    {
+        "argument": "fallbackserviceplan",
+        "type": "str",
+        "help": "if defined, the tool will use the defined name as fallback service plan, if the plan defined in the use case is not supported",
+        "default": null
+    },
+    {
+        "argument": "repeatstatusrequest",
+        "type": "int",
+        "help": "time in seconds to wait after requesting status info (pulling)",
+        "default": 4
+    },
+    {
+        "argument": "repeatstatustimeout",
+        "type": "int",
+        "help": "timeout in seconds after which requests should be stopped",
+        "default": 4200
+    },
+    {
+        "argument": "usecasefile",
+        "type": "str",
+        "help": "file with usecase config",
+        "default": "usecases/usecase.json"
+    },
+    {
+        "argument": "parameterfile",
+        "type": "str",
+        "help": "file to deliver all parameters within a single json file",
+        "default": "usecases/parameters.json"
+    },
+    {
+        "argument": "logfile",
+        "type": "str",
+        "help": "file for log information",
+        "default": "log/script.log"
+    },
+    {
+        "argument": "metadatafile",
+        "type": "str",
+        "help": "file for log information",
+        "default": "log/metadata_log.json"
+    },
+    {
+        "argument": "logcommands",
+        "type": "bool",
+        "help": "if set to True, the script will log all commands sent to the SAP BTP account. If set to False it won't",
+        "default": true
+    },
+    {
+        "argument": "pruneusecase",
+        "type": "bool",
+        "help": "if set to True: deletes all assets of a usecase based on the collected info in the metadatafile. No confirmation message. USE WITH CARE!!!",
+        "default": false
+    },
+    {
+        "argument": "prunesubaccount",
+        "type": "bool",
+        "help": "if set to True: same like -pruneusecase, but on-top deletes the subaccount. USE WITH CARE!!!",
+        "default": false
+    },
+    {
+        "argument": "mypassword",
+        "type": "str",
+        "help": "provide your BTP password via the command line. USE WITH CARE!!!",
+        "default": null
+    }
+]

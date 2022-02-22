@@ -1,0 +1,144 @@
+{
+    "aboutThisUseCase": {
+        "name": "Extend SAP S/4HANA Business Processes on SAP BTP by Leveraging DevOps",
+        "description": "This usecase complements an existing business process in an SAP solution - currently SAP S/4HANA - with additional business process steps",
+        "author": "maximilian.streifenender@sap.com",
+        "testStatus": "ready for testing",
+        "usageStatus": "NOT READY TO BE USED",
+        "relatedLinks": [
+            "https://github.com/SAP-samples/s4hana-btp-extension-devops"
+        ]
+    },
+    "services": [
+        {
+            "name": "connectivity",
+            "plan": "lite",
+            "category": "SERVICE"
+        },
+        {
+            "name": "destination",
+            "plan": "lite",
+            "category": "SERVICE"
+        },
+        {
+            "name": "enterprise-messaging",
+            "plan": "default",
+            "category": "SERVICE",
+            "parameters": {
+                "emname": "doNotKnwoWhichValue",
+                "namespace": "tfe/bpem/em",
+                "version": "1.1.0",
+                "options": {
+                    "management": true,
+                    "messagingrest": true,
+                    "messaging": true
+                }
+            },
+            "createServiceKeys": [
+                "EMServiceKey"
+            ]
+        },
+        {
+            "name": "application-logs",
+            "plan": "lite",
+            "category": "SERVICE"
+        },
+        {
+            "name": "xsuaa",
+            "plan": "apiaccess",
+            "category": "SERVICE"
+        },
+        {
+            "name": "autoscaler",
+            "plan": "standard",
+            "category": "SERVICE"
+        },
+        {
+            "name": "hana-cloud",
+            "plan": "hana-free",
+            "category": "SERVICE",
+            "repeatstatusrequest": "60",
+            "repeatstatustimeout": "3600",
+            "instancename": "hana-cloud",
+            "parameters": {
+                "data": {
+                    "edition": "cloud",
+                    "memory": 30,
+                    "serviceStopped": false,
+                    "storage": 120,
+                    "systempassword": "Init2020",
+                    "vcpu": 0,
+                    "versionIndicator": "",
+                    "whitelistIPs": []
+                }
+            }
+        },
+        {
+            "name": "hana",
+            "plan": "hdi-shared",
+            "category": "SERVICE",
+            "requiredServices": [
+                "hana-cloud"
+            ]
+        },
+        {
+            "name": "SAPLaunchpad",
+            "plan": "standard",
+            "category": "APPLICATION",
+            "requiredrolecollections": [
+                "Launchpad_Admin"
+            ]
+        },
+        {
+            "name": "sapappstudio",
+            "plan": "standard-edition",
+            "category": "APPLICATION"
+        },
+        {
+            "name": "enterprise-messaging-hub",
+            "plan": "standard",
+            "category": "APPLICATION"
+        },
+        {
+            "name": "cicd-app",
+            "plan": "default",
+            "category": "APPLICATION",
+            "requiredrolecollections": [
+                "CICD Service Administrator"
+            ]
+        },
+        {
+            "name": "alm-ts",
+            "plan": "standard",
+            "category": "APPLICATION"
+        }
+    ],
+    "admins": [
+        {
+            "email": "jane.doe@sap.com"
+        },
+        {
+            "email": "john.doe@sap.com"
+        }
+    ],
+    "executeAfterAccountSetup": [
+        {
+            "description": "Get the tutorial code",
+            "command": "git clone https://github.com/SAP-samples/s4hana-btp-extension-devops /home/user/tutorial && cd /home/user/tutorial/ "
+        },
+        {
+            "description": "Building multi target application assets",
+            "command": "cd tutorial/ && mbt build -e trial.mtaext "
+        },
+        {
+            "description": "Deploy app",
+            "command": "cd tutorial/ && cf deploy mta_archives/BusinessPartnerVerification_1.2.0.mtar"
+        }
+    ],
+    "executeToPruneUseCase": [
+        {
+            "description": "undeploy the CAP app",
+            "command": "cf undeploy BusinessPartnerVerification --delete-service-brokers --delete-service-keys --delete-services -f"
+        }
+    ]
+}

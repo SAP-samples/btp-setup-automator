@@ -1,0 +1,29 @@
+{
+    "aboutThisUseCase": {
+        "name": "Setup a CI-CD landscape on SAP BTP",
+        "description": "This usecase provides all necessary information to create the necessary app subscriptions to setup a ci-cd service on SAP BTP.",
+        "author": "rui.nogueira@sap.com",
+        "testStatus": "in development",
+        "usageStatus": "NOT READY TO BE USED"
+    },
+    "services": [
+        {
+            "name": "cicd-app",
+            "plan": "free",
+            "category": "APPLICATION",
+            "repeatstatusrequest": "5",
+            "repeatstatustimeout": "200",
+            "requiredrolecollections": [
+                "CICD Service Administrator"
+            ]
+        }
+    ],
+    "admins": [
+        {
+            "email": "jane.doe@sap.com"
+        },
+        {
+            "email": "john.doe@sap.com"
+        }
+    ]
+}
