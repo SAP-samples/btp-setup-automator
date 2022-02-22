@@ -13,7 +13,6 @@
     "repeatstatusrequest": 4,
     "repeatstatustimeout": 4200,
     "usecasefile": "usecases/usecase.json",
-    "parameterfile": "usecases/parameters.json",
     "logfile": "log/script.log",
     "metadatafile": "log/metadata_log.json",
     "logcommands": true,

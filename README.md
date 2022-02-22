@@ -56,16 +56,14 @@ These are the steps:
 and for MS Windows users:
 
 ```bash
-./run.bat
+.\run.bat
 ```
 
 This will build a docker image and create a docker container on your machine.
 
 If all went well, you can see the container running in your docker engine.
 
-![command in VS Code to attach it to a running container](docs/pics/quick-guide-step06.png)
-
-![select running container in VS Code](docs/pics/quick-guide-step07.png)
+![open folder](docs/pics/quick-guide-step05.png)
 
 You can run the container directly via the terminal or within Microsoft Visual Studio Code (VSCode).
 

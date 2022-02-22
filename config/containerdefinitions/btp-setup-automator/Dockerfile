@@ -40,17 +40,6 @@ RUN BTP_CLI_VERSION="2.14.0" \
     --url "https://$TOOLS_URL/additional/btp-cli-$ARCH-$BTP_CLI_VERSION.tar.gz" \
     | tar -xzf - --strip-components 1 "$ARCH/btp"
 
-##########################################################################################
-## Retrieve the SAP BTP, serverless runtime CLI
-##########################################################################################
-FROM base AS serverless_runtime_cli
-SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
-WORKDIR /tmp/tools
-RUN SERVERLESS_CLI_VERSION="2.0.7" \
-    && curl --fail --silent --location --cookie eula_3_1_agreed="$TOOLS_URL/developer-license-3_1.txt" \
-       --url "https://$TOOLS_URL/additional/xfsrt-cli-$SERVERLESS_CLI_VERSION-$ARCH.tar.gz" \
-       | tar -xzf - --strip-components 1 "$ARCH/xfsrt-cli"
-
 ########################################################################################
 # Retrieve the MTA build tool
 ########################################################################################
@@ -62,19 +51,16 @@ RUN MBT_VERSION="1.2.7" \
     | tar -xzf - mbt
 
 ########################################################################################
-# Bring the tools together into the final base stage
+# Bring the tools together into the final tools stage
 ########################################################################################
 FROM alpine:3 as tools
 WORKDIR /usr/local/bin
 COPY --from=cf_cli                 /tmp/tools/ .
 COPY --from=btp_cli                /tmp/tools/ .
-COPY --from=serverless_runtime_cli /tmp/tools/ .
 COPY --from=mta_build_tool         /tmp/tools/ .
 
 ##################################################################################################################################################
-##################################################################################################################################################
-# Now putting all pieces together 
-##################################################################################################################################################
+# Now put all pieces together into the final image stage
 ##################################################################################################################################################
 
 FROM python:3.9.9-alpine3.15 AS final_build
@@ -104,26 +90,21 @@ RUN adduser \
     && apk add --no-cache \
                bash \
                coreutils \
-               curl \
                git \
-               jq  \
                make \
                nodejs \
                npm \
-               wget \
-    && pip install -r /tmp/pip-tmp/requirements.txt \
+    && pip install --no-cache-dir -r /tmp/pip-tmp/requirements.txt \
     && rm -rf /tmp/pip-tmp \
     ## Set the right timezone in the container image
-    && cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime
-
+    && cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime \
 ##########################################################################################
 # Install CAP CDS
 # TODO: How to move this to the Dockerfile.base?
 ##########################################################################################
-USER root
-RUN    npm install -g @sap/cds-dk --allow-root \
+    && npm install -g @sap/cds-dk --allow-root \
     && npm cache clean --force
-    
+
 ##########################################################################################
 # Fill the image with the necessary resources
 ##########################################################################################
@@ -135,11 +116,10 @@ COPY --chown=root:root --from=tools /usr/local/bin/cf  /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/btp /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/mbt /usr/local/bin
 
-## TODO: this needs to go to the Dockerfile.base file. Seems like copying from /root/.cf to /home/$USERNAME/.cf/ is not enough
+## Install the CF plugin for deploying MTAs on Cloudfoundry
 RUN cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/latest/download/multiapps-plugin.linux32 
 
 ## Copy over the all necessary resources
-COPY --chown=$USERNAME:$USERNAME config/credentials/user_credentials.json   $XDG_DATA_HOME/btp/
 COPY --chown=$USERNAME:$USERNAME usecases/                                  $HOME_FOLDER/usecases/
 COPY --chown=$USERNAME:$USERNAME usecases/usecase_cap-app-launchpad.json    $HOME_FOLDER/usecases/usecase.json
 
@@ -149,9 +129,6 @@ COPY --chown=$USERNAME:$USERNAME libs/python/run.py                         $HOM
 COPY --chown=$USERNAME:$USERNAME libs/python/btp_cli.py                     $LIBS_FOLDER/python/
 COPY --chown=$USERNAME:$USERNAME libs/python/helper*.py                     $LIBS_FOLDER/python/
 COPY --chown=$USERNAME:$USERNAME libs/json/paramBtpSetupAutomator.json      $LIBS_FOLDER/json/
-#COPY --chown=$USERNAME:$USERNAME libs/json/parametersDefault.json           $HOME_FOLDER/usecases/parameters.json
-
-COPY --chown=$USERNAME:$USERNAME .vscode/settings.json                      $HOME_FOLDER/.vscode/
 
 # For using outside of VS Code context:
 CMD ["bash"]
