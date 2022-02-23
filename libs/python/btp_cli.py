@@ -399,7 +399,7 @@ def set_all_cf_space_roles(btpUsecase: BTPUSECASE):
             for admin in admins:
                 message = "Assign space role >" + spaceRole + "< to user >" + admin + "<"
                 command = "cf set-space-role '" + admin + "' '" + org + "' '" + cfspacename + "' '" + spaceRole + "'"
-                p = runShellCommandFlex(btpUsecase, command, logtype.INFO, message, False)
+                p = runShellCommandFlex(btpUsecase, command, logtype.INFO, message, False, False)
                 result = p.stdout.decode()
                 if "message: The user could not be found" in result:
                     log.write( logtype.ERROR, "the user >" + admin + "< was not found and could not be assigned the role >" + spaceRole + "<")
@@ -428,7 +428,7 @@ def set_all_cf_org_roles(btpUsecase: BTPUSECASE):
             for admin in admins:
                 message = "Assign org role >" + orgRole + "< to user >" + admin + "<"
                 command = "cf set-org-role '" + admin + "' '" + org + "' '" + orgRole + "'"
-                p = runShellCommandFlex(btpUsecase, command, logtype.INFO, message, False)
+                p = runShellCommandFlex(btpUsecase, command, logtype.INFO, message, False, False)
                 result = p.stdout.decode()
                 if "message: The user could not be found" in result:
                     log.write( logtype.ERROR, "the user >" + admin + "< was not found and could not be assigned the role >" + orgRole + "<")
@@ -647,7 +647,7 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service, plan):
 
     message = "Assign entitlement for >" + service + "< and plan >" + plan + "<"
     # Run script, but don't exit, if not successfull
-    p = runShellCommandFlex(btpUsecase, command, logtype.INFO, message, False)
+    p = runShellCommandFlex(btpUsecase, command, logtype.INFO, message, False, False)
     returnCode = p.returncode
  
     if returnCode != 0:
@@ -748,7 +748,7 @@ def get_subscription_deletion_status(btpUsecase: BTPUSECASE, app):
 
     command= "btp --format json list accounts/subscription --subaccount \"" + subaccountid + "\""
     message = "subscription status of >" + app_name + "<"
-    p = runShellCommandFlex(btpUsecase, command, logtype.CHECK, message,False)
+    p = runShellCommandFlex(btpUsecase, command, logtype.CHECK, message,False, False)
     result = p.stdout.decode()
     result = convertStringToJson(result)
 
@@ -1068,7 +1068,7 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                             command="cf service-key " + service["instancename"] + " " + key["keyname"]
                             # Calling the command with the goal to get back the "FAILED" status, as this means that the service key was not found (because deletion was successfull)
                             # If the status is not "FAILED", this means that the deletion hasn't been finished so far
-                            p = runShellCommandFlex(btpUsecase, command,logtype.CHECK, "check if service key >" + key["keyname"] + "< for service instance >" + service["instancename"] + "<", False)
+                            p = runShellCommandFlex(btpUsecase, command,logtype.CHECK, "check if service key >" + key["keyname"] + "< for service instance >" + service["instancename"] + "<", False, False)
                             result = p.stdout.decode()
                             if "FAILED" in result:
                                 usecaseTimeout = current_time - 1

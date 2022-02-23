@@ -141,7 +141,7 @@ def get_cf_service_deletion_status(btpUsecase, service):
 
     command= "cf service \"" + instance_name + "\""
     message = "check deletion status of service instance >" + instance_name + "< for service >" + service_name + "<"
-    p = runShellCommandFlex(btpUsecase, command, logtype.CHECK, None, False)
+    p = runShellCommandFlex(btpUsecase, command, logtype.CHECK, None, False, False)
     result = p.stdout.decode()
     if "FAILED" in result:
         return "deleted"

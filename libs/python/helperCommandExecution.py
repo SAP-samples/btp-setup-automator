@@ -1,10 +1,10 @@
 from subprocess import run, PIPE
 from libs.python.helperLog import LOGFILE, logtype
 from libs.python.helperJson import convertStringToJson, getJsonFromFile
-import sys, time
+import sys, time, os
 
 def runShellCommand(btpUsecase, command, format, info):
-    return runShellCommandFlex(btpUsecase, command, format, info, True)
+    return runShellCommandFlex(btpUsecase, command, format, info, True, False)
 
 
 def login_cf(btpUsecase):
@@ -15,23 +15,44 @@ def login_cf(btpUsecase):
     myemail = btpUsecase.myemail
     password = btpUsecase.mypassword
 
-    command = "cf login -a \"https://api.cf." + usecaseRegion + ".hana.ondemand.com\" -o \"" + org + "\" -u \"" + myemail + "\" -p \"" + password + "\"" 
+    command = None
+    if btpUsecase.loginmethod == "sso":
+        command = "cf login -a \"https://api.cf." + usecaseRegion + ".hana.ondemand.com\" -o \"" + org + "\" --sso" 
+    else:
+        command = "cf login -a \"https://api.cf." + usecaseRegion + ".hana.ondemand.com\" -o \"" + org + "\" -u \"" + myemail + "\" -p \"" + password + "\"" 
     ## If a space is already there, attach the space name to the login to target the space
     if "cfspacename" in accountMetadata and accountMetadata["cfspacename"] != None and accountMetadata["cfspacename"] != "":
-        command = "cf login -a \"https://api.cf." + usecaseRegion + ".hana.ondemand.com\" -o \"" + org + "\" -s \"" + accountMetadata["cfspacename"] + "\" -u \"" + myemail + "\" -p \"" + password + "\"" 
-    p = runShellCommand(btpUsecase, command, logtype.INFO, "Logging-in to your CF environment in the org >" + org + "< for your user >" + myemail + "<")
+        if btpUsecase.loginmethod == "sso":
+            command = "cf login -a \"https://api.cf." + usecaseRegion + ".hana.ondemand.com\" -o \"" + org + "\" -s \"" + accountMetadata["cfspacename"] + "\" --sso" 
+        else:
+            command = "cf login -a \"https://api.cf." + usecaseRegion + ".hana.ondemand.com\" -o \"" + org + "\" -s \"" + accountMetadata["cfspacename"] + "\" -u \"" + myemail + "\" -p \"" + password + "\"" 
+    p = runShellCommandFlex(btpUsecase, command, logtype.INFO, "Logging-in to your CF environment in the org >" + org + "< for your user >" + myemail + "<",True, True)
 
 def login_btp(btpUsecase):
+    log = btpUsecase.log
 
     myemail = btpUsecase.myemail
     password = btpUsecase.mypassword
     globalaccount = btpUsecase.globalaccount
 
-    command = "btp login --url \"https://cpcli.cf.eu10.hana.ondemand.com\" --subdomain \"" + globalaccount + "\" --user \"" + myemail + "\" --password \"" + password + "\""
-    p = runShellCommand(btpUsecase, command, logtype.INFO, "Logging-in to your global account with subdomain ID >" + globalaccount + "< for your user >" + myemail + "<")
+    command = None
+    if btpUsecase.loginmethod == "sso":
+        command = "btp login --url \"https://cpcli.cf.eu10.hana.ondemand.com\" --subdomain \"" + globalaccount + "\" --sso"
+        p = runShellCommandFlex(btpUsecase, command, logtype.INFO, "Logging-in to your global account with subdomain ID >" + globalaccount + "<", True, True)
+        fetchEmailAddressFromBtpConfigFile(btpUsecase)
+    else:
+        command = "btp login --url \"https://cpcli.cf.eu10.hana.ondemand.com\" --subdomain \"" + globalaccount + "\" --user \"" + myemail + "\" --password \"" + password + "\""
+        p = runShellCommandFlex(btpUsecase, command, logtype.INFO, "Logging-in to your global account with subdomain ID >" + globalaccount + "< for your user >" + myemail + "<", True, True)
 
+def fetchEmailAddressFromBtpConfigFile(btpUsecase):
+    btpConfigFile = os.environ['BTP_CLIENTCONFIG']
+    jsonResult = getJsonFromFile(btpUsecase,btpConfigFile )
+    if "Authentication" in jsonResult and "Mail" in jsonResult["Authentication"]:
+        btpUsecase.myemail = jsonResult["Authentication"]["Mail"]
+        return btpUsecase.myemail
+    return None
 
-def runShellCommandFlex(btpUsecase, command, format, info, exitIfError):
+def runShellCommandFlex(btpUsecase, command, format, info, exitIfError,noPipe):
     log = btpUsecase.log
     if info != None:
         log.write( format, info)
@@ -52,9 +73,13 @@ def runShellCommandFlex(btpUsecase, command, format, info, exitIfError):
                 break
         if foundPassword == False:
             log.write( logtype.COMMAND, command)
-    p = run(command, shell=True, stdout=PIPE, stderr=PIPE)
-    output = p.stdout.decode()
-    error = p.stderr.decode()
+    p = None
+    if noPipe == True:
+        p = run(command, shell=True )
+    else:
+        p = run(command, shell=True, stdout=PIPE, stderr=PIPE)
+        output = p.stdout.decode()
+        error = p.stderr.decode()
     returnCode = p.returncode
 
     if (returnCode == 0 or exitIfError == False):
@@ -69,7 +94,7 @@ def runShellCommandFlex(btpUsecase, command, format, info, exitIfError):
 def checkIfReLoginNecessary(btpUsecase,command):
     log = btpUsecase.log
     # time in seconds for re-login
-    ELAPSEDTIMEFORRELOGIN = 30 * 60
+    ELAPSEDTIMEFORRELOGIN = 45 * 60
 
     reLogin = False
     elapsedTime = 0

@@ -90,27 +90,28 @@ def checkProvidedArguments(btpUsecase):
         else:
             btpUsecase.globalaccount = ""
 
-    ## Check CREDENTIALS: EMAIL
-    while btpUsecase.myemail == None or btpUsecase.myemail == "":
-        log.write( logtype.WARNING,"EMAIL ADDRESS MISSING")
-        inputMessage = "                      " + logtype.USERINPUT + "Please enter your email address (hit Enter when done):"
-        value = checkUserInput(inputMessage,"text")
-        if value != None:
-            btpUsecase.myemail = value
-            addKeyValuePairToJsonFile(btpUsecase.parameterfile, "myemail",value)       
-            log.write( logtype.SUCCESS,"added your email address into your parameters file >" +  btpUsecase.parameterfile + "<")
-        else:
-            btpUsecase.myemail = ""
+    if btpUsecase.loginmethod != "sso":
+        ## Check CREDENTIALS: EMAIL
+        while btpUsecase.myemail == None or btpUsecase.myemail == "":
+            log.write( logtype.WARNING,"EMAIL ADDRESS MISSING")
+            inputMessage = "                      " + logtype.USERINPUT + "Please enter your email address (hit Enter when done):"
+            value = checkUserInput(inputMessage,"text")
+            if value != None:
+                btpUsecase.myemail = value
+                addKeyValuePairToJsonFile(btpUsecase.parameterfile, "myemail",value)       
+                log.write( logtype.SUCCESS,"added your email address into your parameters file >" +  btpUsecase.parameterfile + "<")
+            else:
+                btpUsecase.myemail = ""
 
-    ## INPUT CREDENTIALS: PASSWORD
-    while btpUsecase.mypassword == None or btpUsecase.mypassword == "":
-        log.write( logtype.WARNING,"YOU NEED TO PROVIDE YOUR BTP PASSWORD")
-        inputMessage = "                      " + logtype.USERINPUT + "Please enter your BTP password (hit Enter when done):"
-        value = checkUserInput(inputMessage,"password")
-        if value != None:
-            btpUsecase.mypassword = value
-        else:
-            btpUsecase.mypassword = ""
+        ## INPUT CREDENTIALS: PASSWORD
+        while btpUsecase.mypassword == None or btpUsecase.mypassword == "":
+            log.write( logtype.WARNING,"YOU NEED TO PROVIDE YOUR BTP PASSWORD")
+            inputMessage = "                      " + logtype.USERINPUT + "Please enter your BTP password (hit Enter when done):"
+            value = checkUserInput(inputMessage,"password")
+            if value != None:
+                btpUsecase.mypassword = value
+            else:
+                btpUsecase.mypassword = ""
     
     return btpUsecase
 

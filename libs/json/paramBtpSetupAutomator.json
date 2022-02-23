@@ -12,6 +12,12 @@
         "default": null
     },
     {
+        "argument": "loginmethod",
+        "type": "str",
+        "help": "set to basicAuthentication if you want to provide username and password. If set to sso, you'll need to open a link provided in a browser to login",
+        "default": "sso"
+    },
+    {
         "argument": "region",
         "type": "str",
         "help": "region of the subaccount for use case",
