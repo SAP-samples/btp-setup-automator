@@ -14,7 +14,7 @@
     {
         "argument": "loginmethod",
         "type": "str",
-        "help": "set to basicAuthentication if you want to provide username and password. If set to sso, you'll need to open a link provided in a browser to login",
+        "help": "If set to sso (default), you'll need to open a link provided in a browser to login. If set to basicAuthentication, you can provide username and password. ",
         "default": "sso"
     },
     {
