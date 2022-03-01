@@ -26,11 +26,11 @@ Now the last step is to simply run the script with thw following command:
 python run.py
 ```
 
+The script will take the parameters defined in the [**parameters.json** file](../parameters.json). By default the [**parameters.json** file](../parameters.json) is pointing to use case definition that sets up and deploys a full-stack CAP application to a BTP trial account. But of course you can use other use case files in the [**usecases** folder](../usecases/) or even create your own use case file, by taking the existing ones as a blueprint.
+
 ## Authentication
 
-The script will take the default use case **usecase.json** in the **usecase** folder to start with. But of course you can use other use case files or even create your own use case file.
-
-As you have to login to the BTP account you have to be authenticated. By default SSO is used for the BTP and Cloudfoundry CLI. You have to copy and paste the URLs into your browser and the SSO will authenticate you. If this doesn't work simply set the parameter **loginmethod** to **basicAuthentication** and the script will ask you for your email adress and your password.
+As you have to login to the BTP account you have to be authenticated. By default basic authentication is used for the BTP and Cloudfoundry CLI. Bu if you prefer you can set the parameter **loginmethod** to **basicAuthentication** in the **parameters.json** file and the script will ask you to click on a URL when a login is needed (you have to open a browser with the link).
 
 ## Available parameters
 
@@ -40,12 +40,14 @@ The python script allows you to use parameters to configure it to your needs and
 python run.py -h
 ```
 
-## Using different use cases
+## Using different use case configurations
 
-The folder **usecases** has several sample use case configurations that you can use with the script. By using the parameter **-usecase** you can tell the script to use another file than the default use case **usecases/usecase.json**. Simply type the following command:
+The folder **usecases** has several sample use case configurations that you can use with the script. By using the parameter **-usecase** you can tell the script to use another file than the default use case. Simply type the following command:
 
 ```bash
-python run.py -usecase "usecases/usecase_cap-app-launchpad.json"
+python run.py -usecase "usecases/released/usecase_cap-app-launchpad.json"
 ```
+
+and the usecase will be executed to run the full-stack CAP application on a productive (e.g. Pay-per-Use) BTP account.
 
 If you want you can as well use your own use case files that you can copy into the corresponding **usecases** folder BEFORE creating the docker image.
