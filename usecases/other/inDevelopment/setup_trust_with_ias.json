@@ -10,8 +10,8 @@
     {
       "name": "xsuaa",
       "plan": "apiaccess",
-      "category": "SDRVICE",
       "instancename": "xsuaa_api",
+      "category": "SERVICE",
       "repeatstatusrequest": "5",
       "repeatstatustimeout": "200",
       "createServiceKeys": [
@@ -27,13 +27,12 @@
       "email": "john.doe@sap.com"
     }
   ],
-  "usersToCreateOnIDP" :[
+  "usersToCreateOnIDP": [
     {
       "email": "jenny.doe@sap.com"
     },
     {
       "email": "johnny.doe@sap.com"
     }
-
   ]
 }

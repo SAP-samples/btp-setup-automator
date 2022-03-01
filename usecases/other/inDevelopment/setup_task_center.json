@@ -1,0 +1,55 @@
+{
+  "aboutThisUseCase": {
+    "name": "Setup trust",
+    "description": "This usecase provides the configuration of services to setup SAP Task Center",
+    "author": "rui.nogueira@sap.com",
+    "testStatus": "to be tested",
+    "usageStatus": "NOT READY TO BE USED"
+  },
+  "services": [
+    {
+      "name": "xsuaa",
+      "plan": "apiaccess",
+      "instancename": "xsuaa_api",
+      "category": "SERVICE",
+      "repeatstatusrequest": "5",
+      "repeatstatustimeout": "200",
+      "createServiceKeys": [
+        "myServiceKey1"
+      ]
+    },
+    {
+      "category": "SERVICE",
+      "name": "one-inbox-service",
+      "plan": "standard",
+      "instancename":"default_taskcenter",
+      "createServiceKeys": [
+        "defaultKey"
+      ]
+    },    
+    {
+      "category": "APPLICATION",
+      "name": "SAPLaunchpad",
+      "plan": "standard",
+      "requiredrolecollections": [
+        "Launchpad_Admin"
+      ]
+    }    
+  ],
+  "admins": [
+    {
+      "email": "jane.doe@sap.com"
+    },
+    {
+      "email": "john.doe@sap.com"
+    }
+  ],
+  "usersToCreateOnIDP": [
+    {
+      "email": "jenny.doe@sap.com"
+    },
+    {
+      "email": "johnny.doe@sap.com"
+    }
+  ]
+}

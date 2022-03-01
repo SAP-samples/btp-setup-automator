@@ -1,0 +1,6 @@
+{
+  "usecasefile": "usecases/other/inDevelopment/setup_trust_with_ias.json",
+  "loginmethod": "basicAuthentication",
+  "prunesubaccount": true
+
+}

@@ -1,5 +1,5 @@
 import re
-import uuid
+#import uuid
 from libs.python.helperJson import addKeyValuePair
 
 
@@ -67,7 +67,7 @@ def createSubaccountName(btpUsecase):
 def createInstanceName(btpUsecase, service):
     result = "instance"
     if "instancename" in service:
-        result = service["instancename"]
+        return service["instancename"]
     else:
         result = service["name"] + "_" + btpUsecase.suffixinstancename
     result = re.sub(r"[^\w\s]", '_', result)
@@ -84,7 +84,7 @@ def createSubdomainID(btpUsecase):
     if btpUsecase.subdomain != None and btpUsecase.subdomain != "":
         result = btpUsecase.subdomain.strip()
     else:
-        result = btpUsecase.accountMetadata["subaccount"]
+        result = btpUsecase.accountMetadata["subaccount"] + "-" + btpUsecase.accountMetadata["global_account_id"]
 
     result = re.sub(r"[^\w\s]", '-', result)
     result = result.replace(" ", "-")

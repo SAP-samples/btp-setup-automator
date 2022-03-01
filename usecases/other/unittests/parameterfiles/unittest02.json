@@ -1,0 +1,5 @@
+{
+  "usecasefile": "usecases/released/cap_app_launchpad.json",
+  "loginmethod": "basicAuthentication",
+  "prunesubaccount": true
+}

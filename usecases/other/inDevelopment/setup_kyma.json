@@ -1,0 +1,20 @@
+{
+  "aboutThisUseCase": {
+    "name": "setup a kyma environment on your productive BTP account",
+    "description": "This usecase is used for a script unit test",
+    "author": "rui.nogueira@sap.com",
+    "testStatus": "to be tested",
+    "usageStatus": "NOT READY TO BE USED"
+  },
+  "services": [
+    {
+      "category": "ENVIRONMENT",
+      "name": "kymaruntime",
+      "plan": "free",
+      "parameters": {
+        "name": "btpsetupautomator-kyma",
+        "region": "eu-west-2"
+      }
+    }
+  ]
+}

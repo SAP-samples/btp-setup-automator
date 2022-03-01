@@ -14,8 +14,8 @@
     {
         "argument": "loginmethod",
         "type": "str",
-        "help": "If set to sso (default), you'll need to open a link provided in a browser to login. If set to basicAuthentication, you can provide username and password. ",
-        "default": "sso"
+        "help": "if set to sso, you'll need to open a link provided in a browser to login. Set to basicAuthentication (default) the script will ask if you want to provide username and password. ",
+        "default": "basicAuthentication"
     },
     {
         "argument": "region",
@@ -99,7 +99,7 @@
         "argument": "parameterfile",
         "type": "str",
         "help": "file to deliver all parameters within a single json file",
-        "default": "usecases/parameters.json"
+        "default": "parameters.json"
     },
     {
         "argument": "logfile",

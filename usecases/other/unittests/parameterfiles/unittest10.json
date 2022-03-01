@@ -1,0 +1,15 @@
+{
+  "usecasefile": "usecases/other/unittests/usecase_ut02_one_subscription_only.json",
+  "loginmethod": "basicAuthentication",
+  "region": "us10",
+  "subaccountname": "My own subacccount name",
+  "subdomain": "my own subdomain with -",
+  "cfspacename": "development",
+  "suffixinstancename": "my own suffix",
+  "fallbackserviceplan": null,
+  "repeatstatusrequest": 4,
+  "repeatstatustimeout": 4200,
+  "logcommands": false,
+  "pruneusecase": true,
+  "prunesubaccount": true
+}

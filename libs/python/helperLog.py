@@ -1,6 +1,6 @@
 from datetime import datetime
 import os
-import pathlib
+#import pathlib
 
 class logtype:
     # Taken from https://stackabuse.com/how-to-print-colored-text-in-python/

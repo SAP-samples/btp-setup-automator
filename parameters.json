@@ -1,0 +1,8 @@
+{
+  "myemail": null,
+  "loginmethod": "basicAuthentication",
+  "globalaccount": null,
+  "region": "us10",
+  "subaccountname": null,
+  "usecasefile": "usecases/released/cap_app_launchpad_TRIAL.json"
+}

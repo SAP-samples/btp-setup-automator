@@ -17,10 +17,10 @@
       "parameters": {
         "data": {
           "edition": "cloud",
-          "memory": 30,
+          "memory": 32,
           "serviceStopped": false,
           "storage": 120,
-          "systempassword": "Init2020",
+          "systempassword": "PleaseChangeBeforeRunningScript12345",
           "vcpu": 0,
           "versionIndicator": "",
           "whitelistIPs": []

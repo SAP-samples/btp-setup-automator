@@ -1,0 +1,21 @@
+{
+    "aboutThisUseCase": {
+      "name": "Setup MDI for usage in SAP LoB solutions",
+      "description": "This usecase sets up MDI to be used in SAP LoB solutions",
+      "author": "rui.nogueira@sap.com",
+      "testStatus": "tested successfully",
+      "usageStatus": "READY TO BE USED",
+      "relatedLinks": []
+    },
+    "services": [
+      {
+        "category": "SERVICE",
+        "name": "one-mds",
+        "plan": "sap-integration",
+        "instancename": "myNewMDIinstanceName",
+        "createServiceKeys": [
+          "myMDIserviceKey"
+        ]
+      }
+    ]
+  }

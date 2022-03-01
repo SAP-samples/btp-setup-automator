@@ -3,7 +3,7 @@
         "name": "Extend SAP S/4HANA Business Processes on SAP BTP by Leveraging DevOps",
         "description": "This usecase complements an existing business process in an SAP solution - currently SAP S/4HANA - with additional business process steps",
         "author": "maximilian.streifenender@sap.com",
-        "testStatus": "ready for testing",
+        "testStatus": "test failed - to be adapted",
         "usageStatus": "NOT READY TO BE USED",
         "relatedLinks": [
             "https://github.com/SAP-samples/s4hana-btp-extension-devops"
@@ -19,24 +19,6 @@
             "name": "destination",
             "plan": "lite",
             "category": "SERVICE"
-        },
-        {
-            "name": "enterprise-messaging",
-            "plan": "default",
-            "category": "SERVICE",
-            "parameters": {
-                "emname": "doNotKnwoWhichValue",
-                "namespace": "tfe/bpem/em",
-                "version": "1.1.0",
-                "options": {
-                    "management": true,
-                    "messagingrest": true,
-                    "messaging": true
-                }
-            },
-            "createServiceKeys": [
-                "EMServiceKey"
-            ]
         },
         {
             "name": "application-logs",
@@ -66,10 +48,12 @@
                     "memory": 30,
                     "serviceStopped": false,
                     "storage": 120,
-                    "systempassword": "Init2020",
+                    "systempassword": "PleaseChangeBeforeRunningScript12345",
                     "vcpu": 0,
                     "versionIndicator": "",
-                    "whitelistIPs": []
+                    "whitelistIPs": [
+                        "0.0.0.0/0"
+                    ]
                 }
             }
         },
@@ -124,15 +108,51 @@
     "executeAfterAccountSetup": [
         {
             "description": "Get the tutorial code",
-            "command": "git clone https://github.com/SAP-samples/s4hana-btp-extension-devops /home/user/tutorial && cd /home/user/tutorial/ "
+            "command": "rm -rf /home/user/tutorial && git clone https://github.com/SAP-samples/s4hana-btp-extension-devops /home/user/tutorial && cd /home/user/tutorial/ "
         },
         {
             "description": "Building multi target application assets",
-            "command": "cd tutorial/ && mbt build -e trial.mtaext "
+            "command": "cd tutorial/ && mbt build -e live.mtaext "
         },
         {
             "description": "Deploy app",
             "command": "cd tutorial/ && cf deploy mta_archives/BusinessPartnerVerification_1.2.0.mtar"
+        },
+        {
+            "description": "Activating OData Services in SAP S/4HANA System",
+            "command": "echo 'YOUR MANUAL TODO 1 - Activate OData Services in SAP S/4HANA: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/02-configure-oData-Service'"
+        },
+        {
+            "description": "Setup SAP Cloud Connector",
+            "command": "echo 'YOUR MANUAL TODO 2 - Setup SAP Cloud Connector: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/05-CloudConnector'"
+        },
+        {
+            "description": "Configure SAP Event Mesh in SAP S/4HANA",
+            "command": "echo 'YOUR MANUAL TODO 3 - Configure SAP Event Mesh in SAP S/4HANA: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/07-SetupEventMesh'"
+        },
+        {
+            "description": "Test Scenario End-2-End",
+            "command": "echo 'YOUR MANUAL TODO 4 - Test Application: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/08-TestApplication'"
+        },
+        {
+            "description": "Access and Discover Application Logs",
+            "command": "echo 'YOUR MANUAL TODO 5 - Access application logs: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/09-ApplicationLogging'"
+        },
+        {
+            "description": "Setup CI/CD Pipeline",
+            "command": "echo 'YOUR MANUAL TODO 6 - Setup CI/CD Pipeline: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/10-SetupCICD'"
+        },
+        {
+            "description": "Setup Cloud Transport Management",
+            "command": "echo 'YOUR MANUAL TODO 7 - Setup Cloud Transport Management: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/11-SetupTMS'"
+        },
+        {
+            "description": "Setup Alert Notifications",
+            "command": "echo 'YOUR MANUAL TODO 8 - Setup Alert Notifications: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/12-SetupANS'"
+        },
+        {
+            "description": "Setup Application Autoscaler",
+            "command": "echo 'YOUR MANUAL TODO 9 - Setup Application Autoscaler: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/13-SetupAppAutoscaler'"
         }
     ],
     "executeToPruneUseCase": [

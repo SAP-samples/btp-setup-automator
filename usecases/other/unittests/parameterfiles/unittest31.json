@@ -1,0 +1,6 @@
+{
+  "usecasefile": "usecases/other/inDevelopment/setup_kyma.json",
+  "loginmethod": "basicAuthentication",
+  "prunesubaccount": true
+
+}

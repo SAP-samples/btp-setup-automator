@@ -3,8 +3,8 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/REPO-NAME)](https://api.reuse.software/info/github.com/SAP-samples/REPO-NAME)
 -->
 
-
 ## Description
+
 This repository provides the user with a script to automate the setup of an [SAP BTP account](https://account.hana.ondemand.com/).
 
 This includes:
@@ -13,13 +13,11 @@ This includes:
 > - entitlement of services
 > - deployment of complete applications
 
-You can [watch a short video](https://video.sap.com/media/t/1_un1pxle5) (3min) that shows the available scripts in action.
-
-In essence it's all about making it easier to get developers quickly onboard on SAP BTP and increase the adoption of SAP BTP services.
+In essence it's all about making it easier to get developers quickly onboard on SAP BTP and more easily make use of services on the SAP BTP.
 
 ### All on docker
 
-In essence the tooling is running within a docker container and the repository provides all you need to run the tooling in a docker image.
+The tooling is running within a docker container and the repository provides all you need to run the tooling in a docker image.
 Why docker? We want to ensure that you can focus on getting your work done on the SAP BTP account without having to worry whether you have the right tools in the right release for the right operating system in place.
 
 ### The use cases
@@ -63,18 +61,17 @@ This will build a docker image and create a docker container on your machine.
 
 If all went well, you can see the container running in your docker engine.
 
-![open folder](docs/pics/quick-guide-step05.png)
+![command in VS Code to attach it to a running container](docs/pics/quick-guide-step06.png)
+
+![select running container in VS Code](docs/pics/quick-guide-step07.png)
 
 You can run the container directly via the terminal or within Microsoft Visual Studio Code (VSCode).
 
-Find instructions for both options here:
-
-> - [running in a terminal](docs/terminal.md)
-> - [running inside VSCode](docs/vscode.md)
+[Read the instructions for the usage in VSCode](docs/vscode.md).
 
 ## Known Issues
 
-Non (so far), but let's see.
+Non (so far).
 
 ## How to obtain support
 

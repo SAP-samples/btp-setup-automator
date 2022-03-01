@@ -1,0 +1,7 @@
+{
+  "usecasefile": "usecases/other/inDevelopment/setup_kyma_TRIAL.json",
+  "loginmethod": "basicAuthentication",
+  "globalaccount": "86f7b91dtrial-ga",
+  "prunesubaccount": true
+
+}

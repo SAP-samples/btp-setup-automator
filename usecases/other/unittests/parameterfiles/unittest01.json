@@ -1,0 +1,6 @@
+{
+  "usecasefile": "usecases/released/cap_app_launchpad_TRIAL.json",
+  "loginmethod": "basicAuthentication",
+  "globalaccount": "86f7b91dtrial-ga",
+  "prunesubaccount": true
+}

@@ -1,10 +1,8 @@
 import json
 from os import EX_DATAERR
-from urllib.request import urlopen
-import xmltodict
 from subprocess import run, PIPE
 from libs.python.helperLog import logtype
-import sys
+import sys, re
 
 def getJsonFromFile(self, filename):
     log = None 
@@ -74,3 +72,40 @@ def addKeyValuePairToJsonFile(filename, key, value):
     myJson = getJsonFromFile(None,filename)
     myJson = addKeyValuePair(myJson, key, value)
     saveJsonToFile(filename, myJson)
+
+def convertCloudFoundryCommandOutputToJson(lines):
+    dict = []
+    positions = []
+    keys=[]
+    
+    # Remove the first 2 lines of the output (don't contain neccessary information)
+    lines = lines.split('\n',2)[-1]
+
+    # Detect the columns of the text table
+    # Simply look for three whitespaces as separator
+    for line in lines.splitlines():
+        keys = re.split(r'\s{3,}', line)
+        for key in keys:
+            pos = line.find(key)
+            positions.append(pos)
+        break
+    # Remove the first line (the one with the keys)
+    dataRows = lines.split('\n',1)[-1]
+
+    for row in dataRows.splitlines():
+        i=0
+        dataInRow = convertStringToJson("{}")
+        for key in keys:
+            posStart = positions[i]
+            posEnd = len(row)
+            if i + 1 < len(positions):
+                posEnd   = positions[i+1]
+            value = row[posStart:posEnd]
+            value = value.strip()
+            dataInRow = addKeyValuePair(dataInRow,key, value)
+            i= i + 1
+        dict.append(dataInRow)
+
+    json = dictToJson(dict)
+    json = convertStringToJson(json)
+    return json

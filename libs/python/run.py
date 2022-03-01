@@ -31,9 +31,9 @@ myBtpUseCase.entitle_subaccount()
 myBtpUseCase.initialize_environments()
 
 #######################################################################################
-# Create new space if not already existing
+# Create role collections and roles
 #######################################################################################
-myBtpUseCase.create_new_cf_space()
+myBtpUseCase.createRoleCollections()
 
 #######################################################################################
 # Give all colleagues listed as admins in usecase_config.json file all roles within the space

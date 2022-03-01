@@ -35,7 +35,7 @@ FROM base AS btp_cli
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 WORKDIR /tmp/tools
 #RUN BTP_CLI_VERSION="$(curl --silent --url "https://$CPCLI_URL/actuator/info" | jq --raw-output '.app.version')" \
-RUN BTP_CLI_VERSION="2.14.0" \
+RUN BTP_CLI_VERSION="2.18.0" \
   && curl --fail --silent --location --cookie eula_3_1_agreed="$TOOLS_URL/developer-license-3_1.txt" \
     --url "https://$TOOLS_URL/additional/btp-cli-$ARCH-$BTP_CLI_VERSION.tar.gz" \
     | tar -xzf - --strip-components 1 "$ARCH/btp"
@@ -46,12 +46,12 @@ RUN BTP_CLI_VERSION="2.14.0" \
 FROM base AS mta_build_tool
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 WORKDIR /tmp/tools
-RUN MBT_VERSION="1.2.7" \
+RUN MBT_VERSION="1.2.8" \
   && curl --fail --silent --location --url "https://github.com/SAP/cloud-mta-build-tool/releases/download/v${MBT_VERSION}/cloud-mta-build-tool_${MBT_VERSION}_Linux_amd64.tar.gz" \
     | tar -xzf - mbt
 
 ########################################################################################
-# Bring the tools together into the final tools stage
+# Bring the tools together into the final base stage
 ########################################################################################
 FROM alpine:3 as tools
 WORKDIR /usr/local/bin
@@ -60,7 +60,9 @@ COPY --from=btp_cli                /tmp/tools/ .
 COPY --from=mta_build_tool         /tmp/tools/ .
 
 ##################################################################################################################################################
-# Now put all pieces together into the final image stage
+##################################################################################################################################################
+# Now putting all pieces together 
+##################################################################################################################################################
 ##################################################################################################################################################
 
 FROM python:3.9.9-alpine3.15 AS final_build
@@ -121,14 +123,16 @@ RUN cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli
 
 ## Copy over the all necessary resources
 COPY --chown=$USERNAME:$USERNAME usecases/                                  $HOME_FOLDER/usecases/
-COPY --chown=$USERNAME:$USERNAME usecases/usecase_cap-app-launchpad.json    $HOME_FOLDER/usecases/usecase.json
 
 COPY --chown=$USERNAME:$USERNAME README.md                                  $HOME_FOLDER/
+COPY --chown=$USERNAME:$USERNAME parameters.json                            $HOME_FOLDER/
 COPY --chown=$USERNAME:$USERNAME docs                                       $HOME_FOLDER/docs
 COPY --chown=$USERNAME:$USERNAME libs/python/run.py                         $HOME_FOLDER/
 COPY --chown=$USERNAME:$USERNAME libs/python/btp_cli.py                     $LIBS_FOLDER/python/
 COPY --chown=$USERNAME:$USERNAME libs/python/helper*.py                     $LIBS_FOLDER/python/
 COPY --chown=$USERNAME:$USERNAME libs/json/paramBtpSetupAutomator.json      $LIBS_FOLDER/json/
+
+COPY --chown=$USERNAME:$USERNAME .vscode/settings.json                      $HOME_FOLDER/.vscode/
 
 # For using outside of VS Code context:
 CMD ["bash"]

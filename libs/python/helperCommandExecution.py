@@ -22,10 +22,11 @@ def login_cf(btpUsecase):
         command = "cf login -a \"https://api.cf." + usecaseRegion + ".hana.ondemand.com\" -o \"" + org + "\" -u \"" + myemail + "\" -p \"" + password + "\"" 
     ## If a space is already there, attach the space name to the login to target the space
     if "cfspacename" in accountMetadata and accountMetadata["cfspacename"] != None and accountMetadata["cfspacename"] != "":
-        if btpUsecase.loginmethod == "sso":
-            command = "cf login -a \"https://api.cf." + usecaseRegion + ".hana.ondemand.com\" -o \"" + org + "\" -s \"" + accountMetadata["cfspacename"] + "\" --sso" 
-        else:
-            command = "cf login -a \"https://api.cf." + usecaseRegion + ".hana.ondemand.com\" -o \"" + org + "\" -s \"" + accountMetadata["cfspacename"] + "\" -u \"" + myemail + "\" -p \"" + password + "\"" 
+        command = "cf target -s " + accountMetadata["cfspacename"]
+        # if btpUsecase.loginmethod == "sso":
+        #     command = "cf login -a \"https://api.cf." + usecaseRegion + ".hana.ondemand.com\" -o \"" + org + "\" -s \"" + accountMetadata["cfspacename"] + "\" --sso" 
+        # else:
+        #     command = "cf login -a \"https://api.cf." + usecaseRegion + ".hana.ondemand.com\" -o \"" + org + "\" -s \"" + accountMetadata["cfspacename"] + "\" -u \"" + myemail + "\" -p \"" + password + "\"" 
     p = runShellCommandFlex(btpUsecase, command, logtype.INFO, "Logging-in to your CF environment in the org >" + org + "< for your user >" + myemail + "<",True, True)
 
 def login_btp(btpUsecase):

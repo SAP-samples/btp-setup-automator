@@ -1,13 +1,13 @@
-from dataclasses import asdict
-from distutils import command
-from distutils.command import check
+#from dataclasses import asdict
+#from distutils import command
+#from distutils.command import check
 import libs.python.helperArgParser as helperArgParser
 import libs.python.helperLog as helperLog 
-from libs.python.helperJson import addKeyValuePair, dictToString, convertStringToJson, saveJsonToFile, getJsonFromFile
+from libs.python.helperJson import addKeyValuePair, convertJsonToString, dictToString, convertStringToJson, saveJsonToFile, getJsonFromFile
 from libs.python.helperLog import LOGFILE, logtype
 from libs.python.helperBtpTrust import delete_cf_service_key, runTrustFlow, get_cf_service_key
 from libs.python.helperCommandExecution import *
-from libs.python.helperEnvCF import getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, checkIfCFEnvironmentAlreadyExists, createOrgName, checkIfCFSpaceAlreadyExists, try_until_cf_space_done, try_until_cf_space_done, initiateCreationOfServiceInstances, getTimingsForStatusRequest, get_cf_service_deletion_status, get_cf_service_status
+from libs.python.helperEnvCF import checkIfAllServiceInstancesCreated, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, checkIfCFEnvironmentAlreadyExists, createOrgName, checkIfCFSpaceAlreadyExists, try_until_cf_space_done, try_until_cf_space_done, initiateCreationOfServiceInstances, getTimingsForStatusRequest, get_cf_service_deletion_status, get_cf_service_status
 from distutils.errors import LibError
 from datetime import datetime
 import os , re, sys, time
@@ -37,12 +37,12 @@ class BTPUSECASE:
         self.definedServices                    = None
         self.accountMetadata                    = None
 
-        definedEnvironments = getServiceCategoryItemsFromUsecaseFile(self, ["ENVIRONMENT"])
+        self.definedEnvironments = getServiceCategoryItemsFromUsecaseFile(self, ["ENVIRONMENT"])
         self.admins = getAdminsFromUsecaseFile(self)
-        self.btpEnvironment = setBtpEnvironment(self, definedEnvironments)
+        self.btpEnvironment = setBtpEnvironment(self, self.definedEnvironments)
         log.write(logtype.HEADER,  "This use case will use the BTP environment >" + self.btpEnvironment["name"] + "<")
         self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(self, ["APPLICATION"])
-        self.definedServices = getServiceCategoryItemsFromUsecaseFile(self, ["SERVICE","ELASTIC_SERVICE"])
+        self.definedServices = getServiceCategoryItemsFromUsecaseFile(self, ["SERVICE","ELASTIC_SERVICE","PLATFORM"])
 
         ##############################################################################################
         # From here on, we have all the data together that we need to move ahead 
@@ -105,6 +105,7 @@ class BTPUSECASE:
     def entitle_subaccount(self):
         log = self.log
         log.write( logtype.HEADER, "Entitle sub account to use services and/or app subscriptions")
+        responseCodeEnvironments = doAllEntitlements(self, self.definedEnvironments)
         responseCodeServices = doAllEntitlements(self, self.definedServices)
         responseCodeSubscriptions = doAllEntitlements(self, self.definedAppSubscriptions)
 
@@ -158,6 +159,7 @@ class BTPUSECASE:
                 self.subaccountid = subaccountid
 
             self.accountMetadata = addKeyValuePair(accountMetadata, "subaccountid", subaccountid)
+            self.subaccountid = subaccountid
         else:
             log.write( logtype.HEADER, "USING CONFIGURED SUBACCOUNT WITH ID >" + self.subaccountid + "<")
             result = getDetailsAboutSubaccount(self, self.subaccountid )
@@ -186,7 +188,7 @@ class BTPUSECASE:
                 
         if self.orgid == None or self.orgid == "":
 
-            if environment["name"] == "cloudfoundry":
+            if environment["name"] == "cloudfoundry" or environment["name"] == "kymaruntime":
                 orgid, org = checkIfCFEnvironmentAlreadyExists(self)
                 if org == None or orgid == None:
 
@@ -200,11 +202,19 @@ class BTPUSECASE:
 
                     accountMetadata = addKeyValuePair(accountMetadata, "org", org)
 
-                    parameters = '{\"instance_name\": \"' + org + '\"}'
+                    parameters = None
+                    if environment["name"] == "cloudfoundry":
+                        parameters = '{\"instance_name\": \"' + org + '\"}'
+                    if environment["name"] == "kymaruntime":
+                        parameters = dictToString(environment["parameters"])
+                        envName = "kyma"
 
                     envLandscape = selectEnvironmentLandscape(self)
-
-                    command ="btp --format json create accounts/environment-instance --subaccount \"" + subaccountid + "\" --environment " + envName + " --service " + envName + " --plan " + envPlan + " --parameters '" + str(parameters) + "' --landscape \"" + envLandscape + "\""
+                    
+                    if envLandscape != None:
+                        command ="btp --format json create accounts/environment-instance --subaccount \"" + subaccountid + "\" --environment " + envName + " --service " + environment["name"] + " --plan " + envPlan + " --parameters '" + str(parameters) + "' --landscape \"" + envLandscape + "\""
+                    else:
+                        command ="btp --format json create accounts/environment-instance --subaccount \"" + subaccountid + "\" --environment " + envName + " --service " + environment["name"] + " --plan " + envPlan + " --parameters '" + str(parameters) + "'"
 
                     message = "Create "+ envName + " environment >" + org + "<"
                     result = runCommandAndGetJsonResult(self, command,logtype.INFO, message)
@@ -242,6 +252,7 @@ class BTPUSECASE:
             log.write( logtype.HEADER, "USING CONFIGURED ENVIRONMENT WITH ID >" + accountMetadata["orgid"] + "<")
 
         save_collected_metadata(self)
+        self.create_new_cf_space()
 
     def create_new_cf_space(self):
         cfEnvironment = False
@@ -292,6 +303,28 @@ class BTPUSECASE:
         set_all_cf_space_roles(self)
         set_all_cf_org_roles(self)
 
+    def createRoleCollections(self):
+        log = self.log
+        accountMetadata= self.accountMetadata
+        subaccountid = accountMetadata["subaccountid"]
+        rolecollections = getRoleCollectionsFromUsecaseFile(self)
+        admins = getAdminsForUseCase(self)
+
+        for rolecollection in rolecollections:
+            rolecollectioname = rolecollection["name"]
+            message = "Assign role collection >" + rolecollectioname           
+            command = "btp create security/role-collection '" + rolecollectioname + "' --description  '" + rolecollectioname + "' --subaccount '" + subaccountid + "'"
+            p = runShellCommand(self, command, logtype.INFO, message)
+            for role in rolecollection["roles"]:
+                message = "Assign role " + role["name"] + " to role collection " + rolecollectioname     
+                command = "btp add security/role '" + role["name"] + "' --to-role-collection  '" + rolecollectioname + "' --of-role-template '" + role["roletemplate"] +  "' --of-app '" + role["app"] + "' --subaccount '" + subaccountid + "'"
+                p = runShellCommand(self, command, logtype.INFO, message)
+
+            for userEmail in admins:
+                message = "assign user >" + userEmail + "< the role collection >" + rolecollectioname + "<"
+                command = "btp --format json assign security/role-collection \"" + rolecollectioname + "\" --to-user " + userEmail + " --create-user-if-missing --subaccount \"" + subaccountid + "\""
+                result = runCommandAndGetJsonResult(self, command, logtype.INFO, message)
+
     def create_configured_app_subscriptions_and_services(self):
         log = self.log
 
@@ -329,11 +362,8 @@ class BTPUSECASE:
         if "createdServiceInstances" in accountMetadata and len(accountMetadata["createdServiceInstances"]) > 0:
             log.write( logtype.HEADER, "Create service keys if configured")
             for createdService in accountMetadata["createdServiceInstances"]:
-                name = createdService["name"]
-                plan = createdService["plan"]
-                instancename = createdService["instancename"]
                 for service in self.definedServices:
-                    if service["name"] == createdService["name"] and service["plan"] == createdService["plan"] and service["instancename"] == createdService["instancename"] and "createServiceKeys" in createdService:
+                    if service["name"] == createdService["name"] and service["plan"] == createdService["plan"] and "instancename" in service and service["instancename"] == createdService["instancename"] and "createServiceKeys" in createdService:
                         for serviceKey in createdService["createServiceKeys"]:
                             result = get_cf_service_key(self, service["instancename"], serviceKey)
                             if "createdServiceKeys" not in createdService:
@@ -468,6 +498,9 @@ def getServiceCategoryItemsFromUsecaseFile(btpUsecase: BTPUSECASE, categories):
             thisCategory = usecaseService["category"]
             for category in categories:
                 if thisCategory == category:
+                    usecaseService["status"] = "NOT READY"
+                    usecaseService["servicebroker"] = None
+                    usecaseService["successInfoShown"] = False
                     items.append(usecaseService)
     else:
         log.write( logtype.WARNING, "no services defined in your use case configuration file")
@@ -484,7 +517,7 @@ def getAdminsFromUsecaseFile(btpUsecase: BTPUSECASE):
         for admin in usecase["admins"]:
             items.append(admin)
     else:
-        log.write( logtype.WARNING, "no services defined in your use case configuration file")
+        log.write( logtype.WARNING, "no admins defined in your use case configuration file (other than you)")
     
     return items
 def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE,availableForAccount):
@@ -497,7 +530,15 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE,a
         fallbackServicePlan = btpUsecase.fallbackserviceplan
 
     usecaseSupported = True
-    for usecaseService in btpUsecase.definedServices:
+
+    #Put all service types together into one
+    allServices=[]
+    for service in btpUsecase.definedServices:
+        allServices.append(service)
+    for app in btpUsecase.definedAppSubscriptions:
+        allServices.append(app)
+
+    for usecaseService in allServices:
         usecaseServiceName = usecaseService["name"]
         usecaseServicePlan = usecaseService["plan"]
         if "category" not in usecaseService or usecaseService["category"] == "" :
@@ -633,19 +674,25 @@ def btp_assign_role_collection_to_admins(btpUsecase: BTPUSECASE):
                         command = "btp assign security/role-collection '" + roleCollection + "' --to-user '" + admin + "' --subaccount '" + subaccountid + "'"
                         p = runShellCommand(btpUsecase, command, logtype.INFO, message)
 
-def assign_entitlement(btpUsecase: BTPUSECASE, service, plan):
+def assign_entitlement(btpUsecase: BTPUSECASE, service):
     accountMetadata= btpUsecase.accountMetadata
     log = btpUsecase.log
     subaccountid = accountMetadata["subaccountid"]
-    
+
+    serviceName = service["name"]
+    servicePlan = service["plan"]
+
     command = "btp --format json assign accounts/entitlement \
     --to-subaccount \"" + subaccountid + "\" \
-    --for-service \"" + service + "\" \
-    --plan \"" + plan + "\"  \
-    --distribute \
-    --enable"
+    --for-service \"" + serviceName + "\" \
+    --plan \"" + servicePlan + "\""
 
-    message = "Assign entitlement for >" + service + "< and plan >" + plan + "<"
+    if "amount" in service:
+        command = command + " --auto-distribute-amount " + str(service["amount"]) + " --amount " + str(service["amount"])
+    else:
+        command = command + " --distribute --enable"
+
+    message = "Assign entitlement for >" + serviceName + "< and plan >" + servicePlan + "<"
     # Run script, but don't exit, if not successfull
     p = runShellCommandFlex(btpUsecase, command, logtype.INFO, message, False, False)
     returnCode = p.returncode
@@ -654,12 +701,15 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service, plan):
         log.write(logtype.WARNING, "this entitlement wasn't sucesssfull. Trying to entitle with amount parameter instead.")
         command = "btp --format json assign accounts/entitlement \
         --to-subaccount \"" + subaccountid + "\" \
-        --for-service \"" + service + "\" \
-        --plan \"" + plan + "\"  \
-        --auto-distribute-amount 1 \
-        --amount 1"
+        --for-service \"" + serviceName + "\" \
+        --plan \"" + servicePlan   + "\""
 
-        message = "Try again to assign entitlement for >" + service + "< and plan >" + plan + "< with amount parameter set to 1."
+        if "amount" in service:
+            command = command + " --auto-distribute-amount " + str(service["amount"]) + " --amount " + str(service["amount"])
+        else:
+            command = command + " --auto-distribute-amount 1 --amount 1"
+
+        message = "Try again to assign entitlement for >" + serviceName + "< and plan >" + servicePlan + "< with amount parameter set to 1."
         p = runShellCommand(btpUsecase, command, logtype.INFO, message)
         returnCode = p.returncode
 
@@ -698,10 +748,8 @@ def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, appName, appPlan):
 def doAllEntitlements(btpUsecase: BTPUSECASE, allItems):
 
     for service in allItems:
-        serviceName = service["name"]
-        servicePlan = service["plan"]
         # Quickly assign all entitlements (without waiting until they are all done)
-        responseCode = assign_entitlement(btpUsecase, serviceName, servicePlan)
+        responseCode = assign_entitlement(btpUsecase, service)
 
 def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
     log = btpUsecase.log
@@ -757,102 +805,86 @@ def get_subscription_deletion_status(btpUsecase: BTPUSECASE, app):
         thisAppName = application["appName"]
         thisAppPlan = application["planName"]
         status = application["state"]
-        if (thisAppName == app_name and thisAppPlan == app_plan) and status == "NOT_SUBSCRIBED":
-            return "deleted"
+        if (thisAppName == app_name and thisAppPlan == app_plan):
+            if status == "NOT_SUBSCRIBED":
+                return "deleted"
+            if status == "UNSUBSCRIBE_FAILED":
+                return "UNSUBSCRIBE_FAILED"
     return "not deleted"
 
-def checkIfAllInstancesOrSubscriptionsAreAvailable(instanceOrSubscription,successString):
+def checkIfAllSubscriptionsAreAvailable(btpUsecase: BTPUSECASE):
+    log = btpUsecase.log
     result = True
-    for thisObject in instanceOrSubscription:
-        if "status" not in thisObject:
-            return False
-        if thisObject["status"] != successString:
-            return False
+    command = "btp --format json list accounts/subscription --subaccount " + btpUsecase.subaccountid
+    resultCommand = runCommandAndGetJsonResult(btpUsecase, command, logtype.INFO, "check status of app subscriptions")
+
+    allSubscriptionsAvailable = True
+    for thisJson in resultCommand["applications"]:
+        name = thisJson["appName"]
+        plan = thisJson["planName"]
+        status = thisJson["state"]
+        tenantId = thisJson["tenantId"]
+        for app in btpUsecase.definedAppSubscriptions:
+            if app["name"] == name and app["plan"] == plan and app["successInfoShown"] == False:
+                if status == "SUBSCRIBE_FAILED":
+                    log.write(logtype.ERROR, "BTP account reported that subscription on >" +app["name"] + "< has failed.")
+                    sys.exit(os.EX_DATAERR)
+
+                if status != "SUBSCRIBED":
+                    allSubscriptionsAvailable = False
+                    app["status"] = status          
+                    app["successInfoShown"]  = False
+                else:
+                    log.write( logtype.SUCCESS, "subscription to app >" + app["name"] + "< (plan " + app["plan"] + ") is now available")
+                    app["tenantId"] = tenantId
+                    app["successInfoShown"]  = True          
+                    app["status"] = "SUBSCRIBED"
+                    if "incidentTrackingComponent" in thisJson:
+                        app["incidentTrackingComponent"]= thisJson["incidentTrackingComponent"]
+
+    return allSubscriptionsAvailable
+
     
     return result
+
+def determineTimeToFetchStatusUpdates(btpUsecase: BTPUSECASE):
+    maxTiming = int(btpUsecase.repeatstatusrequest)
+
+    for service in btpUsecase.definedServices:
+        status = service["status"]
+        if "repeatstatusrequest" in service:
+            repeatstatusrequest = int(service["repeatstatusrequest"])
+            if repeatstatusrequest > maxTiming and status != "create succeeded":
+                maxTiming = repeatstatusrequest
+
+    return maxTiming
+
 
 def track_creation_of_subscriptions_and_services(btpUsecase: BTPUSECASE):
     log = btpUsecase.log
     accountMetadata= btpUsecase.accountMetadata
 
     current_time = 0
-    search_every_x_seconds = btpUsecase.repeatstatusrequest
 
     usecaseTimeout = btpUsecase.repeatstatustimeout
+    allServicesAndAppSubscriptionsAvailable = False
     while usecaseTimeout > current_time:
         areAllInstancesCreated = True
         areAllSubscriptionsCreated = True
 
         if len(btpUsecase.definedServices) > 0 :
-            areAllInstancesCreated     = checkIfAllInstancesOrSubscriptionsAreAvailable(btpUsecase.definedServices, "create succeeded")
+            areAllInstancesCreated     = checkIfAllServiceInstancesCreated(btpUsecase)
 
         if len(btpUsecase.definedAppSubscriptions) > 0 :
-            areAllSubscriptionsCreated = checkIfAllInstancesOrSubscriptionsAreAvailable(btpUsecase.definedAppSubscriptions, "SUBSCRIBED")
+            areAllSubscriptionsCreated = checkIfAllSubscriptionsAreAvailable(btpUsecase)
         
         if (areAllInstancesCreated == True and areAllSubscriptionsCreated == True):
-            log.write( logtype.SUCCESS, "All service instances and subscriptions are now available")
+            log.write( logtype.SUCCESS, "All service instances and subscriptions are now available".upper())
             accountMetadata = addCreatedServicesToMetadata(btpUsecase)
 
             return accountMetadata
 
-        counterSuccess = 0
-        if (areAllInstancesCreated == False):
-            log.write( logtype.CHECK, "get status of service instances")
-            for service in btpUsecase.definedServices:
-                if "servicebroker" not in service:
-                    service["servicebroker"] = None
-                servicebroker = service["servicebroker"]
-                if "status" not in service:
-                    service["status"] = "NOT READY"
-                    status = "NOT READY"
-                status = service["status"]
-                
-                if status != "create succeeded":
-                    [servicebroker, status] = get_cf_service_status(btpUsecase, service)
-
-                if status == "create succeeded":
-                    service["status"] = "create succeeded"
-                    if "successInfoShown" not in service:
-                        counterSuccess+=1
-                        log.write( logtype.SUCCESS, "Service instance for service >" + service["name"] + "< (plan " + service["plan"] + ") is now available")
-                        service["servicebroker"] = servicebroker
-                        service["successInfoShown"]  = True
-                        continue
-
-        counterSuccess = 0
-        if (areAllSubscriptionsCreated == False):
-            log.write( logtype.CHECK, "get status of app subscriptions instancess")
-            for app in btpUsecase.definedAppSubscriptions:
-                if "status" not in app:
-                    app["status"] = "NOT READY"
-                    status = "NOT READY"
-                    thisapp = None
-                status = app["status"]
-
-                if status != "SUBSCRIBED":
-                    thisapp = get_subscription_status(btpUsecase, app)
-                    status = thisapp["state"]
-                    log.write(logtype.INFO, "status of app subscription for >" + app["name"] + "< is >" +status + "<")
-
-                if status == "SUBSCRIBE_FAILED":
-                    log.write(logtype.ERROR, "BTP account reported that subscription on >" +app["name"] + "< has failed.")
-                    sys.exit(os.EX_DATAERR)
-
-                if status == "SUBSCRIBED":
-                    app["status"] = "SUBSCRIBED"
-                    if "successInfoShown" not in app:
-                        counterSuccess+=1
-                        log.write( logtype.SUCCESS, "Subscription to >" + app["name"] + "< is now available")
-                        app["tenantId"] = thisapp["tenantId"]
-                        app["globalAccountId"] = thisapp["globalAccountId"]
-                        app["appId"] = thisapp["appId"]
-                        if "incidentTrackingComponent" in thisapp:
-                            app["incidentTrackingComponent"]= thisapp["incidentTrackingComponent"]
-                        app["successInfoShown"]  = True
-
-                        continue
-            #log.write( logtype.INFO, ">" + str(counterSuccess) + "< out of >" + str(len(bptUsecase.definedAppSubscriptions)) + "< app subscriptions are now available")
-
+        search_every_x_seconds = determineTimeToFetchStatusUpdates(btpUsecase)
         time.sleep(search_every_x_seconds)
         current_time+= search_every_x_seconds
     
@@ -921,6 +953,18 @@ def getAdminsForUseCase(btpUsecase: BTPUSECASE):
     result = list(dict.fromkeys(result))
 
     return result
+    
+def getRoleCollectionsFromUsecaseFile(btpUsecase: BTPUSECASE):
+    log = btpUsecase.log
+    usecase  = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
+    items = []   
+    if "requiredrolecollections" in usecase:
+        for rolecollection in usecase["requiredrolecollections"]:
+            items.append(rolecollection)
+    else:
+        log.write( logtype.INFO, "no role collections defined in your use case configuration file")
+        
+    return items
 
 def build_admins_list(btpUsecase: BTPUSECASE):
     admins = getAdminsForUseCase(btpUsecase)
@@ -1044,6 +1088,12 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                         log.write( logtype.SUCCESS, "app subscription for app >" + service["name"] + "< now deleted")
                         service["deletionStatus"] = "deleted"
                         break
+                    if (status == "UNSUBSCRIBE_FAILED"):
+                        log.write( logtype.ERROR, "unsubscribing app >" + service["name"] + "< failed. Returned status >" + status +"<")
+                        service["deletionStatus"] = "UNSUBSCRIBE_FAILED"
+                        log.write( logtype.INFO, "trying again to remove the subscription to app >" + service["name"] + "<")
+                        result = runCommandAndGetJsonResult(btpUsecase, command,logtype.INFO, message)
+                        service["deletionStatus"] = status
                     else:
                         service["deletionStatus"] = status
                 time.sleep(search_every_x_seconds)
@@ -1122,10 +1172,11 @@ def selectEnvironmentLandscape(btpUsecase: BTPUSECASE):
             serviceName = item["serviceName"]
             servicePlan = item["planName"]
             environmentType = item["environmentType"]
-            landscapeLabel  = item["landscapeLabel"]
+            if "landscapeLabel" not in item:
+                return None
             # Simply take the first landscape that is found, matching the environment and the plan
             if environment["plan"] == servicePlan and environment["name"] == environmentType:
-                return landscapeLabel
+                return item["landscapeLabel"]
 
     log.write( logtype.ERROR, "No matching environment found >" + environment["name"] + "< for >" + region + "<")
     sys.exit(os.EX_DATAERR)

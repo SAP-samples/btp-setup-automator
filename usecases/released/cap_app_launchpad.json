@@ -11,6 +11,11 @@
   },
   "services": [
     {
+      "name": "xsuaa",
+      "plan": "application",
+      "category": "SERVICE"
+    },
+    {
       "category": "SERVICE",
       "name": "hana-cloud",
       "plan": "hana-free",
@@ -23,7 +28,7 @@
           "memory": 30,
           "serviceStopped": false,
           "storage": 120,
-          "systempassword": "Init2020",
+          "systempassword": "PleaseChangeBeforeRunningScript12345",
           "vcpu": 0,
           "versionIndicator": "",
           "whitelistIPs": []

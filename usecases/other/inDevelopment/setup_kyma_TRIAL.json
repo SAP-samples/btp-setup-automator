@@ -1,16 +1,19 @@
 {
   "aboutThisUseCase": {
-    "name": "Unit test 01: Only one service without app subscriptions and admins",
+    "name": "setup a kyma environment on your BTP TRIAL account",
     "description": "This usecase is used for a script unit test",
     "author": "rui.nogueira@sap.com",
-    "testStatus": "Not tested successfully, so far",
+    "testStatus": "to be tested",
     "usageStatus": "NOT READY TO BE USED"
   },
   "services": [
     {
       "category": "ENVIRONMENT",
       "name": "kymaruntime",
-      "plan": "aws"
+      "plan": "trial",
+      "parameters": {
+        "name": "btpsetupautomator-kyma"
+      }
     }
   ]
 }
