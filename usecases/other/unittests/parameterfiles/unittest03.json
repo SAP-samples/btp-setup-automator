@@ -1,6 +1,5 @@
 {
-  "usecasefile": "usecases/released/setup_task_center.json",
+  "usecasefile": "usecases/released/extendS4_with_devops.json",
   "loginmethod": "basicAuthentication",
   "prunesubaccount": true
-
 }

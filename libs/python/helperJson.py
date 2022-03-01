@@ -2,7 +2,7 @@ import json
 from os import EX_DATAERR
 from subprocess import run, PIPE
 from libs.python.helperLog import logtype
-import sys, re
+import sys, re, requests
 
 def getJsonFromFile(self, filename):
     log = None 
@@ -12,6 +12,11 @@ def getJsonFromFile(self, filename):
     data = None
     foundError = False
     f = None
+
+    if "http://" in filename or "https://" in filename:
+        thisRequest = requests.get(filename)
+        data = json.loads(thisRequest.text)
+        return data
 
     try:
         # Opening JSON file

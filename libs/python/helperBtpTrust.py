@@ -33,12 +33,12 @@ def runTrustFlow(btpUsecase):
                             log.write(logtype.INFO, "create own IDP")
                             resultOwnIDP = createOwnIDP(btpUsecase, payload["apiurl"] + "/sap/rest/identity-providers", accessToken, resultIasTenants)
                             
-                            if "usersToCreateOnIDP" in usecase:
-                                for user in usecase["usersToCreateOnIDP"]:
-                                    email = user["email"]
-                                    log.write(logtype.INFO, "create user >" + email + "< on IDP")
-                                    password = "initial123456"
-                                    resultUserCreation = registerUserOnIDP(btpUsecase, payload["url"] + "/oauth/token", authClientId, authClientSecret, email, password)
+                            # if "usersToCreateOnIDP" in usecase:
+                            #     for user in usecase["usersToCreateOnIDP"]:
+                            #         email = user["email"]
+                            #         log.write(logtype.INFO, "create user >" + email + "< on IDP")
+                            #         password = "initial123456"
+                            #         resultUserCreation = registerUserOnIDP(btpUsecase, payload["url"] + "/oauth/token", authClientId, authClientSecret, email, password)
 
                             item = {"service_key" : key["keyname"] , "tokenDetails" : resultApiAccessToken, "availableIasTenants" : resultIasTenants, "ownIDP": resultOwnIDP}
                             accountMetadata["trustSetupXSUAA"].append(item)

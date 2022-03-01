@@ -1,6 +1,0 @@
-{
-  "usecasefile": "usecases/other/inDevelopment/setup_task_center.json",
-  "loginmethod": "basicAuthentication",
-  "prunesubaccount": true
-
-}

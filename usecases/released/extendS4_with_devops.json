@@ -84,6 +84,43 @@
             "category": "APPLICATION"
         },
         {
+            "name": "enterprise-messaging",
+            "plan": "default",
+            "instancename": "BusinessPartnerVerification-ems",
+            "category": "SERVICE",
+            "parameters": {
+                "resources": {
+                    "units": "10"
+                },
+                "options": {
+                    "management": true,
+                    "messagingrest": true,
+                    "messaging": true
+                },
+                "rules": {
+                    "topicRules": {
+                        "publishFilter": [
+                            "${namespace}/*"
+                        ],
+                        "subscribeFilter": [
+                            "${namespace}/*"
+                        ]
+                    },
+                    "queueRules": {
+                        "publishFilter": [
+                            "${namespace}/*"
+                        ],
+                        "subscribeFilter": [
+                            "${namespace}/*"
+                        ]
+                    }
+                },
+                "version": "1.1.0",
+                "emname": "bpem",
+                "namespace": "tfe/bpem/em"
+            }
+        },
+        {
             "name": "cicd-app",
             "plan": "default",
             "category": "APPLICATION",
@@ -116,7 +153,7 @@
         },
         {
             "description": "Deploy app",
-            "command": "cd tutorial/ && cf deploy mta_archives/BusinessPartnerVerification_1.2.0.mtar"
+            "command": "cd tutorial/ && cf deploy mta_archives/BusinessPartnerVerification_1.2.0.mtar -f"
         },
         {
             "description": "Activating OData Services in SAP S/4HANA System",
