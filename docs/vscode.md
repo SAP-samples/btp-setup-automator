@@ -26,9 +26,15 @@ Now the last step is to simply run the script with thw following command:
 python run.py
 ```
 
+## Using different use case configurations
+
 The script will take the parameters defined in the [**parameters.json** file](../parameters.json). By default the [**parameters.json** file](../parameters.json) is pointing to [a use case definition that sets up and deploys a full-stack CAP application on a BTP trial account](../usecases/released/cap_app_launchpad_TRIAL.json). But of course you can use other use case files in the [**usecases** folder](../usecases/) or even create your own use case file, by taking the existing ones as a blueprint.
 
 ![adapt parameters for your usage](pics/quick-guide-step05.png)
+
+In case you have your own use case files accessible via http, you can instead point to that use case file in your **parameters.json** file as simple as this:
+
+![use link to usecase file](pics/quick-guide-step06.png)
 
 ## Authentication
 
@@ -41,18 +47,6 @@ The python script allows you to use parameters to configure it to your needs and
 ```bash
 python run.py -h
 ```
-
-## Using different use case configurations
-
-The folder **usecases** has several sample use case configurations that you can use with the script. By using the parameter **-usecase** you can tell the script to use another file than the default use case. Simply type the following command:
-
-```bash
-python run.py -usecase "usecases/released/usecase_cap-app-launchpad.json"
-```
-
-and the usecase will be executed to run the full-stack CAP application on a productive (e.g. Pay-per-Use) BTP account.
-
-If you want you can as well use your own use case files that you can copy into the corresponding **usecases** folder BEFORE creating the docker image.
 
 ## Scripting btp-setup-automator
 
