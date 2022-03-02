@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+git describe --long --tags  --always > config/python/btp-setup-automator-gitversion.txt
+
 docker container stop   "btp-setup-automator"
 docker container rm  -f "btp-setup-automator"
 docker image     rmi -f "btp-setup-automator"

@@ -1,6 +1,6 @@
 {
     "aboutThisUseCase": {
-      "name": "Setup trust",
+      "name": "Setup SAP Task Center",
       "description": "This usecase provides the configuration of services to setup SAP Task Center",
       "author": "rui.nogueira@sap.com",
       "testStatus": "tested successfully",

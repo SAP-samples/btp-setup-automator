@@ -1,6 +1,6 @@
 {
   "aboutThisUseCase": {
-    "name": "CAP app running in SAP Launchpad",
+    "name": "Deploy full-stack CAP application running in SAP Launchpad (on productive BTP account)",
     "description": "This usecase provides all necessary information to create the necessary service instances and app subscription for a CAP application and to deploy that application on a SAP BTP account.",
     "author": "rui.nogueira@sap.com",
     "testStatus": "tested successfully",

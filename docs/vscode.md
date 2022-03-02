@@ -1,6 +1,6 @@
-# Using the Dockerfiles in MS Visual Studio Code (VSCode)
+# Using the Dockerfiles in VS Code
 
-In case you are using MS VS Code, you need to open the Command Palette (in the menu "View" select "Command Palette") or press the key combination command, shift, P. Then enter the command:
+In case you are using VS Code, you need to open the Command Palette (in the menu "View" select "Command Palette") or press the key combination command, shift, P. Then enter the command:
 
 ```text
 Remote-Containers: Attach to Running Container
@@ -26,7 +26,7 @@ Now the last step is to simply run the script with thw following command:
 python run.py
 ```
 
-## Using different use case configurations
+## Using Different Use Case Configurations
 
 The script will take the parameters defined in the [**parameters.json** file](../parameters.json). By default the [**parameters.json** file](../parameters.json) is pointing to [a use case definition that sets up and deploys a full-stack CAP application on a BTP trial account](../usecases/released/cap_app_launchpad_TRIAL.json). But of course you can use other use case files in the [**usecases** folder](../usecases/) or even create your own use case file, by taking the existing ones as a blueprint.
 
@@ -38,21 +38,21 @@ In case you have your own use case files accessible via http, you can instead po
 
 ## Authentication
 
-As you have to login to the BTP account you have to be authenticated. By default basic authentication is used for the BTP and Cloudfoundry CLI. Bu if you prefer you can set the parameter **loginmethod** to **basicAuthentication** in the **parameters.json** file and the script will ask you to click on a URL when a login is needed (you have to open a browser with the link).
+As you have to login to your SAP BTP account you have to be authenticated. By default basic authentication is used for the BTP and Cloudfoundry CLI. Bu if you prefer you can set the parameter **loginmethod** to **sso** in the **parameters.json** file and the script will ask you to click on a URL when a login is needed (you have to open a browser with the link). This happens for logging-in via the SAP BPT CLI as well as for the Cloud Froundry CLI.
 
-## Available parameters
+## Available Parameters
 
-The python script allows you to use parameters to configure it to your needs and make it better usable within other scripts and/or ci-cd pipelines. Just run the following command to get a list of the available commands:
+The btp-setup-automator script (written in Python) allows you to use parameters to configure it to your needs and make it better usable within other scripts and/or CI-CD pipelines. Just run the following command to get a list of the available commands:
 
 ```bash
 python run.py -h
 ```
 
-## Scripting btp-setup-automator
+## Scripting BTP-Setup-Automator
 
-As the BTP-setup-automator is running in Docker there is a lot of potential to integrate it in other scripts that can call it.
+As the btp-setup-automator is running in Docker there is a lot of potential to integrate it in other scripts that can call it.
 
-E.g. the developers behind BTP-setup-automator test various use case configurations through a bash script similar to this example:
+E.g. the developers behind btp-setup-automator test various use case configurations through a bash script similar to this example:
 
 ```bash
 #!/usr/bin/env bash
@@ -61,7 +61,6 @@ folderLogFile="/your/local/folder/btp-setup-automator/log/$(date "+%Y-%m-%d")/"
 mkdir -p "${folderLogFile}"
 ##########################################################################################################
 # Run script with use case definition >unittest01<
-# usecase file : >usecases/released/cap_app_launchpad_TRIAL.json<
 ##########################################################################################################
 docker image build  -t "test01":latest -f "config/containerdefinitions/btp-setup-automator/Dockerfile"  .
 docker container run --rm  -it -d --name "test01" \
@@ -106,7 +105,7 @@ docker image build  -t "test01":latest -f "config/containerdefinitions/btp-setup
 
 ### Step 3: Start a docker container with the created image
 
-Now the docker container **test01** is created and started for the image **test01** we've created before. To have a look into the log files created by the BTP-setup-automator you mount the local folder of your machine to the folder of the BTP-setup-automator log files.
+Now the docker container **test01** is created and started for the image **test01** we've created before. To have a look into the log files created by the btp-setup-automator, you mount the local folder of your machine to the folder of the btp-setup-automator log files.
 
 ```bash
 docker container run --rm  -it -d --name "test01" \
@@ -116,7 +115,7 @@ docker container run --rm  -it -d --name "test01" \
 
 ### Step 4: Run the BTP-setup-automator
 
-The only thing missing now is to start the script for the BTP-setup-automator that is inside the docker container. You provide all the necessary parameters within a **docker exec** command.
+The only thing missing now is to start the script for the btp-setup-automator that is inside the docker container. You provide all the necessary parameters within a **docker exec** command.
 
 ```bash
 docker exec --workdir "/home/user/" "test01" python run.py 

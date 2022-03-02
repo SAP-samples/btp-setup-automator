@@ -1,6 +1,3 @@
-#from dataclasses import asdict
-#from distutils import command
-#from distutils.command import check
 import libs.python.helperArgParser as helperArgParser
 import libs.python.helperLog as helperLog 
 from libs.python.helperJson import addKeyValuePair, convertJsonToString, dictToString, convertStringToJson, saveJsonToFile, getJsonFromFile
@@ -22,6 +19,8 @@ class BTPUSECASE:
 
         log                                     = LOGFILE(self)
         self.log                                = log
+        log.write(logtype.HEADER,  "STARTING THE BTP-SETUP-AUTOMATOR SCRIPT")
+
         # If no suffix for service names was provided, create one (with getNamingPatternForServiceSuffix())
         if self.suffixinstancename == None or self.suffixinstancename == "":
             self.suffixinstancename = getNamingPatternForServiceSuffix(self)

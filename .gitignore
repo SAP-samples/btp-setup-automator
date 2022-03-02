@@ -1,3 +1,4 @@
 .DS_Store
 cred.txt
 buildAndPushImage.sh
+btp-setup-automator-gitversion.txt
