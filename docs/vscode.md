@@ -1,6 +1,6 @@
 # Using the Dockerfiles in MS Visual Studio Code (VSCode)
 
-In case you are using MS VS Code, you can press the key combination command, shift, P and enter the command:
+In case you are using MS VS Code, you need to open the Command Palette (in the menu "View" select "Command Palette") or press the key combination command, shift, P. Then enter the command:
 
 ```text
 Remote-Containers: Attach to Running Container
@@ -12,7 +12,7 @@ Now you should see the running container. Click on it, and a new window will pop
 
 ![select running container in VS Code](pics/quick-guide-step01.png)
 
-You might have to select the right folder in the left hand navigtion of VS Code. Simply select the /home/user folder.
+You might have to select the right folder in the left hand navigtion of VS Code. Select the **/home/user** folder.
 
 ![open folder](pics/quick-guide-step02.png)
 

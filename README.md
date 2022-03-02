@@ -5,9 +5,9 @@
 
 ## Description
 
-This repository provides the user with a script to automate the setup of an [SAP BTP account](https://account.hana.ondemand.com/).
+This repository provides the user with a script to automate the setup of an [SAP Business Technology Platform (BTP) account](https://account.hana.ondemand.com/).
 
-This includes:
+This includes:  
 
 > - setup of your SAP BTP account
 > - entitlement of services
@@ -17,12 +17,12 @@ In essence it's all about making it easier to get developers quickly onboard on 
 
 ### All on docker
 
-The tooling is running within a docker container and the repository provides all you need to run the tooling in a docker image.
-Why docker? We want to ensure that you can focus on getting your work done on the SAP BTP account without having to worry whether you have the right tools in the right release for the right operating system in place.
+The tooling is running within a [docker](https://www.docker.com/) container and the repository provides all you need to run the tooling in a docker image.
+[Why docker](https://www.docker.com/why-docker)? We want to ensure that you can focus on getting your work done on the SAP BTP account without having to worry whether you have the right tools in the right release for the right operating system in place.
 
 ### The use cases
 
-As a user the only thing you need to focus on is your use case that defines which services or subscriptions you need. The use case is defined within a json structure. You can find a few use cases in the use cases folder of this repository, but you can create your own, if you want to run the script.
+As a user the only thing you need to focus on is your use case that defines which services or subscriptions you need. The use case is defined within a json structure. You can find [use cases in the use cases folder of this repository](usecases/), and - of course - you can create your own use case files, if you want to run the script.
 
 ## Requirements
 
