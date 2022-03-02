@@ -3,8 +3,8 @@
         "name": "Extend SAP S/4HANA Business Processes on SAP BTP by Leveraging DevOps",
         "description": "This usecase complements an existing business process in an SAP solution - currently SAP S/4HANA - with additional business process steps",
         "author": "maximilian.streifenender@sap.com",
-        "testStatus": "test failed - to be adapted",
-        "usageStatus": "NOT READY TO BE USED",
+        "testStatus": "tested",
+        "usageStatus": "READY TO BE USED",
         "relatedLinks": [
             "https://github.com/SAP-samples/s4hana-btp-extension-devops"
         ]

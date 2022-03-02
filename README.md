@@ -71,7 +71,7 @@ You can run the container directly via the terminal or within Microsoft Visual S
 
 ## Known Issues
 
-Non (so far).
+Checkout [the issues section in this repo](https://github.com/SAP-samples/btp-setup-automator/issues) for known and current issues.
 
 ## How to obtain support
 
