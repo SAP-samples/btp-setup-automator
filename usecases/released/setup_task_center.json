@@ -3,7 +3,7 @@
       "name": "Setup trust",
       "description": "This usecase provides the configuration of services to setup SAP Task Center",
       "author": "rui.nogueira@sap.com",
-      "testStatus": "tested",
+      "testStatus": "tested successfully",
       "usageStatus": "READY TO BE USED"
     },
     "services": [
