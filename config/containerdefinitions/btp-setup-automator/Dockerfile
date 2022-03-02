@@ -1,7 +1,9 @@
 ##################################################################################################################################################
+# LICENSE
+# This Dockerfile is provided under the LICENSE defined in the Github repository
+# at https://github.com/SAP-samples/btp-setup-automator
 ##################################################################################################################################################
 # STARTING WITH ALL THE SAP TOOLS FIRST
-##################################################################################################################################################
 ##################################################################################################################################################
 FROM alpine:3 AS base
 
@@ -60,9 +62,7 @@ COPY --from=btp_cli                /tmp/tools/ .
 COPY --from=mta_build_tool         /tmp/tools/ .
 
 ##################################################################################################################################################
-##################################################################################################################################################
 # Now putting all pieces together 
-##################################################################################################################################################
 ##################################################################################################################################################
 
 FROM python:3.9.9-alpine3.15 AS final_build
@@ -102,7 +102,6 @@ RUN adduser \
     && cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime \
 ##########################################################################################
 # Install CAP CDS
-# TODO: How to move this to the Dockerfile.base?
 ##########################################################################################
     && npm install -g @sap/cds-dk --allow-root \
     && npm cache clean --force
@@ -132,6 +131,11 @@ COPY --chown=$USERNAME:$USERNAME libs/python/btp_cli.py                     $LIB
 COPY --chown=$USERNAME:$USERNAME libs/python/helper*.py                     $LIBS_FOLDER/python/
 COPY --chown=$USERNAME:$USERNAME libs/json/paramBtpSetupAutomator.json      $LIBS_FOLDER/json/
 
+COPY --chown=$USERNAME:$USERNAME .reuse                                     $HOME_FOLDER/.reuse
+COPY --chown=$USERNAME:$USERNAME LICENSES                                   $HOME_FOLDER/LICENSES
+COPY --chown=$USERNAME:$USERNAME LICENSE                                    $HOME_FOLDER/
+
+# Copy over some vscode settings to install the pyhton plugins
 COPY --chown=$USERNAME:$USERNAME .vscode/settings.json                      $HOME_FOLDER/.vscode/
 
 # For using outside of VS Code context:
