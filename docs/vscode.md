@@ -6,19 +6,19 @@ In case you are using MS VS Code, you can press the key combination command, shi
 Remote-Containers: Attach to Running Container
 ```
 
-![command in VS Code to attach it to a running container](pics/quick-guide-step06.png)
+![command in VS Code to attach it to a running container](pics/quick-guide-step00.png)
 
 Now you should see the running container. Click on it, and a new window will pop-up with the content of the docker container.
 
-![select running container in VS Code](pics/quick-guide-step07.png)
+![select running container in VS Code](pics/quick-guide-step01.png)
 
 You might have to select the right folder in the left hand navigtion of VS Code. Simply select the /home/user folder.
 
-![open folder](pics/quick-guide-step08.png)
+![open folder](pics/quick-guide-step02.png)
 
-![select folder](pics/quick-guide-step09.png)
+![select folder](pics/quick-guide-step03.png)
 
-![open new terminal](pics/quick-guide-step10.png)
+![open new terminal](pics/quick-guide-step04.png)
 
 Now the last step is to simply run the script with thw following command:
 
@@ -28,7 +28,7 @@ python run.py
 
 The script will take the parameters defined in the [**parameters.json** file](../parameters.json). By default the [**parameters.json** file](../parameters.json) is pointing to [a use case definition that sets up and deploys a full-stack CAP application on a BTP trial account](../usecases/released/cap_app_launchpad_TRIAL.json). But of course you can use other use case files in the [**usecases** folder](../usecases/) or even create your own use case file, by taking the existing ones as a blueprint.
 
-![adapt parameters for your usage](pics/quick-guide-step11.png)
+![adapt parameters for your usage](pics/quick-guide-step05.png)
 
 ## Authentication
 

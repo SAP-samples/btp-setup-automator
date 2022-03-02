@@ -61,9 +61,9 @@ This will build a docker image and create a docker container on your machine.
 
 If all went well, you can see the container running in your docker engine.
 
-![command in VS Code to attach it to a running container](docs/pics/quick-guide-step06.png)
+![command in VS Code to attach it to a running container](docs/pics/quick-guide-step00.png)
 
-![select running container in VS Code](docs/pics/quick-guide-step07.png)
+![select running container in VS Code](docs/pics/quick-guide-step01.png)
 
 You can run the container directly via the terminal or within Microsoft Visual Studio Code (VSCode).
 
@@ -75,7 +75,7 @@ Non (so far).
 
 ## How to obtain support
 
-[Create an issue](https://github.com/SAP-samples/<repository-name>/issues) in this repository if you find a bug or have questions about the content.
+[Create an issue](https://github.com/SAP-samples/btp-setup-automator/issues) in this repository if you find a bug or have questions about the content.
 
 For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
 
