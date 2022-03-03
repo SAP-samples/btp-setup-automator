@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
-
-git describe --long --tags  --always > config/python/btp-setup-automator-gitversion.txt
-
 docker container stop   "btp-setup-automator"
 docker container rm  -f "btp-setup-automator"
 docker image     rmi -f "btp-setup-automator"
 
 docker image build -t btp-setup-automator:latest -f "config/containerdefinitions/btp-setup-automator/Dockerfile"  .
-docker container run --rm  -it -d --name "btp-setup-automator" "btp-setup-automator" 
+docker container run -e BTPSETUPAUTOMATOR_VERSION="$(git describe --long --tags  --always)" --rm  -it -d --name "btp-setup-automator" "btp-setup-automator" 

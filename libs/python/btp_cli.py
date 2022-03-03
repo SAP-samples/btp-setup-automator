@@ -19,7 +19,8 @@ class BTPUSECASE:
 
         log                                     = LOGFILE(self)
         self.log                                = log
-        log.write(logtype.HEADER,  "STARTING THE BTP-SETUP-AUTOMATOR SCRIPT")
+        log.write(logtype.HEADER,  "BTP-SETUP-AUTOMATOR")
+        log.write(logtype.INFO,  "Git version >" + os.getenv('BTPSETUPAUTOMATOR_VERSION', "not set") + "<")
 
         # If no suffix for service names was provided, create one (with getNamingPatternForServiceSuffix())
         if self.suffixinstancename == None or self.suffixinstancename == "":
