@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from libs.python.btp_cli import BTPUSECASE
 
 # Run this command in the command line to get all options of this script
