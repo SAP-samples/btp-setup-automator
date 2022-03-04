@@ -1,8 +1,11 @@
 {
   "myemail": null,
   "loginmethod": "basicAuthentication",
-  "globalaccount": null,
   "region": "us10",
+  "globalaccount": null,
   "subaccountname": null,
+  "orgid": null,
+  "cfspacename": "development",
+  "suffixinstancename": null,
   "usecasefile": "usecases/released/cap_app_launchpad_TRIAL.json"
 }
