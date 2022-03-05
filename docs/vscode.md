@@ -23,7 +23,7 @@ You might have to select the right folder in the left hand navigtion of VS Code.
 Now the last step is to simply run the script with thw following command:
 
 ```bash
-python run.py
+./run.py
 ```
 
 ## Using Different Use Case Configurations
@@ -38,14 +38,14 @@ In case you have your own use case files accessible via http, you can instead po
 
 ## Authentication
 
-As you have to login to your SAP BTP account you have to be authenticated. By default basic authentication is used for the BTP and Cloudfoundry CLI. Bu if you prefer you can set the parameter **loginmethod** to **sso** in the **parameters.json** file and the script will ask you to click on a URL when a login is needed (you have to open a browser with the link). This happens for logging-in via the SAP BPT CLI as well as for the Cloud Froundry CLI.
+As you have to login to your SAP BTP account you have to be authenticated. By default basic authentication is used for the BTP and Cloud Foundry CLI. Bu if you prefer you can set the parameter **loginmethod** to **sso** in the **parameters.json** file and the script will ask you to click on a URL when a login is needed (you have to open a browser with the link). This happens for logging-in via the SAP BPT CLI as well as for the Cloud Foundry CLI.
 
 ## Available Parameters
 
 The btp-setup-automator script (written in Python) allows you to use parameters to configure it to your needs and make it better usable within other scripts and/or CI-CD pipelines. Just run the following command to get a list of the available commands:
 
 ```bash
-python run.py -h
+./run.py -h
 ```
 
 ## Scripting BTP-Setup-Automator
