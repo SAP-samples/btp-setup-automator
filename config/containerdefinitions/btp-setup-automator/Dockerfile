@@ -24,8 +24,9 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/reposit
 FROM base AS cf_cli
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 WORKDIR /tmp/tools
-RUN wget --quiet -O download.tgz "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=7.4.0&source=github-rel" \
-   && tar -xzf download.tgz -C .
+RUN CF_CLI_VERSION="7.4.0" \
+    && wget --quiet -O download.tgz "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=$CF_CLI_VERSION&source=github-rel" \
+    && tar -xzf download.tgz -C .
 
 #RUN curl --fail --silent --location --url "https://cli.run.pivotal.io/stable?release=linux64-binary" \
 #  | tar -xzf - cf
