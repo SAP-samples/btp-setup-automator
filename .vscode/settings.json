@@ -1,6 +1,5 @@
 {
     "python.pythonPath": "/usr/local/bin/python3",
     "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true,
-    "terminal.integrated.cwd": "/home/user"
+    "python.linting.enabled": true"
 }
