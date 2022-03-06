@@ -67,7 +67,7 @@ If all went well, you can see the container running in your docker engine.
 
 You can run the container directly via the terminal or within VS Code.
 
-[Read the detailed instructions for the usage in VS Code](docs/vscode.md).
+[Read the detailed instructions for the usage in VS Code](docs/README.md).
 
 ## Known Issues
 
