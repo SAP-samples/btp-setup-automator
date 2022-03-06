@@ -1,0 +1,48 @@
+name: 🚀 Feature Request
+description: File a Feature Request
+title: "[FEATURE REQUEST] <title>"
+labels: [enhancement]
+body:
+- type: dropdown
+  id: area
+  attributes:
+    label: Which area is mainly impacted
+    options:
+    - Docker Image (Build or Run)
+    - CLI in general
+    - Cloud Foundry setups
+    - Kyma setups
+    - Configuration
+    - Documentation
+    - Security
+    - Other
+  validations:
+    required: true  
+- type: textarea
+  attributes:
+    label: Requested Feature
+    description: A concise description of the feature you are currently missing.
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Use Case/Scenario
+    description: A concise description of the use-case and scenario where you are missing this feature.
+  validations:
+    required: false
+- type: checkboxes
+  attributes:
+    label: Would you like to support us?
+    description: Would you like to support us in developing this feature?
+    options:
+    - label: Yes, I would like to support you
+      required: false
+- type: textarea
+  attributes:
+    label: Anything else?
+    description: |
+      Links? References? Anything that will give us more context about the feature you would like to see!
+
+      Tip: You can attach images or files by clicking this area to highlight it and then dragging files in.
+  validations:
+    required: false
