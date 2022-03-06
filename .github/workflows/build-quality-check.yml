@@ -18,6 +18,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     strategy:
       matrix:
         # Currently only support for Python 3.9, maybe add more later      
@@ -40,13 +43,9 @@ jobs:
       - name: Lint with flake8
         run: |
           # stop the build if there are Python syntax errors or undefined names
-          #flake8 ./libs/python/ --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 ./libs/python/ --count --select=E9,F63,F7,F82 --show-source --statistics
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           flake8 ./libs/python/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-      # Currently not tests available 
-      - name: Test with pytest
-        run: |
-          pytest
       - name: Log in to the Container registry
         uses: docker/login-action@v1
         with:
@@ -57,11 +56,12 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/${{ matrix.app }}
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
       - name: Build Docker image
         uses: docker/build-push-action@v2
         with:
-          context: ./${{ matrix.app }}
+          context: .
+          file: ./config/containerdefinitions/btp-setup-automator/Dockerfile
           push: false
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}          
