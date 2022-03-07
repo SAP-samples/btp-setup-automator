@@ -399,7 +399,7 @@ def assignUsersToSubaccount(btpUsecase: BTPUSECASE):
     subaccountid= accountMetadata["subaccountid"]
     admins = getAdminsForUseCase(btpUsecase)
 
-    log.write( logtype.HEADER, "Set ga and sub account administrators")
+    log.write( logtype.HEADER, "Set global account and sub account administrators")
     for userEmail in admins:
         role = "Subaccount Administrator"
         message = "assign user >" + userEmail + "< the role >" + role + "<"
