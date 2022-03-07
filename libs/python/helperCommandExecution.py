@@ -157,8 +157,3 @@ def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):
             p = runShellCommand(btpUsecase, thisCommand, logtype.INFO, "Executing the following commands:\n" + thisCommand + "\n")
             result = p.stdout.decode()
             log.write( logtype.SUCCESS, result)
-
-
-def get_git_revision_short_hash() -> str:
-    subprocess = subprocess
-    return subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD']).decode('ascii').strip()

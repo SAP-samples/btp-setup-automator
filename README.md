@@ -3,11 +3,13 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/REPO-NAME)](https://api.reuse.software/info/github.com/SAP-samples/REPO-NAME)
 -->
 
+[![Build Check](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/build-quality-check.yml/badge.svg?branch=main)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/build-quality-check.yml)
+
 ## Description
 
 This repository provides the user with a script to automate the setup of an [SAP Business Technology Platform (SAP BTP) account](https://account.hana.ondemand.com/).
 
-This includes:  
+This includes:
 
 > - Setup of your SAP BTP account
 > - Entitlement of services
@@ -45,17 +47,25 @@ These are the steps:
 
 - Clone this GitHub repository to a local folder on your machine
 - Open the local folder in a command terminal on your machine (or in VS Code)
-- Now you can build the container with the following command. For macOS/Linux
+- Now you can build the container with the following command:
 
-```bash
-./run
-```
+  - bash (macOS/Linux)
 
-and for MS Windows users:
+    ```bash
+    ./run
+    ```
 
-```bash
-.\run.bat
-```
+  - Command Prompt (Windows):
+
+    ```cmd
+    .\run.bat
+    ```
+
+  - PowerShell Core (Cross Platform):
+
+    ```powershell
+    ./run.ps1
+    ```
 
 This will build a docker image and create a docker container on your machine.
 
@@ -67,7 +77,7 @@ If all went well, you can see the container running in your docker engine.
 
 You can run the container directly via the terminal or within VS Code.
 
-[Read the detailed instructions for the usage in VS Code](docs/vscode.md).
+[Read the detailed instructions for the usage in VS Code](docs/README.md).
 
 ## Known Issues
 
@@ -78,6 +88,8 @@ Checkout [the issues section in this repo](https://github.com/SAP-samples/btp-se
 [Create an issue](https://github.com/SAP-samples/btp-setup-automator/issues) in this repository if you find a bug or have questions about the content.
 
 For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
+
+You may also wish to peruse the [Frequently Asked Questions](docs/FAQ.md) document.
 
 ## Contributing
 

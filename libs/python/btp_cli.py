@@ -414,11 +414,22 @@ def assignUsersToSubaccount(btpUsecase: BTPUSECASE):
     subaccountid= accountMetadata["subaccountid"]
     admins = getAdminsForUseCase(btpUsecase)
 
-    log.write( logtype.HEADER, "Set sub account administrators")
+    log.write( logtype.HEADER, "Set global account and sub account administrators")
     for userEmail in admins:
         role = "Subaccount Administrator"
         message = "assign user >" + userEmail + "< the role >" + role + "<"
         command = "btp --format json assign security/role-collection \"" + role + "\" --to-user " + userEmail + " --create-user-if-missing --subaccount \"" + subaccountid + "\""
+        result = runCommandAndGetJsonResult(btpUsecase, command, logtype.INFO, message)
+
+        role = "Subaccount Service Administrator"
+        message = "assign user >" + userEmail + "< the role >" + role + "<"
+        command = "btp --format json assign security/role-collection \"" + role + "\" --to-user " + userEmail + " --create-user-if-missing --subaccount \"" + subaccountid + "\""
+        result = runCommandAndGetJsonResult(btpUsecase, command, logtype.INFO, message)
+
+        role = "Global Account Administrator"
+        message = "assign user >" + userEmail + "< the role >" + role + "<"
+        #Add user to GA with suffix -ga
+        command = "btp --format json assign security/role-collection \"" + role + "\" --to-user " + userEmail + " --create-user-if-missing -ga"
         result = runCommandAndGetJsonResult(btpUsecase, command, logtype.INFO, message)
 
 def set_all_cf_space_roles(btpUsecase: BTPUSECASE):
