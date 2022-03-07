@@ -9,7 +9,7 @@
 
 This repository provides the user with a script to automate the setup of an [SAP Business Technology Platform (SAP BTP) account](https://account.hana.ondemand.com/).
 
-This includes:  
+This includes:
 
 > - Setup of your SAP BTP account
 > - Entitlement of services
@@ -80,6 +80,8 @@ Checkout [the issues section in this repo](https://github.com/SAP-samples/btp-se
 [Create an issue](https://github.com/SAP-samples/btp-setup-automator/issues) in this repository if you find a bug or have questions about the content.
 
 For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
+
+You may also wish to peruse the [Frequently Asked Questions](docs/FAQ.md) document.
 
 ## Contributing
 
