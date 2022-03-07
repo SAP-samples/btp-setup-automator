@@ -1,15 +1,12 @@
 import libs.python.helperArgParser as helperArgParser
-import libs.python.helperLog as helperLog 
 from libs.python.helperJson import addKeyValuePair, convertJsonToString, dictToString, convertStringToJson, saveJsonToFile, getJsonFromFile
 from libs.python.helperLog import LOGFILE, logtype
 from libs.python.helperBtpTrust import delete_cf_service_key, runTrustFlow, get_cf_service_key
 from libs.python.helperCommandExecution import *
 from libs.python.helperEnvCF import checkIfAllServiceInstancesCreated, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, checkIfCFEnvironmentAlreadyExists, createOrgName, checkIfCFSpaceAlreadyExists, try_until_cf_space_done, try_until_cf_space_done, initiateCreationOfServiceInstances, getTimingsForStatusRequest, get_cf_service_deletion_status, get_cf_service_status
-from distutils.errors import LibError
-from datetime import datetime
 import os , re, sys, time
 
-class BTPUSECASE:  
+class BTPUSECASE:
     def __init__(self):
         myArgs                                  = helperArgParser.setup()
         # Take args and add them to self
@@ -188,7 +185,7 @@ class BTPUSECASE:
                 
         if self.orgid == None or self.orgid == "":
 
-            if environment["name"] == "cloudfoundry" or environment["name"] == "kymaruntime":
+            if environment["name"] == "cloudfoundry":
                 orgid, org = checkIfCFEnvironmentAlreadyExists(self)
                 if org == None or orgid == None:
 
@@ -205,10 +202,7 @@ class BTPUSECASE:
                     parameters = None
                     if environment["name"] == "cloudfoundry":
                         parameters = '{\"instance_name\": \"' + org + '\"}'
-                    if environment["name"] == "kymaruntime":
-                        parameters = dictToString(environment["parameters"])
-                        envName = "kyma"
-
+                    
                     envLandscape = selectEnvironmentLandscape(self)
                     
                     if envLandscape != None:
@@ -240,6 +234,27 @@ class BTPUSECASE:
                     self.org = org
                     self.accountMetadata = addKeyValuePair(accountMetadata, "orgid", orgid)
                     self.accountMetadata = addKeyValuePair(accountMetadata, "org", org)
+         
+            elif environment["name"] == "kymaruntime":
+                    
+                    log.write( logtype.HEADER, "Create environment >" + environment["name"] + "<")
+                    
+                    envName = environment["name"]
+                    # Fix environment name for instance creation
+                    btpEnvironment = "kyma"
+                    parameters = None
+                    
+                    parameters = dictToString(environment["parameters"])
+                    
+                    envLandscape = selectEnvironmentLandscape(self)
+                    
+                    if envLandscape != None:
+                        command ="btp --format json create accounts/environment-instance --subaccount \"" + subaccountid + "\" --environment " + btpEnvironment + " --service " + environment["name"] + " --plan " + environment["plan"] + " --parameters '" + str(parameters) + "' --landscape \"" + envLandscape + "\""
+                    else:
+                        command ="btp --format json create accounts/environment-instance --subaccount \"" + subaccountid + "\" --environment " + btpEnvironment + " --service " + environment["name"] + " --plan " + environment["plan"] + " --parameters '" + str(parameters) + "'"
+                    
+                    message = "Create "+ envName + " environment in cluster region >" + environment["parameters"]["region"] + "<"
+                    result = runCommandAndGetJsonResult(self, command,logtype.INFO, message)
             else:
                 log.write( logtype.ERROR, "the BTP environment >" + self.btpEnvironment["name"] + "< is currently not supported in this script.")
                 sys.exit(os.EX_DATAERR)
@@ -354,7 +369,7 @@ class BTPUSECASE:
         btp_assign_role_collection_to_admins(self)
 
         save_collected_metadata(self)
-    
+  
     def createServiceKeys(self):
         log = self.log
         accountMetadata= self.accountMetadata
@@ -1159,7 +1174,14 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
 def selectEnvironmentLandscape(btpUsecase: BTPUSECASE):
     accountMetadata= btpUsecase.accountMetadata
     environment = btpUsecase.btpEnvironment
-    region = btpUsecase.region
+    
+    region = None
+
+    if environment["name"] == "cloudfoundry":
+      region = btpUsecase.region
+    elif environment["name"] == "kymaruntime":
+      region = environment["parameters"]["region"]
+      
     subaccountid = accountMetadata["subaccountid"]
     log = btpUsecase.log
 

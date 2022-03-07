@@ -1,6 +1,7 @@
 {
-  "usecasefile": "usecases/other/inDevelopment/setup_kyma.json",
-  "loginmethod": "basicAuthentication",
-  "prunesubaccount": true
-
+  "usecasefile": "usecases/other/inDevelopment/setup_kyma_free_tier.json",
+  "myemail": "christian.lechner@sap.com",
+  "globalaccount": "3048e80f-931a-4b05-b7e1-5abd3146639c",
+  "region": "eu10",
+  "subaccountname": "kymasetupauto"
 }
