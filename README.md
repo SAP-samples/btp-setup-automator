@@ -47,17 +47,25 @@ These are the steps:
 
 - Clone this GitHub repository to a local folder on your machine
 - Open the local folder in a command terminal on your machine (or in VS Code)
-- Now you can build the container with the following command. For macOS/Linux
+- Now you can build the container with the following command:
 
-```bash
-./run
-```
+  - bash (macOS/Linux)
 
-and for MS Windows users:
+    ```bash
+    ./run
+    ```
 
-```bash
-.\run.bat
-```
+  - Command Prompt (Windows):
+
+    ```cmd
+    .\run.bat
+    ```
+
+  - PowerShell Core (Cross Platform):
+
+    ```powershell
+    ./run.ps1
+    ```
 
 This will build a docker image and create a docker container on your machine.
 

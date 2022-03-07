@@ -1,15 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/pwsh
 
-NOCOLOR='\033[0m'
-GREEN='\033[0;32m'
-
-echo -e "${GREEN}Cleaning up containers and images (if existing)${NOCOLOR}"
+Write-Host "Cleaning up containers and images (if existing)" -ForegroundColor green
 docker container stop   "btp-setup-automator"
 docker container rm  -f "btp-setup-automator"
 docker image     rmi -f "btp-setup-automator"
 
-echo -e "${GREEN}Building the container image ...${NOCOLOR}"
+Write-Host "Building the container image ..." -ForegroundColor green
 docker image build -t btp-setup-automator:latest -f "config/containerdefinitions/btp-setup-automator/Dockerfile"  .
 
-echo -e "${GREEN}tart the container as 'btp-setup-automator' - Access possible e.g. via VSCode${NOCOLOR}"
+Write-Host "Start the container as 'btp-setup-automator' - Access possible e.g. via VSCode" -ForegroundColor green
 docker container run -e BTPSETUPAUTOMATOR_VERSION="$(git describe --long --tags  --always)" --rm  -it -d --name "btp-setup-automator" "btp-setup-automator" 
