@@ -8,11 +8,11 @@ According to [the Boosters documentation](https://help.sap.com/products/BTP/65de
 
 So they do share a similar purpose to the BTP setup automator, but there are some fundamental differences:
 
-First, while guided interactive steps have their place, so do processes that can be automated and executed in an unattended fashion. The setup automator is designed to be usable in such automated environments, in continuous integration / continuous delivery (CI/CD) pipelines, in platform-wide setup scripts, and beyond.
+* First, while guided interactive steps have their place, so do processes that can be automated and executed in an unattended fashion. The setup automator is designed to be usable in such automated environments, in continuous integration / continuous delivery (CI/CD) pipelines, in platform-wide setup scripts, and beyond.
 
-Then, there's the open source nature. A deliberate side-effect of making the setup automator available in this project is to demonstrate to use the various command line interface tools that work with SAP BTP, because that's what's used to do the actual work. Moreover, we want you to be able to create your own automation mechanisms using the project contents, to be inspired by it and to configure those mechanisms as much or as little as you want.
+* Then, there's the open source nature. A deliberate side-effect of making the setup automator available in this project is to demonstrate how to use the various command line interface (CLI) tools that work with SAP BTP, because that's how the actual setup work is achieved. Moreover, we want you to be able to create your own automation mechanisms using the project contents, to be inspired by it and to configure those mechanisms as much or as little as you want.
 
-Finally, because it's open source, and you're in control, you don't have to request a new booster from SAP or wait for one to be created for you.
+* Finally, because it's open source, and you're in control, you don't have to request a new booster from SAP or wait for one to be created for you.
 
 ## What do I need to get started?
 
