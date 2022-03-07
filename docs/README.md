@@ -23,7 +23,7 @@ You might have to select the right folder in the left hand navigtion of VS Code.
 Now the last step is to simply run the script with thw following command:
 
 ```bash
-./run.py
+./btpsa
 ```
 
 ## Using Different Use Case Configurations
@@ -45,7 +45,7 @@ As you have to login to your SAP BTP account you have to be authenticated. By de
 The btp-setup-automator script (written in Python) allows you to use parameters to configure it to your needs and make it better usable within other scripts and/or CI-CD pipelines. Just run the following command to get a list of the available commands:
 
 ```bash
-./run.py -h
+./btpsa -h
 ```
 
 ## Scripting BTP-Setup-Automator
@@ -67,7 +67,7 @@ docker container run --rm  -it -d --name "test01" \
     --mount type=bind,source="${folderLogFile}/",target="/home/user/log/" \
     "test01"
 
-docker exec --workdir "/home/user/" "test01" python run.py 
+docker exec --workdir "/home/user/" "test01" btpsa \
     -parameterfile 'usecases/other/unittests/parameterfiles/unittest01.json' \
     -logfile       '/home/user/log/test01.log' \
     -metadatafile  '/home/user/log/test01_metadata.json' \
@@ -118,7 +118,7 @@ docker container run --rm  -it -d --name "test01" \
 The only thing missing now is to start the script for the btp-setup-automator that is inside the docker container. You provide all the necessary parameters within a **docker exec** command.
 
 ```bash
-docker exec --workdir "/home/user/" "test01" python run.py 
+docker exec --workdir "/home/user/" "test01" ./btpsa \
     -parameterfile 'usecases/other/unittests/parameterfiles/unittest01.json' \
     -logfile       '/home/user/log/test01.log' \
     -metadatafile  '/home/user/log/test01_metadata.json' \
@@ -132,10 +132,9 @@ Once the script is ready, you can check your BTP global account, if all services
 > NOTE: in case you want to provide the parameterfile as a link to a parameter file, you can simply do it like this:
 
 ```bash
-docker exec --workdir "/home/user/" "test01" python run.py 
+docker exec --workdir "/home/user/" "test01" ./btpsa \
     -parameterfile 'https://raw.githubusercontent.com/rui1610/btp-automation-experiments/main/btp-setup-automator/parameterfiles/parameters.json' 
 ```
-
 
 ### Step 5: Clean-up
 

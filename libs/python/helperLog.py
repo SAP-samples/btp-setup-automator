@@ -24,7 +24,7 @@ class LOGFILE:
         resetColorCoding = "\033[0;0m"
 
         if format == logtype.HEADER:
-            message = "\n" + "#"*100 +  "\n# " + message.upper() + "\n" + "#"*100
+            message = "#"*100 +  "\n# " + message.upper() + "\n" + "#"*100
         if format == logtype.ERROR:
             message = "ERROR: " + message
         if format == logtype.CHECK:
@@ -37,10 +37,15 @@ class LOGFILE:
             message = "SUCCESS: " +  message
         if format == logtype.WARNING:
             message = "WARNING: " + message
-        print(logtype.INFO + thisTimestamp + " " + format + message + resetColorCoding)
-
-        with open(self.logfile, "a+") as file_object:
-            file_object.write( thisTimestamp + " " + message + "\n")
+        
+        if (format != logtype.HEADER):
+            print(logtype.INFO + thisTimestamp + " " + format + message + resetColorCoding)
+            with open(self.logfile, "a+") as file_object:
+                file_object.write( thisTimestamp + " " + message + "\n")
+        else:
+            print(format + message + resetColorCoding)
+            with open(self.logfile, "a+") as file_object:
+                file_object.write( message + "\n")
 
         return None
 
