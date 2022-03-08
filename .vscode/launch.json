@@ -5,11 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: run.py",
+            "name": "Python: btpsa",
             "type": "python",
             "request": "launch",
-            "program": "run.py",
-            "args": [ "-parameterfile", "usecases/other/unittests/parameterfiles/<PUT YOUR FILENAME HERE>.json"],
+            "program": "btpsa",
+            "args": [ "-parameterfile", "<PATH TO YOUR PARAMETERFILES>"],
             "console": "integratedTerminal",
             "justMyCode": true
         }

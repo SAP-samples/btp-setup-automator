@@ -141,7 +141,7 @@ COPY --chown=$USERNAME:$USERNAME LICENSES                                   $HOM
 COPY --chown=$USERNAME:$USERNAME LICENSE                                    $HOME_FOLDER/
 
 # Copy over some vscode settings to install the pyhton plugins
-COPY --chown=$USERNAME:$USERNAME .vscode/settings.json                      $HOME_FOLDER/.vscode/
+COPY --chown=$USERNAME:$USERNAME .vscode                                    $HOME_FOLDER/.vscode/
 
 # For using outside of VS Code context:
 CMD ["bash"]

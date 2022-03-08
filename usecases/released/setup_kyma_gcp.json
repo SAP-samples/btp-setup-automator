@@ -1,20 +1,23 @@
 {
   "aboutThisUseCase": {
-    "name": "Setup a Kyma environment on your productive BTP account",
+    "name": "Setup a Kyma environment on your productive BTP account (GCP)",
     "description": "This usecase is used for a script unit test",
     "author": "christian.lechner@sap.com",
-    "testStatus": "to be tested",
-    "usageStatus": "NOT READY TO BE USED"
+    "testStatus": "tested successfully",
+    "usageStatus": "READY TO BE USED"
   },
   "services": [
     {
       "category": "ENVIRONMENT",
       "name": "kymaruntime",
-      "plan": "free",
+      "plan": "gcp",
       "amount": 1,
       "parameters": {
         "name": "btp-auto-setup",
-        "region": "eu-central-1"
+        "region": "europe-west3",
+        "autoScalerMin": 2,
+        "autoScalerMax": 3,
+        "machineType": "n2-standard-8"
       }
     }
   ]
