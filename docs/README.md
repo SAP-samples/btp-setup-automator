@@ -1,6 +1,6 @@
-# Using the Dockerfiles in VS Code
+# Using btp-setup-automator
 
-In case you are using VS Code, you need to open the Command Palette (in the menu "View" select "Command Palette") or press the key combination command, shift, P. Then enter the command:
+In case you are using VS Code (recommended), you need to open the Command Palette (in the menu "View" select "Command Palette") or press the key combination command, shift, P. Then enter the command:
 
 ```text
 Remote-Containers: Attach to Running Container

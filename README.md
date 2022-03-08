@@ -3,9 +3,7 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-setup-automator)](https://api.reuse.software/info/github.com/SAP-samples/btp-setup-automator)
 -->
 
-[![Build Check](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/build-quality-check.yml/badge.svg?branch=main)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/build-quality-check.yml)
-
-[![Build and Push Docker Image](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-build-and-push.yml/badge.svg)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-build-and-push.yml)
+[![Build Check](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/build-quality-check.yml/badge.svg?branch=main)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/build-quality-check.yml) [![Build and Push Docker Image](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-build-and-push.yml/badge.svg)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-build-and-push.yml)
 
 ## Description
 
@@ -36,7 +34,7 @@ To use the tooling you first need to finish the following tasks:
 - [Install a Git client](https://git-scm.com/downloads) - you need it to access the code samples
 - [Install a Docker engine](https://docs.docker.com/desktop/)
 
-If you want to have an easier start into the Docker container topic you might want to install **MS Visual Studio Code**, too:
+In case you are new to the containers topic, it is **highly recommended** to install and setup **MS Visual Studio Code**, too:
 
 - [Install VS Code](https://code.visualstudio.com/download) - this will be your development environment
 - Install the VS Code plugin for Remote containers ([checkout this great 5 minute video on dev containers](https://www.youtube.com/watch?v=Uvf2FVS1F8k))
