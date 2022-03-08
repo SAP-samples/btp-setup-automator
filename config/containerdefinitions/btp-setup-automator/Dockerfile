@@ -142,8 +142,8 @@ COPY --chown=root:root --from=tools /usr/local/bin/mbt /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/multiapps-plugin-static.linux64 /usr/local/bin
 
 ## Install the CF plugin for deploying MTAs on Cloudfoundry
-RUN cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/latest/download/multiapps-plugin.linux32 
-#RUN cf install-plugin -f /usr/local/bin/multiapps-plugin-static.linux64
+#RUN cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/latest/download/multiapps-plugin.linux32 
+RUN cf install-plugin -f /usr/local/bin/multiapps-plugin-static.linux64
 
 ## Copy over the all necessary resources
 COPY --chown=$USERNAME:$USERNAME usecases/                                  $HOME_FOLDER/usecases/
