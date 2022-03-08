@@ -1,7 +1,7 @@
 {
   "aboutThisUseCase": {
-    "name": "Setup a Kyma environment on your productive BTP account",
-    "description": "This usecase is used for a script unit test",
+    "name": "Setup a Kyma environment on your productive BTP account (Free Tier)",
+    "description": "This usecase contains the necessary configuration to setup a Kyma environment in your SAP BTP account (Free Tier).",
     "author": "christian.lechner@sap.com",
     "testStatus": "tested successfully",
     "usageStatus": "READY TO BE USED"
