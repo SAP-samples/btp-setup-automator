@@ -19,7 +19,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/reposit
     && update-ca-certificates
 
 ##########################################################################################
-# Retrieve the CloudFoundry CLI (version 6)
+# Retrieve the CloudFoundry CLI (version 7.4.0)
 ##########################################################################################
 FROM base AS cf_cli
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
@@ -27,9 +27,6 @@ WORKDIR /tmp/tools
 RUN CF_CLI_VERSION="7.4.0" \
     && wget --quiet -O download.tgz "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=$CF_CLI_VERSION&source=github-rel" \
     && tar -xzf download.tgz -C .
-
-#RUN curl --fail --silent --location --url "https://cli.run.pivotal.io/stable?release=linux64-binary" \
-#  | tar -xzf - cf
 
 ##########################################################################################
 ## Retrieve the BTP CLI
@@ -57,6 +54,26 @@ RUN MBT_VERSION="1.2.8" \
     | tar -xzf - mbt
 
 ########################################################################################
+# Retrieve the CF plugin MTA (needed for Apple machines with M1 chip)
+# The necessary plugin will be built from the sources and copied over to the final
+# image.
+########################################################################################
+FROM golang:alpine as cf_plugin_multiapps
+SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+WORKDIR /tmp/tools
+RUN apk update upgrade \
+&& apk add --no-cache bash git \
+&& git clone "https://github.com/cloudfoundry/multiapps-cli-plugin"  multiapps-cli-plugin \
+&& cd multiapps-cli-plugin \
+&&  go mod download code.cloudfoundry.org/bytefmt \
+&& go get github.com/cloudfoundry-incubator/multiapps-cli-plugin/commands \
+&& ./build.sh \
+&& cd build \
+&& mv multiapps-plugin-static.linux64 /tmp/tools \
+&& cd /tmp/tools \
+&& rm -rf multiapps-cli-plugin
+
+########################################################################################
 # Bring the tools together into the final base stage
 ########################################################################################
 FROM alpine:3 as tools
@@ -64,6 +81,7 @@ WORKDIR /usr/local/bin
 COPY --from=cf_cli                 /tmp/tools/ .
 COPY --from=btp_cli                /tmp/tools/ .
 COPY --from=mta_build_tool         /tmp/tools/ .
+COPY --from=cf_plugin_multiapps    /tmp/tools/ .
 
 ##################################################################################################################################################
 # Now putting all pieces together 
@@ -121,9 +139,11 @@ COPY --chown=root:root --from=tools /usr/local/bin/cf  /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/cf7  /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/btp /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/mbt /usr/local/bin
+COPY --chown=root:root --from=tools /usr/local/bin/multiapps-plugin-static.linux64 /usr/local/bin
 
 ## Install the CF plugin for deploying MTAs on Cloudfoundry
 RUN cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/latest/download/multiapps-plugin.linux32 
+#RUN cf install-plugin -f /usr/local/bin/multiapps-plugin-static.linux64
 
 ## Copy over the all necessary resources
 COPY --chown=$USERNAME:$USERNAME usecases/                                  $HOME_FOLDER/usecases/
