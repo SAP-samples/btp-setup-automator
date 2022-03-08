@@ -53,6 +53,15 @@ The fastest way to use the **btp-setup-automator** it, to open a terminal window
 docker pull ghcr.io/sap-samples/btp-setup-automator:main
 ```
 
+> NOTE: while this repo is still in private (until end of March 2022), you need to login to GitHub with an access token via this command:
+>
+> ```bash
+> docker login ghcr.io -u <YOUR GITHUB USERNAME>
+> ```
+> Once entered, you will be asked for your password, which is a **personal  access token** that you need to create in your GitHub account for your user ([checkout the instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)).
+>
+> Once this GitHub repository is public, you won't need to login anymore.
+
 In a second step you now need to run the image in a container. This is done with this command:
 
 ```bash
