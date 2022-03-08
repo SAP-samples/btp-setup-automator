@@ -47,10 +47,10 @@ For starting quickly **it is recommended to use the pre-built Docker image**.
 
 ### Option 1: Start Docker Container via Pre-Built Image (recommended)
 
-The fastest way to use the **btp-setup-automator** it, to open a terminal windows on your machine and to enter the following command to pull the docker image from the GitHub repository:
+The fastest way to use the **btp-setup-automator** it, to open a terminal windows on your machine and to enter the following command to pull the docker image from the GitHub repository and run it in a container:
 
 ```bash
-docker pull ghcr.io/sap-samples/btp-setup-automator:main
+docker container run --rm  -it -d --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
 ```
 
 > NOTE: while this repo is still in private (until end of March 2022), you need to login to GitHub with an access token via this command:
@@ -62,12 +62,6 @@ docker pull ghcr.io/sap-samples/btp-setup-automator:main
 > Once entered, you will be asked for your password, which is a **personal  access token** that you need to create in your GitHub account for your user ([checkout the instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)).
 >
 > Once this GitHub repository is public, you won't need to login anymore.
-
-In a second step you now need to run the image in a container. This is done with this command:
-
-```bash
-docker container run --rm  -it -d --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
-```
 
 ### Option 2: Start Docker Container With Self-Built Image
 
