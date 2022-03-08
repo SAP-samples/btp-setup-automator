@@ -1,9 +1,9 @@
 # BTP-Setup-Automator
 <!--- Register repository https://api.reuse.software/register, then add REUSE badge:
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/REPO-NAME)](https://api.reuse.software/info/github.com/SAP-samples/REPO-NAME)
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-setup-automator)](https://api.reuse.software/info/github.com/SAP-samples/btp-setup-automator)
 -->
 
-[![Build Check](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/build-quality-check.yml/badge.svg?branch=main)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/build-quality-check.yml)
+[![Build Check](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/build-quality-check.yml/badge.svg?branch=main)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/build-quality-check.yml) [![Build and Push Docker Image](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-build-and-push.yml/badge.svg)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-build-and-push.yml)
 
 ## Description
 
@@ -34,16 +34,43 @@ To use the tooling you first need to finish the following tasks:
 - [Install a Git client](https://git-scm.com/downloads) - you need it to access the code samples
 - [Install a Docker engine](https://docs.docker.com/desktop/)
 
-If you want to have an easier start into the Docker container topic you might want to install **MS Visual Studio Code**, too:
+In case you are new to the containers topic, it is **highly recommended** to install and setup **MS Visual Studio Code**, too:
 
 - [Install VS Code](https://code.visualstudio.com/download) - this will be your development environment
 - Install the VS Code plugin for Remote containers ([checkout this great 5 minute video on dev containers](https://www.youtube.com/watch?v=Uvf2FVS1F8k))
 
 ## Download and Installation
 
-If the pre-requisites above are all met, you can start your work by creating first your container.
+If the pre-requisites above are all met, you can start your work by creating first your container. You can either use the pre-built docker image for the btp-setup-automator, or build the docker image yourself.
 
-These are the steps:
+For starting quickly **it is recommended to use the pre-built Docker image**.
+
+### Start Docker Container: Use Pre-Built Image (recommended)
+
+The fastest way to use the **btp-setup-automator** it, to open a terminal windows on your machine and to enter the following command to pull the docker image from the GitHub repository:
+
+```bash
+docker pull ghcr.io/sap-samples/btp-setup-automator:main
+```
+
+> NOTE: while this repo is still in private (until end of March 2022), you need to login to GitHub with an access token via this command:
+>
+> ```bash
+> docker login ghcr.io -u <YOUR GITHUB USERNAME>
+> ```
+> Once entered, you will be asked for your password, which is a **personal  access token** that you need to create in your GitHub account for your user ([checkout the instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)).
+>
+> Once this GitHub repository is public, you won't need to login anymore.
+
+In a second step you now need to run the image in a container. This is done with this command:
+
+```bash
+docker container run --rm  -it -d --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
+```
+
+### Start Docker Container: Building the Image Yourself
+
+To create the Docker image yourself you need to execute these steps:
 
 - Clone this GitHub repository to a local folder on your machine
 - Open the local folder in a command terminal on your machine (or in VS Code)
@@ -69,7 +96,9 @@ These are the steps:
 
 This will build a docker image and create a docker container on your machine.
 
-If all went well, you can see the container running in your docker engine.
+### Using the Docker Container
+
+Independently whether you've created the docker image yourself, or used the pre-built image, you should now already see the Docker container up-and-running. In case you are using VS Code, this is what you can see (don't forget to install the "Remote-Containers" extension in VS Code):
 
 ![command in VS Code to attach it to a running container](docs/pics/quick-guide-step00.png)
 
