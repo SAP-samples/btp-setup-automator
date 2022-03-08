@@ -97,7 +97,7 @@ To create the Docker image yourself you need to execute these steps:
 
 This will build a docker image and create a docker container on your machine.
 
-### Using the Docker Container
+## Using the Docker Container
 
 Independently whether you've created the docker image yourself, or used the pre-built image, you should now already see the Docker container up-and-running. In case you are using VS Code, this is what you can see (don't forget to install the "Remote-Containers" extension in VS Code):
 
@@ -105,9 +105,11 @@ Independently whether you've created the docker image yourself, or used the pre-
 
 ![select running container in VS Code](docs/pics/quick-guide-step01.png)
 
+## Using btp-setup-automator
+
 You can run the container directly via the terminal or within VS Code.
 
-[Read the detailed instructions for the usage in VS Code](docs/README.md).
+[Read the detailed instructions](docs/README.md) on how to setup your SAP BTP account for a use case with the **btp-setup-automator**.
 
 ## Known Issues
 
