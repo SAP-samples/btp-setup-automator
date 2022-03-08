@@ -63,7 +63,8 @@ def createSubaccountName(btpUsecase):
     else:
         result = "BTP setup automator (" + btpUsecase.region + ")"
 
-    btpUsecase.accountMetadata = addKeyValuePair(btpUsecase.accountMetadata, "subaccount", result)
+    btpUsecase.accountMetadata = addKeyValuePair(
+        btpUsecase.accountMetadata, "subaccount", result)
 
     return result
 
@@ -89,7 +90,8 @@ def createSubdomainID(btpUsecase):
     if btpUsecase.subdomain is not None and btpUsecase.subdomain != "":
         result = btpUsecase.subdomain.strip()
     else:
-        result = btpUsecase.accountMetadata["subaccount"] + "-" + btpUsecase.accountMetadata["global_account_id"]
+        result = btpUsecase.accountMetadata["subaccount"] + \
+            "-" + btpUsecase.accountMetadata["global_account_id"]
 
     result = re.sub(r"[^\w\s]", '-', result)
     result = result.replace(" ", "-")
@@ -100,7 +102,8 @@ def createSubdomainID(btpUsecase):
         result = result[:-1]
     result = result[:60].lower()
 
-    btpUsecase.accountMetadata = addKeyValuePair(btpUsecase.accountMetadata, "subdomain", result)
+    btpUsecase.accountMetadata = addKeyValuePair(
+        btpUsecase.accountMetadata, "subdomain", result)
 
     return result
 

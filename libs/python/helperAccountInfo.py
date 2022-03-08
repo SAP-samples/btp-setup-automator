@@ -6,9 +6,12 @@ from libs.python.helperLog import logtype
 def getServiceInfo(btpUsecase):
     usecaseRegion = btpUsecase.region
 
-    command = "btp --format json list accounts/entitlement --global-account \"" + btpUsecase.globalaccount + "\""
-    message = "Get list of available services and app subsciptions for defined region >" + usecaseRegion + "<"
-    result = runCommandAndGetJsonResult(btpUsecase, command, logtype.INFO, message)
+    command = "btp --format json list accounts/entitlement --global-account \"" + \
+        btpUsecase.globalaccount + "\""
+    message = "Get list of available services and app subsciptions for defined region >" + \
+        usecaseRegion + "<"
+    result = runCommandAndGetJsonResult(
+        btpUsecase, command, logtype.INFO, message)
 
     return result
 
@@ -37,7 +40,8 @@ def getJsonFromFile(filename):
         print("Can't open json file >" + filename + "<")
         foundError = True
     except ValueError as err:
-        print("There is an issue in the json file >" + filename + "<. Issue starts on character position " + str(err.pos) + ": " + err.msg)
+        print("There is an issue in the json file >" + filename +
+              "<. Issue starts on character position " + str(err.pos) + ": " + err.msg)
         foundError = True
     finally:
         f.close()

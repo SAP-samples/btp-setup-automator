@@ -22,7 +22,8 @@ class LOGFILE:
 
     def write(self, format, message):
 
-        thisTimestamp = "[" + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "]"
+        thisTimestamp = "[" + \
+            datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "]"
         resetColorCoding = "\033[0;0m"
 
         if format == logtype.HEADER:
@@ -41,7 +42,8 @@ class LOGFILE:
             message = "WARNING: " + message
 
         if (format != logtype.HEADER):
-            print(logtype.INFO + thisTimestamp + " " + format + message + resetColorCoding)
+            print(logtype.INFO + thisTimestamp + " " +
+                  format + message + resetColorCoding)
             with open(self.logfile, "a+") as file_object:
                 file_object.write(thisTimestamp + " " + message + "\n")
         else:

@@ -33,7 +33,9 @@ def getJsonFromFile(self, filename):
             print(message)
         foundError = True
     except ValueError as err:
-        message = "There is an issue in the json file >" + filename + "<. Issue starts on character position " + str(err.pos) + ": " + err.msg
+        message = "There is an issue in the json file >" + filename + \
+            "<. Issue starts on character position " + \
+            str(err.pos) + ": " + err.msg
         if log is not None:
             log.write(logtype.ERROR, message)
         else:
