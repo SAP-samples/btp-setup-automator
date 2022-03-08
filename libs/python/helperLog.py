@@ -1,6 +1,7 @@
 from datetime import datetime
 import os
 
+
 class logtype:
     # Taken from https://stackabuse.com/how-to-print-colored-text-in-python/
     HEADER = "\033[38;5;15m"
@@ -11,6 +12,7 @@ class logtype:
     SUCCESS = "\033[38;5;40m"
     WARNING = "\033[38;5;11m"
     USERINPUT = "\033[38;5;51m"
+
 
 class LOGFILE:
     def __init__(self, btpUsecase):
@@ -24,7 +26,7 @@ class LOGFILE:
         resetColorCoding = "\033[0;0m"
 
         if format == logtype.HEADER:
-            message = "#"*100 +  "\n# " + message.upper() + "\n" + "#"*100
+            message = "#" * 100 + "\n# " + message.upper() + "\n" + "#" * 100
         if format == logtype.ERROR:
             message = "ERROR: " + message
         if format == logtype.CHECK:
@@ -34,20 +36,21 @@ class LOGFILE:
         if format == logtype.INFO:
             message = "INFO: " + message
         if format == logtype.SUCCESS:
-            message = "SUCCESS: " +  message
+            message = "SUCCESS: " + message
         if format == logtype.WARNING:
             message = "WARNING: " + message
-        
+
         if (format != logtype.HEADER):
             print(logtype.INFO + thisTimestamp + " " + format + message + resetColorCoding)
             with open(self.logfile, "a+") as file_object:
-                file_object.write( thisTimestamp + " " + message + "\n")
+                file_object.write(thisTimestamp + " " + message + "\n")
         else:
             print(format + message + resetColorCoding)
             with open(self.logfile, "a+") as file_object:
-                file_object.write( message + "\n")
+                file_object.write(message + "\n")
 
         return None
+
 
 def createNewEmptyFile(logfile):
     # Create new log file

@@ -1,9 +1,9 @@
 import libs.python.helperArgParser as helperArgParser
-from libs.python.helperJson import addKeyValuePair, convertJsonToString, dictToString, convertStringToJson, saveJsonToFile, getJsonFromFile
+from libs.python.helperJson import addKeyValuePair, dictToString, convertStringToJson, saveJsonToFile, getJsonFromFile
 from libs.python.helperLog import LOGFILE, logtype
 from libs.python.helperBtpTrust import delete_cf_service_key, runTrustFlow, get_cf_service_key
-from libs.python.helperCommandExecution import *
-from libs.python.helperEnvCF import checkIfAllServiceInstancesCreated, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, checkIfCFEnvironmentAlreadyExists, createOrgName, checkIfCFSpaceAlreadyExists, try_until_cf_space_done, try_until_cf_space_done, initiateCreationOfServiceInstances, getTimingsForStatusRequest, get_cf_service_deletion_status, get_cf_service_status
+from libs.python.helperCommandExecution import executeCommandsFromUsecaseFile, runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex, login_btp, login_cf
+from libs.python.helperEnvCF import checkIfAllServiceInstancesCreated, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, checkIfCFEnvironmentAlreadyExists, createOrgName, checkIfCFSpaceAlreadyExists, try_until_cf_space_done, initiateCreationOfServiceInstances, getTimingsForStatusRequest, get_cf_service_deletion_status
 import os
 import re
 import sys
@@ -20,11 +20,11 @@ class BTPUSECASE:
 
         log = LOGFILE(self)
         self.log = log
-        log.write(logtype.HEADER,  "BTP-SETUP-AUTOMATOR")
-        log.write(logtype.INFO,  "Git version >" + os.getenv('BTPSETUPAUTOMATOR_VERSION', "not set") + "<")
+        log.write(logtype.HEADER, "BTP-SETUP-AUTOMATOR")
+        log.write(logtype.INFO, "Git version >" + os.getenv('BTPSETUPAUTOMATOR_VERSION', "not set") + "<")
 
         # If no suffix for service names was provided, create one (with getNamingPatternForServiceSuffix())
-        if self.suffixinstancename == None or self.suffixinstancename == "":
+        if self.suffixinstancename is None or self.suffixinstancename == "":
             self.suffixinstancename = getNamingPatternForServiceSuffix(self)
 
         self.timeScriptStarted = time.time()
@@ -41,7 +41,7 @@ class BTPUSECASE:
         self.definedEnvironments = getServiceCategoryItemsFromUsecaseFile(self, ["ENVIRONMENT"])
         self.admins = getAdminsFromUsecaseFile(self)
         self.btpEnvironment = setBtpEnvironment(self, self.definedEnvironments)
-        log.write(logtype.HEADER,  "This use case will use the BTP environment >" + self.btpEnvironment["name"] + "<")
+        log.write(logtype.HEADER, "This use case will use the BTP environment >" + self.btpEnvironment["name"] + "<")
         self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(self, ["APPLICATION"])
         self.definedServices = getServiceCategoryItemsFromUsecaseFile(self, ["SERVICE", "ELASTIC_SERVICE", "PLATFORM"])
 
@@ -64,7 +64,7 @@ class BTPUSECASE:
                 maxLenParameter = myLenParameter
 
         for arg in vars(self):
-            blanks = " "*(maxLenParameter - len(arg))
+            blanks = " " * (maxLenParameter - len(arg))
             value = str(getattr(self, arg))
             message = str(arg) + blanks + " : " + value
             # Only print out the parameters if it's not the password, and if the parameter is not None
@@ -79,7 +79,7 @@ class BTPUSECASE:
 
         usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(self, availableForAccount)
 
-        if usecaseSupportsServices == False:
+        if usecaseSupportsServices is False:
             log.write(logtype.ERROR, "USE CASE NOT SUPPORTED IN YOUR GLOBAL ACCOUNT!")
             sys.exit(os.EX_PROTOCOL)
         else:
@@ -88,7 +88,7 @@ class BTPUSECASE:
     def prune_subaccount(self, subaccountid):
         login_btp(self)
         command = "btp delete accounts/subaccount \"" + subaccountid + "\" --global-account \"" + self.globalaccount + "\" --confirm  --force-delete"
-        p = runShellCommand(self, command, logtype.INFO, "delete directory >" + subaccountid + "<")
+        runShellCommand(self, command, logtype.INFO, "delete directory >" + subaccountid + "<")
 
     def executeBeforeAccountSetup(self):
         message = "Execute commands before account is prepared"
@@ -103,9 +103,9 @@ class BTPUSECASE:
     def entitle_subaccount(self):
         log = self.log
         log.write(logtype.HEADER, "Entitle sub account to use services and/or app subscriptions")
-        responseCodeEnvironments = doAllEntitlements(self, self.definedEnvironments)
-        responseCodeServices = doAllEntitlements(self, self.definedServices)
-        responseCodeSubscriptions = doAllEntitlements(self, self.definedAppSubscriptions)
+        doAllEntitlements(self, self.definedEnvironments)
+        doAllEntitlements(self, self.definedServices)
+        doAllEntitlements(self, self.definedAppSubscriptions)
 
     def create_subaccount(self):
         log = self.log
@@ -118,7 +118,6 @@ class BTPUSECASE:
 
             log.write(logtype.WARNING, "no subaccount id provided and tool will make up one for you")
             usecaseRegion = self.region
-            #namePattern = getNamingPatternForIds(self)
 
             subaccount = createSubaccountName(self)
             subdomain = createSubdomainID(self)
@@ -133,7 +132,7 @@ class BTPUSECASE:
 
             subaccountid = checkIfSubaccountAlreadyExists(self)
 
-            if subaccountid == None:
+            if subaccountid is None:
                 command = "btp --format json create accounts/subaccount \
                     --display-name \"" + subaccount + "\" \
                     --subdomain \"" + subdomain + "\" \
@@ -183,18 +182,17 @@ class BTPUSECASE:
         if self.orgid is not None and self.orgid != "":
             self.accountMetadata = addKeyValuePair(accountMetadata, "orgid", self.orgid)
 
-        if self.orgid == None or self.orgid == "":
+        if self.orgid is None or self.orgid == "":
 
             if environment["name"] == "cloudfoundry":
                 orgid, org = checkIfCFEnvironmentAlreadyExists(self)
-                if org == None or orgid == None:
+                if org is None or orgid is None:
 
                     envName = environment["name"]
                     envPlan = environment["plan"]
 
                     log.write(logtype.HEADER, "Create environment >" + envName + "<")
 
-                    #org = envName + "-" + getNamingPatternForIds(self) + "-" + subaccountid
                     org = createOrgName(self, envName)
 
                     accountMetadata = addKeyValuePair(accountMetadata, "org", org)
@@ -205,7 +203,7 @@ class BTPUSECASE:
 
                     envLandscape = selectEnvironmentLandscape(self)
 
-                    if envLandscape != None:
+                    if envLandscape is not None:
                         command = "btp --format json create accounts/environment-instance --subaccount \"" + subaccountid + "\" --environment " + envName + " --service " + environment["name"] + " --plan " + envPlan + " --parameters '" + str(parameters) + "' --landscape \"" + envLandscape + "\""
                     else:
                         command = "btp --format json create accounts/environment-instance --subaccount \"" + subaccountid + "\" --environment " + envName + " --service " + environment["name"] + " --plan " + envPlan + " --parameters '" + str(parameters) + "'"
@@ -249,19 +247,19 @@ class BTPUSECASE:
 
                 envLandscape = selectEnvironmentLandscape(self)
 
-                # Difference between TRIAL and Prod => Prod has a cluster region, TRIAL has not 
+#               Difference between TRIAL and Prod => Prod has a cluster region, TRIAL has not
                 if environment["plan"] == "trial":
                     clusterregion = self.region
                 else:
                     clusterregion = environment["parameters"]["region"]
 
-                if envLandscape != None:
+                if envLandscape is not None:
                     command = "btp --format json create accounts/environment-instance --subaccount \"" + subaccountid + "\" --environment " + btpEnvironment + " --service " + environment["name"] + " --plan " + environment["plan"] + " --parameters '" + str(parameters) + "' --landscape \"" + envLandscape + "\""
                 else:
                     command = "btp --format json create accounts/environment-instance --subaccount \"" + subaccountid + "\" --environment " + btpEnvironment + " --service " + environment["name"] + " --plan " + environment["plan"] + " --parameters '" + str(parameters) + "'"
 
                 message = "Create " + envName + " environment in cluster region >" + clusterregion + "<"
-                
+
                 result = runCommandAndGetJsonResult(self, command, logtype.INFO, message)
             else:
                 log.write(logtype.ERROR, "the BTP environment >" + self.btpEnvironment["name"] + "< is currently not supported in this script.")
@@ -283,7 +281,7 @@ class BTPUSECASE:
         if environment["name"] == "cloudfoundry":
             cfEnvironment = True
 
-        if cfEnvironment == True:
+        if cfEnvironment is True:
             log = self.log
 
             accountMetadata = self.accountMetadata
@@ -298,13 +296,11 @@ class BTPUSECASE:
             log.write(logtype.CHECK, "cfspacename >" + str(cfspacename) + "<")
             log.write(logtype.CHECK, "org         >" + str(org) + "<")
 
-            if result == False:
+            if result is False:
                 command = 'cf create-space "' + cfspacename + '" -o "' + org + '"'
                 message = "Create CF space >" + cfspacename + "<"
 
-                p = runShellCommand(self, command, logtype.INFO, message)
-                #result = p.stdout.decode()
-                #print("Result >" + result + "<")
+                runShellCommand(self, command, logtype.INFO, message)
 
                 command = 'cf spaces'
                 message = "Check when CF space >" + cfspacename + "< is ready"
@@ -327,7 +323,6 @@ class BTPUSECASE:
         set_all_cf_org_roles(self)
 
     def createRoleCollections(self):
-        log = self.log
         accountMetadata = self.accountMetadata
         subaccountid = accountMetadata["subaccountid"]
         rolecollections = getRoleCollectionsFromUsecaseFile(self)
@@ -337,16 +332,16 @@ class BTPUSECASE:
             rolecollectioname = rolecollection["name"]
             message = "Assign role collection >" + rolecollectioname
             command = "btp create security/role-collection '" + rolecollectioname + "' --description  '" + rolecollectioname + "' --subaccount '" + subaccountid + "'"
-            p = runShellCommand(self, command, logtype.INFO, message)
+            runShellCommand(self, command, logtype.INFO, message)
             for role in rolecollection["roles"]:
                 message = "Assign role " + role["name"] + " to role collection " + rolecollectioname
                 command = "btp add security/role '" + role["name"] + "' --to-role-collection  '" + rolecollectioname + "' --of-role-template '" + role["roletemplate"] + "' --of-app '" + role["app"] + "' --subaccount '" + subaccountid + "'"
-                p = runShellCommand(self, command, logtype.INFO, message)
+                runShellCommand(self, command, logtype.INFO, message)
 
             for userEmail in admins:
                 message = "assign user >" + userEmail + "< the role collection >" + rolecollectioname + "<"
                 command = "btp --format json assign security/role-collection \"" + rolecollectioname + "\" --to-user " + userEmail + " --create-user-if-missing --subaccount \"" + subaccountid + "\""
-                result = runCommandAndGetJsonResult(self, command, logtype.INFO, message)
+                runCommandAndGetJsonResult(self, command, logtype.INFO, message)
 
     def create_configured_app_subscriptions_and_services(self):
         log = self.log
@@ -405,11 +400,11 @@ class BTPUSECASE:
         log.write(logtype.HEADER, "SUCCESSFULLY EXECUTED THE USE CASE")
         log.write(logtype.INFO, "Subacount ID: >" + accountMetadata["subaccountid"] + "<")
 
-        if self.prunesubaccount == True:
+        if self.prunesubaccount is True:
             pruneUseCaseAssets(self)
             pruneSubaccount(self)
         else:
-            if self.pruneusecase == True:
+            if self.pruneusecase is True:
                 pruneUseCaseAssets(self)
 
         log.write(logtype.HEADER, "SUCCESSFULLY FINISHED USE CASE EXECUTION")
@@ -428,12 +423,12 @@ def assignUsersToSubaccount(btpUsecase: BTPUSECASE):
         role = "Subaccount Administrator"
         message = "assign user >" + userEmail + "< the role >" + role + "<"
         command = "btp --format json assign security/role-collection \"" + role + "\" --to-user " + userEmail + " --create-user-if-missing --subaccount \"" + subaccountid + "\""
-        result = runCommandAndGetJsonResult(btpUsecase, command, logtype.INFO, message)
+        runCommandAndGetJsonResult(btpUsecase, command, logtype.INFO, message)
 
         role = "Subaccount Service Administrator"
         message = "assign user >" + userEmail + "< the role >" + role + "<"
         command = "btp --format json assign security/role-collection \"" + role + "\" --to-user " + userEmail + " --create-user-if-missing --subaccount \"" + subaccountid + "\""
-        result = runCommandAndGetJsonResult(btpUsecase, command, logtype.INFO, message)
+        runCommandAndGetJsonResult(btpUsecase, command, logtype.INFO, message)
 
         # Do not add user as global admin for Trial accounts
         if btpUsecase.accountMetadata["licenseType"] != "TRIAL":
@@ -441,7 +436,7 @@ def assignUsersToSubaccount(btpUsecase: BTPUSECASE):
             message = "assign user >" + userEmail + "< the role >" + role + "<"
             # Add user to GA with suffix -ga
             command = "btp --format json assign security/role-collection \"" + role + "\" --to-user " + userEmail + " --create-user-if-missing -ga"
-            result = runCommandAndGetJsonResult(btpUsecase, command, logtype.INFO, message)
+            runCommandAndGetJsonResult(btpUsecase, command, logtype.INFO, message)
 
 
 def set_all_cf_space_roles(btpUsecase: BTPUSECASE):
@@ -450,7 +445,7 @@ def set_all_cf_space_roles(btpUsecase: BTPUSECASE):
     if environment["name"] == "cloudfoundry":
         cfEnvironment = True
 
-    if cfEnvironment == True:
+    if cfEnvironment is True:
         log = btpUsecase.log
 
         admins = getAdminsForUseCase(btpUsecase)
@@ -481,7 +476,7 @@ def set_all_cf_org_roles(btpUsecase: BTPUSECASE):
     if environment["name"] == "cloudfoundry":
         cfEnvironment = True
 
-    if cfEnvironment == True:
+    if cfEnvironment is True:
         log = btpUsecase.log
 
         admins = getAdminsForUseCase(btpUsecase)
@@ -509,12 +504,12 @@ def setBtpEnvironment(btpUsecase: BTPUSECASE, definedEnvironments):
     log = btpUsecase.log
 
     # If more than one BTP environment was set, this is not supported in the tooling so far
-    if definedEnvironments != None and len(definedEnvironments) > 1:
+    if definedEnvironments is not None and len(definedEnvironments) > 1:
         log.write(logtype.ERROR, "the tool currently only supports setting up one BTP environment per use case.")
         sys.exit(os.EX_DATAERR)
 
     # If no BTP environment was set, use the Cloud Foundry environment
-    if definedEnvironments == None or len(definedEnvironments) == 0:
+    if definedEnvironments is None or len(definedEnvironments) == 0:
         cfEnv = {}
         cfEnv["name"] = "cloudfoundry"
         cfEnv["plan"] = "standard"
@@ -522,7 +517,7 @@ def setBtpEnvironment(btpUsecase: BTPUSECASE, definedEnvironments):
         return cfEnv
 
     # If another BTP environment was set, use that environment environment
-    if definedEnvironments != None and len(definedEnvironments) == 1:
+    if definedEnvironments is not None and len(definedEnvironments) == 1:
         for environment in definedEnvironments:
             return environment
 
@@ -569,7 +564,7 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
     usecaseRegion = btpUsecase.region
     fallbackServicePlan = None
 
-    if btpUsecase.fallbackserviceplan != None and btpUsecase.fallbackserviceplan != "":
+    if btpUsecase.fallbackserviceplan is not None and btpUsecase.fallbackserviceplan != "":
         fallbackServicePlan = btpUsecase.fallbackserviceplan
 
     usecaseSupported = True
@@ -595,8 +590,8 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
             if (accountServiceName == usecaseServiceName):
                 for accountServicePlan in accountService["servicePlans"]:
                     accountServicePlanName = accountServicePlan["name"]
-                    accountServicePlanCategory = accountServicePlan["category"]
-                    if fallbackServicePlan != None and accountServicePlanName == fallbackServicePlan:
+#                   accountServicePlanCategory = accountServicePlan["category"]
+                    if fallbackServicePlan is not None and accountServicePlanName == fallbackServicePlan:
                         for accountServicePlanDataCenter in accountServicePlan["dataCenters"]:
                             accountServicePlanRegion = accountServicePlanDataCenter["region"]
                             if (accountServicePlanRegion == usecaseRegion):
@@ -607,10 +602,10 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
                             if (accountServicePlanRegion == usecaseRegion):
                                 supported = True
 
-        if (supported == True):
+        if (supported is True):
             log.write(logtype.SUCCESS, "service  >" + usecaseServiceName + "< with plan >" + usecaseServicePlan + "< in region >" + usecaseRegion + "< IS AVAILABLE")
         else:
-            if fallbackServicePlan != None and supportedFallbackServicePlan == True:
+            if fallbackServicePlan is not None and supportedFallbackServicePlan is True:
                 log.write(logtype.WARNING, "defined plan >" + usecaseServicePlan + "< not available, but using configured default fallback plan >" + fallbackServicePlan + "< for service >" + usecaseServiceName + "<")
                 log.write(logtype.SUCCESS, "service  >" + usecaseServiceName + "< with default fallback plan >" + fallbackServicePlan + "< in region >" + usecaseRegion + "< IS AVAILABLE")
                 usecaseService["plan"] = fallbackServicePlan
@@ -672,7 +667,7 @@ def get_globalaccount_details(btpUsecase: BTPUSECASE):
     commercial_model = result["commercialModel"]
     global_account_id = result["guid"]
 
-    if btpUsecase.cfspacename == None or btpUsecase.cfspacename == "":
+    if btpUsecase.cfspacename is None or btpUsecase.cfspacename == "":
         btpUsecase.cfspacename = "development"
 
     metadata = addKeyValuePair(metadata, "globalaccount", btpUsecase.globalaccount)
@@ -722,7 +717,7 @@ def btp_assign_role_collection_to_admins(btpUsecase: BTPUSECASE):
                     for admin in admins:
                         message = "Assign role collection >" + roleCollection + "< to user >" + admin + "<"
                         command = "btp assign security/role-collection '" + roleCollection + "' --to-user '" + admin + "' --subaccount '" + subaccountid + "'"
-                        p = runShellCommand(btpUsecase, command, logtype.INFO, message)
+                        runShellCommand(btpUsecase, command, logtype.INFO, message)
 
 
 def assign_entitlement(btpUsecase: BTPUSECASE, service):
@@ -778,9 +773,9 @@ def subscribe_app_to_subaccount(btpUsecase: BTPUSECASE, app, plan):
     --plan \"" + plan + "\""
 
     isAlreadySubscribed = checkIfAppIsSubscribed(btpUsecase, app, plan)
-    if isAlreadySubscribed == False:
+    if isAlreadySubscribed is False:
         message = "subscribe sub account to >" + app + "< and plan >" + plan + "<"
-        p = runShellCommand(btpUsecase, command, logtype.INFO, message)
+        runShellCommand(btpUsecase, command, logtype.INFO, message)
     else:
         log.write(logtype.INFO, "subscription already there for >" + app + "< and plan >" + plan + "<")
 
@@ -803,12 +798,12 @@ def doAllEntitlements(btpUsecase: BTPUSECASE, allItems):
 
     for service in allItems:
         # Quickly assign all entitlements (without waiting until they are all done)
-        responseCode = assign_entitlement(btpUsecase, service)
+        assign_entitlement(btpUsecase, service)
 
 
 def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
     log = btpUsecase.log
-    if btpUsecase.definedAppSubscriptions != None and len(btpUsecase.definedAppSubscriptions) > 0:
+    if btpUsecase.definedAppSubscriptions is not None and len(btpUsecase.definedAppSubscriptions) > 0:
 
         log.write(logtype.HEADER, "Initiate subscriptions to apps")
 
@@ -844,7 +839,6 @@ def get_subscription_status(btpUsecase: BTPUSECASE, app):
 
 
 def get_subscription_deletion_status(btpUsecase: BTPUSECASE, app):
-    log = btpUsecase.log
     accountMetadata = btpUsecase.accountMetadata
 
     app_name = app["name"]
@@ -857,7 +851,6 @@ def get_subscription_deletion_status(btpUsecase: BTPUSECASE, app):
     result = p.stdout.decode()
     result = convertStringToJson(result)
 
-    foundApp = False
     for application in result["applications"]:
         thisAppName = application["appName"]
         thisAppPlan = application["planName"]
@@ -883,7 +876,7 @@ def checkIfAllSubscriptionsAreAvailable(btpUsecase: BTPUSECASE):
         status = thisJson["state"]
         tenantId = thisJson["tenantId"]
         for app in btpUsecase.definedAppSubscriptions:
-            if app["name"] == name and app["plan"] == plan and app["successInfoShown"] == False:
+            if app["name"] == name and app["plan"] == plan and app["successInfoShown"] is False:
                 if status == "SUBSCRIBE_FAILED":
                     log.write(logtype.ERROR, "BTP account reported that subscription on >" + app["name"] + "< has failed.")
                     sys.exit(os.EX_DATAERR)
@@ -925,7 +918,6 @@ def track_creation_of_subscriptions_and_services(btpUsecase: BTPUSECASE):
     current_time = 0
 
     usecaseTimeout = btpUsecase.repeatstatustimeout
-    allServicesAndAppSubscriptionsAvailable = False
     while usecaseTimeout > current_time:
         areAllInstancesCreated = True
         areAllSubscriptionsCreated = True
@@ -936,7 +928,7 @@ def track_creation_of_subscriptions_and_services(btpUsecase: BTPUSECASE):
         if len(btpUsecase.definedAppSubscriptions) > 0:
             areAllSubscriptionsCreated = checkIfAllSubscriptionsAreAvailable(btpUsecase)
 
-        if (areAllInstancesCreated == True and areAllSubscriptionsCreated == True):
+        if (areAllInstancesCreated is True and areAllSubscriptionsCreated is True):
             log.write(logtype.SUCCESS, "All service instances and subscriptions are now available".upper())
             accountMetadata = addCreatedServicesToMetadata(btpUsecase)
 
@@ -1091,7 +1083,7 @@ def checkEmailsinUsecaseConfig(btpUsecase: BTPUSECASE):
             log.write(logtype.SUCCESS, "user >" + emailAddress + "< will be able to access use case in global account >" + btpUsecase.globalaccount + "<")
         else:
             log.write(logtype.WARNING, "email address >" + emailAddress + "< was found in the usecase definition, but that user has no access to this global account. Please check!")
-    if foundError == True:
+    if foundError is True:
         log.write(logtype.ERROR, "Can't move on with the use case, before the errors above are not fixed")
         sys.exit(os.EX_DATAERR)
 
@@ -1119,7 +1111,7 @@ def pruneSubaccount(btpUsecase: BTPUSECASE):
             for item in result["value"]:
                 if item["guid"] == accountMetadata["subaccountid"]:
                     accountStillThere = True
-            if accountStillThere == True:
+            if accountStillThere is True:
                 time.sleep(search_every_x_seconds)
                 current_time += search_every_x_seconds
             else:
@@ -1150,7 +1142,7 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
             usecaseTimeout = btpUsecase.repeatstatustimeout
             current_time = 0
             allServicesDeleted = False
-            while usecaseTimeout > current_time and allServicesDeleted == False:
+            while usecaseTimeout > current_time and allServicesDeleted is False:
                 for service in accountMetadata["createdAppSubscriptions"]:
                     status = get_subscription_deletion_status(btpUsecase, service)
                     if (status == "deleted"):
@@ -1205,7 +1197,7 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
             usecaseTimeout = btpUsecase.repeatstatustimeout
             current_time = 0
             allServicesDeleted = False
-            while usecaseTimeout > current_time and allServicesDeleted == False:
+            while usecaseTimeout > current_time and allServicesDeleted is False:
                 for service in accountMetadata["createdServiceInstances"]:
                     status = get_cf_service_deletion_status(btpUsecase, service)
                     if (status == "deleted"):
@@ -1237,7 +1229,7 @@ def selectEnvironmentLandscape(btpUsecase: BTPUSECASE):
     elif environment["name"] == "kymaruntime" and environment["plan"] != "trial":
         region = environment["parameters"]["region"]
     else:
-        region = btpUsecase.region  
+        region = btpUsecase.region
 
     subaccountid = accountMetadata["subaccountid"]
     log = btpUsecase.log

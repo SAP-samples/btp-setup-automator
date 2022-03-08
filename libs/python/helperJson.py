@@ -1,12 +1,14 @@
 import json
 from os import EX_DATAERR
-from subprocess import run, PIPE
 from libs.python.helperLog import logtype
-import sys, re, requests
+import sys
+import re
+import requests
+
 
 def getJsonFromFile(self, filename):
-    log = None 
-    if self != None:
+    log = None
+    if self is not None:
         log = self.log
 
     data = None
@@ -25,66 +27,74 @@ def getJsonFromFile(self, filename):
         data = json.load(f)
     except IOError:
         message = "Can't open json file >" + filename + "<"
-        if log != None:
-            log.write( logtype.ERROR, message)
+        if log is not None:
+            log.write(logtype.ERROR, message)
         else:
             print(message)
         foundError = True
     except ValueError as err:
-        message ="There is an issue in the json file >" + filename + "<. Issue starts on character position " + str(err.pos) + ": " + err.msg
-        if log != None:
-            log.write( logtype.ERROR, message)
+        message = "There is an issue in the json file >" + filename + "<. Issue starts on character position " + str(err.pos) + ": " + err.msg
+        if log is not None:
+            log.write(logtype.ERROR, message)
         else:
             print(message)
         foundError = True
     finally:
-        if f != None:
+        if f is not None:
             f.close()
-    
-    if foundError == True:
-        message ="Can't run the use case before the error(s) mentioned above are not fixed"
-        if log != None:
-            log.write( logtype.ERROR, message)
+
+    if foundError is True:
+        message = "Can't run the use case before the error(s) mentioned above are not fixed"
+        if log is not None:
+            log.write(logtype.ERROR, message)
         else:
             print(message)
         sys.exit(EX_DATAERR)
     return data
-    
+
+
 def dictToString(dict):
     return json.dumps(dict)
+
 
 def dictToJson(dict):
     return json.dumps(dict, indent=2)
 
+
 def convertStringToJson(string):
-    jsonObject = json.loads(string) 
+    jsonObject = json.loads(string)
     return jsonObject
 
+
 def convertJsonToString(json):
-    string = json.dumps(json) 
+    string = json.dumps(json)
     return string
 
-def addKeyValuePair(json,key,value):
+
+def addKeyValuePair(json, key, value):
     json[key] = value
     return json
-    
-def saveJsonToFile(filename,jsonData):
+
+
+def saveJsonToFile(filename, jsonData):
     with open(filename, 'w') as outfile:
-        json.dump(jsonData, outfile, indent=2) 
+        json.dump(jsonData, outfile, indent=2)
     return True
 
+
 def addKeyValuePairToJsonFile(filename, key, value):
-    myJson = getJsonFromFile(None,filename)
+    myJson = getJsonFromFile(None, filename)
     myJson = addKeyValuePair(myJson, key, value)
     saveJsonToFile(filename, myJson)
+
 
 def convertCloudFoundryCommandOutputToJson(lines):
     dict = []
     positions = []
-    keys=[]
-    
+    keys = []
+
     # Remove the first 2 lines of the output (don't contain neccessary information)
-    lines = lines.split('\n',2)[-1]
+    lines = lines.split('\n', 2)[-1]
 
     # Detect the columns of the text table
     # Simply look for three whitespaces as separator
@@ -95,20 +105,20 @@ def convertCloudFoundryCommandOutputToJson(lines):
             positions.append(pos)
         break
     # Remove the first line (the one with the keys)
-    dataRows = lines.split('\n',1)[-1]
+    dataRows = lines.split('\n', 1)[-1]
 
     for row in dataRows.splitlines():
-        i=0
+        i = 0
         dataInRow = convertStringToJson("{}")
         for key in keys:
             posStart = positions[i]
             posEnd = len(row)
             if i + 1 < len(positions):
-                posEnd   = positions[i+1]
+                posEnd = positions[i + 1]
             value = row[posStart:posEnd]
             value = value.strip()
-            dataInRow = addKeyValuePair(dataInRow,key, value)
-            i= i + 1
+            dataInRow = addKeyValuePair(dataInRow, key, value)
+            i = i + 1
         dict.append(dataInRow)
 
     json = dictToJson(dict)
