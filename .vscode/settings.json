@@ -1,5 +1,7 @@
 {
     "python.pythonPath": "/usr/local/bin/python3",
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": ["--ignore=E501,F405"]
     "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true
 }

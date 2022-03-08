@@ -1,0 +1,7 @@
+{
+    "usecasefile": "usecases/released/setup_kyma_gcp.json",
+    "myemail": "YOUR EMAIL",
+    "globalaccount": "GLOBAL ACCOUNT ID",
+    "subaccountname": "kymasetupauto",
+    "region": "us30"
+}

@@ -1,0 +1,20 @@
+{
+  "aboutThisUseCase": {
+    "name": "Setup a Kyma environment on your BTP TRIAL account",
+    "description": "This usecase contains the necessary configuration to setup a Kyma environment in your SAP BTP account (TRIAL).",
+    "author": "christian.lechner@sap.com",
+    "testStatus": "tested successfully",
+    "usageStatus": "READY TO BE USED"
+  },
+  "services": [
+    {
+      "category": "ENVIRONMENT",
+      "name": "kymaruntime",
+      "plan": "trial",
+      "amount": 1,
+      "parameters": {
+        "name": "btpsetupautomator-kyma"
+      }
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 {
-  "usecasefile": "usecases/other/inDevelopment/setup_kyma.json",
-  "loginmethod": "basicAuthentication",
-  "prunesubaccount": true
-
+  "usecasefile": "usecases/released/setup_kyma_free_tier.json",
+  "myemail": "YOUR EMAIL",
+  "globalaccount": "GLOBAL ACCOUNT ID",
+  "subaccountname": "kymasetupauto",
+  "region": "eu10"
 }

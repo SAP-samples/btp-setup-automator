@@ -1,0 +1,24 @@
+{
+  "aboutThisUseCase": {
+    "name": "Setup a Kyma environment on your productive BTP account (GCP)",
+    "description": "This usecase contains the necessary configuration to setup a Kyma environment in your SAP BTP account (GCP).",
+    "author": "christian.lechner@sap.com",
+    "testStatus": "tested successfully",
+    "usageStatus": "READY TO BE USED"
+  },
+  "services": [
+    {
+      "category": "ENVIRONMENT",
+      "name": "kymaruntime",
+      "plan": "gcp",
+      "amount": 1,
+      "parameters": {
+        "name": "btp-auto-setup",
+        "region": "europe-west3",
+        "autoScalerMin": 2,
+        "autoScalerMax": 3,
+        "machineType": "n2-standard-8"
+      }
+    }
+  ]
+}

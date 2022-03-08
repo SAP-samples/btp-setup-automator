@@ -2,5 +2,3 @@
 cred.txt
 buildAndPushImage.sh
 unittestExecute.sh
-unittests
-cred.txt
