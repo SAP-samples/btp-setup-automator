@@ -65,7 +65,7 @@ docker pull ghcr.io/sap-samples/btp-setup-automator:main
 In a second step you now need to run the image in a container. This is done with this command:
 
 ```bash
-docker container run --rm  -it -d --name "btp-setup-automator" "btp-setup-automator"
+docker container run --rm  -it -d --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
 ```
 
 ### Start Docker Container: Building the Image Yourself
