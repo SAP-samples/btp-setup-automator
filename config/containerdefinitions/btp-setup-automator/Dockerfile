@@ -74,6 +74,27 @@ RUN apk update upgrade \
 && rm -rf multiapps-cli-plugin
 
 ########################################################################################
+# Retrieve the Kubernetes CLI
+########################################################################################
+FROM base as kubectl_cli
+SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+WORKDIR /tmp/tools
+RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
+&& chmod +x ./kubectl
+
+########################################################################################
+# Retrieve the helm package manager
+########################################################################################
+FROM base as helm_cli
+SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+WORKDIR /tmp/tools
+RUN apk update upgrade \
+&& apk add --no-cache bash openssl \
+&& curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 \
+&& chmod 700 get_helm.sh \
+&& ./get_helm.sh
+
+########################################################################################
 # Bring the tools together into the final base stage
 ########################################################################################
 FROM alpine:3 as tools
@@ -82,6 +103,8 @@ COPY --from=cf_cli                 /tmp/tools/ .
 COPY --from=btp_cli                /tmp/tools/ .
 COPY --from=mta_build_tool         /tmp/tools/ .
 COPY --from=cf_plugin_multiapps    /tmp/tools/ .
+COPY --from=kubectl_cli            /tmp/tools/ .
+COPY --from=helm_cli               /usr/local/bin/helm .
 
 ##################################################################################################################################################
 # Now putting all pieces together 
@@ -140,6 +163,8 @@ COPY --chown=root:root --from=tools /usr/local/bin/cf7  /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/btp /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/mbt /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/multiapps-plugin-static.linux64 /usr/local/bin
+COPY --chown=root:root --from=tools /usr/local/bin/kubectl /usr/local/bin
+COPY --chown=root:root --from=tools /usr/local/bin/helm /usr/local/bin
 
 ## Install the CF plugin for deploying MTAs on Cloudfoundry
 #RUN cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/latest/download/multiapps-plugin.linux32 
