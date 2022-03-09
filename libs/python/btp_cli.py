@@ -1,3 +1,4 @@
+from pickle import NONE
 import libs.python.helperArgParser as helperArgParser
 from libs.python.helperJson import addKeyValuePair, dictToString, convertStringToJson, saveJsonToFile, getJsonFromFile
 from libs.python.helperLog import LOGFILE, logtype
@@ -396,19 +397,25 @@ class BTPUSECASE:
 
         for rolecollection in rolecollections:
             rolecollectioname = rolecollection["name"]
-            message = "Assign role collection >" + rolecollectioname
-            command = "btp create security/role-collection '" + rolecollectioname + \
-                "' --description  '" + rolecollectioname + \
-                "' --subaccount '" + subaccountid + "'"
-            runShellCommand(self, command, logtype.INFO, message)
-            for role in rolecollection["roles"]:
-                message = "Assign role " + \
-                    role["name"] + " to role collection " + rolecollectioname
-                command = "btp add security/role '" + role["name"] + "' --to-role-collection  '" + rolecollectioname + \
-                    "' --of-role-template '" + \
-                    role["roletemplate"] + "' --of-app '" + \
-                    role["app"] + "' --subaccount '" + subaccountid + "'"
+            # Check the role collection was not created before
+            message = "Check this role collection does not exist >" + rolecollectioname
+            command = "btp get security/role-collection '" + rolecollectioname + "'"
+            p = runShellCommandFlex(self, command, logtype.INFO, message, False, False)
+            result = p.stdout.decode()
+            if "error: No entity found with values" in result:
+                message = "Assign role collection >" + rolecollectioname
+                command = "btp create security/role-collection '" + rolecollectioname + \
+                    "' --description  '" + rolecollectioname + \
+                    "' --subaccount '" + subaccountid + "'"
                 runShellCommand(self, command, logtype.INFO, message)
+                for role in rolecollection["roles"]:
+                    message = "Assign role " + \
+                        role["name"] + " to role collection " + rolecollectioname
+                    command = "btp add security/role '" + role["name"] + "' --to-role-collection  '" + rolecollectioname + \
+                        "' --of-role-template '" + \
+                        role["roletemplate"] + "' --of-app '" + \
+                        role["app"] + "' --subaccount '" + subaccountid + "'"
+                    runShellCommand(self, command, logtype.INFO, message)
 
             for userEmail in admins:
                 message = "assign user >" + userEmail + \
@@ -1140,7 +1147,7 @@ def getAdminsForUseCase(btpUsecase: BTPUSECASE):
 
     if licenseType != "TRIAL":
         for admin in btpUsecase.admins:
-            email = admin["email"]
+            email = admin
             result.append(email)
 
     result.append(myUser)
@@ -1196,8 +1203,8 @@ def getListOfAdditionalEmailAdressesInUsecaseFile(btpUsecase: BTPUSECASE):
 
     # Before checking all other email addresses, remove from the result all the email addresses that already have been covered in the admins section
     for admin in adminsList:
-        if admin["email"] in allEmails:
-            allEmails.remove(admin["email"])
+        if admin in allEmails:
+            allEmails.remove(admin)
 
     return allEmails
 
