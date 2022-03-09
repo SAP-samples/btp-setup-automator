@@ -1351,13 +1351,13 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                                 usecaseTimeout = current_time - 1
                             time.sleep(search_every_x_seconds)
                             current_time += search_every_x_seconds
-
-                command = "cf delete-service " + '"' + \
-                    service["instancename"] + '"' + " -f"
-                message = "Delete CF service instance >" + \
-                    service["instancename"] + "< from subaccount"
-                result = runShellCommand(
-                    btpUsecase, command, logtype.INFO, message)
+                if "instancename" in service and service["instancename"] is not None and service["instancename"] != "":
+                    command = "cf delete-service " + '"' + \
+                        service["instancename"] + '"' + " -f"
+                    message = "Delete CF service instance >" + \
+                        service["instancename"] + "< from subaccount"
+                    result = runShellCommand(
+                        btpUsecase, command, logtype.INFO, message)
 
             log.write(logtype.INFO, "Check deletion status for service instances")
 
