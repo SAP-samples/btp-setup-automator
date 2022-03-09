@@ -1,11 +1,12 @@
 {
-  "myemail": null,
+  "myemail": "fabian.lehmann02@sap.com",
   "loginmethod": "basicAuthentication",
-  "region": "us10",
-  "globalaccount": null,
+  "region": "eu10",
+  "globalaccount": "crossarchitecture-pm",
   "subaccountname": null,
+  "iashost": "caias.accounts.ondemand.com",
   "orgid": null,
   "cfspacename": "development",
-  "suffixinstancename": null,
-  "usecasefile": "usecases/released/cap_app_launchpad_TRIAL.json"
+  "suffixinstancename": "tc",
+  "usecasefile": "usecases/released/setup_task_center.json"
 }
