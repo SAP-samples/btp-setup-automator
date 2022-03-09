@@ -31,7 +31,6 @@ As a user the only thing you need to focus on is your use case that defines whic
 To use the tooling you first need to finish the following tasks:
 
 - Get an [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/trial/#/home/trial) (you can also use a [productive SAP BTP account](https://account.hana.ondemand.com/#/home/welcome))
-- [Install a Git client](https://git-scm.com/downloads) - you need it to access the code samples
 - [Install a Docker engine](https://docs.docker.com/desktop/)
 
 In case you are new to the containers topic, it is **highly recommended** to install and setup **MS Visual Studio Code**, too:
