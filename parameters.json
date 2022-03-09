@@ -4,7 +4,7 @@
   "region": "eu10",
   "globalaccount": "crossarchitecture-pm",
   "subaccountname": null,
-  "iashost": "caias.accounts.ondemand.com",
+  "iashost": null,
   "orgid": null,
   "cfspacename": "development",
   "suffixinstancename": "tc",
