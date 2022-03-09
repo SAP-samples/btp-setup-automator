@@ -52,7 +52,7 @@
       ]
     }
   ],
-  "admins": [],
+  "admins": ["jane.doe@sap.com"],
   "executeBeforeAccountSetup": [],
   "executeAfterAccountSetup": [
     {

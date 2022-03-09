@@ -631,8 +631,7 @@ def getServiceCategoryItemsFromUsecaseFile(btpUsecase: BTPUSECASE, categories):
                     usecaseService["successInfoShown"] = False
                     items.append(usecaseService)
     else:
-        log.write(logtype.WARNING,
-                  "no services defined in your use case configuration file")
+        log.write(logtype.WARNING, "no services defined in your use case configuration file")
 
     return items
 
@@ -647,8 +646,7 @@ def getAdminsFromUsecaseFile(btpUsecase: BTPUSECASE):
         for admin in usecase["admins"]:
             items.append(admin)
     else:
-        log.write(logtype.WARNING,
-                  "no admins defined in your use case configuration file (other than you)")
+        log.write(logtype.WARNING, "no admins defined in your use case configuration file (other than you)")
 
     return items
 

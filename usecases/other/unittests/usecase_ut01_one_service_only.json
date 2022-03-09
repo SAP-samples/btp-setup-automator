@@ -14,11 +14,7 @@
     }
   ],
   "admins": [
-    {
-      "email": "rui.nogueira@sap.com"
-    },
-    {
-      "email": "rui.nogueira@sap.com"
-    }
+    "rui.nogueira@sap.com",
+    "rui.nogueira@sap.com"
   ]
 }

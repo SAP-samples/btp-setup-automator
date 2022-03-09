@@ -116,9 +116,7 @@
     }
   ],
   "admins": [
-    {
-      "email": "your.emailaddress@somwhere.com"
-    }
+    "your.emailaddress@somwhere.com"
   ],
   "executeAfterAccountSetup": [
     {

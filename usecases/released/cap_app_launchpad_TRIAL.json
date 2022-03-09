@@ -59,7 +59,6 @@
       ]
     }
   ],
-  "admins": [],
   "executeBeforeAccountSetup": [],
   "executeAfterAccountSetup": [
     {

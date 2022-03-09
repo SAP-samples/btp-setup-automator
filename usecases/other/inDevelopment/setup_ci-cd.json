@@ -19,11 +19,7 @@
         }
     ],
     "admins": [
-        {
-            "email": "jane.doe@sap.com"
-        },
-        {
-            "email": "john.doe@sap.com"
-        }
+        "jane.doe@sap.com",
+        "john.doe@sap.com"
     ]
 }
