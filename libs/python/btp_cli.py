@@ -1296,6 +1296,10 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
             usecaseTimeout = btpUsecase.repeatstatustimeout
             current_time = 0
             allServicesDeleted = False
+            # Set the deletion status to "not deleted"
+            for service in accountMetadata["createdAppSubscriptions"]:
+                service["deletionStatus"] = "not deleted"
+
             while usecaseTimeout > current_time and allServicesDeleted is False:
                 for service in accountMetadata["createdAppSubscriptions"]:
                     status = get_subscription_deletion_status(
@@ -1304,7 +1308,6 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                         log.write(
                             logtype.SUCCESS, "app subscription for app >" + service["name"] + "< now deleted")
                         service["deletionStatus"] = "deleted"
-                        break
                     if (status == "UNSUBSCRIBE_FAILED"):
                         log.write(logtype.ERROR, "unsubscribing app >" +
                                   service["name"] + "< failed. Returned status >" + status + "<")
@@ -1363,6 +1366,10 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
             usecaseTimeout = btpUsecase.repeatstatustimeout
             current_time = 0
             allServicesDeleted = False
+            # Set the deletion status to "not deleted"
+            for service in accountMetadata["createdServiceInstances"]:
+                service["deletionStatus"] = "not deleted"
+
             while usecaseTimeout > current_time and allServicesDeleted is False:
                 for service in accountMetadata["createdServiceInstances"]:
                     status = get_cf_service_deletion_status(
@@ -1371,7 +1378,6 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                         log.write(logtype.SUCCESS, "service instance>" +
                                   service["instancename"] + "< for service >" + service["instancename"] + "< now deleted.")
                         service["deletionStatus"] = "deleted"
-                        break
                     else:
                         service["deletionStatus"] = status
                 time.sleep(search_every_x_seconds)
