@@ -74,11 +74,12 @@ RUN apk update upgrade \
 && rm -rf multiapps-cli-plugin
 
 ########################################################################################
-# Retrieve the Kubernetes CLI
+# Retrieve the Kubernetes CLI, krew and OIDC Plugin (needed for Kyma)
 ########################################################################################
 FROM base as kubectl_cli
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 WORKDIR /tmp/tools
+
 RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
 && chmod +x ./kubectl
 
@@ -137,6 +138,7 @@ RUN adduser \
     && apk add --no-cache \
                bash \
                coreutils \
+               curl \
                git \
                make \
                nodejs \
@@ -169,6 +171,20 @@ COPY --chown=root:root --from=tools /usr/local/bin/helm /usr/local/bin
 ## Install the CF plugin for deploying MTAs on Cloudfoundry
 #RUN cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/latest/download/multiapps-plugin.linux32 
 RUN cf install-plugin -f /usr/local/bin/multiapps-plugin-static.linux64
+
+## Install krew and the oidc-login plugin
+RUN OS="$(uname | tr '[:upper:]' '[:lower:]')" \
+&& ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" \ 
+&& KREW="krew-${OS}_${ARCH}" \
+&& curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" \
+&& tar zxvf "${KREW}.tar.gz" \
+&& rm -rf "${KREW}.tar.gz" \
+&& ./"${KREW}" install krew \
+&& PATH="$HOME/.krew/bin:$PATH" \
+&& kubectl krew install oidc-login \
+&& rm -rf ./"${KREW}"
+# Set the path to the krew binary
+ENV PATH "$PATH:$HOME_FOLDER/.krew/bin"
 
 ## Copy over the all necessary resources
 COPY --chown=$USERNAME:$USERNAME usecases/                                  $HOME_FOLDER/usecases/
