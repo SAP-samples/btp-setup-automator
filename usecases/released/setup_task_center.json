@@ -1,8 +1,8 @@
 {
     "aboutThisUseCase": {
       "name": "Setup SAP Task Center",
-      "description": "This usecase provides the configuration of services to setup SAP Task Center",
-      "author": "rui.nogueira@sap.com",
+      "description": "This usecase provides the configuration of services to setup SAP Task Center \n  To establish the necessary trust with your custom IAS tenant, please provide the corresbonding host in the 'parameters.json' file with the paramter **iashost**",
+      "author": "fabian.lehmann02@sap.com",
       "testStatus": "tested successfully",
       "usageStatus": "READY TO BE USED"
     },
@@ -37,6 +37,6 @@
       }    
     ],
     "admins": [
-      {"email": "jane.doe@sap.com"}
+      {"email": "fabian.lehmann02@sap.com"}
     ]
   }
