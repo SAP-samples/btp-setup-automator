@@ -479,8 +479,7 @@ class BTPUSECASE:
         runTrustFlow(self)
 
         log.write(logtype.HEADER, "SUCCESSFULLY EXECUTED THE USE CASE")
-        log.write(logtype.INFO, "Subacount ID: >" +
-                  accountMetadata["subaccountid"] + "<")
+        log.write(logtype.INFO, "Subacount ID: >" + accountMetadata["subaccountid"] + "<")
 
         if self.prunesubaccount is True:
             pruneUseCaseAssets(self)
@@ -547,14 +546,11 @@ def set_all_cf_space_roles(btpUsecase: BTPUSECASE):
         for spaceRole in spaceRoles:
             for admin in admins:
                 message = "Assign space role >" + spaceRole + "< to user >" + admin + "<"
-                command = "cf set-space-role '" + admin + "' '" + \
-                    org + "' '" + cfspacename + "' '" + spaceRole + "'"
-                p = runShellCommandFlex(
-                    btpUsecase, command, logtype.INFO, message, False, False)
+                command = "cf set-space-role '" + admin + "' '" + org + "' '" + cfspacename + "' '" + spaceRole + "'"
+                p = runShellCommandFlex(btpUsecase, command, logtype.INFO, message, False, False)
                 result = p.stdout.decode()
                 if "message: The user could not be found" in result:
-                    log.write(logtype.ERROR, "the user >" + admin +
-                              "< was not found and could not be assigned the role >" + spaceRole + "<")
+                    log.write(logtype.ERROR, "the user >" + admin + "< was not found and could not be assigned the role >" + spaceRole + "<")
 
         save_collected_metadata(btpUsecase)
 
@@ -581,12 +577,10 @@ def set_all_cf_org_roles(btpUsecase: BTPUSECASE):
             for admin in admins:
                 message = "Assign org role >" + orgRole + "< to user >" + admin + "<"
                 command = "cf set-org-role '" + admin + "' '" + org + "' '" + orgRole + "'"
-                p = runShellCommandFlex(
-                    btpUsecase, command, logtype.INFO, message, False, False)
+                p = runShellCommandFlex(btpUsecase, command, logtype.INFO, message, False, False)
                 result = p.stdout.decode()
                 if "message: The user could not be found" in result:
-                    log.write(logtype.ERROR, "the user >" + admin +
-                              "< was not found and could not be assigned the role >" + orgRole + "<")
+                    log.write(logtype.ERROR, "the user >" + admin + "< was not found and could not be assigned the role >" + orgRole + "<")
 
         save_collected_metadata(btpUsecase)
 
@@ -1305,17 +1299,13 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                     status = get_subscription_deletion_status(
                         btpUsecase, service)
                     if (status == "deleted"):
-                        log.write(
-                            logtype.SUCCESS, "app subscription for app >" + service["name"] + "< now deleted")
+                        log.write(logtype.SUCCESS, "app subscription for app >" + service["name"] + "< now deleted")
                         service["deletionStatus"] = "deleted"
                     if (status == "UNSUBSCRIBE_FAILED"):
-                        log.write(logtype.ERROR, "unsubscribing app >" +
-                                  service["name"] + "< failed. Returned status >" + status + "<")
+                        log.write(logtype.ERROR, "unsubscribing app >" + service["name"] + "< failed. Returned status >" + status + "<")
                         service["deletionStatus"] = "UNSUBSCRIBE_FAILED"
-                        log.write(
-                            logtype.INFO, "trying again to remove the subscription to app >" + service["name"] + "<")
-                        result = runCommandAndGetJsonResult(
-                            btpUsecase, command, logtype.INFO, message)
+                        log.write(logtype.INFO, "trying again to remove the subscription to app >" + service["name"] + "<")
+                        result = runCommandAndGetJsonResult(btpUsecase, command, logtype.INFO, message)
                         service["deletionStatus"] = status
                     else:
                         service["deletionStatus"] = status
@@ -1344,20 +1334,16 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                                 service["instancename"] + " " + key["keyname"]
                             # Calling the command with the goal to get back the "FAILED" status, as this means that the service key was not found (because deletion was successfull)
                             # If the status is not "FAILED", this means that the deletion hasn't been finished so far
-                            p = runShellCommandFlex(btpUsecase, command, logtype.CHECK, "check if service key >" +
-                                                    key["keyname"] + "< for service instance >" + service["instancename"] + "<", False, False)
+                            p = runShellCommandFlex(btpUsecase, command, logtype.CHECK, "check if service key >" + key["keyname"] + "< for service instance >" + service["instancename"] + "<", False, False)
                             result = p.stdout.decode()
                             if "FAILED" in result:
                                 usecaseTimeout = current_time - 1
                             time.sleep(search_every_x_seconds)
                             current_time += search_every_x_seconds
                 if "instancename" in service and service["instancename"] is not None and service["instancename"] != "":
-                    command = "cf delete-service " + '"' + \
-                        service["instancename"] + '"' + " -f"
-                    message = "Delete CF service instance >" + \
-                        service["instancename"] + "< from subaccount"
-                    result = runShellCommand(
-                        btpUsecase, command, logtype.INFO, message)
+                    command = "cf delete-service " + '"' + service["instancename"] + '"' + " -f"
+                    message = "Delete CF service instance >" + service["instancename"] + "< from subaccount"
+                    result = runShellCommand(btpUsecase, command, logtype.INFO, message)
 
             log.write(logtype.INFO, "Check deletion status for service instances")
 

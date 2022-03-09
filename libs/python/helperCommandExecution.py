@@ -42,18 +42,16 @@ def login_btp(btpUsecase):
     password = btpUsecase.mypassword
     globalaccount = btpUsecase.globalaccount
 
-    command = None
+    command = "btp login --url \"https://cpcli.cf.eu10.hana.ondemand.com\" --subdomain \"" + globalaccount + "\""
     if btpUsecase.loginmethod == "sso":
-        command = "btp login --url \"https://cpcli.cf.eu10.hana.ondemand.com\" --subdomain \"" + \
-            globalaccount + "\" --sso"
-        runShellCommandFlex(btpUsecase, command, logtype.INFO,
-                            "Logging-in to your global account with subdomain ID >" + globalaccount + "<", True, True)
+        message = "Logging-in to your global account with subdomain ID >" + globalaccount + "<"
+        command = command + " --sso"
+        runShellCommandFlex(btpUsecase, command, logtype.INFO, message, True, True)
         fetchEmailAddressFromBtpConfigFile(btpUsecase)
     else:
-        command = "btp login --url \"https://cpcli.cf.eu10.hana.ondemand.com\" --subdomain \"" + \
-            globalaccount + "\" --user \"" + myemail + "\" --password \"" + password + "\""
-        runShellCommandFlex(btpUsecase, command, logtype.INFO, "Logging-in to your global account with subdomain ID >" +
-                            globalaccount + "< for your user >" + myemail + "<", True, True)
+        message = "Logging-in to your global account with subdomain ID >" + globalaccount + "< for your user >" + myemail + "<"
+        command = command + " --user \"" + myemail + "\" --password \"" + password + "\""
+        runShellCommandFlex(btpUsecase, command, logtype.INFO, message, True, False)
 
 
 def fetchEmailAddressFromBtpConfigFile(btpUsecase):
@@ -99,10 +97,13 @@ def runShellCommandFlex(btpUsecase, command, format, info, exitIfError, noPipe):
     if (returnCode == 0 or exitIfError is False):
         return p
     else:
-        output = p.stdout.decode()
-        error = p.stderr.decode()
-        log.write(logtype.ERROR, output)
-        log.write(logtype.ERROR, error)
+        if p is not None and p.stdout is not None:
+            output = p.stdout.decode()
+            error = p.stderr.decode()
+            log.write(logtype.ERROR, output)
+            log.write(logtype.ERROR, error)
+        else:
+            log.write(logtype.ERROR, "Something went wrong, but the script can not fetch the error message. Please check the log messages before.")
         sys.exit(returnCode)
 
 
@@ -169,7 +170,6 @@ def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):
             message = command["description"]
             thisCommand = command["command"]
             log.write(logtype.HEADER, "COMMAND EXECUTION: " + message)
-            p = runShellCommand(btpUsecase, thisCommand, logtype.INFO,
-                                "Executing the following commands:\n" + thisCommand + "\n")
+            p = runShellCommand(btpUsecase, thisCommand, logtype.INFO, "Executing the following commands:\n" + thisCommand + "\n")
             result = p.stdout.decode()
             log.write(logtype.SUCCESS, result)
