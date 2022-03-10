@@ -21,7 +21,7 @@
       "plan": "hana-free",
       "repeatstatusrequest": "60",
       "repeatstatustimeout": "3600",
-      "instancename": "hana_instance",
+      "instancename": "my-hana-cloud-free-instance",
       "parameters": {
         "data": {
           "edition": "cloud",
@@ -39,6 +39,7 @@
       "category": "SERVICE",
       "name": "hana",
       "plan": "hdi-shared",
+      "instancename": "my-hana-hdi-shared-instance",
       "requiredServices": [
         "hana-cloud"
       ]

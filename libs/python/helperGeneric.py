@@ -74,7 +74,7 @@ def createInstanceName(btpUsecase, service):
     if "instancename" in service:
         return service["instancename"]
     else:
-        result = service["name"] + "_" + btpUsecase.suffixinstancename
+        result = service["name"] + "_" + service["plan"] + "_" + btpUsecase.suffixinstancename
     result = re.sub(r"[^\w\s]", '_', result)
     result = result.replace("__", "_")
     if result[len(result) - 1] == "_":

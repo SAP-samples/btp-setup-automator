@@ -3,6 +3,8 @@ from libs.python.helperGeneric import getServiceByServiceName, createInstanceNam
 from libs.python.helperJson import convertStringToJson, convertCloudFoundryCommandOutputToJson, dictToString
 from libs.python.helperLog import logtype
 import time
+import os
+import sys
 
 
 def getKeyFromCFOutput(cfoutput, key):
@@ -108,8 +110,7 @@ def try_until_cf_space_done(btpUsecase, command, message, spacename, search_ever
 
 
 def create_cf_service(btpUsecase, service):
-    instancename = createInstanceName(btpUsecase, service)
-    service["instancename"] = instancename
+    instancename = service["instancename"]
 
     command = "cf create-service \"" + \
         service["name"] + "\" \"" + service["plan"] + \
@@ -130,6 +131,24 @@ def initiateCreationOfServiceInstances(btpUsecase):
     if btpUsecase.definedServices is not None and len(btpUsecase.definedServices) > 0:
         login_cf(btpUsecase)
         log.write(logtype.HEADER, "Initiate creation of service instances")
+
+        # First add all instance names to the services
+        for service in btpUsecase.definedServices:
+            instancename = createInstanceName(btpUsecase, service)
+            service["instancename"] = instancename
+
+        # Check whether there are services with the same instance name
+        # If there are, it's not safe to create the service instances
+        for service in btpUsecase.definedServices:
+            instanceName = service["instancename"]
+            counter = 0
+            for thisService in btpUsecase.definedServices:
+                thisInstanceName = thisService["instancename"]
+                if thisInstanceName == instanceName:
+                    counter += 1
+            if counter > 1:
+                log.write(logtype.ERROR, "there is more than one service with the instance name >" + instanceName + "<. Please fix that before moving on.")
+                sys.exit(os.EX_DATAERR)
 
         # Now create all the service instances
         for service in btpUsecase.definedServices:
