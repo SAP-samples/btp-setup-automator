@@ -1363,11 +1363,14 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
 
             while usecaseTimeout > current_time and allServicesDeleted is False:
                 for service in accountMetadata["createdServiceInstances"]:
-                    status = get_cf_service_deletion_status(
-                        btpUsecase, service)
+                    if "instancename" not in service:
+                        status = "deleted"
+                        service["deletionStatus"] = status
+                        log.write(logtype.INFO, "no service instance available for service >" + service["name"] + "<. Deletion not needed.")
+                        continue
+                    status = get_cf_service_deletion_status(btpUsecase, service)
                     if (status == "deleted"):
-                        log.write(logtype.SUCCESS, "service instance>" +
-                                  service["instancename"] + "< for service >" + service["instancename"] + "< now deleted.")
+                        log.write(logtype.SUCCESS, "service instance >" + service["instancename"] + "< for service >" + service["name"] + "< now deleted.")
                         service["deletionStatus"] = "deleted"
                     else:
                         service["deletionStatus"] = status
@@ -1379,8 +1382,7 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                         allServicesDeleted = False
             log.write(logtype.SUCCESS, "all service instances now deleted.")
         else:
-            log.write(logtype.ERROR, "the BTP environment >" +
-                      btpUsecase.btpEnvironment["name"] + "< is currently not supported in this script.")
+            log.write(logtype.ERROR, "the BTP environment >" + btpUsecase.btpEnvironment["name"] + "< is currently not supported in this script.")
             sys.exit(os.EX_DATAERR)
 
 
