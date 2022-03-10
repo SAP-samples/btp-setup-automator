@@ -1,4 +1,3 @@
-from pickle import NONE
 import libs.python.helperArgParser as helperArgParser
 from libs.python.helperJson import addKeyValuePair, dictToString, convertStringToJson, saveJsonToFile, getJsonFromFile
 from libs.python.helperLog import LOGFILE, logtype
