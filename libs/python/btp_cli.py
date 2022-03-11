@@ -5,11 +5,14 @@ from libs.python.helperBtpTrust import delete_cf_service_key, runTrustFlow, get_
 from libs.python.helperCommandExecution import executeCommandsFromUsecaseFile, runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex, login_btp, login_cf
 from libs.python.helperEnvCF import checkIfAllServiceInstancesCreated, checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, try_until_cf_space_done, initiateCreationOfServiceInstances, get_cf_service_deletion_status
 from libs.python.helperGeneric import getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, createOrgName, getTimingsForStatusRequest
+from libs.python.helperFileAccess import writeKubeConfigFileToDefaultDir
+from libs.python.helperEnvKyma import extractKymaDashboardUrlFromEnvironmentDataEntry, getKymaEnvironmentInfoByClusterName, getKymaEnvironmentStatusFromEnvironmentDataEntry, extractKymaKubeConfigUrlFromEnvironmentDataEntry
 
 import os
 import re
 import sys
 import time
+import requests
 
 
 class BTPUSECASE:
@@ -112,6 +115,55 @@ class BTPUSECASE:
         message = "Execute commands after account is setup and prepared"
         jsonSection = "executeAfterAccountSetup"
         executeCommandsFromUsecaseFile(self, message, jsonSection)
+
+    def executeAfterEnvironmentAvailability(self):
+
+        environment = self.btpEnvironment
+        if environment["name"] == "kymaruntime" and environment["waitForKymaEnvironmentCreation"] is True:
+
+            accountMetadata = self.accountMetadata
+            kymaClusterName = environment["parameters"]["name"]
+            log = self.log
+
+            current_time = 0
+            number_of_tries = 0
+            timeoutInSeconds = environment["timeoutLimitForKymaCreationInMinutes"] * 60
+            pollingIntervalInSeconds = environment["pollingIntervalForKymaCreationInMinutes"] * 60
+            message = "Check status of Kyma provisioning - be patient this could take a while"
+
+            log.write(logtype.HEADER, "Fetch and Store Kubeconfig")
+            # Fetch Data from BTP CLI for URL of Dashboard and Kubeconfig
+            command = "btp --format json list accounts/environment-instance --subaccount \"" + self.accountMetadata["subaccountid"] + "\""
+
+            while timeoutInSeconds > current_time:
+                number_of_tries += 1
+                checkMessage = message + " (try " + str(number_of_tries) + \
+                    " - trying again in " + str(environment["pollingIntervalForKymaCreationInMinutes"]) + "min)"
+                result = runCommandAndGetJsonResult(self, command, logtype.INFO, checkMessage)
+
+                entryOfKymaEnv = getKymaEnvironmentInfoByClusterName(result, kymaClusterName)
+
+                if getKymaEnvironmentStatusFromEnvironmentDataEntry(entryOfKymaEnv) == "OK":
+
+                    log.write(logtype.INFO, "Kyma Environment created - extracting kubeconfig URL")
+                    self.accountMetadata = addKeyValuePair(accountMetadata, "kymaDashboardUrl", extractKymaDashboardUrlFromEnvironmentDataEntry(entryOfKymaEnv))
+                    self.accountMetadata = addKeyValuePair(accountMetadata, "kymaKubeConfigUrl", extractKymaKubeConfigUrlFromEnvironmentDataEntry(entryOfKymaEnv))
+                    save_collected_metadata(self)
+
+                    # Download kubeconfig
+                    resp = requests.get(self.accountMetadata["kymaKubeConfigUrl"])
+
+                    # Store kubeconfig in .kube folder for execution of subsequent commands
+                    if resp.status_code == 200:
+                        writeKubeConfigFileToDefaultDir(resp.text)
+                        log.write(logtype.INFO, "Kubeconfig stored locally under ~/.kube")
+                        return "DONE"
+                    else:
+                        log.write(logtype.ERROR, "Could not download kubeconfig from >" + self.accountMetadata["kymaKubeConfigUrl"] + "<")
+                        return "ERROR"
+
+                time.sleep(pollingIntervalInSeconds)
+                current_time += pollingIntervalInSeconds
 
     def entitle_subaccount(self):
         log = self.log
@@ -280,6 +332,18 @@ class BTPUSECASE:
                         accountMetadata, "org", org)
 
             elif environment["name"] == "kymaruntime":
+                # Check if environment alraedy exists
+                message = "Check if environment called " + environment["name"] + "already exists"
+
+                command = "btp --format json list accounts/environment-instance --subaccount \"" + subaccountid + "\""
+
+                result = runCommandAndGetJsonResult(self, command, logtype.INFO, message)
+
+                envEntry = getKymaEnvironmentInfoByClusterName(result, environment["parameters"]["name"])
+
+                if envEntry is not None:
+                    log.write(logtype.INFO, "Kyma environment with name >" + environment["parameters"]["name"] + "< already exists - Creation skipped")
+                    return
 
                 log.write(logtype.HEADER, "Create environment >" +
                           environment["name"] + "<")

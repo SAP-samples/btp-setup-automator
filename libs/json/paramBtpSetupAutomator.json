@@ -90,6 +90,24 @@
         "default": 4200
     },
     {
+        "argument": "waitForKymaEnvironmentCreation",
+        "type": "bool",
+        "help": "Should the tool wait for the creation of the Kyma environment",
+        "default": false
+    },
+    {
+        "argument": "timeoutLimitForKymaCreationInMinutes",
+        "type": "int",
+        "help": "Limit in minutes until the tool should wait for the Kyma instance to be created",
+        "default": 35
+    },
+    {
+        "argument": "pollingIntervalForKymaCreationInMinutes",
+        "type": "int",
+        "help": "Polling interval in minutes when tool is waiting for the Kyma instance to be created",
+        "default": 5
+    },
+    {
         "argument": "usecasefile",
         "type": "str",
         "help": "file with usecase config",

@@ -2,3 +2,5 @@
 cred.txt
 buildAndPushImage.sh
 unittestExecute.sh
+setup_kyma_development.json
+unittest_dev.json

@@ -47,6 +47,11 @@ myBtpUseCase.createRoleCollections()
 myBtpUseCase.assignUsersToSubaccountAndRoles()
 
 #######################################################################################
+# Execute steps after environment is ready
+#######################################################################################
+myBtpUseCase.executeAfterEnvironmentAvailability()
+
+#######################################################################################
 # Run all commands defined after the account setup is finished
 #######################################################################################
 myBtpUseCase.executeAfterAccountSetup()
