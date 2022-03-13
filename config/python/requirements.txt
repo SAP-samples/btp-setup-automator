@@ -1,7 +1,16 @@
+blessed==1.19.1
 certifi==2021.10.8
 charset-normalizer==2.0.12
+flake8==4.0.1
 idna==3.3
+inquirer==2.9.1
+mccabe==0.6.1
+pycodestyle==2.8.0
+pyflakes==2.4.0
 python-dateutil==2.8.2
+python-editor==1.0.4
+readchar==3.0.5
 requests==2.27.1
 six==1.16.0
 urllib3==1.26.8
+wcwidth==0.2.5

@@ -6,6 +6,7 @@ import os
 import sys
 import requests
 import base64
+import inquirer
 
 
 def runTrustFlow(btpUsecase):
@@ -137,26 +138,42 @@ def createOwnIDP(btpUsecase, url, accessToken, resultIasTenants):
     result = None
     host = None
 
+    host = None
+    if btpUsecase.iashost is None or btpUsecase.iashost == "":
+        message = "Did not find parameter >iashost< in the parameters file. Will ask you which one to take."
+        log.write(logtype.WARNING, message)
+
+        myChoices = []
+        for tenant in resultIasTenants:
+            myChoices.append(tenant["host"])
+        questions = [inquirer.List('iashost', message="Which IAS host do you want to use? Select with the arrow keys and hit enter", choices=myChoices)]
+        answers = inquirer.prompt(questions)
+        host = answers["iashost"]
+        log.write(logtype.INFO, "you've selected the IAS tenant >" + host + "<")
+
     if btpUsecase.iashost is not None and btpUsecase.iashost != "":
         iasHostInUsecaseConfig = btpUsecase.iashost
-
         for thisHost in resultIasTenants:
-            host = thisHost["host"]
-            if host == iasHostInUsecaseConfig:
-                myData = {"type": "oidc1.0", "config": {
-                    "iasTenant": {"host": host}}}
-                headers = {'Content-Type': 'application/json', 'Authorization': 'bearer ' +
-                           accessToken, 'Content-Type': 'application/json'}
-                myData = dictToJson(myData)
-                try:
-                    log.write(logtype.INFO, "sending a POST request to url >" +
-                              url + "< with the data >" + str(myData) + "<")
-                    p = requests.post(url, data=myData, headers=headers)
-                    result = p.json()
-                    log.write(logtype.SUCCESS, "created own IDP")
-                    return result
-                except:
-                    result = None
+            myHost = thisHost["host"]
+            if myHost == iasHostInUsecaseConfig:
+                host = myHost
+                break
+
+    if host is not None and host != "":
+        log.write(logtype.INFO, "will establish trust with IAS tenant >" + host + "<")
+        myData = {"type": "oidc1.0", "config": {"iasTenant": {"host": host}}}
+        headers = {'Content-Type': 'application/json', 'Authorization': 'bearer ' + accessToken, 'Content-Type': 'application/json'}
+        myData = dictToJson(myData)
+        try:
+            log.write(logtype.INFO, "sending a POST request to url >" + url + "< with the data >" + str(myData) + "<")
+            p = requests.post(url, data=myData, headers=headers)
+            result = p.json()
+            log.write(logtype.SUCCESS, "created own IDP")
+            return result
+        except:
+            result = None
+    else:
+        log.write(logtype.WARNING, "could not establish trust to IAS")
     return result
 
 
