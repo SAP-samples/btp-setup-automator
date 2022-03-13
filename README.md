@@ -117,7 +117,7 @@ You can run the container directly via the terminal or within VS Code.
 
 ## Sample Use-Cases
 
-You find several sample Use cases in the folder [./usecases/released](./usecases/released). THey are described in the [USECASES.md](./docs/USECASES.md) file.
+You find several sample Use cases in the folder [./usecases/released](./usecases/released). They are described in the [USECASES.md](./docs/USECASES.md) file.
 
 ## Known Issues
 
