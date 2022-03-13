@@ -40,7 +40,7 @@ If you prefer you can set the parameter **loginmethod** to **sso** in the **para
 
 If you are using a windows machine there might be a default setup for the end of line sequence that is not compatible with Linux namely the `\r\n` as line breaks. To get rid of the error you have two options:
 
-* Switch the end of line sequence setting in the VS Code window you opened via the shortcut the lower right corner of VS Code:
+* Switch the end of line sequence setting in the VS Code window you opened via the shortcut the lower right corner of VS Code (you need to have the `btpsa`file open to see the option):
 
     ![select CLRF in VSCode footer](pics/faq01.png)
 
@@ -55,6 +55,12 @@ If you are using a windows machine there might be a default setup for the end of
 ### Where can I find more information about the available parameters?
 
 You find all available parameters for the `btpsa` CLI tool in the file [libs/json/paramBtpSetupAutomator.json](../libs/json/paramBtpSetupAutomator.json). All parameters including their data types and default values are defined in there. The CLI is using this definition during runtime.
+
+As an alternative you can also use the CLI directly and key in: 
+
+```bash
+./btpsa -h
+```
 
 ## Cloud Foundry Setup Specifics
 

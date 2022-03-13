@@ -4,7 +4,7 @@ You find several use cases in the folder [`../usecases/releases`](../usecases/re
 
 This file gives you an overview on the content of the different scenarios.
 
-> ⚠ NOTE: You find more use cases and parametrs files in the folder [`./usecases`](./usecases), however only the ones available in the directory `released` are tested by us and should work.
+> ⚠ NOTE: You find more use cases and parameters files in the folder [`../usecases`](../usecases), however only the ones available in the directory `released` are tested by us and should work.
 
 ## Use case "cap_app_launchpad_TRIAL.json"
 
@@ -18,7 +18,7 @@ The services and subscriptions that are created are:
 
 The code of the application is taken from the GitHub repository <https://github.com/SAP-samples/cloud-cap-risk-management>.
 
-The use case is referenced from the parameters file [../usecases/other/unittests/parameterfiles/unittest01.json](./usecases/other/unittests/parameterfiles/unittest01.json).
+The use case is referenced from the parameters file [../usecases/other/unittests/parameterfiles/unittest01.json](../usecases/other/unittests/parameterfiles/unittest01.json).
 
 ## Use case "cap_app_launchpad.json"
 

@@ -58,6 +58,43 @@ Run the following command to get a list of the available commands of the `btp-se
 ./btpsa -h
 ```
 
+This will give you an output like:
+
+```bash
+ usage: btpsa [-h] [-myemail MYEMAIL] [-globalaccount GLOBALACCOUNT] [-loginmethod LOGINMETHOD] [-region REGION] [-subaccountid SUBACCOUNTID] [-subaccountname SUBACCOUNTNAME] [-subdomain SUBDOMAIN] [-org ORG] [-orgid ORGID] [-cfspacename CFSPACENAME] [-iashost IASHOST] [-suffixinstancename SUFFIXINSTANCENAME] [-fallbackserviceplan FALLBACKSERVICEPLAN]
+             [-repeatstatusrequest REPEATSTATUSREQUEST] [-repeatstatustimeout REPEATSTATUSTIMEOUT] [-usecasefile USECASEFILE] [-parameterfile PARAMETERFILE] [-logfile LOGFILE] [-metadatafile METADATAFILE] [-logcommands LOGCOMMANDS] [-pruneusecase PRUNEUSECASE] [-prunesubaccount PRUNESUBACCOUNT] [-mypassword MYPASSWORD] 
+
+optional arguments:
+  -h, --help                                  show this help message and exit
+  -myemail MYEMAIL                            email address used for your SAP BTP account
+  -globalaccount GLOBALACCOUNT                your SAP BTP global account
+  -loginmethod LOGINMETHOD                    if set to sso, you'll need to open a link provided in a browser to login. 
+                                              Set to basicAuthentication (default) the script will ask if you want 
+                                              to provide username and password.
+  -region REGION                              region of the subaccount for use case
+  -subaccountid SUBACCOUNTID                  subaccount id for use case
+  -subaccountname SUBACCOUNTNAME              subaccount name for use case
+  -subdomain SUBDOMAIN                        subdomain of subaccount
+  -org ORG                                    org name of the CF environment for use case
+  -orgid ORGID                                org id of the CF environment for use case
+  -cfspacename CFSPACENAME                    name for the Cloudfoundry space
+  -iashost IASHOST                            IAS host for your SAP BTP sub account
+  -suffixinstancename SUFFIXINSTANCENAME      suffix attached to each service instance created
+  -fallbackserviceplan FALLBACKSERVICEPLAN    if defined, the tool will use the defined name as fallback service plan, 
+                                              if the plan defined in the use case is not supported
+  -repeatstatusrequest REPEATSTATUSREQUEST    time in seconds to wait after requesting status info (pulling)
+  -repeatstatustimeout REPEATSTATUSTIMEOUT    timeout in seconds after which requests should be stopped
+  -usecasefile USECASEFILE                    file with usecase config
+  -parameterfile PARAMETERFILE                file to deliver all parameters within a single json file
+  -logfile LOGFILE                            file for log information
+  -metadatafile METADATAFILE                  file for log information
+  -logcommands LOGCOMMANDS                    if set to True, the script will log all commands sent to the SAP BTP account. If set to False it won't
+  -pruneusecase PRUNEUSECASE                  if set to True: deletes all assets of a usecase based on the collected info in the metadatafile. 
+                                              No confirmation message. USE WITH CARE!!!
+  -prunesubaccount PRUNESUBACCOUNT            if set to True: same like -pruneusecase, but on-top deletes the subaccount. USE WITH CARE!!!
+  -mypassword MYPASSWORD                      provide your BTP password via the command line. USE WITH CARE!!!
+```
+
 ## Scripting BTP-Setup-Automator
 
 As the `btp-setup-automator` is running in Docker there is a lot of potential to integrate it in other scripts that can call it.
