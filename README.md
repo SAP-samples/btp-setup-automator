@@ -115,6 +115,10 @@ You can run the container directly via the terminal or within VS Code.
 
 [Read the detailed instructions](docs/README.md) on how to setup your SAP BTP account for a use case with the `btp-setup-automator`.
 
+## Sample Use-Cases
+
+You find several sample Use cases in the folder [./usecases/released](./usecases/released). THey are described in the [USECASES.md](./docs/USECASES.md) file.
+
 ## Known Issues
 
 Checkout [the issues section in this repo](https://github.com/SAP-samples/btp-setup-automator/issues) for known and current issues.
