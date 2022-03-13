@@ -61,8 +61,13 @@ Run the following command to get a list of the available commands of the `btp-se
 This will give you an output like:
 
 ```bash
- usage: btpsa [-h] [-myemail MYEMAIL] [-globalaccount GLOBALACCOUNT] [-loginmethod LOGINMETHOD] [-region REGION] [-subaccountid SUBACCOUNTID] [-subaccountname SUBACCOUNTNAME] [-subdomain SUBDOMAIN] [-org ORG] [-orgid ORGID] [-cfspacename CFSPACENAME] [-iashost IASHOST] [-suffixinstancename SUFFIXINSTANCENAME] [-fallbackserviceplan FALLBACKSERVICEPLAN]
-             [-repeatstatusrequest REPEATSTATUSREQUEST] [-repeatstatustimeout REPEATSTATUSTIMEOUT] [-usecasefile USECASEFILE] [-parameterfile PARAMETERFILE] [-logfile LOGFILE] [-metadatafile METADATAFILE] [-logcommands LOGCOMMANDS] [-pruneusecase PRUNEUSECASE] [-prunesubaccount PRUNESUBACCOUNT] [-mypassword MYPASSWORD] 
+ usage: btpsa [-h] [-myemail MYEMAIL] [-globalaccount GLOBALACCOUNT] [-loginmethod LOGINMETHOD] [-region REGION] 
+              [-subaccountid SUBACCOUNTID] [-subaccountname SUBACCOUNTNAME] [-subdomain SUBDOMAIN] [-org ORG] 
+              [-orgid ORGID] [-cfspacename CFSPACENAME] [-iashost IASHOST] [-suffixinstancename SUFFIXINSTANCENAME] 
+              [-fallbackserviceplan FALLBACKSERVICEPLAN] [-repeatstatusrequest REPEATSTATUSREQUEST] 
+              [-repeatstatustimeout REPEATSTATUSTIMEOUT] [-usecasefile USECASEFILE] [-parameterfile PARAMETERFILE] 
+              [-logfile LOGFILE] [-metadatafile METADATAFILE] [-logcommands LOGCOMMANDS] [-pruneusecase PRUNEUSECASE] 
+              [-prunesubaccount PRUNESUBACCOUNT] [-mypassword MYPASSWORD] 
 
 optional arguments:
   -h, --help                                  show this help message and exit
@@ -88,10 +93,12 @@ optional arguments:
   -parameterfile PARAMETERFILE                file to deliver all parameters within a single json file
   -logfile LOGFILE                            file for log information
   -metadatafile METADATAFILE                  file for log information
-  -logcommands LOGCOMMANDS                    if set to True, the script will log all commands sent to the SAP BTP account. If set to False it won't
-  -pruneusecase PRUNEUSECASE                  if set to True: deletes all assets of a usecase based on the collected info in the metadatafile. 
-                                              No confirmation message. USE WITH CARE!!!
-  -prunesubaccount PRUNESUBACCOUNT            if set to True: same like -pruneusecase, but on-top deletes the subaccount. USE WITH CARE!!!
+  -logcommands LOGCOMMANDS                    if set to True, the script will log all commands sent to the SAP BTP account. 
+                                              If set to False it won't
+  -pruneusecase PRUNEUSECASE                  if set to True: deletes all assets of a usecase based on the collected info
+                                              in the metadatafile. No confirmation message. USE WITH CARE!!!
+  -prunesubaccount PRUNESUBACCOUNT            if set to True: same like -pruneusecase, 
+                                              but on-top deletes the subaccount. USE WITH CARE!!!
   -mypassword MYPASSWORD                      provide your BTP password via the command line. USE WITH CARE!!!
 ```
 
