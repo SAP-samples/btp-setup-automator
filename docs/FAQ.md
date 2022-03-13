@@ -4,7 +4,7 @@ This is a set of questions and answers relating to the SAP Business Technology P
 
 If you have other questions you can [ask a question in SAP Community](https://answers.sap.com/questions/ask.html) or [raise an issue](https://github.com/SAP-samples/btp-setup-automator/issues/new) as a feature request.
 
-## Generic Questions
+## Generic Topics
 
 ### How does this relate to the Boosters on SAP BTP?
 
@@ -20,7 +20,7 @@ So they do share a similar purpose to the `btp-setup-automator`, but there are s
 
 ### Why containers?
 
-Containers are a great way to encapsulate independent sets of tools and configuration. What's more, that encapsulation can be made available to everyone regardless of their underlying platform. One of the biggest challenges of managing platforms, running development operations (DevOps) processes, and interacting with environments, is the setup and configuration required to do so at an individual level. 
+Containers are a great way to encapsulate independent sets of tools and configuration. What's more, that encapsulation can be made available to everyone regardless of their underlying platform. One of the biggest challenges of managing platforms, running development operations (DevOps) processes, and interacting with environments, is the setup and configuration required to do so at an individual level.
 
 A container based approach levels the field and allows you to start working immediately without having to work through a boot load of prerequisites to get the basic tools in place.
 
@@ -40,13 +40,22 @@ If you prefer you can set the parameter **loginmethod** to **sso** in the **para
 
 If you are using a windows machine there might be a default setup for the end of line sequence that is not compatible with Linux namely the `\r\n` as line breaks. To get rid of the error you have two options:
 
-* Switch the end of line sequence setting in the VS Code window you opened via the shortcut the lower left corner to `LF`
+* Switch the end of line sequence setting in the VS Code window you opened via the shortcut the lower right corner of VS Code:
+
+    ![select CLRF in VSCode footer](pics/faq01.png)
 
     This opens the command palette where you must choose `LF`
 
+    ![select LF in command palette](pics/faq02.png)
+
 * Set the end of line sequence fixed to `\n` via `File` - `Preferences`- `Settings` - `Files:EOL`
 
+    ![change end of line in VSCode settings](pics/faq03.png)
 
 ## Cloud Foundry Setup Specifics
 
+> 🚧 No FAQ yet 🚧
+
 ## Kyma Setup Specifics
+
+> 🚧 No FAQ yet 🚧
