@@ -52,9 +52,9 @@ If you are using a windows machine there might be a default setup for the end of
 
     ![change end of line in VSCode settings](pics/faq03.png)
 
-### Where can I find more information about the available paramaters
+### Where can I find more information about the available parameters?
 
-You find all available parameters for the `btpsa` CLI tool in the file <libs/json/paramBtpSetupAutomator.json>. All parameters including their data types and default values are defined in there. The CLI is using this definition during runtime.
+You find all available parameters for the `btpsa` CLI tool in the file [libs/json/paramBtpSetupAutomator.json](../libs/json/paramBtpSetupAutomator.json). All parameters including their data types and default values are defined in there. The CLI is using this definition during runtime.
 
 ## Cloud Foundry Setup Specifics
 

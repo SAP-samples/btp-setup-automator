@@ -27,7 +27,7 @@ The tooling is running within a [docker](https://www.docker.com/) container and 
 
 As a user the only thing you need to focus on is your use case that defines which services or subscriptions you need. The use case is defined within a JSON structure. You can find [use cases in the use cases folder of this repository](usecases/), and - of course - you can create your own use case files, if you want to run the script.
 
-You find more information on the different use cases in the [usecases document](./docs/USECASES.md)
+You find more information on the different use cases in the [usecases document](./docs/USECASES.md).
 
 ## Requirements
 
@@ -36,12 +36,12 @@ To use the tooling you first need to finish the following tasks:
 - Get an [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/trial/#/home/trial) (you can also use a [productive SAP BTP account](https://account.hana.ondemand.com/#/home/welcome) where you can make use of the free tier)
 - [Install a Docker engine](https://docs.docker.com/desktop/)
 
-> ⚠ NOTE: Be aware of the terms of Docker for usage in enterprises. For details see [link](https://www.docker.com/blog/updating-product-subscriptions/)
+> ⚠ NOTE: Be aware of the terms of Docker for usage in enterprises. For details see this [link](https://www.docker.com/blog/updating-product-subscriptions/).
 
 In case you are new to the containers topic, it is **highly recommended** to install and setup **MS Visual Studio Code**, too:
 
-- [Install VS Code](https://code.visualstudio.com/download) - this will be your development environment
-- Install the VS Code plugin for [Remote containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) 
+- [Install VS Code](https://code.visualstudio.com/download) - this will be your development environment.
+- Install the VS Code plugin for [Remote containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
 > 📝 Tip - Checkout this great [5 minute video on dev containers](https://www.youtube.com/watch?v=Uvf2FVS1F8k)
 
@@ -67,14 +67,14 @@ docker container run --rm  -it -d --name "btp-setup-automator" "ghcr.io/sap-samp
 >
 > Once entered, you will be asked for your password, which is a **personal  access token** that you need to create in your GitHub account for your user ([checkout the instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)).
 >
-> Once this GitHub repository is public, you won't need to login anymore.
+> When this GitHub repository is public, you won't need to login anymore.
 
 ### Option 2: Start Docker Container With Self-Built Image
 
 To create the Docker image yourself you need to execute these steps:
 
-- Clone this GitHub repository to a local folder on your machine
-- Open the local folder in a command terminal on your machine (or in VS Code)
+- Clone this GitHub repository to a local folder on your machine.
+- Open the local folder in a command terminal on your machine (or in VS Code).
 - Build the container with the following command:
 
   - bash (macOS/Linux)

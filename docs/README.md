@@ -16,11 +16,11 @@ You might have to select folder with the content in navigation panel of VS Code 
 
 ![open folder](pics/quick-guide-step02.png)
 
-Select the **/home/user** folder:
+Select the `/home/user` folder:
 
 ![select folder](pics/quick-guide-step03.png)
 
-YOu can also open a new terminal from the menu `Terminal` - `New Terminal` which will open an `ash` shell.
+You can also open a new terminal in the container via the menu `Terminal` - `New Terminal`. This will open an `ash` shell.
 
 ![open new terminal](pics/quick-guide-step04.png)
 
@@ -32,7 +32,7 @@ The last step is to run the main script `btpsa` with the following command:
 
 ## Using Different Use Case Configurations
 
-The script will take the parameters defined in the [**parameters.json** file](../parameters.json). By default the [**parameters.json** file](../parameters.json) is pointing to [a use case definition that sets up and deploys a full-stack CAP application on a BTP trial account](../usecases/released/cap_app_launchpad_TRIAL.json).
+The script will take the parameters defined in the [**parameters.json** file](../parameters.json). By default the file is pointing to [a use case definition](../usecases/released/cap_app_launchpad_TRIAL.json) that sets up and deploys a full-stack CAP application on a BTP trial account.
 
 You can use other use case files in the [**usecases** folder](../usecases/) or create your own use case file, by taking the existing ones as a blueprint and adapting the parameters:
 
@@ -44,13 +44,13 @@ In case you have your own use case files accessible via http, you can point to t
 
 ## Authentication
 
-As you must login to your SAP BTP account is required you must be authenticated. By default basic authentication is used for the BTP and Cloud Foundry CLI.
+As a login to your SAP BTP account is required you must be authenticated. By default basic authentication is used for the SAP BTP and the Cloud Foundry CLI.
 
 If you prefer you can set the parameter **loginmethod** to **sso** in the **parameters.json** file and the script will ask you to click on a URL when a login is needed (you have to open a browser with the link). This happens for logging-in via the SAP BPT CLI as well as for the Cloud Foundry CLI.
 
 ## Available Parameters
 
-The `btp-setup-automator` script allows you to use parameters to configure it to your needs. This improves it usability when it comes to reuse in other scripts and/or in CI/CD pipelines. 
+The `btp-setup-automator` script allows you to use parameters to configure it to your needs. This improves its usability when it comes to reuse in other scripts and/or in CI/CD pipelines.
 
 Run the following command to get a list of the available commands of the `btp-setup-automator`:
 
@@ -140,7 +140,7 @@ docker exec --workdir "/home/user/" "test01" ./btpsa \
 
 Once the script is ready, you can check your BTP global account, if all services and apps are up-and-running as expected. In addition you can check your local folder for the log files that have been created.
 
-> NOTE: in case you want to provide the parameterfile as a link to a parameter file, you can do it like this:
+> 📝 Tip - In case you want to provide the parameter file as a link, you can do it like this:
 
   ```bash
   docker exec --workdir "/home/user/" "test01" ./btpsa \
@@ -149,7 +149,7 @@ Once the script is ready, you can check your BTP global account, if all services
 
 ### Step 5: Clean-up
 
-In a last step you stop the container, and once the container is stopped, you delete the container and the image.
+In a last step you stop the container, and once the container is stopped, you delete the container and the image:
 
 ```bash
 docker container stop   test01
