@@ -114,8 +114,8 @@ The select the `btp-setup-auotmator` container:
 
 ## Using BTP-SETUP-AUTOMATOR
 
-You can run the container directly via the terminal or within VS Code. Start the script via a command:
-      ```bash
+You can run the container directly via the terminal or within VS Code, modify use case file and parameter file. Start the script via a command:
+      ```
     ./btpsa
     ```
 
