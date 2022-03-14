@@ -68,7 +68,7 @@ If you are using a windows machine there might be a default setup for the end of
 
 ### How do I realize a DEV, TEST, PROD setup in my SAP BTP account with btp-setup-automator?
 
-Just script the script :-). You can create 3 different parameter files, who only differ in the `subaccountname` parameter, like this:
+Just script the script :-). You can create 3 different parameter files, which only differ in the `subaccountname` parameter, like this:
 
 `parameterDEV.json` file:
 
