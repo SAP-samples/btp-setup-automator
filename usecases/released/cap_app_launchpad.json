@@ -54,7 +54,12 @@
     }
   ],
   "admins": ["jane.doe@sap.com"],
-  "executeBeforeAccountSetup": [],
+  "executeBeforeAccountSetup": [
+    {
+      "description": "Delete tutorial folder in case it already exists (e.g. from a previous script call)",
+      "command": "rm -rf tutorial/"
+    }
+  ],
   "executeAfterAccountSetup": [
     {
       "description": "Get the tutorial code",
