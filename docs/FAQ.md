@@ -66,6 +66,49 @@ If you are using a windows machine there might be a default setup for the end of
 
     ![change end of line in VSCode settings](pics/faq03.png)
 
+### How do I realize a DEV, TEST, PROD setup in my SAP BTP account with btp-setup-automator?
+
+Just script the script :-). You can create 3 different parameter files, who only differ in the `subaccountname` parameter, like this:
+
+`parameterDEV.json` file:
+
+```bash
+{
+  "usecasefile": "usecases/released/cap_app_launchpad.json",
+  "region": "us10",
+  "globalaccount": "youraccount-ga",
+  "myemail": "your.email@address.com",
+  "loginmethod": "basicAuthentication",
+  "subaccountname": "DEV",
+}
+```
+
+`parameterTEST.json` file:
+
+```bash
+{
+  "usecasefile": "usecases/released/cap_app_launchpad.json",
+  "region": "us10",
+  "globalaccount": "youraccount-ga",
+  "myemail": "your.email@address.com",
+  "loginmethod": "basicAuthentication",
+  "subaccountname": "TEST",
+}
+```
+
+`parameterPROD.json` file:
+
+```bash
+{
+  "usecasefile": "usecases/released/cap_app_launchpad.json",
+  "region": "us10",
+  "globalaccount": "youraccount-ga",
+  "myemail": "your.email@address.com",
+  "loginmethod": "basicAuthentication",
+  "subaccountname": "PROD",
+}
+```
+
 ### Where can I find more information about the available parameters?
 
 You find all available parameters for the `btpsa` CLI tool in the file [libs/json/paramBtpSetupAutomator.json](../libs/json/paramBtpSetupAutomator.json). All parameters including their data types and default values are defined in there. The CLI is using this definition during runtime.
