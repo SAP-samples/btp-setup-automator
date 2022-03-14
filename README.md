@@ -17,6 +17,7 @@ This includes:
 - Addition of administator users to global account and subaccounts
 - Setup of roles and role collections, assignment of roles collections to users
 - Deployment of complete applications
+- Unrolling created setup
 
 In essence it's all about making it easier to get developers quickly onboard on SAP BTP and use of services on SAP BTP.
 
