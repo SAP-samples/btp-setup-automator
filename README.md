@@ -11,48 +11,55 @@ This repository provides the user with a script to automate the setup of an [SAP
 
 This includes:
 
-> - Setup of your SAP BTP account
-> - Entitlement of services
-> - Deployment of complete applications
+- Setup of your SAP BTP account
+- Entitlement of services
+- Deployment of complete applications
 
 In essence it's all about making it easier to get developers quickly onboard on SAP BTP and use of services on SAP BTP.
 
 ### All on Docker
 
 The tooling is running within a [docker](https://www.docker.com/) container and the repository provides all you need to run the tooling in a docker image.
+
 [Why docker](https://www.docker.com/why-docker)? We want to ensure that you can focus on getting your work done on the SAP BTP account without having to worry whether you have the right tools in the right release for the right operating system in place.
 
-### The use cases
+### The Use Cases
 
 As a user the only thing you need to focus on is your use case that defines which services or subscriptions you need. The use case is defined within a JSON structure. You can find [use cases in the use cases folder of this repository](usecases/), and - of course - you can create your own use case files, if you want to run the script.
+
+You find more information on the different use cases in the [usecases document](./docs/USECASES.md).
 
 ## Requirements
 
 To use the tooling you first need to finish the following tasks:
 
-- Get an [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/trial/#/home/trial) (you can also use a [productive SAP BTP account](https://account.hana.ondemand.com/#/home/welcome))
+- Get an [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/trial/#/home/trial) (you can also use a [productive SAP BTP account](https://account.hana.ondemand.com/#/home/welcome) where you can make use of the free tier)
 - [Install a Docker engine](https://docs.docker.com/desktop/)
+
+> ⚠ NOTE: Be aware of the terms of Docker for usage in enterprises. For details see this [link](https://www.docker.com/blog/updating-product-subscriptions/).
 
 In case you are new to the containers topic, it is **highly recommended** to install and setup **MS Visual Studio Code**, too:
 
-- [Install VS Code](https://code.visualstudio.com/download) - this will be your development environment
-- Install the VS Code plugin for Remote containers ([checkout this great 5 minute video on dev containers](https://www.youtube.com/watch?v=Uvf2FVS1F8k))
+- [Install VS Code](https://code.visualstudio.com/download) - this will be your development environment.
+- Install the VS Code plugin for [Remote containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+
+> 📝 Tip - Checkout this great [5 minute video on dev containers](https://www.youtube.com/watch?v=Uvf2FVS1F8k)
 
 ## Download and Installation
 
-If the pre-requisites above are all met, you can start your work by creating first your container. You can either use the pre-built docker image for the btp-setup-automator, or build the docker image yourself.
+If the pre-requisites above are all met, you can start your work by creating first your container. You can either use the pre-built docker image for the `btp-setup-automator`, or build the docker image yourself.
 
 For starting quickly **it is recommended to use the pre-built Docker image**.
 
 ### Option 1: Start Docker Container via Pre-Built Image (recommended)
 
-The fastest way to use the **btp-setup-automator** it, to open a terminal windows on your machine and to enter the following command to pull the docker image from the GitHub repository and run it in a container:
+The fastest way to use the `btp-setup-automator` it, to open a terminal windows on your machine and to enter the following command to pull the docker image from the GitHub repository and run it in a container:
 
 ```bash
 docker container run --rm  -it -d --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
 ```
 
-> NOTE: while this repo is still in private (until end of March 2022), you need to login to GitHub with an access token via this command:
+> 📝 Tip - While this repo is still in private (until end of March 2022), you need to login to GitHub with an access token via this command:
 >
 > ```bash
 > docker login ghcr.io -u <YOUR GITHUB USERNAME>
@@ -60,15 +67,15 @@ docker container run --rm  -it -d --name "btp-setup-automator" "ghcr.io/sap-samp
 >
 > Once entered, you will be asked for your password, which is a **personal  access token** that you need to create in your GitHub account for your user ([checkout the instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)).
 >
-> Once this GitHub repository is public, you won't need to login anymore.
+> When this GitHub repository is public, you won't need to login anymore.
 
 ### Option 2: Start Docker Container With Self-Built Image
 
 To create the Docker image yourself you need to execute these steps:
 
-- Clone this GitHub repository to a local folder on your machine
-- Open the local folder in a command terminal on your machine (or in VS Code)
-- Now you can build the container with the following command:
+- Clone this GitHub repository to a local folder on your machine.
+- Open the local folder in a command terminal on your machine (or in VS Code).
+- Build the container with the following command:
 
   - bash (macOS/Linux)
 
@@ -85,40 +92,50 @@ To create the Docker image yourself you need to execute these steps:
   - PowerShell Core (Cross Platform):
 
     ```powershell
-    ./run.ps1
+    .\run.ps1
     ```
 
-This will build a docker image and create a docker container on your machine.
+The script  will build a docker image and create a docker container on your machine.
 
 ## Using the Docker Container
 
-Independently whether you've created the docker image yourself, or used the pre-built image, you should now already see the Docker container up-and-running. In case you are using VS Code, this is what you can see (don't forget to install the "Remote-Containers" extension in VS Code):
+Independently whether you've created the docker image yourself, or used the pre-built image, you should now see the Docker container up-and-running. In case you are using VS Code, open the command palette (Windows: `Ctrl+Shift+P` ; Mac: `Cmd+Shift+P`) and select the `Remote Containers: Attach to running Container ...` command:
 
 ![command in VS Code to attach it to a running container](docs/pics/quick-guide-step00.png)
 
+> 📝 Tip - Don't forget to install the "Remote-Containers" extension in VS Code)
+
+The select the `btp-setup-auotmator` container:
+
 ![select running container in VS Code](docs/pics/quick-guide-step01.png)
 
-## Using btp-setup-automator
+## Using BTP-SETUP-AUTOMATOR
 
 You can run the container directly via the terminal or within VS Code.
 
-[Read the detailed instructions](docs/README.md) on how to setup your SAP BTP account for a use case with the **btp-setup-automator**.
+[Read the detailed instructions](docs/README.md) on how to setup your SAP BTP account for a use case with the `btp-setup-automator`.
+
+## Sample Use-Cases
+
+You find several sample Use cases in the folder [./usecases/released](./usecases/released). They are described in the [USECASES.md](./docs/USECASES.md) file.
 
 ## Known Issues
 
 Checkout [the issues section in this repo](https://github.com/SAP-samples/btp-setup-automator/issues) for known and current issues.
 
-## How to Obtain Support
+## How to obtain Support?
 
-[Create an issue](https://github.com/SAP-samples/btp-setup-automator/issues) in this repository if you find a bug or have questions about the content.
+❓ - If you have *question* you may peruse the [Frequently Asked Questions](docs/FAQ.md) document. If you did not find your questions answered there you can [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
 
-For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
+🐛 - If you find a bug, feel free to [create an issue](https://github.com/SAP-samples/btp-setup-automator/issues) in this repository using the `bug-report` template.
 
-You may also wish to peruse the [Frequently Asked Questions](docs/FAQ.md) document.
+🚀 - If you have an idea for improvement or a feature request, please open an issue using the `feature-request` template.
 
 ## Contributing
 
-If you wish to contribute code, offer fixes or improvements, please send a pull request. Due to legal reasons, contributors will be asked to accept a DCO when they create the first pull request to this project. This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
+If you wish to contribute code, offer fixes or improvements, please send a pull request.
+
+Due to legal reasons, contributors will be asked to accept a DCO when they create the first pull request to this project. This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
 
 ## License
 
