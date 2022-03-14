@@ -26,6 +26,20 @@ A container based approach levels the field and allows you to start working imme
 
 > 📝 Tip - For more on how containers enable a better developer experience, but from a slightly different angle, you may be interested in the 3-part blog post series [Boosting tutorial UX with dev containers](https://blogs.sap.com/2022/01/27/boosting-tutorial-ux-with-dev-containers-part-1-challenge-and-base-solution/).
 
+### Why is the btp-setup-automator not written in NodeJS/Java/C/go/...?
+
+The purpose of the `btp-setup-automator` is to show how you can automate the setup of an SAP BTP account. It's meant to be an inspiration for you to think of other ways to integrate SAP BTP into your development landscape or to simply use the tool as is.
+
+Feel free to create your own/better version of `btp-setup-automator` in a programming language that you prefer, or contribute to this tool with a pull request.
+
+### Can I connect the created account to an IAS by setting up the trust configuration?
+
+Yes, you can. The file [setup_task_center.json](../usecases/released/setup_task_center.json) contains the setup of services for the SAP Task Center including establishing the trust with your custom IAS tenant.
+
+### Where can I find a good UI to configure the tool?
+
+The `btp-setup-automator` was started as a script to be integrated into CI/CD pipelines or other command-line setups. But of course you can create your own/better version of `btp-setup-automator` in a programming language that you prefer, or contribute to this tool with a pull request.
+
 ## Getting Started
 
 ### What do I need to get started?
@@ -56,7 +70,7 @@ If you are using a windows machine there might be a default setup for the end of
 
 You find all available parameters for the `btpsa` CLI tool in the file [libs/json/paramBtpSetupAutomator.json](../libs/json/paramBtpSetupAutomator.json). All parameters including their data types and default values are defined in there. The CLI is using this definition during runtime.
 
-As an alternative you can also use the CLI directly and key in: 
+As an alternative you can also use the CLI directly and key in:
 
 ```bash
 ./btpsa -h
