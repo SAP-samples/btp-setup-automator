@@ -117,9 +117,9 @@ class BTPUSECASE:
         executeCommandsFromUsecaseFile(self, message, jsonSection)
 
     def executeAfterEnvironmentAvailability(self):
-
+        
         environment = self.btpEnvironment
-        if environment["name"] == "kymaruntime" and environment["waitForKymaEnvironmentCreation"] is True:
+        if environment["name"] == "kymaruntime" and self.waitForKymaEnvironmentCreation is True:
 
             accountMetadata = self.accountMetadata
             kymaClusterName = environment["parameters"]["name"]
@@ -127,8 +127,8 @@ class BTPUSECASE:
 
             current_time = 0
             number_of_tries = 0
-            timeoutInSeconds = environment["timeoutLimitForKymaCreationInMinutes"] * 60
-            pollingIntervalInSeconds = environment["pollingIntervalForKymaCreationInMinutes"] * 60
+            timeoutInSeconds = self.timeoutLimitForKymaCreationInMinutes * 60
+            pollingIntervalInSeconds = self.pollingIntervalForKymaCreationInMinutes * 60
             message = "Check status of Kyma provisioning - be patient this could take a while"
 
             log.write(logtype.HEADER, "Fetch and Store Kubeconfig")
@@ -138,7 +138,7 @@ class BTPUSECASE:
             while timeoutInSeconds > current_time:
                 number_of_tries += 1
                 checkMessage = message + " (try " + str(number_of_tries) + \
-                    " - trying again in " + str(environment["pollingIntervalForKymaCreationInMinutes"]) + "min)"
+                    " - trying again in " + str(self.pollingIntervalForKymaCreationInMinutes) + "min)"
                 result = runCommandAndGetJsonResult(self, command, logtype.INFO, checkMessage)
 
                 entryOfKymaEnv = getKymaEnvironmentInfoByClusterName(result, kymaClusterName)
@@ -358,7 +358,7 @@ class BTPUSECASE:
 
                 envLandscape = selectEnvironmentLandscape(self)
 
-#               Difference between TRIAL and Prod => Prod has a cluster region, TRIAL has not
+                # Difference between TRIAL and Prod => Prod has a cluster region, TRIAL has not
                 if environment["plan"] == "trial":
                     clusterregion = self.region
                 else:

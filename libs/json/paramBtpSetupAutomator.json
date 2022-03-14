@@ -93,7 +93,7 @@
         "argument": "waitForKymaEnvironmentCreation",
         "type": "bool",
         "help": "Should the tool wait for the creation of the Kyma environment",
-        "default": false
+        "default": true
     },
     {
         "argument": "timeoutLimitForKymaCreationInMinutes",

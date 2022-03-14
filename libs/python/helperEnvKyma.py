@@ -4,7 +4,8 @@ from libs.python.helperJson import convertStringToJson
 def getKymaEnvironmentInfoByClusterName(environmentData, kymaClusterName):
 
     for entry in environmentData["environmentInstances"]:
-        if entry["environmentType"] == "kyma" and entry["name"] == kymaClusterName:
+        parametersFromEntry = convertStringToJson(entry["parameters"])
+        if entry["environmentType"] == "kyma" and parametersFromEntry["name"] == kymaClusterName:
             return entry
 
 
