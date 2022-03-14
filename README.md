@@ -114,7 +114,10 @@ The select the `btp-setup-auotmator` container:
 
 ## Using BTP-SETUP-AUTOMATOR
 
-You can run the container directly via the terminal or within VS Code.
+You can run the container directly via the terminal or within VS Code. Start the script via a command:
+      ```bash
+    ./btpsa
+    ```
 
 [Read the detailed instructions](docs/README.md) on how to setup your SAP BTP account for a use case with the `btp-setup-automator`.
 
