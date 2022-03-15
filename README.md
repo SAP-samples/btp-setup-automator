@@ -13,7 +13,11 @@ This includes:
 
 - Setup of your SAP BTP account
 - Entitlement of services
+- Subscription of applications and creation of service instances with api keys
+- Addition of administator users to global account and subaccounts
+- Setup of roles and role collections, assignment of roles collections to users
 - Deployment of complete applications
+- Unrolling created setup
 
 In essence it's all about making it easier to get developers quickly onboard on SAP BTP and use of services on SAP BTP.
 
@@ -111,8 +115,8 @@ The select the `btp-setup-auotmator` container:
 
 ## Using BTP-SETUP-AUTOMATOR
 
-You can run the container directly via the terminal or within VS Code.
-
+You can run the container directly via the terminal or within VS Code, modify use case file and parameter file or supply externally available use case and parameter file.
+  
 [Read the detailed instructions](docs/README.md) on how to setup your SAP BTP account for a use case with the `btp-setup-automator`.
 
 ## Sample Use-Cases
