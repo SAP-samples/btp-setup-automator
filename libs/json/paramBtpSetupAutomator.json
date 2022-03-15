@@ -99,12 +99,24 @@
         "argument": "timeoutLimitForKymaCreationInMinutes",
         "type": "int",
         "help": "Limit in minutes until the tool should wait for the Kyma instance to be created",
-        "default": 35
+        "default": 40
     },
     {
         "argument": "pollingIntervalForKymaCreationInMinutes",
         "type": "int",
         "help": "Polling interval in minutes when tool is waiting for the Kyma instance to be created",
+        "default": 5
+    },
+    {
+        "argument": "timeoutLimitForKymaDeprovisioningInMinutes",
+        "type": "int",
+        "help": "Limit in minutes until the tool should wait for the Kyma instance to be deprovisioned/deleted",
+        "default": 40
+    },
+    {
+        "argument": "pollingIntervalForKymaDeprovisioningInMinutes",
+        "type": "int",
+        "help": "Polling interval in minutes when tool is waiting for the Kyma instance to be deprovisioned/deleted",
         "default": 5
     },
     {
