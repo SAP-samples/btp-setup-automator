@@ -79,6 +79,14 @@ The file [setup_kyma_TRIAL.json](../usecases/released/setup_kyma_TRIAL.json) con
 
 The use case is referenced from the parameters file [/usecases/other/unittests/parameterfiles/unittest90.json](../usecases/other/unittests/parameterfiles/unittest90.json).
 
+## Use case "setup_kyma_gcp_with_dapr.json"
+
+The file [setup_kyma_gcp_with_dapr.json](../usecases/released/setup_kyma_gcp_with_dapr.json) contains the setup of a Kyma environment  on Google Cloud Platform (GCP) using the `GCP` plan including the deployment of Dapr, Redis and a sample app.
+
+The code of the application is pulled from the GitHub repository <https://github.com/SAP-samples/kyma-runtime-extension-samples/tree/main/custom-component-dapr>.
+
+The use case is referenced from the parameters file [/usecases/other/unittests/parameterfiles/unittest93.json](../usecases/other/unittests/parameterfiles/unittest93.json).
+
 ## Use case "setup_task_center.json"
 
 The file [setup_task_center.json](../usecases/released/setup_task_center.json) contains the setup of services for the SAP Task Center including establishing the trust with your custom IAS tenant.

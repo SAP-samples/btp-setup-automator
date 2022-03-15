@@ -1,0 +1,74 @@
+{
+    "aboutThisUseCase": {
+        "name": "Setup a Kyma environment on your productive BTP account (GCP)",
+        "description": "This usecase contains the necessary configuration to setup a Kyma environment in your SAP BTP account (GCP) including the setup of a sample app using Dapr.",
+        "author": "christian.lechner@sap.com",
+        "testStatus": "tested successfully",
+        "usageStatus": "READY TO BE USED"
+    },
+    "services": [
+        {
+            "category": "ENVIRONMENT",
+            "name": "kymaruntime",
+            "plan": "gcp",
+            "amount": 1,
+            "parameters": {
+                "name": "btp-auto-setup",
+                "region": "europe-west3",
+                "autoScalerMin": 2,
+                "autoScalerMax": 3,
+                "machineType": "n2-standard-8"
+            }
+        }
+    ],
+    "executeAfterAccountSetup": [
+        {
+            "description": "Create a namespace for Dapr: 'dapr-system'",
+            "command": "kubectl create ns dapr-system"
+        },
+        {
+            "description": "Suppress the injection of Istio sidecars into Dapr namespace",
+            "command": "kubectl label namespace dapr-system istio-injection=disabled"
+        },
+        {
+            "description": "Add Dapr to the helm repo and update it",
+            "command": "helm repo add dapr https://dapr.github.io/helm-charts/ && helm repo update"
+        },
+        {
+            "description": "Install Dapr via helm chart - disable mTLS globally",
+            "command": "helm upgrade --install dapr dapr/dapr --version=1.6 --namespace dapr-system  --set global.mtls.enabled=false --wait"
+        },
+        {
+            "description": "Create the namespace 'dapr-sample' for the sample",
+            "command": "kubectl create ns dapr-sample"
+        },
+        {
+            "description": "Add Redis to the helm repo and update it",
+            "command": "helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update"
+        },
+        {
+            "description": "Install Redis via helm chart",
+            "command": "helm install redis bitnami/redis --namespace dapr-sample --wait"
+        },
+        {
+            "description": "Get the sample code",
+            "command": "rm -rf  /home/user/kyma-runtime-samples && git clone https://github.com/SAP-samples/kyma-runtime-extension-samples.git /home/user/kyma-runtime-samples"
+        },
+        {
+            "description": "Connect Redis to Dapr as a Component",
+            "command": "kubectl apply -f /home/user/kyma-runtime-samples/custom-component-dapr/k8s/daprstate.yaml -n dapr-sample"
+        },
+        {
+            "description": "Provide the configuration of the app",
+            "command": "kubectl apply -f /home/user/kyma-runtime-samples/custom-component-dapr/k8s/configmap.yaml -n dapr-sample"
+        },
+        {
+            "description": "Provide the configuration of the app",
+            "command": "kubectl apply -f /home/user/kyma-runtime-samples/custom-component-dapr/k8s/deployment.yaml -n dapr-sample"
+        },
+        {
+            "description": "Apply the API rule to expose the app",
+            "command": "kubectl apply -f /home/user/kyma-runtime-samples/custom-component-dapr/k8s/apirule.yaml -n dapr-sample"
+        }
+    ]
+}
