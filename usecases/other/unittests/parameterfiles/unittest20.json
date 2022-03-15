@@ -1,5 +1,5 @@
 {
-  "usecasefile": "https://raw.githubusercontent.com/rui1610/btp-automation-experiments/main/btp-setup-automator/usecaseconfigfiles/released/setup_task_center.json",
+  "usecasefile": "https://github.com/SAP-samples/btp-setup-automator/blob/main/usecases/released/setup_task_center.json",
   "loginmethod": "basicAuthentication",
   "prunesubaccount": true
 
