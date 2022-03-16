@@ -181,8 +181,6 @@ def registerUserOnIDP(btpUsecase, url, clientId, clientSecret, idpUserName, pass
     log = btpUsecase.log
     result = None
 
-    url = "https://caias.accounts.ondemand.com/oauth2/token"
-
     clientIdSecret = clientId + ":" + clientSecret
 
     clientIdSecretEncoded = base64.b64encode(clientIdSecret.encode('ascii'))
