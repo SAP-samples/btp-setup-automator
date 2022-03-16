@@ -31,4 +31,4 @@ Now run the main script `btpsa` with the following command:
     -myemail       '<your email address>'
 ```
 
-The tool starts to execute and the only thing you need to type-in is your password for your SAP BTP account. The btp-setup-automator script will now prepare your SAP BTP account to 
+The tool starts to execute and the only thing you need to type-in is your password for your SAP BTP account. The btp-setup-automator script will now prepare your SAP BTP account to cover the discovery center mission.
