@@ -102,6 +102,8 @@ optional arguments:
   -mypassword MYPASSWORD                      provide your BTP password via the command line. USE WITH CARE!!!
 ```
 
+You find a more detailed description of the configuration options [here](./SAMPLECONFIG.md).
+
 ## Scripting BTP-Setup-Automator
 
 As the `btp-setup-automator` is running in Docker there is a lot of potential to integrate it in other scripts that can call it.
