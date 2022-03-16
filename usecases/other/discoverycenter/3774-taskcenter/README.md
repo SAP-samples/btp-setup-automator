@@ -48,7 +48,7 @@ You can also open a new terminal in the container via the menu `Terminal` - `New
 The last step is to run the main script `btpsa` with the following command:
 
 ```bash
-./btpsa -parameterfile 'usecases/other/discoverycenter/taskcenter/parameters.json' \
+./btpsa -parameterfile 'usecases/other/discoverycenter/3774-taskcenter/parameters.json' \
     -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>'  \
     -region        '<region for your subaccount e.g. us10>' \
     -myemail       '<your email address>'
