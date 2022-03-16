@@ -37,7 +37,7 @@ You find more information on the different use cases in the [usecases document](
 
 To use the tooling you first need to finish the following tasks:
 
-- Get an [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/trial/#/home/trial) (you can also use a [productive SAP BTP account](https://account.hana.ondemand.com/#/home/welcome) where you can make use of the free tier)
+- Get an [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/trial/#/home/trial) or a [productive SAP BTP account](https://account.hana.ondemand.com/#/home/welcome) (recommended) where you can make use of the free tier service plans
 - [Install a Docker engine](https://docs.docker.com/desktop/)
 
 > ⚠ NOTE: Be aware of the terms of Docker for usage in enterprises. For details see this [link](https://www.docker.com/blog/updating-product-subscriptions/).
@@ -46,8 +46,6 @@ In case you are new to the containers topic, it is **highly recommended** to ins
 
 - [Install VS Code](https://code.visualstudio.com/download) - this will be your development environment.
 - Install the VS Code plugin for [Remote containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
-
-> 📝 Tip - Checkout this great [5 minute video on dev containers](https://www.youtube.com/watch?v=Uvf2FVS1F8k)
 
 ## Download and Installation
 
