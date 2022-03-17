@@ -9,6 +9,8 @@
 
 This repository provides the user with a script to automate the setup of an [SAP Business Technology Platform (SAP BTP) account](https://account.hana.ondemand.com/).
 
+![architectural overview](docs/pics/overview.png)
+
 This includes:
 
 - Setup of your SAP BTP account
@@ -19,13 +21,11 @@ This includes:
 - Deployment of complete applications
 - Unrolling created setup
 
-In essence it's all about making it easier to get developers quickly onboard on SAP BTP and use of services on SAP BTP.
+In essence it's all about making it easier to onboard developers on confugirung and using SAP BTP.
 
 ### All in containers
 
-The tooling is running within a [docker](https://www.docker.com/) container and the repository provides all you need to run the tooling in a docker image.
-
-![architectural overview](docs/pics/overview.png)
+The tooling provided in this repository is supposed to run inside a [docker](https://www.docker.com/) container.
 
 [Why docker](https://www.docker.com/why-docker)? We want to ensure that you can focus on getting your work done on the SAP BTP account without having to worry whether you have the right tools in the right release for the right operating system in place.
 
