@@ -11,5 +11,5 @@ docker image     rmi -f "btp-setup-automator"
 echo -e "${GREEN}Building the container image ...${NOCOLOR}"
 docker image build -t btp-setup-automator:latest -f "config/containerdefinitions/btp-setup-automator/Dockerfile"  .
 
-echo -e "${GREEN}tart the container as 'btp-setup-automator' - Access possible e.g. via VSCode${NOCOLOR}"
-docker container run -e BTPSETUPAUTOMATOR_VERSION="$(git describe --long --tags  --always)" --rm  -it -d --name "btp-setup-automator" "btp-setup-automator" 
+echo -e "${GREEN}Start the container as 'btp-setup-automator' - Access possible e.g. via VSCode${NOCOLOR}"
+docker container run -e BTPSETUPAUTOMATOR_VERSION_GIT="$(git describe --long --tags  --always)" --rm  -it -d --name "btp-setup-automator" "btp-setup-automator" 

@@ -117,6 +117,7 @@ ENV HOME_FOLDER /home/$USERNAME
 
 ENV LIBS_FOLDER $HOME_FOLDER/libs
 ENV CONTAINER_NAME=btp-setup-automator
+ENV BTPSETUPAUTOMATOR_VERSION_GIT="$(git describe --long --tags  --always)"
 COPY config/python/requirements.txt /tmp/pip-tmp/requirements.txt
 
 # Add config folders according to https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
