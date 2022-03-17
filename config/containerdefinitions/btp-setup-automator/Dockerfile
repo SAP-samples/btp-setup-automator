@@ -10,6 +10,7 @@ FROM alpine:3 AS base
 ENV ARCH=linux-amd64
 ENV TOOLS_URL=tools.hana.ondemand.com
 ENV CPCLI_URL=cpcli.cf.eu10.hana.ondemand.com
+ARG BTPSETUPAUTOMATOR_VERSION_GIT_ARG=default
 
 ## Install necessary packages to donwload and install tools
 RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
@@ -160,6 +161,12 @@ RUN adduser \
 USER $USERNAME
 WORKDIR $HOME_FOLDER
 
+RUN echo $BTPSETUPAUTOMATOR_VERSION_GIT_ARG
+
+ENV BTPSETUPAUTOMATOR_VERSION_GIT=$BTPSETUPAUTOMATOR_VERSION_GIT_ARG
+
+RUN echo $BTPSETUPAUTOMATOR_VERSION_GIT
+
 ## Copy all necessary executables from the tools stage
 COPY --chown=root:root --from=tools /usr/local/bin/cf  /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/cf7  /usr/local/bin
@@ -204,8 +211,6 @@ COPY --chown=$USERNAME:$USERNAME LICENSE                                    $HOM
 
 # Copy over some vscode settings to install the pyhton plugins
 COPY --chown=$USERNAME:$USERNAME .vscode                                    $HOME_FOLDER/.vscode/
-
-ENV BTPSETUPAUTOMATOR_VERSION_GIT=$BTPSETUPAUTOMATOR_VERSION_GIT
 
 # For using outside of VS Code context:
 CMD ["bash"]

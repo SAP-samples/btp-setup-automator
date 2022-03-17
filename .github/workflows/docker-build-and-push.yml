@@ -34,7 +34,7 @@ jobs:
         with:
           context: .
           file: ./config/containerdefinitions/btp-setup-automator/Dockerfile
-          build-args: BTPSETUPAUTOMATOR_VERSION_GIT=${{ github.sha }}
+          build-args: BTPSETUPAUTOMATOR_VERSION_GIT_ARG=${{ github.sha }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}          
