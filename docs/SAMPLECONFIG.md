@@ -40,7 +40,35 @@ All available parameters are described in the file [`libs\json\paramBtpSetupAuto
 
 ### Basics
 
+The basic setup in the `parameter file` typically contains the following information:
+
+```json
+"usecasefile": "path/to/usecase/file.json",
+"email": "some.email@somedomain.com"
+"region": "eu10",
+"subaccountname": "My own subacccount name",
+```
+
+The main information is the link to the `usecasefile` that contains the detailed information of the setup and is discussed in the section ["The Parameter File"](#the-parameter-file). This is also the place to specify further generic information like your `email`, the `region` where the deployment should take place and how you want to name you subaccount via `subaccountname`.
+
+You can also provide further information like the name of your Cloud Foundry sapce (via `cfspacename`):
+
+```json
+"cfspacename": "development",
+```
+
+So think about the basics of this file as the very basic information needed to setup resources in SAP BTP. Some of them are defaulted (see [`libs/json/paramBtpSetupAutomator.json`](libs/json/paramBtpSetupAutomator.json) for the default values).
+
 ### Authentication
+
+Another parameter to take a look at is the `loginmethod`. You need to login to the SAP BTP to execute the actions. You have two options for the way you authenticate::
+
+* `basicAuthentication`
+* `sso`
+
+If you choose `basicAuthentication` you need to provide username and password. You can do that interactively when executing the CLI. If you choose `sso` you need to execute the login flow via a link in the browser. This is then necessary for login via SAP btp CLI as well as for the CLoud Foundry CLI.
+
+> 📝 Tip - This parameter has no influence on teh logon flow when you login to Kyma (implicitly when executing `kubectl` commands). Here you will have an OIDC flow that always redirects you to the browser.
 
 ### Sometimes You Need to Wait ☕
 
@@ -112,7 +140,7 @@ The technical data in this file is dependent on your services. To make things a 
 
 ### Sample 1 - Plain XSUAA Service
 
-Let us assume that you want to provision a XSUAA instance via the tool. This means that we need to specify the service like that:
+Let us assume that you want to provision an instance of the XSUAA service. For that we need to specify the service like this:
 
 ```json
 {
@@ -142,9 +170,42 @@ You specify all the artifacts in the `services` section as a JSON array. For XSU
 
 This example also shows the service specific definition of the parameters `repeatstatusrequest` and `repeatstatustimeout` mentioned above.
 
-You also see a `admins` attribute that points to an empty array. This allows you to specifiy further administrators. The email specified in the `parameter file` will automatically be added to the administrators and does not need to be added explicitly.
+You also see a `admins` attribute that points to an empty array. This allows you to specify further administrators. The email specified in the `parameter file` will automatically be added to the administrators and does not need to be added explicitly.
 
 ### Sample 2 - Plain Kyma Provisioning
+
+Let us assume that you want to provision a Kyma environment in your subaccount. For that we need to specify the service like this:
+
+```json
+{
+  "aboutThisUseCase": {
+    "name": "Setup a Kyma environment on your productive BTP account (GCP)",
+    "description": "This usecase contains the necessary configuration to setup a Kyma environment in your SAP BTP account (GCP).",
+    ...
+ },
+  "services": [
+    {
+      "category": "ENVIRONMENT",
+      "name": "kymaruntime",
+      "plan": "gcp",
+      "amount": 1,
+      "parameters": {
+        "name": "btp-auto-setup",
+        "region": "europe-west3",
+        "autoScalerMin": 2,
+        "autoScalerMax": 3,
+        "machineType": "n2-standard-8"
+      }
+    }
+  ]
+}
+```
+
+As we create a environment the `category` is set to the value `ENVIRONMENT`. The `name` of the environment is `kymaruntime`. As for every scenario we need to specify the `plan`. In addition we need to provide a value for the `amount` of environments.
+
+Besides this basic setup information we can also specify additional parameters like the `name` we want to give our instance, the `region` where it should be deployed or the `machineType` that should be used.
+
+> 📝 Tip - In case you struggle with the available parameters and the possible values you can either check the SAP BTP cockpit UI (JSON view when creating a service) and the help.sap.com documentation of the service.
 
 ### Usecase Examples
 

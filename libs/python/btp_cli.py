@@ -132,7 +132,7 @@ class BTPUSECASE:
             message = "Check status of Kyma provisioning - be patient this could take a while"
 
             log.write(logtype.HEADER, "Fetch and Store Kubeconfig")
-            # Fetch Data from BTP CLI for URL of Dashboard and Kubeconfig
+            # Fetch Data from SAP btp CLI for URL of Dashboard and Kubeconfig
             command = "btp --format json list accounts/environment-instance --subaccount \"" + \
                 self.accountMetadata["subaccountid"] + "\""
 
@@ -1498,7 +1498,7 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
         kymaEnvironmentID = getKymaEnvironmentIdByClusterName(
             result, btpUsecase.btpEnvironment["parameters"]["name"])
 
-        # Delete Kyma runtime via BTP CLI
+        # Delete Kyma runtime via SAP btp CLI
         message = "Trigger deletion of Kyma environment > " + \
             btpUsecase.btpEnvironment["parameters"]["name"] + \
             " < in subaccount > " + \

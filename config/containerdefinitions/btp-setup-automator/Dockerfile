@@ -29,7 +29,7 @@ RUN CF_CLI_VERSION="7.4.0" \
     && tar -xzf download.tgz -C .
 
 ##########################################################################################
-## Retrieve the BTP CLI
+## Retrieve the SAP btp CLI
 ## Latest is always at https://tools.hana.ondemand.com/additional/btp-cli-linux-amd64-latest.tar.gz
 ## Currently we look at https://cpcli.cf.eu10.hana.ondemand.com/actuator/info to find out what the
 ## latest supported version on the server side is and use that, specifically.

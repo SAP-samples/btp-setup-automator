@@ -136,7 +136,7 @@ def checkIfReLoginNecessary(btpUsecase, command):
 
     if command[0:4] == "btp " and command[0:9] != "btp login" and reLogin is True:
         minutesPassed = "{:.2f}".format(elapsedTime / 60)
-        log.write(logtype.WARNING, "executing a re-login in BTP CLI and CF CLI as the last login happened more than >" +
+        log.write(logtype.WARNING, "executing a re-login in SAP btp CLI and CF CLI as the last login happened more than >" +
                   minutesPassed + "< minutes ago")
         login_btp(btpUsecase)
         login_cf(btpUsecase)
@@ -144,7 +144,7 @@ def checkIfReLoginNecessary(btpUsecase, command):
 
     if command[0:3] == "cf " and command[0:8] != "cf login" and reLogin is True:
         minutesPassed = "{:.2f}".format(elapsedTime / 60)
-        log.write(logtype.WARNING, "executing a re-login in BTP CLI and CF CLI as the last login happened more than >" +
+        log.write(logtype.WARNING, "executing a re-login in SAP btp CLI and CF CLI as the last login happened more than >" +
                   minutesPassed + "< minutes ago")
         login_btp(btpUsecase)
         login_cf(btpUsecase)
