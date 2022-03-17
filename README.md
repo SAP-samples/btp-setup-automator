@@ -128,9 +128,9 @@ Checkout [the issues section in this repo](https://github.com/SAP-samples/btp-se
 
 ❓ - If you have *question* you may peruse the [Frequently Asked Questions](docs/FAQ.md) document. If you did not find your questions answered there you can [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
 
-🐛 - If you find a bug, feel free to [create an issue](https://github.com/SAP-samples/btp-setup-automator/issues) in this repository using the `bug-report` template.
+🐛 - If you find a bug, feel free to [create an bug report](https://github.com/SAP-samples/btp-setup-automator/issues/new?assignees=&labels=bug&template=bug-report.yml&title=%5BBUG%5D+%3Ctitle%3E).
 
-🚀 - If you have an idea for improvement or a feature request, please open an issue using the `feature-request` template.
+🚀 - If you have an idea for improvement or a feature request, please open [feature-request](https://github.com/SAP-samples/btp-setup-automator/issues/new?assignees=&labels=enhancement&template=feature-request.yml&title=%5BFEATURE+REQUEST%5D+%3Ctitle%3E).
 
 ## Contributing
 
