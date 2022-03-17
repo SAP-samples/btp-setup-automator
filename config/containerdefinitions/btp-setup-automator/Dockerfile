@@ -10,6 +10,7 @@ FROM alpine:3 AS base
 ENV ARCH=linux-amd64
 ENV TOOLS_URL=tools.hana.ondemand.com
 ENV CPCLI_URL=cpcli.cf.eu10.hana.ondemand.com
+
 ARG BTPSETUPAUTOMATOR_VERSION_GIT_ARG=default
 
 ## Install necessary packages to donwload and install tools
@@ -161,11 +162,7 @@ RUN adduser \
 USER $USERNAME
 WORKDIR $HOME_FOLDER
 
-RUN echo $BTPSETUPAUTOMATOR_VERSION_GIT_ARG
-
-ENV BTPSETUPAUTOMATOR_VERSION_GIT=$BTPSETUPAUTOMATOR_VERSION_GIT_ARG
-
-RUN echo $BTPSETUPAUTOMATOR_VERSION_GIT
+ENV BTPSETUPAUTOMATOR_VERSION_GIT $BTPSETUPAUTOMATOR_VERSION_GIT_ARG
 
 ## Copy all necessary executables from the tools stage
 COPY --chown=root:root --from=tools /usr/local/bin/cf  /usr/local/bin
