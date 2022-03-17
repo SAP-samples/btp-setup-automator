@@ -10,7 +10,7 @@ The CLI of the `btp-setup-automator` displays all its available options via:
 ./btpsa -h
 ```
 
-The most convenient way to interact with the CLI is to provide a *parameter file* (option `-parameterfile <filename>`). This file provides the basic setup information needed by the CLI to be able to work. We describe the details in the section ["The Parameter File"](#the-parameter-file). You find all available parameters in the file [`libs\json\paramBtpSetupAutomator.json`](libs/json/paramBtpSetupAutomator.json)
+The most convenient way to interact with the CLI is to provide a *parameter file* (option `-parameterfile <filename>`). This file provides the basic setup information needed by the CLI to be able to work. We describe the details in the section ["The Parameter File"](#the-parameter-file). You find all available parameters in the file [`libs/json/paramBtpSetupAutomator.json`](../libs/json/paramBtpSetupAutomator.json).
 
 The specifics of the setup are provided via the *usecase file* that is referenced in the parameter file. Here you find the parameterization of the different environments and services you want to provision. We describe the details in the section ["The Usecase File"](#the-usecase-file).
 
@@ -30,13 +30,13 @@ The `btp-setup-automator` takes these files and executes the necessary actions t
 
 The flow makes it clear that this tool provides everything for the setup *per se* that can be parameterized and even offers further degrees of freedom via the steps for command execution and this way easily setting up complete applications in one go.
 
-Let us now take a closer look into the files needed for the setup.
+Let us take a closer look into the files needed for the setup.
 
 ## The Parameter File
 
-The main file for the setup is the `parameter file`. It is written in JSON format. It provides the basic information for the `btp-setup-automator` to run.
+The main file for the setup is the `parameter file` written in JSON format. It provides the basic information for the `btp-setup-automator` to run.
 
-All available parameters are described in the file [`libs\json\paramBtpSetupAutomator.json`](libs/json/paramBtpSetupAutomator.json). As there are quite some we will focus on the main cases.
+All available parameters are described in the file [`libs/json/paramBtpSetupAutomator.json`](../libs/json/paramBtpSetupAutomator.json). As there are quite some we will focus on the main cases.
 
 ### Basics
 
@@ -57,50 +57,52 @@ You can also provide further information like the name of your Cloud Foundry sap
 "cfspacename": "development",
 ```
 
-So think about the basics of this file as the very basic information needed to setup resources in SAP BTP. Some of them are defaulted (see [`libs/json/paramBtpSetupAutomator.json`](libs/json/paramBtpSetupAutomator.json) for the default values).
+Think about the basics of this file as the very basic information needed to setup resources in SAP BTP. Some of them are defaulted (see [`libs/json/paramBtpSetupAutomator.json`](../libs/json/paramBtpSetupAutomator.json) for the default values).
 
 ### Authentication
 
-Another parameter to take a look at is the `loginmethod`. You need to login to the SAP BTP to execute the actions. You have two options for the way you authenticate::
+The parameter to specify how the login is executed is the `loginmethod` needed to access the SAP BTP. You have two options:
 
 * `basicAuthentication`
 * `sso`
 
-If you choose `basicAuthentication` you need to provide username and password. You can do that interactively when executing the CLI. If you choose `sso` you need to execute the login flow via a link in the browser. This is then necessary for login via SAP btp CLI as well as for the CLoud Foundry CLI.
+If you choose `basicAuthentication` you need to provide username and password. You can do that interactively when executing the CLI.
 
-> 📝 Tip - This parameter has no influence on teh logon flow when you login to Kyma (implicitly when executing `kubectl` commands). Here you will have an OIDC flow that always redirects you to the browser.
+If you choose `sso` you need to execute the login flow via a link in the browser. This is then necessary for login via SAP btp CLI as well as for the Cloud Foundry CLI.
+
+> 📝 Tip - This parameter has no influence on the logon flow when you login to Kyma (implicitly when executing `kubectl` commands). Here you will have an OIDC flow that always redirects you to the browser.
 
 ### Sometimes You Need to Wait ☕
 
-Some provisioning actions on BTP take time. In some cases the `btp-setup-automator` needs to wait for them to be finished. However, we want to have some safeguarding aka circuit breakers in place. To achieve this you can specify the maximum waiting time as well as the polling interval i.e., in which time intervals shall the `btp-setup-automator` check if the provisioning is finished.
+Some provisioning actions on BTP take time and in some cases the `btp-setup-automator` needs to wait for them to be finished. However, we want to have some safeguarding aka *circuit breakers* in place. You can therefore specify the *maximum waiting time* as well as the *polling interval* i.e., in which time intervals shall the `btp-setup-automator` check if the provisioning is finished.
 
-In general you achieve this via the following parameters:
-
-| Parameter | Type | Unit |Default Value | Description
-| --- | --- | --- | --- | ---
-| `repeatstatustimeout` | int | seconds | 4200 | This value defines the timeout in seconds after which requests to check if the service etc. is available should be stopped.
-| `repeatstatusrequest` | int | seconds | 4 | This value defines the interval in seconds that requests are sent to check if the service etc. is available.
-
-> 📝 Tip - You can specify these parameters globally or per service definition. In the later case you ned to add them to the `usecase file`
-
-The Kyma is a special snowflake as the provisioning takes quite some time. That is why you have dedicated parameters for the timeout settings:
+This is reflected by the following parameters:
 
 | Parameter | Type | Unit |Default Value | Description
 | --- | --- | --- | --- | ---
-| `waitForKymaEnvironmentCreation` | boolean | na | true | This parameters defines if you want to wait for the Kyma environment to be created. If it is set to `false` the `btp-setup-automator` will **not** be able to download the `kubeconfig` file.
-| `timeoutLimitForKymaCreationInMinutes` | int | minutes | 40 | This value defines the timeout in **minutes** after which requests to check if the Kyma environment is available should be stopped.
-| `pollingIntervalForKymaCreationInMinutes` | int | minutes | 5 | This value defines the interval in **minutes** that requests are sent to check if the Kyma environment is available.
+| `repeatstatustimeout` | int | seconds | 4200 | This parameter defines the timeout in seconds after which requests to check if the service etc. is available should be stopped.
+| `repeatstatusrequest` | int | seconds | 4 | This parameter defines the interval in seconds that requests are sent to check if the service etc. is available.
+
+> 📝 Tip - You can specify these parameters globally or per service definition. In the later case you need to place them in the `usecase file`.
+
+The Kyma environment is a special snowflake as the provisioning takes quite some time. That is why you have dedicated parameters for the timeout settings:
+
+| Parameter | Type | Unit |Default Value | Description
+| --- | --- | --- | --- | ---
+| `waitForKymaEnvironmentCreation` | boolean | na | true | This parameter defines if you want to wait for the Kyma environment to be created. If it is set to `false` the `btp-setup-automator` will **not** be able to download the `kubeconfig` file.
+| `timeoutLimitForKymaCreationInMinutes` | int | minutes | 40 | This parameter defines the timeout in **minutes** after which requests to check if the Kyma environment is available should be stopped.
+| `pollingIntervalForKymaCreationInMinutes` | int | minutes | 5 | This parameter defines the interval in **minutes** that requests are sent to check if the Kyma environment is available.
 
 The same goes for pruning the Kyma environment:
 
 | Parameter | Type | Unit |Default Value | Description
 | --- | --- | --- | --- | ---
-| `timeoutLimitForKymaDeprovisioningInMinutes` | int | minutes | 40 | This value defines the timeout in **minutes** after which requests to check if the Kyma environment is deleted should be stopped.
-| `pollingIntervalForKymaDeprovisioningInMinutes` | int | minutes | 5 | This value defines the interval in **minutes** that requests are sent to check if the Kyma environment is available.
+| `timeoutLimitForKymaDeprovisioningInMinutes` | int | minutes | 40 | This parameter defines the timeout in **minutes** after which requests to check if the Kyma environment is deleted should be stopped.
+| `pollingIntervalForKymaDeprovisioningInMinutes` | int | minutes | 5 | This parameter defines the interval in **minutes** that requests are sent to check if the Kyma environment is available.
 
 ### Pruning - Handle with Care
 
-After setting up everything you have the option to tear everything down again. One scenario might be to use the  `btp-setup-automator` as a tool to enable a integration or end2end scenario for your app, namely setting things up, checking if the work (via `executeAfterAccountSetup` commands) and then remove everything again.
+After setting up everything you have the option to tear everything down again. One scenario might be to use the  `btp-setup-automator` as a tool to enable a integration or end2end scenario for your app, namely setting things up, checking if it works (via `executeAfterAccountSetup` commands) and then remove everything again.
 
 You specify the behavior via two parameters:
 
@@ -109,11 +111,11 @@ You specify the behavior via two parameters:
 | `pruneusecase`    | boolean | false | If this parameter is set to true the use case setup will be removed. The subaccount will **not** be deleted.
 | `prunesubaccount` | boolean | false | If this parameter is set to true the subaccount setup will be removed. This also comprises the removal of the artifacts defined in the usecase. The usecase deletion wil be triggered implicitly independent of the `pruneusecase` parameter.  
 
-> ⚠ NOTE: Be aware that all setups done via commands must be reversed again. This can be done via commands provided in the `executeToPruneUseCase` section.  
+> ⚠ NOTE: Be aware that all setups done via commands must be reversed. This must be done via commands provided in the `executeToPruneUseCase` section.  
 
 ### Parameter Examples
 
-You find several examples for parameter files in the folder `usecases/other/unittests/parameterfiles`
+You find several examples for parameter files in the folder `usecases/other/unittests/parameterfiles`.
 
 ## The Usecase File
 
@@ -136,7 +138,7 @@ Every usecase file start with some generic metadata that specifies the content n
 }  
 ```
 
-The technical data in this file is dependent on your services. To make things a bit more tangible, Let us take a look at two samples in the following sections to showcase the fundamentals.
+The technical data in this file depends on your services. To make things a bit more tangible, Let us take a look at two samples in the following sections to showcase the fundamentals.
 
 ### Sample 1 - Plain XSUAA Service
 
@@ -170,7 +172,7 @@ You specify all the artifacts in the `services` section as a JSON array. For XSU
 
 This example also shows the service specific definition of the parameters `repeatstatusrequest` and `repeatstatustimeout` mentioned above.
 
-You also see a `admins` attribute that points to an empty array. This allows you to specify further administrators. The email specified in the `parameter file` will automatically be added to the administrators and does not need to be added explicitly.
+You also see a `admins` attribute that points to an empty array. Here you canspecify further administrators. The email specified in the `parameter file` will automatically be added to the administrators and does not need to be added explicitly.
 
 ### Sample 2 - Plain Kyma Provisioning
 
@@ -213,4 +215,4 @@ You find several examples for parameter files in the folder `usecases/released`.
 
 ## Further Information
 
-As the `btp-setup-automator` is leveraging the capabilities of the SAP btp CLI we recommend to have a look into the documentation of the CLI when it comes to the detailed parameters for single services. You fin the information in [help.sap.com](https://help.sap.com/products/BTP/65de2977205c403bbc107264b8eccf4b/7c6df2db6332419ea7a862191525377c.html)
+As the `btp-setup-automator` is leveraging the capabilities of the SAP btp CLI we recommend to have a look into the documentation of the CLI when it comes to the detailed parameters for single services. You find the information in [help.sap.com](https://help.sap.com/products/BTP/65de2977205c403bbc107264b8eccf4b/7c6df2db6332419ea7a862191525377c.html).
