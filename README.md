@@ -7,7 +7,7 @@
 
 ## Description
 
-This repository provides the user with a script to automate the setup of an [SAP Business Technology Platform (SAP BTP) account](https://account.hana.ondemand.com/).
+This repository provides the user with a script to **automate the setup** of an [SAP Business Technology Platform (SAP BTP) account](https://account.hana.ondemand.com/) and to **learn** how this is done with the various command line interfaces and tools.
 
 ![architectural overview](docs/pics/overview.png)
 
@@ -21,7 +21,7 @@ This includes:
 - Deployment of complete applications
 - Unrolling created setup
 
-In essence it's all about making it easier to onboard developers on confugirung and using SAP BTP.
+In essence it’s all about **making it easier to get developers quickly onboard on SAP BTP** and use services on SAP BTP without having to know too much of the terminology and how to use the SAP BTP Cockpit.
 
 ### All in containers
 
