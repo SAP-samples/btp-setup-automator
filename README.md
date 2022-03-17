@@ -1,7 +1,5 @@
 # BTP-Setup-Automator
-<!--- Register repository https://api.reuse.software/register, then add REUSE badge:
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-setup-automator)](https://api.reuse.software/info/github.com/SAP-samples/btp-setup-automator)
--->
 
 [![Build Check](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/build-quality-check.yml/badge.svg?branch=main)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/build-quality-check.yml) [![Build and Push Docker Image](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-build-and-push.yml/badge.svg)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-build-and-push.yml)
 
@@ -62,16 +60,6 @@ The fastest way to use the `btp-setup-automator` it, to open a terminal windows 
 ```bash
 docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
 ```
-
-> 📝 Tip - While this repo is still in private (until end of March 2022), you need to login to GitHub with an access token via this command:
->
-> ```bash
-> docker login ghcr.io -u <YOUR GITHUB USERNAME>
-> ```
->
-> Once entered, you will be asked for your password, which is a **personal  access token** that you need to create in your GitHub account for your user ([checkout the instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)).
->
-> When this GitHub repository is public, you won't need to login anymore.
 
 You'll notice that the prompt in your terminal has changed, because you are now working inside the docker container, that you just started.
 
