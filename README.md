@@ -75,6 +75,13 @@ docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/
 
 You'll notice that the prompt in your terminal has changed, because you are now working inside the docker container, that you just started.
 
+> 📝 Tip - If you are already using VS Code, you should execute this command instead, so that the container runs "detached" (`-d`) from your command line session:
+>
+> ```bash
+> docker container run --rm -it -d --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
+> ```
+>
+
 ### Option 2: Start Docker Container With Self-Built Image
 
 To create the Docker image yourself you need to execute these steps:
