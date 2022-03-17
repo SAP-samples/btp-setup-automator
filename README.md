@@ -9,21 +9,23 @@
 
 This repository provides the user with a script to automate the setup of an [SAP Business Technology Platform (SAP BTP) account](https://account.hana.ondemand.com/).
 
+![architectural overview](docs/pics/overview.png)
+
 This includes:
 
 - Setup of your SAP BTP account
 - Entitlement of services
 - Subscription of applications and creation of service instances with api keys
-- Addition of administator users to global account and subaccounts
+- Addition of administrator users to global account and subaccounts
 - Setup of roles and role collections, assignment of roles collections to users
 - Deployment of complete applications
 - Unrolling created setup
 
-In essence it's all about making it easier to get developers quickly onboard on SAP BTP and use of services on SAP BTP.
+In essence it's all about making it easier to onboard developers on confugirung and using SAP BTP.
 
-### All on Docker
+### All in containers
 
-The tooling is running within a [docker](https://www.docker.com/) container and the repository provides all you need to run the tooling in a docker image.
+The tooling provided in this repository is supposed to run inside a [docker](https://www.docker.com/) container.
 
 [Why docker](https://www.docker.com/why-docker)? We want to ensure that you can focus on getting your work done on the SAP BTP account without having to worry whether you have the right tools in the right release for the right operating system in place.
 
@@ -58,7 +60,7 @@ For starting quickly **it is recommended to use the pre-built Docker image**.
 The fastest way to use the `btp-setup-automator` it, to open a terminal windows on your machine and to enter the following command to pull the docker image from the GitHub repository and run it in a container:
 
 ```bash
-docker container run --rm  -it -d --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
+docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
 ```
 
 > 📝 Tip - While this repo is still in private (until end of March 2022), you need to login to GitHub with an access token via this command:
@@ -70,6 +72,8 @@ docker container run --rm  -it -d --name "btp-setup-automator" "ghcr.io/sap-samp
 > Once entered, you will be asked for your password, which is a **personal  access token** that you need to create in your GitHub account for your user ([checkout the instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)).
 >
 > When this GitHub repository is public, you won't need to login anymore.
+
+You'll notice that the prompt in your terminal has changed, because you are now working inside the docker container, that you just started.
 
 ### Option 2: Start Docker Container With Self-Built Image
 
