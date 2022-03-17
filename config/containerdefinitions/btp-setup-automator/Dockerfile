@@ -205,5 +205,7 @@ COPY --chown=$USERNAME:$USERNAME LICENSE                                    $HOM
 # Copy over some vscode settings to install the pyhton plugins
 COPY --chown=$USERNAME:$USERNAME .vscode                                    $HOME_FOLDER/.vscode/
 
+ENV BTPSETUPAUTOMATOR_VERSION_GIT=$BTPSETUPAUTOMATOR_VERSION_GIT
+
 # For using outside of VS Code context:
 CMD ["bash"]
