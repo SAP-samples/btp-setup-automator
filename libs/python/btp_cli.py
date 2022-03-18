@@ -33,6 +33,7 @@ class BTPUSECASE:
             self.suffixinstancename = getNamingPatternForServiceSuffix(self)
 
         self.timeScriptStarted = time.time()
+
         self = helperArgParser.checkProvidedArguments(self)
 
         self.outputCurrentBtpUsecaseVariables()
