@@ -145,6 +145,7 @@ RUN adduser \
                coreutils \
                curl \
                git \
+               jq \
                make \
                nano \
                nodejs \
