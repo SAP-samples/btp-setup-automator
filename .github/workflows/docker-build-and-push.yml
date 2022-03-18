@@ -17,7 +17,7 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.10.0
       - name: Log in to the Container registry
         uses: docker/login-action@v1
         with:
@@ -34,7 +34,8 @@ jobs:
         with:
           context: .
           file: ./config/containerdefinitions/btp-setup-automator/Dockerfile
-          build-args: BTPSA_VERSION_GIT_ARG=${{ github.sha }}
+          build-args: | 
+            BTPSA_VERSION_GIT_ARG=${{ github.sha }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}          

@@ -129,6 +129,9 @@ ENV XDG_STATE_HOME=$HOME_FOLDER/.local/state
 ENV CF_HOME=$XDG_CONFIG_HOME/cf
 ENV BTP_CLIENTCONFIG=$XDG_CONFIG_HOME/btp/config.json
 
+ARG BTPSA_VERSION_GIT_ARG=unknown
+ENV BTPSA_VERSION_GIT $BTPSA_VERSION_GIT_ARG
+
 RUN adduser \
     --disabled-password \
     --gecos "" \
@@ -161,8 +164,6 @@ RUN adduser \
 ##########################################################################################
 USER $USERNAME
 WORKDIR $HOME_FOLDER
-
-ENV BTPSA_VERSION_GIT $BTPSA_VERSION_GIT_ARG
 
 ## Copy all necessary executables from the tools stage
 COPY --chown=root:root --from=tools /usr/local/bin/cf  /usr/local/bin
