@@ -58,11 +58,12 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
       - name: Build Docker image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v2.10.0
         with:
           context: .
           file: ./config/containerdefinitions/btp-setup-automator/Dockerfile
-          build-args: BTPSA_VERSION_GIT_ARG=${{ github.sha }}
+          build-args: |
+            BTPSA_VERSION_GIT_ARG=${{ github.sha }}
           push: false
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}          
