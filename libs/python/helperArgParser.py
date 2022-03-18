@@ -80,6 +80,20 @@ def createDefaultParametersFile(toolParametersFile):
 def checkProvidedArguments(btpUsecase):
     log = btpUsecase.log
 
+    usecaseInfo = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
+    if "aboutThisUseCase" in usecaseInfo:
+        info = usecaseInfo["aboutThisUseCase"]
+        log.write(logtype.HEADER, "Info about use case to be executed")
+        filename = btpUsecase.usecasefile
+        if filename is not None:
+            log.write(logtype.INFO, "file  : " + filename)
+        if "name" in info:
+            name = info["name"]
+            log.write(logtype.INFO, "name  : " + name)
+        if "description" in info:
+            description = info["description"]
+            log.write(logtype.INFO, "descr.: " + description)
+
     log.write(logtype.HEADER, "Checking provided arguments and files")
 
     # Check GLOBAL ACCOUNT SUBDOMAIN

@@ -1,6 +1,6 @@
 {
   "aboutThisUseCase": {
-    "name": "Setup a Kyma environment on your productive BTP account (Free Tier)",
+    "name": "Setup a Kyma environment on your productive SAP BTP account (Free Tier)",
     "description": "This usecase contains the necessary configuration to setup a Kyma environment in your SAP BTP account (Free Tier).",
     "author": "christian.lechner@sap.com",
     "testStatus": "tested successfully",
