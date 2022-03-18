@@ -76,7 +76,7 @@ Stop the `btp-setup-automator` container in Docker, delete the image, too, and r
 docker system prune -a -f
 ```
 
-Now get the most current `btp-setup-automator` image (as stated in the `Download and Installation` section of the [main READMe.md](../README.md)) and start the container.
+Now get the most current `btp-setup-automator` image (as stated in the `Download and Installation` section of the [main README.md](../README.md)) and start the container.
 
 ### How do I realize a DEV, TEST, PROD setup in my SAP BTP account with btp-setup-automator?
 
