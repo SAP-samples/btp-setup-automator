@@ -66,6 +66,18 @@ If you are using a windows machine there might be a default setup for the end of
 
     ![change end of line in VSCode settings](pics/faq03.png)
 
+### I've seen a new feature XYZ, but when running the container I don't see it. Why?
+
+You might be using the container image that is in your computers' cache. 
+
+Stop the `btp-setup-automator` container in Docker, delete the image, too, and run the following command to delete the cache:
+
+```bash
+docker system prune -a -f
+```
+
+Now get the most current `btp-setup-automator` image (as stated in the `Download and Installation` section of the [main READMe.md](../README.md)) and start the container.
+
 ### How do I realize a DEV, TEST, PROD setup in my SAP BTP account with btp-setup-automator?
 
 Just script the script :-). You can create 3 different parameter files, which only differ in the `subaccountname` parameter, like this:
