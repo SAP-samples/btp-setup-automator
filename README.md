@@ -62,14 +62,13 @@ docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/
 
 You'll notice that the prompt in your terminal has changed, because you are now working inside the docker container, that you just started.
 
-You can now run the main script `btpsa` with the following command and you'll be deploying a CAP application on your SAP BTP Trial account (the default usecase):
+You can now run the main script `btpsa` with the following command and you'll be deploying a CAP application on your SAP BTP Trial account (the default [usecase](docs/USECASES.md)):
 
 ```bash
-./btpsa -globalaccount "<your global account subdomain>"
+./btpsa
 ```
 
-The tool starts to execute and the only thing you need to type-in is your password for your SAP BTP account. The btp-setup-automator script will now prepare your SAP BTP account to cover the discovery center mission.
-
+The tool starts to execute and the only thing you need to type-in is your password for your SAP BTP account.
 
 > 📝 Tip - If you are already using VS Code, you should execute this command instead, so that the container runs "detached" (`-d`) from your command line session:
 >
