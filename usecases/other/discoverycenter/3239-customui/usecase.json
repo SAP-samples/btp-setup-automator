@@ -1,0 +1,55 @@
+{
+    "aboutThisUseCase": {
+        "name": "Setup Side-by-Side UI Extensions for SAP S/4HANA on SAP BTP",
+        "description": "Create a custom UI application on SAP BTP which consumes data from SAP S/4HANA",
+        "author": "sangeetha.jayakumar@sap.com",
+        "testStatus": "in testing",
+        "usageStatus": "NOT RELEASED",
+        "relatedLinks": [
+            "https://discovery-center.cloud.sap/missiondetail/3239/3325/"
+        ]
+    },
+    "services": [
+        {
+            "name": "SAPLaunchpad",
+            "plan": "free",
+            "category": "APPLICATION",
+            "requiredrolecollections": [
+                "Launchpad_Admin"
+            ]
+        },
+        {
+            "name": "sapappstudio",
+            "plan": "free",
+            "category": "APPLICATION",
+            "requiredrolecollections": [
+                "Business_Application_Studio_Administrator",
+                "Business_Application_Studio_Developer"
+            ]
+        },
+        {
+            "name": "cicd-app",
+            "plan": "free",
+            "category": "APPLICATION",
+            "requiredrolecollections": [
+                "CICD Service Administrator"
+            ]
+        }
+    ],
+    "admins": [
+       "wolfgang.scheer@sap.com",
+       "i.belozerov@sap.com"
+    ],
+    "executeAfterAccountSetup": [
+       
+        {
+            "description": "We have now created a subaccount in SAP BTP. Continue manual steps according to Github documentation",
+            "command": "echo 'Continue next steps as shown in the Github: https://github.com/SAP-samples/cloud-extension-html5-sample/blob/mission/mission/README.md'"
+        }
+    ],
+    "executeToPruneUseCase": [
+        {
+           
+        }
+    ]
+}
