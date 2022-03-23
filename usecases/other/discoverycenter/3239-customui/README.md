@@ -25,8 +25,7 @@ You'll notice that the prompt in your terminal has changed, because you are now 
 Now run the main script `btpsa` with the following command:
 
 ```bash
-./btpsa -parameterfile 'usecases/other/discoverycenter/3239-customui/parameters.json'
- \
+./btpsa -parameterfile 'usecases/other/discoverycenter/3239-customui/parameters.json' \
     -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>'  \
     -region        '<region for your subaccount e.g. us10>' \
     -myemail       '<your email address>'
