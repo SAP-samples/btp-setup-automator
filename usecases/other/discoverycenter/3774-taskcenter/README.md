@@ -1,8 +1,10 @@
 # Instructions for running SAP Discovery Center Mission in btp-setup-automator
 
+The [btp-setup-automator](https://github.com/SAP-samples/btp-setup-automator) is an open source project to help developers setting-up their SAP BTP accounts quickly via various command line interfaces.
+
 ## Pre-Requisites
 
-To use the tooling you first need to finish the following tasks:
+To use the [btp-setup-automator](https://github.com/SAP-samples/btp-setup-automator) you first need to finish the following tasks:
 
 - Get an [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/trial/#/home/trial) or a [productive SAP BTP account](https://account.hana.ondemand.com/#/home/welcome) (recommended) where you can make use of the free tier service plans
 - [Install a Docker engine](https://docs.docker.com/desktop/)
@@ -32,3 +34,13 @@ Now run the main script `btpsa` with the following command:
 ```
 
 The tool starts to execute and the only thing you need to type-in is your password for your SAP BTP account. The btp-setup-automator script will now prepare your SAP BTP account to cover the discovery center mission.
+
+In case you don't have the rights to create your own sub account, you should add the sub account id as a parameter to the command. That should look like this:
+
+```bash
+./btpsa -parameterfile 'usecases/other/discoverycenter/3774-taskcenter/parameters.json' \
+    -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>'  \
+    -subaccountid  '<your sub account id as shown in the SAP BTP cockpit>'
+    -region        'region for your subaccount e.g. us10>' \
+    -myemail       'your email address>'
+```
