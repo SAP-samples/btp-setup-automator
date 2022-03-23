@@ -1370,47 +1370,43 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
     if "createdAppSubscriptions" in accountMetadata and len(accountMetadata["createdAppSubscriptions"]) > 0:
         log.write(logtype.INFO, "Unsubscribe from apps")
         for service in accountMetadata["createdAppSubscriptions"]:
-            command = "btp --format json unsubscribe accounts/subaccount --subaccount " + \
-                accountMetadata["subaccountid"] + \
-                " --from-app " + service["name"] + " --confirm"
-            message = "Remove app subscription >" + \
-                service["name"] + "< from subaccount"
+            command = "btp --format json unsubscribe accounts/subaccount --subaccount " + accountMetadata["subaccountid"] + " --from-app " + service["name"] + " --confirm"
+            message = "Remove app subscription >" + service["name"] + "< from subaccount"
             result = runCommandAndGetJsonResult(
                 btpUsecase, command, logtype.INFO, message)
-            # check status of deletion
-            search_every_x_seconds = btpUsecase.repeatstatusrequest
-            usecaseTimeout = btpUsecase.repeatstatustimeout
-            current_time = 0
-            allServicesDeleted = False
-            # Set the deletion status to "not deleted"
-            for service in accountMetadata["createdAppSubscriptions"]:
-                service["deletionStatus"] = "not deleted"
+        # check status of deletion
+        search_every_x_seconds = btpUsecase.repeatstatusrequest
+        usecaseTimeout = btpUsecase.repeatstatustimeout
+        current_time = 0
+        allServicesDeleted = False
+        # Set the deletion status to "not deleted"
+        for service in accountMetadata["createdAppSubscriptions"]:
+            service["deletionStatus"] = "not deleted"
 
-            while usecaseTimeout > current_time and allServicesDeleted is False:
-                for service in accountMetadata["createdAppSubscriptions"]:
-                    status = get_subscription_deletion_status(
-                        btpUsecase, service)
-                    if (status == "deleted"):
-                        log.write(
-                            logtype.SUCCESS, "app subscription for app >" + service["name"] + "< now deleted")
-                        service["deletionStatus"] = "deleted"
-                    if (status == "UNSUBSCRIBE_FAILED"):
-                        log.write(logtype.ERROR, "unsubscribing app >" +
-                                  service["name"] + "< failed. Returned status >" + status + "<")
-                        service["deletionStatus"] = "UNSUBSCRIBE_FAILED"
-                        log.write(
-                            logtype.INFO, "trying again to remove the subscription to app >" + service["name"] + "<")
-                        result = runCommandAndGetJsonResult(
-                            btpUsecase, command, logtype.INFO, message)
-                        service["deletionStatus"] = status
-                    else:
-                        service["deletionStatus"] = status
-                time.sleep(search_every_x_seconds)
-                current_time += search_every_x_seconds
-                allServicesDeleted = True
-                for service in accountMetadata["createdAppSubscriptions"]:
-                    if service["deletionStatus"] != "deleted":
-                        allServicesDeleted = False
+        while usecaseTimeout > current_time and allServicesDeleted is False:
+            for service in accountMetadata["createdAppSubscriptions"]:
+                if service["deletionStatus"] == "deleted":
+                    continue
+                status = get_subscription_deletion_status(btpUsecase, service)
+                if (status == "deleted" and service["deletionStatus"] != "deleted"):
+                    log.write(logtype.SUCCESS, "app subscription for app >" + service["name"] + "< now deleted")
+                    service["deletionStatus"] = "deleted"
+                if (status == "UNSUBSCRIBE_FAILED"):
+                    log.write(logtype.ERROR, "unsubscribing app >" + service["name"] + "< failed. Returned status >" + status + "<")
+                    service["deletionStatus"] = "UNSUBSCRIBE_FAILED"
+                    log.write(
+                        logtype.INFO, "trying again to remove the subscription to app >" + service["name"] + "<")
+                    result = runCommandAndGetJsonResult(
+                        btpUsecase, command, logtype.INFO, message)
+                    service["deletionStatus"] = status
+                else:
+                    service["deletionStatus"] = status
+            time.sleep(search_every_x_seconds)
+            current_time += search_every_x_seconds
+            allServicesDeleted = True
+            for service in accountMetadata["createdAppSubscriptions"]:
+                if service["deletionStatus"] != "deleted":
+                    allServicesDeleted = False
 
     if "createdServiceInstances" in accountMetadata and len(accountMetadata["createdServiceInstances"]) > 0:
         log.write(logtype.INFO, "Delete service instances")
@@ -1420,14 +1416,11 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
             for service in accountMetadata["createdServiceInstances"]:
                 if "createdServiceKeys" in service:
                     for key in service["createdServiceKeys"]:
-                        delete_cf_service_key(
-                            btpUsecase, service["instancename"], key["keyname"])
-                        search_every_x_seconds, usecaseTimeout = getTimingsForStatusRequest(
-                            btpUsecase, service)
+                        delete_cf_service_key(btpUsecase, service["instancename"], key["keyname"])
+                        search_every_x_seconds, usecaseTimeout = getTimingsForStatusRequest(btpUsecase, service)
                         current_time = 0
                         while usecaseTimeout > current_time:
-                            command = "cf service-key " + \
-                                service["instancename"] + " " + key["keyname"]
+                            command = "cf service-key " + service["instancename"] + " " + key["keyname"]
                             # Calling the command with the goal to get back the "FAILED" status, as this means that the service key was not found (because deletion was successfull)
                             # If the status is not "FAILED", this means that the deletion hasn't been finished so far
                             p = runShellCommandFlex(btpUsecase, command, logtype.CHECK, "check if service key >" +
@@ -1438,12 +1431,9 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                             time.sleep(search_every_x_seconds)
                             current_time += search_every_x_seconds
                 if "instancename" in service and service["instancename"] is not None and service["instancename"] != "":
-                    command = "cf delete-service " + '"' + \
-                        service["instancename"] + '"' + " -f"
-                    message = "Delete CF service instance >" + \
-                        service["instancename"] + "< from subaccount"
-                    result = runShellCommand(
-                        btpUsecase, command, logtype.INFO, message)
+                    command = "cf delete-service " + '"' + service["instancename"] + '"' + " -f"
+                    message = "Delete CF service instance >" + service["instancename"] + "< from subaccount"
+                    result = runShellCommand(btpUsecase, command, logtype.INFO, message)
 
             log.write(logtype.INFO, "Check deletion status for service instances")
 
@@ -1461,14 +1451,11 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                     if "instancename" not in service:
                         status = "deleted"
                         service["deletionStatus"] = status
-                        log.write(logtype.INFO, "no service instance available for service >" +
-                                  service["name"] + "<. Deletion not needed.")
+                        log.write(logtype.INFO, "no service instance available for service >" + service["name"] + "<. Deletion not needed.")
                         continue
-                    status = get_cf_service_deletion_status(
-                        btpUsecase, service)
+                    status = get_cf_service_deletion_status(btpUsecase, service)
                     if (status == "deleted"):
-                        log.write(logtype.SUCCESS, "service instance >" +
-                                  service["instancename"] + "< for service >" + service["name"] + "< now deleted.")
+                        log.write(logtype.SUCCESS, "service instance >" + service["instancename"] + "< for service >" + service["name"] + "< now deleted.")
                         service["deletionStatus"] = "deleted"
                     else:
                         service["deletionStatus"] = status
@@ -1480,8 +1467,7 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                         allServicesDeleted = False
             log.write(logtype.SUCCESS, "all service instances now deleted.")
         else:
-            log.write(logtype.ERROR, "the BTP environment >" +
-                      btpUsecase.btpEnvironment["name"] + "< is currently not supported in this script.")
+            log.write(logtype.ERROR, "the BTP environment >" + btpUsecase.btpEnvironment["name"] + "< is currently not supported in this script.")
             sys.exit(os.EX_DATAERR)
 
     if btpUsecase.btpEnvironment["name"] == "kymaruntime":
