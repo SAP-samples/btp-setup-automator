@@ -36,20 +36,12 @@
             ]
         }
     ],
-    "admins": [
-       "wolfgang.scheer@sap.com",
-       "i.belozerov@sap.com"
-    ],
+    "admins": [],
     "executeAfterAccountSetup": [
        
         {
             "description": "We have now created a subaccount in SAP BTP. Continue manual steps according to Github documentation",
             "command": "echo 'Continue next steps as shown in the Github: https://github.com/SAP-samples/cloud-extension-html5-sample/blob/mission/mission/README.md'"
-        }
-    ],
-    "executeToPruneUseCase": [
-        {
-           
         }
     ]
 }
