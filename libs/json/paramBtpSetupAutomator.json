@@ -166,5 +166,17 @@
         "type": "str",
         "help": "provide your BTP password via the command line. USE WITH CARE!!!",
         "default": null
+    },
+    {
+        "argument": "cfcliapihostregion",
+        "type": "str",
+        "help": "host region for the Cloud Foundry CLI calls",
+        "default": null
+    },
+    {
+        "argument": "btpcliapihostregion",
+        "type": "str",
+        "help": "host region for the BTP CLI calls",
+        "default": "eu10"
     }
 ]
