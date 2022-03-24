@@ -83,28 +83,22 @@ class BTPUSECASE:
 
     def check_if_account_can_cover_use_case(self):
         log = self.log
-        log.write(
-            logtype.HEADER, "Checking if all configured services & app subscriptions are available on your global account")
+        log.write(logtype.HEADER, "Checking if all configured services & app subscriptions are available on your global account")
 
         availableForAccount = getListOfAvailableServicesAndApps(self)
 
-        usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(
-            self, availableForAccount)
+        usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(self, availableForAccount)
 
         if usecaseSupportsServices is False:
-            log.write(logtype.ERROR,
-                      "USE CASE NOT SUPPORTED IN YOUR GLOBAL ACCOUNT!")
+            log.write(logtype.ERROR, "USE CASE NOT SUPPORTED IN YOUR GLOBAL ACCOUNT!")
             sys.exit(os.EX_PROTOCOL)
         else:
-            log.write(logtype.SUCCESS,
-                      "Use case supported in your global account!")
+            log.write(logtype.SUCCESS, "Use case supported in your global account!")
 
     def prune_subaccount(self, subaccountid):
         login_btp(self)
-        command = "btp delete accounts/subaccount \"" + subaccountid + \
-            "\" --global-account \"" + self.globalaccount + "\" --confirm  --force-delete"
-        runShellCommand(self, command, logtype.INFO,
-                        "delete directory >" + subaccountid + "<")
+        command = "btp delete accounts/subaccount \"" + subaccountid + "\" --global-account \"" + self.globalaccount + "\" --confirm  --force-delete"
+        runShellCommand(self, command, logtype.INFO, "delete directory >" + subaccountid + "<")
 
     def executeBeforeAccountSetup(self):
         message = "Execute commands before account is prepared"
@@ -1325,9 +1319,7 @@ def pruneSubaccount(btpUsecase: BTPUSECASE):
     log = btpUsecase.log
     accountMetadata = btpUsecase.accountMetadata
 
-    command = "btp --format json delete accounts/subaccount " + \
-        accountMetadata["subaccountid"] + " --global-account " + \
-        btpUsecase.globalaccount + " --confirm"
+    command = "btp --format json delete accounts/subaccount " + accountMetadata["subaccountid"] + " --global-account " + btpUsecase.globalaccount + " --confirm"
     message = "Delete sub account"
     result = runShellCommand(btpUsecase, command, logtype.INFO, message)
 
@@ -1338,8 +1330,7 @@ def pruneSubaccount(btpUsecase: BTPUSECASE):
     while usecaseTimeout > current_time:
         command = "btp --format json list accounts/subaccount"
         message = "Check if account deleted"
-        result = runCommandAndGetJsonResult(
-            btpUsecase, command, logtype.CHECK, message)
+        result = runCommandAndGetJsonResult(btpUsecase, command, logtype.CHECK, message)
         if "value" in result:
             accountStillThere = False
             for item in result["value"]:
@@ -1416,19 +1407,18 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                 if "createdServiceKeys" in service:
                     for key in service["createdServiceKeys"]:
                         delete_cf_service_key(btpUsecase, service["instancename"], key["keyname"])
-                        search_every_x_seconds, usecaseTimeout = getTimingsForStatusRequest(btpUsecase, service)
-                        current_time = 0
-                        while usecaseTimeout > current_time:
-                            command = "cf service-key " + service["instancename"] + " " + key["keyname"]
-                            # Calling the command with the goal to get back the "FAILED" status, as this means that the service key was not found (because deletion was successfull)
-                            # If the status is not "FAILED", this means that the deletion hasn't been finished so far
-                            p = runShellCommandFlex(btpUsecase, command, logtype.CHECK, "check if service key >" +
-                                                    key["keyname"] + "< for service instance >" + service["instancename"] + "<", False, False)
-                            result = p.stdout.decode()
-                            if "FAILED" in result:
-                                usecaseTimeout = current_time - 1
-                            time.sleep(search_every_x_seconds)
-                            current_time += search_every_x_seconds
+                    search_every_x_seconds, usecaseTimeout = getTimingsForStatusRequest(btpUsecase, service)
+                    current_time = 0
+                    while usecaseTimeout > current_time:
+                        command = "cf service-key " + service["instancename"] + " " + key["keyname"]
+                        # Calling the command with the goal to get back the "FAILED" status, as this means that the service key was not found (because deletion was successfull)
+                        # If the status is not "FAILED", this means that the deletion hasn't been finished so far
+                        p = runShellCommandFlex(btpUsecase, command, logtype.CHECK, "check if service key >" + key["keyname"] + "< for service instance >" + service["instancename"] + "<", False, False)
+                        result = p.stdout.decode()
+                        if "FAILED" in result:
+                            usecaseTimeout = current_time - 1
+                        time.sleep(search_every_x_seconds)
+                        current_time += search_every_x_seconds
                 if "instancename" in service and service["instancename"] is not None and service["instancename"] != "":
                     command = "cf delete-service " + '"' + service["instancename"] + '"' + " -f"
                     message = "Delete CF service instance >" + service["instancename"] + "< from subaccount"
