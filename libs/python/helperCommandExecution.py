@@ -166,9 +166,10 @@ def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):
         log.write(logtype.HEADER, message)
 
         for command in commands:
-            message = command["description"]
-            thisCommand = command["command"]
-            log.write(logtype.HEADER, "COMMAND EXECUTION: " + message)
-            p = runShellCommand(btpUsecase, thisCommand, logtype.INFO, "Executing the following commands:\n" + thisCommand + "\n")
-            result = p.stdout.decode()
-            log.write(logtype.SUCCESS, result)
+            if "description" in command and "command" in command:
+                message = command["description"]
+                thisCommand = command["command"]
+                log.write(logtype.HEADER, "COMMAND EXECUTION: " + message)
+                p = runShellCommand(btpUsecase, thisCommand, logtype.INFO, "Executing the following commands:\n" + thisCommand + "\n")
+                result = p.stdout.decode()
+                log.write(logtype.SUCCESS, result)

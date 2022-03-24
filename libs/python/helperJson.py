@@ -16,8 +16,13 @@ def getJsonFromFile(self, filename):
     f = None
 
     if "http://" in filename or "https://" in filename:
-        thisRequest = requests.get(filename)
-        data = json.loads(thisRequest.text)
+        data = None
+        try:
+            thisRequest = requests.get(filename)
+            data = json.loads(thisRequest.text)
+        except Exception as e:
+            log.write(logtype.ERROR, "please check the json file >" + filename + "<: " + str(e))
+            sys.exit(EX_DATAERR)
         return data
 
     try:

@@ -6,7 +6,7 @@ class logtype:
     # Taken from https://stackabuse.com/how-to-print-colored-text-in-python/
     HEADER = "\033[38;5;15m"
     ERROR = "\033[38;5;160m"
-    CHECK = "\033[38;5;8m"
+    CHECK = "\033[38;5;10m"
     INFO = "\033[38;5;241m"
     COMMAND = "\033[38;5;75m"
     SUCCESS = "\033[38;5;40m"

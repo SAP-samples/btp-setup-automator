@@ -4,7 +4,7 @@ from libs.python.helperLog import LOGFILE, logtype
 from libs.python.helperBtpTrust import delete_cf_service_key, runTrustFlow, get_cf_service_key
 from libs.python.helperCommandExecution import executeCommandsFromUsecaseFile, runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex, login_btp, login_cf
 from libs.python.helperEnvCF import checkIfAllServiceInstancesCreated, checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, try_until_cf_space_done, initiateCreationOfServiceInstances, get_cf_service_deletion_status
-from libs.python.helperGeneric import getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, createOrgName, getTimingsForStatusRequest
+from libs.python.helperGeneric import buildUrltoSubaccount, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, createOrgName, getTimingsForStatusRequest
 from libs.python.helperFileAccess import writeKubeConfigFileToDefaultDir
 from libs.python.helperEnvKyma import extractKymaDashboardUrlFromEnvironmentDataEntry, getKymaEnvironmentInfoByClusterName, getKymaEnvironmentStatusFromEnvironmentDataEntry, extractKymaKubeConfigUrlFromEnvironmentDataEntry, getKymaEnvironmentIdByClusterName
 
@@ -563,13 +563,12 @@ class BTPUSECASE:
 
     def finish(self):
         log = self.log
-        accountMetadata = self.accountMetadata
 
         runTrustFlow(self)
 
         log.write(logtype.HEADER, "SUCCESSFULLY EXECUTED THE USE CASE")
-        log.write(logtype.INFO, "Subacount ID: >" +
-                  accountMetadata["subaccountid"] + "<")
+        log.write(logtype.INFO, "checkout your SAP BTP account and how it was setup for the use case")
+        log.write(logtype.CHECK, "link to your SAP BTP sub account: " + buildUrltoSubaccount(self))
 
         if self.prunesubaccount is True:
             pruneUseCaseAssets(self)

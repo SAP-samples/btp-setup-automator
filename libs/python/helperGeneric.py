@@ -119,3 +119,18 @@ def createOrgName(btpUsecase, envName):
     result = result[:60]
 
     return result
+
+
+def buildUrltoSubaccount(btpUsecase):
+    region = btpUsecase.region
+
+    url = ""
+    if btpUsecase.accountMetadata["licenseType"] == "TRIAL":
+        url = "https://cockpit.hanatrial.ondemand.com/trial/#/"
+    else:
+        url = "https://cockpit." + region + ".hana.ondemand.com/cockpit/#/"
+
+    url += "globalaccount/" + btpUsecase.accountMetadata["global_account_id"] + "/"
+    url += "subaccount/" + btpUsecase.accountMetadata["subaccountid"] + "/service-instances"
+
+    return url

@@ -35,7 +35,7 @@ Now run the main script `btpsa` with the following command:
 
 The tool starts to execute and the only thing you need to type-in is your password for your SAP BTP account. The btp-setup-automator script will now prepare your SAP BTP account to cover the discovery center mission.
 
-In case you don't have the rights to create your own sub account, you should add the sub account id as a parameter to the command. That should look like this:
+> ⚠ NOTE: In case you don't have the rights to create your own sub account, you should add the sub account id as a parameter to the command. That should look like this:
 
 ```bash
 ./btpsa -parameterfile 'usecases/other/discoverycenter/3774-taskcenter/parameters.json' \
