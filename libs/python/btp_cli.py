@@ -48,12 +48,9 @@ class BTPUSECASE:
                                                                           "ENVIRONMENT"])
         self.admins = getAdminsFromUsecaseFile(self)
         self.btpEnvironment = setBtpEnvironment(self, self.definedEnvironments)
-        log.write(logtype.HEADER, "This use case will use the BTP environment >" +
-                  self.btpEnvironment["name"] + "<")
-        self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(self, [
-                                                                              "APPLICATION"])
-        self.definedServices = getServiceCategoryItemsFromUsecaseFile(
-            self, ["SERVICE", "ELASTIC_SERVICE", "PLATFORM"])
+        log.write(logtype.HEADER, "This use case will use the BTP environment >" + self.btpEnvironment["name"] + "<")
+        self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(self, ["APPLICATION"])
+        self.definedServices = getServiceCategoryItemsFromUsecaseFile(self, ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"])
 
         ##############################################################################################
         # From here on, we have all the data together that we need to move ahead
@@ -174,7 +171,13 @@ class BTPUSECASE:
         log.write(
             logtype.HEADER, "Entitle sub account to use services and/or app subscriptions")
         doAllEntitlements(self, self.definedEnvironments)
-        doAllEntitlements(self, self.definedServices)
+
+        allNonCfCupServices = []
+        for service in self.definedServices:
+            if service["category"] != "CF_CUP_SERVICE":
+                allNonCfCupServices.append(service)
+        doAllEntitlements(self, allNonCfCupServices)
+
         doAllEntitlements(self, self.definedAppSubscriptions)
 
     def create_subaccount(self):
@@ -276,13 +279,11 @@ class BTPUSECASE:
                     envName = environment["name"]
                     envPlan = environment["plan"]
 
-                    log.write(logtype.HEADER,
-                              "Create environment >" + envName + "<")
+                    log.write(logtype.HEADER, "Create environment >" + envName + "<")
 
                     org = createOrgName(self, envName)
 
-                    accountMetadata = addKeyValuePair(
-                        accountMetadata, "org", org)
+                    accountMetadata = addKeyValuePair(accountMetadata, "org", org)
 
                     parameters = None
                     if environment["name"] == "cloudfoundry":
@@ -292,48 +293,35 @@ class BTPUSECASE:
 
                     if envLandscape is not None:
                         command = "btp --format json create accounts/environment-instance --subaccount \"" + subaccountid + "\" --environment " + envName + \
-                            " --service " + environment["name"] + " --plan " + envPlan + " --parameters '" + str(
-                                parameters) + "' --landscape \"" + envLandscape + "\""
+                            " --service " + environment["name"] + " --plan " + envPlan + " --parameters '" + str(parameters) + "' --landscape \"" + envLandscape + "\""
                     else:
                         command = "btp --format json create accounts/environment-instance --subaccount \"" + subaccountid + "\" --environment " + \
-                            envName + " --service " + \
-                            environment["name"] + " --plan " + envPlan + \
-                            " --parameters '" + str(parameters) + "'"
+                            envName + " --service " + environment["name"] + " --plan " + envPlan + " --parameters '" + str(parameters) + "'"
 
                     message = "Create " + envName + " environment >" + org + "<"
-                    result = runCommandAndGetJsonResult(
-                        self, command, logtype.INFO, message)
+                    result = runCommandAndGetJsonResult(self, command, logtype.INFO, message)
 
                     orgid = result["id"]
 
                     # Wait until the org has been created
                     message = "is CF environment >" + org + "< created"
-                    command = "btp --format json get accounts/environment-instance '" + \
-                        orgid + "' --subaccount '" + subaccountid + "'"
+                    command = "btp --format json get accounts/environment-instance '" + orgid + "' --subaccount '" + subaccountid + "'"
 
-                    result = try_until_done(
-                        self, command, message, "state", "OK", self.repeatstatusrequest, 100)
+                    result = try_until_done(self, command, message, "state", "OK", self.repeatstatusrequest, 100)
                     if result == "ERROR":
-                        log.write(
-                            logtype.ERROR, "Something went wrong while waiting for creation of CF environment >" + org + "< with id >" + orgid + "<")
+                        log.write(logtype.ERROR, "Something went wrong while waiting for creation of CF environment >" + org + "< with id >" + orgid + "<")
 
-                    log.write(logtype.SUCCESS, "created CF environment >" +
-                              org + "< with id >" + orgid + "<")
+                    log.write(logtype.SUCCESS, "created CF environment >" + org + "< with id >" + orgid + "<")
                     self.orgid = orgid
                     self.org = org
-                    self.accountMetadata = addKeyValuePair(
-                        accountMetadata, "orgid", orgid)
-                    self.accountMetadata = addKeyValuePair(
-                        accountMetadata, "org", org)
+                    self.accountMetadata = addKeyValuePair(accountMetadata, "orgid", orgid)
+                    self.accountMetadata = addKeyValuePair(accountMetadata, "org", org)
                 else:
-                    log.write(logtype.SUCCESS, "CF environment >" +
-                              org + "< already available with id >" + orgid + "<")
+                    log.write(logtype.SUCCESS, "CF environment >" + org + "< already available with id >" + orgid + "<")
                     self.orgid = orgid
                     self.org = org
-                    self.accountMetadata = addKeyValuePair(
-                        accountMetadata, "orgid", orgid)
-                    self.accountMetadata = addKeyValuePair(
-                        accountMetadata, "org", org)
+                    self.accountMetadata = addKeyValuePair(accountMetadata, "orgid", orgid)
+                    self.accountMetadata = addKeyValuePair(accountMetadata, "org", org)
 
             elif environment["name"] == "kymaruntime":
 
@@ -518,10 +506,8 @@ class BTPUSECASE:
         ##################################################################################
         # Now check when all services and subscriptions are available
         ##################################################################################
-        log.write(logtype.HEADER,
-                  "Track creation of service instances and app subscriptions")
-        self.accountMetadata = track_creation_of_subscriptions_and_services(
-            self)
+        log.write(logtype.HEADER, "Track creation of service instances and app subscriptions")
+        self.accountMetadata = track_creation_of_subscriptions_and_services(self)
         save_collected_metadata(self)
 
         ##################################################################################
@@ -748,7 +734,8 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
     # Put all service types together into one
     allServices = []
     for service in btpUsecase.definedServices:
-        allServices.append(service)
+        if service["category"] != "CF_CUP_SERVICE":
+            allServices.append(service)
     for app in btpUsecase.definedAppSubscriptions:
         allServices.append(app)
 
@@ -1135,26 +1122,21 @@ def track_creation_of_subscriptions_and_services(btpUsecase: BTPUSECASE):
         areAllSubscriptionsCreated = True
 
         if len(btpUsecase.definedServices) > 0:
-            areAllInstancesCreated = checkIfAllServiceInstancesCreated(
-                btpUsecase)
+            areAllInstancesCreated = checkIfAllServiceInstancesCreated(btpUsecase)
 
         if len(btpUsecase.definedAppSubscriptions) > 0:
-            areAllSubscriptionsCreated = checkIfAllSubscriptionsAreAvailable(
-                btpUsecase)
+            areAllSubscriptionsCreated = checkIfAllSubscriptionsAreAvailable(btpUsecase)
 
         if (areAllInstancesCreated is True and areAllSubscriptionsCreated is True):
-            log.write(
-                logtype.SUCCESS, "All service instances and subscriptions are now available".upper())
+            log.write(logtype.SUCCESS, "All service instances and subscriptions are now available".upper())
             accountMetadata = addCreatedServicesToMetadata(btpUsecase)
-
             return accountMetadata
 
         search_every_x_seconds = determineTimeToFetchStatusUpdates(btpUsecase)
         time.sleep(search_every_x_seconds)
         current_time += search_every_x_seconds
 
-    log.write(logtype.ERROR,
-              "Could not get all services and/or app subscriptions up and running. Sorry.")
+    log.write(logtype.ERROR, "Could not get all services and/or app subscriptions up and running. Sorry.")
 
 
 def addCreatedServicesToMetadata(btpUsecase: BTPUSECASE):
