@@ -71,16 +71,20 @@ def createSubaccountName(btpUsecase):
 
 def createInstanceName(btpUsecase, service):
     result = "instance"
-    if "instancename" in service:
-        return service["instancename"]
-    else:
-        result = service["name"] + "_" + service["plan"] + "_" + btpUsecase.suffixinstancename
-    result = re.sub(r"[^\w\s]", '_', result)
-    result = result.replace("__", "_")
-    if result[len(result) - 1] == "_":
-        result = result[:-1]
+    if service["category"] != "CF_CUP_SERVICE":
+        if "instancename" in service:
+            return service["instancename"]
+        else:
+            result = service["name"] + "_" + service["plan"] + "_" + btpUsecase.suffixinstancename
+        result = re.sub(r"[^\w\s]", '_', result)
+        result = result.replace("__", "_")
+        if result[len(result) - 1] == "_":
+            result = result[:-1]
 
-    result = result[:40]
+        result = result[:40]
+    else:
+        result += "_" + service["name"]
+
 
     return result
 

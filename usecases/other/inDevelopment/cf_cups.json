@@ -1,0 +1,22 @@
+{
+  "aboutThisUseCase": {
+    "name": "Setup CF CUP services",
+    "description": "This usecase sets up CF CUP services",
+    "author": "rui.nogueira@sap.com",
+    "testStatus": "not tested",
+    "usageStatus": "Not READY TO BE USED",
+    "relatedLinks": []
+  },
+  "services": [
+    {
+      "category": "CF_CUP_SERVICE",
+      "name": "cf-cup-test5",
+      "parameters" :"-p {\"username\":\"admin\",\"password\":\"pa55woRD\"}"
+    },
+    {
+      "category": "CF_CUP_SERVICE",
+      "name": "cf-cup-test6",
+      "parameters" :"-p {\"username\":\"admin2\",\"password\":\"pa55woRD2\"}"
+    }
+  ]
+}
