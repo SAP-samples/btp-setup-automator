@@ -14,10 +14,12 @@ import sys
 import time
 import requests
 
+from libs.python.helperServices import readAllServicesFromUsecaseFile
+
 
 class BTPUSECASE:
     def __init__(self):
-        myArgs = helperArgParser.setup()
+        myArgs = helperArgParser.setupParamsBtpsa()
         # Take args and add them to self
         for arg in vars(myArgs):
             value = getattr(myArgs, arg)
@@ -44,12 +46,13 @@ class BTPUSECASE:
         self.definedServices = None
         self.accountMetadata = None
 
+        allServices = readAllServicesFromUsecaseFile(self)
+
+        self.definedServices = getServiceCategoryItemsFromUsecaseFile(self, ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"])
+
         self.definedEnvironments = getServiceCategoryItemsFromUsecaseFile(self, ["ENVIRONMENT"])
         self.admins = getAdminsFromUsecaseFile(self)
-        self.btpEnvironment = setBtpEnvironment(self, self.definedEnvironments)
-        log.write(logtype.HEADER, "This use case will use the BTP environment >" + self.btpEnvironment["name"] + "<")
         self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(self, ["APPLICATION"])
-        self.definedServices = getServiceCategoryItemsFromUsecaseFile(self, ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"])
 
         ##############################################################################################
         # From here on, we have all the data together that we need to move ahead

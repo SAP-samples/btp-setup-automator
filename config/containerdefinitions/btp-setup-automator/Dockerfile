@@ -202,7 +202,7 @@ COPY --chown=$USERNAME:$USERNAME docs                                       $HOM
 COPY --chown=$USERNAME:$USERNAME libs/python/btpsa                          $HOME_FOLDER/
 COPY --chown=$USERNAME:$USERNAME libs/python/btp_cli.py                     $LIBS_FOLDER/python/
 COPY --chown=$USERNAME:$USERNAME libs/python/helper*.py                     $LIBS_FOLDER/python/
-COPY --chown=$USERNAME:$USERNAME libs/json/paramBtpSetupAutomator.json      $LIBS_FOLDER/json/
+COPY --chown=$USERNAME:$USERNAME libs/json                                  $LIBS_FOLDER/json/
 
 COPY --chown=$USERNAME:$USERNAME .reuse                                     $HOME_FOLDER/.reuse
 COPY --chown=$USERNAME:$USERNAME LICENSES                                   $HOME_FOLDER/LICENSES

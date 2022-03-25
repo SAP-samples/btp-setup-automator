@@ -20,7 +20,7 @@
         "mandatory": true,
         "help": "category of the service",
         "default": null,
-        "acceptedvalues":["SERVICE","APPLICATION","CF_CUP_SERVICE","ENVIRONMENT"]
+        "acceptedvalues":["SERVICE","APPLICATION","CF_CUP_SERVICE","ENVIRONMENT","PLATFORM"]
     },
     {
         "argument": "createinenvironment",
@@ -46,7 +46,7 @@
     },
     {
         "argument": "parameters",
-        "type": "str",
+        "type": "dict",
         "mandatory": false,
         "help": "parameters for the service",
         "default": null
@@ -81,7 +81,7 @@
     },
     {
         "argument": "requiredrolecollections",
-        "type": "array",
+        "type": "list",
         "mandatory": false,
         "help": "list of role collections to be created for a service",
         "default": null
