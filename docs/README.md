@@ -190,7 +190,7 @@ Once the script is ready, you can check your BTP global account, if all services
 
   ```bash
   docker exec --workdir "/home/user/" "test01" ./btpsa \
-      -parameterfile 'https://raw.githubusercontent.com/rui1610/btp-automation-experiments/main/btp-setup-automator/parameterfiles/parameters.json' 
+      -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/parameters.json' 
   ```
 
 ### Step 5: Clean-up
