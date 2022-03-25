@@ -44,8 +44,7 @@ class BTPUSECASE:
         self.definedServices = None
         self.accountMetadata = None
 
-        self.definedEnvironments = getServiceCategoryItemsFromUsecaseFile(self, [
-                                                                          "ENVIRONMENT"])
+        self.definedEnvironments = getServiceCategoryItemsFromUsecaseFile(self, ["ENVIRONMENT"])
         self.admins = getAdminsFromUsecaseFile(self)
         self.btpEnvironment = setBtpEnvironment(self, self.definedEnvironments)
         log.write(logtype.HEADER, "This use case will use the BTP environment >" + self.btpEnvironment["name"] + "<")
@@ -132,20 +131,15 @@ class BTPUSECASE:
                 checkMessage = message + " (try " + str(number_of_tries) + \
                     " - trying again in " + \
                     str(self.pollingIntervalForKymaCreationInMinutes) + "min)"
-                result = runCommandAndGetJsonResult(
-                    self, command, logtype.INFO, checkMessage)
+                result = runCommandAndGetJsonResult(self, command, logtype.INFO, checkMessage)
 
-                entryOfKymaEnv = getKymaEnvironmentInfoByClusterName(
-                    result, kymaClusterName)
+                entryOfKymaEnv = getKymaEnvironmentInfoByClusterName(result, kymaClusterName)
 
                 if getKymaEnvironmentStatusFromEnvironmentDataEntry(entryOfKymaEnv) == "OK":
 
-                    log.write(
-                        logtype.INFO, "Kyma Environment created - extracting kubeconfig URL")
-                    self.accountMetadata = addKeyValuePair(
-                        accountMetadata, "kymaDashboardUrl", extractKymaDashboardUrlFromEnvironmentDataEntry(entryOfKymaEnv))
-                    self.accountMetadata = addKeyValuePair(
-                        accountMetadata, "kymaKubeConfigUrl", extractKymaKubeConfigUrlFromEnvironmentDataEntry(entryOfKymaEnv))
+                    log.write(logtype.INFO, "Kyma Environment created - extracting kubeconfig URL")
+                    self.accountMetadata = addKeyValuePair(accountMetadata, "kymaDashboardUrl", extractKymaDashboardUrlFromEnvironmentDataEntry(entryOfKymaEnv))
+                    self.accountMetadata = addKeyValuePair(accountMetadata, "kymaKubeConfigUrl", extractKymaKubeConfigUrlFromEnvironmentDataEntry(entryOfKymaEnv))
                     save_collected_metadata(self)
 
                     # Download kubeconfig
@@ -155,12 +149,10 @@ class BTPUSECASE:
                     # Store kubeconfig in .kube folder for execution of subsequent commands
                     if resp.status_code == 200:
                         writeKubeConfigFileToDefaultDir(resp.text)
-                        log.write(logtype.INFO,
-                                  "Kubeconfig stored locally under ~/.kube")
+                        log.write(logtype.INFO, "Kubeconfig stored locally under ~/.kube")
                         return "DONE"
                     else:
-                        log.write(logtype.ERROR, "Could not download kubeconfig from >" +
-                                  self.accountMetadata["kymaKubeConfigUrl"] + "<")
+                        log.write(logtype.ERROR, "Could not download kubeconfig from >" + self.accountMetadata["kymaKubeConfigUrl"] + "<")
                         return "ERROR"
 
                 time.sleep(pollingIntervalInSeconds)
@@ -185,28 +177,23 @@ class BTPUSECASE:
 
         accountMetadata = self.accountMetadata
         subaccountid = self.subaccountid
-        self.accountMetadata = addKeyValuePair(
-            accountMetadata, "subaccountid", subaccountid)
+        self.accountMetadata = addKeyValuePair(accountMetadata, "subaccountid", subaccountid)
 
         if "subaccountid" not in accountMetadata or accountMetadata["subaccountid"] == "" or accountMetadata["subaccountid"] is None:
 
-            log.write(
-                logtype.WARNING, "no subaccount id provided and tool will make up one for you")
+            log.write(logtype.WARNING, "no subaccount id provided and tool will make up one for you")
             usecaseRegion = self.region
 
             subaccount = createSubaccountName(self)
             subdomain = createSubdomainID(self)
 
-            log.write(logtype.SUCCESS,
-                      "using subaccount name >" + subaccount + "<")
-            log.write(logtype.SUCCESS,
-                      "using subaccount domain >" + subdomain + "<")
+            log.write(logtype.SUCCESS, "using subaccount name >" + subaccount + "<")
+            log.write(logtype.SUCCESS, "using subaccount domain >" + subdomain + "<")
 
             admins = build_admins_list(self)
             globalAccount = self.globalaccount
 
-            log.write(logtype.HEADER, "Create sub account >" +
-                      subaccount + "< (if not already existing)")
+            log.write(logtype.HEADER, "Create sub account >" + subaccount + "< (if not already existing)")
 
             subaccountid = checkIfSubaccountAlreadyExists(self)
 
@@ -218,36 +205,27 @@ class BTPUSECASE:
                     --subaccount-admins '" + admins + "'"
 
                 message = "Create sub account >" + subaccount + "<"
-                result = runCommandAndGetJsonResult(
-                    self, command, logtype.INFO, message)
+                result = runCommandAndGetJsonResult(self, command, logtype.INFO, message)
 
                 subaccountid = result["guid"]
 
                 # Wait until the sub account has been created
-                command = "btp --format json get accounts/subaccount \"" + \
-                    subaccountid + "\" --global-account \"" + globalAccount + "\""
-                result = try_until_done(
-                    self, command, message, "state", "OK", self.repeatstatusrequest, 100)
+                command = "btp --format json get accounts/subaccount \"" + subaccountid + "\" --global-account \"" + globalAccount + "\""
+                result = try_until_done(self, command, message, "state", "OK", self.repeatstatusrequest, 100)
                 if result == "ERROR":
-                    log.write(logtype.ERROR, "Something went wrong while waiting for the subaccount >" +
-                              subaccount + "< with id >" + subaccountid + "<")
+                    log.write(logtype.ERROR, "Something went wrong while waiting for the subaccount >" + subaccount + "< with id >" + subaccountid + "<")
 
-                log.write(logtype.SUCCESS, "created subaccount >" +
-                          subaccount + "< with id >" + subaccountid + "<")
+                log.write(logtype.SUCCESS, "created subaccount >" + subaccount + "< with id >" + subaccountid + "<")
             else:
-                log.write(logtype.SUCCESS, "subaccount >" + subaccount +
-                          "< already exists with id >" + subaccountid + "<")
+                log.write(logtype.SUCCESS, "subaccount >" + subaccount + "< already exists with id >" + subaccountid + "<")
                 self.subaccountid = subaccountid
 
-            self.accountMetadata = addKeyValuePair(
-                accountMetadata, "subaccountid", subaccountid)
+            self.accountMetadata = addKeyValuePair(accountMetadata, "subaccountid", subaccountid)
             self.subaccountid = subaccountid
         else:
-            log.write(
-                logtype.HEADER, "USING CONFIGURED SUBACCOUNT WITH ID >" + self.subaccountid + "<")
+            log.write(logtype.HEADER, "USING CONFIGURED SUBACCOUNT WITH ID >" + self.subaccountid + "<")
             result = getDetailsAboutSubaccount(self, self.subaccountid)
-            self.accountMetadata = addKeyValuePair(
-                accountMetadata, "subdomain", result["subdomain"])
+            self.accountMetadata = addKeyValuePair(accountMetadata, "subdomain", result["subdomain"])
 
         save_collected_metadata(self)
 
