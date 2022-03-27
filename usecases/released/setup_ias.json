@@ -12,8 +12,8 @@
       "plan": "apiaccess",
       "instancename": "xsuaa_api",
       "category": "SERVICE",
-      "repeatstatusrequest": "5",
-      "repeatstatustimeout": "200",
+      "repeatstatusrequest": 5,
+      "repeatstatustimeout": 200,
       "createServiceKeys": [
         "myServiceKey1"
       ]

@@ -26,8 +26,8 @@
       "name": "hana-cloud-trial",
       "plan": "hana",
       "instancename": "hana_cloud_instance",
-      "repeatstatusrequest": "60",
-      "repeatstatustimeout": "3600",
+      "repeatstatusrequest": 60,
+      "repeatstatustimeout": 3600,
       "parameters": {
         "data": {
           "edition": "cloud",

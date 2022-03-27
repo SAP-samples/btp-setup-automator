@@ -12,8 +12,8 @@
             "name": "SAPLaunchpad",
             "plan": "standard",
             "category": "APPLICATION",
-            "repeatstatusrequest": "10",
-            "repeatstatustimeout": "120",
+            "repeatstatusrequest": 10,
+            "repeatstatustimeout": 120,
             "requiredrolecollections": [
                 "Launchpad_Admin"
             ]

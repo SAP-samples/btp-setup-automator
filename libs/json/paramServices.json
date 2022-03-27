@@ -12,7 +12,10 @@
         "mandatory": false,
         "help": "if set to true, no service instances will be created by the tool",
         "default": false,
-        "acceptedvalues":[true, false]
+        "acceptedvalues": [
+            true,
+            false
+        ]
     },
     {
         "argument": "category",
@@ -20,21 +23,37 @@
         "mandatory": true,
         "help": "category of the service",
         "default": null,
-        "acceptedvalues":["SERVICE","APPLICATION","CF_CUP_SERVICE","ENVIRONMENT","PLATFORM"]
+        "acceptedvalues": [
+            "SERVICE",
+            "APPLICATION",
+            "CF_CUP_SERVICE",
+            "ENVIRONMENT",
+            "PLATFORM"
+        ]
     },
     {
-        "argument": "createinenvironment",
+        "argument": "targetenvironment",
         "type": "str",
         "mandatory": true,
         "help": "environment in which the service should be created",
         "default": "cloudfoundry",
-        "acceptedvalues":["cloudfoundry","kymaruntime"]
+        "acceptedvalues": [
+            "cloudfoundry",
+            "kymaruntime"
+        ]
     },
     {
         "argument": "plan",
         "type": "str",
         "mandatory": false,
         "help": "plan name of the service",
+        "default": null
+    },
+    {
+        "argument": "planforinstance",
+        "type": "str",
+        "mandatory": false,
+        "help": "catalog name of the service plan",
         "default": null
     },
     {
