@@ -72,16 +72,16 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
         status = thisJson["last operation"]
         servicebroker = thisJson["broker"]
         for service in btpUsecase.definedServices:
-            if service["name"] == name and service["plan"] == plan and service["instancename"] == instancename and service["successInfoShown"] is False:
+            if service.name == name and service.plan == plan and service.instancename == instancename and service.successInfoShown is False:
                 if status != "create succeeded":
                     allServicesCreated = False
-                    service["status"] = "NOT READY"
-                    service["successInfoShown"] = False
+                    service.status = "NOT READY"
+                    service.successInfoShown = False
                 else:
-                    log.write(logtype.SUCCESS, "Service instance for service >" + service["name"] + "< (plan " + service["plan"] + ") is now available")
-                    service["servicebroker"] = servicebroker
-                    service["successInfoShown"] = True
-                    service["status"] = "create succeeded"
+                    log.write(logtype.SUCCESS, "Service instance for service >" + service.name + "< (plan " + service.plan + ") is now available")
+                    service.servicebroker = servicebroker
+                    service.successInfoShown = True
+                    service.status = "create succeeded"
     return allServicesCreated
 
 
@@ -109,14 +109,14 @@ def try_until_cf_space_done(btpUsecase, command, message, spacename, search_ever
 
 
 def create_cf_service(btpUsecase, service):
-    instancename = service["instancename"]
+    instancename = service.instancename
 
     command = "cf create-service \"" + \
-        service["name"] + "\" \"" + service["plan"] + \
+        service["name"] + "\" \"" + service.plan + \
         "\"  \"" + instancename + "\""
 
     if "parameters" in service:
-        thisParameter = dictToString(service["parameters"])
+        thisParameter = dictToString(service.parameters)
         command += " -c '" + thisParameter + "'"
     message = "Create instance >" + instancename + "< for service >" + \
         service["name"] + "< and plan >" + service["plan"] + "<"
@@ -131,7 +131,7 @@ def create_cf_cup_service(btpUsecase, service):
     command = "cf cups \"" + servicename + "\" "
 
     if "parameters" in service:
-        thisParameter = str(service["parameters"])
+        thisParameter = str(service.parameters)
         command += thisParameter
         message = "Create CF cups instance for service >" + servicename + "<"
         runShellCommand(btpUsecase, command, logtype.INFO, message)
@@ -155,28 +155,34 @@ def initiateCreationOfServiceInstances(btpUsecase):
         # First add all instance names to the services
         for service in btpUsecase.definedServices:
             instancename = createInstanceName(btpUsecase, service)
-            service["instancename"] = instancename
+            service.instancename = instancename
 
         # Check whether there are services with the same instance name
         # If there are, it's not safe to create the service instances
         for service in btpUsecase.definedServices:
-            instanceName = service["instancename"]
+            instanceName = service.instancename
             counter = 0
             for thisService in btpUsecase.definedServices:
-                thisInstanceName = thisService["instancename"]
+                thisInstanceName = thisService.instancename
                 if thisInstanceName == instanceName:
                     counter += 1
             if counter > 1:
                 log.write(logtype.ERROR, "there is more than one service with the instance name >" + instanceName + "<. Please fix that before moving on.")
                 sys.exit(os.EX_DATAERR)
 
+        # Before creating the service instances, remove those
+        # where only an entitlement is needed
+        for service in btpUsecase.definedServices:
+            if service.entitleonly is True:
+                btpUsecase.definedServices.remove(service)
+
         # Now create all the service instances
         for service in btpUsecase.definedServices:
-            serviceName = service["name"]
+            serviceName = service.name
             # servicePlan = service["plan"]
             # Quickly initiate the creation of all service instances (without waiting until they are all created)
             if "requiredServices" in service:
-                for requiredService in service["requiredServices"]:
+                for requiredService in service.requiredServices:
                     thisService = getServiceByServiceName(btpUsecase, requiredService)
                     if thisService is not None:
                         current_time = 0
@@ -186,11 +192,11 @@ def initiateCreationOfServiceInstances(btpUsecase):
                             [servicebroker, status] = get_cf_service_status(btpUsecase, thisService)
                             if (status == "create succeeded"):
                                 log.write(logtype.SUCCESS, "service >" + requiredService + "< now ready as pre-requisite for service >" + serviceName + "<")
-                                if service["category"] == "SERVICE" or service["category"] == "ELASTIC_SERVICE":
+                                if service.category == "SERVICE" or service.category == "ELASTIC_SERVICE":
                                     service = create_cf_service(btpUsecase, service)
                                 else:
                                     log.write(logtype.INFO, "this service >" + serviceName + "< is not of type SERVICE or ELASTIC_SERVICE and a service instance won't be created")
-                                    service["status"] = "create succeeded"
+                                    service.status = "create succeeded"
                                 break
                             else:
                                 log.write(logtype.CHECK, "waiting for service >" + requiredService + "< (status >" + status +
@@ -202,18 +208,18 @@ def initiateCreationOfServiceInstances(btpUsecase):
                         log.write(logtype.ERROR, "did not find the defined required service >" + requiredService +
                                   "<, which is a pre-requisite for the service >" + serviceName + "<. Please check your configuration file!")
             else:
-                if service["category"] == "SERVICE" or service["category"] == "ELASTIC_SERVICE":
+                if service.category == "SERVICE" or service.category == "ELASTIC_SERVICE":
                     service = create_cf_service(btpUsecase, service)
                 else:
-                    if service["category"] == "CF_CUP_SERVICE":
+                    if service.category == "CF_CUP_SERVICE":
                         service = create_cf_cup_service(btpUsecase, service)
                     else:
                         log.write(logtype.INFO, "this service >" + serviceName + "< is not of type SERVICE or ELASTIC_SERVICE and a service instance won't be created")
-                        service["status"] = "create succeeded"
+                        service.status = "create succeeded"
 
 
 def get_cf_service_status(btpUsecase, service):
-    instance_name = service["instancename"]
+    instance_name = service.instancename
 
     command = "cf service \"" + instance_name + "\""
     p = runShellCommand(btpUsecase, command, logtype.CHECK, None)
@@ -225,7 +231,7 @@ def get_cf_service_status(btpUsecase, service):
 
 
 def get_cf_service_deletion_status(btpUsecase, service):
-    instance_name = service["instancename"]
+    instance_name = service.instancename
     command = "cf service \"" + instance_name + "\""
     p = runShellCommandFlex(btpUsecase, command, logtype.CHECK, None, False, False)
     result = p.stdout.decode()

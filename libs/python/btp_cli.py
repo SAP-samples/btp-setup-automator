@@ -269,18 +269,16 @@ class BTPUSECASE:
 
                         accountMetadata = addKeyValuePair(accountMetadata, "org", org)
 
-                        parameters = None
-                        if environment.name == "cloudfoundry":
-                            parameters = '{\"instance_name\": \"' + org + '\"}'
+                        parameters = '{\"instance_name\": \"' + org + '\"}'
 
-                        envLandscape = selectEnvironmentLandscape(self)
+                        envLandscape = selectEnvironmentLandscape(self, environment)
 
                         if envLandscape is not None:
                             command = "btp --format json create accounts/environment-instance --subaccount \"" + subaccountid + "\" --environment " + envName + \
-                                " --service " + environment["name"] + " --plan " + envPlan + " --parameters '" + str(parameters) + "' --landscape \"" + envLandscape + "\""
+                                " --service " + environment.name + " --plan " + envPlan + " --parameters '" + str(parameters) + "' --landscape \"" + envLandscape + "\""
                         else:
-                            command = "btp --format json create accounts/environment-instance --subaccount \"" + subaccountid + "\" --environment " + \
-                                envName + " --service " + environment["name"] + " --plan " + envPlan + " --parameters '" + str(parameters) + "'"
+                            command = "btp --format json create accounts/environment-instance --subaccount \"" + subaccountid + "\" --environment " + envName + \
+                                " --service " + environment.name + " --plan " + envPlan + " --parameters '" + str(parameters) + "'"
 
                         message = "Create " + envName + " environment >" + org + "<"
                         result = runCommandAndGetJsonResult(self, command, logtype.INFO, message)
@@ -324,8 +322,7 @@ class BTPUSECASE:
                                 kymaClusterName + "< already exists - Creation skipped")
                         return
 
-                    log.write(logtype.HEADER, "Create environment >" +
-                            environment.name + "<")
+                    log.write(logtype.HEADER, "Create environment >" + environment.name + "<")
 
                     envName = environment.name
                     # Fix environment name for instance creation
@@ -335,7 +332,7 @@ class BTPUSECASE:
 
                     parameters = dictToString(environment.parameters)
 
-                    envLandscape = selectEnvironmentLandscape(self)
+                    envLandscape = selectEnvironmentLandscape(self, environment)
 
                     # Difference between TRIAL and Prod => Prod has a cluster region, TRIAL has not
                     if environment["plan"] == "trial":
@@ -992,7 +989,8 @@ def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
         for appSubscription in btpUsecase.definedAppSubscriptions:
             appName = appSubscription.name
             appPlan = appSubscription.plan
-            subscribe_app_to_subaccount(btpUsecase, appName, appPlan)
+            if appSubscription.entitleonly == True:
+                subscribe_app_to_subaccount(btpUsecase, appName, appPlan)
 
 
 def get_subscription_status(btpUsecase: BTPUSECASE, app):
@@ -1483,16 +1481,15 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
             current_time += environmentDeprovisioningPollFrequencyInSeconds
 
 
-def selectEnvironmentLandscape(btpUsecase: BTPUSECASE):
+def selectEnvironmentLandscape(btpUsecase: BTPUSECASE, environment):
     accountMetadata = btpUsecase.accountMetadata
-    environment = btpUsecase.btpEnvironment
 
     region = None
 
-    if environment["name"] == "cloudfoundry":
+    if environment.name == "cloudfoundry":
         region = btpUsecase.region
-    elif environment["name"] == "kymaruntime" and environment["plan"] != "trial":
-        region = environment["parameters"]["region"]
+    elif environment.name == "kymaruntime" and environment.plan != "trial":
+        region = environment.parameters["region"]
     else:
         region = btpUsecase.region
 
@@ -1524,7 +1521,7 @@ def selectEnvironmentLandscape(btpUsecase: BTPUSECASE):
                 if "landscapeLabel" not in item:
                     return None
                 # Simply take the first landscape that is found, matching the environment and the plan
-                if environment["plan"] == servicePlan and environment["name"] == environmentType:
+                if environment.plan == servicePlan and environment.name == environmentType:
                     return item["landscapeLabel"]
         time.sleep(search_every_x_seconds)
         current_time += search_every_x_seconds

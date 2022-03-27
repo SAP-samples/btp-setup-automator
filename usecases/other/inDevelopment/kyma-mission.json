@@ -23,11 +23,13 @@
         {
             "name": "destination",
             "plan": "lite",
+            "entitleonly": true,
             "category": "SERVICE"
         },
         {
             "name": "xsuaa",
             "plan": "broker",
+            "entitleonly": true,
             "category": "SERVICE"
         },
         {
