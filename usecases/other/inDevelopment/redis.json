@@ -12,7 +12,7 @@
             "category": "SERVICE",
             "name": "redis",
             "plan": "dev",
-            "planforinstance": "v4.0-dev",
+            "planCatalogName": "v4.0-dev",
             "instancename": "test-redis"
         }
     ]
