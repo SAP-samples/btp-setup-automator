@@ -1,0 +1,19 @@
+{
+    "aboutThisUseCase": {
+        "name": "Setup Redis",
+        "description": "This usecase sets up Redis",
+        "author": "rui.nogueira@sap.com",
+        "testStatus": "tested",
+        "usageStatus": "Not READY TO BE USED",
+        "relatedLinks": []
+    },
+    "services": [
+        {
+            "category": "SERVICE",
+            "name": "redis",
+            "plan": "dev",
+            "planforinstance": "v4.0-dev",
+            "instancename": "test-redis"
+        }
+    ]
+}

@@ -50,7 +50,7 @@
         "default": null
     },
     {
-        "argument": "planforinstance",
+        "argument": "planCatalogName",
         "type": "str",
         "mandatory": false,
         "help": "catalog name of the service plan",

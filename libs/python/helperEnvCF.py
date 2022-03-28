@@ -111,15 +111,17 @@ def try_until_cf_space_done(btpUsecase, command, message, spacename, search_ever
 def create_cf_service(btpUsecase, service):
     instancename = service.instancename
 
-    command = "cf create-service \"" + \
-        service.name + "\" \"" + service.plan + \
-        "\"  \"" + instancename + "\""
+    plan = service.plan
+
+    if service.planCatalogName is not None:
+        plan = service.planCatalogName
+
+    command = "cf create-service \"" + service.name + "\" \"" + plan + "\"  \"" + instancename + "\""
 
     if service.parameters is not None:
         thisParameter = dictToString(service.parameters)
         command += " -c '" + thisParameter + "'"
-    message = "Create instance >" + instancename + "< for service >" + \
-        service.name + "< and plan >" + service.plan + "<"
+    message = "Create instance >" + instancename + "< for service >" + service.name + "< and plan >" + plan + "<"
     runShellCommand(btpUsecase, command, logtype.INFO, message)
     return service
 
