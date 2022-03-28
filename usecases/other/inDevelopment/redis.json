@@ -3,7 +3,7 @@
         "name": "Setup Redis",
         "description": "This usecase sets up Redis",
         "author": "rui.nogueira@sap.com",
-        "testStatus": "tested",
+        "testStatus": "can't test",
         "usageStatus": "Not READY TO BE USED",
         "relatedLinks": []
     },
