@@ -8,10 +8,10 @@ def getTimingsForStatusRequest(btpUsecase, thisService):
     usecaseTimeout = btpUsecase.repeatstatustimeout
 
     # If the service has defined its own time to repeat a status request, take that time instead
-    if "repeatstatusrequest" in thisService:
-        search_every_x_seconds = int(thisService["repeatstatusrequest"])
-    if "repeatstatustimeout" in thisService:
-        usecaseTimeout = int(thisService["repeatstatustimeout"])
+    if thisService.repeatstatusrequest is not None:
+        search_every_x_seconds = thisService.repeatstatusrequest
+    if thisService.repeatstatustimeout is not None:
+        usecaseTimeout = thisService.repeatstatustimeout
 
     return search_every_x_seconds, usecaseTimeout
 

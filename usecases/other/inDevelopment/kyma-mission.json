@@ -55,10 +55,7 @@
             }
         }
     ],
-    "admins": [
-        "alexander.rieder@sap.com",
-        "clemens.fehr@sap.com"
-    ],
+    "admins": [],
     "executeAfterAccountSetup": [
         {
             "description": "Get the tutorial code",

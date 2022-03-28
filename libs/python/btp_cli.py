@@ -559,13 +559,10 @@ def assignUsersToSubaccount(btpUsecase: BTPUSECASE):
 
 
 def set_all_cf_space_roles(btpUsecase: BTPUSECASE):
-    cfEnvironment = False
     environments = btpUsecase.definedEnvironments
+
     for environment in environments:
         if environment.name == "cloudfoundry":
-            cfEnvironment = True
-
-        if cfEnvironment is True:
             log = btpUsecase.log
 
             admins = getAdminsForUseCase(btpUsecase)
@@ -574,7 +571,8 @@ def set_all_cf_space_roles(btpUsecase: BTPUSECASE):
             log.write(logtype.HEADER, "Set all CF space roles")
 
             org = accountMetadata["org"]
-            cfspacename = accountMetadata["cfspacename"]
+            cfspacename = btpUsecase.cfspacename
+            accountMetadata = addKeyValuePair(accountMetadata, "cfspacename", cfspacename)
 
             spaceRoles = ["SpaceManager", "SpaceDeveloper", "SpaceAuditor"]
 
@@ -593,13 +591,10 @@ def set_all_cf_space_roles(btpUsecase: BTPUSECASE):
 
 
 def set_all_cf_org_roles(btpUsecase: BTPUSECASE):
-    cfEnvironment = False
     environments = btpUsecase.definedEnvironments
+
     for environment in environments:
         if environment.name == "cloudfoundry":
-            cfEnvironment = True
-
-        if cfEnvironment is True:
             log = btpUsecase.log
 
             admins = getAdminsForUseCase(btpUsecase)
@@ -1427,11 +1422,11 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
 
                 result = runCommandAndGetJsonResult(btpUsecase, command, logtype.INFO, message)
 
-                kymaEnvironmentID = getKymaEnvironmentIdByClusterName(result, btpUsecase.btpEnvironment["parameters"]["name"])
+                kymaEnvironmentID = getKymaEnvironmentIdByClusterName(result, environment.parameters["name"])
 
                 # Delete Kyma runtime via SAP btp CLI
                 message = "Trigger deletion of Kyma environment > " + \
-                    btpUsecase.btpEnvironment["parameters"]["name"] + \
+                    environment.parameters["name"] + \
                     " < in subaccount > " + \
                     btpUsecase.accountMetadata["subaccountid"] + " <"
 
@@ -1452,16 +1447,14 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                     numberOfTries += 1
                     message = "Check Kyma deletion status for subaccount > " + \
                         btpUsecase.accountMetadata["subaccountid"] + " < named > " + \
-                        btpUsecase.btpEnvironment["parameters"]["name"] + " < (try " + str(numberOfTries) + " - trying again in " + \
+                        environment.parameters["name"] + " < (try " + str(numberOfTries) + " - trying again in " + \
                         str(btpUsecase.pollingIntervalForKymaDeprovisioningInMinutes) + "min)"
                     command = "btp --format json list accounts/environment-instance --subaccount \"" + \
                         btpUsecase.accountMetadata["subaccountid"] + "\""
 
-                    result = runCommandAndGetJsonResult(
-                        btpUsecase, command, logtype.INFO, message)
+                    result = runCommandAndGetJsonResult(btpUsecase, command, logtype.INFO, message)
 
-                    kymaEnvironmentID = getKymaEnvironmentIdByClusterName(
-                        result, btpUsecase.btpEnvironment["parameters"]["name"])
+                    kymaEnvironmentID = getKymaEnvironmentIdByClusterName(result, environment.parameters["name"])
 
                     if kymaEnvironmentID is None:
                         log.write(logtype.SUCCESS, "KYMA ENVIRONMENT DELETED.")
