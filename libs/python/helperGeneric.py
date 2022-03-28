@@ -8,17 +8,17 @@ def getTimingsForStatusRequest(btpUsecase, thisService):
     usecaseTimeout = btpUsecase.repeatstatustimeout
 
     # If the service has defined its own time to repeat a status request, take that time instead
-    if "repeatstatusrequest" in thisService:
-        search_every_x_seconds = int(thisService["repeatstatusrequest"])
-    if "repeatstatustimeout" in thisService:
-        usecaseTimeout = int(thisService["repeatstatustimeout"])
+    if thisService.repeatstatusrequest is not None:
+        search_every_x_seconds = thisService.repeatstatusrequest
+    if thisService.repeatstatustimeout is not None:
+        usecaseTimeout = thisService.repeatstatustimeout
 
     return search_every_x_seconds, usecaseTimeout
 
 
 def getServiceByServiceName(btpUsecase, serviceName):
     for service in btpUsecase.definedServices:
-        if service["name"] == serviceName:
+        if service.name == serviceName:
             return service
     return None
 
@@ -71,11 +71,11 @@ def createSubaccountName(btpUsecase):
 
 def createInstanceName(btpUsecase, service):
     result = "instance"
-    if service["category"] != "CF_CUP_SERVICE":
-        if "instancename" in service:
-            return service["instancename"]
+    if service.category != "CF_CUP_SERVICE":
+        if service.instancename is not None:
+            return service.instancename
         else:
-            result = service["name"] + "_" + service["plan"] + "_" + btpUsecase.suffixinstancename
+            result = service.name + "_" + service.plan + "_" + btpUsecase.suffixinstancename
         result = re.sub(r"[^\w\s]", '_', result)
         result = result.replace("__", "_")
         if result[len(result) - 1] == "_":
@@ -83,8 +83,7 @@ def createInstanceName(btpUsecase, service):
 
         result = result[:40]
     else:
-        result += "_" + service["name"]
-
+        result += "_" + service.name
 
     return result
 

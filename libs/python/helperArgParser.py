@@ -4,11 +4,10 @@ from libs.python.helperLog import logtype
 import getpass
 
 
-def setup():
-    btpSetupAutomatorArguments = "libs/json/paramBtpSetupAutomator.json"
+def setupParams(myArguments):
     parser = argparse.ArgumentParser()
-    if btpSetupAutomatorArguments is not None and btpSetupAutomatorArguments != "":
-        allJsonParameters = getJsonFromFile(None, btpSetupAutomatorArguments)
+    if myArguments is not None and myArguments != "":
+        allJsonParameters = getJsonFromFile(None, myArguments)
 
         for parameter in allJsonParameters:
             argument = parameter["argument"]
@@ -16,20 +15,29 @@ def setup():
             help = parameter["help"]
             default = parameter["default"]
             if type == "str":
-                parser.add_argument('-' + argument, type=str,
-                                    help=help, default=default)
+                parser.add_argument('-' + argument, type=str, help=help, default=default)
             if type == "bool":
-                parser.add_argument('-' + argument, type=bool,
-                                    help=help, default=default)
+                parser.add_argument('-' + argument, type=bool, help=help, default=default)
             if type == "int":
-                parser.add_argument('-' + argument, type=int,
-                                    help=help, default=default)
+                parser.add_argument('-' + argument, type=int, help=help, default=default)
 
         args = parser.parse_args()
-        createDefaultParametersFile(btpSetupAutomatorArguments)
-        args = assignArgumentsThroughJsonParameterFile(args)
-        return args
+        myArgs = assignArgumentsThroughJsonParameterFile(args)
+        return myArgs
     return None
+
+
+def setupParamsBtpsa():
+    btpSetupAutomatorArguments = "libs/json/paramBtpSetupAutomator.json"
+    args = setupParams(btpSetupAutomatorArguments)
+    return args
+
+
+def setupParamsServices():
+    serviceArguments = "libs/json/paramServices.json"
+    args = setupParams(serviceArguments)
+
+    return args
 
 
 def assignArgumentsThroughJsonParameterFile(args):

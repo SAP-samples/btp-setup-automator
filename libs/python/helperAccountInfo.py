@@ -73,10 +73,10 @@ def createCSVForEntitledServicesInDatacenters(btpUsecase):
     string += "\n"
 
     result = []
-    for service in data["entitledServices"]:
-        string += service["name"] + ";" + service["displayName"] + ";"
-        serviceDCs = getDataCenterFromService(service)
-        myService = {"name": service["name"]}
+    for entitledService in data["entitledServices"]:
+        string += entitledService["name"] + ";" + entitledService["displayName"] + ";"
+        serviceDCs = getDataCenterFromService(entitledService)
+        myService = {"name": entitledService["name"]}
         for dc in dcsCF:
             if dc in serviceDCs:
                 myService[dc] = "X"

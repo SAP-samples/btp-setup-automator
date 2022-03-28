@@ -11,8 +11,8 @@
             "name": "cicd-app",
             "plan": "free",
             "category": "APPLICATION",
-            "repeatstatusrequest": "5",
-            "repeatstatustimeout": "200",
+            "repeatstatusrequest": 5,
+            "repeatstatustimeout": 200,
             "requiredrolecollections": [
                 "CICD Service Administrator"
             ]

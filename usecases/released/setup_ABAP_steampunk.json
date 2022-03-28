@@ -12,8 +12,8 @@
             "name": "abap",
             "plan": "free",
             "category": "SERVICE",
-            "repeatstatusrequest": "300",
-            "repeatstatustimeout": "7200",
+            "repeatstatusrequest": 300,
+            "repeatstatustimeout": 7200,
             "parameters": {
                 "admin_email": "your.emailaddress@somewhere.com",
                 "description": "Main development system",

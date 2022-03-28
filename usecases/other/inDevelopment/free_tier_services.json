@@ -11,8 +11,8 @@
       "name": "hana-cloud",
       "plan": "hana-free",
       "category": "SERVICE",
-      "repeatstatusrequest": "60",
-      "repeatstatustimeout": "3600",
+      "repeatstatusrequest": 60,
+      "repeatstatustimeout": 3600,
       "instancename": "hana_instance",
       "parameters": {
         "data": {
