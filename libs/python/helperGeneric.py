@@ -18,7 +18,7 @@ def getTimingsForStatusRequest(btpUsecase, thisService):
 
 def getServiceByServiceName(btpUsecase, serviceName):
     for service in btpUsecase.definedServices:
-        if service["name"] == serviceName:
+        if service.name == serviceName:
             return service
     return None
 
@@ -71,11 +71,11 @@ def createSubaccountName(btpUsecase):
 
 def createInstanceName(btpUsecase, service):
     result = "instance"
-    if service["category"] != "CF_CUP_SERVICE":
-        if "instancename" in service:
-            return service["instancename"]
+    if service.category != "CF_CUP_SERVICE":
+        if service.instancename is not None:
+            return service.instancename
         else:
-            result = service["name"] + "_" + service["plan"] + "_" + btpUsecase.suffixinstancename
+            result = service.name + "_" + service.plan + "_" + btpUsecase.suffixinstancename
         result = re.sub(r"[^\w\s]", '_', result)
         result = result.replace("__", "_")
         if result[len(result) - 1] == "_":
@@ -83,8 +83,7 @@ def createInstanceName(btpUsecase, service):
 
         result = result[:40]
     else:
-        result += "_" + service["name"]
-
+        result += "_" + service.name
 
     return result
 

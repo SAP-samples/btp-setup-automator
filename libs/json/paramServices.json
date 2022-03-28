@@ -93,7 +93,14 @@
     },
     {
         "argument": "createServiceKeys",
-        "type": "array",
+        "type": "list",
+        "mandatory": false,
+        "help": "list of service keys to be created for a service ",
+        "default": null
+    },
+    {
+        "argument": "requiredServices",
+        "type": "list",
         "mandatory": false,
         "help": "list of service keys to be created for a service ",
         "default": null

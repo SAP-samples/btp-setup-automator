@@ -112,14 +112,14 @@ def create_cf_service(btpUsecase, service):
     instancename = service.instancename
 
     command = "cf create-service \"" + \
-        service["name"] + "\" \"" + service.plan + \
+        service.name + "\" \"" + service.plan + \
         "\"  \"" + instancename + "\""
 
-    if "parameters" in service:
+    if service.parameters is not None:
         thisParameter = dictToString(service.parameters)
         command += " -c '" + thisParameter + "'"
     message = "Create instance >" + instancename + "< for service >" + \
-        service["name"] + "< and plan >" + service["plan"] + "<"
+        service.name + "< and plan >" + service.plan + "<"
     runShellCommand(btpUsecase, command, logtype.INFO, message)
     return service
 
@@ -127,7 +127,7 @@ def create_cf_service(btpUsecase, service):
 def create_cf_cup_service(btpUsecase, service):
     log = btpUsecase.log
 
-    servicename = service["name"]
+    servicename = service.name
     command = "cf cups \"" + servicename + "\" "
 
     if "parameters" in service:
@@ -170,18 +170,19 @@ def initiateCreationOfServiceInstances(btpUsecase):
                 log.write(logtype.ERROR, "there is more than one service with the instance name >" + instanceName + "<. Please fix that before moving on.")
                 sys.exit(os.EX_DATAERR)
 
-        # Before creating the service instances, remove those
-        # where only an entitlement is needed
+        serviceInstancesToBeCreated = []
+        # Restrict the creation of service instances to those
+        # that have been set to entitleOnly to False (default)
         for service in btpUsecase.definedServices:
-            if service.entitleonly is True:
-                btpUsecase.definedServices.remove(service)
+            if service.entitleonly is False:
+                serviceInstancesToBeCreated.append(service)
 
         # Now create all the service instances
-        for service in btpUsecase.definedServices:
+        for service in serviceInstancesToBeCreated:
             serviceName = service.name
-            # servicePlan = service["plan"]
+            # servicePlan = service.plan
             # Quickly initiate the creation of all service instances (without waiting until they are all created)
-            if "requiredServices" in service:
+            if service.requiredServices is not None and len(service.requiredServices) > 0:
                 for requiredService in service.requiredServices:
                     thisService = getServiceByServiceName(btpUsecase, requiredService)
                     if thisService is not None:
@@ -231,7 +232,7 @@ def get_cf_service_status(btpUsecase, service):
 
 
 def get_cf_service_deletion_status(btpUsecase, service):
-    instance_name = service.instancename
+    instance_name = service["instancename"]
     command = "cf service \"" + instance_name + "\""
     p = runShellCommandFlex(btpUsecase, command, logtype.CHECK, None, False, False)
     result = p.stdout.decode()

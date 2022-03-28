@@ -2,6 +2,7 @@ from libs.python.helperJson import getJsonFromFile
 from libs.python.helperLog import logtype
 import sys
 import os
+from json import JSONEncoder
 
 
 class BTPSERVICE:
@@ -43,6 +44,12 @@ class BTPSERVICE:
                     message = "parameter >" + argument + "< for service >" + serviceName + "< is mandatory, but was not set.\nPlease correct the parameter!"
                     log.write(logtype.ERROR, message)
                     sys.exit(os.EX_DATAERR)
+
+
+# subclass JSONEncoder
+class BTPSERVICEEncoder(JSONEncoder):
+    def default(self, o):
+        return o.__dict__
 
 
 def readAllServicesFromUsecaseFile(btpUsecase):
