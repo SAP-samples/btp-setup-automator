@@ -1,7 +1,7 @@
 {
     "aboutThisUseCase": {
-        "name": "Only app subscriptions",
-        "description": "This unit test checks if all works fine, if only app subscriptions are defined.",
+        "name": "Integration test 04: Only app subscriptions",
+        "description": "This integration test checks if all works fine, if only app subscriptions are defined.",
         "author": "rui.nogueira@sap.com",
         "testStatus": "tested successfully",
         "usageStatus": "READY TO BE USED",

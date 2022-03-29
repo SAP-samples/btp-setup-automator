@@ -18,7 +18,7 @@ The services and subscriptions that are created are:
 
 The code of the application is taken from the GitHub repository <https://github.com/SAP-samples/cloud-cap-risk-management>.
 
-The use case is referenced from the parameters file [/usecases/other/unittests/parameterfiles/unittest01.json](../usecases/other/unittests/parameterfiles/unittest01.json).
+The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest01.json](../integrationtests/parameterfiles/integrationtest01.json).
 
 ## Use case "cap_app_launchpad.json"
 
@@ -32,7 +32,7 @@ The services and subscriptions that are created are:
 
 The code of the application is pulled from the GitHub repository <https://github.com/SAP-samples/cloud-cap-risk-management>.
 
-The use case is referenced from the parameters file [/usecases/other/unittests/parameterfiles/unittest04.json](../usecases/other/unittests/parameterfiles/unittest04.json).
+The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest02.json](../integrationtests/parameterfiles/integrationtest02.json).
 
 ## Use case "extendS4_with_devops.json"
 
@@ -51,7 +51,7 @@ The services and subscriptions that are created are:
 
 The code of the application is pulled from the GitHub repository <https://github.com/SAP-samples/s4hana-btp-extension-devops>.
 
-The use case is referenced from the parameters file [/usecases/other/unittests/parameterfiles/unittest03.json](../usecases/other/unittests/parameterfiles/unittest03.json).
+The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest03.json](../integrationtests/parameterfiles/integrationtest03.json).
 
 ## Use case "setup_ABAP_steampunk.json"
 
@@ -65,19 +65,19 @@ The file [setup_ias.json](../usecases/released/setup_ias.json) contains the setu
 
 The file [setup_kyma_free_tier.json](../usecases/released/setup_kyma_free_tier.json) contains the setup of a Kyma environment using the `free tier` plan
 
-The use case is referenced from the parameters file [/usecases/other/unittests/parameterfiles/unittest91.json](../usecases/other/unittests/parameterfiles/unittest91.json).
+The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest09.json](../integrationtests/parameterfiles/integrationtest09.json).
 
 ## Use case "setup_kyma_gcp.json"
 
 The file [setup_kyma_gcp.json](../usecases/released/setup_kyma_gcp.json) contains the setup of a Kyma environment on Google Cloud Platform (GCP) using the `GCP` plan.
 
-The use case is referenced from the parameters file [/usecases/other/unittests/parameterfiles/unittest92.json](../usecases/other/unittests/parameterfiles/unittest92.json).
+The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest10.json](../integrationtests/parameterfiles/integrationtest10.json).
 
 ## Use case "setup_kyma_TRIAL.json"
 
 The file [setup_kyma_TRIAL.json](../usecases/released/setup_kyma_TRIAL.json) contains the setup of a Kyma environment on SAP BTP Trial.
 
-The use case is referenced from the parameters file [/usecases/other/unittests/parameterfiles/unittest90.json](../usecases/other/unittests/parameterfiles/unittest90.json).
+The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest08.json](../integrationtests/parameterfiles/integrationtest08.json).
 
 ## Use case "setup_kyma_gcp_with_dapr.json"
 
@@ -85,7 +85,7 @@ The file [setup_kyma_gcp_with_dapr.json](../usecases/released/setup_kyma_gcp_wit
 
 The code of the application is pulled from the GitHub repository <https://github.com/SAP-samples/kyma-runtime-extension-samples/tree/main/custom-component-dapr>.
 
-The use case is referenced from the parameters file [/usecases/other/unittests/parameterfiles/unittest93.json](../usecases/other/unittests/parameterfiles/unittest93.json).
+The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest11.json](../integrationtests/parameterfiles/integrationtest11.json).
 
 ## Use case "setup_task_center.json"
 
@@ -97,4 +97,4 @@ The services and subscriptions that are created are:
 * SAP One Inbox
 * SAP Launchpad
 
-The use case is referenced from the parameters file [/usecases/other/unittests/parameterfiles/unittest20.json](../usecases/other/unittests/parameterfiles/unittest20.json).
+The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest07.json](../integrationtests/parameterfiles/integrationtest07.json).

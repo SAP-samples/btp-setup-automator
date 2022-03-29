@@ -1,6 +1,0 @@
-{
-  "usecasefile": "usecases/other/unittests/usecase_ut03_service_key_creation.json",
-  "loginmethod": "basicAuthentication",
-  "prunesubaccount": true
-
-}

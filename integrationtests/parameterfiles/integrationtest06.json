@@ -1,0 +1,5 @@
+{
+  "usecasefile": "../usecases/usecase_ut06_service_key_creation.json",
+  "loginmethod": "basicAuthentication",
+  "prunesubaccount": true
+}

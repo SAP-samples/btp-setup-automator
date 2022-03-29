@@ -12,6 +12,14 @@
             "args": [ "-parameterfile", "<PATH TO YOUR PARAMETERFILES>"],
             "console": "integratedTerminal",
             "justMyCode": true
-        }
+        },
+        {
+            "name": "Python: Integrationtest Generator",
+            "type": "python",
+            "request": "launch",
+            "program": "integrationtests/scripts/createIntegrationTestFiles.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
     ]
 }

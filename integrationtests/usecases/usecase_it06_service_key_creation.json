@@ -1,7 +1,7 @@
 {
   "aboutThisUseCase": {
-    "name": "Unit test: create service keys",
-    "description": "This usecase is used for a script unit test",
+    "name": "Integration test 06: create service keys",
+    "description": "This usecase is used for a script integration test",
     "author": "rui.nogueira@sap.com",
     "testStatus": "tested successfully",
     "usageStatus": "READY TO BE USED"

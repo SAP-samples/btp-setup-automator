@@ -116,7 +116,7 @@ Example: the developers of the `btp-setup-automator` test various use case confi
 folderLogFile="/your/local/folder/btp-setup-automator/log/$(date "+%Y-%m-%d")/"
 mkdir -p "${folderLogFile}"
 ##########################################################################################################
-# Run script with use case definition >unittest01<
+# Run script with use case definition >integrationtest01<
 ##########################################################################################################
 docker image build  -t "test01":latest -f "config/containerdefinitions/btp-setup-automator/Dockerfile"  .
 docker container run --rm  -it -d --name "test01" \
@@ -124,7 +124,7 @@ docker container run --rm  -it -d --name "test01" \
     "test01"
 
 docker exec --workdir "/home/user/" "test01" btpsa \
-    -parameterfile 'usecases/other/unittests/parameterfiles/unittest01.json' \
+    -parameterfile 'integrationtests/parameterfiles/integrationtest01.json' \
     -logfile       '/home/user/log/test01.log' \
     -metadatafile  '/home/user/log/test01_metadata.json' \
     -globalaccount '12345678trial-ga' \
@@ -175,7 +175,7 @@ The only thing missing now is to start the script for the `btp-setup-automator` 
 
 ```bash
 docker exec --workdir "/home/user/" "test01" ./btpsa \
-    -parameterfile 'usecases/other/unittests/parameterfiles/unittest01.json' \
+    -parameterfile 'integrationtests/parameterfiles/integrationtest01.json' \
     -logfile       '/home/user/log/test01.log' \
     -metadatafile  '/home/user/log/test01_metadata.json' \
     -globalaccount '12345678trial-ga' \

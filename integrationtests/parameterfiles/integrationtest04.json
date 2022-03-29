@@ -1,7 +1,7 @@
 {
-  "usecasefile": "usecases/other/unittests/usecase_ut01_one_service_only.json",
+  "usecasefile": "../usecases/usecase_it04_one_subscription_only.json",
   "loginmethod": "basicAuthentication",
-  "region": "eu10",
+  "region": "us10",
   "subaccountname": "My own subacccount name",
   "subdomain": "my own subdomain with -",
   "cfspacename": "development",
@@ -9,7 +9,7 @@
   "fallbackserviceplan": null,
   "repeatstatusrequest": 4,
   "repeatstatustimeout": 4200,
-  "logcommands": true,
+  "logcommands": false,
   "pruneusecase": true,
   "prunesubaccount": true
 }

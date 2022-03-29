@@ -1,0 +1,39 @@
+{
+  "aboutThisUseCase": {
+    "name": "Establish a Central Inbox with SAP Task Center",
+    "description": "This usecase provides the configuration set up the SAP Task Center service to establish a central approval inbox across SAP solutions.",
+    "author": "fabian.lehmann02@sap.com",
+    "testStatus": "tested successfully",
+    "usageStatus": "READY TO BE USED",
+    "relatedLinks": ["https://discovery-center.cloud.sap/missiondetail/3774/3813"]
+  },
+  "services": [
+    {
+      "name": "xsuaa",
+      "plan": "apiaccess",
+      "instancename": "xsuaa_api",
+      "category": "SERVICE",
+      "createServiceKeys": [
+        "myServiceKey1"
+      ]
+    },
+    {
+      "category": "SERVICE",
+      "name": "one-inbox-service",
+      "plan": "standard",
+      "instancename": "default_taskcenter",
+      "createServiceKeys": [
+        "defaultKey"
+      ]
+    },
+    {
+      "category": "APPLICATION",
+      "name": "SAPLaunchpad",
+      "plan": "standard",
+      "requiredrolecollections": [
+        "Launchpad_Admin"
+      ]
+    }
+  ],
+  "admins": []
+}

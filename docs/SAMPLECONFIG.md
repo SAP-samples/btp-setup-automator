@@ -115,7 +115,7 @@ You specify the behavior via two parameters:
 
 ### Parameter Examples
 
-You find several examples for parameter files in the folder `usecases/other/unittests/parameterfiles`.
+You find several examples for parameter files in the folder `integrationtests/parameterfiles`.
 
 ## The Usecase File
 

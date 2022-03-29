@@ -195,6 +195,7 @@ ENV PATH "$PATH:$HOME_FOLDER/.krew/bin"
 
 ## Copy over the all necessary resources
 COPY --chown=$USERNAME:$USERNAME usecases/                                  $HOME_FOLDER/usecases/
+COPY --chown=$USERNAME:$USERNAME integrationtests/                          $HOME_FOLDER/integrationtests/
 
 COPY --chown=$USERNAME:$USERNAME README.md                                  $HOME_FOLDER/
 COPY --chown=$USERNAME:$USERNAME parameters.json                            $HOME_FOLDER/
