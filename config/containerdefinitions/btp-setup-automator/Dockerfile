@@ -150,6 +150,7 @@ RUN adduser \
                nano \
                nodejs \
                npm \
+               uuidgen \
     && pip install --no-cache-dir -r /tmp/pip-tmp/requirements.txt \
     && rm -rf /tmp/pip-tmp \
     ## Set the right timezone in the container image
