@@ -19,5 +19,4 @@ The `usecase.json` file has a section to define all services. These services can
 | requiredServices | list of service keys to be created for a service  | list | False | None |
 | requiredrolecollections | list of role collections to be created for a service | list | False | None |
 
-
-Checkout the [SAMPLECONFIG.md](SAMPLECONFIG.md) documentation for some examples.
+Checkout the [SAMPLECONFIG.md](/docs/SAMPLECONFIG.md) documentation for some examples.
