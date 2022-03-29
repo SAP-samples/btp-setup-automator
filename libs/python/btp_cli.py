@@ -301,6 +301,7 @@ class BTPUSECASE:
                         self.accountMetadata = addKeyValuePair(accountMetadata, "org", org)
 
                         save_collected_metadata(self)
+                        self.create_new_cf_space(environment)
 
                     else:
                         log.write(logtype.SUCCESS, "CF environment >" + org + "< already available with id >" + orgid + "<")
@@ -369,7 +370,6 @@ class BTPUSECASE:
             log.write(logtype.HEADER, "USING CONFIGURED ENVIRONMENT WITH ID >" + accountMetadata["orgid"] + "<")
 
         save_collected_metadata(self)
-        self.create_new_cf_space(environment)
 
     def create_new_cf_space(self, environment):
         cfEnvironment = False

@@ -1,122 +1,29 @@
 # Parameters that can be used when calling btp-setup-automator
 
-## Parameter name
+When calling the '`btp-setup-automator` you can provide additional parameters to the command line of add the parameters in the `parameters.json` file.
 
-name of the service
+These are the available commands:
 
-Type: str
+| Parameter | Description | Type  | Mandatory | Default value |
+|---|---|---|---|---|
+| name | name of the service | str | True | None |
+| entitleonly | if set to true, no service instances will be created by the tool | bool | False | False |
+| category | category of the service | str | True | None |
+| targetenvironment | environment in which the service should be created | str | True | cloudfoundry |
+| plan | plan name of the service | str | False | None |
+| planCatalogName | catalog name of the service plan | str | False | None |
+| instancename | name of the service | str | False | None |
+| parameters | parameters for the service | dict | False | None |
+| amount | amount to be used for the service | int | False | None |
+| repeatstatusrequest | number of seconds when status should be checked | int | False | 5 |
+| repeatstatustimeout | timeout in seconds after which the script will stop checking the status | int | False | 3600 |
+| createServiceKeys | list of service keys to be created for a service  | list | False | None |
+| requiredServices | list of service keys to be created for a service  | list | False | None |
+| requiredrolecollections | list of role collections to be created for a service | list | False | None |
 
-Mandatory: True
 
-Default: None
+You can get an overview of those commands as well, by simply typing the following command in your command line terminal:
 
-## Parameter entitleonly
-
-if set to true, no service instances will be created by the tool
-
-Type: bool
-
-Mandatory: False
-
-Default: False
-
-## Parameter category
-
-category of the service
-
-Type: str
-
-Mandatory: True
-
-Default: None
-
-## Parameter createinenvironment
-
-environment in which the service should be created
-
-Type: str
-
-Mandatory: True
-
-Default: cloudfoundry
-
-## Parameter plan
-
-plan name of the service
-
-Type: str
-
-Mandatory: False
-
-Default: None
-
-## Parameter instancename
-
-name of the service
-
-Type: str
-
-Mandatory: False
-
-Default: None
-
-## Parameter parameters
-
-parameters for the service
-
-Type: dict
-
-Mandatory: False
-
-Default: None
-
-## Parameter amount
-
-amount to be used for the service
-
-Type: int
-
-Mandatory: False
-
-Default: None
-
-## Parameter repeatstatusrequest
-
-number of seconds when status should be checked
-
-Type: int
-
-Mandatory: False
-
-Default: 5
-
-## Parameter repeatstatustimeout
-
-timeout in seconds after which the script will stop checking the status
-
-Type: int
-
-Mandatory: False
-
-Default: 3600
-
-## Parameter createServiceKeys
-
-list of service keys to be created for a service 
-
-Type: array
-
-Mandatory: False
-
-Default: None
-
-## Parameter requiredrolecollections
-
-list of role collections to be created for a service
-
-Type: list
-
-Mandatory: False
-
-Default: None
-
+```bash
+./btpsa -h
+```
