@@ -1,5 +1,6 @@
 import os
 import logging
+import sys
 
 LOGLEVEL = logging.DEBUG
 
@@ -182,6 +183,12 @@ class MyFormatterFile(logging.Formatter):
         return result
 
 
+def log_exceptions(type, value, tb):
+    for line in traceback.TracebackException(type, value, tb).format(chain=True):
+        logging.exception(line)
+    logging.exception(value)
+
+
 def initLogger(btpUsecase):
     createNewEmptyFile(btpUsecase.logfile)
     createNewEmptyFile(btpUsecase.metadatafile)
@@ -198,3 +205,6 @@ def initLogger(btpUsecase):
     thisHandler.setLevel(LOGLEVEL)
     thisHandler.setFormatter(MyFormatterFile())
     logging.root.addHandler(thisHandler)
+
+
+sys.excepthook = log_exceptions

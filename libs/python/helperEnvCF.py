@@ -58,7 +58,7 @@ def checkIfCFSpaceAlreadyExists(btpUsecase):
 
 
 def checkIfAllServiceInstancesCreated(btpUsecase):
-    # log = btpUsecase.log
+    # 
 
     command = "cf services"
     p = runShellCommand(btpUsecase, command, "INFO", None)
@@ -128,7 +128,7 @@ def create_cf_service(btpUsecase, service):
 
 
 def create_cf_cup_service(btpUsecase, service):
-    # log = btpUsecase.log
+    # 
 
     servicename = service.name
     command = "cf cups \"" + servicename + "\" "
@@ -147,7 +147,7 @@ def create_cf_cup_service(btpUsecase, service):
 
 
 def initiateCreationOfServiceInstances(btpUsecase):
-    log = btpUsecase.log
+    
 
     createServiceInstances = btpUsecase.definedServices is not None and len(btpUsecase.definedServices) > 0
 

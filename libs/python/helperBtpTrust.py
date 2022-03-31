@@ -12,7 +12,7 @@ log = logging.getLogger(__name__)
 
 
 def runTrustFlow(btpUsecase):
-    # log = btpUsecase.log
+    
     accountMetadata = btpUsecase.accountMetadata
 
     if "createdServiceInstances" in accountMetadata:
@@ -24,22 +24,19 @@ def runTrustFlow(btpUsecase):
                     accountMetadata = addKeyValuePair(
                         accountMetadata, "trustSetupXSUAA", [])
                     for key in service["createdServiceKeys"]:
-                        log.write(
-                            "INFO", "using XSUAA service key >" + key["keyname"] + "<")
+                        log.info("using XSUAA service key >" + key["keyname"] + "<")
                         if "payload" in key:
                             payload = key["payload"]
 
                             authClientId = payload["clientid"]
                             authClientSecret = payload["clientsecret"]
 
-                            log.write("INFO",
-                                      "get access token for XSUAA")
+                            log.info("get access token for XSUAA")
                             resultApiAccessToken = get_api_access_token_for_xsuaa(
                                 btpUsecase, payload["url"] + "/oauth/token", authClientId, authClientSecret)
                             accessToken = resultApiAccessToken["access_token"]
 
-                            log.write(
-                                "INFO", "get list of IAS tenants that the subaccount has access to")
+                            log.info("get list of IAS tenants that the subaccount has access to")
                             resultIasTenants = get_list_of_ias_tenants(
                                 btpUsecase, payload["apiurl"] + "/sap/rest/identity-providers/ias", accessToken)
 
@@ -62,17 +59,14 @@ def runTrustFlow(btpUsecase):
                     saveJsonToFile(filename, accountMetadata)
 
                 else:
-                    log.write(
-                        logtype.WARNING, "couldn't execute trust flow, as instance name and/or service key for the XSUAA service was not found!")
+                    log.warning("couldn't execute trust flow, as instance name and/or service key for the XSUAA service was not found!")
 
 
 def get_cf_service_key(btpUsecase, instanceName, keyName):
     result = None
-    # log = btpUsecase.log
 
     command = "cf create-service-key \"" + instanceName + "\" \"" + keyName + "\""
-    message = "create service key from XSUAA instance >" + \
-        instanceName + "< for keyname >" + keyName + "<"
+    message = "create service key from XSUAA instance >" + instanceName + "< for keyname >" + keyName + "<"
     p = runShellCommand(btpUsecase, command, "INFO", message)
     returnCode = p.returncode
 
@@ -101,7 +95,7 @@ def delete_cf_service_key(btpUsecase, instanceName, keyName):
 
 
 def get_api_access_token_for_xsuaa(btpUsecase, authClientUrl, authClientId, authClientSecret):
-    # log = btpUsecase.log
+    
     result = None
 
     myData = {'grant_type': 'client_credentials',
@@ -120,31 +114,27 @@ def get_api_access_token_for_xsuaa(btpUsecase, authClientUrl, authClientId, auth
 
 
 def get_list_of_ias_tenants(btpUsecase, url, accessToken):
-    # log = btpUsecase.log
     result = None
 
     try:
-        log.info("sending a GET request to url >" +
-                  url + "< with the access token")
-        p = requests.get(
-            url, headers={"Authorization": "bearer " + accessToken})
+        log.info("sending a GET request to url >" + url + "< with the access token")
+        p = requests.get(url, headers={"Authorization": "bearer " + accessToken})
         result = p.json()
-        log.write(logtype.SUCCESS,
-                  "fetched list of ias tenants assigned to this subaccount")
+        log.success("fetched list of ias tenants assigned to this subaccount")
     except:
         result = None
     return result
 
 
 def createOwnIDP(btpUsecase, url, accessToken, resultIasTenants):
-    # log = btpUsecase.log
+    
     result = None
     host = None
 
     host = None
     if btpUsecase.iashost is None or btpUsecase.iashost == "":
         message = "Did not find parameter >iashost< in the parameters file. Will ask you which one to take."
-        log.warning( message)
+        log.warning(message)
 
         myChoices = []
         for tenant in resultIasTenants:
@@ -181,7 +171,6 @@ def createOwnIDP(btpUsecase, url, accessToken, resultIasTenants):
 
 
 def registerUserOnIDP(btpUsecase, url, clientId, clientSecret, idpUserName, password):
-    # log = btpUsecase.log
     result = None
 
     clientIdSecret = clientId + ":" + clientSecret
@@ -190,8 +179,7 @@ def registerUserOnIDP(btpUsecase, url, clientId, clientSecret, idpUserName, pass
     clientIdSecretDecoded = clientIdSecretEncoded.decode('ascii')
 
     log.info("clientIdSecret       : >" + clientIdSecret + "<")
-    log.info("clientIdSecretDecoded: >" +
-              str(clientIdSecretEncoded) + "<")
+    log.info("clientIdSecretDecoded: >" + str(clientIdSecretEncoded) + "<")
 
     myData = "username=" + idpUserName + "&password=" + password + \
         "&grant_type=password&login_hint=%7B%22origin%22%3A%22sap.custom%22%7D"
@@ -200,11 +188,9 @@ def registerUserOnIDP(btpUsecase, url, clientId, clientSecret, idpUserName, pass
     log.info("myData: >" + myData + "<")
 
     try:
-        log.info("sending a POST request to url >" +
-                  url + "< to create a user on the IDP")
+        log.info("sending a POST request to url >" + url + "< to create a user on the IDP")
         p1 = requests.post(url, data=myData, headers=headers)
-        log.success("added user >" +
-                  idpUserName + "< to your IDP")
+        log.success("added user >" + idpUserName + "< to your IDP")
         result = p1.json()
     except:
         result = None

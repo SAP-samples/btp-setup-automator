@@ -65,7 +65,6 @@ def fetchEmailAddressFromBtpConfigFile(btpUsecase):
 
 
 def runShellCommandFlex(btpUsecase, command, format, info, exitIfError, noPipe):
-    # log = btpUsecase.log
     if info is not None:
         if format == "INFO":
             log.info(info)
@@ -112,7 +111,6 @@ def runShellCommandFlex(btpUsecase, command, format, info, exitIfError, noPipe):
 
 
 def checkIfReLoginNecessary(btpUsecase, command):
-    # log = btpUsecase.log
     # time in seconds for re-login
     ELAPSEDTIMEFORRELOGIN = 45 * 60
 
@@ -161,7 +159,6 @@ def runCommandAndGetJsonResult(btpUsecase, command, format, message):
 
 
 def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):
-    # log = btpUsecase.log
     usecaseDefinition = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
 
     if jsonSection in usecaseDefinition and len(usecaseDefinition[jsonSection]) > 0:

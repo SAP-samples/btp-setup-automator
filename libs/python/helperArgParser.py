@@ -88,7 +88,6 @@ def createDefaultParametersFile(toolParametersFile):
 
 
 def checkProvidedArguments(btpUsecase):
-    # log = btpUsecase.log
 
     usecaseInfo = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
     if "aboutThisUseCase" in usecaseInfo:
@@ -133,14 +132,13 @@ def checkProvidedArguments(btpUsecase):
                 btpUsecase.myemail = value
                 addKeyValuePairToJsonFile(
                     btpUsecase.parameterfile, "myemail", value)
-                log.success("added your email address into your parameters file >" +
-                          btpUsecase.parameterfile + "<")
+                log.success("added your email address into your parameters file >" + btpUsecase.parameterfile + "<")
             else:
                 btpUsecase.myemail = ""
 
         # INPUT CREDENTIALS: PASSWORD
         while btpUsecase.mypassword is None or btpUsecase.mypassword == "":
-            log.warning( "YOU NEED TO PROVIDE YOUR BTP PASSWORD")
+            log.warning("YOU NEED TO PROVIDE YOUR BTP PASSWORD")
             inputMessage = "                      " + "\033[38;5;51m" + \
                 "Please enter your BTP password (hit Enter when done):"
             value = checkUserInput(inputMessage, "password")
