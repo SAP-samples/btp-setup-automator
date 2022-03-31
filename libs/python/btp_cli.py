@@ -704,9 +704,9 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
         else:
             if fallbackServicePlan is not None and supportedFallbackServicePlan is True:
                 log.warning("defined plan >" + usecaseServicePlan + "< not available, but using configured default fallback plan >" +
-                          fallbackServicePlan + "< for service >" + usecaseServiceName + "<")
+                            fallbackServicePlan + "< for service >" + usecaseServiceName + "<")
                 log.success("service  >" + usecaseServiceName + "< with default fallback plan >" +
-                          fallbackServicePlan + "< in region >" + usecaseRegion + "< IS AVAILABLE")
+                            fallbackServicePlan + "< in region >" + usecaseRegion + "< IS AVAILABLE")
                 usecaseService.plan = fallbackServicePlan
             else:
                 log.error("service >" + usecaseServiceName + "< with plan >" +
@@ -933,7 +933,6 @@ def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
 
 
 def get_subscription_status(btpUsecase: BTPUSECASE, app):
-    
     accountMetadata = btpUsecase.accountMetadata
 
     app_name = app.name
@@ -985,7 +984,6 @@ def get_subscription_deletion_status(btpUsecase: BTPUSECASE, app):
 
 
 def checkIfAllSubscriptionsAreAvailable(btpUsecase: BTPUSECASE):
-    
     command = "btp --format json list accounts/subscription --subaccount " + btpUsecase.subaccountid
     resultCommand = runCommandAndGetJsonResult(btpUsecase, command, "INFO", "check status of app subscriptions")
 
@@ -1182,8 +1180,6 @@ def getListOfAdditionalEmailAdressesInUsecaseFile(btpUsecase: BTPUSECASE):
 
 
 def checkEmailsinUsecaseConfig(btpUsecase: BTPUSECASE):
-    
-
     allowedUsers = getListOfUsersOnAccount(btpUsecase)
     foundError = False
 
@@ -1211,7 +1207,6 @@ def checkEmailsinUsecaseConfig(btpUsecase: BTPUSECASE):
 
 
 def pruneSubaccount(btpUsecase: BTPUSECASE):
-    
     accountMetadata = btpUsecase.accountMetadata
 
     command = "btp --format json delete accounts/subaccount " + accountMetadata["subaccountid"] + " --global-account " + btpUsecase.globalaccount + " --confirm"
@@ -1336,7 +1331,7 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                         if "instancename" not in service:
                             status = "deleted"
                             service["deletionStatus"] = status
-                            log.info("no service instance available for service >" + service["name"]  + "<. Deletion not needed.")
+                            log.info("no service instance available for service >" + service["name"] + "<. Deletion not needed.")
                             continue
                         status = get_cf_service_deletion_status(btpUsecase, service)
                         if (status == "deleted"):

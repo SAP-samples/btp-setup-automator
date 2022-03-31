@@ -12,7 +12,6 @@ log = logging.getLogger(__name__)
 
 
 def runTrustFlow(btpUsecase):
-    
     accountMetadata = btpUsecase.accountMetadata
 
     if "createdServiceInstances" in accountMetadata:
@@ -32,13 +31,11 @@ def runTrustFlow(btpUsecase):
                             authClientSecret = payload["clientsecret"]
 
                             log.info("get access token for XSUAA")
-                            resultApiAccessToken = get_api_access_token_for_xsuaa(
-                                btpUsecase, payload["url"] + "/oauth/token", authClientId, authClientSecret)
+                            resultApiAccessToken = get_api_access_token_for_xsuaa(btpUsecase, payload["url"] + "/oauth/token", authClientId, authClientSecret)
                             accessToken = resultApiAccessToken["access_token"]
 
                             log.info("get list of IAS tenants that the subaccount has access to")
-                            resultIasTenants = get_list_of_ias_tenants(
-                                btpUsecase, payload["apiurl"] + "/sap/rest/identity-providers/ias", accessToken)
+                            resultIasTenants = get_list_of_ias_tenants(btpUsecase, payload["apiurl"] + "/sap/rest/identity-providers/ias", accessToken)
 
                             log.info("create own IDP")
                             resultOwnIDP = createOwnIDP(
@@ -86,7 +83,6 @@ def get_cf_service_key(btpUsecase, instanceName, keyName):
 
 
 def delete_cf_service_key(btpUsecase, instanceName, keyName):
-
     command = "cf delete-service-key  \"" + \
         instanceName + "\" \"" + keyName + "\" -f"
     message = "delete service key from instance >" + \
@@ -95,17 +91,12 @@ def delete_cf_service_key(btpUsecase, instanceName, keyName):
 
 
 def get_api_access_token_for_xsuaa(btpUsecase, authClientUrl, authClientId, authClientSecret):
-    
     result = None
-
-    myData = {'grant_type': 'client_credentials',
-              'client_id': authClientId, 'client_secret': authClientSecret}
+    myData = {'grant_type': 'client_credentials', 'client_id': authClientId, 'client_secret': authClientSecret}
 
     try:
-        log.info("sending a POST request to url >" +
-                  authClientUrl + "< with the data >" + str(myData) + "<")
-        p = requests.post(authClientUrl, data=myData, headers={
-                          "content-type": "application/x-www-form-urlencoded"})
+        log.info("sending a POST request to url >" + authClientUrl + "< with the data >" + str(myData) + "<")
+        p = requests.post(authClientUrl, data=myData, headers={"content-type": "application/x-www-form-urlencoded"})
         log.success("fetched API access token for XSUAA")
         result = p.json()
     except:
@@ -127,7 +118,6 @@ def get_list_of_ias_tenants(btpUsecase, url, accessToken):
 
 
 def createOwnIDP(btpUsecase, url, accessToken, resultIasTenants):
-    
     result = None
     host = None
 

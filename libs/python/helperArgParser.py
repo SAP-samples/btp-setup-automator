@@ -38,7 +38,6 @@ def setupParamsBtpsa():
 def setupParamsServices():
     serviceArguments = "libs/json/paramServices.json"
     args = setupParams(serviceArguments)
-
     return args
 
 
@@ -88,7 +87,6 @@ def createDefaultParametersFile(toolParametersFile):
 
 
 def checkProvidedArguments(btpUsecase):
-
     usecaseInfo = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
     if "aboutThisUseCase" in usecaseInfo:
         info = usecaseInfo["aboutThisUseCase"]
