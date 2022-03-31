@@ -3,7 +3,7 @@ import logging
 import sys
 import traceback
 
-LOGLEVEL = logging.DEBUG
+LOGLEVEL = logging.INFO
 
 HEADER = logging.CRITICAL + 1
 USERINPUT = HEADER + 1
@@ -126,7 +126,7 @@ class MyFormatterStream(logging.Formatter):
 # Custom formatter
 class MyFormatterFile(logging.Formatter):
 
-    format_HEADER = "#" * 100 + "\n# %(msg)s\n" + "#" * 100 
+    format_HEADER = "#" * 100 + "\n# %(msg)s\n" + "#" * 100
     format_ERROR = "[%(asctime)s] " + "ERROR      : %(msg)s"
     format_CHECK = "[%(asctime)s] " + "CHECK      : %(msg)s"
     format_INFO = "[%(asctime)s] " + "INFO       : %(msg)s"
