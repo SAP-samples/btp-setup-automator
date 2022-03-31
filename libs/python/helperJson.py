@@ -9,7 +9,6 @@ log = logging.getLogger(__name__)
 
 
 def getJsonFromFile(self, filename):
-
     data = None
     foundError = False
     f = None

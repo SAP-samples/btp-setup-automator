@@ -1026,7 +1026,6 @@ def determineTimeToFetchStatusUpdates(btpUsecase: BTPUSECASE):
 
 
 def track_creation_of_subscriptions_and_services(btpUsecase: BTPUSECASE):
-    
     accountMetadata = btpUsecase.accountMetadata
 
     current_time = 0
@@ -1129,7 +1128,6 @@ def getAdminsForUseCase(btpUsecase: BTPUSECASE):
 
 
 def getRoleCollectionsFromUsecaseFile(btpUsecase: BTPUSECASE):
-    
     usecase = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
     items = []
     if "requiredrolecollections" in usecase:
@@ -1238,7 +1236,6 @@ def pruneSubaccount(btpUsecase: BTPUSECASE):
 
 
 def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
-    
     accountMetadata = btpUsecase.accountMetadata
 
     log.header("Remove assets created for this use case")
@@ -1412,10 +1409,8 @@ def selectEnvironmentLandscape(btpUsecase: BTPUSECASE, environment):
         region = btpUsecase.region
 
     subaccountid = accountMetadata["subaccountid"]
-    
 
-    message = "Check for available environment landscapes in subaccount >" + \
-        subaccountid + "< and region >" + region + "<"
+    message = "Check for available environment landscapes in subaccount >" + subaccountid + "< and region >" + region + "<"
     command = "btp --format json list accounts/available-environment --subaccount \"" + \
         subaccountid + "\""
 

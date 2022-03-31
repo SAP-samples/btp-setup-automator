@@ -64,7 +64,6 @@ def getDataCenterFromService(service):
 
 
 def createCSVForEntitledServicesInDatacenters(btpUsecase):
-
     data = getServiceInfo(btpUsecase)
 
     dcsCF = getAllDatacenters(data["entitledServices"])
