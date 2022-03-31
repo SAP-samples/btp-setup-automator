@@ -3,7 +3,7 @@ import logging
 import sys
 import traceback
 
-LOGLEVEL = logging.DEBUG
+LOGLEVEL = logging.INFO
 
 HEADER = logging.CRITICAL + 1
 USERINPUT = HEADER + 1
@@ -65,6 +65,7 @@ class MyFormatterStream(logging.Formatter):
     format_ERROR = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_ERROR + "ERROR      : %(msg)s" + COLOR_RESET_COLORS
     format_CHECK = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_ERROR + "CHECK      : %(msg)s" + COLOR_RESET_COLORS
     format_INFO = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_INFO + "INFO       : %(msg)s" + COLOR_RESET_COLORS
+    format_DEBUG = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_INFO + "DEBUG       : %(msg)s" + COLOR_RESET_COLORS
     format_COMMAND = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_COMMAND + "RUN COMMAND: %(msg)s" + COLOR_RESET_COLORS
     format_SUCCESS = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_SUCCESS + "SUCCESS    : %(msg)s" + COLOR_RESET_COLORS
     format_WARNING = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_WARNING + "WARNING    : %(msg)s" + COLOR_RESET_COLORS
@@ -78,7 +79,8 @@ class MyFormatterStream(logging.Formatter):
 
         # Save the original format configured by the user
         # when the logger formatter was instantiated
-        #format_orig = self._style._fmt
+
+        format_orig = self._style._fmt
         self.datefmt = "%Y-%m-%d %H:%M:%S"
 
         # Replace the original format with one customized by logging level
@@ -98,7 +100,7 @@ class MyFormatterStream(logging.Formatter):
             self._style._fmt = MyFormatterStream.format_CHECK
 
         if record.levelno == logging.DEBUG:
-            self._style._fmt = MyFormatterStream.DEBUG
+            self._style._fmt = MyFormatterStream.format_DEBUG
 
         if record.levelno == logging.INFO:
             self._style._fmt = MyFormatterStream.format_INFO
@@ -116,7 +118,7 @@ class MyFormatterStream(logging.Formatter):
         result = logging.Formatter.format(self, record)
 
         # Restore the original format configured by the user
-        #self._style._fmt = format_orig
+        self._style._fmt = format_orig
 
         return result
 
@@ -124,10 +126,11 @@ class MyFormatterStream(logging.Formatter):
 # Custom formatter
 class MyFormatterFile(logging.Formatter):
 
-    format_HEADER = "#" * 100 + "\n# %(msg)s\n" + "#" * 100 
+    format_HEADER = "#" * 100 + "\n# %(msg)s\n" + "#" * 100
     format_ERROR = "[%(asctime)s] " + "ERROR      : %(msg)s"
     format_CHECK = "[%(asctime)s] " + "CHECK      : %(msg)s"
     format_INFO = "[%(asctime)s] " + "INFO       : %(msg)s"
+    format_DEBUG = "[%(asctime)s] " + "DEBUG      : %(msg)s"
     format_COMMAND = "[%(asctime)s] " + "RUN COMMAND: %(msg)s"
     format_SUCCESS = "[%(asctime)s] " + "SUCCESS    : %(msg)s"
     format_WARNING = "[%(asctime)s] " + "WARNING    : %(msg)s"
@@ -141,7 +144,7 @@ class MyFormatterFile(logging.Formatter):
 
         # Save the original format configured by the user
         # when the logger formatter was instantiated
-        #format_orig = self._style._fmt
+        format_orig = self._style._fmt
         self.datefmt = "%Y-%m-%d %H:%M:%S"
 
         # Replace the original format with one customized by logging level
@@ -161,7 +164,7 @@ class MyFormatterFile(logging.Formatter):
             self._style._fmt = MyFormatterFile.format_CHECK
 
         if record.levelno == logging.DEBUG:
-            self._style._fmt = MyFormatterFile.DEBUG
+            self._style._fmt = MyFormatterFile.format_DEBUG
 
         if record.levelno == logging.INFO:
             self._style._fmt = MyFormatterFile.format_INFO
@@ -179,7 +182,7 @@ class MyFormatterFile(logging.Formatter):
         result = logging.Formatter.format(self, record)
 
         # Restore the original format configured by the user
-        #self._style._fmt = format_orig
+        self._style._fmt = format_orig
 
         return result
 
