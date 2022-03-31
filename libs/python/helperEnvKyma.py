@@ -2,7 +2,6 @@ from libs.python.helperJson import convertStringToJson
 
 
 def getKymaEnvironmentInfoByClusterName(environmentData, kymaClusterName):
-
     for entry in environmentData["environmentInstances"]:
         parametersFromEntry = convertStringToJson(entry["parameters"])
         if entry["environmentType"] == "kyma" and parametersFromEntry["name"] == kymaClusterName:
@@ -23,7 +22,6 @@ def extractKymaKubeConfigUrlFromEnvironmentDataEntry(environmentDataEntry):
 
 
 def getKymaEnvironmentIdByClusterName(environmentData, kymaClusterName):
-
     for entry in environmentData["environmentInstances"]:
         parametersFromEntry = convertStringToJson(entry["parameters"])
         if entry["environmentType"] == "kyma" and parametersFromEntry["name"] == kymaClusterName:

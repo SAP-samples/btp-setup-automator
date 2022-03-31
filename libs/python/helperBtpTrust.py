@@ -69,8 +69,7 @@ def get_cf_service_key(btpUsecase, instanceName, keyName):
 
     if returnCode == 0:
         command = "cf service-key \"" + instanceName + "\" \"" + keyName + "\""
-        message = "get service key for instance >" + \
-            instanceName + "< and keyname >" + keyName + "<"
+        message = "get service key for instance >" + instanceName + "< and keyname >" + keyName + "<"
         response = runShellCommand(btpUsecase, command, "CHECK", message)
         # Delete the first 2 lines of the CF result string as they don't contain json data
         result = response.stdout.decode()
@@ -83,17 +82,14 @@ def get_cf_service_key(btpUsecase, instanceName, keyName):
 
 
 def delete_cf_service_key(btpUsecase, instanceName, keyName):
-    command = "cf delete-service-key  \"" + \
-        instanceName + "\" \"" + keyName + "\" -f"
-    message = "delete service key from instance >" + \
-        instanceName + "< for key >" + keyName + "<"
+    command = "cf delete-service-key  \"" + instanceName + "\" \"" + keyName + "\" -f"
+    message = "delete service key from instance >" + instanceName + "< for key >" + keyName + "<"
     runShellCommand(btpUsecase, command, "INFO", message)
 
 
 def get_api_access_token_for_xsuaa(btpUsecase, authClientUrl, authClientId, authClientSecret):
     result = None
     myData = {'grant_type': 'client_credentials', 'client_id': authClientId, 'client_secret': authClientSecret}
-
     try:
         log.info("sending a POST request to url >" + authClientUrl + "< with the data >" + str(myData) + "<")
         p = requests.post(authClientUrl, data=myData, headers={"content-type": "application/x-www-form-urlencoded"})
@@ -106,7 +102,6 @@ def get_api_access_token_for_xsuaa(btpUsecase, authClientUrl, authClientId, auth
 
 def get_list_of_ias_tenants(btpUsecase, url, accessToken):
     result = None
-
     try:
         log.info("sending a GET request to url >" + url + "< with the access token")
         p = requests.get(url, headers={"Authorization": "bearer " + accessToken})
@@ -156,7 +151,7 @@ def createOwnIDP(btpUsecase, url, accessToken, resultIasTenants):
         except:
             result = None
     else:
-        log.warning( "could not establish trust to IAS")
+        log.warning("could not establish trust to IAS")
     return result
 
 

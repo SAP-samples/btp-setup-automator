@@ -3,7 +3,6 @@ from libs.python.helperJson import addKeyValuePair
 
 
 def getTimingsForStatusRequest(btpUsecase, thisService):
-
     search_every_x_seconds = btpUsecase.repeatstatusrequest
     usecaseTimeout = btpUsecase.repeatstatustimeout
 
@@ -12,7 +11,6 @@ def getTimingsForStatusRequest(btpUsecase, thisService):
         search_every_x_seconds = thisService.repeatstatusrequest
     if thisService.repeatstatustimeout is not None:
         usecaseTimeout = thisService.repeatstatustimeout
-
     return search_every_x_seconds, usecaseTimeout
 
 
@@ -63,8 +61,7 @@ def createSubaccountName(btpUsecase):
     else:
         result = "BTP setup automator (" + btpUsecase.region + ")"
 
-    btpUsecase.accountMetadata = addKeyValuePair(
-        btpUsecase.accountMetadata, "subaccount", result)
+    btpUsecase.accountMetadata = addKeyValuePair(btpUsecase.accountMetadata, "subaccount", result)
 
     return result
 
@@ -76,6 +73,7 @@ def createInstanceName(btpUsecase, service):
             return service.instancename
         else:
             result = service.name + "_" + service.plan + "_" + btpUsecase.suffixinstancename
+
         result = re.sub(r"[^\w\s]", '_', result)
         result = result.replace("__", "_")
         if result[len(result) - 1] == "_":
@@ -93,8 +91,7 @@ def createSubdomainID(btpUsecase):
     if btpUsecase.subdomain is not None and btpUsecase.subdomain != "":
         result = btpUsecase.subdomain.strip()
     else:
-        result = btpUsecase.accountMetadata["subaccount"] + \
-            "-" + btpUsecase.accountMetadata["global_account_id"]
+        result = btpUsecase.accountMetadata["subaccount"] + "-" + btpUsecase.accountMetadata["global_account_id"]
 
     result = re.sub(r"[^\w\s]", '-', result)
     result = result.replace(" ", "-")
@@ -105,8 +102,7 @@ def createSubdomainID(btpUsecase):
         result = result[:-1]
     result = result[:60].lower()
 
-    btpUsecase.accountMetadata = addKeyValuePair(
-        btpUsecase.accountMetadata, "subdomain", result)
+    btpUsecase.accountMetadata = addKeyValuePair(btpUsecase.accountMetadata, "subdomain", result)
 
     return result
 

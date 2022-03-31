@@ -105,31 +105,27 @@ def checkProvidedArguments(btpUsecase):
 
     # Check GLOBAL ACCOUNT SUBDOMAIN
     while btpUsecase.globalaccount is None or btpUsecase.globalaccount == "":
-        log.warning( "GLOBAL ACCOUNT SUBDOMAIN MISSING in your parameter file >" +
-                  btpUsecase.parameterfile + "<")
+        log.warning("GLOBAL ACCOUNT SUBDOMAIN MISSING in your parameter file >" + btpUsecase.parameterfile + "<")
         inputMessage = "                      " + "\033[38;5;51m" + \
             "Please enter your global account subdomain (hit Enter when done):"
         value = checkUserInput(inputMessage, "text")
         if value is not None:
             btpUsecase.globalaccount = value
-            addKeyValuePairToJsonFile(
-                btpUsecase.parameterfile, "globalaccount", value)
-            log.success("added your global account subdomain into your parameters file >" +
-                      btpUsecase.parameterfile + "<")
+            addKeyValuePairToJsonFile(btpUsecase.parameterfile, "globalaccount", value)
+            log.success("added your global account subdomain into your parameters file >" + btpUsecase.parameterfile + "<")
         else:
             btpUsecase.globalaccount = ""
 
     if btpUsecase.loginmethod != "sso":
         # Check CREDENTIALS: EMAIL
         while btpUsecase.myemail is None or btpUsecase.myemail == "":
-            log.warning( "EMAIL ADDRESS MISSING")
+            log.warning("EMAIL ADDRESS MISSING")
             inputMessage = "                      " + "\033[38;5;51m" + \
                 "Please enter your email address (hit Enter when done):"
             value = checkUserInput(inputMessage, "text")
             if value is not None:
                 btpUsecase.myemail = value
-                addKeyValuePairToJsonFile(
-                    btpUsecase.parameterfile, "myemail", value)
+                addKeyValuePairToJsonFile(btpUsecase.parameterfile, "myemail", value)
                 log.success("added your email address into your parameters file >" + btpUsecase.parameterfile + "<")
             else:
                 btpUsecase.myemail = ""

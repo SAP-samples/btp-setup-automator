@@ -2,7 +2,6 @@ import os
 
 
 def writeKubeConfigFileToDefaultDir(kubeconfigFileString):
-
     # Default location for kubeconfig files see https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
     # Check whether the specified path exists or not
     path = "/home/user/.kube/"
