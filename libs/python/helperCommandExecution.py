@@ -1,9 +1,11 @@
 from subprocess import run, PIPE
-from libs.python.helperLog import logtype
 from libs.python.helperJson import convertStringToJson, getJsonFromFile
 import sys
 import time
 import os
+import logging
+
+log = logging.getLogger(__name__)
 
 
 def runShellCommand(btpUsecase, command, format, info):
@@ -32,7 +34,7 @@ def login_cf(btpUsecase):
     # If a space is already there, attach the space name to the login to target the space
     if "cfspacename" in accountMetadata and accountMetadata["cfspacename"] is not None and accountMetadata["cfspacename"] != "":
         command = "cf target -s " + accountMetadata["cfspacename"]
-    runShellCommandFlex(btpUsecase, command, logtype.INFO, "Logging-in to your CF environment in the org >" + org + "< for your user >" + myemail + "<", True, True)
+    runShellCommandFlex(btpUsecase, command, "INFO", "Logging-in to your CF environment in the org >" + org + "< for your user >" + myemail + "<", True, True)
 
 
 def login_btp(btpUsecase):
@@ -45,12 +47,12 @@ def login_btp(btpUsecase):
     if btpUsecase.loginmethod == "sso":
         message = "Logging-in to your global account with subdomain ID >" + globalaccount + "<"
         command = command + " --sso"
-        runShellCommandFlex(btpUsecase, command, logtype.INFO, message, True, True)
+        runShellCommandFlex(btpUsecase, command, "INFO", message, True, True)
         fetchEmailAddressFromBtpConfigFile(btpUsecase)
     else:
         message = "Logging-in to your global account with subdomain ID >" + globalaccount + "< for your user >" + myemail + "<"
         command = command + " --user \"" + myemail + "\" --password \"" + password + "\""
-        runShellCommandFlex(btpUsecase, command, logtype.INFO, message, True, False)
+        runShellCommandFlex(btpUsecase, command, "INFO", message, True, False)
 
 
 def fetchEmailAddressFromBtpConfigFile(btpUsecase):
@@ -63,9 +65,12 @@ def fetchEmailAddressFromBtpConfigFile(btpUsecase):
 
 
 def runShellCommandFlex(btpUsecase, command, format, info, exitIfError, noPipe):
-    log = btpUsecase.log
+    # log = btpUsecase.log
     if info is not None:
-        log.write(format, info)
+        if format == "INFO":
+            log.info(info)
+        if format == "CHECK":
+            log.check(info)
 
     # Check whether we are calling a btp or cf command
     # If yes, we should initiate first a re-login, if necessary
@@ -79,11 +84,11 @@ def runShellCommandFlex(btpUsecase, command, format, info, exitIfError, noPipe):
             if passwordString in command:
                 commandToBeLogged = command[0:command.index(
                     passwordString) + len(passwordString) + 1] + "xxxxxxxxxxxxxxxxx"
-                log.write(logtype.COMMAND, commandToBeLogged)
+                log.command(commandToBeLogged)
                 foundPassword = True
                 break
         if foundPassword is False:
-            log.write(logtype.COMMAND, command)
+            log.command(command)
     p = None
     if noPipe is True:
         p = run(command, shell=True)
@@ -99,15 +104,15 @@ def runShellCommandFlex(btpUsecase, command, format, info, exitIfError, noPipe):
         if p is not None and p.stdout is not None:
             output = p.stdout.decode()
             error = p.stderr.decode()
-            log.write(logtype.ERROR, output)
-            log.write(logtype.ERROR, error)
+            log.error(output)
+            log.error(error)
         else:
-            log.write(logtype.ERROR, "Something went wrong, but the script can not fetch the error message. Please check the log messages before.")
+            log.error("Something went wrong, but the script can not fetch the error message. Please check the log messages before.")
         sys.exit(returnCode)
 
 
 def checkIfReLoginNecessary(btpUsecase, command):
-    log = btpUsecase.log
+    # log = btpUsecase.log
     # time in seconds for re-login
     ELAPSEDTIMEFORRELOGIN = 45 * 60
 
@@ -135,16 +140,14 @@ def checkIfReLoginNecessary(btpUsecase, command):
 
     if command[0:4] == "btp " and command[0:9] != "btp login" and reLogin is True:
         minutesPassed = "{:.2f}".format(elapsedTime / 60)
-        log.write(logtype.WARNING, "executing a re-login in SAP btp CLI and CF CLI as the last login happened more than >" +
-                  minutesPassed + "< minutes ago")
+        log.warning("executing a re-login in SAP btp CLI and CF CLI as the last login happened more than >" + minutesPassed + "< minutes ago")
         login_btp(btpUsecase)
         login_cf(btpUsecase)
         btpUsecase.timeLastCliLogin = currentTime
 
     if command[0:3] == "cf " and command[0:8] != "cf login" and reLogin is True:
         minutesPassed = "{:.2f}".format(elapsedTime / 60)
-        log.write(logtype.WARNING, "executing a re-login in SAP btp CLI and CF CLI as the last login happened more than >" +
-                  minutesPassed + "< minutes ago")
+        log.warning("executing a re-login in SAP btp CLI and CF CLI as the last login happened more than >" + minutesPassed + "< minutes ago")
         login_btp(btpUsecase)
         login_cf(btpUsecase)
         btpUsecase.timeLastCliLogin = currentTime
@@ -158,18 +161,18 @@ def runCommandAndGetJsonResult(btpUsecase, command, format, message):
 
 
 def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):
-    log = btpUsecase.log
+    # log = btpUsecase.log
     usecaseDefinition = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
 
     if jsonSection in usecaseDefinition and len(usecaseDefinition[jsonSection]) > 0:
         commands = usecaseDefinition[jsonSection]
-        log.write(logtype.HEADER, message)
+        log.header(message)
 
         for command in commands:
             if "description" in command and "command" in command:
                 message = command["description"]
                 thisCommand = command["command"]
-                log.write(logtype.HEADER, "COMMAND EXECUTION: " + message)
-                p = runShellCommand(btpUsecase, thisCommand, logtype.INFO, "Executing the following commands:\n" + thisCommand + "\n")
+                log.header("COMMAND EXECUTION: " + message)
+                p = runShellCommand(btpUsecase, thisCommand, "INFO", "Executing the following commands:\n" + thisCommand + "\n")
                 result = p.stdout.decode()
-                log.write(logtype.SUCCESS, result)
+                log.success(result)

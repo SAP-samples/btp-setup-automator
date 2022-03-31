@@ -1,6 +1,8 @@
 import json
+import logging
 from libs.python.helperCommandExecution import runCommandAndGetJsonResult
-from libs.python.helperLog import logtype
+
+log = logging.getLogger(__name__)
 
 
 def getServiceInfo(btpUsecase):
@@ -10,8 +12,7 @@ def getServiceInfo(btpUsecase):
         btpUsecase.globalaccount + "\""
     message = "Get list of available services and app subsciptions for defined region >" + \
         usecaseRegion + "<"
-    result = runCommandAndGetJsonResult(
-        btpUsecase, command, logtype.INFO, message)
+    result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
 
     return result
 
