@@ -1,15 +1,14 @@
 import json
 from os import EX_DATAERR
-from libs.python.helperLog import logtype
 import sys
 import re
 import requests
+import logging
+
+log = logging.getLogger(__name__)
 
 
 def getJsonFromFile(self, filename):
-    log = None
-    if self is not None:
-        log = self.log
 
     data = None
     foundError = False
@@ -21,7 +20,7 @@ def getJsonFromFile(self, filename):
             thisRequest = requests.get(filename)
             data = json.loads(thisRequest.text)
         except Exception as e:
-            log.write(logtype.ERROR, "please check the json file >" + filename + "<: " + str(e))
+            log.error("please check the json file >" + filename + "<: " + str(e))
             sys.exit(EX_DATAERR)
         return data
 
@@ -33,7 +32,7 @@ def getJsonFromFile(self, filename):
     except IOError:
         message = "Can't open json file >" + filename + "<"
         if log is not None:
-            log.write(logtype.ERROR, message)
+            log.error(message)
         else:
             print(message)
         foundError = True
@@ -42,7 +41,7 @@ def getJsonFromFile(self, filename):
             "<. Issue starts on character position " + \
             str(err.pos) + ": " + err.msg
         if log is not None:
-            log.write(logtype.ERROR, message)
+            log.error(message)
         else:
             print(message)
         foundError = True
@@ -53,7 +52,7 @@ def getJsonFromFile(self, filename):
     if foundError is True:
         message = "Can't run the use case before the error(s) mentioned above are not fixed"
         if log is not None:
-            log.write(logtype.ERROR, message)
+            log.error(message)
         else:
             print(message)
         sys.exit(EX_DATAERR)

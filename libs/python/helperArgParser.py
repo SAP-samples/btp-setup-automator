@@ -1,7 +1,9 @@
 import argparse
 from libs.python.helperJson import addKeyValuePairToJsonFile, getJsonFromFile, saveJsonToFile
-from libs.python.helperLog import logtype
 import getpass
+import logging
+
+log = logging.getLogger(__name__)
 
 
 def setupParams(myArguments):
@@ -36,7 +38,6 @@ def setupParamsBtpsa():
 def setupParamsServices():
     serviceArguments = "libs/json/paramServices.json"
     args = setupParams(serviceArguments)
-
     return args
 
 
@@ -86,36 +87,34 @@ def createDefaultParametersFile(toolParametersFile):
 
 
 def checkProvidedArguments(btpUsecase):
-    log = btpUsecase.log
-
     usecaseInfo = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
     if "aboutThisUseCase" in usecaseInfo:
         info = usecaseInfo["aboutThisUseCase"]
-        log.write(logtype.HEADER, "Info about use case to be executed")
+        log.header("Info about use case to be executed")
         filename = btpUsecase.usecasefile
         if filename is not None:
-            log.write(logtype.INFO, "file  : " + filename)
+            log.info("file  : " + filename)
         if "name" in info:
             name = info["name"]
-            log.write(logtype.INFO, "name  : " + name)
+            log.info("name  : " + name)
         if "description" in info:
             description = info["description"]
-            log.write(logtype.INFO, "descr.: " + description)
+            log.info("descr.: " + description)
 
-    log.write(logtype.HEADER, "Checking provided arguments and files")
+    log.header("Checking provided arguments and files")
 
     # Check GLOBAL ACCOUNT SUBDOMAIN
     while btpUsecase.globalaccount is None or btpUsecase.globalaccount == "":
-        log.write(logtype.WARNING, "GLOBAL ACCOUNT SUBDOMAIN MISSING in your parameter file >" +
+        log.warning( "GLOBAL ACCOUNT SUBDOMAIN MISSING in your parameter file >" +
                   btpUsecase.parameterfile + "<")
-        inputMessage = "                      " + logtype.USERINPUT + \
+        inputMessage = "                      " + "\033[38;5;51m" + \
             "Please enter your global account subdomain (hit Enter when done):"
         value = checkUserInput(inputMessage, "text")
         if value is not None:
             btpUsecase.globalaccount = value
             addKeyValuePairToJsonFile(
                 btpUsecase.parameterfile, "globalaccount", value)
-            log.write(logtype.SUCCESS, "added your global account subdomain into your parameters file >" +
+            log.success("added your global account subdomain into your parameters file >" +
                       btpUsecase.parameterfile + "<")
         else:
             btpUsecase.globalaccount = ""
@@ -123,23 +122,22 @@ def checkProvidedArguments(btpUsecase):
     if btpUsecase.loginmethod != "sso":
         # Check CREDENTIALS: EMAIL
         while btpUsecase.myemail is None or btpUsecase.myemail == "":
-            log.write(logtype.WARNING, "EMAIL ADDRESS MISSING")
-            inputMessage = "                      " + logtype.USERINPUT + \
+            log.warning( "EMAIL ADDRESS MISSING")
+            inputMessage = "                      " + "\033[38;5;51m" + \
                 "Please enter your email address (hit Enter when done):"
             value = checkUserInput(inputMessage, "text")
             if value is not None:
                 btpUsecase.myemail = value
                 addKeyValuePairToJsonFile(
                     btpUsecase.parameterfile, "myemail", value)
-                log.write(logtype.SUCCESS, "added your email address into your parameters file >" +
-                          btpUsecase.parameterfile + "<")
+                log.success("added your email address into your parameters file >" + btpUsecase.parameterfile + "<")
             else:
                 btpUsecase.myemail = ""
 
         # INPUT CREDENTIALS: PASSWORD
         while btpUsecase.mypassword is None or btpUsecase.mypassword == "":
-            log.write(logtype.WARNING, "YOU NEED TO PROVIDE YOUR BTP PASSWORD")
-            inputMessage = "                      " + logtype.USERINPUT + \
+            log.warning("YOU NEED TO PROVIDE YOUR BTP PASSWORD")
+            inputMessage = "                      " + "\033[38;5;51m" + \
                 "Please enter your BTP password (hit Enter when done):"
             value = checkUserInput(inputMessage, "password")
             if value is not None:
