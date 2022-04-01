@@ -24,9 +24,11 @@ def login_cf(btpUsecase):
         cfCLIRegion = btpUsecase.cfcliapihostregion
 
     command = None
+    pipe = False
     if btpUsecase.loginmethod == "sso":
         command = "cf login -a \"https://api.cf." + cfCLIRegion + \
             ".hana.ondemand.com\" -o \"" + org + "\" --sso"
+        pipe = True
     else:
         command = "cf login -a \"https://api.cf." + cfCLIRegion + \
             ".hana.ondemand.com\" -o \"" + org + "\" -u \"" + \
@@ -34,7 +36,7 @@ def login_cf(btpUsecase):
     # If a space is already there, attach the space name to the login to target the space
     if "cfspacename" in accountMetadata and accountMetadata["cfspacename"] is not None and accountMetadata["cfspacename"] != "":
         command = "cf target -s " + accountMetadata["cfspacename"]
-    runShellCommandFlex(btpUsecase, command, "INFO", "Logging-in to your CF environment in the org >" + org + "< for your user >" + myemail + "<", True, True)
+    runShellCommandFlex(btpUsecase, command, "INFO", "Logging-in to your CF environment in the org >" + org + "< for your user >" + myemail + "<", True, pipe)
 
 
 def login_btp(btpUsecase):
@@ -158,6 +160,17 @@ def runCommandAndGetJsonResult(btpUsecase, command, format, message):
     return list
 
 
+def addEnvVariables(parameters):
+    for key, value in parameters.items():
+        os.environ[key] = value
+        log.info("set environment variable >" + str(key) + "< to value >" + str(value) + "<")
+
+
+def showEnvVariables():
+    for k, v in sorted(os.environ.items()):
+        log.info(str(k) + ': ' + str(v))
+
+
 def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):
     usecaseDefinition = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
 
@@ -166,10 +179,15 @@ def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):
         log.header(message)
 
         for command in commands:
+            if "parameters" in command:
+                parameters = command["parameters"]
+                addEnvVariables(parameters)
             if "description" in command and "command" in command:
                 message = command["description"]
                 thisCommand = command["command"]
                 log.header("COMMAND EXECUTION: " + message)
-                p = runShellCommand(btpUsecase, thisCommand, "INFO", "Executing the following commands:\n" + thisCommand + "\n")
-                result = p.stdout.decode()
-                log.success(result)
+
+                p = runShellCommandFlex(btpUsecase, thisCommand, "INFO", "Executing the following commands:\n" + thisCommand + "\n", True, True)
+                if p is not None and p.stdout is not None:
+                    result = p.stdout.decode()
+                    log.success(result)
