@@ -62,8 +62,9 @@ class MyFormatterStream(logging.Formatter):
     COLOR_USERINPUT = "\033[38;5;51m"
 
     format_HEADER = COLOR_RESET_COLORS + "#" * 100 + "\n# %(msg)s\n" + "#" * 100 + COLOR_RESET_COLORS
-    format_ERROR = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_ERROR + "ERROR      : %(msg)s" + COLOR_RESET_COLORS
-    format_CHECK = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_ERROR + "CHECK      : %(msg)s" + COLOR_RESET_COLORS
+    # format_ERROR = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_ERROR + "ERROR      : %(msg)s" + COLOR_RESET_COLORS
+    format_ERROR = COLOR_ERROR + "#" * 100 + "\n# ERROR\n" + "#" * 100 + "\n%(msg)s" + COLOR_RESET_COLORS
+    format_CHECK = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_CHECK + "CHECK      : %(msg)s" + COLOR_RESET_COLORS
     format_INFO = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_INFO + "INFO       : %(msg)s" + COLOR_RESET_COLORS
     format_DEBUG = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_INFO + "DEBUG       : %(msg)s" + COLOR_RESET_COLORS
     format_COMMAND = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_COMMAND + "RUN COMMAND: %(msg)s" + COLOR_RESET_COLORS
@@ -200,7 +201,7 @@ def initLogger(btpUsecase):
     set_custom_logging_levels(config)
 
     logging.root.setLevel(10)
-    thisHandler = logging.StreamHandler()
+    thisHandler = logging.StreamHandler(sys.stdout)
     thisHandler.setLevel(LOGLEVEL)
     thisHandler.setFormatter(MyFormatterStream())
     logging.root.addHandler(thisHandler)

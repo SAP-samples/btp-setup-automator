@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "btpsa",
-            "args": [ "-parameterfile", "<PATH TO YOUR PARAMETERFILES>"],
+            "args": [ "-parameterfile", "parameters.json"],
             "console": "integratedTerminal",
             "justMyCode": true
         },
