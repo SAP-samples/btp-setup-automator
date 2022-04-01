@@ -1,4 +1,5 @@
 from subprocess import run, PIPE
+from libs.python.helperGeneric import addEnvVariables
 from libs.python.helperJson import convertStringToJson, getJsonFromFile
 import sys
 import time
@@ -158,17 +159,6 @@ def runCommandAndGetJsonResult(btpUsecase, command, format, message):
     list = p.stdout.decode()
     list = convertStringToJson(list)
     return list
-
-
-def addEnvVariables(parameters):
-    for key, value in parameters.items():
-        os.environ[key] = value
-        log.info("set environment variable >" + str(key) + "< to value >" + str(value) + "<")
-
-
-def showEnvVariables():
-    for k, v in sorted(os.environ.items()):
-        log.info(str(k) + ': ' + str(v))
 
 
 def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):

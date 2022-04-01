@@ -1,7 +1,10 @@
 import argparse
+from libs.python.helperGeneric import getEnvVariableValue
 from libs.python.helperJson import addKeyValuePairToJsonFile, getJsonFromFile, saveJsonToFile
 import getpass
 import logging
+import sys
+import os
 
 log = logging.getLogger(__name__)
 
@@ -17,7 +20,10 @@ def setupParams(myArguments):
             help = parameter["help"]
             default = parameter["default"]
             if type == "str":
-                parser.add_argument('-' + argument, type=str, help=help, default=default)
+                if "acceptedvalues" in parameter:
+                    parser.add_argument('-' + argument, type=str, help=help, default=default, choices=parameter["acceptedvalues"])
+                else:
+                    parser.add_argument('-' + argument, type=str, help=help, default=default)
             if type == "bool":
                 parser.add_argument('-' + argument, type=bool, help=help, default=default)
             if type == "int":
@@ -103,20 +109,36 @@ def checkProvidedArguments(btpUsecase):
 
     log.header("Checking provided arguments and files")
 
-    # Check GLOBAL ACCOUNT SUBDOMAIN
-    while btpUsecase.globalaccount is None or btpUsecase.globalaccount == "":
-        log.warning("GLOBAL ACCOUNT SUBDOMAIN MISSING in your parameter file >" + btpUsecase.parameterfile + "<")
-        inputMessage = "                      " + "\033[38;5;51m" + \
-            "Please enter your global account subdomain (hit Enter when done):"
-        value = checkUserInput(inputMessage, "text")
-        if value is not None:
-            btpUsecase.globalaccount = value
-            addKeyValuePairToJsonFile(btpUsecase.parameterfile, "globalaccount", value)
-            log.success("added your global account subdomain into your parameters file >" + btpUsecase.parameterfile + "<")
-        else:
-            btpUsecase.globalaccount = ""
+    if btpUsecase.loginmethod == "envVariables":
 
-    if btpUsecase.loginmethod != "sso":
+        if btpUsecase.myemail is None or btpUsecase.myemail == "":
+            param = "BTPSA_PARAM_MYEMAIL"
+            paramValue = getEnvVariableValue(param)
+            if paramValue is not None and len(paramValue) >0:
+                btpUsecase.myemail = paramValue
+            else:
+                log.error("env variable " + param + " for parameter >myemail< was not set. Please set it, or change loginmethod")
+                sys.exit(os.EX_DATAERR)
+
+        if btpUsecase.mypassword is None or btpUsecase.mypassword == "":
+            param = "BTPSA_PARAM_MYPASSWORD"
+            paramValue = getEnvVariableValue(param)
+            if paramValue is not None and len(paramValue) >0:
+                btpUsecase.mypassword = paramValue
+            else:
+                log.error("env variable " + param + " for parameter >mypassword< was not set. Please set it, or change loginmethod")
+                sys.exit(os.EX_DATAERR)
+
+        if btpUsecase.globalaccount is None or btpUsecase.globalaccount == "":
+            param = "BTPSA_PARAM_GLOBALACCOUNT"
+            paramValue = getEnvVariableValue(param)
+            if paramValue is not None and len(paramValue) >0:
+                btpUsecase.globalaccount = paramValue
+            else:
+                log.error("env variable " + param + " for parameter >globalaccount< was not set. Please set it, or change loginmethod")
+                sys.exit(os.EX_DATAERR)
+
+    if btpUsecase.loginmethod == "basicAuthentication":
         # Check CREDENTIALS: EMAIL
         while btpUsecase.myemail is None or btpUsecase.myemail == "":
             log.warning("EMAIL ADDRESS MISSING")
@@ -140,6 +162,19 @@ def checkProvidedArguments(btpUsecase):
                 btpUsecase.mypassword = value
             else:
                 btpUsecase.mypassword = ""
+
+    # Check GLOBAL ACCOUNT SUBDOMAIN
+    while btpUsecase.globalaccount is None or btpUsecase.globalaccount == "":
+        log.warning("GLOBAL ACCOUNT SUBDOMAIN MISSING in your parameter file >" + btpUsecase.parameterfile + "<")
+        inputMessage = "                      " + "\033[38;5;51m" + \
+            "Please enter your global account subdomain (hit Enter when done):"
+        value = checkUserInput(inputMessage, "text")
+        if value is not None:
+            btpUsecase.globalaccount = value
+            addKeyValuePairToJsonFile(btpUsecase.parameterfile, "globalaccount", value)
+            log.success("added your global account subdomain into your parameters file >" + btpUsecase.parameterfile + "<")
+        else:
+            btpUsecase.globalaccount = ""
 
     return btpUsecase
 

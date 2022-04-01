@@ -5,11 +5,31 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: btpsa",
+            "name": "Python: with env variables",
             "type": "python",
             "request": "launch",
             "program": "btpsa",
-            "args": [ "-parameterfile", "parameters.json"],
+            "args": [
+                "-parameterfile",
+                "parameters.json"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {
+                "BTPSA_PARAM_MYEMAIL": "foo",
+                "BTPSA_PARAM_GLOBALACCOUNT": "foo",
+                "BTPSA_PARAM_MYPASSWORD": "***"
+            }
+        },
+        {
+            "name": "Python: w/o env variables",
+            "type": "python",
+            "request": "launch",
+            "program": "btpsa",
+            "args": [
+                "-parameterfile",
+                "parameters.json"
+            ],
             "console": "integratedTerminal",
             "justMyCode": true
         },

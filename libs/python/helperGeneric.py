@@ -1,5 +1,9 @@
 import re
 from libs.python.helperJson import addKeyValuePair
+import os
+import logging
+
+log = logging.getLogger(__name__)
 
 
 def getTimingsForStatusRequest(btpUsecase, thisService):
@@ -133,3 +137,23 @@ def buildUrltoSubaccount(btpUsecase):
     url += "subaccount/" + btpUsecase.accountMetadata["subaccountid"] + "/service-instances"
 
     return url
+
+
+def getEnvVariableValue(variable):
+    #allEnvs = sorted(os.environ.items())
+    result = os.environ[variable]
+    return result
+
+
+def addEnvVariables(parameters):
+    for key, value in parameters.items():
+        # avoid having "None" as value in case value was not set
+        if value is None:
+            value = ""
+        os.environ[key] = value
+        log.info("set environment variable >" + str(key) + "< to value >" + str(value) + "<")
+
+
+def showEnvVariables():
+    for k, v in sorted(os.environ.items()):
+        log.info(str(k) + ': ' + str(v))
