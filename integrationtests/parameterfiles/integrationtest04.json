@@ -1,5 +1,5 @@
 {
-  "usecasefile": "../usecases/usecase_it04_one_subscription_only.json",
+  "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/usecasefiles/usecase_it04_one_subscription_only.json",
   "loginmethod": "basicAuthentication",
   "region": "us10",
   "subaccountname": "My own subacccount name",
