@@ -1,6 +1,5 @@
 {
   "usecasefile": "usecases/released/setup_kyma_free_tier.json",
-  "globalaccount": null,
   "subaccountname": "kymasetupauto",
   "region": "eu10"
 }

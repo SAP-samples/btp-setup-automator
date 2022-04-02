@@ -1,7 +1,6 @@
 {
   "usecasefile": "usecases/released/setup_kyma_TRIAL.json",
   "loginmethod": "basicAuthentication",
-  "globalaccount": null,
   "subaccountname": "kymasetupauto",
   "region": "us10"
 }
