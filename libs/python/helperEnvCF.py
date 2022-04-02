@@ -1,6 +1,6 @@
 from libs.python.helperCommandExecution import runShellCommand, runCommandAndGetJsonResult, login_cf, runShellCommandFlex
 from libs.python.helperGeneric import getServiceByServiceName, createInstanceName, getTimingsForStatusRequest
-from libs.python.helperJson import convertStringToJson, convertCloudFoundryCommandOutputToJson, dictToString
+from libs.python.helperJson import convertStringToJson, convertCloudFoundryCommandOutputToJson, dictToString, saveJsonToFile
 import time
 import os
 import sys
@@ -81,6 +81,7 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
                     service.servicebroker = servicebroker
                     service.successInfoShown = True
                     service.status = "create succeeded"
+                    service.successInfo = thisJson
     return allServicesCreated
 
 
