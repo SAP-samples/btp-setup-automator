@@ -1,7 +1,6 @@
 {
   "usecasefile": "usecases/released/setup_kyma_free_tier.json",
-  "myemail": "YOUR EMAIL",
-  "globalaccount": "GLOBAL ACCOUNT ID",
+  "globalaccount": null,
   "subaccountname": "kymasetupauto",
   "region": "eu10"
 }

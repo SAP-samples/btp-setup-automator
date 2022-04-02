@@ -57,6 +57,13 @@
         "default": null
     },
     {
+        "argument": "statusResponse",
+        "type": "dict",
+        "mandatory": false,
+        "help": "creation info",
+        "default": null
+    },
+    {
         "argument": "instancename",
         "type": "str",
         "mandatory": false,

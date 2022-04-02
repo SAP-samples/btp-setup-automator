@@ -1003,10 +1003,12 @@ def checkIfAllSubscriptionsAreAvailable(btpUsecase: BTPUSECASE):
                     allSubscriptionsAvailable = False
                     app.status = status
                     app.successInfoShown = False
+                    app.statusResponse = thisJson
                 else:
                     log.success("subscription to app >" + app.name + "< (plan " + app.plan + ") is now available")
                     app.tenantId = tenantId
                     app.successInfoShown = True
+                    app.statusResponse = thisJson
                     app.status = "SUBSCRIBED"
 
     return allSubscriptionsAvailable

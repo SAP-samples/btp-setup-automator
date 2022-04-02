@@ -1,5 +1,5 @@
 import json
-from os import EX_DATAERR
+import os
 import sys
 import re
 import requests
@@ -20,7 +20,7 @@ def getJsonFromFile(self, filename):
             data = json.loads(thisRequest.text)
         except Exception as e:
             log.error("please check the json file >" + filename + "<: " + str(e))
-            sys.exit(EX_DATAERR)
+            sys.exit(os.EX_DATAERR)
         return data
 
     try:
@@ -54,7 +54,7 @@ def getJsonFromFile(self, filename):
             log.error(message)
         else:
             print(message)
-        sys.exit(EX_DATAERR)
+        sys.exit(os.EX_DATAERR)
     return data
 
 

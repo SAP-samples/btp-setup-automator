@@ -56,6 +56,20 @@
         }
     ],
     "admins": [],
+    "executeBeforeAccountSetup": [
+        {
+            "description": "Get the tutorial code",
+            "command": "rm -rf /home/user/tutorial && git clone https://github.tools.sap/saas-extension-on-kyma/easyfranchise-main.git /home/user/tutorial && cd /home/user/tutorial/ && git checkout main-new-structure ",
+            "parameters": {
+                "BTPSA_UC_KYMA_DOCKEREMAIL": null,
+                "BTPSA_UC_KYMA_DOCKERID": null,
+                "BTPSA_UC_KYMA_DOCKERSERVER": null,
+                "BTPSA_UC_KYMA_DOCKERREPOSITORY": null,
+                "BTPSA_UC_KYMA_HANACLOUD_SQLENDPOINT": null,
+                "BTPSA_UC_KYMA_EMAIL_SETUP": null
+            }
+        }
+    ],
     "executeAfterAccountSetup": [
         {
             "description": "Get the tutorial code",
@@ -67,15 +81,7 @@
         },
         {
             "description": "Run deployment script",
-            "command": "/home/user/tutorial/code/setup/btp-setup-automator-deployment.sh",
-            "parameters": {
-                "BTPSA_UC_KYMA_DOCKEREMAIL": "your.email@address.com",
-                "BTPSA_UC_KYMA_DOCKERID": "dockerid",
-                "BTPSA_UC_KYMA_DOCKERSERVER": "dockerserver",
-                "BTPSA_UC_KYMA_DOCKERREPOSITORY": "dockerrepo",
-                "BTPSA_UC_KYMA_HANACLOUD_SQLENDPOINT": "hanacloudSqlEndpoint",
-                "BTPSA_UC_KYMA_EMAIL_SETUP": "emailSetup"
-            }
+            "command": "/home/user/tutorial/code/setup/btp-setup-automator-deployment.sh"
         }
     ]
 }
