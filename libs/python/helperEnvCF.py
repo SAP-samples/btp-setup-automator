@@ -76,12 +76,13 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
                     allServicesCreated = False
                     service.status = "NOT READY"
                     service.successInfoShown = False
+                    service.statusResponse = thisJson
                 else:
                     log.success("Service instance for service >" + service.name + "< (plan " + service.plan + ") is now available")
                     service.servicebroker = servicebroker
                     service.successInfoShown = True
                     service.status = "create succeeded"
-                    service.successInfo = thisJson
+                    service.statusResponse = thisJson
     return allServicesCreated
 
 
