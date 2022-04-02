@@ -57,7 +57,7 @@
         "default": null
     },
     {
-        "argument": "successInfo",
+        "argument": "statusResponse",
         "type": "dict",
         "mandatory": false,
         "help": "creation info",
