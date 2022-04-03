@@ -3,6 +3,8 @@ from libs.python.helperJson import addKeyValuePair
 import os
 import logging
 
+from libs.python.helperServices import BTPSERVICE
+
 log = logging.getLogger(__name__)
 
 
@@ -11,10 +13,17 @@ def getTimingsForStatusRequest(btpUsecase, thisService):
     usecaseTimeout = btpUsecase.repeatstatustimeout
 
     # If the service has defined its own time to repeat a status request, take that time instead
-    if thisService.repeatstatusrequest is not None:
-        search_every_x_seconds = thisService.repeatstatusrequest
-    if thisService.repeatstatustimeout is not None:
-        usecaseTimeout = thisService.repeatstatustimeout
+    if isinstance(thisService, BTPSERVICE):
+        if thisService.repeatstatusrequest is not None:
+            search_every_x_seconds = thisService.repeatstatusrequest
+        if thisService.repeatstatustimeout is not None:
+            usecaseTimeout = thisService.repeatstatustimeout
+    else:
+        if "repeatstatusrequest" in thisService:
+            search_every_x_seconds = thisService["repeatstatusrequest"]
+        if "repeatstatustimeout" in thisService:
+            search_every_x_seconds = thisService["repeatstatustimeout"]
+
     return search_every_x_seconds, usecaseTimeout
 
 
