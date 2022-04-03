@@ -36,7 +36,5 @@
       ]
     }
   ],
-  "admins": [
-    "john.doe@sap.com"
-  ]
+  "admins": []
 }
