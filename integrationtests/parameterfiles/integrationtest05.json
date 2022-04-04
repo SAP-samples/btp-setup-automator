@@ -2,7 +2,7 @@
   "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/usecasefiles/usecase_it05_one_service_only.json",
   "loginmethod": "envVariables",
   "region": "eu10",
-  "subaccountname": "My own subacccount name",
+  "subaccountname": "BTPSA int-test one service",
   "subdomain": "my own subdomain with -",
   "cfspacename": "development",
   "suffixinstancename": "my own suffix",

@@ -1,5 +1,7 @@
 {
   "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/usecases/released/extendS4_with_devops.json",
   "loginmethod": "envVariables",
-  "prunesubaccount": true
+  "prunesubaccount": true,
+  "subaccountname": "BTPSA int-test s4 devops"
+
 }
