@@ -29,3 +29,7 @@ jobs:
               working-directory: /home/user
               shell: bash 
               run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest06.json'
+            - name: 'Integration test 02: deploy cap app on SAP Launchpad'
+              working-directory: /home/user
+              shell: bash 
+              run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest02.json'              
