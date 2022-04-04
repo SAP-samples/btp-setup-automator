@@ -113,7 +113,7 @@ Independently whether you've created the docker image yourself, or used the pre-
 
 > 📝 Tip - Don't forget to install the "Remote-Containers" extension in VS Code)
 
-The select the `btp-setup-auotmator` container:
+The select the `btp-setup-automator` container:
 
 ![select running container in VS Code](docs/pics/quick-guide-step01.png)
 
