@@ -1,6 +1,6 @@
 # Setup Automator for SAP Business Technology Platform
 
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-setup-automator)](https://api.reuse.software/info/github.com/SAP-samples/btp-setup-automator) [![Build Check](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/build-quality-check.yml/badge.svg?branch=main)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/build-quality-check.yml) [![Build and Push Docker Image](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-build-and-push.yml/badge.svg)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-build-and-push.yml)
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-setup-automator)](https://api.reuse.software/info/github.com/SAP-samples/btp-setup-automator) [![BTP Setup Automator - Integration Test - main scenarios](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/integration-test-slim.yml/badge.svg)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/integration-test-slim.yml) [![Build and Push Docker Image](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-build-and-push.yml/badge.svg)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-build-and-push.yml)
 
 ## Description
 
