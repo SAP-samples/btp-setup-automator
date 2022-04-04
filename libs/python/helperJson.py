@@ -97,7 +97,6 @@ def convertCloudFoundryCommandOutputToJson(lines):
     dict = []
     positions = []
     keys = []
-
     # Remove the first 2 lines of the output (don't contain neccessary information)
     lines = lines.split('\n', 2)[-1]
 
@@ -127,5 +126,42 @@ def convertCloudFoundryCommandOutputToJson(lines):
         dict.append(dataInRow)
 
     json = dictToJson(dict)
+    json = convertStringToJson(json)
+    return json
+
+
+def convertCloudFoundryCommandForSingleServiceToJson(lines):
+    dict = []
+    # Remove the first 2 lines of the output (don't contain neccessary information)
+    lines = lines.split('\n', 2)[-1]
+
+    # Detect the columns of the text table
+    # Simply look for three whitespaces as separator
+    dataInRow = convertStringToJson("{}")
+    for line in lines.splitlines():
+        columns = re.split(": ", line)
+        key = None
+        value = None
+        if len(columns) == 2:
+            key = columns[0]
+            value = columns[1]
+            value = value.strip()
+            if value == "":
+                value = None
+            key = key.strip()
+        if len(columns) > 2:
+            key = columns[0]
+            value = ""
+            for counter in len(columns):
+                value += columns[counter + 1]
+            value = value.strip()
+            if value == "":
+                value = None
+            key = key.strip()
+
+        if key is not None and key != "":
+            dataInRow = addKeyValuePair(dataInRow, key, value)
+
+    json = dictToJson(dataInRow)
     json = convertStringToJson(json)
     return json

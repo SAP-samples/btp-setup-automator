@@ -1,6 +1,6 @@
 from libs.python.helperCommandExecution import runShellCommand, runCommandAndGetJsonResult, login_cf, runShellCommandFlex
 from libs.python.helperGeneric import getServiceByServiceName, createInstanceName, getTimingsForStatusRequest
-from libs.python.helperJson import convertStringToJson, convertCloudFoundryCommandOutputToJson, dictToString, saveJsonToFile
+from libs.python.helperJson import convertCloudFoundryCommandForSingleServiceToJson, convertJsonToString, convertStringToJson, convertCloudFoundryCommandOutputToJson, dictToString, saveJsonToFile
 import time
 import os
 import sys
@@ -57,6 +57,14 @@ def checkIfCFSpaceAlreadyExists(btpUsecase):
     return False
 
 
+def getStatusResponseFromCreatedInstance(btpUsecase, instancename):
+    command = "cf service \"" + instancename + "\""
+    p = runShellCommand(btpUsecase, command, "INFO", None)
+    result = p.stdout.decode()
+    jsonResults = convertCloudFoundryCommandForSingleServiceToJson(result)
+    return jsonResults
+
+
 def checkIfAllServiceInstancesCreated(btpUsecase):
     command = "cf services"
     p = runShellCommand(btpUsecase, command, "INFO", None)
@@ -72,17 +80,16 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
         servicebroker = thisJson["broker"]
         for service in btpUsecase.definedServices:
             if service.name == name and service.plan == plan and service.instancename == instancename and service.successInfoShown is False:
-                if status != "create succeeded":
+                if status != "create succeeded" and status != "update succeeded":
                     allServicesCreated = False
                     service.status = "NOT READY"
                     service.successInfoShown = False
-                    service.statusResponse = thisJson
                 else:
                     log.success("Service instance for service >" + service.name + "< (plan " + service.plan + ") is now available")
                     service.servicebroker = servicebroker
                     service.successInfoShown = True
                     service.status = "create succeeded"
-                    service.statusResponse = thisJson
+                    service.statusResponse = getStatusResponseFromCreatedInstance(btpUsecase, instancename)
     return allServicesCreated
 
 
@@ -190,7 +197,7 @@ def initiateCreationOfServiceInstances(btpUsecase):
                         # Wait until thisService has been created and is available
                         while usecaseTimeout > current_time:
                             [servicebroker, status] = get_cf_service_status(btpUsecase, thisService)
-                            if (status == "create succeeded"):
+                            if (status == "create succeeded" or status == "update succeeded"):
                                 log.success("service >" + requiredService + "< now ready as pre-requisite for service >" + serviceName + "<")
                                 if service.category == "SERVICE" or service.category == "ELASTIC_SERVICE":
                                     service = create_cf_service(btpUsecase, service)
