@@ -1,5 +1,8 @@
 {
-  "usecasefile": "usecases/released/setup_kyma_free_tier.json",
+  "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/usecases/released/setup_kyma_free_tier.json",
+  "loginmethod": "envVariables",
   "subaccountname": "kymasetupauto",
-  "region": "eu10"
+  "region": "eu10",
+  "pruneusecase": true,
+  "prunesubaccount": true
 }

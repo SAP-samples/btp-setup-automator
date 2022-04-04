@@ -1,6 +1,6 @@
 {
   "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/usecasefiles/usecase_it05_one_service_only.json",
-  "loginmethod": "basicAuthentication",
+  "loginmethod": "envVariables",
   "region": "eu10",
   "subaccountname": "My own subacccount name",
   "subdomain": "my own subdomain with -",
