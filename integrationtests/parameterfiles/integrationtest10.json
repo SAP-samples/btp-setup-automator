@@ -1,5 +1,8 @@
 {
-    "usecasefile": "usecases/released/setup_kyma_gcp.json",
+    "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/usecases/released/setup_kyma_gcp.json",
+    "loginmethod": "envVariables",
     "subaccountname": "kymasetupauto",
-    "region": "us30"
-}
+    "region": "us30",
+    "pruneusecase": true,
+    "prunesubaccount": true
+  }

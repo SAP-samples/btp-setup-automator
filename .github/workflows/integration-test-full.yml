@@ -1,0 +1,51 @@
+name: BTP Setup Automator - Integration Test (Full version - all released scenarios, non-trial)
+# This file represents a slim version of the "BTP Setup Automator" integration tests
+# All tests are executed in sequence on one BTP account to avoid entitlement limits
+# This is why not matrix strategy is used
+
+on:
+  workflow_dispatch:
+
+jobs:
+    integration-test:
+        runs-on: ubuntu-latest
+        container:
+          image: ghcr.io/sap-samples/btp-setup-automator:main
+          options: --user root
+        env: 
+            BTPSA_PARAM_MYEMAIL: ${{ secrets.BTPSA_PARAM_MYEMAIL }}
+            BTPSA_PARAM_GLOBALACCOUNT: ${{ secrets.BTPSA_PARAM_GLOBALACCOUNT }}
+            BTPSA_PARAM_MYPASSWORD: ${{ secrets.BTPSA_PARAM_MYPASSWORD }}
+        steps:
+            - name: 'Integration test 02: Deploy full-stack CAP application running in SAP Launchpad'
+              working-directory: /home/user
+              shell: bash 
+              run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest02.json'
+            - name: 'Integration test 03: Extend SAP S/4HANA Business Processes on SAP BTP by Leveraging DevOps'
+              working-directory: /home/user
+              shell: bash 
+              run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest03.json'
+            - name: 'Integration test 04: Only app subscriptions'
+              working-directory: /home/user
+              shell: bash 
+              run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest04.json'
+            - name: 'Integration test 05: Only one service without app subscriptions and with an admin, that is the same like the one logging into the script.'
+              working-directory: /home/user
+              shell: bash 
+              run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest05.json'
+            - name: 'Integration test 06: Create service keys'
+              working-directory: /home/user
+              shell: bash 
+              run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest06.json'
+            - name: 'Integration test 07: Setup SAP Task Center"'
+              working-directory: /home/user
+              shell: bash 
+              run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest07.json'
+            - name: 'Integration test 09: Setup a Kyma environment (Free Tier)'
+              working-directory: /home/user
+              shell: bash 
+              run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest09.json'
+            - name: 'Integration test 10: Setup a Kyma environment on GCP'
+              working-directory: /home/user
+              shell: bash 
+              run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest10.json'

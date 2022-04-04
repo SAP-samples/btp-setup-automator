@@ -1,5 +1,5 @@
 {
   "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/usecasefiles/usecase_it06_service_key_creation.json",
-  "loginmethod": "basicAuthentication",
+  "loginmethod": "envVariables",
   "prunesubaccount": true
 }

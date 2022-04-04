@@ -1,5 +1,6 @@
 {
-    "usecasefile": "usecases/released/setup_kyma_gcp.json",
+    "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/usecases/released/setup_kyma_gcp_with_dapr.json",
+    "loginmethod": "envVariables",
     "subaccountname": "kymasetupauto",
     "region": "us30",
     "waitForKymaEnvironmentCreation": true,

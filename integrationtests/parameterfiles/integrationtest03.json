@@ -1,5 +1,5 @@
 {
-  "usecasefile": "usecases/released/extendS4_with_devops.json",
-  "loginmethod": "basicAuthentication",
+  "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/usecases/released/extendS4_with_devops.json",
+  "loginmethod": "envVariables",
   "prunesubaccount": true
 }

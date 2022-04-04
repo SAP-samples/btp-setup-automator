@@ -1,5 +1,5 @@
 {
-  "usecasefile": "usecases/released/cap_app_launchpad_TRIAL.json",
+  "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/usecases/released/cap_app_launchpad_TRIAL.json",
   "loginmethod": "basicAuthentication",
   "globalaccount": "86f7b91dtrial-ga",
   "prunesubaccount": true
