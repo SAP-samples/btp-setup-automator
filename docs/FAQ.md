@@ -131,6 +131,23 @@ As an alternative you can also use the CLI directly and key in:
 ./btpsa -h
 ```
 
+### I'm missing the tool XYZ in the container image. Can you please add it?
+
+We want to keep the size of the docker image as small as possible and to contain the essential tool set within that image.
+
+At the same time you can add any additional packages inside the `executeBeforeAccountSetup` section of your usecase file as we have installed the `sudo` Alpine package in the image. Just add something like this to your usecase file:
+
+```json
+..
+  "executeBeforeAccountSetup": [
+    {
+      "description": "install the `uuidgen` and the `nano` package",
+      "command": "sudo apk add uuidgen nano"
+    }
+  ]
+..
+```
+
 ## Cloud Foundry Setup Specifics
 
 > 🚧 No FAQ yet 🚧
