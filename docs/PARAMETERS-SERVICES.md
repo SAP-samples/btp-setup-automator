@@ -12,7 +12,7 @@ The `usecase.json` file has a section to define all services. These services can
 | planCatalogName         | catalog name of the service plan                                        | str | False | None |
 | instancename            | name of the service                                                     | str | False | None |
 | parameters              | parameters for the service                                              | dict | False | None |
-| parameterFile           | parameter file for the service                                          | dict | False | None |
+| serviceparameterfile    | parameter file for the service                                          | dict | False | None |
 | amount                  | amount to be used for the service                                       | int | False | None |
 | repeatstatusrequest     | number of seconds when status should be checked                         | int | False | 5 |
 | repeatstatustimeout     | timeout in seconds after which the script will stop checking the status | int | False | 3600 |

@@ -78,10 +78,10 @@
         "default": null
     },
     {
-        "argument": "parameterFile",
+        "argument": "serviceparameterfile",
         "type": "str",
         "mandatory": false,
-        "help": "parameters for the service",
+        "help": "parameter file for the service",
         "default": null
     },
     {
