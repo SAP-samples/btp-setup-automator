@@ -29,7 +29,7 @@ def checkIfCFEnvironmentAlreadyExists(btpUsecase):
 
     if "orgid" in accountMetadata:
         orgid = accountMetadata["orgid"]
-        nameOfEnvInstance = accountMetadata["subdomain"] + "_cloudfoundry"
+        nameOfEnvInstance = accountMetadata["subdomain"]
         org = None
 
         for instance in result["environmentInstances"]:
