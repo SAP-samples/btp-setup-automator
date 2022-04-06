@@ -3,8 +3,8 @@
         "name": "Setup Side-by-Side UI Extensions for SAP S/4HANA on SAP BTP",
         "description": "Create a custom UI application on SAP BTP which consumes data from SAP S/4HANA",
         "author": "sangeetha.jayakumar@sap.com",
-        "testStatus": "in testing",
-        "usageStatus": "NOT RELEASED",
+        "testStatus": "tested successfully",
+        "usageStatus": "RELEASED",
         "relatedLinks": [
             "https://discovery-center.cloud.sap/missiondetail/3239/3325/"
         ]

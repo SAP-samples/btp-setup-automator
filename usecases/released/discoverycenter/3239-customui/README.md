@@ -27,7 +27,7 @@ You'll notice that the prompt in your terminal has changed, because you are now 
 Now run the main script `btpsa` with the following command:
 
 ```bash
-./btpsa -parameterfile 'usecases/other/discoverycenter/3239-customui/parameters.json' \
+./btpsa -parameterfile 'usecases/released/discoverycenter/3239-customui/parameters.json' \
     -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>'  \
     -region        '<region for your subaccount e.g. us10>' \
     -myemail       '<your email address>'
@@ -43,4 +43,21 @@ The tool starts to execute and the only thing you need to type-in is your passwo
     -subaccountid  '<your sub account id as shown in the SAP BTP cockpit>'
     -region        'region for your subaccount e.g. us10>' \
     -myemail       'your email address>'
+```
+
+If you want to understand other possible parameters, give the following command:
+
+```bash
+./btpsa --help
+```
+
+> Note: In case that the basic authentication fails due to some special character issues in your password, use the option 'SSO' as follows:
+
+```bash
+./btpsa -parameterfile 'usecases/other/discoverycenter/3774-taskcenter/parameters.json' \
+    -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>'  \
+    -subaccountid  '<your sub account id as shown in the SAP BTP cockpit>'
+    -region        'region for your subaccount e.g. us10>' \
+    -myemail       'your email address>' \
+    -loginmethod   sso
 ```
