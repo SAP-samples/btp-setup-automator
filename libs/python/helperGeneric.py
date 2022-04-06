@@ -2,6 +2,7 @@ import re
 from libs.python.helperJson import addKeyValuePair
 import os
 import logging
+from libs.python.helperJson import dictToJson
 
 from libs.python.helperServices import BTPSERVICE
 
@@ -148,18 +149,39 @@ def buildUrltoSubaccount(btpUsecase):
     return url
 
 
-def getEnvVariableValue(variable):
-    result = os.environ[variable]
+def getDictWithEnvVariables(btpUsecase):
+    result = None
+    if btpUsecase.envvariables is not None:
+        for key, value in btpUsecase.envvariables:
+            os.environ[key] = value
+        result = dict(os.environ)
+
     return result
 
 
-def addEnvVariables(parameters):
+def setEnvVariables(btpUsecase, parameters):
     for key, value in parameters.items():
         # avoid having "None" as value in case value was not set
         if value is None:
             value = ""
+        envVariableAlreadyThere = False
+        if btpUsecase.envvariables is None:
+            btpUsecase.envvariables = []
+
+        if btpUsecase.envvariables is not None and len(btpUsecase.envvariables) > 0:
+            for myVariable in btpUsecase.envvariables:
+                if myVariable["key"] == key:
+                    envVariableAlreadyThere = True
+
+        if envVariableAlreadyThere is False:
+            newEnvVar = {"key": key, "value": value}
+            btpUsecase.envvariables.append(newEnvVar)
+        else:
+            newEnvVar = {"key": key, "value": value}
+            btpUsecase.envvariables.update(newEnvVar)
+
         os.environ[key] = value
-        log.info("set environment variable >" + str(key) + "< to value >" + str(value) + "<")
+        # log.info("set environment variable >" + str(key) + "< to value >" + str(value) + "<")
 
 
 def showEnvVariables():

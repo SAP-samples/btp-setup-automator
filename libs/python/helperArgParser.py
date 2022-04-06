@@ -1,5 +1,4 @@
 import argparse
-from libs.python.helperGeneric import getEnvVariableValue
 from libs.python.helperJson import addKeyValuePairToJsonFile, getJsonFromFile, saveJsonToFile
 import getpass
 import logging

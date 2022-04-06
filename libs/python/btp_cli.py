@@ -950,8 +950,7 @@ def get_subscription_status(btpUsecase: BTPUSECASE, app):
     app_plan = app.plan
     subaccountid = accountMetadata["subaccountid"]
 
-    command = "btp --format json list accounts/subscription --subaccount \"" + \
-        subaccountid + "\""
+    command = "btp --format json list accounts/subscription --subaccount \"" + subaccountid + "\""
     message = "subscription status of >" + app_name + "<"
     p = runShellCommand(btpUsecase, command, "CHECK", message)
     result = p.stdout.decode()
@@ -963,8 +962,7 @@ def get_subscription_status(btpUsecase: BTPUSECASE, app):
         if (thisAppName == app_name and thisAppPlan == app_plan):
             return application
 
-    log.error("COULD NOT FIND SUBSCRIPTON TO >" +
-              app_name + "< and plan >" + app_plan + "<")
+    log.error("COULD NOT FIND SUBSCRIPTON TO >" + app_name + "< and plan >" + app_plan + "<")
     sys.exit(os.EX_DATAERR)
 
 
@@ -975,8 +973,7 @@ def get_subscription_deletion_status(btpUsecase: BTPUSECASE, app):
     app_plan = app["plan"]
     subaccountid = accountMetadata["subaccountid"]
 
-    command = "btp --format json list accounts/subscription --subaccount \"" + \
-        subaccountid + "\""
+    command = "btp --format json list accounts/subscription --subaccount \"" + subaccountid + "\""
     message = "subscription status of >" + app_name + "<"
     p = runShellCommandFlex(btpUsecase, command, "CHECK", message, False, False)
     result = p.stdout.decode()
