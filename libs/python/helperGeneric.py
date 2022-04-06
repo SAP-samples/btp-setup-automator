@@ -2,7 +2,6 @@ import re
 from libs.python.helperJson import addKeyValuePair
 import os
 import logging
-from libs.python.helperJson import dictToJson
 
 from libs.python.helperServices import BTPSERVICE
 
@@ -156,6 +155,11 @@ def getDictWithEnvVariables(btpUsecase):
             os.environ[key] = value
         result = dict(os.environ)
 
+    return result
+
+
+def getEnvVariableValue(variable):
+    result = os.environ[variable]
     return result
 
 
