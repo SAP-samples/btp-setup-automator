@@ -840,36 +840,25 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service):
     serviceName = service.name
     servicePlan = service.plan
 
-    command = "btp --format json assign accounts/entitlement \
+    baseCommand = "btp --format json assign accounts/entitlement \
     --to-subaccount \"" + subaccountid + "\" \
     --for-service \"" + serviceName + "\" \
     --plan \"" + servicePlan + "\""
 
-    if service.amount is not None and service.amount > 0:
-        command = command + " --auto-distribute-amount " + \
-            str(service.amount) + " --amount " + str(service.amount)
-    else:
-        command = command + " --distribute --enable"
+    command = baseCommand + " --distribute --enable"
 
-    message = "Assign entitlement for >" + \
-        serviceName + "< and plan >" + servicePlan + "<"
+    message = "Assign entitlement for >" + serviceName + "< and plan >" + servicePlan + "<"
     # Run script, but don't exit, if not successfull
-    p = runShellCommandFlex(btpUsecase, command,
-                            "INFO", message, False, False)
+    p = runShellCommandFlex(btpUsecase, command, "INFO", message, False, False)
     returnCode = p.returncode
 
     if returnCode != 0:
         log.warning("this entitlement wasn't sucesssfull. Trying to entitle with amount parameter instead.")
-        command = "btp --format json assign accounts/entitlement \
-        --to-subaccount \"" + subaccountid + "\" \
-        --for-service \"" + serviceName + "\" \
-        --plan \"" + servicePlan + "\""
 
         if service.amount is not None and service.amount > 0:
-            command = command + " --auto-distribute-amount " + \
-                str(service.amount) + " --amount " + str(service.amount)
+            command = baseCommand + " --auto-distribute-amount " + str(service.amount) + " --amount " + str(service.amount)
         else:
-            command = command + " --auto-distribute-amount 1 --amount 1"
+            command = baseCommand + " --auto-distribute-amount 1  --amount 1"
 
         message = "Try again to assign entitlement for >" + serviceName + \
             "< and plan >" + servicePlan + "< with amount parameter set to 1."
@@ -914,7 +903,29 @@ def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, appName, appPlan):
 
 def doAllEntitlements(btpUsecase: BTPUSECASE, allItems):
 
+    # Ensure to have a list of all entitlements as combination of service name and plan
+    entitlements = []
     for service in allItems:
+        thisName = service.name
+        thisPlan = service.plan
+        if not any(d.name == thisName and d.plan == thisPlan for d in entitlements):
+            entitlements.append(service)
+
+    # Now set the amount for the entitlement right
+    # Simply sum-up all amounts to one amount per name/plan combination
+    for entitlement in entitlements:
+        amount = 0
+        thisName = service.name
+        thisPlan = service.plan
+        for service in allItems:
+            serviceName = service.name
+            servicePlan = service.plan
+            serviceAmount = service.amount
+            if (serviceName == thisName and servicePlan == thisPlan):
+                amount += serviceAmount
+        entitlement.amount = amount
+
+    for service in entitlements:
         # Quickly assign all entitlements (without waiting until they are all done)
         assign_entitlement(btpUsecase, service)
 

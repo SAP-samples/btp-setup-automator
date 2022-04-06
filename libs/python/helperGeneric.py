@@ -22,7 +22,7 @@ def getTimingsForStatusRequest(btpUsecase, thisService):
         if "repeatstatusrequest" in thisService:
             search_every_x_seconds = thisService["repeatstatusrequest"]
         if "repeatstatustimeout" in thisService:
-            search_every_x_seconds = thisService["repeatstatustimeout"]
+            usecaseTimeout = thisService["repeatstatustimeout"]
 
     return search_every_x_seconds, usecaseTimeout
 
