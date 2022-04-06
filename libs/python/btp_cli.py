@@ -869,7 +869,7 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service):
             command = command + " --auto-distribute-amount " + \
                 str(service.amount) + " --amount " + str(service.amount)
         else:
-            command = command + " --auto-distribute-amount 1 --amount 1"
+            command = command + " --auto-distribute-amount " + str(service.amount) + " --amount " + str(service.amount)
 
         message = "Try again to assign entitlement for >" + serviceName + \
             "< and plan >" + servicePlan + "< with amount parameter set to 1."
@@ -914,7 +914,29 @@ def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, appName, appPlan):
 
 def doAllEntitlements(btpUsecase: BTPUSECASE, allItems):
 
+    # Ensure to have a list of all entitlements as combination of service name and plan
+    entitlements = []
     for service in allItems:
+        thisName = service.name
+        thisPlan = service.plan
+        if not any(d.name == thisName and d.plan == thisPlan for d in entitlements):
+            entitlements.append(service)
+
+    # Now set the amount for the entitlement right
+    # Simply sum-up all amounts to one amount per name/plan combination
+    for entitlement in entitlements:
+        amount = 0
+        thisName = service.name
+        thisPlan = service.plan
+        for service in allItems:
+            serviceName = service.name
+            servicePlan = service.plan
+            serviceAmount = service.amount
+            if (serviceName == thisName and servicePlan == thisPlan):
+                amount += serviceAmount
+        entitlement.amount = amount
+
+    for service in entitlements:
         # Quickly assign all entitlements (without waiting until they are all done)
         assign_entitlement(btpUsecase, service)
 
