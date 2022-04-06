@@ -1,5 +1,5 @@
 {
-  "usecasefile": "usecases/other/discoverycenter/3239-customui/usecase.json",
+  "usecasefile": "usecases/released/discoverycenter/3239-customui/usecase.json",
   "region": "us10",
   "subaccountname": "Mission3239",
   "loginmethod": "sso"
