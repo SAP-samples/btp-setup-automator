@@ -840,36 +840,25 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service):
     serviceName = service.name
     servicePlan = service.plan
 
-    command = "btp --format json assign accounts/entitlement \
+    baseCommand = "btp --format json assign accounts/entitlement \
     --to-subaccount \"" + subaccountid + "\" \
     --for-service \"" + serviceName + "\" \
     --plan \"" + servicePlan + "\""
 
-    if service.amount is not None and service.amount > 0:
-        command = command + " --auto-distribute-amount " + \
-            str(service.amount) + " --amount " + str(service.amount)
-    else:
-        command = command + " --distribute --enable"
+    command = baseCommand + " --distribute --enable"
 
-    message = "Assign entitlement for >" + \
-        serviceName + "< and plan >" + servicePlan + "<"
+    message = "Assign entitlement for >" + serviceName + "< and plan >" + servicePlan + "<"
     # Run script, but don't exit, if not successfull
-    p = runShellCommandFlex(btpUsecase, command,
-                            "INFO", message, False, False)
+    p = runShellCommandFlex(btpUsecase, command, "INFO", message, False, False)
     returnCode = p.returncode
 
     if returnCode != 0:
         log.warning("this entitlement wasn't sucesssfull. Trying to entitle with amount parameter instead.")
-        command = "btp --format json assign accounts/entitlement \
-        --to-subaccount \"" + subaccountid + "\" \
-        --for-service \"" + serviceName + "\" \
-        --plan \"" + servicePlan + "\""
 
         if service.amount is not None and service.amount > 0:
-            command = command + " --auto-distribute-amount " + \
-                str(service.amount) + " --amount " + str(service.amount)
+            command = baseCommand + " --auto-distribute-amount " + str(service.amount) + " --amount " + str(service.amount)
         else:
-            command = command + " --auto-distribute-amount " + str(service.amount) + " --amount " + str(service.amount)
+            command = baseCommand + " --auto-distribute-amount 1  --amount 1"
 
         message = "Try again to assign entitlement for >" + serviceName + \
             "< and plan >" + servicePlan + "< with amount parameter set to 1."
