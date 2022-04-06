@@ -149,7 +149,6 @@ def buildUrltoSubaccount(btpUsecase):
 
 
 def getEnvVariableValue(variable):
-    #allEnvs = sorted(os.environ.items())
     result = os.environ[variable]
     return result
 
