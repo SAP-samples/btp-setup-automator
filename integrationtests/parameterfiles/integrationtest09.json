@@ -3,6 +3,7 @@
   "loginmethod": "envVariables",
   "region": "eu10",
   "pruneusecase": true,
+  "timeoutLimitForKymaDeprovisioningInMinutes": 75,
   "prunesubaccount": true,
   "subaccountname": "BTPSA int-test kymasetupauto free tier"
 }
