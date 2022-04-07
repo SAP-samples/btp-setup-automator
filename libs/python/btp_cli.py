@@ -360,11 +360,26 @@ class BTPUSECASE:
                     sys.exit(os.EX_DATAERR)
 
         else:
-            command = "btp --format json list accounts/environment-instances --subaccount '" + subaccountid + "'"
-            result = runCommandAndGetJsonResult(self, command, "INFO", "fetch org name")
-            parameters = convertStringToJson(result["environmentInstances"][0]["parameters"])
-            self.accountMetadata = addKeyValuePair(accountMetadata, "org", parameters["instance_name"])
-            log.header("USING CONFIGURED ENVIRONMENT WITH ID >" + accountMetadata["orgid"] + "<")
+            foundOrg = False
+            for environment in environments:
+                if environment.name == "cloudfoundry":
+
+                    command = "btp --format json list accounts/environment-instances --subaccount '" + subaccountid + "'"
+                    result = runCommandAndGetJsonResult(self, command, "INFO", "fetch org name")
+                    envInstances = result["environmentInstances"]
+                    for envInstance in envInstances:
+                        if "labels" in envInstance and envInstance["labels"] is not None:
+                            labels = convertStringToJson(envInstance["labels"])
+                            thisOrgId = labels["Org ID:"]
+                            thisOrg = labels["Org Name:"]
+
+                            if thisOrgId == orgid:
+                                self.accountMetadata = addKeyValuePair(accountMetadata, "org", thisOrg)
+                                log.header("USING CONFIGURED ENVIRONMENT WITH ID >" + accountMetadata["orgid"] + "<")
+                                foundOrg = True
+            if foundOrg is False:
+                log.error("could not find Cloud Foundry org with id >" + orgid + "< that you've defined in your parameters.json file.")
+                sys.exit(os.EX_DATAERR)
 
         save_collected_metadata(self)
 
@@ -1449,6 +1464,5 @@ def selectEnvironmentLandscape(btpUsecase: BTPUSECASE, environment):
         time.sleep(search_every_x_seconds)
         current_time += search_every_x_seconds
 
-    log.error("No matching environment found >" +
-              environment["name"] + "< for >" + region + "<")
+    log.error("No matching environment found >" + environment["name"] + "< for >" + region + "<")
     sys.exit(os.EX_DATAERR)
