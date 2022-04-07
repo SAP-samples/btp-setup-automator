@@ -23,7 +23,6 @@ These are the available commands:
 | requiredServices | list of service keys to be created for a service  | list | False | None |
 | requiredrolecollections | list of role collections to be created for a service | list | False | None |
 
-
 You can get an overview of those commands as well, by simply typing the following command in your command line terminal:
 
 ```bash
