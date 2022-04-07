@@ -129,7 +129,7 @@ def create_cf_service(btpUsecase, service):
         thisParameter = dictToString(service.parameters)
         command += " -c '" + thisParameter + "'"
     elif service.serviceparameterfile is not None:
-        command += f" -c {service.parameterFile}"
+        command += f" -c {service.serviceparameterfile}"
     message = "Create instance >" + instancename + "< for service >" + service.name + "< and plan >" + plan + "<"
     runShellCommand(btpUsecase, command, "INFO", message)
     return service
