@@ -36,7 +36,7 @@ def login_cf(btpUsecase):
             myemail + "\" -p \"" + password + "\""
     # If a space is already there, attach the space name to the login to target the space
     if "cfspacename" in accountMetadata and accountMetadata["cfspacename"] is not None and accountMetadata["cfspacename"] != "":
-        command = "cf target -s " + accountMetadata["cfspacename"]
+        command = "cf target -s \"" + accountMetadata["cfspacename"] + "\""
     runShellCommandFlex(btpUsecase, command, "INFO", "Logging-in to your CF environment in the org >" + org + "< for your user >" + myemail + "<", True, pipe)
 
 
