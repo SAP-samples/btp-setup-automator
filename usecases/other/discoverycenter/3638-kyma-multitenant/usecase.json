@@ -58,6 +58,10 @@
     "admins": [],   
     "executeAfterAccountSetup": [        
         {
+            "description": "Get the tutorial code",
+            "command": "rm -rf /home/user/tutorial && git clone https://github.tools.sap/saas-extension-on-kyma/easyfranchise-main.git /home/user/tutorial && cd /home/user/tutorial/ && git checkout main-new-structure "
+        },
+        {
             "description": "Change permission on deployment script",
             "command": "chmod 777 /home/user/tutorial/code/setup/btp-setup-automator/btpsa-deployment.sh"
         },
