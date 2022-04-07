@@ -368,7 +368,7 @@ class BTPUSECASE:
                     result = runCommandAndGetJsonResult(self, command, "INFO", "fetch org name")
                     envInstances = result["environmentInstances"]
                     for envInstance in envInstances:
-                        if "labels" in envInstance and envInstance["labels"] is not None:
+                        if "labels" in envInstance and envInstance["labels"] is not None and envInstance["environmentType"] == "cloudfoundry":
                             labels = convertStringToJson(envInstance["labels"])
                             thisOrgId = labels["Org ID:"]
                             thisOrg = labels["Org Name:"]
