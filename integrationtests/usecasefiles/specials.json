@@ -1,0 +1,23 @@
+{
+    "aboutThisUseCase": {
+        "name": "Integration test 04: Only app subscriptions",
+        "description": "This integration test checks if all works fine, if only app subscriptions are defined.",
+        "author": "rui.nogueira@sap.com",
+        "testStatus": "tested successfully",
+        "usageStatus": "READY TO BE USED",
+        "relatedLinks": []
+    },
+    "services": [
+        {
+            "category": "SERVICE",
+            "name": "document-translation",
+            "plan": "free"
+        }
+    ],
+    "executeBeforeAccountSetup": [
+        {
+            "description": "Get the tutorial code",
+            "command": "echo $BTPSA_YOUR_OWN_ENV_VARIABLE1 && echo $BTPSA_YOUR_OWN_ENV_VARIABLE2"
+        }
+    ]
+}
