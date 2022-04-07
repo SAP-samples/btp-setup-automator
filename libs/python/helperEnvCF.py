@@ -1,6 +1,6 @@
 from libs.python.helperCommandExecution import runShellCommand, runCommandAndGetJsonResult, login_cf, runShellCommandFlex
 from libs.python.helperGeneric import getServiceByServiceName, createInstanceName, getTimingsForStatusRequest
-from libs.python.helperJson import convertCloudFoundryCommandForSingleServiceToJson, convertJsonToString, convertStringToJson, convertCloudFoundryCommandOutputToJson, dictToString, saveJsonToFile
+from libs.python.helperJson import convertCloudFoundryCommandForSingleServiceToJson, convertStringToJson, convertCloudFoundryCommandOutputToJson, dictToString
 import time
 import os
 import sys

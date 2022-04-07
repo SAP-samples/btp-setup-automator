@@ -1,5 +1,5 @@
 from subprocess import run, PIPE
-from libs.python.helperGeneric import addEnvVariables
+from libs.python.helperGeneric import getDictWithEnvVariables
 from libs.python.helperJson import convertStringToJson, getJsonFromFile
 import sys
 import time
@@ -93,9 +93,9 @@ def runShellCommandFlex(btpUsecase, command, format, info, exitIfError, noPipe):
             log.command(command)
     p = None
     if noPipe is True:
-        p = run(command, shell=True)
+        p = run(command, shell=True, env=getDictWithEnvVariables(btpUsecase))
     else:
-        p = run(command, shell=True, stdout=PIPE, stderr=PIPE)
+        p = run(command, shell=True, stdout=PIPE, stderr=PIPE, env=getDictWithEnvVariables(btpUsecase))
         output = p.stdout.decode()
         error = p.stderr.decode()
     returnCode = p.returncode
@@ -169,9 +169,9 @@ def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):
         log.header(message)
 
         for command in commands:
-            if "parameters" in command:
-                parameters = command["parameters"]
-                addEnvVariables(parameters)
+            # if "parameters" in command:
+            #     parameters = command["parameters"]
+            #     addEnvVariables(parameters)
             if "description" in command and "command" in command:
                 message = command["description"]
                 thisCommand = command["command"]

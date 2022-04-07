@@ -183,5 +183,11 @@
         "type": "str",
         "help": "host region for the BTP CLI calls",
         "default": "eu10"
+    },
+    {
+        "argument": "envvariables",
+        "type": "str",
+        "help": "list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`.",
+        "default": null
     }
 ]

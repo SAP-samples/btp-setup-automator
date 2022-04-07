@@ -114,7 +114,7 @@ def checkProvidedArguments(btpUsecase):
         if btpUsecase.myemail is None or btpUsecase.myemail == "":
             param = "BTPSA_PARAM_MYEMAIL"
             paramValue = getEnvVariableValue(param)
-            if paramValue is not None and len(paramValue) >0:
+            if paramValue is not None and len(paramValue) > 0:
                 btpUsecase.myemail = paramValue
             else:
                 log.error("env variable " + param + " for parameter >myemail< was not set. Please set it, or change loginmethod")
@@ -123,7 +123,7 @@ def checkProvidedArguments(btpUsecase):
         if btpUsecase.mypassword is None or btpUsecase.mypassword == "":
             param = "BTPSA_PARAM_MYPASSWORD"
             paramValue = getEnvVariableValue(param)
-            if paramValue is not None and len(paramValue) >0:
+            if paramValue is not None and len(paramValue) > 0:
                 btpUsecase.mypassword = paramValue
             else:
                 log.error("env variable " + param + " for parameter >mypassword< was not set. Please set it, or change loginmethod")
@@ -132,7 +132,7 @@ def checkProvidedArguments(btpUsecase):
         if btpUsecase.globalaccount is None or btpUsecase.globalaccount == "":
             param = "BTPSA_PARAM_GLOBALACCOUNT"
             paramValue = getEnvVariableValue(param)
-            if paramValue is not None and len(paramValue) >0:
+            if paramValue is not None and len(paramValue) > 0:
                 btpUsecase.globalaccount = paramValue
             else:
                 log.error("env variable " + param + " for parameter >globalaccount< was not set. Please set it, or change loginmethod")

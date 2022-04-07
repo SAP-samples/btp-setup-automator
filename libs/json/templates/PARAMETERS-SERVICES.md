@@ -7,5 +7,4 @@ The `usecase.json` file has a section to define all services. These services can
 {% for param in params -%}
 | {{ param.argument }} | {{ param.help }} | {{ param.type }} | {{ param.mandatory }} | {{ param.default }} |
 {% endfor %}
-
 Checkout the [SAMPLECONFIG.md](/docs/SAMPLECONFIG.md) documentation for some examples.

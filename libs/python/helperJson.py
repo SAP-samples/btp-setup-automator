@@ -131,7 +131,6 @@ def convertCloudFoundryCommandOutputToJson(lines):
 
 
 def convertCloudFoundryCommandForSingleServiceToJson(lines):
-    dict = []
     # Remove the first 2 lines of the output (don't contain neccessary information)
     lines = lines.split('\n', 2)[-1]
 
