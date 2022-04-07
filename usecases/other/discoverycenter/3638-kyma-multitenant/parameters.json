@@ -1,0 +1,6 @@
+{
+  "usecasefile": "usecases/other/discoverycenter/3638-kyma-multitenant/usecase.json",
+  "region": "us10",
+  "subaccountname": "EasyFranchise",
+  "loginmethod": "sso"
+}
