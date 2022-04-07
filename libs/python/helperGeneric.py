@@ -22,7 +22,7 @@ def getTimingsForStatusRequest(btpUsecase, thisService):
         if "repeatstatusrequest" in thisService:
             search_every_x_seconds = thisService["repeatstatusrequest"]
         if "repeatstatustimeout" in thisService:
-            search_every_x_seconds = thisService["repeatstatustimeout"]
+            usecaseTimeout = thisService["repeatstatustimeout"]
 
     return search_every_x_seconds, usecaseTimeout
 
@@ -148,21 +148,48 @@ def buildUrltoSubaccount(btpUsecase):
     return url
 
 
-def getEnvVariableValue(variable):
-    #allEnvs = sorted(os.environ.items())
-    result = os.environ[variable]
+def getDictWithEnvVariables(btpUsecase):
+    result = None
+    if btpUsecase.envvariables is not None and len(btpUsecase.envvariables) > 0:
+        for variable, value in btpUsecase.envvariables.items():
+            os.environ[variable] = value
+        result = dict(os.environ)
+
     return result
 
 
-def addEnvVariables(parameters):
-    for key, value in parameters.items():
-        # avoid having "None" as value in case value was not set
-        if value is None:
-            value = ""
-        os.environ[key] = value
-        log.info("set environment variable >" + str(key) + "< to value >" + str(value) + "<")
+def getEnvVariableValue(variable):
+    result = os.environ[variable]
+    return result
+# def setEnvVariables(btpUsecase, parameters):
+#     for key, value in parameters.items():
+#         # avoid having "None" as value in case value was not set
+#         if value is None:
+#             value = ""
+#         envVariableAlreadyThere = False
+#         if btpUsecase.envvariables is None:
+#             btpUsecase.envvariables = []
+
+#         if btpUsecase.envvariables is not None and len(btpUsecase.envvariables) > 0:
+#             for myVariable in btpUsecase.envvariables:
+#                 if myVariable["key"] == key:
+#                     envVariableAlreadyThere = True
+
+#         if envVariableAlreadyThere is False:
+#             newEnvVar = {"key": key, "value": value}
+#             btpUsecase.envvariables.append(newEnvVar)
+#         else:
+#             newEnvVar = {"key": key, "value": value}
+#             btpUsecase.envvariables.update(newEnvVar)
+
+#         os.environ[key] = value
+#         # log.info("set environment variable >" + str(key) + "< to value >" + str(value) + "<")
 
 
 def showEnvVariables():
     for k, v in sorted(os.environ.items()):
+        # Avoid to show env variables whose name already contains "password" is been displayed to the user
+        kNormalized = k.capitalize
+        if "password".capitalize in kNormalized:
+            v = "************"
         log.info(str(k) + ': ' + str(v))

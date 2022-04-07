@@ -1,6 +1,6 @@
 from libs.python.helperCommandExecution import runShellCommand, runCommandAndGetJsonResult, login_cf, runShellCommandFlex
 from libs.python.helperGeneric import getServiceByServiceName, createInstanceName, getTimingsForStatusRequest
-from libs.python.helperJson import convertCloudFoundryCommandForSingleServiceToJson, convertJsonToString, convertStringToJson, convertCloudFoundryCommandOutputToJson, dictToString, saveJsonToFile
+from libs.python.helperJson import convertCloudFoundryCommandForSingleServiceToJson, convertStringToJson, convertCloudFoundryCommandOutputToJson, dictToString
 import time
 import os
 import sys
@@ -29,11 +29,10 @@ def checkIfCFEnvironmentAlreadyExists(btpUsecase):
 
     if "orgid" in accountMetadata:
         orgid = accountMetadata["orgid"]
-        nameOfEnvInstance = accountMetadata["subdomain"] + "_cloudfoundry"
         org = None
 
         for instance in result["environmentInstances"]:
-            if instance["name"] == nameOfEnvInstance:
+            if instance["subaccountGUID"] == btpUsecase.subaccountid:
                 labels = convertStringToJson(instance["labels"])
                 org = labels["Org Name:"]
                 return instance["platformId"], org
@@ -129,6 +128,8 @@ def create_cf_service(btpUsecase, service):
     if service.parameters is not None:
         thisParameter = dictToString(service.parameters)
         command += " -c '" + thisParameter + "'"
+    elif service.serviceparameterfile is not None:
+        command += f" -c {service.serviceparameterfile}"
     message = "Create instance >" + instancename + "< for service >" + service.name + "< and plan >" + plan + "<"
     runShellCommand(btpUsecase, command, "INFO", message)
     return service
@@ -138,11 +139,11 @@ def create_cf_cup_service(btpUsecase, service):
     servicename = service.name
     command = "cf cups \"" + servicename + "\" "
 
-    if "parameters" in service:
+    if service.parameters is not None:
         thisParameter = str(service.parameters)
         command += thisParameter
         message = "Create CF cups instance for service >" + servicename + "<"
-        runShellCommand(btpUsecase, command, "INFO", message)
+        runShellCommandFlex(btpUsecase, command, "INFO", message, True, True)
         log.info("created CF cup service >" + servicename + "<")
     else:
         message = "missing parameter for the CF cups service >" + servicename + "<. Won't create the CF cup service."

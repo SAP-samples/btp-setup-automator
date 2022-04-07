@@ -10,9 +10,11 @@ The `usecase.json` file has a section to define all services. These services can
 | targetenvironment | environment in which the service should be created | str | True | cloudfoundry |
 | plan | plan name of the service | str | False | None |
 | planCatalogName | catalog name of the service plan | str | False | None |
+| statusResponse | creation info | dict | False | None |
 | instancename | name of the service | str | False | None |
-| parameters | parameters for the service | dict | False | None |
-| amount | amount to be used for the service | int | False | None |
+| parameters | parameters for the service | ['dict', 'str'] | False | None |
+| serviceparameterfile | parameter file for the service | str | False | None |
+| amount | amount to be used for the service | int | False | 1 |
 | repeatstatusrequest | number of seconds when status should be checked | int | False | 5 |
 | repeatstatustimeout | timeout in seconds after which the script will stop checking the status | int | False | 3600 |
 | createServiceKeys | list of service keys to be created for a service  | list | False | None |

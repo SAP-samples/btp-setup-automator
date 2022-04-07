@@ -72,9 +72,16 @@
     },
     {
         "argument": "parameters",
-        "type": "dict",
+        "type": ["dict","str"],
         "mandatory": false,
         "help": "parameters for the service",
+        "default": null
+    },
+    {
+        "argument": "serviceparameterfile",
+        "type": "str",
+        "mandatory": false,
+        "help": "parameter file for the service",
         "default": null
     },
     {
@@ -82,7 +89,7 @@
         "type": "int",
         "mandatory": false,
         "help": "amount to be used for the service",
-        "default": null
+        "default": 1
     },
     {
         "argument": "repeatstatusrequest",

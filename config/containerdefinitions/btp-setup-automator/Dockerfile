@@ -147,10 +147,9 @@ RUN adduser \
                git \
                jq \
                make \
-               nano \
                nodejs \
                npm \
-               uuidgen \
+               sudo \
     && pip install --no-cache-dir -r /tmp/pip-tmp/requirements.txt \
     && rm -rf /tmp/pip-tmp \
     ## Set the right timezone in the container image
@@ -159,7 +158,12 @@ RUN adduser \
 # Install CAP CDS
 ##########################################################################################
     && npm install -g @sap/cds-dk --allow-root \
-    && npm cache clean --force
+    && npm cache clean --force \
+##########################################################################################
+# Add user to sudo user
+##########################################################################################
+    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
 
 ##########################################################################################
 # Fill the image with the necessary resources
@@ -181,16 +185,16 @@ COPY --chown=root:root --from=tools /usr/local/bin/helm /usr/local/bin
 RUN cf install-plugin -f /usr/local/bin/multiapps-plugin-static.linux64
 
 ## Install krew and the oidc-login plugin
-RUN OS="$(uname | tr '[:upper:]' '[:lower:]')" \
-&& ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" \ 
-&& KREW="krew-${OS}_${ARCH}" \
-&& curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" \
-&& tar zxvf "${KREW}.tar.gz" \
-&& rm -rf "${KREW}.tar.gz" \
-&& ./"${KREW}" install krew \
-&& PATH="$HOME/.krew/bin:$PATH" \
-&& kubectl krew install oidc-login \
-&& rm -rf ./"${KREW}"
+RUN    OS="$(uname | tr '[:upper:]' '[:lower:]')" \
+    && ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" \ 
+    && KREW="krew-${OS}_${ARCH}" \
+    && curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" \
+    && tar zxvf "${KREW}.tar.gz" \
+    && rm -rf "${KREW}.tar.gz" \
+    && ./"${KREW}" install krew \
+    && PATH="$HOME/.krew/bin:$PATH" \
+    && kubectl krew install oidc-login \
+    && rm -rf ./"${KREW}"
 # Set the path to the krew binary
 ENV PATH "$PATH:$HOME_FOLDER/.krew/bin"
 

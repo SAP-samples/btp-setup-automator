@@ -35,10 +35,18 @@ class BTPSERVICE:
                     log.error(message)
                     sys.exit(os.EX_DATAERR)
                 typeParameter = type(value).__name__
-                if paramType != typeParameter:
-                    message = "parameter >" + argument + "< for service >" + serviceName + "< should be a >" + paramType + "<, but it's >" + typeParameter + "<\nPlease correct the parameter!"
-                    log.error(message)
-                    sys.exit(os.EX_DATAERR)
+
+                if type(paramType).__name__ == "str":
+                    if paramType != typeParameter:
+                        message = "parameter >" + argument + "< for service >" + serviceName + "< should be a >" + paramType + "<, but it's >" + typeParameter + "<\nPlease correct the parameter!"
+                        log.error(message)
+                        sys.exit(os.EX_DATAERR)
+                if type(paramType).__name__ == "list":
+                    if typeParameter not in paramType:
+                        message = "parameter >" + argument + "< for service >" + serviceName + "< is of type >" + typeParameter + "<, but only the following types are allowed >" + str(paramType) + "<\nPlease correct the parameter!"
+                        log.error(message)
+                        sys.exit(os.EX_DATAERR)
+
                 setattr(self, argument, value)
             else:
                 if mandatory is True and default is None:
