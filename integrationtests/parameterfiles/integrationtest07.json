@@ -2,5 +2,6 @@
   "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/usecases/released/discoverycenter/3774-taskcenter/usecase.json",
   "loginmethod": "envVariables",
   "prunesubaccount": true,
-  "subaccountname": "BTPSA int-test disco task center"
+  "subaccountname": "BTPSA int-test disco task center",
+  "iashost": "elab.accounts.ondemand.com"
 }
