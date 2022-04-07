@@ -930,8 +930,8 @@ def doAllEntitlements(btpUsecase: BTPUSECASE, allItems):
     # Simply sum-up all amounts to one amount per name/plan combination
     for entitlement in entitlements:
         amount = 0
-        thisName = service.name
-        thisPlan = service.plan
+        thisName = entitlement.name
+        thisPlan = entitlement.plan
         for service in allItems:
             serviceName = service.name
             servicePlan = service.plan
