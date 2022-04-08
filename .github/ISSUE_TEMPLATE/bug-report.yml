@@ -10,7 +10,14 @@ body:
     options:
     - label: I have searched the existing issues
       required: true
- - type: dropdown
+- type: checkboxes
+  attributes:
+    label: Are you using the latest docker image for BTPSA?
+    description: Please check if the docker image you are using is up-to-date.
+    options:
+    - label: I executed the following commands beforehand: `docker container stop "btp-setup-automator" && docker container rm -f "btp-setup-automator" && docker image rmi -f "btp-setup-automator" && docker system prune -a -f`
+      required: true
+- type: dropdown
   id: area
   attributes:
     label: Which area is mainly impacted
