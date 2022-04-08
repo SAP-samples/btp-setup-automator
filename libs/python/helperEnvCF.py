@@ -135,19 +135,34 @@ def create_cf_service(btpUsecase, service):
     return service
 
 
-def create_cf_cup_service(btpUsecase, service):
-    servicename = service.name
-    command = "cf cups \"" + servicename + "\" "
-
-    if service.parameters is not None:
-        thisParameter = str(service.parameters)
-        command += thisParameter
-        message = "Create CF cups instance for service >" + servicename + "<"
-        runShellCommandFlex(btpUsecase, command, "INFO", message, True, True)
-        log.info("created CF cup service >" + servicename + "<")
+def cf_cup_service_already_exists(btpUsecase, instance_name):
+    command = "cf service \"" + instance_name + "\""
+    p = runShellCommandFlex(btpUsecase, command, "CHECK", None, False, False)
+    result = p.stdout.decode()
+    if "FAILED" in result:
+        return False
     else:
-        message = "missing parameter for the CF cups service >" + servicename + "<. Won't create the CF cup service."
-        log.warning(message)
+        return True
+
+
+def create_cf_cup_service(btpUsecase, service):
+    instance_name = service.name
+    cfCupServiceAlreadyExists = cf_cup_service_already_exists(btpUsecase, instance_name)
+
+    if cfCupServiceAlreadyExists is False:
+        command = "cf cups \"" + instance_name + "\" "
+
+        if service.parameters is not None:
+            thisParameter = str(service.parameters)
+            command += thisParameter
+            message = "Create CF cups instance for service >" + instance_name + "<"
+            runShellCommandFlex(btpUsecase, command, "INFO", message, True, True)
+            log.info("created CF cup service >" + instance_name + "<")
+        else:
+            message = "missing parameter for the CF cups service >" + instance_name + "<. Won't create the CF cup service."
+            log.warning(message)
+    else:
+        log.info("the user provided service >" + instance_name + "< already exists and won't be created newly.")
 
     return service
 
