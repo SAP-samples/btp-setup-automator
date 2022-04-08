@@ -34,11 +34,7 @@ def login_cf(btpUsecase):
         command = "cf login -a \"https://api.cf." + cfCLIRegion + \
             ".hana.ondemand.com\" -o \"" + org + "\" -u \"" + \
             myemail + "\" -p \"" + password + "\""
-    # If a space is already there, attach the space name to the login to target the space
-    if btpUsecase.cfspacename is not None and btpUsecase.cfspacename != "":
-        command += " -s \"" + btpUsecase.cfspacename + "\""
     runShellCommandFlex(btpUsecase, command, "INFO", "Logging-in to your CF environment in the org >" + org + "< for your user >" + myemail + "<", True, pipe)
-
 
 def login_btp(btpUsecase):
     myemail = btpUsecase.myemail
