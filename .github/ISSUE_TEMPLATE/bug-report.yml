@@ -13,7 +13,12 @@ body:
 - type: checkboxes
   attributes:
     label: Are you using the latest docker image for BTPSA?
-    description: Please check if the docker image you are using is up-to-date. If you are not sure, run theses commands from the command line: `docker container stop "btp-setup-automator" && docker container rm -f "btp-setup-automator" && docker image rmi -f "btp-setup-automator" && docker system prune -a -f`
+    description: |
+      Please check if the docker image you are using is up-to-date. If you are not sure, run theses commands from the command line: 
+      `docker container stop "btp-setup-automator"`
+      `docker container rm -f "btp-setup-automator"`
+      `docker image rmi -f "btp-setup-automator"`
+      `docker system prune -a -f`
     options:
     - label: I'm using the latest docker image for BTPSA.
       required: true
