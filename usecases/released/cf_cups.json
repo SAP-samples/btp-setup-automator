@@ -1,0 +1,22 @@
+{
+  "aboutThisUseCase": {
+    "name": "Setup CF CUP services",
+    "description": "This usecase shows how to set up CF CUP services",
+    "author": "rui.nogueira@sap.com",
+    "testStatus": "tested successfully",
+    "usageStatus": "READY TO BE USED",
+    "relatedLinks": ["https://docs.cloudfoundry.org/devguide/services/user-provided.html"]
+  },
+  "services": [
+    {
+      "category": "CF_CUP_SERVICE",
+      "name": "cf-cup-test1",
+      "parameters": "-p '{\"username\":\"admin1\",\"password\":\"pa55woRD1\"}'"
+    },
+    {
+      "category": "CF_CUP_SERVICE",
+      "name": "cf-cup-test2",
+      "parameters": "-p '{\"username\":\"admin2\",\"password\":\"pa55woRD2\"}'"
+    }
+  ]
+}
