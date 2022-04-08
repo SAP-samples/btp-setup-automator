@@ -1369,11 +1369,47 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                             allServicesDeleted = False
                 log.success("all service instances now deleted.")
 
-            if environment.name == "kymaruntime":
-                # Get Kyma runtime ID
-                message = "Get Kyma environment ID for subaccount > " + \
-                    btpUsecase.accountMetadata["subaccountid"] + " < by name > " + \
-                    btpUsecase.accountMetadata["subaccountid"] + " <"
+    for environment in btpUsecase.definedEnvironments:
+        if environment.name == "cloudfoundry":
+            log.info("Cloud Foundry envorinment will be deleted automatically with the deletion of the sub account. No separate deletion needed.")
+
+        if environment.name == "kymaruntime":
+            # Get Kyma runtime ID
+            message = "Get Kyma environment ID for subaccount > " + \
+                btpUsecase.accountMetadata["subaccountid"] + " < by name > " + \
+                btpUsecase.accountMetadata["subaccountid"] + " <"
+            command = "btp --format json list accounts/environment-instance --subaccount \"" + \
+                btpUsecase.accountMetadata["subaccountid"] + "\""
+
+            result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
+
+            kymaEnvironmentID = getKymaEnvironmentIdByClusterName(result, environment.parameters["name"])
+
+            # Delete Kyma runtime via SAP btp CLI
+            message = "Trigger deletion of Kyma environment > " + \
+                environment.parameters["name"] + \
+                " < in subaccount > " + \
+                btpUsecase.accountMetadata["subaccountid"] + " <"
+
+            command = "btp --format json delete accounts/environment-instance " + kymaEnvironmentID + \
+                " --subaccount \"" + \
+                btpUsecase.accountMetadata["subaccountid"] + "\"" + " --confirm"
+
+            result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
+
+            log.info("Check deletion status for Kyma environment")
+
+            environmentDeprovisioningPollFrequencyInSeconds = btpUsecase.pollingIntervalForKymaDeprovisioningInMinutes * 60
+            environmentDeprovisioningTimeoutInSeconds = btpUsecase.timeoutLimitForKymaDeprovisioningInMinutes * 60
+            current_time = 0
+            numberOfTries = 0
+
+            while environmentDeprovisioningTimeoutInSeconds > current_time:
+                numberOfTries += 1
+                message = "Check Kyma deletion status for subaccount > " + \
+                    btpUsecase.accountMetadata["subaccountid"] + " < named > " + \
+                    environment.parameters["name"] + " < (try " + str(numberOfTries) + " - trying again in " + \
+                    str(btpUsecase.pollingIntervalForKymaDeprovisioningInMinutes) + "min)"
                 command = "btp --format json list accounts/environment-instance --subaccount \"" + \
                     btpUsecase.accountMetadata["subaccountid"] + "\""
 
@@ -1381,44 +1417,12 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
 
                 kymaEnvironmentID = getKymaEnvironmentIdByClusterName(result, environment.parameters["name"])
 
-                # Delete Kyma runtime via SAP btp CLI
-                message = "Trigger deletion of Kyma environment > " + \
-                    environment.parameters["name"] + \
-                    " < in subaccount > " + \
-                    btpUsecase.accountMetadata["subaccountid"] + " <"
+                if kymaEnvironmentID is None:
+                    log.success("KYMA ENVIRONMENT DELETED.")
+                    return "DONE"
 
-                command = "btp --format json delete accounts/environment-instance " + kymaEnvironmentID + \
-                    " --subaccount \"" + \
-                    btpUsecase.accountMetadata["subaccountid"] + "\"" + " --confirm"
-
-                result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
-
-                log.info("Check deletion status for Kyma environment")
-
-                environmentDeprovisioningPollFrequencyInSeconds = btpUsecase.pollingIntervalForKymaDeprovisioningInMinutes * 60
-                environmentDeprovisioningTimeoutInSeconds = btpUsecase.timeoutLimitForKymaDeprovisioningInMinutes * 60
-                current_time = 0
-                numberOfTries = 0
-
-                while environmentDeprovisioningTimeoutInSeconds > current_time:
-                    numberOfTries += 1
-                    message = "Check Kyma deletion status for subaccount > " + \
-                        btpUsecase.accountMetadata["subaccountid"] + " < named > " + \
-                        environment.parameters["name"] + " < (try " + str(numberOfTries) + " - trying again in " + \
-                        str(btpUsecase.pollingIntervalForKymaDeprovisioningInMinutes) + "min)"
-                    command = "btp --format json list accounts/environment-instance --subaccount \"" + \
-                        btpUsecase.accountMetadata["subaccountid"] + "\""
-
-                    result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
-
-                    kymaEnvironmentID = getKymaEnvironmentIdByClusterName(result, environment.parameters["name"])
-
-                    if kymaEnvironmentID is None:
-                        log.success("KYMA ENVIRONMENT DELETED.")
-                        return "DONE"
-
-                    time.sleep(environmentDeprovisioningPollFrequencyInSeconds)
-                    current_time += environmentDeprovisioningPollFrequencyInSeconds
+                time.sleep(environmentDeprovisioningPollFrequencyInSeconds)
+                current_time += environmentDeprovisioningPollFrequencyInSeconds
 
 
 def selectEnvironmentLandscape(btpUsecase: BTPUSECASE, environment):
