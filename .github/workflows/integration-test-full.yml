@@ -1,5 +1,5 @@
-name: BTP Setup Automator - Integration Test (Full version - all released scenarios, non-trial)
-# This file represents a slim version of the "BTP Setup Automator" integration tests
+name: BTPSA - Integration Test - full (no trial)
+# This file represents a complete version of the "BTP Setup Automator" integration tests
 # All tests are executed in sequence on one BTP account to avoid entitlement limits
 # This is why not matrix strategy is used
 # The steps of a job must execute in any case, so we use always()
