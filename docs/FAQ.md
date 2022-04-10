@@ -150,7 +150,7 @@ At the same time you can add any additional packages inside the `executeBeforeAc
 
 ## Docker Specifics
 
-### Suddenly I'm getting an "docker: Error response from daemon: Head "https://ghcr.io/v2/sap-samples/btp-setup-automator/manifests/main": denied: denied.". What's going on here?
+### Suddenly I'm getting an "docker: Error response from daemon: Head "../ghcr.io/v2/sap-samples/btp-setup-automator/manifests/main": denied: denied.". What's going on here?
 
 One posssibility: your docker login is trying to connect with GitHub via an expired GitHub token (that you have previously connected with docker). To fix this issue run this command in the command line:
 
