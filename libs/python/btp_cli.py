@@ -442,7 +442,7 @@ class BTPUSECASE:
             command = "btp get security/role-collection '" + rolecollectioname + "'"
             p = runShellCommandFlex(
                 self, command, "INFO", message, False, False)
-            result = p.stdout.decode()
+            result = p.stderr.decode()
             if "error: No entity found with values" in result:
                 message = "Assign role collection >" + rolecollectioname
                 command = "btp create security/role-collection '" + rolecollectioname + \
