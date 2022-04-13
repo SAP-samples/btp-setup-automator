@@ -73,6 +73,14 @@ You might be using the container image that is in your computers' cache.
 Stop the `btp-setup-automator` container in Docker, delete the image, too, and run the following command to delete the cache:
 
 ```bash
+docker ps
+```
+
+```bash
+docker stop container_id
+```
+
+```bash
 docker system prune -a -f
 ```
 
