@@ -442,22 +442,24 @@ class BTPUSECASE:
             command = "btp get security/role-collection '" + rolecollectioname + "'"
             p = runShellCommandFlex(
                 self, command, "INFO", message, False, False)
-            result = p.stderr.decode()
-            if "error: No entity found with values" in result:
-                message = "Assign role collection >" + rolecollectioname
-                command = "btp create security/role-collection '" + rolecollectioname + \
-                    "' --description  '" + rolecollectioname + \
-                    "' --subaccount '" + subaccountid + "'"
-                runShellCommand(self, command, "INFO", message)
-                for role in rolecollection["roles"]:
-                    message = "Assign role " + \
-                        role["name"] + " to role collection " + \
-                        rolecollectioname
-                    command = "btp add security/role '" + role["name"] + "' --to-role-collection  '" + rolecollectioname + \
-                        "' --of-role-template '" + \
-                        role["roletemplate"] + "' --of-app '" + \
-                        role["app"] + "' --subaccount '" + subaccountid + "'"
+            result = p.stdout.decode()
+            if not result:
+                result = p.stderr.decode()
+                if "error: No entity found with values" in result:
+                    message = "Assign role collection >" + rolecollectioname
+                    command = "btp create security/role-collection '" + rolecollectioname + \
+                        "' --description  '" + rolecollectioname + \
+                        "' --subaccount '" + subaccountid + "'"
                     runShellCommand(self, command, "INFO", message)
+                    for role in rolecollection["roles"]:
+                        message = "Assign role " + \
+                            role["name"] + " to role collection " + \
+                            rolecollectioname
+                        command = "btp add security/role '" + role["name"] + "' --to-role-collection  '" + rolecollectioname + \
+                            "' --of-role-template '" + \
+                            role["roletemplate"] + "' --of-app '" + \
+                            role["app"] + "' --subaccount '" + subaccountid + "'"
+                        runShellCommand(self, command, "INFO", message)
 
             for userEmail in admins:
                 message = "assign user >" + userEmail + \
