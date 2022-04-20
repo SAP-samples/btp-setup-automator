@@ -188,9 +188,13 @@ def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):
             if "description" in command and "command" in command:
                 message = command["description"]
                 thisCommand = command["command"]
+                if "exitIfError" in command:
+                    exitIfError = command["exitIfError"]
+                else:
+                    exitIfError = True
                 log.header("COMMAND EXECUTION: " + message)
 
-                p = runShellCommandFlex(btpUsecase, thisCommand, "INFO", "Executing the following commands:\n" + thisCommand + "\n", True, True)
+                p = runShellCommandFlex(btpUsecase, thisCommand, "INFO", "Executing the following commands:\n" + thisCommand + "\n", exitIfError, True)
                 if p is not None and p.stdout is not None:
                     result = p.stdout.decode()
                     log.success(result)
