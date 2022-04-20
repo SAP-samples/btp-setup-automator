@@ -14,30 +14,32 @@ def runShellCommand(btpUsecase, command, format, info):
 
 
 def login_cf(btpUsecase):
-    accountMetadata = btpUsecase.accountMetadata
 
-    org = accountMetadata["org"]
-    cfCLIRegion = btpUsecase.region
-    myemail = btpUsecase.myemail
-    password = btpUsecase.mypassword
+    cfDefined = checkIfCfEnvironmentIsDefined(btpUsecase)
+    if cfDefined is True:
+        accountMetadata = btpUsecase.accountMetadata
 
-    if btpUsecase.cfcliapihostregion is not None and btpUsecase.cfcliapihostregion != "":
-        cfCLIRegion = btpUsecase.cfcliapihostregion
+        # TBD: check, if we should switch from accountMetadata["org"] to  btpUsecase.org
+        org = accountMetadata["org"]
 
-    command = None
-    pipe = False
-    if btpUsecase.loginmethod == "sso":
-        command = "cf login -a \"https://api.cf." + cfCLIRegion + \
-            ".hana.ondemand.com\" -o \"" + org + "\" --sso"
-        pipe = True
-    else:
-        command = "cf login -a \"https://api.cf." + cfCLIRegion + \
-            ".hana.ondemand.com\" -o \"" + org + "\" -u \"" + \
-            myemail + "\" -p \"" + password + "\""
-    # If a space is already there, attach the space name to the login to target the space
-    if "cfspacename" in accountMetadata and accountMetadata["cfspacename"] is not None and accountMetadata["cfspacename"] != "":
-        command = "cf target -s " + accountMetadata["cfspacename"]
-    runShellCommandFlex(btpUsecase, command, "INFO", "Logging-in to your CF environment in the org >" + org + "< for your user >" + myemail + "<", True, pipe)
+        cfCLIRegion = btpUsecase.region
+        myemail = btpUsecase.myemail
+        password = btpUsecase.mypassword
+
+        if btpUsecase.cfcliapihostregion is not None and btpUsecase.cfcliapihostregion != "":
+            cfCLIRegion = btpUsecase.cfcliapihostregion
+
+        command = None
+        pipe = False
+        if btpUsecase.loginmethod == "sso":
+            command = "cf login -a \"https://api.cf." + cfCLIRegion + \
+                ".hana.ondemand.com\" -o \"" + org + "\" --sso"
+            pipe = True
+        else:
+            command = "cf login -a \"https://api.cf." + cfCLIRegion + \
+                ".hana.ondemand.com\" -o \"" + org + "\" -u \"" + \
+                myemail + "\" -p \"" + password + "\""
+        runShellCommandFlex(btpUsecase, command, "INFO", "Logging-in to your CF environment in the org >" + org + "< for your user >" + myemail + "<", True, pipe)
 
 
 def login_btp(btpUsecase):
@@ -143,15 +145,26 @@ def checkIfReLoginNecessary(btpUsecase, command):
         minutesPassed = "{:.2f}".format(elapsedTime / 60)
         log.warning("executing a re-login in SAP btp CLI and CF CLI as the last login happened more than >" + minutesPassed + "< minutes ago")
         login_btp(btpUsecase)
-        login_cf(btpUsecase)
+        cfDefined = checkIfCfEnvironmentIsDefined(btpUsecase)
+        if cfDefined is True:
+            login_cf(btpUsecase)
         btpUsecase.timeLastCliLogin = currentTime
 
     if command[0:3] == "cf " and command[0:8] != "cf login" and reLogin is True:
         minutesPassed = "{:.2f}".format(elapsedTime / 60)
         log.warning("executing a re-login in SAP btp CLI and CF CLI as the last login happened more than >" + minutesPassed + "< minutes ago")
         login_btp(btpUsecase)
-        login_cf(btpUsecase)
+        cfDefined = checkIfCfEnvironmentIsDefined(btpUsecase)
+        if cfDefined is True:
+            login_cf(btpUsecase)
         btpUsecase.timeLastCliLogin = currentTime
+
+
+def checkIfCfEnvironmentIsDefined(btpUsecase):
+    for environment in btpUsecase.definedEnvironments:
+        if environment.name == "cloudfoundry":
+            return True
+    return False
 
 
 def runCommandAndGetJsonResult(btpUsecase, command, format, message):

@@ -1,4 +1,4 @@
-name: BTP Setup Automator - Integration Test (Slim version - only main scenarios)
+name: BTPSA - Integration Test - short
 # This file represents a slim version of the "BTP Setup Automator" integration tests
 # All tests are executed in sequence on one BTP account to avoid entitlement limits
 # This is why not matrix strategy is used

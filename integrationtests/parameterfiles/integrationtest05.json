@@ -4,12 +4,12 @@
   "region": "eu10",
   "subaccountname": "BTPSA int-test one service",
   "subdomain": "my own subdomain with -",
-  "cfspacename": "development",
+  "cfspacename": "my own space",
   "suffixinstancename": "my own suffix",
   "fallbackserviceplan": null,
   "repeatstatusrequest": 4,
   "repeatstatustimeout": 4200,
   "logcommands": true,
-  "pruneusecase": true,
-  "prunesubaccount": true
+  "pruneusecase": false,
+  "prunesubaccount": false
 }

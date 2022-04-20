@@ -73,6 +73,14 @@ You might be using the container image that is in your computers' cache.
 Stop the `btp-setup-automator` container in Docker, delete the image, too, and run the following command to delete the cache:
 
 ```bash
+docker ps
+```
+
+```bash
+docker stop container_id
+```
+
+```bash
 docker system prune -a -f
 ```
 
@@ -146,6 +154,16 @@ At the same time you can add any additional packages inside the `executeBeforeAc
     }
   ]
 ..
+```
+
+## Docker Specifics
+
+### Suddenly I'm getting an "docker: Error response from daemon: Head "../ghcr.io/v2/sap-samples/btp-setup-automator/manifests/main": denied: denied.". What's going on here?
+
+One posssibility: your docker login is trying to connect with GitHub via an expired GitHub token (that you have previously connected with docker). To fix this issue run this command in the command line:
+
+```
+docker logout ghcr.io
 ```
 
 ## Cloud Foundry Setup Specifics

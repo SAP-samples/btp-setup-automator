@@ -10,6 +10,18 @@ body:
     options:
     - label: I have searched the existing issues
       required: true
+- type: checkboxes
+  attributes:
+    label: Are you using the latest docker image for BTPSA?
+    description: |
+      Please check if the docker image you are using is up-to-date. If you are not sure, run theses commands from the command line: 
+      `docker container stop "btp-setup-automator"`
+      `docker container rm -f "btp-setup-automator"`
+      `docker image rmi -f "btp-setup-automator"`
+      `docker system prune -a -f`
+    options:
+    - label: I'm using the latest docker image for BTPSA.
+      required: true
 - type: dropdown
   id: area
   attributes:
@@ -49,11 +61,11 @@ body:
     required: false
 - type: textarea
   attributes:
-    label: Logs available?
+    label: Logs and configuration files available?
     description: |
-      Are there any logs available? If yes please post them here or attach them to this issue.
+      Can you share the logs and configuration files (parameters.json, usecase.json)? If yes please post them here or attach them to this issue.
 
-      Tip: You can attach log files by clicking this area to highlight it and then dragging files in.
+      Tip: You can attach files by clicking this area to highlight it and then dragging files in.
   validations:
     required: false
 - type: textarea

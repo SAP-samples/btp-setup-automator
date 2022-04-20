@@ -360,11 +360,26 @@ class BTPUSECASE:
                     sys.exit(os.EX_DATAERR)
 
         else:
-            command = "btp --format json list accounts/environment-instances --subaccount '" + subaccountid + "'"
-            result = runCommandAndGetJsonResult(self, command, "INFO", "fetch org name")
-            parameters = convertStringToJson(result["environmentInstances"][0]["parameters"])
-            self.accountMetadata = addKeyValuePair(accountMetadata, "org", parameters["instance_name"])
-            log.header("USING CONFIGURED ENVIRONMENT WITH ID >" + accountMetadata["orgid"] + "<")
+            foundOrg = False
+            for environment in environments:
+                if environment.name == "cloudfoundry":
+
+                    command = "btp --format json list accounts/environment-instances --subaccount '" + subaccountid + "'"
+                    result = runCommandAndGetJsonResult(self, command, "INFO", "fetch org name")
+                    envInstances = result["environmentInstances"]
+                    for envInstance in envInstances:
+                        if "labels" in envInstance and envInstance["labels"] is not None and envInstance["environmentType"] == "cloudfoundry":
+                            labels = convertStringToJson(envInstance["labels"])
+                            thisOrgId = labels["Org ID:"]
+                            thisOrg = labels["Org Name:"]
+
+                            if thisOrgId == orgid:
+                                self.accountMetadata = addKeyValuePair(accountMetadata, "org", thisOrg)
+                                log.header("USING CONFIGURED ENVIRONMENT WITH ID >" + accountMetadata["orgid"] + "<")
+                                foundOrg = True
+            if foundOrg is False:
+                log.error("could not find Cloud Foundry org with id >" + orgid + "< that you've defined in your parameters.json file.")
+                sys.exit(os.EX_DATAERR)
 
         save_collected_metadata(self)
 
@@ -428,21 +443,23 @@ class BTPUSECASE:
             p = runShellCommandFlex(
                 self, command, "INFO", message, False, False)
             result = p.stdout.decode()
-            if "error: No entity found with values" in result:
-                message = "Assign role collection >" + rolecollectioname
-                command = "btp create security/role-collection '" + rolecollectioname + \
-                    "' --description  '" + rolecollectioname + \
-                    "' --subaccount '" + subaccountid + "'"
-                runShellCommand(self, command, "INFO", message)
-                for role in rolecollection["roles"]:
-                    message = "Assign role " + \
-                        role["name"] + " to role collection " + \
-                        rolecollectioname
-                    command = "btp add security/role '" + role["name"] + "' --to-role-collection  '" + rolecollectioname + \
-                        "' --of-role-template '" + \
-                        role["roletemplate"] + "' --of-app '" + \
-                        role["app"] + "' --subaccount '" + subaccountid + "'"
+            if not result:
+                result = p.stderr.decode()
+                if "error: No entity found with values" in result:
+                    message = "Assign role collection >" + rolecollectioname
+                    command = "btp create security/role-collection '" + rolecollectioname + \
+                        "' --description  '" + rolecollectioname + \
+                        "' --subaccount '" + subaccountid + "'"
                     runShellCommand(self, command, "INFO", message)
+                    for role in rolecollection["roles"]:
+                        message = "Assign role " + \
+                            role["name"] + " to role collection " + \
+                            rolecollectioname
+                        command = "btp add security/role '" + role["name"] + "' --to-role-collection  '" + rolecollectioname + \
+                            "' --of-role-template '" + \
+                            role["roletemplate"] + "' --of-app '" + \
+                            role["app"] + "' --subaccount '" + subaccountid + "'"
+                        runShellCommand(self, command, "INFO", message)
 
             for userEmail in admins:
                 message = "assign user >" + userEmail + \
@@ -915,8 +932,8 @@ def doAllEntitlements(btpUsecase: BTPUSECASE, allItems):
     # Simply sum-up all amounts to one amount per name/plan combination
     for entitlement in entitlements:
         amount = 0
-        thisName = service.name
-        thisPlan = service.plan
+        thisName = entitlement.name
+        thisPlan = entitlement.plan
         for service in allItems:
             serviceName = service.name
             servicePlan = service.plan
@@ -1354,11 +1371,47 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                             allServicesDeleted = False
                 log.success("all service instances now deleted.")
 
-            if environment.name == "kymaruntime":
-                # Get Kyma runtime ID
-                message = "Get Kyma environment ID for subaccount > " + \
-                    btpUsecase.accountMetadata["subaccountid"] + " < by name > " + \
-                    btpUsecase.accountMetadata["subaccountid"] + " <"
+    for environment in btpUsecase.definedEnvironments:
+        if environment.name == "cloudfoundry":
+            log.info("Cloud Foundry envorinment will be deleted automatically with the deletion of the sub account. No separate deletion needed.")
+
+        if environment.name == "kymaruntime":
+            # Get Kyma runtime ID
+            message = "Get Kyma environment ID for subaccount > " + \
+                btpUsecase.accountMetadata["subaccountid"] + " < by name > " + \
+                btpUsecase.accountMetadata["subaccountid"] + " <"
+            command = "btp --format json list accounts/environment-instance --subaccount \"" + \
+                btpUsecase.accountMetadata["subaccountid"] + "\""
+
+            result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
+
+            kymaEnvironmentID = getKymaEnvironmentIdByClusterName(result, environment.parameters["name"])
+
+            # Delete Kyma runtime via SAP btp CLI
+            message = "Trigger deletion of Kyma environment > " + \
+                environment.parameters["name"] + \
+                " < in subaccount > " + \
+                btpUsecase.accountMetadata["subaccountid"] + " <"
+
+            command = "btp --format json delete accounts/environment-instance " + kymaEnvironmentID + \
+                " --subaccount \"" + \
+                btpUsecase.accountMetadata["subaccountid"] + "\"" + " --confirm"
+
+            result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
+
+            log.info("Check deletion status for Kyma environment")
+
+            environmentDeprovisioningPollFrequencyInSeconds = btpUsecase.pollingIntervalForKymaDeprovisioningInMinutes * 60
+            environmentDeprovisioningTimeoutInSeconds = btpUsecase.timeoutLimitForKymaDeprovisioningInMinutes * 60
+            current_time = 0
+            numberOfTries = 0
+
+            while environmentDeprovisioningTimeoutInSeconds > current_time:
+                numberOfTries += 1
+                message = "Check Kyma deletion status for subaccount > " + \
+                    btpUsecase.accountMetadata["subaccountid"] + " < named > " + \
+                    environment.parameters["name"] + " < (try " + str(numberOfTries) + " - trying again in " + \
+                    str(btpUsecase.pollingIntervalForKymaDeprovisioningInMinutes) + "min)"
                 command = "btp --format json list accounts/environment-instance --subaccount \"" + \
                     btpUsecase.accountMetadata["subaccountid"] + "\""
 
@@ -1366,44 +1419,12 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
 
                 kymaEnvironmentID = getKymaEnvironmentIdByClusterName(result, environment.parameters["name"])
 
-                # Delete Kyma runtime via SAP btp CLI
-                message = "Trigger deletion of Kyma environment > " + \
-                    environment.parameters["name"] + \
-                    " < in subaccount > " + \
-                    btpUsecase.accountMetadata["subaccountid"] + " <"
+                if kymaEnvironmentID is None:
+                    log.success("KYMA ENVIRONMENT DELETED.")
+                    return "DONE"
 
-                command = "btp --format json delete accounts/environment-instance " + kymaEnvironmentID + \
-                    " --subaccount \"" + \
-                    btpUsecase.accountMetadata["subaccountid"] + "\"" + " --confirm"
-
-                result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
-
-                log.info("Check deletion status for Kyma environment")
-
-                environmentDeprovisioningPollFrequencyInSeconds = btpUsecase.pollingIntervalForKymaDeprovisioningInMinutes * 60
-                environmentDeprovisioningTimeoutInSeconds = btpUsecase.timeoutLimitForKymaDeprovisioningInMinutes * 60
-                current_time = 0
-                numberOfTries = 0
-
-                while environmentDeprovisioningTimeoutInSeconds > current_time:
-                    numberOfTries += 1
-                    message = "Check Kyma deletion status for subaccount > " + \
-                        btpUsecase.accountMetadata["subaccountid"] + " < named > " + \
-                        environment.parameters["name"] + " < (try " + str(numberOfTries) + " - trying again in " + \
-                        str(btpUsecase.pollingIntervalForKymaDeprovisioningInMinutes) + "min)"
-                    command = "btp --format json list accounts/environment-instance --subaccount \"" + \
-                        btpUsecase.accountMetadata["subaccountid"] + "\""
-
-                    result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
-
-                    kymaEnvironmentID = getKymaEnvironmentIdByClusterName(result, environment.parameters["name"])
-
-                    if kymaEnvironmentID is None:
-                        log.success("KYMA ENVIRONMENT DELETED.")
-                        return "DONE"
-
-                    time.sleep(environmentDeprovisioningPollFrequencyInSeconds)
-                    current_time += environmentDeprovisioningPollFrequencyInSeconds
+                time.sleep(environmentDeprovisioningPollFrequencyInSeconds)
+                current_time += environmentDeprovisioningPollFrequencyInSeconds
 
 
 def selectEnvironmentLandscape(btpUsecase: BTPUSECASE, environment):
@@ -1449,6 +1470,5 @@ def selectEnvironmentLandscape(btpUsecase: BTPUSECASE, environment):
         time.sleep(search_every_x_seconds)
         current_time += search_every_x_seconds
 
-    log.error("No matching environment found >" +
-              environment["name"] + "< for >" + region + "<")
+    log.error("No matching environment found >" + environment["name"] + "< for >" + region + "<")
     sys.exit(os.EX_DATAERR)

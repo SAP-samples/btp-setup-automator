@@ -1,0 +1,65 @@
+{
+  "aboutThisUseCase": {
+    "name": "Create a SAP Event Mesh setup as required for the DSAG Technology Days 2022 Kyma Hands-On",
+    "description": "This use case provides the configuration set up of the SAP Event Mesh i. e. the SAP Event Mesh service, the SAP Event Mesh application and the service keys.",
+    "author": "christian.lechner@sap.com",
+    "testStatus": "tested successfully",
+    "usageStatus": "READY TO BE USED",
+    "relatedLinks": [
+      "https://github.com/SAP-samples/kyma-runtime-extension-samples/tree/main/dsagtt22"
+    ]
+  },
+  "services": [
+    {
+      "name": "enterprise-messaging",
+      "plan": "default",
+      "category": "SERVICE",
+      "instancename": "dsagtt22-btpsa",
+      "parameters": {
+        "emname": "dsagtt22-btpsa",
+        "namespace": "default/dsagtt22btpsa.kyma/eventing.demo",
+        "version": "1.1.0",
+        "resources": {
+          "units": "10"
+        },
+        "options": {
+          "management": true,
+          "messagingrest": true,
+          "messaging": true
+        },
+        "rules": {
+          "queueRules": {
+            "publishFilter": [
+              "${namespace}/*"
+            ],
+            "subscribeFilter": [
+              "${namespace}/*"
+            ]
+          },
+          "topicRules": {
+            "publishFilter": [
+              "${namespace}/*"
+            ],
+            "subscribeFilter": [
+              "${namespace}/*"
+            ]
+          }
+        }
+      },
+      "createServiceKeys": [
+        "dsagtt22btpsaeventmeshsk"
+      ]
+    },
+    {
+      "name": "enterprise-messaging-hub",
+      "plan": "standard",
+      "category": "APPLICATION",
+      "requiredrolecollections": [
+        "Enterprise Messaging Administrator",
+        "Enterprise Messaging Developer",
+        "Enterprise Messaging Subscription Administrator"
+      ]
+    }
+  ],
+  "admins": []
+}

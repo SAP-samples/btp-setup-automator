@@ -3,7 +3,6 @@
     "loginmethod": "envVariables",
     "region": "us30",
     "waitForKymaEnvironmentCreation": true,
-    "timeoutLimitForKymaCreationInMinutes": 35,
-    "pollingIntervalForKymaCreationInMinutes": 5,
+    "timeoutLimitForKymaCreationInMinutes": 75,
     "subaccountname": "BTPSA int-test kymasetupauto gcp dapr"
 }
