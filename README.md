@@ -105,6 +105,25 @@ To create the Docker image yourself you need to execute these steps:
 
 The script  will build a docker image and create a docker container on your machine.
 
+### Option 3: Using the prebuilt Docker image on the command line as one-off
+
+If you're not requiring any changes to the Dockerimage itself and would like to run the tool directly with your local ´usecase.json´ and ´parameters.json´ this is the easiest option. It requires a a shell and docker only and no VSCode Remote Containers or files in the container itself
+
+Pull the image
+```bash
+docker pull ghcr.io/sap-samples/btp-setup-automator:main
+```
+
+
+Create a alias (mounting the current working directory inside the container)
+```bash
+alias docker_btpsa='docker container run --rm  -it -v "$PWD:/home/user/data" "btpsa" --entrypoint "/home/user/btpsa"'
+```
+
+Execute it with (note - files must be prefixed with ´/data´ from the container POV)
+```bash
+docker_btpsa -parameterfile data/parameters.json -usecasefile data/usecase.json
+```
 ## Using the Docker Container
 
 Independently whether you've created the docker image yourself, or used the pre-built image, you should now see the Docker container up-and-running. In case you are using VS Code, open the command palette (Windows: `Ctrl+Shift+P` ; Mac: `Cmd+Shift+P`) and select the `Remote Containers: Attach to running Container ...` command:
