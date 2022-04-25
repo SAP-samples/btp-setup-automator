@@ -113,6 +113,16 @@ You specify the behavior via two parameters:
 
 > ⚠ NOTE: Be aware that all setups done via commands must be reversed. This must be done via commands provided in the `executeToPruneUseCase` section.  
 
+### Exit if error - Handle with Care
+
+`btp-setup-automator` supports executing custom commands at three stages:
+
+- `executeBeforeAccountSetup`
+- `executeAfterAccountSetup`
+- `executeToPruneUseCase`
+
+In the case of a command failing in any of the sections, the default behavior of `btp-setup-automator` is to stop the use case execution. In some cases, you might want to continue the execution even if some of the commands fail. You can control this by setting the `exitIfError` parameter to `false` in the `parameters.json` file.
+
 ### Parameter Examples
 
 You find several examples for parameter files in the folder `integrationtests/parameterfiles`.

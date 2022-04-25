@@ -181,6 +181,9 @@ def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):
         commands = usecaseDefinition[jsonSection]
         log.header(message)
 
+        # Set exitIfError from parameters (default is True)
+        exitIfError = btpUsecase.exitIfError
+
         for command in commands:
             # if "parameters" in command:
             #     parameters = command["parameters"]
@@ -190,7 +193,7 @@ def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):
                 thisCommand = command["command"]
                 log.header("COMMAND EXECUTION: " + message)
 
-                p = runShellCommandFlex(btpUsecase, thisCommand, "INFO", "Executing the following commands:\n" + thisCommand + "\n", True, True)
+                p = runShellCommandFlex(btpUsecase, thisCommand, "INFO", "Executing the following commands:\n" + thisCommand + "\n", exitIfError, True)
                 if p is not None and p.stdout is not None:
                     result = p.stdout.decode()
                     log.success(result)

@@ -189,5 +189,11 @@
         "type": "str",
         "help": "list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`.",
         "default": null
+    },
+    {
+        "argument": "exitIfError",
+        "type": "bool",
+        "help": "if set to True: btpsa will stop if any command (from before, after and prune) fail. if set to False, btpsa will continue even if commands (from before, after and prune) fail",
+        "default": true
     }
 ]

@@ -22,6 +22,7 @@ These are the available commands:
 | createServiceKeys | list of service keys to be created for a service  | list | False | None |
 | requiredServices | list of service keys to be created for a service  | list | False | None |
 | requiredrolecollections | list of role collections to be created for a service | list | False | None |
+| exitIfError | Stop `btp-setup-automator` if any command (before, after and prune) fail | bool | False | True |
 
 You can get an overview of those commands as well, by simply typing the following command in your command line terminal:
 

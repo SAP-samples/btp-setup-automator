@@ -1,0 +1,30 @@
+{
+    "aboutThisUseCase": {
+      "name": "Usecase with failing commands",
+      "description": "Use this use case to test the global flag exitIfError. This is a minimal use case with failing commands in the before, after, and prune sections",
+      "author": "pedro.iranzo.egea@sap.com",
+      "testStatus": "tested successfully",
+      "usageStatus": "NOT TO BE USED IN PRODUCTION"
+    },
+    "services": [],
+    "admins": ["pedro.iranzo.egea@sap.com"],
+    "executeBeforeAccountSetup": [
+        {
+            "description": "Failing command",
+            "command": "exit 1"
+        }
+    ],
+    "executeAfterAccountSetup": [
+        {
+            "description": "Failing command",
+            "command": "exit 1"
+        }
+    ],
+    "executeToPruneUseCase": [
+        {
+            "description": "Failing command",
+            "command": "exit 1"
+        }
+    ]
+  }
+  
