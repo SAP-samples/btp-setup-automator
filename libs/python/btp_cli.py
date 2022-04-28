@@ -243,8 +243,7 @@ class BTPUSECASE:
         subaccountid = accountMetadata["subaccountid"]
 
         orgid = self.orgid
-        self.accountMetadata = addKeyValuePair(accountMetadata, "orgid", orgid)
-
+        
         if self.orgid is not None and self.orgid != "":
             self.accountMetadata = addKeyValuePair(accountMetadata, "orgid", self.orgid)
 
