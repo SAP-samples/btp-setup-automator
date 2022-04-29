@@ -62,13 +62,13 @@ def runTrustFlow(btpUsecase):
 def get_cf_service_key(btpUsecase, instanceName, keyName):
     result = None
 
-    command = "cf create-service-key \"" + instanceName + "\" \"" + keyName + "\""
+    command = "cf create-service-key '" + instanceName + "' '" + keyName + "'"
     message = "create service key from XSUAA instance >" + instanceName + "< for keyname >" + keyName + "<"
     p = runShellCommand(btpUsecase, command, "INFO", message)
     returnCode = p.returncode
 
     if returnCode == 0:
-        command = "cf service-key \"" + instanceName + "\" \"" + keyName + "\""
+        command = "cf service-key '" + instanceName + "' '" + keyName + "'"
         message = "get service key for instance >" + instanceName + "< and keyname >" + keyName + "<"
         response = runShellCommand(btpUsecase, command, "CHECK", message)
         # Delete the first 2 lines of the CF result string as they don't contain json data
@@ -82,7 +82,7 @@ def get_cf_service_key(btpUsecase, instanceName, keyName):
 
 
 def delete_cf_service_key(btpUsecase, instanceName, keyName):
-    command = "cf delete-service-key  \"" + instanceName + "\" \"" + keyName + "\" -f"
+    command = "cf delete-service-key '" + instanceName + "' '" + keyName + "' -f"
     message = "delete service key from instance >" + instanceName + "< for key >" + keyName + "<"
     runShellCommand(btpUsecase, command, "INFO", message)
 
