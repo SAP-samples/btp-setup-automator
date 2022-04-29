@@ -22,23 +22,23 @@ def getKeyFromCFOutput(cfoutput, key):
 
 def checkIfCFEnvironmentAlreadyExists(btpUsecase):
     accountMetadata = btpUsecase.accountMetadata
+    orgid = None
+    org = None
 
     command = "btp --format json list account/environment-instance --subaccount '" + accountMetadata["subaccountid"] + "'"
     result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", None)
 
     if "orgid" in accountMetadata:
         orgid = accountMetadata["orgid"]
-        org = None
 
-        for instance in result["environmentInstances"]:
-            if instance["subaccountGUID"] == btpUsecase.subaccountid:
-                labels = convertStringToJson(instance["labels"])
-                org = labels["Org Name:"]
-                return instance["platformId"], org
-        # If the for loop didn't return any value, the orgid wasn't found
-        return orgid, org
-    else:
-        return None, None
+    # If the for loop didn't return any value, the orgid wasn't found
+    for instance in result["environmentInstances"]:
+        if instance["subaccountGUID"] == btpUsecase.subaccountid:
+            labels = convertStringToJson(instance["labels"])
+            org = labels["Org Name:"]
+            return instance["platformId"], org
+
+    return orgid, org
 
 
 def checkIfCFSpaceAlreadyExists(btpUsecase):
@@ -56,7 +56,7 @@ def checkIfCFSpaceAlreadyExists(btpUsecase):
 
 
 def getStatusResponseFromCreatedInstance(btpUsecase, instancename):
-    command = "cf service '" + instancename + "'\""
+    command = "cf service '" + instancename + "'"
     p = runShellCommand(btpUsecase, command, "INFO", None)
     result = p.stdout.decode()
     jsonResults = convertCloudFoundryCommandForSingleServiceToJson(result)
