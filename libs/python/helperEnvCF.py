@@ -22,24 +22,23 @@ def getKeyFromCFOutput(cfoutput, key):
 
 def checkIfCFEnvironmentAlreadyExists(btpUsecase):
     accountMetadata = btpUsecase.accountMetadata
+    orgid = None
+    org = None
 
-    command = "btp --format json list account/environment-instance --subaccount " + \
-        accountMetadata["subaccountid"]
+    command = "btp --format json list account/environment-instance --subaccount '" + accountMetadata["subaccountid"] + "'"
     result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", None)
 
     if "orgid" in accountMetadata:
         orgid = accountMetadata["orgid"]
-        org = None
 
-        for instance in result["environmentInstances"]:
-            if instance["subaccountGUID"] == btpUsecase.subaccountid:
-                labels = convertStringToJson(instance["labels"])
-                org = labels["Org Name:"]
-                return instance["platformId"], org
-        # If the for loop didn't return any value, the orgid wasn't found
-        return orgid, org
-    else:
-        return None, None
+    # If the for loop didn't return any value, the orgid wasn't found
+    for instance in result["environmentInstances"]:
+        if instance["subaccountGUID"] == btpUsecase.subaccountid:
+            labels = convertStringToJson(instance["labels"])
+            org = labels["Org Name:"]
+            return instance["platformId"], org
+
+    return orgid, org
 
 
 def checkIfCFSpaceAlreadyExists(btpUsecase):
@@ -57,7 +56,7 @@ def checkIfCFSpaceAlreadyExists(btpUsecase):
 
 
 def getStatusResponseFromCreatedInstance(btpUsecase, instancename):
-    command = "cf service \"" + instancename + "\""
+    command = "cf service '" + instancename + "'"
     p = runShellCommand(btpUsecase, command, "INFO", None)
     result = p.stdout.decode()
     jsonResults = convertCloudFoundryCommandForSingleServiceToJson(result)
@@ -123,7 +122,7 @@ def create_cf_service(btpUsecase, service):
     if service.planCatalogName is not None:
         plan = service.planCatalogName
 
-    command = "cf create-service \"" + service.name + "\" \"" + plan + "\"  \"" + instancename + "\""
+    command = "cf create-service '" + service.name + "' '" + plan + "' '" + instancename + "'"
 
     if service.parameters is not None:
         thisParameter = dictToString(service.parameters)
@@ -136,7 +135,7 @@ def create_cf_service(btpUsecase, service):
 
 
 def cf_cup_service_already_exists(btpUsecase, instance_name):
-    command = "cf service \"" + instance_name + "\""
+    command = "cf service '" + instance_name + "'"
     p = runShellCommandFlex(btpUsecase, command, "CHECK", None, False, False)
     result = p.stdout.decode()
     if "FAILED" in result:
@@ -150,7 +149,7 @@ def create_cf_cup_service(btpUsecase, service):
     cfCupServiceAlreadyExists = cf_cup_service_already_exists(btpUsecase, instance_name)
 
     if cfCupServiceAlreadyExists is False:
-        command = "cf cups \"" + instance_name + "\" "
+        command = "cf cups '" + instance_name + "' "
 
         if service.parameters is not None:
             thisParameter = str(service.parameters)
@@ -244,7 +243,7 @@ def initiateCreationOfServiceInstances(btpUsecase):
 def get_cf_service_status(btpUsecase, service):
     instance_name = service.instancename
 
-    command = "cf service \"" + instance_name + "\""
+    command = "cf service '" + instance_name + "'"
     p = runShellCommand(btpUsecase, command, "CHECK", None)
     result = p.stdout.decode()
 
@@ -255,7 +254,7 @@ def get_cf_service_status(btpUsecase, service):
 
 def get_cf_service_deletion_status(btpUsecase, service):
     instance_name = service["instancename"]
-    command = "cf service \"" + instance_name + "\""
+    command = "cf service '" + instance_name + "'"
     p = runShellCommandFlex(btpUsecase, command, "CHECK", None, False, False)
     result = p.stdout.decode()
     if "FAILED" in result:

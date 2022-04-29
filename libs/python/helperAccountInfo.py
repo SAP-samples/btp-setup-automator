@@ -8,10 +8,8 @@ log = logging.getLogger(__name__)
 def getServiceInfo(btpUsecase):
     usecaseRegion = btpUsecase.region
 
-    command = "btp --format json list accounts/entitlement --global-account \"" + \
-        btpUsecase.globalaccount + "\""
-    message = "Get list of available services and app subsciptions for defined region >" + \
-        usecaseRegion + "<"
+    command = "btp --format json list accounts/entitlement --global-account '" + btpUsecase.globalaccount + "'"
+    message = "Get list of available services and app subsciptions for defined region >" + usecaseRegion + "<"
     result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
 
     return result
