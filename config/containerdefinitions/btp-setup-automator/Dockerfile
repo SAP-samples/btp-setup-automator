@@ -59,20 +59,20 @@ RUN MBT_VERSION="1.2.10" \
 # The necessary plugin will be built from the sources and copied over to the final
 # image.
 ########################################################################################
-# FROM golang:alpine as cf_plugin_multiapps
-# SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
-# WORKDIR /tmp/tools
-# RUN apk update upgrade \
-# && apk add --no-cache bash git \
-# && git clone "https://github.com/cloudfoundry/multiapps-cli-plugin"  multiapps-cli-plugin \
-# && cd multiapps-cli-plugin \
-# &&  go mod download code.cloudfoundry.org/bytefmt \
-# && go get github.com/cloudfoundry-incubator/multiapps-cli-plugin/commands \
-# && ./build.sh \
-# && cd build \
-# && mv multiapps-plugin-static.linux64 /tmp/tools \
-# && cd /tmp/tools \
-# && rm -rf multiapps-cli-plugin
+FROM golang:alpine as cf_plugin_multiapps
+SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+WORKDIR /tmp/tools
+RUN apk update upgrade \
+&& apk add --no-cache bash git \
+&& git clone "https://github.com/cloudfoundry/multiapps-cli-plugin"  multiapps-cli-plugin \
+&& cd multiapps-cli-plugin \
+&&  go mod download code.cloudfoundry.org/bytefmt \
+&& go get github.com/cloudfoundry-incubator/multiapps-cli-plugin/commands \
+&& ./build.sh \
+&& cd build \
+&& mv multiapps-plugin-static.linux64 /tmp/tools \
+&& cd /tmp/tools \
+&& rm -rf multiapps-cli-plugin
 
 ########################################################################################
 # Retrieve the Kubernetes CLI, krew and OIDC Plugin (needed for Kyma)
@@ -104,7 +104,7 @@ WORKDIR /usr/local/bin
 COPY --from=cf_cli                 /tmp/tools/ .
 COPY --from=btp_cli                /tmp/tools/ .
 COPY --from=mta_build_tool         /tmp/tools/ .
-#COPY --from=cf_plugin_multiapps    /tmp/tools/ .
+COPY --from=cf_plugin_multiapps    /tmp/tools/ .
 COPY --from=kubectl_cli            /tmp/tools/ .
 COPY --from=helm_cli               /usr/local/bin/helm .
 ARG BTPSA_VERSION_GIT_ARG=default
@@ -176,13 +176,13 @@ COPY --chown=root:root --from=tools /usr/local/bin/cf  /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/cf7  /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/btp /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/mbt /usr/local/bin
-#COPY --chown=root:root --from=tools /usr/local/bin/multiapps-plugin-static.linux64 /usr/local/bin
+COPY --chown=root:root --from=tools /usr/local/bin/multiapps-plugin-static.linux64 /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/kubectl /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/helm /usr/local/bin
 
 ## Install the CF plugin for deploying MTAs on Cloudfoundry
-RUN cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/latest/download/multiapps-plugin.linux32 
-#RUN cf install-plugin -f /usr/local/bin/multiapps-plugin-static.linux64
+#RUN cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/latest/download/multiapps-plugin.linux32 
+RUN cf install-plugin -f /usr/local/bin/multiapps-plugin-static.linux64
 
 ## Install krew and the oidc-login plugin
 RUN    OS="$(uname | tr '[:upper:]' '[:lower:]')" \
