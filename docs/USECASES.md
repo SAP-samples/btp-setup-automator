@@ -36,7 +36,7 @@ The use case is referenced from the parameters file [/integrationtests/parameter
 
 ## Use case "extendS4_with_devops.json"
 
-The file [extendS4_with_devops.json](../usecases/released/extendS4_with_devops.json) contains the setup of an application complementing an existing business process in an SAP solution - currently SAP S/4HANA - with additional business process steps. This includes the necessary service instance, app subscriptions and role collections. In addition the CI/CD service on SAP BTP is provisioned for a true end2end setup.
+The file [extendS4_with_devops.json](../usecases/inDevelopment/extendS4_with_devops.json) contains the setup of an application complementing an existing business process in an SAP solution - currently SAP S/4HANA - with additional business process steps. This includes the necessary service instance, app subscriptions and role collections. In addition the CI/CD service on SAP BTP is provisioned for a true end2end setup.
 
 The services and subscriptions that are created are:
 
