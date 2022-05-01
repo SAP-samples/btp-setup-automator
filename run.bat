@@ -8,7 +8,7 @@ docker container rm  -f "btp-setup-automator"
 docker image     rmi -f "btp-setup-automator"
 
 
-if "%1" != "RunFromRegistry" (
+if not "%1" == "RunFromRegistry" (
   
   echo %ESC%[32mBuilding the container image ...%ESC%[0m
   docker image     build -t btp-setup-automator:latest -f .\config\containerdefinitions\btp-setup-automator\Dockerfile .

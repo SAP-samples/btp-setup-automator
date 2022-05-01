@@ -8,8 +8,8 @@ docker container stop   "btp-setup-automator"
 docker container rm  -f "btp-setup-automator"
 docker image     rmi -f "btp-setup-automator"
 
-if ($1 != "--no-build")
-then
+
+if [ "$1" != "RunFromRegistry" ]; then
     
     echo -e "${GREEN}Building the container image ...${NOCOLOR}"
     docker image build -t btp-setup-automator:latest -f "config/containerdefinitions/btp-setup-automator/Dockerfile"  .
