@@ -33,7 +33,7 @@ def checkIfCFEnvironmentAlreadyExists(btpUsecase):
 
     # If the for loop didn't return any value, the orgid wasn't found
     for instance in result["environmentInstances"]:
-        if instance["subaccountGUID"] == btpUsecase.subaccountid:
+        if instance["subaccountGUID"] == btpUsecase.subaccountid and instance["environmentType"] == "cloudfoundry":
             labels = convertStringToJson(instance["labels"])
             org = labels["Org Name:"]
             return instance["platformId"], org
