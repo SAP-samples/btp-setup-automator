@@ -60,11 +60,12 @@ def assignArgumentsThroughJsonParameterFile(args):
             if key in myParameters:
                 valueInParametersFile = myParameters[key]
 
-            valueToSet = None
-            if valueInParametersFile is not None and valueInParametersFile != "":
+            if valueThroughDirectParameter is not None and valueThroughDirectParameter != "":
+                valueToSet = valueThroughDirectParameter
+            elif valueInParametersFile is not None and valueInParametersFile != "":
                 valueToSet = valueInParametersFile
             else:
-                valueToSet = valueThroughDirectParameter
+                valueToSet = None
 
             setattr(args, key, valueToSet)
         # in case the parameter file does not include all parameter keys, add the missing ones to the args
