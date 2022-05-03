@@ -60,14 +60,14 @@ def assignArgumentsThroughJsonParameterFile(args):
             if key in myParameters:
                 valueInParametersFile = myParameters[key]
 
-            if valueThroughDirectParameter is not None and valueThroughDirectParameter != "":
-                valueToSet = valueThroughDirectParameter
-            elif valueInParametersFile is not None and valueInParametersFile != "":
+            valueToSet = None
+            if valueInParametersFile is not None and valueInParametersFile != "":
                 valueToSet = valueInParametersFile
             else:
-                valueToSet = None
+                valueToSet = valueThroughDirectParameter
 
             setattr(args, key, valueToSet)
+
         # in case the parameter file does not include all parameter keys, add the missing ones to the args
         btpSetupAutomatorArguments = "libs/json/paramBtpSetupAutomator.json"
         allJsonParameters = getJsonFromFile(None, btpSetupAutomatorArguments)
