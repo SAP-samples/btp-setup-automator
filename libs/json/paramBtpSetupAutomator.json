@@ -128,7 +128,7 @@
         "argument": "usecasefile",
         "type": "str",
         "help": "file with usecase config",
-        "default": "usecases/usecase.json"
+        "default": null
     },
     {
         "argument": "parameterfile",
