@@ -8,48 +8,48 @@ on:
   workflow_dispatch:
 
 jobs:
-    integration-test:
-        runs-on: ubuntu-latest
-        container:
-          image: ghcr.io/sap-samples/btp-setup-automator:main
-          options: --user root
-        env: 
-            BTPSA_PARAM_MYEMAIL: ${{ secrets.BTPSA_PARAM_MYEMAIL }}
-            BTPSA_PARAM_GLOBALACCOUNT: ${{ secrets.BTPSA_PARAM_GLOBALACCOUNT }}
-            BTPSA_PARAM_MYPASSWORD: ${{ secrets.BTPSA_PARAM_MYPASSWORD }}
-        steps:
-            - name: 'Integration test 02: Deploy full-stack CAP application running in SAP Launchpad'
-              if: ${{ always() }}
-              working-directory: /home/user
-              shell: bash 
-              run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest02.json'
-            - name: 'Integration test 04: Only app subscriptions'
-              if: ${{ always() }}
-              working-directory: /home/user
-              shell: bash 
-              run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest04.json'
-            - name: 'Integration test 05: Only one service without app subscriptions and with an admin, that is the same like the one logging into the script.'
-              if: ${{ always() }}
-              working-directory: /home/user
-              shell: bash 
-              run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest05.json'
-            - name: 'Integration test 06: Create service keys'
-              if: ${{ always() }}
-              working-directory: /home/user
-              shell: bash 
-              run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest06.json'
-            - name: 'Integration test 07: Setup SAP Task Center"'
-              if: ${{ always() }}
-              working-directory: /home/user
-              shell: bash 
-              run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest07.json'
-            - name: 'Integration test 09: Setup a Kyma environment (Free Tier)'
-              if: ${{ always() }}
-              working-directory: /home/user
-              shell: bash 
-              run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest09.json'
-            - name: 'Integration test 10: Setup a Kyma environment on GCP'
-              if: ${{ always() }}
-              working-directory: /home/user
-              shell: bash 
-              run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest10.json'
+  integration-test:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/sap-samples/btp-setup-automator:main
+      options: --user root
+    env:
+      BTPSA_PARAM_MYEMAIL: ${{ secrets.BTPSA_PARAM_MYEMAIL }}
+      BTPSA_PARAM_GLOBALACCOUNT: ${{ secrets.BTPSA_PARAM_GLOBALACCOUNT }}
+      BTPSA_PARAM_MYPASSWORD: ${{ secrets.BTPSA_PARAM_MYPASSWORD }}
+    steps:
+      - name: "Integration test 02: Deploy full-stack CAP application running in SAP Launchpad"
+        if: ${{ always() }}
+        working-directory: /home/user
+        shell: bash
+        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest02.json'
+      - name: "Integration test 04: Only app subscriptions"
+        if: ${{ always() }}
+        working-directory: /home/user
+        shell: bash
+        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest04.json'
+      - name: "Integration test 05: Only one service without app subscriptions and with an admin, that is the same like the one logging into the script."
+        if: ${{ always() }}
+        working-directory: /home/user
+        shell: bash
+        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest05.json'
+      - name: "Integration test 06: Create service keys"
+        if: ${{ always() }}
+        working-directory: /home/user
+        shell: bash
+        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest06.json'
+      - name: 'Integration test 07: Setup SAP Task Center"'
+        if: ${{ always() }}
+        working-directory: /home/user
+        shell: bash
+        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest07.json'
+      - name: "Integration test 09: Setup a Kyma environment (Free Tier)"
+        if: ${{ always() }}
+        working-directory: /home/user
+        shell: bash
+        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest09.json'
+      - name: "Integration test 10: Setup a Kyma environment on GCP"
+        if: ${{ always() }}
+        working-directory: /home/user
+        shell: bash
+        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest10.json'

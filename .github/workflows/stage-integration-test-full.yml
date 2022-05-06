@@ -1,6 +1,6 @@
-name: PR Integration Test (branches - slim)
+name: PR Integration Test (branches - full)
 # INTEGRATION TEST FOR PULL REQUESTS ON BRANCHES != MAIN
-# This file represents a slim version of the "BTP Setup Automator" integration tests
+# This file represents a complete version of the "BTP Setup Automator" integration tests
 # for PRs on branches
 # It executes the following steps:
 # - based on the branch it creates a temporary Docker image and pushes it to the GH registry
@@ -60,7 +60,7 @@ jobs:
         name: Set image path to output
         run: echo "::set-output name=image_path::${{ env.PATHFORTEST }}"
 
-  integration-test-for-pr-slim:
+  integration-test-for-pr-full:
     needs: build-temporary-image
     runs-on: ubuntu-latest
     container:
@@ -86,15 +86,30 @@ jobs:
         working-directory: /home/user
         shell: bash
         run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest05.json'
-      - name: "Integration test 06: create service keys"
+      - name: "Integration test 06: Create service keys"
         if: ${{ always() }}
         working-directory: /home/user
         shell: bash
         run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest06.json'
+      - name: 'Integration test 07: Setup SAP Task Center"'
+        if: ${{ always() }}
+        working-directory: /home/user
+        shell: bash
+        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest07.json'
+      - name: "Integration test 09: Setup a Kyma environment (Free Tier)"
+        if: ${{ always() }}
+        working-directory: /home/user
+        shell: bash
+        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest09.json'
+      - name: "Integration test 10: Setup a Kyma environment on GCP"
+        if: ${{ always() }}
+        working-directory: /home/user
+        shell: bash
+        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest10.json'
 
   delete-temporary-image:
     if: ${{ success() }} || ${{ failure() }}
-    needs: integration-test-for-pr-slim
+    needs: integration-test-for-pr-full
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v6
