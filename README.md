@@ -75,7 +75,26 @@ The tool starts to execute and the only thing you need to type-in is your passwo
 > ```bash
 > docker container run --rm -it -d --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
 > ```
->
+
+You can also use the provided `run` files to pull the image from the registry and start the container via one command. To do so execute the following command:
+
+- bash (macOS/Linux)
+
+  ```bash
+  ./run RunFromRegistry
+  ```
+
+- Command Prompt (Windows):
+
+  ```cmd
+  .\run.bat RunFromRegistry
+  ```
+
+- PowerShell Core (Cross Platform):
+
+  ```powershell
+  .\run.ps1 -RunFromRegistry $True 
+  ```
 
 ### Option 2: Start Docker Container With Self-Built Image
 
