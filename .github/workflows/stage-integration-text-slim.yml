@@ -1,0 +1,70 @@
+name: BTPSA - Integration Test for PRs (branches - slim)
+# This file represents a slim version of the "BTP Setup Automator" integration tests
+# All tests are executed in sequence on one BTP account to avoid entitlement limits
+# This is why not matrix strategy is used
+# The steps of a job must execute in any case, so we use always()
+
+on:
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: bsa-${{ github.ref_name }}
+  LABEL: ${{ github.ref_name }}
+  ORG: sap-samples
+  
+jobs:
+  build-temporary-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Log in to the Container registry
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.IMAGE_NAME }}
+      - name: Build Docker image
+        uses: docker/build-push-action@v2.10.0
+        with:
+          context: .
+          file: ./config/containerdefinitions/btp-setup-automator/Dockerfile
+          build-args: |
+            BTPSA_VERSION_GIT_ARG=${{ github.sha }}
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+  Delete-temporary-image:
+    needs: build-temporary-image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        env:
+          IMAGE: ${{ env.IMAGE_NAME }}
+        with:
+          github-token: ${{ secrets.DELETE_IMAGE_TOKEN }}
+          script: |
+            const packageName = process.env.IMAGE; 
+            const {owner, repo} = context.repo; 
+            
+            const result = await github.rest.packages.getPackageForOrganization({
+              package_type: "container",
+              package_name: packageName,
+              org: owner
+            });
+
+            const deleteResult = await github.rest.packages.deletePackageForOrg({
+              package_type: result.data.package_type,
+              package_name: result.data.name,
+              org: result.data.owner.login
+            });
