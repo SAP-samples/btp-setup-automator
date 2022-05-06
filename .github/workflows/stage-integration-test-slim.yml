@@ -16,10 +16,10 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: bsa-${{ github.ref_name }}
+  IMAGE_NAME: tmp-${{ github.ref_name }}
   LABEL: ${{ github.ref_name }}
   ORG: sap-samples
-  PATHFORTEST: ghcr.io/sap-samples/btp-setup-automator/bsa-${{ github.ref_name }}:${{ github.ref_name }}
+  PATHFORTEST: ghcr.io/sap-samples/btp-setup-automator/tmp-${{ github.ref_name }}:${{ github.ref_name }}
 
 jobs:
   build-temporary-image:
