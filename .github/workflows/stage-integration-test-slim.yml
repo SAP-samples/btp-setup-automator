@@ -1,0 +1,120 @@
+name: PR Integration Test (branches - slim)
+# INTEGRATION TEST FOR PULL REQUESTS ON BRANCHES != MAIN
+# This file represents a slim version of the "BTP Setup Automator" integration tests
+# for PRs on branches
+# It executes the following steps:
+# - based on the branch it creates a temporary Docker image and pushes it to the GH registry
+# - it executes the integration tests on the temporary docker image
+# - it deletes the temporary Docker image after execution
+#
+# All tests are executed in sequence on one BTP account to avoid entitlement limits
+# This is why not matrix strategy is used
+# The steps of a job must execute in any case, so we use always()
+
+on:
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: tmp-${{ github.ref_name }}
+  LABEL: ${{ github.ref_name }}
+  ORG: sap-samples
+  PATHFORTEST: ghcr.io/sap-samples/btp-setup-automator/tmp-${{ github.ref_name }}:${{ github.ref_name }}
+
+jobs:
+  build-temporary-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      image_path: ${{ steps.set-image-path.outputs.image_path }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Log in to the Container registry
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.IMAGE_NAME }}
+      - name: Build Docker image
+        uses: docker/build-push-action@v2.10.0
+        with:
+          context: .
+          file: ./config/containerdefinitions/btp-setup-automator/Dockerfile
+          build-args: |
+            BTPSA_VERSION_GIT_ARG=${{ github.sha }}
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+      #HACKHACKHACK: The image path in the next step cannot be dynamically fetched due to context visibility (env not visible)
+      # We therefore use the output parameters which can be referenced via needs
+      - id: set-image-path
+        name: Set image path to output
+        run: echo "::set-output name=image_path::${{ env.PATHFORTEST }}"
+
+  integration-test-for-pr-slim:
+    needs: build-temporary-image
+    runs-on: ubuntu-latest
+    container:
+      image: ${{ needs.build-temporary-image.outputs.image_path }}
+      options: --user root
+    env:
+      BTPSA_PARAM_MYEMAIL: ${{ secrets.BTPSA_PARAM_MYEMAIL }}
+      BTPSA_PARAM_GLOBALACCOUNT: ${{ secrets.BTPSA_PARAM_GLOBALACCOUNT }}
+      BTPSA_PARAM_MYPASSWORD: ${{ secrets.BTPSA_PARAM_MYPASSWORD }}
+    steps:
+      - name: "Integration test 02: Deploy full-stack CAP application running in SAP Launchpad"
+        if: ${{ always() }}
+        working-directory: /home/user
+        shell: bash
+        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest02.json'
+      - name: "Integration test 04: Only app subscriptions"
+        if: ${{ always() }}
+        working-directory: /home/user
+        shell: bash
+        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest04.json'
+      - name: "Integration test 05: Only one service without app subscriptions and with an admin, that is the same like the one logging into the script."
+        if: ${{ always() }}
+        working-directory: /home/user
+        shell: bash
+        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest05.json'
+      - name: "Integration test 06: create service keys"
+        if: ${{ always() }}
+        working-directory: /home/user
+        shell: bash
+        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest06.json'
+
+  delete-temporary-image:
+    if: ${{ success() }} || ${{ failure() }}
+    needs: integration-test-for-pr-slim
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        env:
+          IMAGE: ${{ env.IMAGE_NAME }}
+        with:
+          github-token: ${{ secrets.DELETE_IMAGE_TOKEN }}
+          script: |
+            const imageName = process.env.IMAGE; 
+            const {owner, repo} = context.repo; 
+            const packageName = `${repo}/${imageName}`;
+
+            const result = await github.rest.packages.getPackageForOrganization({
+              package_type: "container",
+              package_name: packageName,
+              org: owner
+            });
+
+            const deleteResult = await github.rest.packages.deletePackageForOrg({
+              package_type: result.data.package_type,
+              package_name: result.data.name,
+              org: result.data.owner.login
+            });
