@@ -3,5 +3,4 @@
   "loginmethod": "envVariables",
   "prunesubaccount": true,
   "subaccountname": "BTPSA int-test s4 devops"
-
 }
