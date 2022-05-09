@@ -11,5 +11,5 @@
   "repeatstatustimeout": 4200,
   "logcommands": true,
   "pruneusecase": false,
-  "prunesubaccount": false
+  "prunesubaccount": true
 }

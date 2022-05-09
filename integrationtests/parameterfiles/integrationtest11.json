@@ -2,6 +2,7 @@
     "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/usecases/released/setup_kyma_gcp_with_dapr.json",
     "loginmethod": "envVariables",
     "region": "us30",
+    "prunesubaccount": true,
     "waitForKymaEnvironmentCreation": true,
     "timeoutLimitForKymaCreationInMinutes": 75,
     "subaccountname": "BTPSA int-test kymasetupauto gcp dapr"
