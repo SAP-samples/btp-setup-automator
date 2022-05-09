@@ -1,18 +1,18 @@
 import libs.python.helperArgParser as helperArgParser
-from libs.python.helperJson import addKeyValuePair, dictToString, convertStringToJson, saveJsonToFile, getJsonFromFile
+from libs.python.helperJson import addKeyValuePair, dictToString, convertStringToJson, getJsonFromFile
 from libs.python.helperBtpTrust import delete_cf_service_key, runTrustFlow, get_cf_service_key
 from libs.python.helperCommandExecution import executeCommandsFromUsecaseFile, runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex, login_btp, login_cf
 from libs.python.helperEnvCF import checkIfAllServiceInstancesCreated, checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, try_until_cf_space_done, initiateCreationOfServiceInstances, get_cf_service_deletion_status
-from libs.python.helperGeneric import buildUrltoSubaccount, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, createOrgName, getTimingsForStatusRequest
+from libs.python.helperGeneric import buildUrltoSubaccount, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, createOrgName, getTimingsForStatusRequest, save_collected_metadata
 from libs.python.helperFileAccess import writeKubeConfigFileToDefaultDir
 from libs.python.helperEnvKyma import extractKymaDashboardUrlFromEnvironmentDataEntry, getKymaEnvironmentInfoByClusterName, getKymaEnvironmentStatusFromEnvironmentDataEntry, extractKymaKubeConfigUrlFromEnvironmentDataEntry, getKymaEnvironmentIdByClusterName
 
 import os
-import re
 import sys
 import time
 import requests
 import json
+from libs.python.helperRolesAndUsers import assignUsergroupsToRoleCollection, assignUsersToSubaccount, build_admins_list, checkEmailsinUsecaseConfig, createRoleCollectionIfNotExisting, getRoleCollectionsOfServices, getSelfDefinedRoleCollections, set_all_cf_org_roles, set_all_cf_space_roles
 
 from libs.python.helperServices import BTPSERVICE, BTPSERVICEEncoder, readAllServicesFromUsecaseFile
 from libs.python.helperLog import initLogger
@@ -93,6 +93,11 @@ class BTPUSECASE:
             sys.exit(os.EX_PROTOCOL)
         else:
             log.success("Use case supported in your global account!")
+
+    def assignUsersToSubaccountAndRoles(self):
+        assignUsersToSubaccount(self)
+        set_all_cf_space_roles(self)
+        set_all_cf_org_roles(self)
 
     def prune_subaccount(self, subaccountid):
         login_btp(self)
@@ -420,48 +425,15 @@ class BTPUSECASE:
 
             save_collected_metadata(self)
 
-    def assignUsersToSubaccountAndRoles(self):
-        assignUsersToSubaccount(self)
-        set_all_cf_space_roles(self)
-        set_all_cf_org_roles(self)
-
     def createRoleCollections(self):
-        accountMetadata = self.accountMetadata
-        subaccountid = accountMetadata["subaccountid"]
-        rolecollections = getRoleCollectionsFromUsecaseFile(self)
-        admins = getAdminsForUseCase(self)
-
+        rolecollections = getSelfDefinedRoleCollections(self)
         for rolecollection in rolecollections:
-            rolecollectioname = rolecollection["name"]
-            # Check the role collection was not created before
-            message = "Check this role collection does not exist >" + rolecollectioname
-            command = "btp get security/role-collection '" + rolecollectioname + "'"
-            p = runShellCommandFlex(
-                self, command, "INFO", message, False, False)
-            result = p.stdout.decode()
-            if not result:
-                result = p.stderr.decode()
-                if "error: No entity found with values" in result:
-                    message = "Assign role collection >" + rolecollectioname
-                    command = "btp create security/role-collection '" + rolecollectioname + \
-                        "' --description  '" + rolecollectioname + \
-                        "' --subaccount '" + subaccountid + "'"
-                    runShellCommand(self, command, "INFO", message)
-                    for role in rolecollection["roles"]:
-                        message = "Assign role " + \
-                            role["name"] + " to role collection " + \
-                            rolecollectioname
-                        command = "btp add security/role '" + role["name"] + "' --to-role-collection  '" + rolecollectioname + \
-                            "' --of-role-template '" + \
-                            role["roletemplate"] + "' --of-app '" + \
-                            role["app"] + "' --subaccount '" + subaccountid + "'"
-                        runShellCommand(self, command, "INFO", message)
+            createRoleCollectionIfNotExisting(self, rolecollection)
+            assignUsergroupsToRoleCollection(self, rolecollection)
 
-            for userEmail in admins:
-                message = "assign user >" + userEmail + "< the role collection >" + rolecollectioname + "<"
-                command = "btp --format json assign security/role-collection '" + rolecollectioname + "' --to-user '" + userEmail + \
-                    "' --create-user-if-missing --subaccount '" + subaccountid + "'"
-                runCommandAndGetJsonResult(self, command, "INFO", message)
+        rolecollections = getRoleCollectionsOfServices(self)
+        for rolecollection in rolecollections:
+            assignUsergroupsToRoleCollection(self, rolecollection)
 
     def create_configured_app_subscriptions_and_services(self):
 
@@ -488,7 +460,7 @@ class BTPUSECASE:
         self.accountMetadata = self.createServiceKeys()
         save_collected_metadata(self)
 
-        btp_assign_role_collection_to_admins(self)
+        # btp_assign_role_collection_to_admins(self)
 
         save_collected_metadata(self)
 
@@ -525,89 +497,6 @@ class BTPUSECASE:
 
         log.header("SUCCESSFULLY FINISHED USE CASE EXECUTION")
         sys.exit(os.EX_OK)
-
-
-def assignUsersToSubaccount(btpUsecase: BTPUSECASE):
-    accountMetadata = btpUsecase.accountMetadata
-
-    subaccountid = accountMetadata["subaccountid"]
-    admins = getAdminsForUseCase(btpUsecase)
-
-    log.header("Set global account and sub account administrators")
-    for userEmail in admins:
-        role = "Subaccount Administrator"
-        message = "assign user >" + userEmail + "< the role >" + role + "<"
-        command = "btp --format json assign security/role-collection '" + role + "' --to-user '" + userEmail + "' --create-user-if-missing --subaccount '" + subaccountid + "'"
-        runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
-
-        role = "Subaccount Service Administrator"
-        message = "assign user >" + userEmail + "< the role >" + role + "<"
-        command = "btp --format json assign security/role-collection '" + role + "' --to-user '" + \
-            userEmail + "' --create-user-if-missing --subaccount '" + subaccountid + "'"
-        runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
-
-        # Do not add user as global admin for Trial accounts
-        if btpUsecase.accountMetadata["licenseType"] != "TRIAL":
-            role = "Global Account Administrator"
-            message = "assign user >" + userEmail + "< the role >" + role + "<"
-            # Add user to GA with suffix -ga
-            command = "btp --format json assign security/role-collection '" + role + "' --to-user '" + userEmail + "' --create-user-if-missing -ga"
-            runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
-
-
-def set_all_cf_space_roles(btpUsecase: BTPUSECASE):
-    environments = btpUsecase.definedEnvironments
-
-    for environment in environments:
-        if environment.name == "cloudfoundry":
-            admins = getAdminsForUseCase(btpUsecase)
-
-            accountMetadata = btpUsecase.accountMetadata
-            log.header("Set all CF space roles")
-
-            org = accountMetadata["org"]
-            cfspacename = btpUsecase.cfspacename
-            accountMetadata = addKeyValuePair(accountMetadata, "cfspacename", cfspacename)
-
-            spaceRoles = ["SpaceManager", "SpaceDeveloper", "SpaceAuditor"]
-
-            for spaceRole in spaceRoles:
-                for admin in admins:
-                    message = "Assign space role >" + spaceRole + "< to user >" + admin + "<"
-                    command = "cf set-space-role '" + admin + "' '" + org + "' '" + cfspacename + "' '" + spaceRole + "'"
-                    p = runShellCommandFlex(btpUsecase, command, "INFO", message, False, False)
-                    result = p.stdout.decode()
-                    if "message: The user could not be found" in result:
-                        log.error("the user >" + admin + "< was not found and could not be assigned the role >" + spaceRole + "<")
-
-            save_collected_metadata(btpUsecase)
-
-
-def set_all_cf_org_roles(btpUsecase: BTPUSECASE):
-    environments = btpUsecase.definedEnvironments
-
-    for environment in environments:
-        if environment.name == "cloudfoundry":
-            admins = getAdminsForUseCase(btpUsecase)
-
-            accountMetadata = btpUsecase.accountMetadata
-            log.header("Set all CF org roles")
-
-            org = accountMetadata["org"]
-
-            orgRoles = ["OrgManager", "OrgAuditor"]
-
-            for orgRole in orgRoles:
-                for admin in admins:
-                    message = "Assign org role >" + orgRole + "< to user >" + admin + "<"
-                    command = "cf set-org-role '" + admin + "' '" + org + "' '" + orgRole + "'"
-                    p = runShellCommandFlex(
-                        btpUsecase, command, "INFO", message, False, False)
-                    result = p.stdout.decode()
-                    if "message: The user could not be found" in result:
-                        log.error("the user >" + admin + "< was not found and could not be assigned the role >" + orgRole + "<")
-
-            save_collected_metadata(btpUsecase)
 
 
 def getEnvironmentsForUsecase(btpUsecase: BTPUSECASE, allServices):
@@ -739,12 +628,6 @@ def checkIfSubaccountAlreadyExists(btpUsecase: BTPUSECASE):
         return None
 
 
-def save_collected_metadata(btpUsecase: BTPUSECASE):
-    accountMetadata = btpUsecase.accountMetadata
-    filename = btpUsecase.metadatafile
-    saveJsonToFile(filename, accountMetadata)
-
-
 def getListOfAvailableServicesAndApps(btpUsecase: BTPUSECASE):
     globalaccount = btpUsecase.globalaccount
     usecaseRegion = btpUsecase.region
@@ -808,22 +691,22 @@ def try_until_done(btpUsecase: BTPUSECASE, command, message, key, value, search_
     return result
 
 
-def btp_assign_role_collection_to_admins(btpUsecase: BTPUSECASE):
-    accountMetadata = btpUsecase.accountMetadata
+# def btp_assign_role_collection_to_admins(btpUsecase: BTPUSECASE):
+#     accountMetadata = btpUsecase.accountMetadata
 
-    admins = getAdminsForUseCase(btpUsecase)
-    subaccountid = accountMetadata["subaccountid"]
+#     admins = getAdminsForUseCase(btpUsecase)
+#     subaccountid = accountMetadata["subaccountid"]
 
-    if admins is not None and len(admins) > 0:
-        for appSubscription in btpUsecase.definedAppSubscriptions:
-            if appSubscription.requiredrolecollections is not None:
-                roleCollections = appSubscription.requiredrolecollections
-                for roleCollection in roleCollections:
-                    for admin in admins:
-                        message = "Assign role collection >" + roleCollection + "< to user >" + admin + "<"
-                        command = "btp assign security/role-collection '" + roleCollection + \
-                            "' --to-user '" + admin + "' --subaccount '" + subaccountid + "'"
-                        runShellCommand(btpUsecase, command, "INFO", message)
+#     if admins is not None and len(admins) > 0:
+#         for appSubscription in btpUsecase.definedAppSubscriptions:
+#             if appSubscription.requiredrolecollections is not None:
+#                 roleCollections = appSubscription.requiredrolecollections
+#                 for roleCollection in roleCollections:
+#                     for admin in admins:
+#                         message = "Assign role collection >" + roleCollection + "< to user >" + admin + "<"
+#                         command = "btp assign security/role-collection '" + roleCollection + \
+#                             "' --to-user '" + admin + "' --subaccount '" + subaccountid + "'"
+#                         runShellCommand(btpUsecase, command, "INFO", message)
 
 
 def assign_entitlement(btpUsecase: BTPUSECASE, service):
@@ -1081,111 +964,6 @@ def addCreatedServicesToMetadata(btpUsecase: BTPUSECASE):
 def checkConfigurationInfo(btpUsecase: BTPUSECASE):
 
     checkEmailsinUsecaseConfig(btpUsecase)
-
-
-def getListOfUsersOnAccount(btpUsecase: BTPUSECASE):
-    result = None
-
-    command = "btp --format json list security/user"
-    result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", None)
-
-    return result
-
-
-def getAdminsForUseCase(btpUsecase: BTPUSECASE):
-    licenseType = None
-    result = []
-    myUser = btpUsecase.myemail
-
-    licenseType = btpUsecase.accountMetadata["licenseType"]
-
-    if licenseType != "TRIAL":
-        for admin in btpUsecase.admins:
-            email = admin
-            result.append(email)
-
-    result.append(myUser)
-    # remove duplicates in admins list
-    result = list(dict.fromkeys(result))
-
-    return result
-
-
-def getRoleCollectionsFromUsecaseFile(btpUsecase: BTPUSECASE):
-    usecase = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
-    items = []
-    if "requiredrolecollections" in usecase:
-        for rolecollection in usecase["requiredrolecollections"]:
-            items.append(rolecollection)
-    else:
-        log.info("no role collections defined in your use case configuration file")
-
-    return items
-
-
-def build_admins_list(btpUsecase: BTPUSECASE):
-    admins = getAdminsForUseCase(btpUsecase)
-    # Remove duplicates
-    admins = list(dict.fromkeys(admins))
-    result = "["
-
-    for admin in admins:
-        if admin == admins[-1]:
-            result += '"' + admin + '"]'
-        else:
-            result += '"' + admin + '" , '
-
-    return result
-
-
-def getListOfAdditionalEmailAdressesInUsecaseFile(btpUsecase: BTPUSECASE):
-    allEmails = None
-    adminsList = btpUsecase.admins
-
-    # Create a copy of the usecase, as we might have to remove pieces prior the analysis
-    thisUsecase = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
-
-    # Remove the use case author from the usecase to be analyzed
-    if "aboutThisUseCase" in thisUsecase and "author" in thisUsecase["aboutThisUseCase"]:
-        del thisUsecase["aboutThisUseCase"]["author"]
-
-    # Convert the usecase dict to a string to detect any other email-adresses added in other parameters of the file
-    usecaseString = dictToString(thisUsecase)
-    allEmails = re.findall(r'[\w.+-]+@[\w-]+\.[\w.-]+', usecaseString)
-
-    # Before checking all other email addresses, remove from the result all the email addresses that already have been covered in the admins section
-    for admin in adminsList:
-        if admin in allEmails:
-            allEmails.remove(admin)
-
-    return allEmails
-
-
-def checkEmailsinUsecaseConfig(btpUsecase: BTPUSECASE):
-    allowedUsers = getListOfUsersOnAccount(btpUsecase)
-    foundError = False
-
-    adminsList = getAdminsForUseCase(btpUsecase)
-
-    for admin in adminsList:
-        if admin in allowedUsers:
-            log.success("user >" + admin + "< will be able to access use case in global account >" + btpUsecase.globalaccount + "<")
-        else:
-            log.warning("user >" + admin + "< (defined in admins section of file >" + btpUsecase.usecasefile + "<) has no access to this global account")
-
-    emailAddresses = getListOfAdditionalEmailAdressesInUsecaseFile(btpUsecase)
-
-    # Now we can run the email check for the other email addresses
-    for emailAddress in emailAddresses:
-        if emailAddress in allowedUsers:
-            log.success("user >" + emailAddress + "< will be able to access use case in global account >" + btpUsecase.globalaccount + "<")
-        else:
-            log.warning("email address >" + emailAddress + "< was found in the usecase definition, but that user has no access to this global account. Please check!")
-    if foundError is True:
-        log.error("Can't move on with the use case, before the errors above are not fixed")
-        sys.exit(os.EX_DATAERR)
-
-    return None
 
 
 def pruneSubaccount(btpUsecase: BTPUSECASE):

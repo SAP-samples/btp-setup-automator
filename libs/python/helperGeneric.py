@@ -1,5 +1,5 @@
 import re
-from libs.python.helperJson import addKeyValuePair
+from libs.python.helperJson import addKeyValuePair, saveJsonToFile
 import os
 import logging
 
@@ -193,3 +193,9 @@ def showEnvVariables():
         if "password".capitalize in kNormalized:
             v = "************"
         log.info(str(k) + ': ' + str(v))
+
+
+def save_collected_metadata(btpUsecase):
+    accountMetadata = btpUsecase.accountMetadata
+    filename = btpUsecase.metadatafile
+    saveJsonToFile(filename, accountMetadata)

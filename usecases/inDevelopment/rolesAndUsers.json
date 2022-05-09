@@ -8,11 +8,6 @@
     },
     "services": [
       {
-        "name": "xsuaa",
-        "plan": "application",
-        "category": "SERVICE"
-      },
-      {
         "category": "APPLICATION",
         "name": "SAPLaunchpad",
         "plan": "standard",
