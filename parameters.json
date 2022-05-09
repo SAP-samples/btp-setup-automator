@@ -1,5 +1,5 @@
 {
-  "usecasefile": "usecases/released/cap_app_launchpad_TRIAL.json",
+  "usecasefile": "usecases/inDevelopment/rolesAndUsers.json",
   "region": "us10",
   "globalaccount": null,
   "myemail": null,
@@ -13,5 +13,31 @@
     "BTPSA_YOUR_OWN_ENV_VARIABLE1": "Hi! I'm BTPSA!",
     "BTPSA_YOUR_OWN_ENV_VARIABLE2": "How are you doing?",
     "BTPSA_YOUR_OWN_ENV_VARIABLE3": "You can use these variables in any command within the `executeBeforeAccountSetup` and `executeAfterAccountSetup` section by accessing (and manupulating) them as an OS environment variable!"
-  }
+  },
+  "usergroups": [
+    {
+      "name": "adminsSubaccount",
+      "type": "subaccount",
+      "members": [
+        "john@test.com",
+        "jane@test.com"
+      ]
+    },
+    {
+      "name": "adminsForApp",
+      "type": "custom",
+      "members": [
+        "john@test.com",
+        "jane@test.com"
+      ]
+    },
+    {
+      "name": "superheros",
+      "type": "custom",
+      "members": [
+        "tony@stark.com",
+        "captain@america.com"
+      ]
+    }
+  ]
 }

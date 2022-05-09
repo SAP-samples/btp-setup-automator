@@ -1,0 +1,32 @@
+{
+    "aboutThisUseCase": {
+      "name": "Test roles and users assignment",
+      "description": "Test use case for roles and users",
+      "author": "rui.nogueira@sap.com",
+      "testStatus": "testing",
+      "usageStatus": "NOT READY TO BE USED"
+    },
+    "services": [
+      {
+        "name": "xsuaa",
+        "plan": "application",
+        "category": "SERVICE"
+      },
+      {
+        "category": "APPLICATION",
+        "name": "SAPLaunchpad",
+        "plan": "standard",
+        "requiredrolecollections": [
+          {
+            "name": "Launchpad_Admin",
+            "assignedUserGroupsFromParameterFile": [
+              "superheros"
+            ]
+          }
+        ]
+      }
+    ],
+    "admins": [
+      "jane.doe@sap.com"
+    ]
+  }
