@@ -1,27 +1,73 @@
 {
-    "aboutThisUseCase": {
-      "name": "Test roles and users assignment",
-      "description": "Test use case for roles and users",
-      "author": "rui.nogueira@sap.com",
-      "testStatus": "testing",
-      "usageStatus": "NOT READY TO BE USED"
+  "aboutThisUseCase": {
+    "name": "Test roles and users assignment",
+    "description": "Test use case for roles and users",
+    "author": "rui.nogueira@sap.com",
+    "testStatus": "testing",
+    "usageStatus": "NOT READY TO BE USED"
+  },
+  "services": [
+    {
+      "category": "APPLICATION",
+      "name": "SAPLaunchpad",
+      "plan": "standard",
+      "requiredrolecollections": [
+        {
+          "name": "Launchpad_Admin",
+          "assignedUserGroupsFromParameterFile": [
+            "superheros"
+          ]
+        }
+      ]
+    }
+  ],
+  "assignrolecollections": [
+    {
+      "name": "Global Account Administrator",
+      "type": "account",
+      "level": "global account",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ]
     },
-    "services": [
-      {
-        "category": "APPLICATION",
-        "name": "SAPLaunchpad",
-        "plan": "standard",
-        "requiredrolecollections": [
-          {
-            "name": "Launchpad_Admin",
-            "assignedUserGroupsFromParameterFile": [
-              "superheros"
-            ]
-          }
-        ]
-      }
-    ],
-    "admins": [
-      "jane.doe@sap.com"
-    ]
-  }
+    {
+      "name": "Subaccount Administrator",
+      "type": "account",
+      "level": "subaccount",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ]
+    },
+    {
+      "name": "Subaccount Service Administrator",
+      "type": "account",
+      "level": "subaccount",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ]
+    },
+    {
+      "name": "SpaceManager",
+      "type": "cloudfoundry",
+      "level": "space",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ]
+    },
+    {
+      "name": "SpaceDeveloper",
+      "type": "cloudfoundry",
+      "level": "space",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ]
+    },
+    {
+      "name": "SpaceAuditor",
+      "type": "cloudfoundry space",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ]
+    }
+  ]
+}

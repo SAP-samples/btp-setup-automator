@@ -12,7 +12,7 @@ import sys
 import time
 import requests
 import json
-from libs.python.helperRolesAndUsers import assignUsergroupsToRoleCollection, assignUsersToSubaccount, build_admins_list, checkEmailsinUsecaseConfig, createRoleCollectionIfNotExisting, getRoleCollectionsOfServices, getSelfDefinedRoleCollections, set_all_cf_org_roles, set_all_cf_space_roles
+from libs.python.helperRolesAndUsers import getSubaccountAdmins, getRoleCollectionsOfServices, assignUsergroupsToRoleCollection
 
 from libs.python.helperServices import BTPSERVICE, BTPSERVICEEncoder, readAllServicesFromUsecaseFile
 from libs.python.helperLog import initLogger
@@ -55,6 +55,9 @@ class BTPUSECASE:
         self.definedEnvironments = getEnvironmentsForUsecase(self, allServices)
         self.admins = getAdminsFromUsecaseFile(self)
         self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(self, allServices, ["APPLICATION"])
+        self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(self, allServices, ["APPLICATION"])
+        usecaseFileContent = getJsonFromFile(self, self.usecasefile)
+        self.definedRoleCollections = usecaseFileContent.get("assignrolecollections")
 
         ##############################################################################################
         # From here on, we have all the data together that we need to move ahead
@@ -95,9 +98,10 @@ class BTPUSECASE:
             log.success("Use case supported in your global account!")
 
     def assignUsersToSubaccountAndRoles(self):
-        assignUsersToSubaccount(self)
-        set_all_cf_space_roles(self)
-        set_all_cf_org_roles(self)
+        # assignUsersToSubaccount(self)
+        # set_all_cf_space_roles(self)
+        # set_all_cf_org_roles(self)
+        None
 
     def prune_subaccount(self, subaccountid):
         login_btp(self)
@@ -197,7 +201,7 @@ class BTPUSECASE:
             log.success("using subaccount name >" + subaccount + "<")
             log.success("using subaccount domain >" + subdomain + "<")
 
-            admins = build_admins_list(self)
+            subaccountadmins = getSubaccountAdmins(self)
             globalAccount = self.globalaccount
 
             log.header("Create sub account >" + subaccount + "< (if not already existing)")
@@ -209,7 +213,7 @@ class BTPUSECASE:
                     --display-name '" + subaccount + "' \
                     --subdomain '" + subdomain + "' \
                     --region '" + usecaseRegion + "' \
-                    --subaccount-admins '" + admins + "'"
+                    --subaccount-admins '" + subaccountadmins + "'"
 
                 message = "Create sub account >" + subaccount + "<"
                 result = runCommandAndGetJsonResult(self, command, "INFO", message)
@@ -426,14 +430,15 @@ class BTPUSECASE:
             save_collected_metadata(self)
 
     def createRoleCollections(self):
-        rolecollections = getSelfDefinedRoleCollections(self)
-        for rolecollection in rolecollections:
-            createRoleCollectionIfNotExisting(self, rolecollection)
-            assignUsergroupsToRoleCollection(self, rolecollection)
+        # for rolecollection in self.definedRoleCollections:
+        #     createRoleCollectionIfNotExisting(self, rolecollection)
+        #     assignUsergroupsToRoleCollection(self, rolecollection)
 
         rolecollections = getRoleCollectionsOfServices(self)
         for rolecollection in rolecollections:
             assignUsergroupsToRoleCollection(self, rolecollection)
+
+        None
 
     def create_configured_app_subscriptions_and_services(self):
 
@@ -963,7 +968,8 @@ def addCreatedServicesToMetadata(btpUsecase: BTPUSECASE):
 
 def checkConfigurationInfo(btpUsecase: BTPUSECASE):
 
-    checkEmailsinUsecaseConfig(btpUsecase)
+    # checkEmailsinUsecaseConfig(btpUsecase)
+    None
 
 
 def pruneSubaccount(btpUsecase: BTPUSECASE):

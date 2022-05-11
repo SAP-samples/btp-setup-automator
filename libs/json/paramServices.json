@@ -120,10 +120,10 @@
         "default": null
     },
     {
-        "argument": "requiredrolecollections",
+        "argument": "assignrolecollections",
         "type": "list",
         "mandatory": false,
-        "help": "list of role collections to be created for a service",
+        "help": "list of role collections to be created within the btp account",
         "default": null
     }
 ]

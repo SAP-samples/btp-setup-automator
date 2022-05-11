@@ -16,28 +16,18 @@
   },
   "usergroups": [
     {
-      "name": "adminsSubaccount",
-      "type": "subaccount",
+      "name": "admins",
       "members": [
-        "john@test.com",
-        "jane@test.com"
-      ]
-    },
-    {
-      "name": "adminsForApp",
-      "type": "custom",
-      "members": [
-        "john@test.com",
-        "jane@test.com"
+        "john.admin@test.com",
+        "jane.admin@test.com"
       ]
     },
     {
       "name": "superheros",
-      "type": "custom",
       "members": [
         "tony@stark.com",
         "captain@america.com"
       ]
-    }
+    }    
   ]
 }
