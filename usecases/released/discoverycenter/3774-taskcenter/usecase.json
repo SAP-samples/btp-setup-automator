@@ -225,7 +225,7 @@
       "command": "echo '- Create your SAP Launchpad site as described in  https://github.com/SAP-samples/btp-setup-automator/usecases/released/discoverycenter/3774-taskcenter/account-setup.md'"
     },
     {
-      "description": "YOUR MANUAL TODO 2: Configure access  on your BTP Subaccount to acces the Site Manager",
+      "description": "YOUR MANUAL TODO 2: Configure access to the Site Manager",
       "command": "echo '- Configure the admin role colection and adjust SAP Cloud Identity Authentication as described in https://github.com/SAP-samples/btp-task-center-integration/blob/main/btp-inital-setup/config-lp-service.md'"
     },
     {
