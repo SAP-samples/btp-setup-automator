@@ -226,11 +226,11 @@
     },
     {
       "description": "YOUR MANUAL TODO 2: Configure access  on your BTP Subaccount to acces the Site Manager",
-      "command": "echo - Configure the admin role colection and adjust SAP Cloud Identity Authentication as described in https://github.com/SAP-samples/btp-task-center-integration/blob/main/btp-inital-setup/config-lp-service.md'"
+      "command": "echo '- Configure the admin role colection and adjust SAP Cloud Identity Authentication as described in https://github.com/SAP-samples/btp-task-center-integration/blob/main/btp-inital-setup/config-lp-service.md'"
     },
     {
       "description": "YOUR MANUAL TODO 3: Integrate SAP Task Center applications with BTP Laucnhpad service",
-      "command": "echo -  Configure and cretae a BTP Launchpad site to access SAP Task Cneter applications as described in https://github.com/SAP-samples/btp-task-center-integration/blob/main/btp-inital-setup/integrate-sap-task-center-with-sap-lp-service.mde'"
+      "command": "echo '-  Configure and cretae a BTP Launchpad site to access SAP Task Cneter applications as described in https://github.com/SAP-samples/btp-task-center-integration/blob/main/btp-inital-setup/integrate-sap-task-center-with-sap-lp-service.mde'"
     }
   ]
 }
