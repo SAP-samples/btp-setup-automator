@@ -75,7 +75,7 @@ def getMembersOfUserGroup(btpUsecase, usergroup):
     members = None
     usergroupExists = False
 
-    for thisUserGroup in btpUsecase.usergroups:
+    for thisUserGroup in btpUsecase.myusergroups:
         if thisUserGroup.get("name") == usergroup:
             usergroupExists = True
             members = thisUserGroup.get("members")
@@ -93,9 +93,10 @@ def assignUsergroupsToRoleCollection(btpUsecase, rolecollection):
     for usergroup in assignedUserGroupsFromParameterFile:
         members = getMembersOfUserGroup(btpUsecase, usergroup)
         if members:
+            rolecollectioname = rolecollection.get("name")
+            log.info("assign users the role collection >" + rolecollectioname + "<")
             for userEmail in members:
-                rolecollectioname = rolecollection.get("name")
-                message = "assign user >" + userEmail + "< the role collection >" + rolecollectioname + "<"
+                message = " - user >" + userEmail + "<"
                 command = "btp --format json assign security/role-collection '" + rolecollectioname + "' --to-user '" + userEmail + \
                     "' --create-user-if-missing --subaccount '" + subaccountid + "'"
                 thisResult = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
@@ -141,7 +142,7 @@ def getRoleCollectionsOfTypeAndLevel(btpUsecase, type, level):
 def assignUsersToGlobalAndSubaccount(btpUsecase):
     subaccountid = btpUsecase.subaccountid
 
-    log.header("Set global account administrators")
+    log.header("Set administrators for BTP global account")
     rolecollectionsGlobalAccount = getRoleCollectionsOfTypeAndLevel(btpUsecase, "account", "global account")
     for rolecollection in rolecollectionsGlobalAccount:
         members = getMembersForRolecollection(btpUsecase, rolecollection)
@@ -152,7 +153,7 @@ def assignUsersToGlobalAndSubaccount(btpUsecase):
             command = "btp --format json assign security/role-collection '" + role + "' --to-user '" + userEmail + "' --create-user-if-missing -ga"
             runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
 
-    log.header("Set sub account administrators")
+    log.header("Set administrators for sub account")
     rolecollectionsSubAccount = getRoleCollectionsOfTypeAndLevel(btpUsecase, "account", "sub account")
     for rolecollection in rolecollectionsSubAccount:
         members = getMembersForRolecollection(btpUsecase, rolecollection)
@@ -172,7 +173,7 @@ def assignUsersToEnvironments(btpUsecase):
             org = btpUsecase.org
             cfspacename = btpUsecase.cfspacename
 
-            log.header("Set members of Cloudfoundry org")
+            log.header("Set members for Cloudfoundry org")
             rolecollectionsCloudFoundryOrg = getRoleCollectionsOfTypeAndLevel(btpUsecase, "cloudfoundry", "org")
             for rolecollection in rolecollectionsCloudFoundryOrg:
                 members = getMembersForRolecollection(btpUsecase, rolecollection)
@@ -186,9 +187,8 @@ def assignUsersToEnvironments(btpUsecase):
                     if "message: The user could not be found" in result:
                         log.error("the user >" + admin + "< was not found and could not be assigned the role >" + orgRole + "<")
 
-            log.header("Set members of Cloudfoundry space")
+            log.header("Set members for Cloudfoundry space")
             rolecollectionsCloudFoundrySpace = getRoleCollectionsOfTypeAndLevel(btpUsecase, "cloudfoundry", "space")
-
             for rolecollection in rolecollectionsCloudFoundrySpace:
                 members = getMembersForRolecollection(btpUsecase, rolecollection)
                 spaceRole = rolecollection.get("name")

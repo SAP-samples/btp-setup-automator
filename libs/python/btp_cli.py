@@ -437,6 +437,7 @@ class BTPUSECASE:
         #     assignUsergroupsToRoleCollection(self, rolecollection)
 
         rolecollections = getRoleCollectionsOfServices(self)
+        log.header("Assign users to role collections specific to a service")
         for rolecollection in rolecollections:
             assignUsergroupsToRoleCollection(self, rolecollection)
 

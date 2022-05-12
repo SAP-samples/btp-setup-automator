@@ -191,7 +191,7 @@
         "default": null
     },
     {
-        "argument": "usergroups",
+        "argument": "myusergroups",
         "type": "str",
         "help": "list of user groups to be used in btpsa",
         "default": null
