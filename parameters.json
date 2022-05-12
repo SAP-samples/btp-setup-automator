@@ -1,5 +1,5 @@
 {
-  "usecasefile": "usecases/inDevelopment/rolesAndUsers.json",
+  "usecasefile": "usecases/release/cap_app_launchpad.json",
   "region": "us10",
   "globalaccount": null,
   "myemail": null,
