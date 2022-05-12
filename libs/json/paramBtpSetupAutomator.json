@@ -191,6 +191,13 @@
         "default": null
     },
     {
+        "argument": "requiredrolecollections",
+        "type": "str",
+        "help": "list of required role collections for the use case",
+        "default": null
+    },
+
+    {
         "argument": "myusergroups",
         "type": "str",
         "help": "list of user groups to be used in btpsa",

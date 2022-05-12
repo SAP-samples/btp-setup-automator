@@ -21,6 +21,27 @@
       ]
     }
   ],
+  "requiredrolecollections": [
+    {
+      "name": "C4U Administrator",
+      "type": "custom",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ],
+      "roles": [
+        {
+          "name": "SystemsViewer",
+          "roletemplate": "SystemsViewer",
+          "app": "one-mds-master!b28283"
+        },
+        {
+          "name": "RetailerAdmin",
+          "roletemplate": "RetailerAdmin",
+          "app": "c4u-foundation-retailer-dev!b57093"
+        }
+      ]
+    }
+  ],
   "assignrolecollections": [
     {
       "name": "Global Account Administrator",
@@ -51,7 +72,8 @@
       "type": "cloudfoundry",
       "level": "space",
       "assignedUserGroupsFromParameterFile": [
-        "admins", "developers"
+        "admins",
+        "developers"
       ]
     },
     {
@@ -59,7 +81,8 @@
       "type": "cloudfoundry",
       "level": "space",
       "assignedUserGroupsFromParameterFile": [
-        "admins", "developers"
+        "admins",
+        "developers"
       ]
     },
     {
@@ -67,7 +90,8 @@
       "type": "cloudfoundry",
       "level": "space",
       "assignedUserGroupsFromParameterFile": [
-        "admins" , "developers"
+        "admins",
+        "developers"
       ]
     },
     {
@@ -75,7 +99,8 @@
       "type": "cloudfoundry",
       "level": "org",
       "assignedUserGroupsFromParameterFile": [
-        "admins" , "testers"
+        "admins",
+        "testers"
       ]
     },
     {
@@ -83,7 +108,8 @@
       "type": "cloudfoundry",
       "level": "org",
       "assignedUserGroupsFromParameterFile": [
-        "admins" , "auditor"
+        "admins",
+        "auditor"
       ]
     }
   ]
