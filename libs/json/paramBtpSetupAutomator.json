@@ -20,7 +20,7 @@
             "basicAuthentication",
             "sso",
             "envVariables"
-        ]        
+        ]
     },
     {
         "argument": "region",
@@ -190,13 +190,6 @@
         "help": "list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`.",
         "default": null
     },
-    {
-        "argument": "requiredrolecollections",
-        "type": "str",
-        "help": "list of required role collections for the use case",
-        "default": null
-    },
-
     {
         "argument": "myusergroups",
         "type": "str",

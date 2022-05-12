@@ -21,27 +21,6 @@
       ]
     }
   ],
-  "requiredrolecollections": [
-    {
-      "name": "My own role collection",
-      "type": "custom",
-      "assignedUserGroupsFromParameterFile": [
-        "admins"
-      ],
-      "roles": [
-        {
-          "name": "SystemsViewer",
-          "roletemplate": "SystemsViewer",
-          "app": "one-mds-master!12345"
-        },
-        {
-          "name": "RetailerAdmin",
-          "roletemplate": "RetailerAdmin",
-          "app": "retailer-dev!67890"
-        }
-      ]
-    }
-  ],
   "assignrolecollections": [
     {
       "name": "Global Account Administrator",
@@ -51,6 +30,25 @@
         "admins"
       ]
     },
+    {
+      "name": "My own role collection",
+      "type": "custom",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ],
+      "roles": [
+        {
+          "name": "NeedsToBeThere",
+          "roletemplate": "NeedsToBeThere",
+          "app": "something-you-createdbefore!12345"
+        },
+        {
+          "name": "NeedsToBeThereToo",
+          "roletemplate": "NeedsToBeThereToo",
+          "app": "something-you-createdbefore-aswell!67890"
+        }
+      ]
+    },    
     {
       "name": "Subaccount Administrator",
       "type": "account",
@@ -109,7 +107,7 @@
       "level": "org",
       "assignedUserGroupsFromParameterFile": [
         "admins",
-        "auditor"
+        "auditors"
       ]
     }
   ]

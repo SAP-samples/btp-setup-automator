@@ -12,7 +12,7 @@ import sys
 import time
 import requests
 import json
-from libs.python.helperRolesAndUsers import assignUsersToEnvironments, assignUsersToGlobalAndSubaccount, getSubaccountAdmins, getRoleCollectionsOfServices, assignUsergroupsToRoleCollection
+from libs.python.helperRolesAndUsers import assignUsersToEnvironments, assignUsersToGlobalAndSubaccount, getSubaccountAdmins, assignUsersToRoleCollectionsForServices, assignUsersToCustomRoleCollections
 
 from libs.python.helperServices import BTPSERVICE, BTPSERVICEEncoder, readAllServicesFromUsecaseFile
 from libs.python.helperLog import initLogger
@@ -432,14 +432,8 @@ class BTPUSECASE:
             save_collected_metadata(self)
 
     def createRoleCollections(self):
-        # for rolecollection in self.definedRoleCollections:
-        #     createRoleCollectionIfNotExisting(self, rolecollection)
-        #     assignUsergroupsToRoleCollection(self, rolecollection)
-
-        rolecollections = getRoleCollectionsOfServices(self)
-        log.header("Assign users to role collections specific to a service")
-        for rolecollection in rolecollections:
-            assignUsergroupsToRoleCollection(self, rolecollection)
+        assignUsersToRoleCollectionsForServices(self)
+        assignUsersToCustomRoleCollections(self)
 
     def create_configured_app_subscriptions_and_services(self):
 

@@ -1,4 +1,4 @@
-from libs.python.helperCommandExecution import runCommandAndGetJsonResult, runShellCommandFlex
+from libs.python.helperCommandExecution import runCommandAndGetJsonResult, runShellCommandFlex, runShellCommand
 # from libs.python.helperGeneric import save_collected_metadata
 from libs.python.helperJson import getJsonFromFile
 # import re
@@ -163,6 +163,52 @@ def assignUsersToGlobalAndSubaccount(btpUsecase):
             message = " - assign user >" + userEmail + "<"
             command = "btp --format json assign security/role-collection '" + role + "' --to-user '" + userEmail + "' --create-user-if-missing --subaccount '" + subaccountid + "'"
             runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
+
+
+def assignUsersToCustomRoleCollections(btpUsecase):
+
+    subaccountid = btpUsecase.subaccountid
+
+    rolecollectionsCustom = getRoleCollectionsOfTypeAndLevel(btpUsecase, "custom", None)
+    for rolecollection in rolecollectionsCustom:
+        members = getMembersForRolecollection(btpUsecase, rolecollection)
+        rolecollectioname = rolecollection.get("name")
+        log.info("assign users to custom role collection >" + rolecollectioname + "<")
+
+        message = "Check if role collection >" + rolecollectioname + "< already exists"
+        command = "btp get security/role-collection '" + rolecollectioname + "'"
+        p = runShellCommandFlex(btpUsecase, command, "INFO", message, False, False)
+        result = p.stdout.decode()
+        if not result:
+            errormessage = p.stderr.decode()
+            if "error: No entity found with values" in errormessage:
+                message = "Assign role collection >" + rolecollectioname
+                command = "btp create security/role-collection '" + rolecollectioname + "' --description  '" + rolecollectioname + "' --subaccount '" + subaccountid + "'"
+                runShellCommand(btpUsecase, command, "INFO", message)
+                for role in rolecollection["roles"]:
+                    message = "Assign role " + role["name"] + " to role collection " + rolecollectioname
+                    command = "btp add security/role '" + role["name"] + "' --to-role-collection  '" + rolecollectioname + \
+                        "' --of-role-template '" + role["roletemplate"] + "' --of-app '" + role["app"] + "' --subaccount '" + subaccountid + "'"
+                    p = runShellCommandFlex(btpUsecase, command, "INFO", message, False, False)
+                    resultErr = p.stderr.decode()
+                    resultSuc = p.stdout.decode()
+                    if resultErr:
+                        log.warning(resultErr)
+                    if resultSuc:
+                        log.info(resultSuc)
+
+        for userEmail in members:
+            message = "assign user >" + userEmail + "< the role collection >" + rolecollectioname + "<"
+            command = "btp --format json assign security/role-collection '" + rolecollectioname + "' --to-user '" + userEmail + \
+                "' --create-user-if-missing --subaccount '" + subaccountid + "'"
+            runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
+
+
+def assignUsersToRoleCollectionsForServices(btpUsecase):
+    rolecollections = getRoleCollectionsOfServices(btpUsecase)
+    log.header("Assign users to role collections specific to a service")
+    for rolecollection in rolecollections:
+        assignUsergroupsToRoleCollection(btpUsecase, rolecollection)
 
 
 def assignUsersToEnvironments(btpUsecase):
