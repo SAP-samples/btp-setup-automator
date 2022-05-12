@@ -12,7 +12,7 @@ import sys
 import time
 import requests
 import json
-from libs.python.helperRolesAndUsers import getSubaccountAdmins, getRoleCollectionsOfServices, assignUsergroupsToRoleCollection
+from libs.python.helperRolesAndUsers import assignUsersToEnvironments, assignUsersToGlobalAndSubaccount, getSubaccountAdmins, getRoleCollectionsOfServices, assignUsergroupsToRoleCollection
 
 from libs.python.helperServices import BTPSERVICE, BTPSERVICEEncoder, readAllServicesFromUsecaseFile
 from libs.python.helperLog import initLogger
@@ -98,7 +98,9 @@ class BTPUSECASE:
             log.success("Use case supported in your global account!")
 
     def assignUsersToSubaccountAndRoles(self):
-        # assignUsersToSubaccount(self)
+        assignUsersToGlobalAndSubaccount(self)
+        assignUsersToEnvironments(self)
+
         # set_all_cf_space_roles(self)
         # set_all_cf_org_roles(self)
         None

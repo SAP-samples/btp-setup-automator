@@ -27,13 +27,13 @@
       "type": "account",
       "level": "global account",
       "assignedUserGroupsFromParameterFile": [
-        "admins"
+        "admins", "test"
       ]
     },
     {
       "name": "Subaccount Administrator",
       "type": "account",
-      "level": "subaccount",
+      "level": "sub account",
       "assignedUserGroupsFromParameterFile": [
         "admins"
       ]
@@ -41,7 +41,7 @@
     {
       "name": "Subaccount Service Administrator",
       "type": "account",
-      "level": "subaccount",
+      "level": "sub account",
       "assignedUserGroupsFromParameterFile": [
         "admins"
       ]
@@ -51,7 +51,7 @@
       "type": "cloudfoundry",
       "level": "space",
       "assignedUserGroupsFromParameterFile": [
-        "admins"
+        "admins", "developers"
       ]
     },
     {
@@ -59,14 +59,15 @@
       "type": "cloudfoundry",
       "level": "space",
       "assignedUserGroupsFromParameterFile": [
-        "admins"
+        "admins", "developers"
       ]
     },
     {
       "name": "SpaceAuditor",
-      "type": "cloudfoundry space",
+      "type": "cloudfoundry",
+      "level": "space",
       "assignedUserGroupsFromParameterFile": [
-        "admins"
+        "admins" , "developers"
       ]
     }
   ]

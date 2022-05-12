@@ -23,11 +23,22 @@
       ]
     },
     {
-      "name": "superheros",
+      "name": "developers",
       "members": [
-        "tony@stark.com",
+        "tony@stark.com"
+      ]
+    },
+    {
+      "name": "auditor",
+      "members": [
         "captain@america.com"
       ]
-    }    
+    },
+    {
+      "name": "testers",
+      "members": [
+        "hulk@angry.com"
+      ]
+    }
   ]
 }
