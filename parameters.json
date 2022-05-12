@@ -14,7 +14,7 @@
     "BTPSA_YOUR_OWN_ENV_VARIABLE2": "How are you doing?",
     "BTPSA_YOUR_OWN_ENV_VARIABLE3": "You can use these variables in any command within the `executeBeforeAccountSetup` and `executeAfterAccountSetup` section by accessing (and manupulating) them as an OS environment variable!"
   },
-  "usergroups": [
+  "myusergroups": [
     {
       "name": "admins",
       "members": [
