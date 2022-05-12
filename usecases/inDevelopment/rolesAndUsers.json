@@ -15,7 +15,7 @@
         {
           "name": "Launchpad_Admin",
           "assignedUserGroupsFromParameterFile": [
-            "superheros"
+            "developers"
           ]
         }
       ]

@@ -39,7 +39,7 @@ myBtpUseCase.create_configured_app_subscriptions_and_services()
 #######################################################################################
 # Create role collections and roles
 #######################################################################################
-# myBtpUseCase.createRoleCollections()
+myBtpUseCase.createRoleCollections()
 
 #######################################################################################
 # Give all colleagues listed as admins in usecase_config.json file all roles within the space

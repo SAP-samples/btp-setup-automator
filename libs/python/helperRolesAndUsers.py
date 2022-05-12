@@ -106,13 +106,14 @@ def assignUsergroupsToRoleCollection(btpUsecase, rolecollection):
 
     for usergroup in assignedUserGroupsFromParameterFile:
         members = getMembersOfUserGroup(btpUsecase, usergroup)
-        for userEmail in members:
-            rolecollectioname = rolecollection.get("name")
-            message = "assign user >" + userEmail + "< the role collection >" + rolecollectioname + "<"
-            command = "btp --format json assign security/role-collection '" + rolecollectioname + "' --to-user '" + userEmail + \
-                "' --create-user-if-missing --subaccount '" + subaccountid + "'"
-            thisResult = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
-            thisResult = thisResult
+        if members:
+            for userEmail in members:
+                rolecollectioname = rolecollection.get("name")
+                message = "assign user >" + userEmail + "< the role collection >" + rolecollectioname + "<"
+                command = "btp --format json assign security/role-collection '" + rolecollectioname + "' --to-user '" + userEmail + \
+                    "' --create-user-if-missing --subaccount '" + subaccountid + "'"
+                thisResult = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
+                thisResult = thisResult
 
 
 def getSelfDefinedRoleCollections(btpUsecase):
@@ -292,8 +293,9 @@ def assignUsersToGlobalAndSubaccount(btpUsecase):
     for rolecollection in rolecollectionsGlobalAccount:
         members = getMembersForRolecollection(btpUsecase, rolecollection)
         role = rolecollection.get("name")
+        log.info("assign users to global account role >" + role + "<")
         for userEmail in members:
-            message = "assign user >" + userEmail + "< the role >" + role + "<"
+            message = " - assign user >" + userEmail + "<"
             command = "btp --format json assign security/role-collection '" + role + "' --to-user '" + userEmail + "' --create-user-if-missing -ga"
             runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
 
@@ -302,8 +304,9 @@ def assignUsersToGlobalAndSubaccount(btpUsecase):
     for rolecollection in rolecollectionsSubAccount:
         members = getMembersForRolecollection(btpUsecase, rolecollection)
         role = rolecollection.get("name")
+        log.info("assign users to sub account role >" + role + "<")
         for userEmail in members:
-            message = "assign user >" + userEmail + "< the role >" + role + "<"
+            message = " - assign user >" + userEmail + "<"
             command = "btp --format json assign security/role-collection '" + role + "' --to-user '" + userEmail + "' --create-user-if-missing --subaccount '" + subaccountid + "'"
             runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
 
@@ -344,18 +347,32 @@ def assignUsersToEnvironments(btpUsecase):
 
     for environment in environments:
         if environment.name == "cloudfoundry":
-
-            log.header("Set members of Cloudfoundry space")
-            rolecollectionsCloudFoundry = getRoleCollectionsOfTypeAndLevel(btpUsecase, "cloudfoundry", "space")
             org = btpUsecase.org
             cfspacename = btpUsecase.cfspacename
 
-            for rolecollection in rolecollectionsCloudFoundry:
+            log.header("Set members of Cloudfoundry org")
+            rolecollectionsCloudFoundryOrg = getRoleCollectionsOfTypeAndLevel(btpUsecase, "cloudfoundry", "org")
+            for rolecollection in rolecollectionsCloudFoundryOrg:
+                members = getMembersForRolecollection(btpUsecase, rolecollection)
+                orgRole = rolecollection.get("name")
+                log.info("assign users to org role >" + orgRole + "<")
+                for admin in members:
+                    message = " - user >" + admin + "<"
+                    command = "cf set-org-role '" + admin + "' '" + org + "' '" + orgRole + "'"
+                    p = runShellCommandFlex(btpUsecase, command, "INFO", message, False, False)
+                    result = p.stdout.decode()
+                    if "message: The user could not be found" in result:
+                        log.error("the user >" + admin + "< was not found and could not be assigned the role >" + orgRole + "<")
+
+            log.header("Set members of Cloudfoundry space")
+            rolecollectionsCloudFoundrySpace = getRoleCollectionsOfTypeAndLevel(btpUsecase, "cloudfoundry", "space")
+
+            for rolecollection in rolecollectionsCloudFoundrySpace:
                 members = getMembersForRolecollection(btpUsecase, rolecollection)
                 spaceRole = rolecollection.get("name")
+                log.info("assign users to space role >" + orgRole + "<")
                 for admin in members:
-
-                    message = "Assign space role >" + spaceRole + "< to user >" + admin + "<"
+                    message = " - user >" + admin + "<"
                     command = "cf set-space-role '" + admin + "' '" + org + "' '" + cfspacename + "' '" + spaceRole + "'"
                     p = runShellCommandFlex(btpUsecase, command, "INFO", message, False, False)
                     result = p.stdout.decode()

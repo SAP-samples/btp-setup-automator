@@ -440,8 +440,6 @@ class BTPUSECASE:
         for rolecollection in rolecollections:
             assignUsergroupsToRoleCollection(self, rolecollection)
 
-        None
-
     def create_configured_app_subscriptions_and_services(self):
 
         ##################################################################################
