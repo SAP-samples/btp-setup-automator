@@ -23,7 +23,7 @@
   ],
   "requiredrolecollections": [
     {
-      "name": "C4U Administrator",
+      "name": "My own role collection",
       "type": "custom",
       "assignedUserGroupsFromParameterFile": [
         "admins"
@@ -32,12 +32,12 @@
         {
           "name": "SystemsViewer",
           "roletemplate": "SystemsViewer",
-          "app": "one-mds-master!b28283"
+          "app": "one-mds-master!12345"
         },
         {
           "name": "RetailerAdmin",
           "roletemplate": "RetailerAdmin",
-          "app": "c4u-foundation-retailer-dev!b57093"
+          "app": "retailer-dev!67890"
         }
       ]
     }
