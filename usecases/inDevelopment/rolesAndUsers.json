@@ -27,7 +27,7 @@
       "type": "account",
       "level": "global account",
       "assignedUserGroupsFromParameterFile": [
-        "admins", "test"
+        "admins"
       ]
     },
     {
@@ -68,6 +68,22 @@
       "level": "space",
       "assignedUserGroupsFromParameterFile": [
         "admins" , "developers"
+      ]
+    },
+    {
+      "name": "OrgManager",
+      "type": "cloudfoundry",
+      "level": "org",
+      "assignedUserGroupsFromParameterFile": [
+        "admins" , "testers"
+      ]
+    },
+    {
+      "name": "OrgAuditor",
+      "type": "cloudfoundry",
+      "level": "org",
+      "assignedUserGroupsFromParameterFile": [
+        "admins" , "auditor"
       ]
     }
   ]
