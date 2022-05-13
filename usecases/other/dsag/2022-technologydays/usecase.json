@@ -55,9 +55,24 @@
       "plan": "standard",
       "category": "APPLICATION",
       "requiredrolecollections": [
-        "Enterprise Messaging Administrator",
-        "Enterprise Messaging Developer",
-        "Enterprise Messaging Subscription Administrator"
+        {
+          "name": "Enterprise Messaging Administrator",
+          "assignedUserGroupsFromParameterFile": [
+            "admins"
+          ]
+        },
+        {
+          "name": "Enterprise Messaging Developer",
+          "assignedUserGroupsFromParameterFile": [
+            "admins"
+          ]
+        },
+        {
+          "name": "Enterprise Messaging Subscription Administrator",
+          "assignedUserGroupsFromParameterFile": [
+            "admins"
+          ]
+        }
       ]
     }
   ],
@@ -131,5 +146,5 @@
         "auditors"
       ]
     }
-  ]    
+  ]
 }

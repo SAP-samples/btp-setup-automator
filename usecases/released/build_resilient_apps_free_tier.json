@@ -70,7 +70,12 @@
             "plan": "standard",
             "category": "APPLICATION",
             "requiredrolecollections": [
-                "Launchpad_Admin"
+                {
+                    "name": "Launchpad_Admin",
+                    "assignedUserGroupsFromParameterFile": [
+                        "developers"
+                    ]
+                }
             ]
         },
         {
@@ -125,7 +130,12 @@
             "plan": "default",
             "category": "APPLICATION",
             "requiredrolecollections": [
-                "CICD Service Administrator"
+                {
+                    "name": "CICD Service Administrator",
+                    "assignedUserGroupsFromParameterFile": [
+                        "developers"
+                    ]
+                }
             ]
         },
         {

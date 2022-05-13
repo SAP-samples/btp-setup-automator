@@ -14,7 +14,12 @@
             "repeatstatusrequest": 5,
             "repeatstatustimeout": 200,
             "requiredrolecollections": [
-                "CICD Service Administrator"
+                {
+                    "name": "CICD Service Administrator",
+                    "assignedUserGroupsFromParameterFile": [
+                        "developers"
+                    ]
+                }
             ]
         }
     ],
