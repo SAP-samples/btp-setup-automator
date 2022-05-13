@@ -94,19 +94,27 @@ def assignUsergroupsToRoleCollection(btpUsecase, rolecollection):
     accountMetadata = btpUsecase.accountMetadata
     subaccountid = accountMetadata["subaccountid"]
 
-    assignedUserGroupsFromParameterFile = rolecollection.get("assignedUserGroupsFromParameterFile")
+    roleCollectionIsString = isinstance(rolecollection, str)
+    roleCollectionIsList = isinstance(rolecollection, dict)
 
-    for usergroup in assignedUserGroupsFromParameterFile:
-        members = getMembersOfUserGroup(btpUsecase, usergroup)
-        if members:
-            rolecollectioname = rolecollection.get("name")
-            log.info("assign users the role collection >" + rolecollectioname + "<")
-            for userEmail in members:
-                message = " - user >" + userEmail + "<"
-                command = "btp --format json assign security/role-collection '" + rolecollectioname + "' --to-user '" + userEmail + \
-                    "' --create-user-if-missing --subaccount '" + subaccountid + "'"
-                thisResult = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
-                thisResult = thisResult
+    if roleCollectionIsList:
+        assignedUserGroupsFromParameterFile = rolecollection.get("assignedUserGroupsFromParameterFile")
+
+        for usergroup in assignedUserGroupsFromParameterFile:
+            members = getMembersOfUserGroup(btpUsecase, usergroup)
+            if members:
+                rolecollectioname = rolecollection.get("name")
+                log.info("assign users the role collection >" + rolecollectioname + "<")
+                for userEmail in members:
+                    message = " - user >" + userEmail + "<"
+                    command = "btp --format json assign security/role-collection '" + rolecollectioname + "' --to-user '" + userEmail + \
+                        "' --create-user-if-missing --subaccount '" + subaccountid + "'"
+                    thisResult = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
+                    thisResult = thisResult
+    if roleCollectionIsString:
+        log.warning("YOU ARE USING A LEGACY CONFIGURATION FOR ASSIGING USERS TO ROLE COLLECTIONS!")
+        log.warning("Please change your parameters file and your usecase file accordingly.")
+        log.warning("Checkout the default parameters file and the other released use cases to understand how to do it.")
 
 
 def getSelfDefinedRoleCollections(btpUsecase):
@@ -123,24 +131,25 @@ def getRoleCollectionsOfTypeAndLevel(btpUsecase, type, level):
     checkLevel = level is not None
 
     result = []
-    for rolecollection in rolecollections:
-        thisType = rolecollection.get("type")
-        thisLevel = rolecollection.get("level")
-        add = False
-        rightLevel = False
-        rightType = False
-        if checkLevel is True and thisLevel == level:
-            rightLevel = True
-        if checkType is True and thisType == type:
-            rightType = True
-        if checkType is True and checkLevel is True:
-            add = rightLevel and rightType
-        if checkType is True and checkLevel is False:
-            add = rightType
-        if checkType is False and checkLevel is True:
-            add = rightLevel
-        if add is True:
-            result.append(rolecollection)
+    if rolecollections:
+        for rolecollection in rolecollections:
+            thisType = rolecollection.get("type")
+            thisLevel = rolecollection.get("level")
+            add = False
+            rightLevel = False
+            rightType = False
+            if checkLevel is True and thisLevel == level:
+                rightLevel = True
+            if checkType is True and thisType == type:
+                rightType = True
+            if checkType is True and checkLevel is True:
+                add = rightLevel and rightType
+            if checkType is True and checkLevel is False:
+                add = rightType
+            if checkType is False and checkLevel is True:
+                add = rightLevel
+            if add is True:
+                result.append(rolecollection)
 
     return result
 
