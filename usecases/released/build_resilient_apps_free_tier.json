@@ -134,10 +134,6 @@
             "category": "APPLICATION"
         }
     ],
-    "admins": [
-        "jane.doe@sap.com",
-        "john.doe@sap.com"
-    ],
     "executeAfterAccountSetup": [
         {
             "description": "Get the tutorial code",
@@ -192,6 +188,77 @@
         {
             "description": "undeploy the CAP app",
             "command": "cf undeploy BusinessPartnerVerification --delete-service-brokers --delete-service-keys --delete-services -f"
+        }
+    ],
+    "assignrolecollections": [
+        {
+            "name": "Global Account Administrator",
+            "type": "account",
+            "level": "global account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "Subaccount Administrator",
+            "type": "account",
+            "level": "sub account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "Subaccount Service Administrator",
+            "type": "account",
+            "level": "sub account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "SpaceManager",
+            "type": "cloudfoundry",
+            "level": "space",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "developers"
+            ]
+        },
+        {
+            "name": "SpaceDeveloper",
+            "type": "cloudfoundry",
+            "level": "space",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "developers"
+            ]
+        },
+        {
+            "name": "SpaceAuditor",
+            "type": "cloudfoundry",
+            "level": "space",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "developers"
+            ]
+        },
+        {
+            "name": "OrgManager",
+            "type": "cloudfoundry",
+            "level": "org",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "testers"
+            ]
+        },
+        {
+            "name": "OrgAuditor",
+            "type": "cloudfoundry",
+            "level": "org",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "auditors"
+            ]
         }
     ]
 }
