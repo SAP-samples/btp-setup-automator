@@ -11,14 +11,15 @@ log = logging.getLogger(__name__)
 
 def getMembersForRolecollection(btpUsecase, rolecollection):
     users = []
-    for usergroup in rolecollection.get("assignedUserGroupsFromParameterFile"):
-        members = getMembersOfUserGroup(btpUsecase, usergroup)
-        if members:
-            for member in members:
-                users.append(member)
-        else:
-            log.warning("Didn't find any members for user group >" + usergroup + '<. Check the section "usergroups" in your parameters file >' + btpUsecase.parameterfile + "<")
-    users = list(dict.fromkeys(users))
+    if rolecollection:
+        for usergroup in rolecollection.get("assignedUserGroupsFromParameterFile"):
+            members = getMembersOfUserGroup(btpUsecase, usergroup)
+            if members:
+                for member in members:
+                    users.append(member)
+            else:
+                log.warning("Didn't find any members for user group >" + usergroup + '<. Check the section "usergroups" in your parameters file >' + btpUsecase.parameterfile + "<")
+        users = list(dict.fromkeys(users))
     return users
 
 
@@ -81,12 +82,13 @@ def getMembersOfUserGroup(btpUsecase, usergroup):
     members = None
     usergroupExists = False
 
-    for thisUserGroup in btpUsecase.myusergroups:
-        if thisUserGroup.get("name") == usergroup:
-            usergroupExists = True
-            members = thisUserGroup.get("members")
-    if usergroupExists is False:
-        log.error("you didn't define a usergroup >" + usergroup + "< in your parameters file >" + btpUsecase.parameterfile + "<. Therefore no members where found.")
+    if btpUsecase.myusergroups and usergroup:
+        for thisUserGroup in btpUsecase.myusergroups:
+            if thisUserGroup.get("name") == usergroup:
+                usergroupExists = True
+                members = thisUserGroup.get("members")
+        if usergroupExists is False:
+            log.error("you didn't define a usergroup >" + usergroup + "< in your parameters file >" + btpUsecase.parameterfile + "<. Therefore no members where found.")
     return members
 
 
@@ -119,8 +121,9 @@ def assignUsergroupsToRoleCollection(btpUsecase, rolecollection):
 
 def getSelfDefinedRoleCollections(btpUsecase):
     items = []
-    for rolecollection in btpUsecase.definedRoleCollections:
-        items.append(rolecollection)
+    if btpUsecase.definedRoleCollections:
+        for rolecollection in btpUsecase.definedRoleCollections:
+            items.append(rolecollection)
 
     return items
 
@@ -225,44 +228,46 @@ def assignUsersToCustomRoleCollections(btpUsecase):
 def assignUsersToRoleCollectionsForServices(btpUsecase):
     rolecollections = getRoleCollectionsOfServices(btpUsecase)
     log.header("Assign users to role collections specific to a service")
-    for rolecollection in rolecollections:
-        assignUsergroupsToRoleCollection(btpUsecase, rolecollection)
+    if rolecollections:
+        for rolecollection in rolecollections:
+            assignUsergroupsToRoleCollection(btpUsecase, rolecollection)
 
 
 def assignUsersToEnvironments(btpUsecase):
     environments = btpUsecase.definedEnvironments
 
-    for environment in environments:
-        if environment.name == "cloudfoundry":
-            org = btpUsecase.org
-            cfspacename = btpUsecase.cfspacename
+    if environments:
+        for environment in environments:
+            if environment.name == "cloudfoundry":
+                org = btpUsecase.org
+                cfspacename = btpUsecase.cfspacename
 
-            rolecollectionsCloudFoundryOrg = getRoleCollectionsOfTypeAndLevel(btpUsecase, "cloudfoundry", "org")
-            if rolecollectionsCloudFoundryOrg:
-                log.header("Set members for Cloudfoundry org")
-                for rolecollection in rolecollectionsCloudFoundryOrg:
-                    members = getMembersForRolecollection(btpUsecase, rolecollection)
-                    orgRole = rolecollection.get("name")
-                    log.info("assign users to org role >" + orgRole + "<")
-                    for admin in members:
-                        message = " - user >" + admin + "<"
-                        command = "cf set-org-role '" + admin + "' '" + org + "' '" + orgRole + "'"
-                        p = runShellCommandFlex(btpUsecase, command, "INFO", message, False, False)
-                        result = p.stdout.decode()
-                        if "message: The user could not be found" in result:
-                            log.error("the user >" + admin + "< was not found and could not be assigned the role >" + orgRole + "<")
+                rolecollectionsCloudFoundryOrg = getRoleCollectionsOfTypeAndLevel(btpUsecase, "cloudfoundry", "org")
+                if rolecollectionsCloudFoundryOrg:
+                    log.header("Set members for Cloudfoundry org")
+                    for rolecollection in rolecollectionsCloudFoundryOrg:
+                        members = getMembersForRolecollection(btpUsecase, rolecollection)
+                        orgRole = rolecollection.get("name")
+                        log.info("assign users to org role >" + orgRole + "<")
+                        for admin in members:
+                            message = " - user >" + admin + "<"
+                            command = "cf set-org-role '" + admin + "' '" + org + "' '" + orgRole + "'"
+                            p = runShellCommandFlex(btpUsecase, command, "INFO", message, False, False)
+                            result = p.stdout.decode()
+                            if "message: The user could not be found" in result:
+                                log.error("the user >" + admin + "< was not found and could not be assigned the role >" + orgRole + "<")
 
-            rolecollectionsCloudFoundrySpace = getRoleCollectionsOfTypeAndLevel(btpUsecase, "cloudfoundry", "space")
-            if rolecollectionsCloudFoundrySpace:
-                log.header("Set members for Cloudfoundry space")
-                for rolecollection in rolecollectionsCloudFoundrySpace:
-                    members = getMembersForRolecollection(btpUsecase, rolecollection)
-                    spaceRole = rolecollection.get("name")
-                    log.info("assign users to space role >" + orgRole + "<")
-                    for admin in members:
-                        message = " - user >" + admin + "<"
-                        command = "cf set-space-role '" + admin + "' '" + org + "' '" + cfspacename + "' '" + spaceRole + "'"
-                        p = runShellCommandFlex(btpUsecase, command, "INFO", message, False, False)
-                        result = p.stdout.decode()
-                        if "message: The user could not be found" in result:
-                            log.error("the user >" + admin + "< was not found and could not be assigned the role >" + spaceRole + "<")
+                rolecollectionsCloudFoundrySpace = getRoleCollectionsOfTypeAndLevel(btpUsecase, "cloudfoundry", "space")
+                if rolecollectionsCloudFoundrySpace:
+                    log.header("Set members for Cloudfoundry space")
+                    for rolecollection in rolecollectionsCloudFoundrySpace:
+                        members = getMembersForRolecollection(btpUsecase, rolecollection)
+                        spaceRole = rolecollection.get("name")
+                        log.info("assign users to space role >" + orgRole + "<")
+                        for admin in members:
+                            message = " - user >" + admin + "<"
+                            command = "cf set-space-role '" + admin + "' '" + org + "' '" + cfspacename + "' '" + spaceRole + "'"
+                            p = runShellCommandFlex(btpUsecase, command, "INFO", message, False, False)
+                            result = p.stdout.decode()
+                            if "message: The user could not be found" in result:
+                                log.error("the user >" + admin + "< was not found and could not be assigned the role >" + spaceRole + "<")
