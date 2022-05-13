@@ -70,5 +70,31 @@
             "description": "Apply the API rule to expose the app",
             "command": "kubectl apply -f /home/user/kyma-runtime-samples/custom-component-dapr/k8s/apirule.yaml -n dapr-sample"
         }
+    ],
+    "assignrolecollections": [
+        {
+            "name": "Global Account Administrator",
+            "type": "account",
+            "level": "global account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "Subaccount Administrator",
+            "type": "account",
+            "level": "sub account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "Subaccount Service Administrator",
+            "type": "account",
+            "level": "sub account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        }
     ]
 }
