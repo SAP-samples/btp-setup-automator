@@ -19,7 +19,7 @@ def login_cf(btpUsecase):
     if cfDefined is True:
         accountMetadata = btpUsecase.accountMetadata
 
-        # TBD: check, if we should switch from accountMetadata["org"] to  btpUsecase.org
+        # TBD: check, if we should switch from accountMetadata["org"] to btpUsecase.org
         org = accountMetadata["org"]
 
         cfCLIRegion = btpUsecase.region

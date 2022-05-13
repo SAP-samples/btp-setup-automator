@@ -691,24 +691,6 @@ def try_until_done(btpUsecase: BTPUSECASE, command, message, key, value, search_
     return result
 
 
-# def btp_assign_role_collection_to_admins(btpUsecase: BTPUSECASE):
-#     accountMetadata = btpUsecase.accountMetadata
-
-#     admins = getAdminsForUseCase(btpUsecase)
-#     subaccountid = accountMetadata["subaccountid"]
-
-#     if admins is not None and len(admins) > 0:
-#         for appSubscription in btpUsecase.definedAppSubscriptions:
-#             if appSubscription.requiredrolecollections is not None:
-#                 roleCollections = appSubscription.requiredrolecollections
-#                 for roleCollection in roleCollections:
-#                     for admin in admins:
-#                         message = "Assign role collection >" + roleCollection + "< to user >" + admin + "<"
-#                         command = "btp assign security/role-collection '" + roleCollection + \
-#                             "' --to-user '" + admin + "' --subaccount '" + subaccountid + "'"
-#                         runShellCommand(btpUsecase, command, "INFO", message)
-
-
 def assign_entitlement(btpUsecase: BTPUSECASE, service):
     accountMetadata = btpUsecase.accountMetadata
     subaccountid = accountMetadata["subaccountid"]

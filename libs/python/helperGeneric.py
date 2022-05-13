@@ -161,29 +161,6 @@ def getDictWithEnvVariables(btpUsecase):
 def getEnvVariableValue(variable):
     result = os.environ[variable]
     return result
-# def setEnvVariables(btpUsecase, parameters):
-#     for key, value in parameters.items():
-#         # avoid having "None" as value in case value was not set
-#         if value is None:
-#             value = ""
-#         envVariableAlreadyThere = False
-#         if btpUsecase.envvariables is None:
-#             btpUsecase.envvariables = []
-
-#         if btpUsecase.envvariables is not None and len(btpUsecase.envvariables) > 0:
-#             for myVariable in btpUsecase.envvariables:
-#                 if myVariable["key"] == key:
-#                     envVariableAlreadyThere = True
-
-#         if envVariableAlreadyThere is False:
-#             newEnvVar = {"key": key, "value": value}
-#             btpUsecase.envvariables.append(newEnvVar)
-#         else:
-#             newEnvVar = {"key": key, "value": value}
-#             btpUsecase.envvariables.update(newEnvVar)
-
-#         os.environ[key] = value
-#         # log.info("set environment variable >" + str(key) + "< to value >" + str(value) + "<")
 
 
 def showEnvVariables():
