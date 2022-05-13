@@ -6,7 +6,7 @@ idna==3.3
 inquirer==2.9.1
 Jinja2==3.1.2
 MarkupSafe==2.1.1
-mccabe==0.6.1
+mccabe==0.7.0
 ninja2==0.1
 pycodestyle==2.8.0
 pyflakes==2.4.0
