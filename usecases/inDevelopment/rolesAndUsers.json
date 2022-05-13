@@ -1,38 +1,23 @@
 {
   "aboutThisUseCase": {
-    "name": "Setup SAP Task Center",
-    "description": "This usecase provides the configuration of services to setup SAP Task Center \n  To establish the necessary trust with your custom IAS tenant, please provide the corresponding host in the 'parameters.json' file with the paramter **iashost**",
-    "author": "fabian.lehmann02@sap.com",
-    "testStatus": "tested successfully",
-    "usageStatus": "READY TO BE USED"
+    "name": "Test roles and users assignment",
+    "description": "Test use case for roles and users",
+    "author": "rui.nogueira@sap.com",
+    "testStatus": "testing",
+    "usageStatus": "NOT READY TO BE USED"
   },
   "services": [
-    {
-      "name": "xsuaa",
-      "plan": "apiaccess",
-      "instancename": "xsuaa_api",
-      "category": "SERVICE",
-      "repeatstatusrequest": 5,
-      "repeatstatustimeout": 200,
-      "createServiceKeys": [
-        "myServiceKey1"
-      ]
-    },
-    {
-      "category": "SERVICE",
-      "name": "one-inbox-service",
-      "plan": "standard",
-      "instancename": "default_taskcenter",
-      "createServiceKeys": [
-        "defaultKey"
-      ]
-    },
     {
       "category": "APPLICATION",
       "name": "SAPLaunchpad",
       "plan": "standard",
       "requiredrolecollections": [
-        "Launchpad_Admin"
+        {
+          "name": "Launchpad_Admin",
+          "assignedUserGroupsFromParameterFile": [
+            "developers"
+          ]
+        }
       ]
     }
   ],
@@ -45,6 +30,25 @@
         "admins"
       ]
     },
+    {
+      "name": "My own role collection",
+      "type": "custom",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ],
+      "roles": [
+        {
+          "name": "NeedsToBeThere",
+          "roletemplate": "NeedsToBeThere",
+          "app": "something-you-createdbefore!12345"
+        },
+        {
+          "name": "NeedsToBeThereToo",
+          "roletemplate": "NeedsToBeThereToo",
+          "app": "something-you-createdbefore-aswell!67890"
+        }
+      ]
+    },    
     {
       "name": "Subaccount Administrator",
       "type": "account",
@@ -106,5 +110,5 @@
         "auditors"
       ]
     }
-  ]  
+  ]
 }
