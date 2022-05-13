@@ -37,7 +37,7 @@ These are the available commands:
 | cfcliapihostregion | host region for the Cloud Foundry CLI calls | str |  | None |
 | btpcliapihostregion | host region for the BTP CLI calls | str |  | eu10 |
 | envvariables | list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`. | str |  | None |
-| usergroups | list of user groups to be used in btpsa | str |  | None |
+| myusergroups | list of user groups to be used in btpsa | str |  | None |
 
 You can get an overview of those commands as well, by simply typing the following command in your command line terminal:
 

@@ -164,7 +164,17 @@ Let us assume that you want to provision an instance of the XSUAA service. For t
       ]
     }
   ],
-  "admins": []
+  "assignrolecollections": [
+    {
+      "name": "Global Account Administrator",
+      "type": "account",
+      "level": "global account",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ]
+    },
+    ....
+  ]
 }
 ```
 
@@ -172,7 +182,7 @@ You specify all the artifacts in the `services` section as a JSON array. For XSU
 
 This example also shows the service specific definition of the parameters `repeatstatusrequest` and `repeatstatustimeout` mentioned above.
 
-You also see a `admins` attribute that points to an empty array. Here you canspecify further administrators. The email specified in the `parameter file` will automatically be added to the administrators and does not need to be added explicitly.
+You also see a `assignrolecollections` attribute that assigns BTP role collections to usergroups that are defined in the `parameter file` (`assignedUserGroupsFromParameterFile`). The usergroups are defined in the parameter file attribute `myusergroups`. Check out the default [parameters.json](../parameters.json) file
 
 ### Sample 2 - Plain Kyma Provisioning
 
