@@ -7,3 +7,10 @@ updates:
       # Check for updates to GitHub Actions every weekday
       interval: "weekly"
       day: "monday"
+  - package-ecosystem: "pip"
+    directory: "/config/python"
+    schedule:
+      # Check for updates to GitHub Actions every weekday
+      interval: "weekly"
+      day: "monday"
+   
