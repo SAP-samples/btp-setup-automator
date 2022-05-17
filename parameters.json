@@ -1,5 +1,5 @@
 {
-  "$schema": "libs/schemas/btpsa_parameters.json",
+  "$schema": "schemas/btpsa_parameters.json",
   "usecasefile": "usecases/released/cap_app_launchpad.json",
   "region": "us10",
   "globalaccount": null,

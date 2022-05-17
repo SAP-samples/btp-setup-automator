@@ -14,20 +14,39 @@ def setupParams(myArguments):
     if myArguments is not None and myArguments != "":
 
         allJsonParameters = getJsonFromFile(None, myArguments)
-        for parameter in allJsonParameters:
-            argument = parameter["argument"]
-            type = parameter["type"]
-            help = parameter["help"]
-            default = parameter["default"]
-            if type == "str":
-                if "acceptedvalues" in parameter:
-                    parser.add_argument('-' + argument, type=str, help=help, choices=parameter["acceptedvalues"])
+        for key, value in allJsonParameters.get("properties").items():
+            argument = key
+            type = value.get("type")
+            help = value.get("description")
+            default = value.get("default")
+
+            typeIsList = isinstance(type, list)
+
+            if typeIsList:
+                for thisType in type:
+                    if thisType == "string":
+                        type = "string"
+                        break
+                    if thisType == "boolean":
+                        type = "boolean"
+                        break
+                    if thisType == "integer":
+                        type = "integer"
+                        break
+
+            if type == "string":
+                if "acceptedvalues" in value:
+                    parser.add_argument('-' + argument, type=str, help=help, choices=value["acceptedvalues"])
                 else:
                     parser.add_argument('-' + argument, type=str, help=help)
-            if type == "bool":
+            if type == "boolean":
                 parser.add_argument('-' + argument, type=bool, help=help)
-            if type == "int":
+            if type == "integer":
                 parser.add_argument('-' + argument, type=int, help=help)
+            if type == "object":
+                parser.add_argument('-' + argument, type=str, help=help)
+            if type == "array":
+                parser.add_argument('-' + argument, type=str, help=help)
 
         args = parser.parse_args()
         parameterfile = None
@@ -63,11 +82,10 @@ def setupParams(myArguments):
                 setattr(args, key, valueToSet)
 
             # in case the parameter file does not include all parameter keys, add the missing ones to the args
-            btpSetupAutomatorArguments = "libs/json/paramBtpSetupAutomator.json"
+            btpSetupAutomatorArguments = "schemas/btpsa_parameters.json"
             allJsonParameters = getJsonFromFile(None, btpSetupAutomatorArguments)
-            for parameter in allJsonParameters:
-                key = parameter["argument"]
-                default = parameter["default"]
+            for key, value in allJsonParameters.get("properties").items():
+                default = value.get("default")
                 if key not in myParameters:
                     valueToSet = getattr(args, key)
                     if valueToSet is None and default is not None: 
@@ -84,17 +102,20 @@ def setupParams(myArguments):
 
 def getDefaultValueForParameter(allJsonParameters, myArgument):
     result = None
-    for parameter in allJsonParameters:
-        argument = parameter["argument"]
-        if argument == myArgument:
-            result = parameter["default"]
+    for key, value in allJsonParameters.get("properties").items():
+        if key == myArgument:
+            result = value.get("default")
 
     return result
 
 
+def validateJson():
+    None
+
+
 def setupParamsBtpsa():
-    btpSetupAutomatorArguments = "libs/json/paramBtpSetupAutomator.json"
-    args = setupParams(btpSetupAutomatorArguments)
+    jsonSchema = "schemas/btpsa_parameters.json"
+    args = setupParams(jsonSchema)
     return args
 
 
