@@ -13,7 +13,7 @@
         {
             "category": "ENVIRONMENT",
             "name": "kymaruntime",
-            "plan": "free",
+            "plan": "trial",
             "amount": 1,
             "parameters": {
                 "name": "btp-auto-setup",
@@ -34,7 +34,7 @@
         },
         {
             "name": "hana-cloud",
-            "plan": "hana-free",
+            "plan": "hana",
             "category": "SERVICE",
             "repeatstatusrequest": 60,
             "repeatstatustimeout": 3600,

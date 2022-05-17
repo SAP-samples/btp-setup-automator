@@ -1,10 +1,15 @@
 # Instructions for running SAP Discovery Center Mission in btp-setup-automator
 
+The [btp-setup-automator](https://github.com/SAP-samples/btp-setup-automator) is an open source project to help developers setting-up their SAP BTP accounts quickly via various command line interfaces.
+The current script was designed to setup the account and spin up the application which is used by the Discovery Center Mission, [Develop a Multitenant Extension Application in SAP BTP, Kyma Runtime](https://discovery-center.cloud.sap/missiondetail/3683/3726/). 
+
+The script will create a subaccount with the necessary entitlements and deploy the Easy Franchise application in the SAP BTP Kyma Environment.
+
 ## Pre-Requisites
 
 To use the tooling you first need to finish the following tasks:
 
-- Get an [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/trial/#/home/trial) or a [productive SAP BTP account](https://account.hana.ondemand.com/#/home/welcome) (recommended) where you can make use of the free tier service plans
+- Get a [productive SAP BTP account](https://account.hana.ondemand.com/#/home/welcome) where you can make use of the free tier service plans. It will also work with a trial account if you adapt some of the parameters. (See description below)
 - [Install a Docker engine](https://docs.docker.com/desktop/)
 
 > ⚠ NOTE: Be aware of the terms of Docker for usage in enterprises. For details see this [link](https://www.docker.com/blog/updating-product-subscriptions/).
@@ -25,17 +30,24 @@ You'll notice that the prompt in your terminal has changed, because you are now 
 Now run the main script `btpsa` with the following command:
 
 ```bash
-./btpsa -parameterfile 'usecases/other/discoverycenter/3638-kyma-multitenant/parameters.json' \
-    -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>'  \
-    -region        '<region for your subaccount e.g. us10>' \
-    -myemail       '<your email address>'
+./btpsa -parameterfile 'usecases/other/discoverycenter/3638-kyma-multitenant/parameters.json' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>'
 ```
+
 The btp-setup-automator script will now prepare your SAP BTP account to cover the discovery center mission. You can have a look at the [usecase.json](usecase.json) and [parameters.json](parameters.json) for more details about the used services and configuration parameters (e.g. DB Password for SAP HANA Cloud)
 
 ## Changes the configuration
 
-Currently the usecase is designed to use the free tier service plans and requieres a a productive SAP BTP account. Also the name and the name of the subaccount is preconfigured to "EasyFranchise" and US10 as region. In order to change the name of the subaccount or the region you need to adapt the [parameters.json](parameters.json). The easiest way to change either the [usecase.json](usecase.json) or the [parameters.json](parameters.json) is to attach Visual Studio Code directly to your running container. You can have a look at the [Setup Automator for SAP Business Technology Platform documentation](../../../../README.md#option-2-start-docker-container-with-self-built-image) for more details.
+Currently the use case is designed to use the free tier service plans and requires a productive SAP BTP account. Also the name and the name of the subaccount is preconfigured to "EasyFranchise" and US10 as region. In case you need to adapt some of the parameters you can parse them via commandline parameters when you call the script, for example to change the region it would look like this:
 
-### Changing the region
+```bash
+./btpsa -parameterfile 'usecases/other/discoverycenter/3638-kyma-multitenant/parameters.json' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>' -region 'region for your subaccount'
+```
 
-In case you want to change the region for the usecase you can have a look at the [Available Regions here](https://help.sap.com/products/BTP/65de2977205c403bbc107264b8eccf4b/557ec3adc3174ed4914ec9d6d13487cf.html?locale=en-US&version=Cloud). In order to make sure the the usecase is executeable you need to check if the [SAP BTP Kyma Runtime availability](https://discovery-center.cloud.sap/serviceCatalog/kyma-runtime?region=all&tab=service_plan) and the [SAP HANA Cloud availability](https://discovery-center.cloud.sap/serviceCatalog/sap-hana-cloud?region=all&tab=service_plan) is given. 
+If you want to make changes to the actual [usecase.json](usecase.json) you can either attach Visual Studio Code directly to your running container. Then you can perform the changes (it works as well with the parameters.json) and run the script as described above. You should be aware that the changes are not persisted if you terminate the docker container. In case you need to perform permanent changes to either the usecase.json or the parameter json you need to create your own docker image containing the changes as described [in the documentation](../../../../README.md#option-2-start-docker-container-with-self-built-image) for more details.
+
+**Region Change**
+
+Be aware in case you change the region for the use case you need to have a look at the [Available Regions here](https://help.sap.com/products/BTP/65de2977205c403bbc107264b8eccf4b/557ec3adc3174ed4914ec9d6d13487cf.html?locale=en-US&version=Cloud). In order to make sure the the use case is executable you need to check if the [SAP BTP Kyma Runtime availability](https://discovery-center.cloud.sap/serviceCatalog/kyma-runtime?region=all&tab=service_plan) and the [SAP HANA Cloud availability](https://discovery-center.cloud.sap/serviceCatalog/sap-hana-cloud?region=all&tab=service_plan) is given.
+
+**Trial Accounts**
+If you want to run the script using a trial account you need to change the services described in the usecase.json
