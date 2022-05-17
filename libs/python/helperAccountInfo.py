@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 from libs.python.helperCommandExecution import runCommandAndGetJsonResult
 
 log = logging.getLogger(__name__)
@@ -61,8 +62,9 @@ def getDataCenterFromService(service):
     return result
 
 
-def createCSVForEntitledServicesInDatacenters(btpUsecase):
-    data = getServiceInfo(btpUsecase)
+def createCSVForEntitledServicesInDatacenters(btpUsecase, foldername, data):
+    filename = foldername + "info_datacenter_coverage_" + btpUsecase.globalaccount + ".csv"
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
 
     dcsCF = getAllDatacenters(data["entitledServices"])
     string = "Service;Description;"
@@ -84,6 +86,42 @@ def createCSVForEntitledServicesInDatacenters(btpUsecase):
                 string += ";"
         result.append(myService)
         string += "\n"
+    text_file = open(filename, "w")
+    text_file.write(string)
+    text_file.close()
 
-    text_file = open("dcCoverageEntitledServices.csv", "w")
+
+def createInfoPackage(btpUsecase):
+    data = getServiceInfo(btpUsecase)
+
+    createCSVForEntitledServicesInDatacenters(btpUsecase, "logs/", data)
+    createCSVServices(btpUsecase, "logs/", data)
+
+
+def createCSVServices(btpUsecase, foldername, data):
+    filename = foldername + "info_services_" + btpUsecase.globalaccount + ".csv"
+
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    text_file = open(filename, "w")
+    seperator = ";"
+
+    if data and data.get("entitledServices"):
+
+        for service in data.get("entitledServices"):
+            name = service.get("name")
+            displayName = service.get("displayName")
+            plans = ""
+            if service.get("servicePlans"):
+                for plan in service.get("servicePlans"):
+                    planName = plan.get("name")
+                    planDisplayName = plan.get("displayName")
+                    planCategory = plan.get("category")
+                    dcs = ""
+                    if plan.get("dataCenters"):
+                        for dc in plan.get("dataCenters"):
+                            dcs += dc.get("name")
+                    if "free" in planDisplayName:
+                        plans += planName + "(" + planDisplayName + " - " + planCategory + ")"
+            row = name + seperator + displayName + seperator + plans + "\n"
+            text_file.write(row)
     text_file.close()
