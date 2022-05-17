@@ -20,17 +20,17 @@ Open a command line terminal on your machine.
 Enter the following command into the terminal and press the `ENTER` key:
 
 ```bash
-docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
+docker container run --platform linux/amd64 --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
 ```
 
 You'll notice that the prompt in your terminal has changed, because you are now working inside the docker container, that you just started.
 Now run the main script `btpsa` with the following command:
 
 ```bash
-./btpsa -parameterfile 'usecases/other/discoverycenter/3774-taskcenter/parameters.json' \
-    -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>'  \
-    -region        '<region for your subaccount e.g. us10>' \
-    -myemail       '<your email address>'
+./btpsa -parameterfile 'usecases/released/discoverycenter/3774-taskcenter/parameters.json' \
+    -globalaccount 'your_global_account_subdomain_as_shown_in_the_SAP_BTP_cockpit'  \
+    -region        'region_for_your_subaccount_eg_us10' \
+    -myemail       'your_email_address'
 ```
 
 The tool starts to execute and the only thing you need to type-in is your password for your SAP BTP account. The btp-setup-automator script will now prepare your SAP BTP account to cover the discovery center mission.
@@ -38,9 +38,10 @@ The tool starts to execute and the only thing you need to type-in is your passwo
 > ⚠ NOTE: In case you don't have the rights to create your own sub account, you should add the sub account id as a parameter to the command. That should look like this:
 
 ```bash
-./btpsa -parameterfile 'usecases/other/discoverycenter/3774-taskcenter/parameters.json' \
-    -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>'  \
-    -subaccountid  '<your sub account id as shown in the SAP BTP cockpit>'
-    -region        'region for your subaccount e.g. us10>' \
-    -myemail       'your email address>'
+./btpsa -parameterfile 'usecases/released/discoverycenter/3774-taskcenter/parameters.json' \
+    -globalaccount 'your_global_account_subdomain_as_shown_in_the_SAP_BTP_cockpit'  \
+    -subaccountid  'your_sub_account_id_as_shown_in_the_SAP_BTP_cockpit'
+    -region        'region_for_your_subaccount_eg_us10' \
+    -myemail       'your_email_address'
+
 ```

@@ -68,21 +68,25 @@ If you are using a windows machine there might be a default setup for the end of
 
 ### I've seen a new feature XYZ, but when running the container I don't see it. Why?
 
-You might be using the container image that is in your computers' cache. 
+You might be using the container image that is in your computers' cache. Execute the following steps to delete the cache:
 
-Stop the `btp-setup-automator` container in Docker, delete the image, too, and run the following command to delete the cache:
+* Identify the container via:
 
-```bash
-docker ps
-```
+  ```bash
+  docker ps
+  ```
 
-```bash
-docker stop container_id
-```
+* Stop the `btp-setup-automator` container using the container ID from the previous step:
 
-```bash
-docker system prune -a -f
-```
+  ```bash
+  docker stop container_id
+  ```
+
+* Delete the image and run the following command to delete the cache:
+
+  ```bash
+  docker system prune -a -f
+  ```
 
 Now get the most current `btp-setup-automator` image (as stated in the `Download and Installation` section of the [main README.md](../README.md)) and start the container.
 
@@ -160,7 +164,7 @@ At the same time you can add any additional packages inside the `executeBeforeAc
 
 ### Suddenly I'm getting an "docker: Error response from daemon: Head "../ghcr.io/v2/sap-samples/btp-setup-automator/manifests/main": denied: denied.". What's going on here?
 
-One posssibility: your docker login is trying to connect with GitHub via an expired GitHub token (that you have previously connected with docker). To fix this issue run this command in the command line:
+One possibility: your docker login is trying to connect with GitHub via an expired GitHub token (that you have previously connected with docker). To fix this issue run this command in the command line:
 
 ```
 docker logout ghcr.io
@@ -172,4 +176,17 @@ docker logout ghcr.io
 
 ## Kyma Setup Specifics
 
-> 🚧 No FAQ yet 🚧
+### I cannot execute `kubectl` commands after the Kyma runtime got provisioned. Is this a bug?
+
+As the SAP BTP. Kyma runtime is using open-source Kyma the flow to access Kyma is based on an OIDC flow using the [kubelogin](https://github.com/int128/kubelogin) plugin to execute the flow. This flows need access to a browser and does not support the native execution from a Docker image (see ["Known Limitations"](https://github.com/int128/kubelogin/blob/237e53313d07a6eb90314c0880eb49605289afb1/docs/usage.md#run-in-docker) of the kubelogin plugin). The BTP setup automator cannot remove this limitation.
+
+There are some workarounds that can help you to bypass the limitation:
+
+* You can execute the BTP setup automator from within VS Code using the "Remote Containers: Attach to running container ..." functionality to access the running container via VS Code. This will enable the OIDC flow as the necessary opening of the browser can be executed by the plugin in this setup.
+* Use a [service account](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) to access the Kyma cluster. This also means that you need to split the use case into two parts, part one that sets up the Kyma cluster and part two that executes the desired steps in the cluster. The flow looks like this
+  
+  1. Define and execute a use case to provision the Kyma cluster.
+  2. Create the service account manually and store the `kubeconfig` of the service account in the container
+  3. Define and execute a use case that contains the setup *in* the Kyma cluster using the service account to log on in a **non-interactive** way bypassing kubelogin.
+
+* Execute the non-interactive authentication flow via a "technical" user in the IAS tenant. You must create your own tenant in IAS and define the necessary user, then use a custom OIDC provider when provisioning the Kyma clusters (assigning the user as admin) and and generate the tokens that you can insert in the `kubeconfig` and avoid kubelogin. OIDC provider besides IAS usually have a similar flow for these scenarios. This is probably the procedure with the biggest effort. It comes with the some downside as the scenario mentioned before as you must split your use case file into two parts.

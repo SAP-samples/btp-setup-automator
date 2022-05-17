@@ -20,7 +20,7 @@
             "basicAuthentication",
             "sso",
             "envVariables"
-        ]        
+        ]
     },
     {
         "argument": "region",
@@ -128,7 +128,7 @@
         "argument": "usecasefile",
         "type": "str",
         "help": "file with usecase config",
-        "default": "usecases/usecase.json"
+        "default": null
     },
     {
         "argument": "parameterfile",
@@ -188,6 +188,12 @@
         "argument": "envvariables",
         "type": "str",
         "help": "list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`.",
+        "default": null
+    },
+    {
+        "argument": "myusergroups",
+        "type": "str",
+        "help": "list of user groups to be used in btpsa",
         "default": null
     }
 ]

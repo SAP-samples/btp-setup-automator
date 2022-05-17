@@ -34,12 +34,12 @@ def getJsonFromFile(filename):
     return data
 
 
-def renderTemplateWithJson(TEMPLATE_FILE):
+def renderTemplateWithJson(TEMPLATE_FILE, PARAMETER_FILE):
 
     templateLoader = jinja2.FileSystemLoader(searchpath="templates/")
     templateEnv = jinja2.Environment(loader=templateLoader)
     template = templateEnv.get_template(TEMPLATE_FILE)
-    parameters = getJsonFromFile("paramServices.json")
+    parameters = getJsonFromFile(PARAMETER_FILE)
 
     renderedText = template.render(params=parameters)  # this is where to put args to the template renderer
 
@@ -47,5 +47,5 @@ def renderTemplateWithJson(TEMPLATE_FILE):
         f.write(renderedText)
 
 
-renderTemplateWithJson("PARAMETERS-SERVICES.md")
-renderTemplateWithJson("PARAMETERS-BTPSA.md")
+renderTemplateWithJson("PARAMETERS-SERVICES.md", "paramServices.json")
+renderTemplateWithJson("PARAMETERS-BTPSA.md", "paramBtpSetupAutomator.json")

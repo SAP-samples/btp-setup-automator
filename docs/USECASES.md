@@ -34,7 +34,7 @@ The code of the application is pulled from the GitHub repository <https://github
 
 The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest02.json](../integrationtests/parameterfiles/integrationtest02.json).
 
-## Use case "extendS4_with_devops.json"
+## Use case "build_resilient_apps_free_tier.json"
 
 The file [extendS4_with_devops.json](../usecases/released/extendS4_with_devops.json) contains the setup of an application complementing an existing business process in an SAP solution - currently SAP S/4HANA - with additional business process steps. This includes the necessary service instance, app subscriptions and role collections. In addition the CI/CD service on SAP BTP is provisioned for a true end2end setup.
 

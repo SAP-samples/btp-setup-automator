@@ -109,21 +109,21 @@
         "argument": "createServiceKeys",
         "type": "list",
         "mandatory": false,
-        "help": "list of service keys to be created for a service ",
+        "help": "list of service keys to be created for a service",
         "default": null
     },
     {
         "argument": "requiredServices",
         "type": "list",
         "mandatory": false,
-        "help": "list of service keys to be created for a service ",
+        "help": "list of services that need to be there to create this service",
         "default": null
     },
     {
-        "argument": "requiredrolecollections",
+        "argument": "assignrolecollections",
         "type": "list",
         "mandatory": false,
-        "help": "list of role collections to be created for a service",
+        "help": "list of role collections to be created within the btp account",
         "default": null
     }
 ]

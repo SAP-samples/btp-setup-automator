@@ -55,11 +55,96 @@
       "plan": "standard",
       "category": "APPLICATION",
       "requiredrolecollections": [
-        "Enterprise Messaging Administrator",
-        "Enterprise Messaging Developer",
-        "Enterprise Messaging Subscription Administrator"
+        {
+          "name": "Enterprise Messaging Administrator",
+          "assignedUserGroupsFromParameterFile": [
+            "admins"
+          ]
+        },
+        {
+          "name": "Enterprise Messaging Developer",
+          "assignedUserGroupsFromParameterFile": [
+            "admins"
+          ]
+        },
+        {
+          "name": "Enterprise Messaging Subscription Administrator",
+          "assignedUserGroupsFromParameterFile": [
+            "admins"
+          ]
+        }
       ]
     }
   ],
-  "admins": []
+  "assignrolecollections": [
+    {
+      "name": "Global Account Administrator",
+      "type": "account",
+      "level": "global account",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ]
+    },
+    {
+      "name": "Subaccount Administrator",
+      "type": "account",
+      "level": "sub account",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ]
+    },
+    {
+      "name": "Subaccount Service Administrator",
+      "type": "account",
+      "level": "sub account",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ]
+    },
+    {
+      "name": "SpaceManager",
+      "type": "cloudfoundry",
+      "level": "space",
+      "assignedUserGroupsFromParameterFile": [
+        "admins",
+        "developers"
+      ]
+    },
+    {
+      "name": "SpaceDeveloper",
+      "type": "cloudfoundry",
+      "level": "space",
+      "assignedUserGroupsFromParameterFile": [
+        "admins",
+        "developers"
+      ]
+    },
+    {
+      "name": "SpaceAuditor",
+      "type": "cloudfoundry",
+      "level": "space",
+      "assignedUserGroupsFromParameterFile": [
+        "admins",
+        "developers"
+      ]
+    },
+    {
+      "name": "OrgManager",
+      "type": "cloudfoundry",
+      "level": "org",
+      "assignedUserGroupsFromParameterFile": [
+        "admins",
+        "testers"
+      ]
+    },
+    {
+      "name": "OrgAuditor",
+      "type": "cloudfoundry",
+      "level": "org",
+      "assignedUserGroupsFromParameterFile": [
+        "admins",
+        "auditors"
+      ]
+    }
+  ]
 }

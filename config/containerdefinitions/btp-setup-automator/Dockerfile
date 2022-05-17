@@ -50,7 +50,7 @@ RUN BTP_CLI_VERSION="2.18.0" \
 FROM base AS mta_build_tool
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 WORKDIR /tmp/tools
-RUN MBT_VERSION="1.2.8" \
+RUN MBT_VERSION="1.2.10" \
   && curl --fail --silent --location --url "https://github.com/SAP/cloud-mta-build-tool/releases/download/v${MBT_VERSION}/cloud-mta-build-tool_${MBT_VERSION}_Linux_amd64.tar.gz" \
     | tar -xzf - mbt
 
