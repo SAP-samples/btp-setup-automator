@@ -9,13 +9,20 @@
             "type": "string"
         },
         "myemail": {
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "description": "Email address you use to access your SAP BTP account",
             "title": "Your email address",
-            "default": null
+            "default": null,
+            "format": "email"
         },
         "globalaccount": {
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "description": "your SAP BTP global account",
             "title": "your SAP BTP global account",
             "default": null
@@ -64,49 +71,73 @@
             "default": null
         },
         "subaccountname": {
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "description": "subaccount name for use case",
             "title": "subaccount name for use case",
             "default": null
         },
         "subdomain": {
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "description": "subdomain of subaccount",
             "title": "subdomain of subaccount",
             "default": null
         },
         "org": {
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "description": "org name of the CF environment for use case",
             "title": "org name of the CF environment for use case",
             "default": null
         },
         "orgid": {
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "description": "org id of the CF environment for use case",
             "title": "org id of the CF environment for use case",
             "default": null
         },
         "cfspacename": {
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "description": "name for the Cloudfoundry space ",
             "title": "name for the Cloudfoundry space ",
             "default": "development"
         },
         "iashost": {
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "description": "IAS host for your SAP BTP sub account",
             "title": "IAS host for your SAP BTP sub account",
             "default": null
         },
         "suffixinstancename": {
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "description": "suffix attached to each service instance created",
             "title": "suffix attached to each service instance created",
             "default": null
         },
         "fallbackserviceplan": {
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "description": "if defined, the tool will use the defined name as fallback service plan, if the plan defined in the use case is not supported",
             "title": "if defined, the tool will use the defined name as fallback service plan, if the plan defined in the use case is not supported",
             "default": null
@@ -202,13 +233,19 @@
             "default": null
         },
         "cfcliapihostregion": {
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "description": "host region for the Cloud Foundry CLI calls",
             "title": "host region for the Cloud Foundry CLI calls",
             "default": null
         },
         "btpcliapihostregion": {
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "description": "host region for the BTP CLI calls",
             "title": "host region for the BTP CLI calls",
             "default": "eu10"
@@ -223,7 +260,25 @@
             "type": "array",
             "description": "list of user groups to be used in btpsa",
             "title": "list of user groups to be used in btpsa",
-            "default": null
+            "default": null,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "name of this usergroup (not BTP specific)",
+                        "title": "name of this usergroup "
+                    },
+                    "members": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "email"
+                        }
+                    }
+                }
+            }
         }
     }
 }
