@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/jsonschemas/schemas/btpsa_usecase.json",
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa_usecase.json",
   "aboutThisUseCase": {
     "name": "Setup free tier services",
     "description": "This usecase provides a list of available free tier services and how they are configured properly.",

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/jsonschemas/schemas/btpsa_usecase.json",
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa_usecase.json",
   "aboutThisUseCase": {
     "name": "Create a SAP Event Mesh setup as required for the DSAG Technology Days 2022 Kyma Hands-On",
     "description": "This use case provides the configuration set up of the SAP Event Mesh i. e. the SAP Event Mesh service, the SAP Event Mesh application and the service keys.",
