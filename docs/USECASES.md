@@ -6,20 +6,6 @@ This file gives you an overview on the content of the different scenarios.
 
 > ⚠ NOTE: You find more use cases and parameters files in the folder [`/usecases`](../usecases), however only the ones available in the directory `released` are tested by us and should work.
 
-## Use case "cap_app_launchpad_TRIAL.json"
-
-The file [cap_app_launchpad_TRIAL.json](../usecases/released/cap_app_launchpad_TRIAL.json) contains the setup and deployment of a of a CAP application to a Cloud Foundry Environment in a SAP BTP **TRIAL** account. This includes the necessary service instance, app subscriptions and role collections.
-
-The services and subscriptions that are created are:
-
-* XSUAA
-* SAP HANA Cloud Trial
-* SAP Launchpad
-
-The code of the application is taken from the GitHub repository <https://github.com/SAP-samples/cloud-cap-risk-management>.
-
-The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest01.json](../integrationtests/parameterfiles/integrationtest01.json).
-
 ## Use case "cap_app_launchpad.json"
 
 The file [cap_app_launchpad.json](../usecases/released/cap_app_launchpad.json) contains the setup and deployment of a of a CAP application to a Cloud Foundry Environment in a SAP BTP account. This includes the necessary service instance, app subscriptions and role collections.
@@ -34,9 +20,9 @@ The code of the application is pulled from the GitHub repository <https://github
 
 The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest02.json](../integrationtests/parameterfiles/integrationtest02.json).
 
-## Use case "build_resilient_apps_free_tier.json"
+## Use case "build_resilient_apps_free_tier"
 
-The file [extendS4_with_devops.json](../usecases/released/extendS4_with_devops.json) contains the setup of an application complementing an existing business process in an SAP solution - currently SAP S/4HANA - with additional business process steps. This includes the necessary service instance, app subscriptions and role collections. In addition the CI/CD service on SAP BTP is provisioned for a true end2end setup.
+The file [build_resilient_apps_free_tier](../usecases/released/build_resilient_apps_free_tier) contains the setup of an application complementing an existing business process in an SAP solution - currently SAP S/4HANA - with additional business process steps. This includes the necessary service instance, app subscriptions and role collections. In addition the CI/CD service on SAP BTP is provisioned for a true end2end setup.
 
 The services and subscriptions that are created are:
 
@@ -49,7 +35,7 @@ The services and subscriptions that are created are:
 * Enterprise Messaging
 * CI/CD Service
 
-The code of the application is pulled from the GitHub repository <https://github.com/SAP-samples/s4hana-btp-extension-devops>.
+The code of the application is pulled from the GitHub repository <https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension>.
 
 The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest03.json](../integrationtests/parameterfiles/integrationtest03.json).
 
