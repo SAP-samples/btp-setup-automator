@@ -22,7 +22,6 @@
                 "additionalProperties": false,
                 "required": [
                     "name",
-                    "plan",
                     "category"
                 ],
                 "properties": {
