@@ -377,8 +377,12 @@ class BTPUSECASE:
                     for envInstance in envInstances:
                         if "labels" in envInstance and envInstance["labels"] is not None and envInstance["environmentType"] == "cloudfoundry":
                             labels = convertStringToJson(envInstance["labels"])
-                            thisOrgId = labels["Org ID:"]
-                            thisOrg = labels["Org Name:"]
+                            thisOrgId = labels.get("Org ID:")
+                            thisOrg = labels.get("Org Name:")
+                            if thisOrgId is None:
+                                thisOrgId = labels.get("Org ID")
+                            if thisOrg is None:
+                                thisOrg = labels.get("Org Name")
 
                             if thisOrgId == orgid:
                                 self.accountMetadata = addKeyValuePair(accountMetadata, "org", thisOrg)
