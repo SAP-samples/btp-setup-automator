@@ -265,12 +265,22 @@
                     "type": {
                         "type": "string",
                         "description": "",
-                        "title": ""
+                        "title": "",
+                        "enum": [
+                            "account",
+                            "cloudfoundry"
+                        ]                        
                     },
                     "level": {
                         "type": "string",
                         "description": "",
-                        "title": ""
+                        "title": "",
+                        "enum": [
+                            "global account",
+                            "sub account",
+                            "org",
+                            "space"
+                        ]                        
                     },
                     "assignedUserGroupsFromParameterFile": {
                         "type": "array"
