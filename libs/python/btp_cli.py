@@ -14,7 +14,7 @@ import requests
 import json
 from libs.python.helperRolesAndUsers import assignUsersToEnvironments, assignUsersToGlobalAndSubaccount, getSubaccountAdmins, assignUsersToRoleCollectionsForServices, assignUsersToCustomRoleCollections
 
-from libs.python.helperServices import BTPSERVICE, BTPSERVICEEncoder, readAllServicesFromUsecaseFile
+from libs.python.helperServices import BTPSERVICE, BTPSERVICEEncoder, getServiceParameterDefinition, readAllServicesFromUsecaseFile
 from libs.python.helperLog import initLogger
 import logging
 
@@ -503,13 +503,14 @@ def getEnvironmentsForUsecase(btpUsecase: BTPUSECASE, allServices):
     items = []
     environments = []
 
-    paramServicesFile = "libs/json/paramServices.json"
-    paramDefinitionServices = getJsonFromFile(None, paramServicesFile)
+    paramServicesFile = "schemas/btpsa_usecase.json"
+    paramDefinition = getJsonFromFile(None, paramServicesFile)
 
     for usecaseService in allServices:
         environmentServices = usecaseService.targetenvironment
         if environmentServices not in items and usecaseService.category != "ENVIRONMENT":
             items.append(environmentServices)
+            paramDefinitionServices = getServiceParameterDefinition(paramDefinition)
             thisUsecaseService = {"name": usecaseService.targetenvironment, "category": "ENVIRONMENT", "plan": "standard"}
             thisEnv = BTPSERVICE(paramDefinitionServices, thisUsecaseService, btpUsecase)
             environments.append(thisEnv)
