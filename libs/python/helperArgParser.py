@@ -1,6 +1,6 @@
 import argparse
 from libs.python.helperGeneric import getEnvVariableValue
-from libs.python.helperJson import addKeyValuePairToJsonFile, getJsonFromFile, saveJsonToFile
+from libs.python.helperJson import addKeyValuePairToJsonFile, getJsonFromFile
 import getpass
 import logging
 import sys
@@ -88,7 +88,7 @@ def setupParams(myArguments):
                 default = value.get("default")
                 if key not in myParameters:
                     valueToSet = getattr(args, key)
-                    if valueToSet is None and default is not None: 
+                    if valueToSet is None and default is not None:
                         setattr(args, key, default)
                     else:
                         setattr(args, key, valueToSet)
@@ -120,23 +120,9 @@ def setupParamsBtpsa():
 
 
 def setupParamsServices():
-    serviceArguments = "libs/json/paramServices.json"
+    serviceArguments = "schmemas/btpsa_usecase.json"
     args = setupParams(serviceArguments)
     return args
-
-
-def createDefaultParametersFile(toolParametersFile):
-    if toolParametersFile is not None and toolParametersFile != "":
-        allJsonParameters = getJsonFromFile(None, toolParametersFile)
-        result = {}
-
-        for parameter in allJsonParameters:
-            key = parameter["argument"]
-            value = parameter["default"]
-            if key != "mypassword":
-                result[key] = value
-
-        saveJsonToFile("libs/json/parametersDefault.json", result)
 
 
 def checkProvidedArguments(btpUsecase):

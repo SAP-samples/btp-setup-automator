@@ -86,7 +86,7 @@ def getMembersOfUserGroup(btpUsecase, usergroup):
         usergroupIsString = isinstance(btpUsecase.myusergroups, str)
         usergroupIsList = isinstance(btpUsecase.myusergroups, dict)
         myusergroups = None
-        # If the usergroup is defined as a string it might be 
+        # If the usergroup is defined as a string it might be
         if usergroupIsString:
             usergroupsFromHttp = getJsonFromFile(None, btpUsecase.myusergroups)
             if usergroupsFromHttp:

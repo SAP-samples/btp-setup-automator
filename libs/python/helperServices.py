@@ -1,4 +1,3 @@
-from urllib.parse import _NetlocResultMixinStr
 from libs.python.helperJson import getJsonFromFile
 import sys
 import os
@@ -50,23 +49,11 @@ class BTPSERVICE:
                         thisType = getPythonClassForJsonSchemaType(thisParamType)
                         if thisType in typeParameter:
                             foundType = True
+                            break
                     if foundType is False:
                         message = "parameter >" + argument + "< for service >" + serviceName + "< is of type >" + typeParameter + "<, but only the following types are allowed >" + str(paramType) + "<\nPlease correct the parameter!"
                         log.error(message)
                         sys.exit(os.EX_DATAERR)
-
-
-
-                # if type(paramType).__name__ == "list":
-                #     for type in paramType:
-                #         thisType = getPythonClassForJsonSchemaType(type)
-                #         if typeParameter not in thisType:
-                #             message = "parameter >" + argument + "< for service >" + serviceName + "< is of type >" + typeParameter + "<, but only the following types are allowed >" + str(paramType) + "<\nPlease correct the parameter!"
-                #             log.error(message)
-                #             sys.exit(os.EX_DATAERR)
-                #         else:
-                #             None
-                #             break
 
                 setattr(self, argument, value)
             else:
@@ -86,12 +73,10 @@ def getPythonClassForJsonSchemaType(jsonType):
         if jsonType == "object":
             return "dict"
         if jsonType == "array":
-            return "dict"
+            return "list"
 
     log.warning("not able to map the jsonType >" + jsonType + "< to a python class")
     return None
-
-
 
 
 # subclass JSONEncoder

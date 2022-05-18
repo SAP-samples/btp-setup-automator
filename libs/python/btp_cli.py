@@ -503,7 +503,7 @@ def getEnvironmentsForUsecase(btpUsecase: BTPUSECASE, allServices):
     items = []
     environments = []
 
-    paramServicesFile = "libs/json/paramServices.json"
+    paramServicesFile = "schemas/btpsa_usecase.json"
     paramDefinitionServices = getJsonFromFile(None, paramServicesFile)
 
     for usecaseService in allServices:
