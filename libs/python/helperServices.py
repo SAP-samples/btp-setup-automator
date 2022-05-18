@@ -9,7 +9,7 @@ log = logging.getLogger(__name__)
 
 class BTPSERVICE:
     def __init__(self, paramDefinitionServices, definedUsecaseService, btpUsecase):
-        for key, value in paramDefinitionServices.get("properties").items():
+        for key, value in paramDefinitionServices.items():
             argument = key
             default = value.get("default")
             acceptedvalues = None
@@ -94,6 +94,17 @@ def readAllServicesFromUsecaseFile(btpUsecase):
     items = []
     if "services" in usecase:
         for usecaseService in usecase.get("services"):
-            service = BTPSERVICE(paramDefinitionServices, usecaseService, btpUsecase)
+            serviceParameterDefinition = getServiceParameterDefinition(paramDefinitionServices)
+            service = BTPSERVICE(serviceParameterDefinition, usecaseService, btpUsecase)
             items.append(service)
     return items
+
+
+def getServiceParameterDefinition(paramDefinitionServices):
+    result = None
+    parametersForServices = paramDefinitionServices.get("properties").get("services")
+    for key, value in parametersForServices.items():
+        if key == "items":
+            result = value.get("properties")
+            break
+    return result

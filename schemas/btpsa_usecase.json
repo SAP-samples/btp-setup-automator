@@ -269,7 +269,7 @@
                         "enum": [
                             "account",
                             "cloudfoundry"
-                        ]                        
+                        ]
                     },
                     "level": {
                         "type": "string",
@@ -280,7 +280,7 @@
                             "sub account",
                             "org",
                             "space"
-                        ]                        
+                        ]
                     },
                     "assignedUserGroupsFromParameterFile": {
                         "type": "array"
