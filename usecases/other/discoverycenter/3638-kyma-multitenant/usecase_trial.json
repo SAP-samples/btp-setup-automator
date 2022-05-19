@@ -16,8 +16,7 @@
             "plan": "trial",
             "amount": 1,
             "parameters": {
-                "name": "btp-auto-setup",
-                "region": "us-east-1"
+                "name": "btp-auto-setup"
             }
         },
         {
@@ -33,7 +32,7 @@
             "category": "SERVICE"
         },
         {
-            "name": "hana-cloud",
+            "name": "hana-cloud-trial",
             "plan": "hana",
             "category": "SERVICE",
             "repeatstatusrequest": 60,
