@@ -4,18 +4,18 @@ NOCOLOR='\033[0m'
 GREEN='\033[0;32m'
 
 echo -e "${GREEN}Cleaning up containers and images (if existing)${NOCOLOR}"
-docker container stop   "btp-setup-automator"
-docker container rm  -f "btp-setup-automator"
-docker image     rmi -f "btp-setup-automator"
+docker container stop   "btp-setup-automator2"
+docker container rm  -f "btp-setup-automator2"
+docker image     rmi -f "btp-setup-automator2"
 
 
 if [ "$1" != "RunFromRegistry" ]; then
     
     echo -e "${GREEN}Building the container image ...${NOCOLOR}"
-    docker image build -t btp-setup-automator:latest -f "config/containerdefinitions/btp-setup-automator/Dockerfile"  .
+    docker image build -t btp-setup-automator2:latest -f "config/containerdefinitions/btp-setup-automator/Dockerfile"  .
 
-    echo -e "${GREEN}Start the container as 'btp-setup-automator' - Access possible e.g. via VSCode${NOCOLOR}"
-    docker container run -e BTPSA_VERSION_GIT="$(git describe --long --tags  --always)" --rm  -it -d --name "btp-setup-automator" "btp-setup-automator" 
+    echo -e "${GREEN}Start the container as 'btp-setup-automator2' - Access possible e.g. via VSCode${NOCOLOR}"
+    docker container run -e BTPSA_VERSION_GIT="$(git describe --long --tags  --always)" --rm  -it -d --name "btp-setup-automator2" "btp-setup-automator2" 
 
 else
 
