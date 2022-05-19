@@ -29,7 +29,7 @@
                         "type": "string",
                         "description": "name of the service",
                         "title": "name of the service",
-                        "enum": [{{ enumServiceList }}]
+                        "enum": {{ enumServiceList }}
                         
                     },
                     "entitleonly": {
@@ -157,10 +157,10 @@
                         "default": null
                     }
                 },
-                "allOf": [
+                "anyOf": [
                     {% for service in services -%}
                     { 
-                        "if": { "properties": { "name": { "contains": {"type": "string", "const": "{{ service.serviceName }}"} } } },
+                        "if": { "properties": { "name": { "const": "{{ service.serviceName }}"} } },
                         "then" :{"properties": { "plan": { "enum": [{% for plan in service.servicePlans -%}"{{ plan }}"{% if not loop.last %}, {% endif %}{% endfor %}] } } }
                     }{% if not loop.last %}, {% endif %}
                     {% endfor %}
