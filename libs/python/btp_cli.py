@@ -6,6 +6,7 @@ from libs.python.helperEnvCF import checkIfAllServiceInstancesCreated, checkIfCF
 from libs.python.helperGeneric import buildUrltoSubaccount, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, createOrgName, getTimingsForStatusRequest, save_collected_metadata
 from libs.python.helperFileAccess import writeKubeConfigFileToDefaultDir
 from libs.python.helperEnvKyma import extractKymaDashboardUrlFromEnvironmentDataEntry, getKymaEnvironmentInfoByClusterName, getKymaEnvironmentStatusFromEnvironmentDataEntry, extractKymaKubeConfigUrlFromEnvironmentDataEntry, getKymaEnvironmentIdByClusterName
+from libs.python.helperDocumentation import updateDocumentation
 
 import os
 import sys
@@ -40,6 +41,11 @@ class BTPUSECASE:
             self.suffixinstancename = getNamingPatternForServiceSuffix(self)
 
         self.timeScriptStarted = time.time()
+
+        if self.maintain_documentation is True:
+            updateDocumentation()
+            log.header("SUCCESSFULLY MAINTAINED THE TOOL: UPDATED DOCUMENTATION FILES")
+            sys.exit(os.EX_OK)
 
         self = helperArgParser.checkProvidedArguments(self)
 
@@ -90,10 +96,19 @@ class BTPUSECASE:
 
         availableForAccount = getListOfAvailableServicesAndApps(self)
 
-        targetFilename = "btpsa_usecase_" + self.globalaccount + ".json"
-        buildJsonSchemaFile("btpsa_usecases.json", targetFilename, availableForAccount)
-        log.info("created a json schema file >" + targetFilename + "< (in folder >./schemas<) for your global account >" + self.globalaccount + "<")
-        buildJsonSchemaFile("btpsa_parameters.json", "btpsa_parameters.json", availableForAccount)
+        if self.maintain_jsonschemas is True:
+            targetFilename = "schemas/btpsa_usecase.json"
+            buildJsonSchemaFile("btpsa_usecases.json", targetFilename, availableForAccount)
+            log.success("updated the json schema file for use cases >" + targetFilename + "< based on your global account >" + self.globalaccount + "<")
+            targetFilename = "schemas/btpsa_parameters.json"
+            buildJsonSchemaFile("btpsa_parameters.json", targetFilename, availableForAccount)
+            log.success("updated the json schema file for parameters >" + targetFilename + "<")
+            log.header("SUCCESSFULLY MAINTAINED THE TOOL: UPDATED JSON SCHEMAS")
+            sys.exit(os.EX_OK)
+        else:
+            targetFilename = "schemas/btpsa_usecase_" + self.globalaccount + ".json"
+            buildJsonSchemaFile("btpsa_usecases.json", targetFilename, availableForAccount)
+            log.info("created a json schema file >" + targetFilename + "< for your global account >" + self.globalaccount + "<")
 
         usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(self, availableForAccount)
 
@@ -863,12 +878,13 @@ def checkIfAllSubscriptionsAreAvailable(btpUsecase: BTPUSECASE):
     resultCommand = runCommandAndGetJsonResult(btpUsecase, command, "INFO", "check status of app subscriptions")
 
     allSubscriptionsAvailable = True
-    for thisJson in resultCommand["applications"]:
-        name = thisJson["appName"]
-        plan = thisJson["planName"]
-        status = thisJson["state"]
-        tenantId = thisJson["tenantId"]
-        for app in btpUsecase.definedAppSubscriptions:
+    for app in btpUsecase.definedAppSubscriptions:
+        for thisJson in resultCommand["applications"]:
+            name = thisJson.get("appName")
+            plan = thisJson.get("planName")
+            status = thisJson.get("state")
+            tenantId = thisJson.get("tenantId")
+
             if app.name == name and app.plan == plan and app.successInfoShown is False:
                 if status == "SUBSCRIBE_FAILED":
                     log.error("BTP account reported that subscription on >" + app.name + "< has failed.")
