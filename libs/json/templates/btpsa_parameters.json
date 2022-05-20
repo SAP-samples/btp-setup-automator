@@ -43,7 +43,7 @@
             "description": "region for the SAP BTP sub account that should be used for the use case",
             "title": "region for SAP BTP subaccount",
             "default": "us10",
-            "enum": [{{ enumDatacenterList }}]
+            "enum": {{ enumDatacenterList }}
         },
         "subaccountid": {
             "type": "string",

@@ -43,7 +43,7 @@
             "description": "region for the SAP BTP sub account that should be used for the use case",
             "title": "region for SAP BTP subaccount",
             "default": "us10",
-            "enum": [[
+            "enum": [
   "ae1",
   "ap1",
   "ap10",
@@ -80,7 +80,7 @@
   "us3",
   "us30",
   "us4"
-]]
+]
         },
         "subaccountid": {
             "type": "string",
