@@ -8,7 +8,7 @@ If you use VS Code or any other IDE that supports JSON schemas, you can just add
   "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa_usecase.json",
 ````
 
-These are the available commands:
+These are the available parameters:
 
 | Parameter | Description | Type  | Mandatory | Default value |
 |---|---|---|---|---|
