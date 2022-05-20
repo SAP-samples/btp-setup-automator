@@ -12,6 +12,7 @@ import sys
 import time
 import requests
 import json
+from libs.python.helperJsonSchemas import buildJsonSchemaFile
 from libs.python.helperRolesAndUsers import assignUsersToEnvironments, assignUsersToGlobalAndSubaccount, getSubaccountAdmins, assignUsersToRoleCollectionsForServices, assignUsersToCustomRoleCollections
 
 from libs.python.helperServices import BTPSERVICE, BTPSERVICEEncoder, getServiceParameterDefinition, readAllServicesFromUsecaseFile
@@ -88,6 +89,13 @@ class BTPUSECASE:
         log.header("Checking if all configured services & app subscriptions are available on your global account")
 
         availableForAccount = getListOfAvailableServicesAndApps(self)
+
+        targetFilename = "btpsa_usecase_" + self.globalaccount + ".json"
+        buildJsonSchemaFile("btpsa_usecases.json", targetFilename, availableForAccount)
+        log.info("created a json schema file >" + targetFilename + "< (in folder >./schemas<) for your global account >" + self.globalaccount + "<")
+        # buildJsonSchemaFile("btpsa_parameters.json", "btpsa_parameters_new.json", availableForAccount)
+
+        exit()
 
         usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(self, availableForAccount)
 

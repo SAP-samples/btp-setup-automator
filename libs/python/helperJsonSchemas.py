@@ -1,5 +1,8 @@
-from libs.python.helperJson import dictToJson, convertStringToJson
+from libs.python.helperJson import dictToJson
 import jinja2
+import logging
+
+log = logging.getLogger(__name__)
 
 
 def getDataForJsonSchemaTemplate(accountEntitlements):
@@ -8,8 +11,9 @@ def getDataForJsonSchemaTemplate(accountEntitlements):
     enumPlanList = buildEnumForServicePlans(accountEntitlements)
     enumDatacenterList = buildEnumForDatacenters(accountEntitlements)
     serviceStructure = buildServiceStructure(accountEntitlements)
+    servicePlanStructure = buildServiceStructure(accountEntitlements)
 
-    result = {"enumServiceList": enumServiceList, "enumPlanList": enumPlanList, "enumDatacenterList": enumDatacenterList, "services": serviceStructure}
+    result = {"enumServiceList": enumServiceList, "enumPlanList": enumPlanList, "enumDatacenterList": enumDatacenterList, "services": serviceStructure, "servicePlans": servicePlanStructure}
 
     return result
 
@@ -29,6 +33,24 @@ def buildServiceStructure(accountEntitlements):
         enumList.append(myService)
 
     #enumList = dictToJson(enumList)
+    return enumList
+
+
+def buildServicPlanStructure(accountEntitlements):
+
+    servicePlans = buildEnumForServicePlans(accountEntitlements)
+
+    enumList = []
+    for plan in servicePlans:
+        for service in accountEntitlements.get("entitledServices"):
+            theseServices = []
+            for thisServicePlan in service.get("servicePlans"):
+                servicePlanName = thisServicePlan.get("name")
+                if servicePlanName == plan:
+                    theseServices.append(service["name"])
+        myPlan = {"planName": plan, "services": theseServices}
+        enumList.append(myPlan)
+
     return enumList
 
 
