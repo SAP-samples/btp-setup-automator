@@ -23,7 +23,7 @@
                 "string",
                 "null"
             ],
-            "description": "your SAP BTP global account",
+            "description": "the 'subdomain id' of your SAP BTP global account (please check it in the SAP BTP cockpit)",
             "title": "your SAP BTP global account",
             "default": null
         },
@@ -40,34 +40,52 @@
         },
         "region": {
             "type": "string",
-            "description": "region of the BTP sub account that should be used for the use case",
-            "title": "region for the subaccount",
+            "description": "region for the SAP BTP sub account that should be used for the use case",
+            "title": "region for SAP BTP subaccount",
             "default": "us10",
-            "enum": [
-                "eu20",
-                "us20",
-                "us10",
-                "eu10",
-                "eu11",
-                "jp20",
-                "ap21",
-                "ap10",
-                "us21",
-                "ap11",
-                "ap12",
-                "us30",
-                "ca10",
-                "jp10",
-                "br10",
-                "in30",
-                "eu30",
-                "ap20"
-            ]
+            "enum": [[
+  "ae1",
+  "ap1",
+  "ap10",
+  "ap11",
+  "ap12",
+  "ap2",
+  "ap20",
+  "ap21",
+  "br1",
+  "br10",
+  "ca1",
+  "ca10",
+  "ca2",
+  "ch20",
+  "cn1",
+  "eu1",
+  "eu10",
+  "eu11",
+  "eu2",
+  "eu20",
+  "eu3",
+  "eu30",
+  "in30",
+  "jp1",
+  "jp10",
+  "jp20",
+  "ru1",
+  "sa1",
+  "us1",
+  "us10",
+  "us2",
+  "us20",
+  "us21",
+  "us3",
+  "us30",
+  "us4"
+]]
         },
         "subaccountid": {
             "type": "string",
-            "description": "subaccount id for use case",
-            "title": "subaccount id for use case",
+            "description": "id of your sub account that should be used",
+            "title": "subaccount id of SAP BTP sub account",
             "default": null
         },
         "subaccountname": {
@@ -75,8 +93,8 @@
                 "string",
                 "null"
             ],
-            "description": "subaccount name for use case",
-            "title": "subaccount name for use case",
+            "description": "name of your sub account in case you want to define a specific name for your sub account",
+            "title": "sub account name for use case",
             "default": null
         },
         "subdomain": {
@@ -84,8 +102,8 @@
                 "string",
                 "null"
             ],
-            "description": "subdomain of subaccount",
-            "title": "subdomain of subaccount",
+            "description": "name of the subdomain of your sub account",
+            "title": "subdomain of sub account",
             "default": null
         },
         "org": {
@@ -93,7 +111,7 @@
                 "string",
                 "null"
             ],
-            "description": "org name of the CF environment for use case",
+            "description": "org name of the Cloudfroundy environment to be used for your use case",
             "title": "org name of the CF environment for use case",
             "default": null
         },
@@ -102,7 +120,7 @@
                 "string",
                 "null"
             ],
-            "description": "org id of the CF environment for use case",
+            "description": "org id of the Cloudfoundry environment to be used for your use case",
             "title": "org id of the CF environment for use case",
             "default": null
         },
@@ -111,8 +129,8 @@
                 "string",
                 "null"
             ],
-            "description": "name for the Cloudfoundry space ",
-            "title": "name for the Cloudfoundry space ",
+            "description": "name for the Cloudfoundry space to be used for your use case",
+            "title": "name for the CF space",
             "default": "development"
         },
         "iashost": {
@@ -120,7 +138,7 @@
                 "string",
                 "null"
             ],
-            "description": "IAS host for your SAP BTP sub account",
+            "description": "IAS host for your SAP BTP sub account in case you want to make use of it in your use case (create a service instance for service 'xsuaa' and plan 'apiaccess')",
             "title": "IAS host for your SAP BTP sub account",
             "default": null
         },
@@ -129,7 +147,7 @@
                 "string",
                 "null"
             ],
-            "description": "suffix attached to each service instance created",
+            "description": "suffix attached to each service instance that is created (e.g. hana_yoursuffixinstancename)",
             "title": "suffix attached to each service instance created",
             "default": null
         },
@@ -139,7 +157,7 @@
                 "null"
             ],
             "description": "if defined, the tool will use the defined name as fallback service plan, if the plan defined in the use case is not supported",
-            "title": "if defined, the tool will use the defined name as fallback service plan, if the plan defined in the use case is not supported",
+            "title": "fallback service plan, if the plan defined in the use case is not supported",
             "default": null
         },
         "repeatstatusrequest": {
@@ -193,13 +211,13 @@
         "parameterfile": {
             "type": "string",
             "description": "file to deliver all parameters within a single json file",
-            "title": "file to deliver all parameters within a single json file",
+            "title": "parameters file for btp-setup-automator",
             "default": "parameters.json"
         },
         "logfile": {
             "type": "string",
-            "description": "file for log information",
-            "title": "file for log information",
+            "description": "file including all logged information",
+            "title": "log file",
             "default": "log/script.log"
         },
         "metadatafile": {
@@ -211,25 +229,25 @@
         "logcommands": {
             "type": "boolean",
             "description": "if set to True, the script will log all commands sent to the SAP BTP account. If set to False it won't",
-            "title": "if set to True, the script will log all commands sent to the SAP BTP account. If set to False it won't",
+            "title": "log all commands sent to your SAP BTP account",
             "default": true
         },
         "pruneusecase": {
             "type": "boolean",
             "description": "if set to True: deletes all assets of a usecase based on the collected info in the metadatafile. No confirmation message. USE WITH CARE!!!",
-            "title": "if set to True: deletes all assets of a usecase based on the collected info in the metadatafile. No confirmation message. USE WITH CARE!!!",
+            "title": "delete all assets of a usecase based on the collected info in the metadatafile",
             "default": false
         },
         "prunesubaccount": {
             "type": "boolean",
             "description": "if set to True: same like -pruneusecase, but on-top deletes the subaccount. USE WITH CARE!!!",
-            "title": "if set to True: same like -pruneusecase, but on-top deletes the subaccount. USE WITH CARE!!!",
+            "title": "same like parameter 'pruneusecase', but on-top deletes the subaccount",
             "default": false
         },
         "mypassword": {
             "type": "string",
-            "description": "provide your BTP password via the command line. USE WITH CARE!!!",
-            "title": "provide your BTP password via the command line. USE WITH CARE!!!",
+            "description": "password for the user of your SAP BTP account (USE WITH CARE!)",
+            "title": "password for the user of your SAP BTP account (USE WITH CARE!)",
             "default": null
         },
         "cfcliapihostregion": {

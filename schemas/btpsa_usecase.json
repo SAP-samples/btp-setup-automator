@@ -217,7 +217,8 @@
                         "type": "string",
                         "description": "category of the service",
                         "title": "category of the service",
-                        "default": null
+                        "default": "SERVICE",
+                        "enum": ["ENVIRONMENT", "SERVICE", "APPLICATION", "CF_CUP_SERVICE"]
                     },
                     "targetenvironment": {
                         "type": "string",
@@ -249,8 +250,8 @@
                     },
                     "instancename": {
                         "type": "string",
-                        "description": "name of the service",
-                        "title": "name of the service",
+                        "description": "name of the service instance",
+                        "title": "name of the service instance",
                         "default": null
                     },
                     "parameters": {
@@ -264,7 +265,7 @@
                     },
                     "serviceparameterfile": {
                         "type": "string",
-                        "description": "parameter file for the service",
+                        "description": "parameter file for the service in case you want to provide the parameters via a file",
                         "title": "parameter file for the service",
                         "default": null
                     },
@@ -288,8 +289,8 @@
                     },
                     "createServiceKeys": {
                         "type": "array",
-                        "description": "list of service keys to be created for a service",
-                        "title": "list of service keys to be created for a service",
+                        "description": "list of service keys to be created for the service",
+                        "title": "list of service keys to be created for the service",
                         "default": null
                     },
                     "requiredServices": {
@@ -300,8 +301,8 @@
                     },
                     "requiredrolecollections": {
                         "type": "array",
-                        "description": "",
-                        "title": "",
+                        "description": "list of role collections to assign users to",
+                        "title": "list of role collections to assign users to",
                         "default": null,
                         "additionalProperties": false,
                         "items": {
@@ -310,13 +311,13 @@
                             "properties": {
                                 "name": {
                                     "type": "string",
-                                    "description": "",
-                                    "title": ""
+                                    "description": "name of the role collection",
+                                    "title": "name of the role collection"
                                 },
                                 "assignedUserGroupsFromParameterFile": {
                                     "type": "array",
-                                    "description": "",
-                                    "title": ""
+                                    "description": "use the name defined for the user group in the parameters.json file",
+                                    "title": "list of user groups to assign the role collection"
                                 }
                             }
                         }
@@ -330,51 +331,135 @@
                 },
                 "anyOf": [
                     { 
+                        "if": { "properties": { "name": { "const": "service-manager"} } },
+                        "then" :{"properties": { "plan": { "enum": ["container", "service-operator-access", "subaccount-admin", "subaccount-audit"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "auditlog-management"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "market-rates-ux"} } },
+                        "then" :{"properties": { "plan": { "enum": ["mror", "mrtr"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "mobile-discovery"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "kymaruntime"} } },
+                        "then" :{"properties": { "plan": { "enum": ["aws", "azure", "free", "gcp"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "document-classification"} } },
+                        "then" :{"properties": { "plan": { "enum": ["blocks_of_100", "default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "wums-c4re-beta"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "auditlog-api"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "IRPA"} } },
+                        "then" :{"properties": { "plan": { "enum": ["concurrent", "concurrent-attended", "concurrent-unattended", "default", "free"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "ocnselfserviceagent"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "data-privacy-integration-service"} } },
+                        "then" :{"properties": { "plan": { "enum": ["application", "free"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "PersonalDataManagerApp"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "application-logs"} } },
+                        "then" :{"properties": { "plan": { "enum": ["large", "lite", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "mobile-client-usage"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "mobile-c2g"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
                         "if": { "properties": { "name": { "const": "apimanagement-devportal"} } },
                         "then" :{"properties": { "plan": { "enum": ["devportal-apiaccess"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "ASE_PROVISIONING"} } },
-                        "then" :{"properties": { "plan": { "enum": ["LARGE", "MEDIUM", "SMALL", "XLARGE", "XSMALL"] } } }
+                        "if": { "properties": { "name": { "const": "intercompany-reconciliation"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "iot"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "edge-services"} } },
+                        "then" :{"properties": { "plan": { "enum": ["Enterprise", "Standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "document-information-extraction-application"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "content-agent"} } },
+                        "then" :{"properties": { "plan": { "enum": ["application", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "theming"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "SAPLaunchpad"} } },
+                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "jobscheduler"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "SAPWorkZone"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "cicd-app"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default", "free"] } } }
                     }, 
                     { 
                         "if": { "properties": { "name": { "const": "scp-launchpad"} } },
                         "then" :{"properties": { "plan": { "enum": ["standard"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "ai-launchpad"} } },
+                        "if": { "properties": { "name": { "const": "cias"} } },
+                        "then" :{"properties": { "plan": { "enum": ["oauth2", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "alm-ts"} } },
+                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "mobile-app-catalog"} } },
                         "then" :{"properties": { "plan": { "enum": ["standard"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "apimanagement-apiportal"} } },
-                        "then" :{"properties": { "plan": { "enum": ["apim-as-route-service", "apiportal-apiaccess", "on-premise-connectivity"] } } }
+                        "if": { "properties": { "name": { "const": "cicd-service"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "objectstore"} } },
-                        "then" :{"properties": { "plan": { "enum": ["azure-standard", "gcs-standard", "s3-standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "uas"} } },
-                        "then" :{"properties": { "plan": { "enum": ["reporting-directory", "reporting-ga-admin"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "service-ticket-intelligence"} } },
-                        "then" :{"properties": { "plan": { "enum": ["blocks_of_100", "free", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "mobile-network-trace"} } },
+                        "if": { "properties": { "name": { "const": "autoscaler"} } },
                         "then" :{"properties": { "plan": { "enum": ["standard"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "sapappstudio"} } },
-                        "then" :{"properties": { "plan": { "enum": ["free", "standard-edition"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "connectivity"} } },
-                        "then" :{"properties": { "plan": { "enum": ["connectivity_proxy", "lite"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "aicore"} } },
+                        "if": { "properties": { "name": { "const": "transport"} } },
                         "then" :{"properties": { "plan": { "enum": ["standard"] } } }
                     }, 
                     { 
@@ -382,19 +467,43 @@
                         "then" :{"properties": { "plan": { "enum": ["additional-tenant", "connectivity", "default"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "SAPWebAnalytics"} } },
+                        "if": { "properties": { "name": { "const": "workflowmanagement"} } },
+                        "then" :{"properties": { "plan": { "enum": ["workflow"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "COMPUTE_UNIT"} } },
+                        "then" :{"properties": { "plan": { "enum": ["PREMIUM", "PREMIUM_PLUS", "PRO"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "mdo-one-mds-master"} } },
                         "then" :{"properties": { "plan": { "enum": ["standard"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "responsibility-management-application-beta"} } },
-                        "then" :{"properties": { "plan": { "enum": ["beta"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "mobile-proxy"} } },
+                        "if": { "properties": { "name": { "const": "mobile-sample-odata-v2-espm"} } },
                         "then" :{"properties": { "plan": { "enum": ["standard"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "business-entity-recognition"} } },
+                        "if": { "properties": { "name": { "const": "integrationsuite"} } },
+                        "then" :{"properties": { "plan": { "enum": ["enterprise_agreement", "free", "messages"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "workflow"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "business-rules"} } },
+                        "then" :{"properties": { "plan": { "enum": ["basic", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "dateandtime"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "postgresql"} } },
+                        "then" :{"properties": { "plan": { "enum": ["large", "medium", "small", "xsmall", "xxsmall"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "retention-manager"} } },
                         "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
                     }, 
                     { 
@@ -402,52 +511,72 @@
                         "then" :{"properties": { "plan": { "enum": ["standard"] } } }
                     }, 
                     { 
+                        "if": { "properties": { "name": { "const": "market-rates-thr"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "ibanservice"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "responsibility-management-application-beta"} } },
+                        "then" :{"properties": { "plan": { "enum": ["beta"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "uas"} } },
+                        "then" :{"properties": { "plan": { "enum": ["reporting-directory", "reporting-ga-admin"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "sap-cai-onboarding"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "cis"} } },
+                        "then" :{"properties": { "plan": { "enum": ["central", "local"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "abap-solution"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "sdm-web"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "one-mds"} } },
+                        "then" :{"properties": { "plan": { "enum": ["s4hana-onpremise", "sap-integration"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "feature-flags"} } },
+                        "then" :{"properties": { "plan": { "enum": ["lite", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "feature-flags-dashboard"} } },
+                        "then" :{"properties": { "plan": { "enum": ["dashboard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "aicore"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "mobile-services"} } },
+                        "then" :{"properties": { "plan": { "enum": ["b2c", "free", "standard"] } } }
+                    }, 
+                    { 
                         "if": { "properties": { "name": { "const": "xfs-runtime"} } },
                         "then" :{"properties": { "plan": { "enum": ["default"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "credstore"} } },
-                        "then" :{"properties": { "plan": { "enum": ["free", "proxy", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "dqmmicroui"} } },
+                        "if": { "properties": { "name": { "const": "ibx-connection-app"} } },
                         "then" :{"properties": { "plan": { "enum": ["standard"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "ads"} } },
+                        "if": { "properties": { "name": { "const": "iotas"} } },
+                        "then" :{"properties": { "plan": { "enum": ["oneproduct", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "portal"} } },
                         "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "mobile-client-resource"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "print"} } },
-                        "then" :{"properties": { "plan": { "enum": ["receiver", "sender"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "alert-notification"} } },
-                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "c4-distributed-order-management"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "SAPLaunchpad"} } },
-                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "cicd-service"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "extension-center"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "postgresql-db"} } },
-                        "then" :{"properties": { "plan": { "enum": ["free", "premium", "standard", "storage", "storage_ha"] } } }
                     }, 
                     { 
                         "if": { "properties": { "name": { "const": "hana-db"} } },
@@ -458,239 +587,7 @@
                         "then" :{"properties": { "plan": { "enum": ["standard", "workflow"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "content-agent"} } },
-                        "then" :{"properties": { "plan": { "enum": ["application", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "auditlog-viewer"} } },
-                        "then" :{"properties": { "plan": { "enum": ["free"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "alm-ts"} } },
-                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "hana"} } },
-                        "then" :{"properties": { "plan": { "enum": ["hdi-shared", "sbss", "schema", "securestore"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "it-rt"} } },
-                        "then" :{"properties": { "plan": { "enum": ["api", "integration-flow"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "iotas"} } },
-                        "then" :{"properties": { "plan": { "enum": ["oneproduct", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "responsibility-management-service-beta"} } },
-                        "then" :{"properties": { "plan": { "enum": ["beta"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "mobile-app-update"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "mobile-client-log-upload"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "document-classification"} } },
-                        "then" :{"properties": { "plan": { "enum": ["blocks_of_100", "default"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "SAPWorkZone"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "cis"} } },
-                        "then" :{"properties": { "plan": { "enum": ["central", "local"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "data-privacy-integration-service"} } },
-                        "then" :{"properties": { "plan": { "enum": ["application", "free"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "eadesigner"} } },
-                        "then" :{"properties": { "plan": { "enum": ["eadesigner"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "hyperledger-fabric"} } },
-                        "then" :{"properties": { "plan": { "enum": ["backbone", "channel", "cyon", "dev", "node", "testnet"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "spatialservices"} } },
-                        "then" :{"properties": { "plan": { "enum": ["lite", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "mdo-one-mds-master"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "rabbitmq"} } },
-                        "then" :{"properties": { "plan": { "enum": ["large", "medium", "small", "virtualhost", "xsmall"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "edge-services"} } },
-                        "then" :{"properties": { "plan": { "enum": ["Enterprise", "Standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "sap-cai-onboarding"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "dateandtime"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "MDMBusinessPartnerService"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "api-management"} } },
-                        "then" :{"properties": { "plan": { "enum": ["preview"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "iot"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "c4-distributed-order-management-app"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "autoscaler"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "wums-c4re-beta"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "mobile-cbms"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "enterprise-messaging"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default", "event-mesh-connectivity"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "ocnselfserviceagent"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "hana-tenant-db"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "enterprise-messaging-hub"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "recommendation-systems-production"} } },
-                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "sap-bigdataservices"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "redis-cache"} } },
-                        "then" :{"properties": { "plan": { "enum": ["free", "premium", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "xsuaa"} } },
-                        "then" :{"properties": { "plan": { "enum": ["apiaccess", "application", "broker", "space"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "Backend-service"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "business-rules"} } },
-                        "then" :{"properties": { "plan": { "enum": ["basic", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "conversational-ai"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "document-information-extraction-application"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "iotae"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "redis"} } },
-                        "then" :{"properties": { "plan": { "enum": ["large", "medium", "small", "xsmall"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "cias"} } },
-                        "then" :{"properties": { "plan": { "enum": ["oauth2", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "one-inbox-service"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "wums-partner-api-beta"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "ml-foundation"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "sap-graph"} } },
-                        "then" :{"properties": { "plan": { "enum": ["free"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "auditlog-management"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "sdm-repository"} } },
-                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "workcalendar"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "multichain"} } },
-                        "then" :{"properties": { "plan": { "enum": ["cyon", "large", "medium", "small"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "WorkflowManagementSaaS"} } },
-                        "then" :{"properties": { "plan": { "enum": ["saas-application"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "application-logs"} } },
-                        "then" :{"properties": { "plan": { "enum": ["large", "lite", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "ibanservice"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "irpa-service"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "destination"} } },
-                        "then" :{"properties": { "plan": { "enum": ["lite"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "identity"} } },
-                        "then" :{"properties": { "plan": { "enum": ["application"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "service-manager"} } },
-                        "then" :{"properties": { "plan": { "enum": ["container", "service-operator-access", "subaccount-admin", "subaccount-audit"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "responsibilitymanagement-application"} } },
+                        "if": { "properties": { "name": { "const": "extension-center"} } },
                         "then" :{"properties": { "plan": { "enum": ["standard"] } } }
                     }, 
                     { 
@@ -698,291 +595,95 @@
                         "then" :{"properties": { "plan": { "enum": ["dedicated", "enterprise", "tenant"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "feature-flags-dashboard"} } },
-                        "then" :{"properties": { "plan": { "enum": ["dashboard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "quorum"} } },
-                        "then" :{"properties": { "plan": { "enum": ["cyon", "dev", "testnet"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "api-management-apiportal"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "mobile-services"} } },
-                        "then" :{"properties": { "plan": { "enum": ["b2c", "free", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "data-attribute-recommendation"} } },
-                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "privatelink"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "malware-scanner"} } },
-                        "then" :{"properties": { "plan": { "enum": ["external"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "custom-domain-manager"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "integrationsuite"} } },
-                        "then" :{"properties": { "plan": { "enum": ["enterprise_agreement", "free", "messages"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "PersonalDataManagerApp"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "workflow"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "mobile-sample-odata-v2-espm"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "theming"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "mobile-discovery"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "mobile-client-usage"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "html5-apps-repo"} } },
-                        "then" :{"properties": { "plan": { "enum": ["app-host", "app-runtime"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "kymaruntime"} } },
-                        "then" :{"properties": { "plan": { "enum": ["aws", "azure", "free", "gcp"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "mobile-services-preview"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "transport"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "mobile-app-catalog"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "one-mds"} } },
-                        "then" :{"properties": { "plan": { "enum": ["s4hana-onpremise", "sap-integration"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "sdm"} } },
-                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "spatialservices-app"} } },
-                        "then" :{"properties": { "plan": { "enum": ["professional", "starter"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "mobile-settings-exchange"} } },
-                        "then" :{"properties": { "plan": { "enum": ["b2c", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "cloudfoundry"} } },
-                        "then" :{"properties": { "plan": { "enum": ["free"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "retention-manager-app"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "mobile-c2g"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "intelligent-situation-automation-app"} } },
-                        "then" :{"properties": { "plan": { "enum": ["beta", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "MDOrchestrationApplication"} } },
-                        "then" :{"properties": { "plan": { "enum": ["saas-application"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "tnt-onboard-dataenrichment-dcp"} } },
-                        "then" :{"properties": { "plan": { "enum": ["saas-application"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "data-privacy-integration-application"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "invoice-object-recommendation"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "PortalApplication"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "IRPA"} } },
-                        "then" :{"properties": { "plan": { "enum": ["concurrent", "concurrent-attended", "concurrent-unattended", "default", "free"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "COMPUTE_UNIT"} } },
-                        "then" :{"properties": { "plan": { "enum": ["PREMIUM", "PREMIUM_PLUS", "PRO"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "sapappgyver"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "intercompany-reconciliation"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "abap-solution"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "workflowmanagement"} } },
-                        "then" :{"properties": { "plan": { "enum": ["workflow"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "market-rates-thr"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "feature-flags"} } },
-                        "then" :{"properties": { "plan": { "enum": ["lite", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "personal-data-manager-service"} } },
-                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "api-management-devportal"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "auditlog-api"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "sap-document-information-extraction"} } },
-                        "then" :{"properties": { "plan": { "enum": ["blocks_of_100", "default"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "automationpilot"} } },
-                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "hana-cloud"} } },
-                        "then" :{"properties": { "plan": { "enum": ["adaptive-server-enterprise", "adaptive-server-enterprise-replication", "hana", "hana-cloud-connection", "hana-cloud-connection-free", "hana-free", "relational-data-lake", "relational-data-lake-free"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "document-translation"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default", "free"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "sap-calm"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "mobile-offline"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "ibx-connection-app"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "INFRA"} } },
-                        "then" :{"properties": { "plan": { "enum": ["custom_domains"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "abap"} } },
-                        "then" :{"properties": { "plan": { "enum": ["16_abap_64_db", "abap_compute_unit", "free", "hana_compute_unit", "standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "process-automation"} } },
-                        "then" :{"properties": { "plan": { "enum": ["advanced-user", "automation-attended", "automation-unattended", "free", "standard", "standard-user"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "blockchain-services"} } },
-                        "then" :{"properties": { "plan": { "enum": ["blockchain-hana-integration", "blockchain-proof-of-history", "blockchain-proof-of-state", "blockchain-timestamp"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "adsrestapi"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                        "if": { "properties": { "name": { "const": "rabbitmq"} } },
+                        "then" :{"properties": { "plan": { "enum": ["large", "medium", "small", "virtualhost", "xsmall"] } } }
                     }, 
                     { 
                         "if": { "properties": { "name": { "const": "ui5-flexibility-keyuser"} } },
                         "then" :{"properties": { "plan": { "enum": ["free", "keyuser"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "portal"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "market-rates-ux"} } },
-                        "then" :{"properties": { "plan": { "enum": ["mror", "mrtr"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "retention-manager"} } },
+                        "if": { "properties": { "name": { "const": "recommendation-systems-production"} } },
                         "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "it-prod"} } },
-                        "then" :{"properties": { "plan": { "enum": ["enterprise"] } } }
+                        "if": { "properties": { "name": { "const": "it-rt"} } },
+                        "then" :{"properties": { "plan": { "enum": ["api", "integration-flow"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "MDMBusinessPartnerApplication"} } },
-                        "then" :{"properties": { "plan": { "enum": ["saas-application"] } } }
+                        "if": { "properties": { "name": { "const": "business-entity-recognition"} } },
+                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "mobile-client-log-upload"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "iotae"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "custom-domain-manager"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "mobile-settings-exchange"} } },
+                        "then" :{"properties": { "plan": { "enum": ["b2c", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "responsibilitymanagement-application"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "sap-document-information-extraction"} } },
+                        "then" :{"properties": { "plan": { "enum": ["blocks_of_100", "default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "wums-partner-api-beta"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
                     }, 
                     { 
                         "if": { "properties": { "name": { "const": "market-rates-byor"} } },
                         "then" :{"properties": { "plan": { "enum": ["default", "free"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "ads-configui"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                        "if": { "properties": { "name": { "const": "sdm-repository"} } },
+                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "abapcp-web-router"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                        "if": { "properties": { "name": { "const": "destination"} } },
+                        "then" :{"properties": { "plan": { "enum": ["lite"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "saas-registry"} } },
-                        "then" :{"properties": { "plan": { "enum": ["application"] } } }
-                    }, 
-                    { 
-                        "if": { "properties": { "name": { "const": "mobile-push"} } },
+                        "if": { "properties": { "name": { "const": "retention-manager-app"} } },
                         "then" :{"properties": { "plan": { "enum": ["standard"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "dataenrichment-business-partner"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                        "if": { "properties": { "name": { "const": "xsuaa"} } },
+                        "then" :{"properties": { "plan": { "enum": ["apiaccess", "application", "broker", "space"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "print-app"} } },
+                        "if": { "properties": { "name": { "const": "eadesigner"} } },
+                        "then" :{"properties": { "plan": { "enum": ["eadesigner"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "process-automation-service"} } },
                         "then" :{"properties": { "plan": { "enum": ["standard"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "sdm-web"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                        "if": { "properties": { "name": { "const": "sdm"} } },
+                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "cicd-app"} } },
-                        "then" :{"properties": { "plan": { "enum": ["default", "free"] } } }
+                        "if": { "properties": { "name": { "const": "data-attribute-recommendation"} } },
+                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "sap-workzone"} } },
+                        "if": { "properties": { "name": { "const": "MDOrchestrationApplication"} } },
+                        "then" :{"properties": { "plan": { "enum": ["saas-application"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "ai-launchpad"} } },
                         "then" :{"properties": { "plan": { "enum": ["standard"] } } }
                     }, 
                     { 
@@ -990,28 +691,327 @@
                         "then" :{"properties": { "plan": { "enum": ["standard"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "jobscheduler"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                        "if": { "properties": { "name": { "const": "cloudfoundry"} } },
+                        "then" :{"properties": { "plan": { "enum": ["free"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "postgresql"} } },
-                        "then" :{"properties": { "plan": { "enum": ["large", "medium", "small", "xsmall", "xxsmall"] } } }
+                        "if": { "properties": { "name": { "const": "automationpilot"} } },
+                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
                     }, 
                     { 
-                        "if": { "properties": { "name": { "const": "process-automation-service"} } },
-                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                        "if": { "properties": { "name": { "const": "quorum"} } },
+                        "then" :{"properties": { "plan": { "enum": ["cyon", "dev", "testnet"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "sap-graph"} } },
+                        "then" :{"properties": { "plan": { "enum": ["free"] } } }
                     }, 
                     { 
                         "if": { "properties": { "name": { "const": "dq-services"} } },
                         "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
                     }, 
                     { 
+                        "if": { "properties": { "name": { "const": "print-app"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "mobile-push"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "auditlog-viewer"} } },
+                        "then" :{"properties": { "plan": { "enum": ["free"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "mobile-app-update"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "mobile-network-trace"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "Backend-service"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "ml-foundation"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "hana-cloud"} } },
+                        "then" :{"properties": { "plan": { "enum": ["adaptive-server-enterprise", "adaptive-server-enterprise-replication", "hana", "hana-cloud-connection", "hana-cloud-connection-free", "hana-free", "relational-data-lake", "relational-data-lake-free"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "mobile-services-preview"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "personal-data-manager-service"} } },
+                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "sap-workzone"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "identity"} } },
+                        "then" :{"properties": { "plan": { "enum": ["application"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "redis"} } },
+                        "then" :{"properties": { "plan": { "enum": ["large", "medium", "small", "xsmall"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "ASE_PROVISIONING"} } },
+                        "then" :{"properties": { "plan": { "enum": ["LARGE", "MEDIUM", "SMALL", "XLARGE", "XSMALL"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "redis-cache"} } },
+                        "then" :{"properties": { "plan": { "enum": ["free", "premium", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "mobile-offline"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "enterprise-messaging"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default", "event-mesh-connectivity"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "sap-calm"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "it-prod"} } },
+                        "then" :{"properties": { "plan": { "enum": ["enterprise"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "responsibility-management-service-beta"} } },
+                        "then" :{"properties": { "plan": { "enum": ["beta"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "abap"} } },
+                        "then" :{"properties": { "plan": { "enum": ["16_abap_64_db", "abap_compute_unit", "free", "hana_compute_unit", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "service-ticket-intelligence"} } },
+                        "then" :{"properties": { "plan": { "enum": ["blocks_of_100", "free", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "invoice-object-recommendation"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "sap-bigdataservices"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "intelligent-situation-automation-app"} } },
+                        "then" :{"properties": { "plan": { "enum": ["beta", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "saas-registry"} } },
+                        "then" :{"properties": { "plan": { "enum": ["application"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "ads-configui"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "hana-tenant-db"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "MDMBusinessPartnerService"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "mobile-proxy"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "WorkflowManagementSaaS"} } },
+                        "then" :{"properties": { "plan": { "enum": ["saas-application"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "data-privacy-integration-application"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "objectstore"} } },
+                        "then" :{"properties": { "plan": { "enum": ["azure-standard", "gcs-standard", "s3-standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "hyperledger-fabric"} } },
+                        "then" :{"properties": { "plan": { "enum": ["backbone", "channel", "cyon", "dev", "node", "testnet"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "hana"} } },
+                        "then" :{"properties": { "plan": { "enum": ["hdi-shared", "sbss", "schema", "securestore"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "credstore"} } },
+                        "then" :{"properties": { "plan": { "enum": ["free", "proxy", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "malware-scanner"} } },
+                        "then" :{"properties": { "plan": { "enum": ["external"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "apimanagement-apiportal"} } },
+                        "then" :{"properties": { "plan": { "enum": ["apim-as-route-service", "apiportal-apiaccess", "on-premise-connectivity"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "ads"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "conversational-ai"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "SAPWebAnalytics"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "MDMBusinessPartnerApplication"} } },
+                        "then" :{"properties": { "plan": { "enum": ["saas-application"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "connectivity"} } },
+                        "then" :{"properties": { "plan": { "enum": ["connectivity_proxy", "lite"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "mobile-cbms"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "document-translation"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default", "free"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "adsrestapi"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "privatelink"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "api-management"} } },
+                        "then" :{"properties": { "plan": { "enum": ["preview"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "print"} } },
+                        "then" :{"properties": { "plan": { "enum": ["receiver", "sender"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "c4-distributed-order-management"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "workcalendar"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "html5-apps-repo"} } },
+                        "then" :{"properties": { "plan": { "enum": ["app-host", "app-runtime"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "alert-notification"} } },
+                        "then" :{"properties": { "plan": { "enum": ["free", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "mobile-client-resource"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "process-automation"} } },
+                        "then" :{"properties": { "plan": { "enum": ["advanced-user", "automation-attended", "automation-unattended", "free", "standard", "standard-user"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "api-management-devportal"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "api-management-apiportal"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "abapcp-web-router"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "c4-distributed-order-management-app"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "dataenrichment-business-partner"} } },
+                        "then" :{"properties": { "plan": { "enum": ["default"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "spatialservices-app"} } },
+                        "then" :{"properties": { "plan": { "enum": ["professional", "starter"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "tnt-onboard-dataenrichment-dcp"} } },
+                        "then" :{"properties": { "plan": { "enum": ["saas-application"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "multichain"} } },
+                        "then" :{"properties": { "plan": { "enum": ["cyon", "large", "medium", "small"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "postgresql-db"} } },
+                        "then" :{"properties": { "plan": { "enum": ["free", "premium", "standard", "storage", "storage_ha"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "dqmmicroui"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "spatialservices"} } },
+                        "then" :{"properties": { "plan": { "enum": ["lite", "standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "blockchain-services"} } },
+                        "then" :{"properties": { "plan": { "enum": ["blockchain-hana-integration", "blockchain-proof-of-history", "blockchain-proof-of-state", "blockchain-timestamp"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "sapappstudio"} } },
+                        "then" :{"properties": { "plan": { "enum": ["free", "standard-edition"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "enterprise-messaging-hub"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "one-inbox-service"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "sapappgyver"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "PortalApplication"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
                         "if": { "properties": { "name": { "const": "responsibilitymanagement-service"} } },
                         "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "irpa-service"} } },
+                        "then" :{"properties": { "plan": { "enum": ["standard"] } } }
+                    }, 
+                    { 
+                        "if": { "properties": { "name": { "const": "INFRA"} } },
+                        "then" :{"properties": { "plan": { "enum": ["custom_domains"] } } }
                     }
                     
                 ]
-            
             }
         },
         "executeAfterAccountSetup": {

@@ -46,7 +46,8 @@
                         "type": "string",
                         "description": "category of the service",
                         "title": "category of the service",
-                        "default": null
+                        "default": "SERVICE",
+                        "enum": ["ENVIRONMENT", "SERVICE", "APPLICATION", "CF_CUP_SERVICE"]
                     },
                     "targetenvironment": {
                         "type": "string",
@@ -78,8 +79,8 @@
                     },
                     "instancename": {
                         "type": "string",
-                        "description": "name of the service",
-                        "title": "name of the service",
+                        "description": "name of the service instance",
+                        "title": "name of the service instance",
                         "default": null
                     },
                     "parameters": {
@@ -93,7 +94,7 @@
                     },
                     "serviceparameterfile": {
                         "type": "string",
-                        "description": "parameter file for the service",
+                        "description": "parameter file for the service in case you want to provide the parameters via a file",
                         "title": "parameter file for the service",
                         "default": null
                     },
@@ -117,8 +118,8 @@
                     },
                     "createServiceKeys": {
                         "type": "array",
-                        "description": "list of service keys to be created for a service",
-                        "title": "list of service keys to be created for a service",
+                        "description": "list of service keys to be created for the service",
+                        "title": "list of service keys to be created for the service",
                         "default": null
                     },
                     "requiredServices": {
@@ -129,8 +130,8 @@
                     },
                     "requiredrolecollections": {
                         "type": "array",
-                        "description": "",
-                        "title": "",
+                        "description": "list of role collections to assign users to",
+                        "title": "list of role collections to assign users to",
                         "default": null,
                         "additionalProperties": false,
                         "items": {
@@ -139,13 +140,13 @@
                             "properties": {
                                 "name": {
                                     "type": "string",
-                                    "description": "",
-                                    "title": ""
+                                    "description": "name of the role collection",
+                                    "title": "name of the role collection"
                                 },
                                 "assignedUserGroupsFromParameterFile": {
                                     "type": "array",
-                                    "description": "",
-                                    "title": ""
+                                    "description": "use the name defined for the user group in the parameters.json file",
+                                    "title": "list of user groups to assign the role collection"
                                 }
                             }
                         }
