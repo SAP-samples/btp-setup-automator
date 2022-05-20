@@ -260,6 +260,18 @@
                     }
                 }
             }
+        },
+        "maintain_jsonschemas": {
+            "type": "boolean",
+            "description": "if set to true, the json schema files for parameters and usecases will be updated",
+            "title": "update the json schemas without executing the use case",
+            "default": false
+        },
+        "maintain_documentation": {
+            "type": "boolean",
+            "description": "if set to true, the the automatically created documentation of btpsa will by updated",
+            "title": "update the automatically created documentation",
+            "default": false
         }
     }
 }

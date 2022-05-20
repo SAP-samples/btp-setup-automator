@@ -1,5 +1,5 @@
 from libs.python.helperJson import dictToJson
-import jinja2
+from libs.python.helperJinja2 import renderTemplateWithJson
 import logging
 
 log = logging.getLogger(__name__)
@@ -32,7 +32,6 @@ def buildServiceStructure(accountEntitlements):
         myService = {"serviceName": serviceName, "servicePlans": theseServicePlans}
         enumList.append(myService)
 
-    #enumList = dictToJson(enumList)
     return enumList
 
 
@@ -99,22 +98,10 @@ def buildEnumForDatacenters(accountEntitlements):
     return enumList
 
 
-def renderTemplateWithJson(templateFilename, targetFilename, parameters):
-
-    templateLoader = jinja2.FileSystemLoader(searchpath="./libs/json/templates/")
-    templateEnv = jinja2.Environment(loader=templateLoader)
-    template = templateEnv.get_template(templateFilename)
-
-    renderedText = template.render(parameters)  # this is where to put args to the template renderer
-
-    with open(targetFilename, 'w') as f:
-        f.write(renderedText)
-
-
 def buildJsonSchemaFile(TEMPLATE_FILE, TARGET_FILE, accountEntitlements):
     data = getDataForJsonSchemaTemplate(accountEntitlements)
 
     templateFilename = TEMPLATE_FILE
-    targetFilename = "./schemas/" + TARGET_FILE
+    targetFilename =  TARGET_FILE
 
     renderTemplateWithJson(templateFilename, targetFilename, data)
