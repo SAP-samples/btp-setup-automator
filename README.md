@@ -30,7 +30,12 @@ The tooling provided in this repository is supposed to run inside a [docker](htt
 
 As a user the only thing you need to focus on is your use case that defines which services or subscriptions you need. The use case is defined within a JSON structure. You can find [use cases in the use cases folder of this repository](usecases/), and - of course - you can create your own use case files, if you want to run the script.
 
+With the built-in json schemas it's fairly simple to create your own use case file as you can see in this video:
+
+![json schema for creating use case files](docs/pics/btpsa-json-schema.gif)
+
 You find more information on the different use cases in the [usecases document](./docs/USECASES.md).
+
 
 ## Requirements
 

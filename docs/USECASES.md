@@ -6,6 +6,10 @@ This file gives you an overview on the content of the different scenarios.
 
 > ⚠ NOTE: You find more use cases and parameters files in the folder [`/usecases`](../usecases), however only the ones available in the directory `released` are tested by us and should work.
 
+Remember, that the built-in json schemas allow you creating your own use case file quite easy. The only thing you need to do is to add the link to the json schema to your json file as shown in this video (the link to the schema can be found at the top of each usecase file).
+
+![json schema for creating use case files](pics/btpsa-json-schema.gif)
+
 ## Use case "cap_app_launchpad.json"
 
 The file [cap_app_launchpad.json](../usecases/released/cap_app_launchpad.json) contains the setup and deployment of a of a CAP application to a Cloud Foundry Environment in a SAP BTP account. This includes the necessary service instance, app subscriptions and role collections.
