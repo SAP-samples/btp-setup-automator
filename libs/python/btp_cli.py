@@ -878,12 +878,13 @@ def checkIfAllSubscriptionsAreAvailable(btpUsecase: BTPUSECASE):
     resultCommand = runCommandAndGetJsonResult(btpUsecase, command, "INFO", "check status of app subscriptions")
 
     allSubscriptionsAvailable = True
-    for thisJson in resultCommand["applications"]:
-        name = thisJson["appName"]
-        plan = thisJson["planName"]
-        status = thisJson["state"]
-        tenantId = thisJson["tenantId"]
-        for app in btpUsecase.definedAppSubscriptions:
+    for app in btpUsecase.definedAppSubscriptions:
+        for thisJson in resultCommand["applications"]:
+            name = thisJson.get("appName")
+            plan = thisJson.get("planName")
+            status = thisJson.get("state")
+            tenantId = thisJson.get("tenantId")
+
             if app.name == name and app.plan == plan and app.successInfoShown is False:
                 if status == "SUBSCRIBE_FAILED":
                     log.error("BTP account reported that subscription on >" + app.name + "< has failed.")
