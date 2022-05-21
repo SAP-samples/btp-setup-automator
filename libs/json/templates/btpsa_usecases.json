@@ -24,13 +24,15 @@
                     "name",
                     "category"
                 ],
+                "dependentRequired":{
+                    "category": ["name"],
+                    "name": ["category"]
+                },
                 "properties": {
                     "name": {
                         "type": "string",
                         "description": "name of the service",
-                        "title": "name of the service",
-                        "enum": {{ enumServiceList }}
-                        
+                        "title": "name of the service"
                     },
                     "entitleonly": {
                         "type": "boolean",
@@ -46,8 +48,12 @@
                         "type": "string",
                         "description": "category of the service",
                         "title": "category of the service",
-                        "default": "SERVICE",
-                        "enum": ["ENVIRONMENT", "SERVICE", "APPLICATION", "CF_CUP_SERVICE"]
+                        "enum": ["SERVICE", "APPLICATION", "CF_CUP_SERVICE"]
+                    },
+                    "relatedLinks": {
+                        "type": "array",
+                        "description": "links related to this service",
+                        "title": "related links"
                     },
                     "targetenvironment": {
                         "type": "string",
@@ -158,7 +164,14 @@
                         "default": null
                     }
                 },
-                "anyOf": [
+                "allOf": [
+                    {% for category in categoryStructure -%}
+                    { 
+                        "if": { "properties": { "category": { "const": "{{ category.categoryName }}"} } },
+                        "then" :{"properties": { "name": { "enum": [{% for service in category.services -%}"{{ service }}"{% if not loop.last %}, {% endif %}{% endfor %}] } } }
+                    }{% if not loop.last %}, {% endif %}
+                    {% endfor %},
+                    
                     {% for service in services -%}
                     { 
                         "if": { "properties": { "name": { "const": "{{ service.serviceName }}"} } },
