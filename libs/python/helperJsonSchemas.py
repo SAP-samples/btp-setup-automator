@@ -12,10 +12,38 @@ def getDataForJsonSchemaTemplate(accountEntitlements):
     enumDatacenterList = buildEnumForDatacenters(accountEntitlements)
     serviceStructure = buildServiceStructure(accountEntitlements)
     servicePlanStructure = buildServiceStructure(accountEntitlements)
+    categoryStructure = buildCategoryStructure(accountEntitlements)
 
-    result = {"enumServiceList": enumServiceList, "enumPlanList": enumPlanList, "enumDatacenterList": enumDatacenterList, "services": serviceStructure, "servicePlans": servicePlanStructure}
+    result = {"enumServiceList": enumServiceList, "enumPlanList": enumPlanList, "enumDatacenterList": enumDatacenterList, "services": serviceStructure, "servicePlans": servicePlanStructure, "categoryStructure": categoryStructure}
 
     return result
+
+
+def getServicesForCategories(categories, data):
+    thisList = []
+    for service in data.get("entitledServices"):
+        serviceName = service.get("name")
+        for servicePlan in service.get("servicePlans"):
+            category = servicePlan.get("category")
+            if category in categories and serviceName not in thisList:
+                thisList.append(serviceName)
+    thisList = sorted(thisList, key=str.casefold)
+    thisList = list(dict.fromkeys(thisList))
+    return thisList
+
+
+def buildCategoryStructure(accountEntitlements):
+
+    list = []
+    services_SERVICE = getServicesForCategories(["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"], accountEntitlements)
+    services_APPLICATION = getServicesForCategories(["APPLICATION"], accountEntitlements)
+    services_ENVIRONMENT = getServicesForCategories(["ENVIRONMENT"], accountEntitlements)
+
+    list.append({"categoryName": "SERVICE", "services": services_SERVICE})
+    list.append({"categoryName": "APPLICATION", "services": services_APPLICATION})
+    list.append({"categoryName": "ENVIRONMENT", "services": services_ENVIRONMENT})
+
+    return list
 
 
 def buildServiceStructure(accountEntitlements):
@@ -28,7 +56,7 @@ def buildServiceStructure(accountEntitlements):
             servicePlanName = servicePlan.get("name")
             theseServicePlans.append(servicePlanName)
         theseServicePlans.sort()
-        theseServicePlans = list(dict.fromkeys(theseServicePlans))            
+        theseServicePlans = list(dict.fromkeys(theseServicePlans))
         myService = {"serviceName": serviceName, "servicePlans": theseServicePlans}
         enumList.append(myService)
 
@@ -102,6 +130,6 @@ def buildJsonSchemaFile(TEMPLATE_FILE, TARGET_FILE, accountEntitlements):
     data = getDataForJsonSchemaTemplate(accountEntitlements)
 
     templateFilename = TEMPLATE_FILE
-    targetFilename =  TARGET_FILE
+    targetFilename = TARGET_FILE
 
     renderTemplateWithJson(templateFilename, targetFilename, data)

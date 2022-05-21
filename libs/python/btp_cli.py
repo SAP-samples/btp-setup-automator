@@ -62,7 +62,6 @@ class BTPUSECASE:
         self.definedEnvironments = getEnvironmentsForUsecase(self, allServices)
         self.admins = getAdminsFromUsecaseFile(self)
         self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(self, allServices, ["APPLICATION"])
-        self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(self, allServices, ["APPLICATION"])
         usecaseFileContent = getJsonFromFile(self, self.usecasefile)
         self.definedRoleCollections = usecaseFileContent.get("assignrolecollections")
 
@@ -109,6 +108,8 @@ class BTPUSECASE:
             targetFilename = "schemas/btpsa_usecase_" + self.globalaccount + ".json"
             buildJsonSchemaFile("btpsa_usecases.json", targetFilename, availableForAccount)
             log.info("created a json schema file >" + targetFilename + "< for your global account >" + self.globalaccount + "<")
+
+        exit()
 
         usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(self, availableForAccount)
 
@@ -903,6 +904,37 @@ def checkIfAllSubscriptionsAreAvailable(btpUsecase: BTPUSECASE):
                     app.status = "SUBSCRIBED"
 
     return allSubscriptionsAvailable
+
+
+# def checkIfAllSubscriptionsAreAvailable(btpUsecase: BTPUSECASE):
+#     command = "btp --format json list accounts/subscription --subaccount '" + btpUsecase.subaccountid + "'"
+#     resultCommand = runCommandAndGetJsonResult(btpUsecase, command, "INFO", "check status of app subscriptions")
+
+#     allSubscriptionsAvailable = True
+#     for thisJson in resultCommand["applications"]:
+#         name = thisJson["appName"]
+#         plan = thisJson["planName"]
+#         status = thisJson["state"]
+#         tenantId = thisJson["tenantId"]
+#         for app in btpUsecase.definedAppSubscriptions:
+#             if app.name == name and app.plan == plan and app.successInfoShown is False:
+#                 if status == "SUBSCRIBE_FAILED":
+#                     log.error("BTP account reported that subscription on >" + app.name + "< has failed.")
+#                     sys.exit(os.EX_DATAERR)
+
+#                 if status != "SUBSCRIBED":
+#                     allSubscriptionsAvailable = False
+#                     app.status = status
+#                     app.successInfoShown = False
+#                     app.statusResponse = thisJson
+#                 else:
+#                     log.success("subscription to app >" + app.name + "< (plan " + app.plan + ") is now available")
+#                     app.tenantId = tenantId
+#                     app.successInfoShown = True
+#                     app.statusResponse = thisJson
+#                     app.status = "SUBSCRIBED"
+
+#     return allSubscriptionsAvailable
 
 
 def determineTimeToFetchStatusUpdates(btpUsecase: BTPUSECASE):
