@@ -168,14 +168,17 @@
                     {% for category in categoryStructure -%}
                     { 
                         "if": { "properties": { "category": { "const": "{{ category.categoryName }}"} } },
-                        "then" :{"properties": { "name": { "enum": [{% for service in category.services -%}"{{ service }}"{% if not loop.last %}, {% endif %}{% endfor %}] } } }
-                    }{% if not loop.last %}, {% endif %}
-                    {% endfor %},
-                    
-                    {% for service in services -%}
-                    { 
-                        "if": { "properties": { "name": { "const": "{{ service.serviceName }}"} } },
-                        "then" :{"properties": { "plan": { "enum": [{% for plan in service.servicePlans -%}"{{ plan }}"{% if not loop.last %}, {% endif %}{% endfor %}] } } }
+                        "then" :{
+                                    "properties": { "name": { "enum": [{% for service in category.services -%}"{{ service.serviceName }}"{% if not loop.last %}, {% endif %}{% endfor %}] } },
+                                    "allOf": [
+                                        {% for service in category.services -%}
+                                        { 
+                                            "if": { "properties": { "name": { "const": "{{ service.serviceName }}"} } },
+                                            "then" :{"properties": { "plan": { "enum": [{% for plan in service.servicePlans -%}"{{ plan }}"{% if not loop.last %}, {% endif %}{% endfor %}] } } }
+                                        }{% if not loop.last %}, {% endif %}
+                                        {% endfor %}
+                                    ]
+                                }
                     }{% if not loop.last %}, {% endif %}
                     {% endfor %}
                 ]
@@ -308,4 +311,5 @@
     "required": [
         "aboutThisUseCase"
     ]
+
 }
