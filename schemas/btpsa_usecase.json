@@ -48,7 +48,7 @@
                         "type": "string",
                         "description": "category of the service",
                         "title": "category of the service",
-                        "enum": ["SERVICE", "APPLICATION", "CF_CUP_SERVICE"]
+                        "enum": ["SERVICE", "APPLICATION", "CF_CUP_SERVICE", "ENVIRONMENT"]
                     },
                     "relatedLinks": {
                         "type": "array",
