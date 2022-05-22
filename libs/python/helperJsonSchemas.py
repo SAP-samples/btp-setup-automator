@@ -11,25 +11,44 @@ def getDataForJsonSchemaTemplate(accountEntitlements):
     enumPlanList = buildEnumForServicePlans(accountEntitlements)
     enumDatacenterList = buildEnumForDatacenters(accountEntitlements)
     serviceStructure = buildServiceStructure(accountEntitlements)
-    servicePlanStructure = buildServiceStructure(accountEntitlements)
     categoryStructure = buildCategoryStructure(accountEntitlements)
 
-    result = {"enumServiceList": enumServiceList, "enumPlanList": enumPlanList, "enumDatacenterList": enumDatacenterList, "services": serviceStructure, "servicePlans": servicePlanStructure, "categoryStructure": categoryStructure}
+    result = {"enumServiceList": enumServiceList, "enumPlanList": enumPlanList, "enumDatacenterList": enumDatacenterList, "services": serviceStructure, "categoryStructure": categoryStructure}
 
     return result
 
 
 def getServicesForCategories(categories, data):
-    thisList = []
+    allServicesForCategory = []
     for service in data.get("entitledServices"):
         serviceName = service.get("name")
         for servicePlan in service.get("servicePlans"):
             category = servicePlan.get("category")
-            if category in categories and serviceName not in thisList:
-                thisList.append(serviceName)
-    thisList = sorted(thisList, key=str.casefold)
-    thisList = list(dict.fromkeys(thisList))
+            if category in categories and serviceName not in allServicesForCategory:
+                allServicesForCategory.append(serviceName)
+    allServicesForCategory = sorted(allServicesForCategory, key=str.casefold)
+    allServicesForCategory = list(dict.fromkeys(allServicesForCategory))
+
+    thisList = []
+    for service in allServicesForCategory:
+        plans = getPlansForService(service, data)
+        myService = {"serviceName": service, "servicePlans": plans}
+        thisList.append(myService)
+
     return thisList
+
+
+def getPlansForService(serviceName, data):
+    result = []
+    for service in data.get("entitledServices"):
+        thisServiceName = service["name"]
+        if thisServiceName == serviceName:
+            for servicePlan in service.get("servicePlans"):
+                servicePlanName = servicePlan.get("name")
+                result.append(servicePlanName)
+            result.sort()
+            result = list(dict.fromkeys(result))
+    return result
 
 
 def buildCategoryStructure(accountEntitlements):
