@@ -15,7 +15,10 @@ def getKeyFromCFOutput(cfoutput, key):
     lines = cfoutput.splitlines()
     for line in lines:
         thisLineSplit = line.split(":")
-        if len(thisLineSplit) == 2 and thisLineSplit[0] == key:
+        firstCol = thisLineSplit[0]
+        if firstCol:
+            firstCol = firstCol.strip()
+        if len(thisLineSplit) == 2 and firstCol == key:
             result = thisLineSplit[1].strip()
     return result
 
@@ -252,7 +255,7 @@ def get_cf_service_status(btpUsecase, service):
     p = runShellCommand(btpUsecase, command, "CHECK", None)
     result = p.stdout.decode()
 
-    service_broker = getKeyFromCFOutput(result, "service broker")
+    service_broker = getKeyFromCFOutput(result, "broker")
     status = getKeyFromCFOutput(result, "status")
     return [service_broker, status]
 
