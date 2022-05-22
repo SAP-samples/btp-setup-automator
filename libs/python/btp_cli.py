@@ -109,8 +109,6 @@ class BTPUSECASE:
             buildJsonSchemaFile("btpsa_usecases.json", targetFilename, availableForAccount)
             log.info("created a json schema file >" + targetFilename + "< for your global account >" + self.globalaccount + "<")
 
-        exit()
-
         usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(self, availableForAccount)
 
         if usecaseSupportsServices is False:
