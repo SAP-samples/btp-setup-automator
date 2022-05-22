@@ -12,7 +12,40 @@
             "type": "object",
             "description": "name of the service",
             "title": "name of the service",
-            "default": null
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "name of the use case explaining briefly what it does",
+                    "title": "name of the use case"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "",
+                    "title": ""
+                },
+                "author": {
+                    "type": "string",
+                    "description": "",
+                    "title": "",
+                    "format": "email"
+                },          
+                "testStatus": {
+                    "type": "string",
+                    "description": "",
+                    "title": ""
+                },          
+                "usageStatus": {
+                    "type": "string",
+                    "description": "",
+                    "title": ""
+                },          
+                "relatedLinks": {
+                    "type": "array",
+                    "description": "",
+                    "title": ""
+                }
+            },
+            "required": ["name", "author", "testStatus", "usageStatus"]
         },
         "services": {
             "type": "array",
@@ -20,10 +53,7 @@
             "items": {
                 "type": "object",
                 "additionalProperties": false,
-                "required": [
-                    "name",
-                    "category"
-                ],
+                "required": ["name", "category"],
                 "dependentRequired":{
                     "category": ["name"],
                     "name": ["category"]
@@ -39,10 +69,7 @@
                         "description": "if set to true, no service instances will be created by the tool",
                         "title": "if set to true, no service instances will be created by the tool",
                         "default": false,
-                        "enum": [
-                            true,
-                            false
-                        ]
+                        "enum": [true, false]
                     },
                     "category": {
                         "type": "string",
@@ -60,10 +87,7 @@
                         "description": "environment in which the service should be created",
                         "title": "environment in which the service should be created",
                         "default": "cloudfoundry",
-                        "enum": [
-                            "cloudfoundry",
-                            "kymaruntime"
-                        ]
+                        "enum": ["cloudfoundry", "kymaruntime"]
                     },
                     "plan": {
                         "type": "string",
@@ -90,10 +114,7 @@
                         "default": null
                     },
                     "parameters": {
-                        "type": [
-                            "object",
-                            "string"
-                        ],
+                        "type": ["object", "string"],
                         "description": "parameters for the service",
                         "title": "parameters for the service",
                         "default": null
@@ -892,10 +913,7 @@
             "items": {
                 "type": "object",
                 "additionalProperties": false,
-                "required": [
-                    "command",
-                    "description"
-                ],
+                "required": ["command", "description"],
                 "properties": {
                     "description": {
                         "type": "string",
@@ -918,10 +936,7 @@
             "items": {
                 "type": "object",
                 "additionalProperties": false,
-                "required": [
-                    "command",
-                    "description"
-                ],
+                "required": ["command", "description"],
                 "properties": {
                     "description": {
                         "type": "string",
@@ -944,10 +959,7 @@
             "items": {
                 "type": "object",
                 "additionalProperties": false,
-                "required": [
-                    "command",
-                    "description"
-                ],
+                "required": ["command", "description"],
                 "properties": {
                     "description": {
                         "type": "string",
@@ -970,11 +982,7 @@
             "items": {
                 "type": "object",
                 "additionalProperties": false,
-                "required": [
-                    "name",
-                    "type",
-                    "assignedUserGroupsFromParameterFile"
-                ],
+                "required": ["name", "type", "assignedUserGroupsFromParameterFile"],
                 "properties": {
                     "name": {
                         "type": "string",
@@ -985,21 +993,13 @@
                         "type": "string",
                         "description": "",
                         "title": "",
-                        "enum": [
-                            "account",
-                            "cloudfoundry"
-                        ]
+                        "enum": ["account", "cloudfoundry"]
                     },
                     "level": {
                         "type": "string",
                         "description": "",
                         "title": "",
-                        "enum": [
-                            "global account",
-                            "sub account",
-                            "org",
-                            "space"
-                        ]
+                        "enum": ["global account","sub account", "org", "space"]
                     },
                     "assignedUserGroupsFromParameterFile": {
                         "type": "array"
