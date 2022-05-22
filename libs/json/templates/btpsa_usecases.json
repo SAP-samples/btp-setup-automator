@@ -12,7 +12,40 @@
             "type": "object",
             "description": "name of the service",
             "title": "name of the service",
-            "default": null
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "name of the use case explaining briefly what it does",
+                    "title": "name of the use case"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "",
+                    "title": ""
+                },
+                "author": {
+                    "type": "string",
+                    "description": "",
+                    "title": "",
+                    "format": "email"
+                },          
+                "testStatus": {
+                    "type": "string",
+                    "description": "",
+                    "title": ""
+                },          
+                "usageStatus": {
+                    "type": "string",
+                    "description": "",
+                    "title": ""
+                },          
+                "relatedLinks": {
+                    "type": "array",
+                    "description": "",
+                    "title": ""
+                }
+            },
+            "required": ["name", "author", "testStatus", "usageStatus"]
         },
         "services": {
             "type": "array",
