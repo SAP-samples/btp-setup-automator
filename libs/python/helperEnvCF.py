@@ -73,11 +73,14 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
 
     allServicesCreated = True
     for thisJson in jsonResults:
-        name = thisJson["service"]
-        plan = thisJson["plan"]
-        instancename = thisJson["name"]
-        status = thisJson["last operation"]
-        servicebroker = thisJson["broker"]
+        name = thisJson.get("service")
+        if name is None:
+            name = thisJson.get("offering")
+
+        plan = thisJson.get("plan")
+        instancename = thisJson.get("name")
+        status = thisJson.get("last operation")
+        servicebroker = thisJson.get("broker")
         for service in btpUsecase.definedServices:
             if service.name == name and service.plan == plan and service.instancename == instancename and service.successInfoShown is False:
                 if status != "create succeeded" and status != "update succeeded":
