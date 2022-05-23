@@ -82,7 +82,7 @@ def setupParams(myArguments):
                 setattr(args, key, valueToSet)
 
             # in case the parameter file does not include all parameter keys, add the missing ones to the args
-            btpSetupAutomatorArguments = "schemas/btpsa_parameters.json"
+            btpSetupAutomatorArguments = "schemas/btpsa-parameters.json"
             allJsonParameters = getJsonFromFile(None, btpSetupAutomatorArguments)
             for key, value in allJsonParameters.get("properties").items():
                 default = value.get("default")
@@ -114,13 +114,13 @@ def validateJson():
 
 
 def setupParamsBtpsa():
-    jsonSchema = "schemas/btpsa_parameters.json"
+    jsonSchema = "schemas/btpsa-parameters.json"
     args = setupParams(jsonSchema)
     return args
 
 
 def setupParamsServices():
-    serviceArguments = "schmemas/btpsa_usecase.json"
+    serviceArguments = "schmemas/btpsa-usecase.json"
     args = setupParams(serviceArguments)
     return args
 

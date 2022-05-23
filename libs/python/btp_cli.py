@@ -96,17 +96,17 @@ class BTPUSECASE:
         availableForAccount = getListOfAvailableServicesAndApps(self)
 
         if self.maintain_jsonschemas is True:
-            targetFilename = "schemas/btpsa_usecase.json"
-            buildJsonSchemaFile("btpsa_usecases.json", targetFilename, availableForAccount)
+            targetFilename = "schemas/btpsa-usecase.json"
+            buildJsonSchemaFile("BTPSA-USECASE.json", targetFilename, availableForAccount)
             log.success("updated the json schema file for use cases >" + targetFilename + "< based on your global account >" + self.globalaccount + "<")
-            targetFilename = "schemas/btpsa_parameters.json"
-            buildJsonSchemaFile("btpsa_parameters.json", targetFilename, availableForAccount)
+            targetFilename = "schemas/btpsa-parameters.json"
+            buildJsonSchemaFile("btpsa-parameters.json", targetFilename, availableForAccount)
             log.success("updated the json schema file for parameters >" + targetFilename + "<")
             log.header("SUCCESSFULLY MAINTAINED THE TOOL: UPDATED JSON SCHEMAS")
             sys.exit(os.EX_OK)
         else:
-            targetFilename = "schemas/btpsa_usecase_" + self.globalaccount + ".json"
-            buildJsonSchemaFile("btpsa_usecases.json", targetFilename, availableForAccount)
+            targetFilename = "schemas/btpsa-usecase-" + self.globalaccount + ".json"
+            buildJsonSchemaFile("BTPSA-USECASE.json", targetFilename, availableForAccount)
             log.info("created a json schema file >" + targetFilename + "< for your global account >" + self.globalaccount + "<")
 
         usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(self, availableForAccount)
@@ -527,7 +527,7 @@ def getEnvironmentsForUsecase(btpUsecase: BTPUSECASE, allServices):
     items = []
     environments = []
 
-    paramServicesFile = "schemas/btpsa_usecase.json"
+    paramServicesFile = "schemas/btpsa-usecase.json"
     paramDefinition = getJsonFromFile(None, paramServicesFile)
 
     for usecaseService in allServices:

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa_usecase.json",
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa-usecase.json",
   "aboutThisUseCase": {
     "name": "Deploy full-stack CAP application running in SAP Launchpad (on productive SAP BTP account)",
     "description": "This usecase provides all necessary information to create the necessary service instances and app subscription for a CAP application and to deploy that application on a SAP BTP account.",
