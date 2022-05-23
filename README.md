@@ -30,7 +30,12 @@ The tooling provided in this repository is supposed to run inside a [docker](htt
 
 As a user the only thing you need to focus on is your use case that defines which services or subscriptions you need. The use case is defined within a JSON structure. You can find [use cases in the use cases folder of this repository](usecases/), and - of course - you can create your own use case files, if you want to run the script.
 
+With the built-in json schemas it's fairly simple to create your own use case file as you can see in this video:
+
+![json schema for creating use case files](docs/pics/btpsa-json-schema.gif)
+
 You find more information on the different use cases in the [usecases document](./docs/USECASES.md).
+
 
 ## Requirements
 
@@ -75,7 +80,26 @@ The tool starts to execute and the only thing you need to type-in is your passwo
 > ```bash
 > docker container run --rm -it -d --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
 > ```
->
+
+You can also use the provided `run` files to pull the image from the registry and start the container via one command. To do so execute the following command:
+
+- bash (macOS/Linux)
+
+  ```bash
+  ./run RunFromRegistry
+  ```
+
+- Command Prompt (Windows):
+
+  ```cmd
+  .\run.bat RunFromRegistry
+  ```
+
+- PowerShell Core (Cross Platform):
+
+  ```powershell
+  .\run.ps1 -RunFromRegistry $True 
+  ```
 
 ### Option 2: Start Docker Container With Self-Built Image
 
@@ -158,11 +182,13 @@ Checkout [the issues section in this repo](https://github.com/SAP-samples/btp-se
 
 🚀 - If you have an idea for improvement or a feature request, please open [feature-request](https://github.com/SAP-samples/btp-setup-automator/issues/new?assignees=&labels=enhancement&template=feature-request.yml&title=%5BFEATURE+REQUEST%5D+%3Ctitle%3E).
 
-## Contributing
+## Contributions
 
-If you wish to contribute code, offer fixes or improvements, please send a pull request.
+Checkout the [CONTRIBUTING.md file](CONTRIBUTING.md) for more details on how to contribute to this open source project.
 
-Due to legal reasons, contributors will be asked to accept a DCO when they create the first pull request to this project. This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
+## Code of conduct
+
+Checkout the [CODE_OF_CONDUCT.md file](CODE_OF_CONDUCT.md) for more details on the code of conduct for this open source project.
 
 ## License
 

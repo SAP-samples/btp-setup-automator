@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa-usecase.json",
   "aboutThisUseCase": {
     "name": "Setup CF CUP services",
     "description": "This usecase shows how to set up CF CUP services",
@@ -18,5 +19,77 @@
       "name": "cf-cup-test2",
       "parameters": "-p '{\"username\":\"admin2\",\"password\":\"pa55woRD2\"}'"
     }
-  ]
+  ],
+  "assignrolecollections": [
+    {
+      "name": "Global Account Administrator",
+      "type": "account",
+      "level": "global account",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ]
+    },
+    {
+      "name": "Subaccount Administrator",
+      "type": "account",
+      "level": "sub account",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ]
+    },
+    {
+      "name": "Subaccount Service Administrator",
+      "type": "account",
+      "level": "sub account",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ]
+    },
+    {
+      "name": "SpaceManager",
+      "type": "cloudfoundry",
+      "level": "space",
+      "assignedUserGroupsFromParameterFile": [
+        "admins",
+        "developers"
+      ]
+    },
+    {
+      "name": "SpaceDeveloper",
+      "type": "cloudfoundry",
+      "level": "space",
+      "assignedUserGroupsFromParameterFile": [
+        "admins",
+        "developers"
+      ]
+    },
+    {
+      "name": "SpaceAuditor",
+      "type": "cloudfoundry",
+      "level": "space",
+      "assignedUserGroupsFromParameterFile": [
+        "admins",
+        "developers"
+      ]
+    },
+    {
+      "name": "OrgManager",
+      "type": "cloudfoundry",
+      "level": "org",
+      "assignedUserGroupsFromParameterFile": [
+        "admins",
+        "testers"
+      ]
+    },
+    {
+      "name": "OrgAuditor",
+      "type": "cloudfoundry",
+      "level": "org",
+      "assignedUserGroupsFromParameterFile": [
+        "admins",
+        "auditors"
+      ]
+    }
+  ]  
+
 }

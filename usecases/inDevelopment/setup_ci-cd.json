@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa-usecase.json",
     "aboutThisUseCase": {
         "name": "Setup a CI-CD landscape on SAP BTP",
         "description": "This usecase provides all necessary information to create the necessary app subscriptions to setup a ci-cd service on SAP BTP.",
@@ -14,12 +15,84 @@
             "repeatstatusrequest": 5,
             "repeatstatustimeout": 200,
             "requiredrolecollections": [
-                "CICD Service Administrator"
+                {
+                    "name": "CICD Service Administrator",
+                    "assignedUserGroupsFromParameterFile": [
+                        "developers"
+                    ]
+                }
             ]
         }
     ],
-    "admins": [
-        "jane.doe@sap.com",
-        "john.doe@sap.com"
+    "assignrolecollections": [
+        {
+            "name": "Global Account Administrator",
+            "type": "account",
+            "level": "global account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "Subaccount Administrator",
+            "type": "account",
+            "level": "sub account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "Subaccount Service Administrator",
+            "type": "account",
+            "level": "sub account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "SpaceManager",
+            "type": "cloudfoundry",
+            "level": "space",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "developers"
+            ]
+        },
+        {
+            "name": "SpaceDeveloper",
+            "type": "cloudfoundry",
+            "level": "space",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "developers"
+            ]
+        },
+        {
+            "name": "SpaceAuditor",
+            "type": "cloudfoundry",
+            "level": "space",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "developers"
+            ]
+        },
+        {
+            "name": "OrgManager",
+            "type": "cloudfoundry",
+            "level": "org",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "testers"
+            ]
+        },
+        {
+            "name": "OrgAuditor",
+            "type": "cloudfoundry",
+            "level": "org",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "auditors"
+            ]
+        }
     ]
 }

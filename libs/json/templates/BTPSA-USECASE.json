@@ -1,0 +1,311 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "JSON Schema for BTPSA parameters",
+    "description": "Provide BTPSA parameters",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "aboutThisUseCase": {
+            "type": "object",
+            "description": "name of the service",
+            "title": "name of the service",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "name of the use case explaining briefly what it does",
+                    "title": "name of the use case"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "",
+                    "title": ""
+                },
+                "author": {
+                    "type": "string",
+                    "description": "",
+                    "title": "",
+                    "format": "email"
+                },          
+                "testStatus": {
+                    "type": "string",
+                    "description": "",
+                    "title": ""
+                },          
+                "usageStatus": {
+                    "type": "string",
+                    "description": "",
+                    "title": ""
+                },          
+                "relatedLinks": {
+                    "type": "array",
+                    "description": "",
+                    "title": ""
+                }
+            },
+            "required": ["name", "author", "testStatus", "usageStatus"]
+        },
+        "services": {
+            "type": "array",
+            "additionalProperties": false,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["name", "category"],
+                "dependentRequired":{
+                    "category": ["name"],
+                    "name": ["category"]
+                },
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "name of the service",
+                        "title": "name of the service"
+                    },
+                    "entitleonly": {
+                        "type": "boolean",
+                        "description": "if set to true, no service instances will be created by the tool",
+                        "title": "if set to true, no service instances will be created by the tool",
+                        "default": false,
+                        "enum": [true, false]
+                    },
+                    "category": {
+                        "type": "string",
+                        "description": "category of the service",
+                        "title": "category of the service",
+                        "enum": ["SERVICE", "APPLICATION", "CF_CUP_SERVICE", "ENVIRONMENT"]
+                    },
+                    "relatedLinks": {
+                        "type": "array",
+                        "description": "links related to this service",
+                        "title": "related links"
+                    },
+                    "targetenvironment": {
+                        "type": "string",
+                        "description": "environment in which the service should be created",
+                        "title": "environment in which the service should be created",
+                        "default": "cloudfoundry",
+                        "enum": ["cloudfoundry", "kymaruntime"]
+                    },
+                    "plan": {
+                        "type": "string",
+                        "description": "plan name of the service",
+                        "title": "plan name of the service",
+                        "default": null
+                    },
+                    "planCatalogName": {
+                        "type": "string",
+                        "description": "catalog name of the service plan",
+                        "title": "catalog name of the service plan",
+                        "default": null
+                    },
+                    "statusResponse": {
+                        "type": "object",
+                        "description": "creation info",
+                        "title": "creation info",
+                        "default": null
+                    },
+                    "instancename": {
+                        "type": "string",
+                        "description": "name of the service instance",
+                        "title": "name of the service instance",
+                        "default": null
+                    },
+                    "parameters": {
+                        "type": ["object", "string"],
+                        "description": "parameters for the service",
+                        "title": "parameters for the service",
+                        "default": null
+                    },
+                    "serviceparameterfile": {
+                        "type": "string",
+                        "description": "parameter file for the service in case you want to provide the parameters via a file",
+                        "title": "parameter file for the service",
+                        "default": null
+                    },
+                    "amount": {
+                        "type": "integer",
+                        "description": "amount to be used for the service",
+                        "title": "amount to be used for the service",
+                        "default": 1
+                    },
+                    "repeatstatusrequest": {
+                        "type": "integer",
+                        "description": "number of seconds when status should be checked",
+                        "title": "number of seconds when status should be checked",
+                        "default": 5
+                    },
+                    "repeatstatustimeout": {
+                        "type": "integer",
+                        "description": "timeout in seconds after which the script will stop checking the status",
+                        "title": "timeout in seconds after which the script will stop checking the status",
+                        "default": 3600
+                    },
+                    "createServiceKeys": {
+                        "type": "array",
+                        "description": "list of service keys to be created for the service",
+                        "title": "list of service keys to be created for the service",
+                        "default": null
+                    },
+                    "requiredServices": {
+                        "type": "array",
+                        "description": "list of services that need to be there to create this service",
+                        "title": "list of services that need to be there to create this service",
+                        "default": null
+                    },
+                    "requiredrolecollections": {
+                        "type": "array",
+                        "description": "list of role collections to assign users to",
+                        "title": "list of role collections to assign users to",
+                        "default": null,
+                        "additionalProperties": false,
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "name of the role collection",
+                                    "title": "name of the role collection"
+                                },
+                                "assignedUserGroupsFromParameterFile": {
+                                    "type": "array",
+                                    "description": "use the name defined for the user group in the parameters.json file",
+                                    "title": "list of user groups to assign the role collection"
+                                }
+                            }
+                        }
+                    },
+                    "assignrolecollections": {
+                        "type": "array",
+                        "description": "list of role collections to be created within the btp account",
+                        "title": "list of role collections to be created within the btp account",
+                        "default": null
+                    }
+                },
+                "allOf": [
+                    {% for category in categoryStructure -%}
+                    { 
+                        "if": { "properties": { "category": { "const": "{{ category.categoryName }}"} } },
+                        "then" :{
+                                    "properties": { "name": { "enum": [{% for service in category.services -%}"{{ service.serviceName }}"{% if not loop.last %}, {% endif %}{% endfor %}] } },
+                                    "allOf": [
+                                        {% for service in category.services -%}
+                                        { 
+                                            "if": { "properties": { "name": { "const": "{{ service.serviceName }}"} } },
+                                            "then" :{"properties": { "plan": { "enum": [{% for plan in service.servicePlans -%}"{{ plan }}"{% if not loop.last %}, {% endif %}{% endfor %}] } } }
+                                        }{% if not loop.last %}, {% endif %}
+                                        {% endfor %}
+                                    ]
+                                }
+                    }{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                ]
+            }
+        },
+        "executeAfterAccountSetup": {
+            "type": "array",
+            "description": "create a list of commands, that should be executed after the SAP BTP account is setup",
+            "title": "commands to run after setup of SAP BTP account",
+            "additionalProperties": false,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["command", "description"],
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "description of what the command will do",
+                        "title": "description of the command"
+                    },
+                    "command": {
+                        "type": "string",
+                        "description": "the command that should be executed within the btpsa container image",
+                        "title": "command to execute"
+                    }
+                }
+            }
+        },
+        "executeBeforeAccountSetup": {
+            "type": "array",
+            "description": "create a list of commands, that should be executed before the SAP BTP account is setup",
+            "title": "commands to run before setup of SAP BTP account",
+            "additionalProperties": false,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["command", "description"],
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "description of what the command will do",
+                        "title": "description of the command"
+                    },
+                    "command": {
+                        "type": "string",
+                        "description": "the command that should be executed within the btpsa container image",
+                        "title": "command to execute"
+                    }
+                }
+            }
+        },
+        "executeToPruneUseCase": {
+            "type": "array",
+            "description": "create a list of commands, that should be executed to prune the use case from your SAP BTP account",
+            "title": "commands to run to prune use case from your SAP BTP account",
+            "additionalProperties": false,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["command", "description"],
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "description of what the command will do",
+                        "title": "description of the command"
+                    },
+                    "command": {
+                        "type": "string",
+                        "description": "the command that should be executed within the btpsa container image",
+                        "title": "command to execute"
+                    }
+                }
+            }
+        },
+        "assignrolecollections": {
+            "type": "array",
+            "description": "create a list of commands, that should be executed to prune the use case from your SAP BTP account",
+            "title": "commands to run to prune use case from your SAP BTP account",
+            "additionalProperties": false,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["name", "type", "assignedUserGroupsFromParameterFile"],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "",
+                        "title": ""
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "",
+                        "title": "",
+                        "enum": ["account", "cloudfoundry"]
+                    },
+                    "level": {
+                        "type": "string",
+                        "description": "",
+                        "title": "",
+                        "enum": ["global account","sub account", "org", "space"]
+                    },
+                    "assignedUserGroupsFromParameterFile": {
+                        "type": "array"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -32,7 +32,7 @@ The last step is to run the main script `btpsa` with the following command:
 
 ## Using Different Use Case Configurations
 
-The script will take the parameters defined in the [**parameters.json** file](../parameters.json). By default the file is pointing to [a use case definition](../usecases/released/cap_app_launchpad_TRIAL.json) that sets up and deploys a full-stack CAP application on a BTP trial account.
+The script will take the parameters defined in the [**parameters.json** file](../parameters.json). By default the file is pointing to [a use case definition](../usecases/released/cap_app_launchpad.json) that sets up and deploys a full-stack CAP application on a BTP pay-as-you-go account.
 
 You can use other use case files in the [**usecases** folder](../usecases/) or create your own use case file, by taking the existing ones as a blueprint and adapting the parameters:
 

@@ -2,5 +2,6 @@
   "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/usecases/released/setup_kyma_TRIAL.json",
   "loginmethod": "basicAuthentication",
   "region": "us10",
+  "prunesubaccount": true,  
   "subaccountname": "BTPSA int-test kymasetupauto TRIAL"
 }

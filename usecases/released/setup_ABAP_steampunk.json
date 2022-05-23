@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa-usecase.json",
     "aboutThisUseCase": {
         "name": "Setting up an ABAP Steampunk instance",
         "description": "This usecase sets up an ABAP Steampunk instance on your SAP BTP account.",
@@ -29,5 +30,30 @@
             "category": "APPLICATION"
         }
     ],
-    "admins": []
+    "assignrolecollections": [
+        {
+            "name": "Global Account Administrator",
+            "type": "account",
+            "level": "global account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "Subaccount Administrator",
+            "type": "account",
+            "level": "sub account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "Subaccount Service Administrator",
+            "type": "account",
+            "level": "sub account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        }
+    ]
 }

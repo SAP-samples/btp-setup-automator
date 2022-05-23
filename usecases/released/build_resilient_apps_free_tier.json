@@ -1,12 +1,13 @@
 {
+    "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa-usecase.json",
     "aboutThisUseCase": {
-        "name": "Extend SAP S/4HANA Business Processes on SAP BTP by Leveraging DevOps",
+        "name": "Safeguard key business processes with resilient applications on SAP BTP",
         "description": "This usecase complements an existing business process in an SAP solution - currently SAP S/4HANA - with additional business process steps",
         "author": "maximilian.streifenender@sap.com",
-        "testStatus": "tested successfully",
+        "testStatus": "tested successfully on May 10th",
         "usageStatus": "READY TO BE USED",
         "relatedLinks": [
-            "https://github.com/SAP-samples/s4hana-btp-extension-devops"
+            "https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension"
         ]
     },
     "services": [
@@ -45,7 +46,7 @@
             "parameters": {
                 "data": {
                     "edition": "cloud",
-                    "memory": 30,
+                    "memory": 32,
                     "serviceStopped": false,
                     "storage": 120,
                     "systempassword": "PleaseChangeBeforeRunningScript12345",
@@ -70,7 +71,12 @@
             "plan": "standard",
             "category": "APPLICATION",
             "requiredrolecollections": [
-                "Launchpad_Admin"
+                {
+                    "name": "Launchpad_Admin",
+                    "assignedUserGroupsFromParameterFile": [
+                        "developers"
+                    ]
+                }
             ]
         },
         {
@@ -125,7 +131,12 @@
             "plan": "default",
             "category": "APPLICATION",
             "requiredrolecollections": [
-                "CICD Service Administrator"
+                {
+                    "name": "CICD Service Administrator",
+                    "assignedUserGroupsFromParameterFile": [
+                        "developers"
+                    ]
+                }
             ]
         },
         {
@@ -134,14 +145,10 @@
             "category": "APPLICATION"
         }
     ],
-    "admins": [
-        "jane.doe@sap.com",
-        "john.doe@sap.com"
-    ],
     "executeAfterAccountSetup": [
         {
             "description": "Get the tutorial code",
-            "command": "rm -rf /home/user/tutorial && git clone https://github.com/SAP-samples/s4hana-btp-extension-devops /home/user/tutorial && cd /home/user/tutorial/ "
+            "command": "rm -rf /home/user/tutorial && git clone https://github.com/SAP-samples/btp-build-resilient-apps.git -b extension  /home/user/tutorial && cd /home/user/tutorial/ "
         },
         {
             "description": "Building multi target application assets",
@@ -153,45 +160,116 @@
         },
         {
             "description": "Activating OData Services in SAP S/4HANA System",
-            "command": "echo 'YOUR MANUAL TODO 1 - Activate OData Services in SAP S/4HANA: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/02-configure-oData-Service'"
+            "command": "echo 'YOUR MANUAL TODO 1 - Activate OData Services in SAP S/4HANA: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/02-configure-oData-Service'"
         },
         {
             "description": "Setup SAP Cloud Connector",
-            "command": "echo 'YOUR MANUAL TODO 2 - Setup SAP Cloud Connector: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/05-CloudConnector'"
+            "command": "echo 'YOUR MANUAL TODO 2 - Setup SAP Cloud Connector: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/05-CloudConnector'"
         },
         {
             "description": "Configure SAP Event Mesh in SAP S/4HANA",
-            "command": "echo 'YOUR MANUAL TODO 3 - Configure SAP Event Mesh in SAP S/4HANA: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/07-SetupEventMesh'"
+            "command": "echo 'YOUR MANUAL TODO 3 - Configure SAP Event Mesh in SAP S/4HANA: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/07-SetupEventMesh'"
         },
         {
             "description": "Test Scenario End-2-End",
-            "command": "echo 'YOUR MANUAL TODO 4 - Test Application: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/08-TestApplication'"
+            "command": "echo 'YOUR MANUAL TODO 4 - Test Application: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/08-TestApplication'"
         },
         {
             "description": "Access and Discover Application Logs",
-            "command": "echo 'YOUR MANUAL TODO 5 - Access application logs: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/09-ApplicationLogging'"
+            "command": "echo 'YOUR MANUAL TODO 5 - Access application logs: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/09-ApplicationLogging'"
         },
         {
             "description": "Setup CI/CD Pipeline",
-            "command": "echo 'YOUR MANUAL TODO 6 - Setup CI/CD Pipeline: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/10-SetupCICD'"
+            "command": "echo 'YOUR MANUAL TODO 6 - Setup CI/CD Pipeline: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/10-SetupCICD'"
         },
         {
             "description": "Setup Cloud Transport Management",
-            "command": "echo 'YOUR MANUAL TODO 7 - Setup Cloud Transport Management: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/11-SetupTMS'"
+            "command": "echo 'YOUR MANUAL TODO 7 - Setup Cloud Transport Management: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/11-SetupTMS'"
         },
         {
             "description": "Setup Alert Notifications",
-            "command": "echo 'YOUR MANUAL TODO 8 - Setup Alert Notifications: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/12-SetupANS'"
+            "command": "echo 'YOUR MANUAL TODO 8 - Setup Alert Notifications: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/12-SetupANS'"
         },
         {
             "description": "Setup Application Autoscaler",
-            "command": "echo 'YOUR MANUAL TODO 9 - Setup Application Autoscaler: https://github.com/SAP-samples/s4hana-btp-extension-devops/tree/mission/13-SetupAppAutoscaler'"
+            "command": "echo 'YOUR MANUAL TODO 9 - Setup Application Autoscaler: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/13-SetupAppAutoscaler'"
         }
     ],
     "executeToPruneUseCase": [
         {
             "description": "undeploy the CAP app",
             "command": "cf undeploy BusinessPartnerVerification --delete-service-brokers --delete-service-keys --delete-services -f"
+        }
+    ],
+    "assignrolecollections": [
+        {
+            "name": "Global Account Administrator",
+            "type": "account",
+            "level": "global account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "Subaccount Administrator",
+            "type": "account",
+            "level": "sub account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "Subaccount Service Administrator",
+            "type": "account",
+            "level": "sub account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "SpaceManager",
+            "type": "cloudfoundry",
+            "level": "space",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "developers"
+            ]
+        },
+        {
+            "name": "SpaceDeveloper",
+            "type": "cloudfoundry",
+            "level": "space",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "developers"
+            ]
+        },
+        {
+            "name": "SpaceAuditor",
+            "type": "cloudfoundry",
+            "level": "space",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "developers"
+            ]
+        },
+        {
+            "name": "OrgManager",
+            "type": "cloudfoundry",
+            "level": "org",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "testers"
+            ]
+        },
+        {
+            "name": "OrgAuditor",
+            "type": "cloudfoundry",
+            "level": "org",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "auditors"
+            ]
         }
     ]
 }

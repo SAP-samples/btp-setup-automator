@@ -10,7 +10,7 @@ The CLI of the `btp-setup-automator` displays all its available options via:
 ./btpsa -h
 ```
 
-The most convenient way to interact with the CLI is to provide a *parameter file* (option `-parameterfile <filename>`). This file provides the basic setup information needed by the CLI to be able to work. We describe the details in the section ["The Parameter File"](#the-parameter-file). You find all available parameters in the file [`libs/json/paramBtpSetupAutomator.json`](../libs/json/paramBtpSetupAutomator.json).
+The most convenient way to interact with the CLI is to provide a *parameter file* (option `-parameterfile <filename>`). This file provides the basic setup information needed by the CLI to be able to work. We describe the details in the section ["The Parameter File"](#the-parameter-file). You find all available parameters in the file [`schemas/btpsa-parameters.json`](../schemas/btpsa-parameters.json).
 
 The specifics of the setup are provided via the *usecase file* that is referenced in the parameter file. Here you find the parameterization of the different environments and services you want to provision. We describe the details in the section ["The Usecase File"](#the-usecase-file).
 
@@ -36,7 +36,7 @@ Let us take a closer look into the files needed for the setup.
 
 The main file for the setup is the `parameter file` written in JSON format. It provides the basic information for the `btp-setup-automator` to run.
 
-All available parameters are described in the file [`libs/json/paramBtpSetupAutomator.json`](../libs/json/paramBtpSetupAutomator.json). As there are quite some we will focus on the main cases.
+All available parameters are described in the file [`schemas/btpsa-parameters.json`](../schemas/btpsa-parameters.json). As there are quite some we will focus on the main cases.
 
 ### Basics
 
@@ -57,7 +57,7 @@ You can also provide further information like the name of your Cloud Foundry sap
 "cfspacename": "development",
 ```
 
-Think about the basics of this file as the very basic information needed to setup resources in SAP BTP. Some of them are defaulted (see [`libs/json/paramBtpSetupAutomator.json`](../libs/json/paramBtpSetupAutomator.json) for the default values).
+Think about the basics of this file as the very basic information needed to setup resources in SAP BTP. Some of them are defaulted (see [`schemas/btpsa-parameters.json`](../schemas/btpsa-parameters.json) for the default values).
 
 ### Authentication
 
@@ -164,7 +164,17 @@ Let us assume that you want to provision an instance of the XSUAA service. For t
       ]
     }
   ],
-  "admins": []
+  "assignrolecollections": [
+    {
+      "name": "Global Account Administrator",
+      "type": "account",
+      "level": "global account",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ]
+    },
+    ....
+  ]
 }
 ```
 
@@ -172,7 +182,7 @@ You specify all the artifacts in the `services` section as a JSON array. For XSU
 
 This example also shows the service specific definition of the parameters `repeatstatusrequest` and `repeatstatustimeout` mentioned above.
 
-You also see a `admins` attribute that points to an empty array. Here you canspecify further administrators. The email specified in the `parameter file` will automatically be added to the administrators and does not need to be added explicitly.
+You also see a `assignrolecollections` attribute that assigns BTP role collections to usergroups that are defined in the `parameter file` (`assignedUserGroupsFromParameterFile`). The usergroups are defined in the parameter file attribute `myusergroups`. Check out the default [parameters.json](../parameters.json) file
 
 ### Sample 2 - Plain Kyma Provisioning
 

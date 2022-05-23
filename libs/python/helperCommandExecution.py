@@ -19,7 +19,7 @@ def login_cf(btpUsecase):
     if cfDefined is True:
         accountMetadata = btpUsecase.accountMetadata
 
-        # TBD: check, if we should switch from accountMetadata["org"] to  btpUsecase.org
+        # TBD: check, if we should switch from accountMetadata["org"] to btpUsecase.org
         org = accountMetadata["org"]
 
         cfCLIRegion = btpUsecase.region
@@ -32,13 +32,13 @@ def login_cf(btpUsecase):
         command = None
         pipe = False
         if btpUsecase.loginmethod == "sso":
-            command = "cf login -a \"https://api.cf." + cfCLIRegion + \
-                ".hana.ondemand.com\" -o \"" + org + "\" --sso"
+            command = "cf login -a 'https://api.cf." + cfCLIRegion + \
+                ".hana.ondemand.com' -o '" + org + "' --sso"
             pipe = True
         else:
-            command = "cf login -a \"https://api.cf." + cfCLIRegion + \
-                ".hana.ondemand.com\" -o \"" + org + "\" -u \"" + \
-                myemail + "\" -p \"" + password + "\""
+            command = "cf login -a 'https://api.cf." + cfCLIRegion + \
+                ".hana.ondemand.com' -o '" + org + "' -u '" + \
+                myemail + "' -p '" + password + "'"
         runShellCommandFlex(btpUsecase, command, "INFO", "Logging-in to your CF environment in the org >" + org + "< for your user >" + myemail + "<", True, pipe)
 
 
@@ -48,7 +48,7 @@ def login_btp(btpUsecase):
     globalaccount = btpUsecase.globalaccount
     btpCliRegion = btpUsecase.btpcliapihostregion
 
-    command = "btp login --url \"https://cpcli.cf." + btpCliRegion + ".hana.ondemand.com\" --subdomain \"" + globalaccount + "\""
+    command = "btp login --url 'https://cpcli.cf." + btpCliRegion + ".hana.ondemand.com' --subdomain '" + globalaccount + "'"
     if btpUsecase.loginmethod == "sso":
         message = "Logging-in to your global account with subdomain ID >" + globalaccount + "<"
         command = command + " --sso"
@@ -56,7 +56,7 @@ def login_btp(btpUsecase):
         fetchEmailAddressFromBtpConfigFile(btpUsecase)
     else:
         message = "Logging-in to your global account with subdomain ID >" + globalaccount + "< for your user >" + myemail + "<"
-        command = command + " --user \"" + myemail + "\" --password \"" + password + "\""
+        command = command + " --user '" + myemail + "' --password '" + password + "'"
         runShellCommandFlex(btpUsecase, command, "INFO", message, True, False)
 
 

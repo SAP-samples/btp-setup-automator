@@ -34,9 +34,9 @@ Now run the main script `btpsa` with the following command:
 
 ```bash
 ./btpsa -parameterfile 'usecases/other/dsag/2022-technologydays/parameters.json' \
-    -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>'  \
-    -region        '<region for your subaccount e.g. us10>' \
-    -myemail       '<your email address>'
+    -globalaccount 'your_global_account_subdomain_as_shown_in_the_SAP_BTP_cockpit'  \
+    -region        'region_for_your_subaccount_eg_us10' \
+    -myemail       'your_email_address'
 ```
 
 The tool starts to execute and the only thing you need to type-in is your password for your SAP BTP account. The btp-setup-automator script will now prepare your SAP BTP account to cover the discovery center mission.
@@ -45,10 +45,10 @@ The tool starts to execute and the only thing you need to type-in is your passwo
 
 ```bash
 ./btpsa -parameterfile 'usecases/other/dsag/2022-technologydays/parameters.json' \
-    -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>'  \
-    -subaccountid  '<your sub account id as shown in the SAP BTP cockpit>'
-    -region        'region for your subaccount e.g. us10>' \
-    -myemail       'your email address>'
+    -globalaccount 'your_global_account_subdomain_as_shown_in_the_SAP_BTP_cockpit'  \
+    -subaccountid  'your_sub_account_id_as_shown_in_the_SAP_BTP_cockpit'
+    -region        'region_for_your_subaccount_eg_us10' \
+    -myemail       'your_email_address'
 ```
 
 This command will create:

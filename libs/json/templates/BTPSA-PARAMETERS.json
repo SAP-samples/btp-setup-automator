@@ -1,0 +1,277 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "JSON Schema for service parameters used in BTPSA",
+    "description": "Provide service parameters in usecase.json files of BTPSA",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "myemail": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "Email address you use to access your SAP BTP account",
+            "title": "Your email address",
+            "default": null,
+            "format": "email"
+        },
+        "globalaccount": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "the 'subdomain id' of your SAP BTP global account (please check it in the SAP BTP cockpit)",
+            "title": "your SAP BTP global account",
+            "default": null
+        },
+        "loginmethod": {
+            "type": "string",
+            "title": "login method to SAP BTP",
+            "description": "if set to sso, you'll need to open a link provided in a browser to login. Set to basicAuthentication (default) the script will ask if you want to provide username and password. If set to **envVariables** you need to provide the email address and password by setting the environment variable **BTPSA_PARAM_MYEMAIL** and **BTPSA_PARAM_MYPASSWORD**. In addition you can as well provide the global account through the environment variable **BTPSA_PARAM_GLOBALACCOUNT**.",
+            "default": "basicAuthentication",
+            "enum": [
+                "basicAuthentication",
+                "sso",
+                "envVariables"
+            ]
+        },
+        "region": {
+            "type": "string",
+            "description": "region for the SAP BTP sub account that should be used for the use case",
+            "title": "region for SAP BTP subaccount",
+            "default": "us10",
+            "enum": {{ enumDatacenterList }}
+        },
+        "subaccountid": {
+            "type": "string",
+            "description": "id of your sub account that should be used",
+            "title": "subaccount id of SAP BTP sub account",
+            "default": null
+        },
+        "subaccountname": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "name of your sub account in case you want to define a specific name for your sub account",
+            "title": "sub account name for use case",
+            "default": null
+        },
+        "subdomain": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "name of the subdomain of your sub account",
+            "title": "subdomain of sub account",
+            "default": null
+        },
+        "org": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "org name of the Cloudfroundy environment to be used for your use case",
+            "title": "org name of the CF environment for use case",
+            "default": null
+        },
+        "orgid": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "org id of the Cloudfoundry environment to be used for your use case",
+            "title": "org id of the CF environment for use case",
+            "default": null
+        },
+        "cfspacename": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "name for the Cloudfoundry space to be used for your use case",
+            "title": "name for the CF space",
+            "default": "development"
+        },
+        "iashost": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "IAS host for your SAP BTP sub account in case you want to make use of it in your use case (create a service instance for service 'xsuaa' and plan 'apiaccess')",
+            "title": "IAS host for your SAP BTP sub account",
+            "default": null
+        },
+        "suffixinstancename": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "suffix attached to each service instance that is created (e.g. hana_yoursuffixinstancename)",
+            "title": "suffix attached to each service instance created",
+            "default": null
+        },
+        "fallbackserviceplan": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "if defined, the tool will use the defined name as fallback service plan, if the plan defined in the use case is not supported",
+            "title": "fallback service plan, if the plan defined in the use case is not supported",
+            "default": null
+        },
+        "repeatstatusrequest": {
+            "type": "integer",
+            "description": "time in seconds to wait after requesting status info (pulling)",
+            "title": "time in seconds to wait after requesting status info (pulling)",
+            "default": 4
+        },
+        "repeatstatustimeout": {
+            "type": "integer",
+            "description": "timeout in seconds after which requests should be stopped",
+            "title": "timeout in seconds after which requests should be stopped",
+            "default": 4200
+        },
+        "waitForKymaEnvironmentCreation": {
+            "type": "boolean",
+            "description": "Should the tool wait for the creation of the Kyma environment",
+            "title": "Should the tool wait for the creation of the Kyma environment",
+            "default": true
+        },
+        "timeoutLimitForKymaCreationInMinutes": {
+            "type": "integer",
+            "description": "Limit in minutes until the tool should wait for the Kyma instance to be created",
+            "title": "Limit in minutes until the tool should wait for the Kyma instance to be created",
+            "default": 40
+        },
+        "pollingIntervalForKymaCreationInMinutes": {
+            "type": "integer",
+            "description": "Polling interval in minutes when tool is waiting for the Kyma instance to be created",
+            "title": "Polling interval in minutes when tool is waiting for the Kyma instance to be created",
+            "default": 5
+        },
+        "timeoutLimitForKymaDeprovisioningInMinutes": {
+            "type": "integer",
+            "description": "Limit in minutes until the tool should wait for the Kyma instance to be deprovisioned/deleted",
+            "title": "Limit in minutes until the tool should wait for the Kyma instance to be deprovisioned/deleted",
+            "default": 40
+        },
+        "pollingIntervalForKymaDeprovisioningInMinutes": {
+            "type": "integer",
+            "description": "Polling interval in minutes when tool is waiting for the Kyma instance to be deprovisioned/deleted",
+            "title": "Polling interval in minutes when tool is waiting for the Kyma instance to be deprovisioned/deleted",
+            "default": 5
+        },
+        "usecasefile": {
+            "type": "string",
+            "description": "file with usecase config",
+            "title": "file with usecase config",
+            "default": null
+        },
+        "parameterfile": {
+            "type": "string",
+            "description": "file to deliver all parameters within a single json file",
+            "title": "parameters file for btp-setup-automator",
+            "default": "parameters.json"
+        },
+        "logfile": {
+            "type": "string",
+            "description": "file including all logged information",
+            "title": "log file",
+            "default": "log/script.log"
+        },
+        "metadatafile": {
+            "type": "string",
+            "description": "file for log information",
+            "title": "file for log information",
+            "default": "log/metadata_log.json"
+        },
+        "logcommands": {
+            "type": "boolean",
+            "description": "if set to True, the script will log all commands sent to the SAP BTP account. If set to False it won't",
+            "title": "log all commands sent to your SAP BTP account",
+            "default": true
+        },
+        "pruneusecase": {
+            "type": "boolean",
+            "description": "if set to True: deletes all assets of a usecase based on the collected info in the metadatafile. No confirmation message. USE WITH CARE!!!",
+            "title": "delete all assets of a usecase based on the collected info in the metadatafile",
+            "default": false
+        },
+        "prunesubaccount": {
+            "type": "boolean",
+            "description": "if set to True: same like -pruneusecase, but on-top deletes the subaccount. USE WITH CARE!!!",
+            "title": "same like parameter 'pruneusecase', but on-top deletes the subaccount",
+            "default": false
+        },
+        "mypassword": {
+            "type": "string",
+            "description": "password for the user of your SAP BTP account (USE WITH CARE!)",
+            "title": "password for the user of your SAP BTP account (USE WITH CARE!)",
+            "default": null
+        },
+        "cfcliapihostregion": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "host region for the Cloud Foundry CLI calls",
+            "title": "host region for the Cloud Foundry CLI calls",
+            "default": null
+        },
+        "btpcliapihostregion": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "host region for the BTP CLI calls",
+            "title": "host region for the BTP CLI calls",
+            "default": "eu10"
+        },
+        "envvariables": {
+            "type": "object",
+            "description": "list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`.",
+            "title": "list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`.",
+            "default": null
+        },
+        "myusergroups": {
+            "type": "array",
+            "description": "list of user groups to be used in btpsa",
+            "title": "list of user groups to be used in btpsa",
+            "default": null,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "name of this usergroup (not BTP specific)",
+                        "title": "name of this usergroup "
+                    },
+                    "members": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "email"
+                        }
+                    }
+                }
+            }
+        },
+        "maintain_jsonschemas": {
+            "type": "boolean",
+            "description": "if set to true, the json schema files for parameters and usecases will be updated",
+            "title": "update the json schemas without executing the use case",
+            "default": false
+        },
+        "maintain_documentation": {
+            "type": "boolean",
+            "description": "if set to true, the the automatically created documentation of btpsa will by updated",
+            "title": "update the automatically created documentation",
+            "default": false
+        }
+    }
+}

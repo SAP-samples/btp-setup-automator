@@ -15,31 +15,35 @@ def getKeyFromCFOutput(cfoutput, key):
     lines = cfoutput.splitlines()
     for line in lines:
         thisLineSplit = line.split(":")
-        if len(thisLineSplit) == 2 and thisLineSplit[0] == key:
+        firstCol = thisLineSplit[0]
+        if firstCol:
+            firstCol = firstCol.strip()
+        if len(thisLineSplit) == 2 and firstCol == key:
             result = thisLineSplit[1].strip()
     return result
 
 
 def checkIfCFEnvironmentAlreadyExists(btpUsecase):
     accountMetadata = btpUsecase.accountMetadata
+    orgid = None
+    org = None
 
-    command = "btp --format json list account/environment-instance --subaccount " + \
-        accountMetadata["subaccountid"]
+    command = "btp --format json list account/environment-instance --subaccount '" + accountMetadata["subaccountid"] + "'"
     result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", None)
 
     if "orgid" in accountMetadata:
         orgid = accountMetadata["orgid"]
-        org = None
 
-        for instance in result["environmentInstances"]:
-            if instance["subaccountGUID"] == btpUsecase.subaccountid:
-                labels = convertStringToJson(instance["labels"])
-                org = labels["Org Name:"]
-                return instance["platformId"], org
-        # If the for loop didn't return any value, the orgid wasn't found
-        return orgid, org
-    else:
-        return None, None
+    # If the for loop didn't return any value, the orgid wasn't found
+    for instance in result["environmentInstances"]:
+        if instance["subaccountGUID"] == btpUsecase.subaccountid and instance["environmentType"] == "cloudfoundry":
+            labels = convertStringToJson(instance["labels"])
+            org = labels.get("Org Name:")
+            if org is None:
+                org = labels.get("Org Name")
+            return instance["platformId"], org
+
+    return orgid, org
 
 
 def checkIfCFSpaceAlreadyExists(btpUsecase):
@@ -57,7 +61,7 @@ def checkIfCFSpaceAlreadyExists(btpUsecase):
 
 
 def getStatusResponseFromCreatedInstance(btpUsecase, instancename):
-    command = "cf service \"" + instancename + "\""
+    command = "cf service '" + instancename + "'"
     p = runShellCommand(btpUsecase, command, "INFO", None)
     result = p.stdout.decode()
     jsonResults = convertCloudFoundryCommandForSingleServiceToJson(result)
@@ -72,11 +76,14 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
 
     allServicesCreated = True
     for thisJson in jsonResults:
-        name = thisJson["service"]
-        plan = thisJson["plan"]
-        instancename = thisJson["name"]
-        status = thisJson["last operation"]
-        servicebroker = thisJson["broker"]
+        name = thisJson.get("service")
+        if name is None:
+            name = thisJson.get("offering")
+
+        plan = thisJson.get("plan")
+        instancename = thisJson.get("name")
+        status = thisJson.get("last operation")
+        servicebroker = thisJson.get("broker")
         for service in btpUsecase.definedServices:
             if service.name == name and service.plan == plan and service.instancename == instancename and service.successInfoShown is False:
                 if status != "create succeeded" and status != "update succeeded":
@@ -123,7 +130,7 @@ def create_cf_service(btpUsecase, service):
     if service.planCatalogName is not None:
         plan = service.planCatalogName
 
-    command = "cf create-service \"" + service.name + "\" \"" + plan + "\"  \"" + instancename + "\""
+    command = "cf create-service '" + service.name + "' '" + plan + "' '" + instancename + "'"
 
     if service.parameters is not None:
         thisParameter = dictToString(service.parameters)
@@ -136,7 +143,7 @@ def create_cf_service(btpUsecase, service):
 
 
 def cf_cup_service_already_exists(btpUsecase, instance_name):
-    command = "cf service \"" + instance_name + "\""
+    command = "cf service '" + instance_name + "'"
     p = runShellCommandFlex(btpUsecase, command, "CHECK", None, False, False)
     result = p.stdout.decode()
     if "FAILED" in result:
@@ -150,7 +157,7 @@ def create_cf_cup_service(btpUsecase, service):
     cfCupServiceAlreadyExists = cf_cup_service_already_exists(btpUsecase, instance_name)
 
     if cfCupServiceAlreadyExists is False:
-        command = "cf cups \"" + instance_name + "\" "
+        command = "cf cups '" + instance_name + "' "
 
         if service.parameters is not None:
             thisParameter = str(service.parameters)
@@ -244,18 +251,18 @@ def initiateCreationOfServiceInstances(btpUsecase):
 def get_cf_service_status(btpUsecase, service):
     instance_name = service.instancename
 
-    command = "cf service \"" + instance_name + "\""
+    command = "cf service '" + instance_name + "'"
     p = runShellCommand(btpUsecase, command, "CHECK", None)
     result = p.stdout.decode()
 
-    service_broker = getKeyFromCFOutput(result, "service broker")
+    service_broker = getKeyFromCFOutput(result, "broker")
     status = getKeyFromCFOutput(result, "status")
     return [service_broker, status]
 
 
 def get_cf_service_deletion_status(btpUsecase, service):
     instance_name = service["instancename"]
-    command = "cf service \"" + instance_name + "\""
+    command = "cf service '" + instance_name + "'"
     p = runShellCommandFlex(btpUsecase, command, "CHECK", None, False, False)
     result = p.stdout.decode()
     if "FAILED" in result:

@@ -1,6 +1,6 @@
 import argparse
 from libs.python.helperGeneric import getEnvVariableValue
-from libs.python.helperJson import addKeyValuePairToJsonFile, getJsonFromFile, saveJsonToFile
+from libs.python.helperJson import addKeyValuePairToJsonFile, getJsonFromFile
 import getpass
 import logging
 import sys
@@ -12,84 +12,117 @@ log = logging.getLogger(__name__)
 def setupParams(myArguments):
     parser = argparse.ArgumentParser()
     if myArguments is not None and myArguments != "":
-        allJsonParameters = getJsonFromFile(None, myArguments)
 
-        for parameter in allJsonParameters:
-            argument = parameter["argument"]
-            type = parameter["type"]
-            help = parameter["help"]
-            default = parameter["default"]
-            if type == "str":
-                if "acceptedvalues" in parameter:
-                    parser.add_argument('-' + argument, type=str, help=help, default=default, choices=parameter["acceptedvalues"])
+        allJsonParameters = getJsonFromFile(None, myArguments)
+        for key, value in allJsonParameters.get("properties").items():
+            argument = key
+            type = value.get("type")
+            help = value.get("description")
+            default = value.get("default")
+
+            typeIsList = isinstance(type, list)
+
+            if typeIsList:
+                for thisType in type:
+                    if thisType == "string":
+                        type = "string"
+                        break
+                    if thisType == "boolean":
+                        type = "boolean"
+                        break
+                    if thisType == "integer":
+                        type = "integer"
+                        break
+
+            if type == "string":
+                if "acceptedvalues" in value:
+                    parser.add_argument('-' + argument, type=str, help=help, choices=value["acceptedvalues"])
                 else:
-                    parser.add_argument('-' + argument, type=str, help=help, default=default)
-            if type == "bool":
-                parser.add_argument('-' + argument, type=bool, help=help, default=default)
-            if type == "int":
-                parser.add_argument('-' + argument, type=int, help=help, default=default)
+                    parser.add_argument('-' + argument, type=str, help=help)
+            if type == "boolean":
+                parser.add_argument('-' + argument, type=bool, help=help)
+            if type == "integer":
+                parser.add_argument('-' + argument, type=int, help=help)
+            if type == "object":
+                parser.add_argument('-' + argument, type=str, help=help)
+            if type == "array":
+                parser.add_argument('-' + argument, type=str, help=help)
 
         args = parser.parse_args()
-        myArgs = assignArgumentsThroughJsonParameterFile(args)
-        return myArgs
+        parameterfile = None
+        if args.parameterfile is not None and args.parameterfile != "":
+            parameterfile = args.parameterfile
+        else:
+            parameterfile = getDefaultValueForParameter(allJsonParameters, "parameterfile")
+
+        if parameterfile is not None and parameterfile != "":
+            myParameters = getJsonFromFile(None, parameterfile)
+
+            for key in myParameters:
+                # Get the default values for the keys of the args object
+                valueThroughDirectParameter = getattr(args, key)
+
+                # Get the values in the parameters file
+                valueInParametersFile = None
+                if key in myParameters:
+                    valueInParametersFile = myParameters[key]
+
+                valueToSet = None
+                valueDefaultFromParamJson = getDefaultValueForParameter(allJsonParameters, key)
+
+                if valueThroughDirectParameter is not None and valueThroughDirectParameter != "":
+                    valueToSet = valueThroughDirectParameter
+                else:
+                    valueToSet = valueInParametersFile
+
+                # in case no value was set, take the default value defined in the json parameters file
+                if valueToSet is None:
+                    valueToSet = valueDefaultFromParamJson
+
+                setattr(args, key, valueToSet)
+
+            # in case the parameter file does not include all parameter keys, add the missing ones to the args
+            btpSetupAutomatorArguments = "schemas/btpsa-parameters.json"
+            allJsonParameters = getJsonFromFile(None, btpSetupAutomatorArguments)
+            for key, value in allJsonParameters.get("properties").items():
+                default = value.get("default")
+                if key not in myParameters:
+                    valueToSet = getattr(args, key)
+                    if valueToSet is None and default is not None:
+                        setattr(args, key, default)
+                    else:
+                        setattr(args, key, valueToSet)
+        else:
+            log.error("Missing parameterfile. Can't run the script")
+            sys.exit(os.EX_PROTOCOL)
+
+        return args
     return None
 
 
+def getDefaultValueForParameter(allJsonParameters, myArgument):
+    result = None
+    for key, value in allJsonParameters.get("properties").items():
+        if key == myArgument:
+            result = value.get("default")
+
+    return result
+
+
+def validateJson():
+    None
+
+
 def setupParamsBtpsa():
-    btpSetupAutomatorArguments = "libs/json/paramBtpSetupAutomator.json"
-    args = setupParams(btpSetupAutomatorArguments)
+    jsonSchema = "schemas/btpsa-parameters.json"
+    args = setupParams(jsonSchema)
     return args
 
 
 def setupParamsServices():
-    serviceArguments = "libs/json/paramServices.json"
+    serviceArguments = "schmemas/btpsa-usecase.json"
     args = setupParams(serviceArguments)
     return args
-
-
-def assignArgumentsThroughJsonParameterFile(args):
-    if args.parameterfile is not None and args.parameterfile != "":
-        myParameters = getJsonFromFile(None, args.parameterfile)
-
-        for key in myParameters:
-            # Get the default values for the keys of the args object
-            valueThroughDirectParameter = getattr(args, key)
-
-            # Get the values in the parameters file
-            valueInParametersFile = None
-            if key in myParameters:
-                valueInParametersFile = myParameters[key]
-
-            valueToSet = None
-            if valueInParametersFile is not None and valueInParametersFile != "":
-                valueToSet = valueInParametersFile
-            else:
-                valueToSet = valueThroughDirectParameter
-
-            setattr(args, key, valueToSet)
-        # in case the parameter file does not include all parameter keys, add the missing ones to the args
-        btpSetupAutomatorArguments = "libs/json/paramBtpSetupAutomator.json"
-        allJsonParameters = getJsonFromFile(None, btpSetupAutomatorArguments)
-        for parameter in allJsonParameters:
-            key = parameter["argument"]
-            if key not in myParameters:
-                setattr(args, key, getattr(args, key))
-
-    return args
-
-
-def createDefaultParametersFile(toolParametersFile):
-    if toolParametersFile is not None and toolParametersFile != "":
-        allJsonParameters = getJsonFromFile(None, toolParametersFile)
-        result = {}
-
-        for parameter in allJsonParameters:
-            key = parameter["argument"]
-            value = parameter["default"]
-            if key != "mypassword":
-                result[key] = value
-
-        saveJsonToFile("libs/json/parametersDefault.json", result)
 
 
 def checkProvidedArguments(btpUsecase):
