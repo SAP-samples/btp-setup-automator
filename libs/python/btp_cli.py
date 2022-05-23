@@ -100,7 +100,7 @@ class BTPUSECASE:
             buildJsonSchemaFile("BTPSA-USECASE.json", targetFilename, availableForAccount)
             log.success("updated the json schema file for use cases >" + targetFilename + "< based on your global account >" + self.globalaccount + "<")
             targetFilename = "schemas/btpsa-parameters.json"
-            buildJsonSchemaFile("btpsa-parameters.json", targetFilename, availableForAccount)
+            buildJsonSchemaFile("BTPSA-PARAMETERS.json", targetFilename, availableForAccount)
             log.success("updated the json schema file for parameters >" + targetFilename + "<")
             log.header("SUCCESSFULLY MAINTAINED THE TOOL: UPDATED JSON SCHEMAS")
             sys.exit(os.EX_OK)
