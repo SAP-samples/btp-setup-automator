@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa_usecase.json",
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa-usecase.json",
   "aboutThisUseCase": {
     "name": "Setup a Kyma environment on your productive SAP BTP account (GCP)",
     "description": "This usecase contains the necessary configuration to setup a Kyma environment in your SAP BTP account (GCP).",

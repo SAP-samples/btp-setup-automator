@@ -87,7 +87,7 @@ class BTPSERVICEEncoder(JSONEncoder):
 
 def readAllServicesFromUsecaseFile(btpUsecase):
     # Initiate class with configured parameters
-    jsonSchema = "schemas/btpsa_usecase.json"
+    jsonSchema = "schemas/btpsa-usecase.json"
     paramDefinitionServices = getJsonFromFile(None, jsonSchema)
 
     usecase = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)

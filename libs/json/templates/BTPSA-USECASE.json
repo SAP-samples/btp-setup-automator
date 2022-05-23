@@ -307,8 +307,5 @@
                 }
             }
         }
-    },
-    "required": [
-        "aboutThisUseCase"
-    ]
+    }
 }
