@@ -25,7 +25,7 @@ def runTrustFlow(btpUsecase):
                     for key in service["createdServiceKeys"]:
                         log.info("using XSUAA service key >" + key["keyname"] + "<")
                         if "payload" in key:
-                            payload = key["payload"]
+                            payload = key.get("payload").get("credentials")
 
                             authClientId = payload["clientid"]
                             authClientSecret = payload["clientsecret"]
