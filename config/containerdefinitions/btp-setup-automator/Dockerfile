@@ -20,14 +20,9 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/reposit
     && update-ca-certificates
 
 ##########################################################################################
-# Retrieve the CloudFoundry CLI (version 7.4.0)
+# Retrieve the CloudFoundry CLI
 ##########################################################################################
-FROM base AS cf_cli
-SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
-WORKDIR /tmp/tools
-RUN CF_CLI_VERSION="7.4.0" \
-    && wget --quiet -O download.tgz "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=$CF_CLI_VERSION&source=github-rel" \
-    && tar -xzf download.tgz -C .
+FROM cloudfoundry/cli:8.3.0 as cf_cli
 
 ##########################################################################################
 ## Retrieve the SAP btp CLI
@@ -59,20 +54,20 @@ RUN MBT_VERSION="1.2.10" \
 # The necessary plugin will be built from the sources and copied over to the final
 # image.
 ########################################################################################
-FROM golang:alpine as cf_plugin_multiapps
-SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
-WORKDIR /tmp/tools
-RUN apk update upgrade \
-&& apk add --no-cache bash git \
-&& git clone "https://github.com/cloudfoundry/multiapps-cli-plugin"  multiapps-cli-plugin \
-&& cd multiapps-cli-plugin \
-&&  go mod download code.cloudfoundry.org/bytefmt \
-&& go get github.com/cloudfoundry-incubator/multiapps-cli-plugin/commands \
-&& ./build.sh \
-&& cd build \
-&& mv multiapps-plugin-static.linux64 /tmp/tools \
-&& cd /tmp/tools \
-&& rm -rf multiapps-cli-plugin
+# FROM golang:alpine as cf_plugin_multiapps
+# SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+# WORKDIR /tmp/tools
+# RUN apk update upgrade \
+# && apk add --no-cache bash git \
+# && git clone "https://github.com/cloudfoundry/multiapps-cli-plugin"  multiapps-cli-plugin \
+# && cd multiapps-cli-plugin \
+# &&  go mod download code.cloudfoundry.org/bytefmt \
+# && go get github.com/cloudfoundry-incubator/multiapps-cli-plugin/commands \
+# && ./build.sh \
+# && cd build \
+# && mv multiapps-plugin-static.linux64 /tmp/tools \
+# && cd /tmp/tools \
+# && rm -rf multiapps-cli-plugin
 
 ########################################################################################
 # Retrieve the Kubernetes CLI, krew and OIDC Plugin (needed for Kyma)
@@ -101,10 +96,10 @@ RUN apk update upgrade \
 ########################################################################################
 FROM alpine:3 as tools
 WORKDIR /usr/local/bin
-COPY --from=cf_cli                 /tmp/tools/ .
+COPY --from=cf_cli                 /usr/local/bin/cf8 .
 COPY --from=btp_cli                /tmp/tools/ .
 COPY --from=mta_build_tool         /tmp/tools/ .
-COPY --from=cf_plugin_multiapps    /tmp/tools/ .
+#COPY --from=cf_plugin_multiapps    /tmp/tools/ .
 COPY --from=kubectl_cli            /tmp/tools/ .
 COPY --from=helm_cli               /usr/local/bin/helm .
 ARG BTPSA_VERSION_GIT_ARG=default
@@ -172,17 +167,17 @@ USER $USERNAME
 WORKDIR $HOME_FOLDER
 
 ## Copy all necessary executables from the tools stage
-COPY --chown=root:root --from=tools /usr/local/bin/cf  /usr/local/bin
-COPY --chown=root:root --from=tools /usr/local/bin/cf7  /usr/local/bin
+#COPY --chown=root:root --from=tools /usr/local/bin/cf  /usr/local/bin
+COPY --chown=root:root --from=tools /usr/local/bin/cf8  /usr/local/bin/cf
 COPY --chown=root:root --from=tools /usr/local/bin/btp /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/mbt /usr/local/bin
-COPY --chown=root:root --from=tools /usr/local/bin/multiapps-plugin-static.linux64 /usr/local/bin
+#COPY --chown=root:root --from=tools /usr/local/bin/multiapps-plugin-static.linux64 /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/kubectl /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/helm /usr/local/bin
 
 ## Install the CF plugin for deploying MTAs on Cloudfoundry
-#RUN cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/latest/download/multiapps-plugin.linux32 
-RUN cf install-plugin -f /usr/local/bin/multiapps-plugin-static.linux64
+RUN cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/latest/download/multiapps-plugin.linux32 
+#RUN cf install-plugin -f /usr/local/bin/multiapps-plugin-static.linux64
 
 ## Install krew and the oidc-login plugin
 RUN    OS="$(uname | tr '[:upper:]' '[:lower:]')" \
@@ -199,23 +194,24 @@ RUN    OS="$(uname | tr '[:upper:]' '[:lower:]')" \
 ENV PATH "$PATH:$HOME_FOLDER/.krew/bin"
 
 ## Copy over the all necessary resources
-COPY --chown=$USERNAME:$USERNAME usecases/                                  $HOME_FOLDER/usecases/
-COPY --chown=$USERNAME:$USERNAME integrationtests/                          $HOME_FOLDER/integrationtests/
+COPY --chown=$USERNAME:$USERNAME usecases/                  $HOME_FOLDER/usecases/
+COPY --chown=$USERNAME:$USERNAME integrationtests/          $HOME_FOLDER/integrationtests/
 
-COPY --chown=$USERNAME:$USERNAME README.md                                  $HOME_FOLDER/
-COPY --chown=$USERNAME:$USERNAME parameters.json                            $HOME_FOLDER/
-COPY --chown=$USERNAME:$USERNAME docs                                       $HOME_FOLDER/docs
-COPY --chown=$USERNAME:$USERNAME libs/python/btpsa                          $HOME_FOLDER/
-COPY --chown=$USERNAME:$USERNAME libs/python/btp_cli.py                     $LIBS_FOLDER/python/
-COPY --chown=$USERNAME:$USERNAME libs/python/helper*.py                     $LIBS_FOLDER/python/
-COPY --chown=$USERNAME:$USERNAME libs/json                                  $LIBS_FOLDER/json/
+COPY --chown=$USERNAME:$USERNAME README.md                  $HOME_FOLDER/
+COPY --chown=$USERNAME:$USERNAME parameters.json            $HOME_FOLDER/
+COPY --chown=$USERNAME:$USERNAME docs                       $HOME_FOLDER/docs
+COPY --chown=$USERNAME:$USERNAME schemas                    $HOME_FOLDER/schemas
+COPY --chown=$USERNAME:$USERNAME libs/python/btpsa          $HOME_FOLDER/
+COPY --chown=$USERNAME:$USERNAME libs/python/btp_cli.py     $LIBS_FOLDER/python/
+COPY --chown=$USERNAME:$USERNAME libs/python/helper*.py     $LIBS_FOLDER/python/
+COPY --chown=$USERNAME:$USERNAME libs/json                  $LIBS_FOLDER/json/
 
-COPY --chown=$USERNAME:$USERNAME .reuse                                     $HOME_FOLDER/.reuse
-COPY --chown=$USERNAME:$USERNAME LICENSES                                   $HOME_FOLDER/LICENSES
-COPY --chown=$USERNAME:$USERNAME LICENSE                                    $HOME_FOLDER/
+COPY --chown=$USERNAME:$USERNAME .reuse                     $HOME_FOLDER/.reuse
+COPY --chown=$USERNAME:$USERNAME LICENSES                   $HOME_FOLDER/LICENSES
+COPY --chown=$USERNAME:$USERNAME LICENSE                    $HOME_FOLDER/
 
 # Copy over some vscode settings to install the pyhton plugins
-COPY --chown=$USERNAME:$USERNAME .vscode                                    $HOME_FOLDER/.vscode/
+COPY --chown=$USERNAME:$USERNAME .vscode                    $HOME_FOLDER/.vscode/
 
 # For using outside of VS Code context:
 CMD ["bash"]

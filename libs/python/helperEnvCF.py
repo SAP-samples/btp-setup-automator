@@ -15,7 +15,10 @@ def getKeyFromCFOutput(cfoutput, key):
     lines = cfoutput.splitlines()
     for line in lines:
         thisLineSplit = line.split(":")
-        if len(thisLineSplit) == 2 and thisLineSplit[0] == key:
+        firstCol = thisLineSplit[0]
+        if firstCol:
+            firstCol = firstCol.strip()
+        if len(thisLineSplit) == 2 and firstCol == key:
             result = thisLineSplit[1].strip()
     return result
 
@@ -73,11 +76,14 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
 
     allServicesCreated = True
     for thisJson in jsonResults:
-        name = thisJson["service"]
-        plan = thisJson["plan"]
-        instancename = thisJson["name"]
-        status = thisJson["last operation"]
-        servicebroker = thisJson["broker"]
+        name = thisJson.get("service")
+        if name is None:
+            name = thisJson.get("offering")
+
+        plan = thisJson.get("plan")
+        instancename = thisJson.get("name")
+        status = thisJson.get("last operation")
+        servicebroker = thisJson.get("broker")
         for service in btpUsecase.definedServices:
             if service.name == name and service.plan == plan and service.instancename == instancename and service.successInfoShown is False:
                 if status != "create succeeded" and status != "update succeeded":
@@ -249,7 +255,7 @@ def get_cf_service_status(btpUsecase, service):
     p = runShellCommand(btpUsecase, command, "CHECK", None)
     result = p.stdout.decode()
 
-    service_broker = getKeyFromCFOutput(result, "service broker")
+    service_broker = getKeyFromCFOutput(result, "broker")
     status = getKeyFromCFOutput(result, "status")
     return [service_broker, status]
 

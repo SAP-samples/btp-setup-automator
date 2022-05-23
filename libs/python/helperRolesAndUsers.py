@@ -83,12 +83,27 @@ def getMembersOfUserGroup(btpUsecase, usergroup):
     usergroupExists = False
 
     if btpUsecase.myusergroups and usergroup:
-        for thisUserGroup in btpUsecase.myusergroups:
-            if thisUserGroup.get("name") == usergroup:
-                usergroupExists = True
-                members = thisUserGroup.get("members")
-        if usergroupExists is False:
-            log.error("you didn't define a usergroup >" + usergroup + "< in your parameters file >" + btpUsecase.parameterfile + "<. Therefore no members where found.")
+        usergroupIsString = isinstance(btpUsecase.myusergroups, str)
+        usergroupIsList = isinstance(btpUsecase.myusergroups, dict)
+        myusergroups = None
+        # If the usergroup is defined as a string it might be
+        if usergroupIsString:
+            usergroupsFromHttp = getJsonFromFile(None, btpUsecase.myusergroups)
+            if usergroupsFromHttp:
+                myusergroups = usergroupsFromHttp
+        if usergroupIsList:
+            myusergroups = btpUsecase.myusergroups
+
+        if myusergroups:
+            for thisUserGroup in myusergroups:
+                if thisUserGroup.get("name") == usergroup:
+                    usergroupExists = True
+                    members = thisUserGroup.get("members")
+            if usergroupExists is False:
+                log.error("you didn't define a usergroup >" + usergroup + "< in your parameters file >" + btpUsecase.parameterfile + "<. Therefore no members where found.")
+        else:
+            log.warning("you didn't define usergroups in your parameters file >" + btpUsecase.parameterfile + "<")
+
     return members
 
 

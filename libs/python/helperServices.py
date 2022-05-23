@@ -9,18 +9,18 @@ log = logging.getLogger(__name__)
 
 class BTPSERVICE:
     def __init__(self, paramDefinitionServices, definedUsecaseService, btpUsecase):
-        for parameter in paramDefinitionServices:
-            argument = parameter["argument"]
-            default = parameter["default"]
+        for key, value in paramDefinitionServices.items():
+            argument = key
+            default = value.get("default")
             acceptedvalues = None
-            if "acceptedvalues" in parameter:
-                acceptedvalues = parameter["acceptedvalues"]
-            mandatory = parameter["mandatory"]
-            paramType = parameter["type"]
+            if "acceptedvalues" in value:
+                acceptedvalues = value.get("acceptedvalues")
+            mandatory = value.get("mandatory")
+            paramType = value.get("type")
 
             serviceName = "unknown"
             if "name" in definedUsecaseService:
-                serviceName = definedUsecaseService["name"]
+                serviceName = definedUsecaseService.get("name")
 
             setattr(self, argument, default)
 
@@ -37,12 +37,20 @@ class BTPSERVICE:
                 typeParameter = type(value).__name__
 
                 if type(paramType).__name__ == "str":
-                    if paramType != typeParameter:
+                    thisType = getPythonClassForJsonSchemaType(paramType)
+                    if thisType != typeParameter:
                         message = "parameter >" + argument + "< for service >" + serviceName + "< should be a >" + paramType + "<, but it's >" + typeParameter + "<\nPlease correct the parameter!"
                         log.error(message)
                         sys.exit(os.EX_DATAERR)
+
                 if type(paramType).__name__ == "list":
-                    if typeParameter not in paramType:
+                    foundType = False
+                    for thisParamType in paramType:
+                        thisType = getPythonClassForJsonSchemaType(thisParamType)
+                        if thisType in typeParameter:
+                            foundType = True
+                            break
+                    if foundType is False:
                         message = "parameter >" + argument + "< for service >" + serviceName + "< is of type >" + typeParameter + "<, but only the following types are allowed >" + str(paramType) + "<\nPlease correct the parameter!"
                         log.error(message)
                         sys.exit(os.EX_DATAERR)
@@ -55,6 +63,22 @@ class BTPSERVICE:
                     sys.exit(os.EX_DATAERR)
 
 
+def getPythonClassForJsonSchemaType(jsonType):
+    # Map the json schema type to the python variable types
+    if jsonType:
+        if jsonType == "string":
+            return "str"
+        if jsonType == "integer":
+            return "int"
+        if jsonType == "object":
+            return "dict"
+        if jsonType == "array":
+            return "list"
+
+    log.warning("not able to map the jsonType >" + jsonType + "< to a python class")
+    return None
+
+
 # subclass JSONEncoder
 class BTPSERVICEEncoder(JSONEncoder):
     def default(self, o):
@@ -63,13 +87,24 @@ class BTPSERVICEEncoder(JSONEncoder):
 
 def readAllServicesFromUsecaseFile(btpUsecase):
     # Initiate class with configured parameters
-    paramServicesFile = "libs/json/paramServices.json"
-    paramDefinitionServices = getJsonFromFile(None, paramServicesFile)
+    jsonSchema = "schemas/btpsa_usecase.json"
+    paramDefinitionServices = getJsonFromFile(None, jsonSchema)
 
     usecase = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
     items = []
     if "services" in usecase:
-        for usecaseService in usecase["services"]:
-            service = BTPSERVICE(paramDefinitionServices, usecaseService, btpUsecase)
+        for usecaseService in usecase.get("services"):
+            serviceParameterDefinition = getServiceParameterDefinition(paramDefinitionServices)
+            service = BTPSERVICE(serviceParameterDefinition, usecaseService, btpUsecase)
             items.append(service)
     return items
+
+
+def getServiceParameterDefinition(paramDefinitionServices):
+    result = None
+    parametersForServices = paramDefinitionServices.get("properties").get("services")
+    for key, value in parametersForServices.items():
+        if key == "items":
+            result = value.get("properties")
+            break
+    return result

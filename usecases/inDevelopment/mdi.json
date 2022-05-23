@@ -1,5 +1,6 @@
 {
-    "aboutThisUseCase": {
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa_usecase.json",
+  "aboutThisUseCase": {
       "name": "Setup MDI for usage in SAP LoB solutions",
       "description": "This usecase sets up MDI to be used in SAP LoB solutions",
       "author": "rui.nogueira@sap.com",

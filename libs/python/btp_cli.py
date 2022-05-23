@@ -6,15 +6,17 @@ from libs.python.helperEnvCF import checkIfAllServiceInstancesCreated, checkIfCF
 from libs.python.helperGeneric import buildUrltoSubaccount, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, createOrgName, getTimingsForStatusRequest, save_collected_metadata
 from libs.python.helperFileAccess import writeKubeConfigFileToDefaultDir
 from libs.python.helperEnvKyma import extractKymaDashboardUrlFromEnvironmentDataEntry, getKymaEnvironmentInfoByClusterName, getKymaEnvironmentStatusFromEnvironmentDataEntry, extractKymaKubeConfigUrlFromEnvironmentDataEntry, getKymaEnvironmentIdByClusterName
+from libs.python.helperDocumentation import updateDocumentation
 
 import os
 import sys
 import time
 import requests
 import json
+from libs.python.helperJsonSchemas import buildJsonSchemaFile
 from libs.python.helperRolesAndUsers import assignUsersToEnvironments, assignUsersToGlobalAndSubaccount, getSubaccountAdmins, assignUsersToRoleCollectionsForServices, assignUsersToCustomRoleCollections
 
-from libs.python.helperServices import BTPSERVICE, BTPSERVICEEncoder, readAllServicesFromUsecaseFile
+from libs.python.helperServices import BTPSERVICE, BTPSERVICEEncoder, getServiceParameterDefinition, readAllServicesFromUsecaseFile
 from libs.python.helperLog import initLogger
 import logging
 
@@ -40,6 +42,11 @@ class BTPUSECASE:
 
         self.timeScriptStarted = time.time()
 
+        if self.maintain_documentation is True:
+            updateDocumentation()
+            log.header("SUCCESSFULLY MAINTAINED THE TOOL: UPDATED DOCUMENTATION FILES")
+            sys.exit(os.EX_OK)
+
         self = helperArgParser.checkProvidedArguments(self)
 
         self.outputCurrentBtpUsecaseVariables()
@@ -54,7 +61,6 @@ class BTPUSECASE:
         self.definedServices = getServiceCategoryItemsFromUsecaseFile(self, allServices, ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"])
         self.definedEnvironments = getEnvironmentsForUsecase(self, allServices)
         self.admins = getAdminsFromUsecaseFile(self)
-        self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(self, allServices, ["APPLICATION"])
         self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(self, allServices, ["APPLICATION"])
         usecaseFileContent = getJsonFromFile(self, self.usecasefile)
         self.definedRoleCollections = usecaseFileContent.get("assignrolecollections")
@@ -88,6 +94,20 @@ class BTPUSECASE:
         log.header("Checking if all configured services & app subscriptions are available on your global account")
 
         availableForAccount = getListOfAvailableServicesAndApps(self)
+
+        if self.maintain_jsonschemas is True:
+            targetFilename = "schemas/btpsa_usecase.json"
+            buildJsonSchemaFile("btpsa_usecases.json", targetFilename, availableForAccount)
+            log.success("updated the json schema file for use cases >" + targetFilename + "< based on your global account >" + self.globalaccount + "<")
+            targetFilename = "schemas/btpsa_parameters.json"
+            buildJsonSchemaFile("btpsa_parameters.json", targetFilename, availableForAccount)
+            log.success("updated the json schema file for parameters >" + targetFilename + "<")
+            log.header("SUCCESSFULLY MAINTAINED THE TOOL: UPDATED JSON SCHEMAS")
+            sys.exit(os.EX_OK)
+        else:
+            targetFilename = "schemas/btpsa_usecase_" + self.globalaccount + ".json"
+            buildJsonSchemaFile("btpsa_usecases.json", targetFilename, availableForAccount)
+            log.info("created a json schema file >" + targetFilename + "< for your global account >" + self.globalaccount + "<")
 
         usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(self, availableForAccount)
 
@@ -377,8 +397,12 @@ class BTPUSECASE:
                     for envInstance in envInstances:
                         if "labels" in envInstance and envInstance["labels"] is not None and envInstance["environmentType"] == "cloudfoundry":
                             labels = convertStringToJson(envInstance["labels"])
-                            thisOrgId = labels["Org ID:"]
-                            thisOrg = labels["Org Name:"]
+                            thisOrgId = labels.get("Org ID:")
+                            thisOrg = labels.get("Org Name:")
+                            if thisOrgId is None:
+                                thisOrgId = labels.get("Org ID")
+                            if thisOrg is None:
+                                thisOrg = labels.get("Org Name")
 
                             if thisOrgId == orgid:
                                 self.accountMetadata = addKeyValuePair(accountMetadata, "org", thisOrg)
@@ -503,13 +527,14 @@ def getEnvironmentsForUsecase(btpUsecase: BTPUSECASE, allServices):
     items = []
     environments = []
 
-    paramServicesFile = "libs/json/paramServices.json"
-    paramDefinitionServices = getJsonFromFile(None, paramServicesFile)
+    paramServicesFile = "schemas/btpsa_usecase.json"
+    paramDefinition = getJsonFromFile(None, paramServicesFile)
 
     for usecaseService in allServices:
         environmentServices = usecaseService.targetenvironment
         if environmentServices not in items and usecaseService.category != "ENVIRONMENT":
             items.append(environmentServices)
+            paramDefinitionServices = getServiceParameterDefinition(paramDefinition)
             thisUsecaseService = {"name": usecaseService.targetenvironment, "category": "ENVIRONMENT", "plan": "standard"}
             thisEnv = BTPSERVICE(paramDefinitionServices, thisUsecaseService, btpUsecase)
             environments.append(thisEnv)
@@ -852,12 +877,13 @@ def checkIfAllSubscriptionsAreAvailable(btpUsecase: BTPUSECASE):
     resultCommand = runCommandAndGetJsonResult(btpUsecase, command, "INFO", "check status of app subscriptions")
 
     allSubscriptionsAvailable = True
-    for thisJson in resultCommand["applications"]:
-        name = thisJson["appName"]
-        plan = thisJson["planName"]
-        status = thisJson["state"]
-        tenantId = thisJson["tenantId"]
-        for app in btpUsecase.definedAppSubscriptions:
+    for app in btpUsecase.definedAppSubscriptions:
+        for thisJson in resultCommand["applications"]:
+            name = thisJson.get("appName")
+            plan = thisJson.get("planName")
+            status = thisJson.get("state")
+            tenantId = thisJson.get("tenantId")
+
             if app.name == name and app.plan == plan and app.successInfoShown is False:
                 if status == "SUBSCRIBE_FAILED":
                     log.error("BTP account reported that subscription on >" + app.name + "< has failed.")
@@ -876,6 +902,37 @@ def checkIfAllSubscriptionsAreAvailable(btpUsecase: BTPUSECASE):
                     app.status = "SUBSCRIBED"
 
     return allSubscriptionsAvailable
+
+
+# def checkIfAllSubscriptionsAreAvailable(btpUsecase: BTPUSECASE):
+#     command = "btp --format json list accounts/subscription --subaccount '" + btpUsecase.subaccountid + "'"
+#     resultCommand = runCommandAndGetJsonResult(btpUsecase, command, "INFO", "check status of app subscriptions")
+
+#     allSubscriptionsAvailable = True
+#     for thisJson in resultCommand["applications"]:
+#         name = thisJson["appName"]
+#         plan = thisJson["planName"]
+#         status = thisJson["state"]
+#         tenantId = thisJson["tenantId"]
+#         for app in btpUsecase.definedAppSubscriptions:
+#             if app.name == name and app.plan == plan and app.successInfoShown is False:
+#                 if status == "SUBSCRIBE_FAILED":
+#                     log.error("BTP account reported that subscription on >" + app.name + "< has failed.")
+#                     sys.exit(os.EX_DATAERR)
+
+#                 if status != "SUBSCRIBED":
+#                     allSubscriptionsAvailable = False
+#                     app.status = status
+#                     app.successInfoShown = False
+#                     app.statusResponse = thisJson
+#                 else:
+#                     log.success("subscription to app >" + app.name + "< (plan " + app.plan + ") is now available")
+#                     app.tenantId = tenantId
+#                     app.successInfoShown = True
+#                     app.statusResponse = thisJson
+#                     app.status = "SUBSCRIBED"
+
+#     return allSubscriptionsAvailable
 
 
 def determineTimeToFetchStatusUpdates(btpUsecase: BTPUSECASE):
