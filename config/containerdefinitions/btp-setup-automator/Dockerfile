@@ -6,11 +6,9 @@
 # STARTING WITH ALL THE SAP TOOLS FIRST
 ##################################################################################################################################################
 FROM alpine:3 AS base
-
 ENV ARCH=linux-amd64
 ENV TOOLS_URL=tools.hana.ondemand.com
 ENV CPCLI_URL=cpcli.cf.eu10.hana.ondemand.com
-
 
 ## Install necessary packages to donwload and install tools
 RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
@@ -50,32 +48,11 @@ RUN MBT_VERSION="1.2.10" \
     | tar -xzf - mbt
 
 ########################################################################################
-# Retrieve the CF plugin MTA (needed for Apple machines with M1 chip)
-# The necessary plugin will be built from the sources and copied over to the final
-# image.
-########################################################################################
-# FROM golang:alpine as cf_plugin_multiapps
-# SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
-# WORKDIR /tmp/tools
-# RUN apk update upgrade \
-# && apk add --no-cache bash git \
-# && git clone "https://github.com/cloudfoundry/multiapps-cli-plugin"  multiapps-cli-plugin \
-# && cd multiapps-cli-plugin \
-# &&  go mod download code.cloudfoundry.org/bytefmt \
-# && go get github.com/cloudfoundry-incubator/multiapps-cli-plugin/commands \
-# && ./build.sh \
-# && cd build \
-# && mv multiapps-plugin-static.linux64 /tmp/tools \
-# && cd /tmp/tools \
-# && rm -rf multiapps-cli-plugin
-
-########################################################################################
 # Retrieve the Kubernetes CLI, krew and OIDC Plugin (needed for Kyma)
 ########################################################################################
 FROM base as kubectl_cli
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 WORKDIR /tmp/tools
-
 RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
 && chmod +x ./kubectl
 
@@ -99,7 +76,6 @@ WORKDIR /usr/local/bin
 COPY --from=cf_cli                 /usr/local/bin/cf8 .
 COPY --from=btp_cli                /tmp/tools/ .
 COPY --from=mta_build_tool         /tmp/tools/ .
-#COPY --from=cf_plugin_multiapps    /tmp/tools/ .
 COPY --from=kubectl_cli            /tmp/tools/ .
 COPY --from=helm_cli               /usr/local/bin/helm .
 ARG BTPSA_VERSION_GIT_ARG=default
@@ -107,11 +83,9 @@ ARG BTPSA_VERSION_GIT_ARG=default
 ##################################################################################################################################################
 # Now putting all pieces together 
 ##################################################################################################################################################
-
 FROM python:3.9.9-alpine3.15 AS final_build
 ENV USERNAME=user
 ENV HOME_FOLDER /home/$USERNAME
-
 ENV LIBS_FOLDER $HOME_FOLDER/libs
 ENV CONTAINER_NAME=btp-setup-automator
 COPY config/python/requirements.txt /tmp/pip-tmp/requirements.txt
@@ -171,13 +145,11 @@ WORKDIR $HOME_FOLDER
 COPY --chown=root:root --from=tools /usr/local/bin/cf8  /usr/local/bin/cf
 COPY --chown=root:root --from=tools /usr/local/bin/btp /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/mbt /usr/local/bin
-#COPY --chown=root:root --from=tools /usr/local/bin/multiapps-plugin-static.linux64 /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/kubectl /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/helm /usr/local/bin
 
 ## Install the CF plugin for deploying MTAs on Cloudfoundry
 RUN cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/latest/download/multiapps-plugin.linux32 
-#RUN cf install-plugin -f /usr/local/bin/multiapps-plugin-static.linux64
 
 ## Install krew and the oidc-login plugin
 RUN    OS="$(uname | tr '[:upper:]' '[:lower:]')" \
