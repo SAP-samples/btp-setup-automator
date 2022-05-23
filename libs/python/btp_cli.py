@@ -341,6 +341,24 @@ class BTPUSECASE:
                 elif environment.name == "kymaruntime":
                     kymaClusterName = environment.parameters["name"]
 
+                    # Set Cluster region: the cluster region can be globally defined via the parameters file
+                    # or for each environment in the usecase file. Therefore we need to consolidate the setting here
+                    # In addition the difference between TRIAL and Prod must be considered => Prod has a cluster region, TRIAL has not
+                    clusterregion = None
+
+                    if environment.plan == "trial":
+                        clusterregion = self.region
+                    else:
+                        if "region" in environment.parameters:
+                            if environment.parameters["region"] != "":
+                                clusterregion = environment.parameters["region"]
+                            else:
+                                clusterregion = self.clusterregion
+                                environment.parameters["region"] = clusterregion
+                        else:
+                            clusterregion = self.clusterregion
+                            environment.parameters["region"] = clusterregion
+
                     # Check if environment alraedy exists
                     message = "Check if Kyma cluster called " + kymaClusterName + "already exists"
 
@@ -359,18 +377,11 @@ class BTPUSECASE:
                     envName = environment.name
                     # Fix environment name for instance creation
                     btpEnvironment = "kyma"
-                    clusterregion = None
                     parameters = None
-
-                    parameters = dictToString(environment.parameters)
 
                     envLandscape = selectEnvironmentLandscape(self, environment)
 
-                    # Difference between TRIAL and Prod => Prod has a cluster region, TRIAL has not
-                    if environment.plan == "trial":
-                        clusterregion = self.region
-                    else:
-                        clusterregion = environment.parameters["region"]
+                    parameters = dictToString(environment.parameters)
 
                     if envLandscape is not None:
                         command = "btp --format json create accounts/environment-instance --subaccount '" + subaccountid + "' --environment '" + btpEnvironment + \
