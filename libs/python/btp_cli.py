@@ -359,6 +359,10 @@ class BTPUSECASE:
                             clusterregion = self.clusterregion
                             environment.parameters["region"] = clusterregion
 
+                    if clusterregion is None or clusterregion == "":
+                        log.error("A value for the > CLUSTER REGION < was not provided but is necessary for the setup of the BTP environment >" + environment.name + "<.")
+                        sys.exit(os.EX_DATAERR)
+
                     # Check if environment alraedy exists
                     message = "Check if Kyma cluster called " + kymaClusterName + "already exists"
 

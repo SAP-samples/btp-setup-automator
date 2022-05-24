@@ -85,8 +85,7 @@
         "clusterregion": {
             "type": "string",
             "description": "region for the SAP BTP Kyma runtime cluster. This parameter is used as default for Kyma cluster creation. Override via usecase.json possible",
-            "title": "region for SAP BTP Kyma runtime cluster",
-            "default": null
+            "title": "region for SAP BTP Kyma runtime cluster"
         },
         "subaccountid": {
             "type": "string",
