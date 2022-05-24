@@ -6,7 +6,7 @@
   "loginmethod": "sso",
   "envvariables": {
     "BTPSA_KYMA_IMAGE_TAG": "main",
-    "BTPSA_KYMA_IMAGE_NAME_APPROUTER": "ghcr.io/sap-samples/btp-kyma-day2-operations-approuter",
+    "BTPSA_KYMA_IMAGE_NAME_APPROUTER": "ghcr.io/sap-samples/btp-kyma-day2-approuter",
     "BTPSA_KYMA_IMAGE_NAME_DB_SERVICE": "ghcr.io/sap-samples/btp-kyma-day2-operations-db-service",
     "BTPSA_KYMA_IMAGE_NAME_BP_SERVICE": "ghcr.io/sap-samples/btp-kyma-day2-operations-bp-service",
     "BTPSA_KYMA_IMAGE_NAME_EF_SERVICE": "ghcr.io/sap-samples/btp-kyma-day2-operations-ef-service",                
