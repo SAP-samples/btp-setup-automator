@@ -26,3 +26,15 @@ def getKymaEnvironmentIdByClusterName(environmentData, kymaClusterName):
         parametersFromEntry = convertStringToJson(entry["parameters"])
         if entry["environmentType"] == "kyma" and parametersFromEntry["name"] == kymaClusterName:
             return entry["id"]
+
+
+def get_kyma_service_status(btpUsecase, service):
+    return "status"
+
+
+def create_kyma_service(btpUsecase, service):
+    return "service"
+
+
+def getStatusResponseFromCreatedKymaInstance(btpUsecase, instancename):
+    return "status"

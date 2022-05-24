@@ -1,9 +1,6 @@
-from libs.python.helperCommandExecution import runShellCommand, runCommandAndGetJsonResult, login_cf, runShellCommandFlex
-from libs.python.helperGeneric import getServiceByServiceName, createInstanceName, getTimingsForStatusRequest
-from libs.python.helperJson import convertCloudFoundryCommandForSingleServiceToJson, convertStringToJson, convertCloudFoundryCommandOutputToJson, dictToString
+from libs.python.helperCommandExecution import runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex
+from libs.python.helperJson import convertCloudFoundryCommandForSingleServiceToJson, convertStringToJson, dictToString
 import time
-import os
-import sys
 import logging
 
 log = logging.getLogger(__name__)
@@ -60,43 +57,12 @@ def checkIfCFSpaceAlreadyExists(btpUsecase):
     return False
 
 
-def getStatusResponseFromCreatedInstance(btpUsecase, instancename):
+def getStatusResponseFromCreatedCFInstance(btpUsecase, instancename):
     command = "cf service '" + instancename + "'"
     p = runShellCommand(btpUsecase, command, "INFO", None)
     result = p.stdout.decode()
     jsonResults = convertCloudFoundryCommandForSingleServiceToJson(result)
     return jsonResults
-
-
-def checkIfAllServiceInstancesCreated(btpUsecase):
-    command = "cf services"
-    p = runShellCommand(btpUsecase, command, "INFO", None)
-    result = p.stdout.decode()
-    jsonResults = convertCloudFoundryCommandOutputToJson(result)
-
-    allServicesCreated = True
-    for thisJson in jsonResults:
-        name = thisJson.get("service")
-        if name is None:
-            name = thisJson.get("offering")
-
-        plan = thisJson.get("plan")
-        instancename = thisJson.get("name")
-        status = thisJson.get("last operation")
-        servicebroker = thisJson.get("broker")
-        for service in btpUsecase.definedServices:
-            if service.name == name and service.plan == plan and service.instancename == instancename and service.successInfoShown is False:
-                if status != "create succeeded" and status != "update succeeded":
-                    allServicesCreated = False
-                    service.status = "NOT READY"
-                    service.successInfoShown = False
-                else:
-                    log.success("Service instance for service >" + service.name + "< (plan " + service.plan + ") is now available")
-                    service.servicebroker = servicebroker
-                    service.successInfoShown = True
-                    service.status = "create succeeded"
-                    service.statusResponse = getStatusResponseFromCreatedInstance(btpUsecase, instancename)
-    return allServicesCreated
 
 
 def try_until_cf_space_done(btpUsecase, command, message, spacename, search_every_x_seconds, timeout_after_x_seconds):
@@ -172,80 +138,6 @@ def create_cf_cup_service(btpUsecase, service):
         log.info("the user provided service >" + instance_name + "< already exists and won't be created newly.")
 
     return service
-
-
-def initiateCreationOfServiceInstances(btpUsecase):
-    createServiceInstances = btpUsecase.definedServices is not None and len(btpUsecase.definedServices) > 0
-
-    if createServiceInstances is True:
-        login_cf(btpUsecase)
-        log.header("Initiate creation of service instances")
-
-        # First add all instance names to the services
-        for service in btpUsecase.definedServices:
-            instancename = createInstanceName(btpUsecase, service)
-            service.instancename = instancename
-
-        # Check whether there are services with the same instance name
-        # If there are, it's not safe to create the service instances
-        for service in btpUsecase.definedServices:
-            instanceName = service.instancename
-            counter = 0
-            for thisService in btpUsecase.definedServices:
-                thisInstanceName = thisService.instancename
-                if thisInstanceName == instanceName:
-                    counter += 1
-            if counter > 1:
-                log.error("there is more than one service with the instance name >" + instanceName + "<. Please fix that before moving on.")
-                sys.exit(os.EX_DATAERR)
-
-        serviceInstancesToBeCreated = []
-        # Restrict the creation of service instances to those
-        # that have been set to entitleOnly to False (default)
-        for service in btpUsecase.definedServices:
-            if service.entitleonly is False:
-                serviceInstancesToBeCreated.append(service)
-
-        # Now create all the service instances
-        for service in serviceInstancesToBeCreated:
-            serviceName = service.name
-            # servicePlan = service.plan
-            # Quickly initiate the creation of all service instances (without waiting until they are all created)
-            if service.requiredServices is not None and len(service.requiredServices) > 0:
-                for requiredService in service.requiredServices:
-                    thisService = getServiceByServiceName(btpUsecase, requiredService)
-                    if thisService is not None:
-                        current_time = 0
-                        search_every_x_seconds, usecaseTimeout = getTimingsForStatusRequest(btpUsecase, thisService)
-                        # Wait until thisService has been created and is available
-                        while usecaseTimeout > current_time:
-                            [servicebroker, status] = get_cf_service_status(btpUsecase, thisService)
-                            if (status == "create succeeded" or status == "update succeeded"):
-                                log.success("service >" + requiredService + "< now ready as pre-requisite for service >" + serviceName + "<")
-                                if service.category == "SERVICE" or service.category == "ELASTIC_SERVICE":
-                                    service = create_cf_service(btpUsecase, service)
-                                else:
-                                    log.info("this service >" + serviceName + "< is not of type SERVICE or ELASTIC_SERVICE and a service instance won't be created")
-                                    service.status = "create succeeded"
-                                break
-                            else:
-                                log.check("waiting for service >" + requiredService + "< (status >" + status +
-                                          "<) to finish as pre-requisite for service >" + serviceName + "< (trying again in " + str(search_every_x_seconds) + "s)")
-
-                            time.sleep(search_every_x_seconds)
-                            current_time += search_every_x_seconds
-                    else:
-                        log.error("did not find the defined required service >" + requiredService +
-                                  "<, which is a pre-requisite for the service >" + serviceName + "<. Please check your configuration file!")
-            else:
-                if service.category == "SERVICE" or service.category == "ELASTIC_SERVICE":
-                    service = create_cf_service(btpUsecase, service)
-                else:
-                    if service.category == "CF_CUP_SERVICE":
-                        service = create_cf_cup_service(btpUsecase, service)
-                    else:
-                        log.info("this service >" + serviceName + "< is not of type SERVICE or ELASTIC_SERVICE and a service instance won't be created")
-                        service.status = "create succeeded"
 
 
 def get_cf_service_status(btpUsecase, service):

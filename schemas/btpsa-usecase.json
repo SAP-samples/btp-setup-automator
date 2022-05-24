@@ -87,7 +87,7 @@
                         "description": "environment in which the service should be created",
                         "title": "environment in which the service should be created",
                         "default": "cloudfoundry",
-                        "enum": ["cloudfoundry", "kymaruntime"]
+                        "enum": ["cloudfoundry", "kymaruntime", "other"]
                     },
                     "plan": {
                         "type": "string",
