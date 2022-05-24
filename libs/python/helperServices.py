@@ -74,6 +74,8 @@ def getPythonClassForJsonSchemaType(jsonType):
             return "dict"
         if jsonType == "array":
             return "list"
+        if jsonType == "boolean":
+            return "bool"
 
     log.warning("not able to map the jsonType >" + jsonType + "< to a python class")
     return None
