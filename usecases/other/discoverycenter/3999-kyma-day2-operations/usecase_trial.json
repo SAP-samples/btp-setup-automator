@@ -1,7 +1,6 @@
 {
     "aboutThisUseCase": {
-        "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa-usecase.json",
-        "name": "Develop a Multitenant Extension Application in SAP BTP, Kyma Runtime",
+        "name": "Extend a Kyma based multitenant application with day 2 operations",
         "description": "This project contains a reference application, showcasing an end-to-end development scenario for a multitenant extension on SAP BTP Kyma runtime, which has an SAP partner as focus persona.",
         "author": "alexander.rieder@sap.com",
         "testStatus": "tested successfully",
@@ -14,11 +13,10 @@
         {
             "category": "ENVIRONMENT",
             "name": "kymaruntime",
-            "plan": "free",
+            "plan": "trial",
             "amount": 1,
             "parameters": {
-                "name": "btp-auto-setup",
-                "region": "us-east-1"
+                "name": "btp-auto-setup"
             }
         },
         {
@@ -34,8 +32,8 @@
             "category": "SERVICE"
         },
         {
-            "name": "hana-cloud",
-            "plan": "hana-free",
+            "name": "hana-cloud-trial",
+            "plan": "hana",
             "category": "SERVICE",
             "repeatstatusrequest": 60,
             "repeatstatustimeout": 3600,
@@ -54,27 +52,13 @@
                     ]
                 }
             }
-        },
-        {
-            "name": "cicd-app",
-            "plan": "free",
-            "category": "APPLICATION",
-            "repeatstatusrequest": 10,
-            "repeatstatustimeout": 120,
-            "requiredrolecollections": [
-                {
-                    "name": "CICD Service Administrator",
-                    "assignedUserGroupsFromParameterFile": [
-                      "admins"
-                    ]
-                  }                
-            ]
         }
-    ],       
+    ],
+    "admins": [],   
     "executeAfterAccountSetup": [        
         {
             "description": "Get the tutorial code",
-            "command": "rm -rf /home/user/tutorial && git clone https://github.com/SAP-samples/btp-kyma-day2-operations.git /home/user/tutorial"
+            "command": "rm -rf /home/user/tutorial && git clone https://github.com/SAP-samples/btp-kyma-day2-operations /home/user/tutorial "
         },
         {
             "description": "Change permission on deployment script",

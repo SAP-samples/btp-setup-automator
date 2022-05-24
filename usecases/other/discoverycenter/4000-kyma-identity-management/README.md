@@ -1,7 +1,7 @@
 # Instructions for running SAP Discovery Center Mission in btp-setup-automator
 
 The [btp-setup-automator](https://github.com/SAP-samples/btp-setup-automator) is an open source project to help developers setting-up their SAP BTP accounts quickly via various command line interfaces.
-The current script was designed to setup the account and spin up the application which is used by the Discovery Center Mission, [Develop a Multitenant Extension Application in SAP BTP, Kyma Runtime](https://discovery-center.cloud.sap/missiondetail/3683/3726/). 
+The current script was designed to setup the account and spin up the application which is used by the Discovery Center Mission, [Enrich a Kyma based multitenant application with additional identity features](https://discovery-center.cloud.sap/missiondetail/4000/4207/). 
 
 The script will create a subaccount with the necessary entitlements and deploy the Easy Franchise application in the SAP BTP Kyma Environment. The following services and subscriptions are created:
 
@@ -10,7 +10,7 @@ The script will create a subaccount with the necessary entitlements and deploy t
 * SAP HANA Cloud with hana-free plan
 * Kyma Runtime with free plan
 
-The code and the container images of the application are taken from the GitHub repository [SAP-samples/btp-kyma-multitenant-extension](https://github.com/SAP-samples/btp-kyma-multitenant-extension).
+The code and the container images of the application are taken from the GitHub repository [SAP-samples/btp-kyma-identity-management](https://github.com/SAP-samples/btp-kyma-identity-management).
 
 ## Pre-Requisites
 
@@ -39,13 +39,13 @@ Now run the main script `btpsa` with the following command:
 ### Productive SAP BTP account with free tier services
 
 ```bash
-./btpsa -parameterfile 'usecases/other/discoverycenter/3638-kyma-multitenant/parameters.json' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>'
+./btpsa -parameterfile 'usecases/other/discoverycenter/4000-kyma-identity-management/parameters.json' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>'
 ```
 
 ### Trial Accounts
 
 ```bash
-./btpsa -parameterfile 'usecases/other/discoverycenter/3638-kyma-multitenant/parameters_trial.json' -usecasefile 'usecases/other/discoverycenter/3638-kyma-multitenant/usecase_trial.json' -subaccountname 'trial' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>'
+./btpsa -parameterfile 'usecases/other/discoverycenter/4000-kyma-identity-management/parameters_trial.json' -usecasefile 'usecases/other/discoverycenter/4000-kyma-identity-management/usecase_trial.json' -subaccountname 'trial' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>'
 ```
 
 The btp-setup-automator script will now prepare your SAP BTP account to cover the discovery center mission. You can have a look at the [usecase.json](usecase.json) and [parameters.json](parameters.json) for more details about the used services and configuration parameters (e.g. DB Password for SAP HANA Cloud)
@@ -55,7 +55,7 @@ The btp-setup-automator script will now prepare your SAP BTP account to cover th
 Currently the use case is designed to use the free tier service plans and requires a productive SAP BTP account. Also the name and the name of the subaccount is preconfigured to "EasyFranchise" and US10 as region. In case you need to adapt some of the parameters you can parse them via commandline parameters when you call the script, for example to change the region it would look like this:
 
 ```bash
-./btpsa -parameterfile 'usecases/other/discoverycenter/3638-kyma-multitenant/parameters.json' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>' -region 'region for your subaccount'
+./btpsa -parameterfile 'usecases/other/discoverycenter/4000-kyma-identity-management/parameters.json' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>' -region 'region for your subaccount'
 ```
 
 If you want to make changes to the actual [usecase.json](usecase.json) you can either attach Visual Studio Code directly to your running container. Then you can perform the changes (it works as well with the parameters.json) and run the script as described above. You should be aware that the changes are not persisted if you terminate the docker container. In case you need to perform permanent changes to either the usecase.json or the parameter json you need to create your own docker image containing the changes as described [in the documentation](../../../../README.md#option-2-start-docker-container-with-self-built-image) for more details.
