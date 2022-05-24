@@ -45,6 +45,11 @@
             "default": "us10",
             "enum": {{ enumDatacenterList }}
         },
+        "clusterregion": {
+            "type": "string",
+            "description": "region for the SAP BTP Kyma runtime cluster. This parameter is used as default for Kyma cluster creation. Override via usecase.json possible",
+            "title": "region for SAP BTP Kyma runtime cluster"
+        },
         "subaccountid": {
             "type": "string",
             "description": "id of your sub account that should be used",
@@ -273,5 +278,19 @@
             "title": "update the automatically created documentation",
             "default": false
         }
-    }
+    },
+    "allOf": [
+        {
+            "if": {"properties": { "region": { "anyOf": [ {"enum": ["us10", "eu10", "br10", "jp10", "ca10", "ap12", "ap10", "ap11"]}] }}},
+            "then": { "properties": {"clusterregion": {"enum": ["eu-central-1", "eu-west-2", "ca-central-1", "sa-east-1", "us-east-1", "us-west-1","ap-northeast-1", "ap-northeast-2", "ap-south-1", "ap-southeast-1", "ap-southeast-2"] }}}
+        },
+        {
+            "if": {"properties": { "region": { "anyOf": [ {"enum": ["us30"]}] }}},
+            "then": { "properties": {"clusterregion": {"enum": ["asia-south1", "us-central1", "europe-west3"] }}}
+        },
+        {
+            "if": {"properties": { "region": { "anyOf": [ {"enum": ["ap21", "us20", "jp20", "us21", "eu20"]}] }}},
+            "then": { "properties": {"clusterregion": {"enum": ["centralus", "eastus", "westus2", "northeurope", "uksouth", "japaneast", "southeastasia", "westeurope"] }}}
+        }
+    ]
 }
