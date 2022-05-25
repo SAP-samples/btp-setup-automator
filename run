@@ -28,5 +28,3 @@ else
     docker container run --rm  -it -d --name "${thisname}" ghcr.io/sap-samples/btp-setup-automator:main 
 
 fi
-
-
