@@ -1,5 +1,5 @@
 {
-  "usecasefile": "usecases/other/discoverycenter/xxxx-kyma-identity-management/usecase.json",
+  "usecasefile": "usecases/released/discoverycenter/4000-kyma-identity-management/usecase.json",
   "region": "us10",
   "subaccountname": "EasyFranchise",
   "loginmethod": "sso",
