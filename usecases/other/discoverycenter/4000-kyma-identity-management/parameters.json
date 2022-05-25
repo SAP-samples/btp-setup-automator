@@ -1,0 +1,16 @@
+{
+  "usecasefile": "usecases/other/discoverycenter/xxxx-kyma-identity-management/usecase.json",
+  "region": "us10",
+  "subaccountname": "EasyFranchise",
+  "loginmethod": "sso",
+  "envvariables": {        
+    "BTPSA_KYMA_IMAGE_NAME_APPROUTER": "ghcr.io/sap-samples/btp-kyma-identity-management-approuter:main",
+    "BTPSA_KYMA_IMAGE_NAME_DB_SERVICE": "ghcr.io/sap-samples/btp-kyma-identity-management-db-service:main",
+    "BTPSA_KYMA_IMAGE_NAME_BP_SERVICE": "ghcr.io/sap-samples/btp-kyma-identity-management-bp-service:main",
+    "BTPSA_KYMA_IMAGE_NAME_EF_SERVICE": "ghcr.io/sap-samples/btp-kyma-identity-management-ef-service:main",                
+    "BTPSA_KYMA_IMAGE_NAME_BROKER": "ghcr.io/sap-samples/btp-kyma-identity-management-broker:main",
+    "BTPSA_KYMA_IMAGE_NAME_EMAIL_SERVICE": "ghcr.io/sap-samples/btp-kyma-identity-management-email-service:main",
+    "BTPSA_KYMA_IMAGE_NAME_UI": "ghcr.io/sap-samples/btp-kyma-identity-management-ui:main",
+    "BTPSA_KYMA_IMAGE_NAME_BUSINESS_PARTNER_MOCK": "ghcr.io/sap-samples/btp-kyma-identity-management-business-partner-mock:main"  
+  }
+}

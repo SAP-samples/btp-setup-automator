@@ -1,0 +1,27 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa-parameters.json",
+  "usecasefile": "usecases/other/discoverycenter/xxx-kyma-day2-operations/usecase.json",
+  "region": "us10",
+  "subaccountname": "EasyFranchise",
+  "loginmethod": "sso",
+  "envvariables": {
+    "BTPSA_KYMA_IMAGE_TAG": "main",
+    "BTPSA_KYMA_IMAGE_NAME_APPROUTER": "ghcr.io/sap-samples/btp-kyma-day2-approuter",
+    "BTPSA_KYMA_IMAGE_NAME_DB_SERVICE": "ghcr.io/sap-samples/btp-kyma-day2-operations-db-service",
+    "BTPSA_KYMA_IMAGE_NAME_BP_SERVICE": "ghcr.io/sap-samples/btp-kyma-day2-operations-bp-service",
+    "BTPSA_KYMA_IMAGE_NAME_EF_SERVICE": "ghcr.io/sap-samples/btp-kyma-day2-operations-ef-service",                
+    "BTPSA_KYMA_IMAGE_NAME_BROKER": "ghcr.io/sap-samples/btp-kyma-day2-operations-broker",
+    "BTPSA_KYMA_IMAGE_NAME_EMAIL_SERVICE": "ghcr.io/sap-samples/btp-kyma-day2-operations-email-service",
+    "BTPSA_KYMA_IMAGE_NAME_UI": "ghcr.io/sap-samples/btp-kyma-day2-operations-ui",
+    "BTPSA_KYMA_IMAGE_NAME_DAY2_UI": "ghcr.io/sap-samples/btp-kyma-day2-operations-day2-ui",  
+    "BTPSA_KYMA_IMAGE_NAME_DAY2_APPROUTER": "ghcr.io/sap-samples/btp-kyma-day2-operations-day2-approuter",
+    "BTPSA_KYMA_IMAGE_NAME_DAY2_SERVICE": "ghcr.io/sap-samples/btp-kyma-day2-operations-day2-service"    
+  },
+  "myusergroups": [
+    {
+      "name": "admins",
+      "members": [        
+      ]
+    }
+  ]
+}

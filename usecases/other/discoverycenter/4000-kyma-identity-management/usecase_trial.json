@@ -1,0 +1,72 @@
+{
+    "aboutThisUseCase": {
+        "name": "Enrich a Kyma based multitenant application with additional identity features",
+        "description": "This project contains a reference application, showcasing an end-to-end development scenario for a multitenant extension on SAP BTP Kyma runtime, which has an SAP partner as focus persona.",
+        "author": "alexander.rieder@sap.com",
+        "testStatus": "tested successfully",
+        "usageStatus": "READY TO BE USED",
+        "relatedLinks": [
+            "https://github.com/SAP-samples/btp-kyma-multitenant-extension"
+        ]
+    },
+    "services": [
+        {
+            "category": "ENVIRONMENT",
+            "name": "kymaruntime",
+            "plan": "trial",
+            "amount": 1,
+            "parameters": {
+                "name": "btp-auto-setup"
+            }
+        },
+        {
+            "name": "destination",
+            "plan": "lite",
+            "entitleonly": true,
+            "category": "SERVICE"
+        },
+        {
+            "name": "xsuaa",
+            "plan": "broker",
+            "entitleonly": true,
+            "category": "SERVICE"
+        },
+        {
+            "name": "hana-cloud-trial",
+            "plan": "hana",
+            "category": "SERVICE",
+            "repeatstatusrequest": 60,
+            "repeatstatustimeout": 3600,
+            "instancename": "hana-cloud",
+            "parameters": {
+                "data": {
+                    "edition": "cloud",
+                    "memory": 30,
+                    "serviceStopped": false,
+                    "storage": 120,
+                    "systempassword": "mYy8QJ9gQsghfaHjrkeP",
+                    "vcpu": 0,
+                    "versionIndicator": "",
+                    "whitelistIPs": [
+                        "0.0.0.0/0"
+                    ]
+                }
+            }
+        }
+    ],
+    "admins": [],   
+    "executeAfterAccountSetup": [        
+        {
+            "description": "Get the tutorial code",
+            "command": "rm -rf /home/user/tutorial && git clone https://github.com/SAP-samples/btp-kyma-identity-management.git /home/user/tutorial "
+        },
+        {
+            "description": "Change permission on deployment script",
+            "command": "chmod 777 /home/user/tutorial/code/setup/btp-setup-automator/btpsa-deployment.sh"
+        },
+        {
+            "description": "Run deployment script",
+            "command": "/home/user/tutorial/code/setup/btp-setup-automator/btpsa-deployment.sh"            
+        }
+    ]
+}
