@@ -18,22 +18,29 @@ def getDataForJsonSchemaTemplate(accountEntitlements):
     return result
 
 
+def removeNonPrintableChars(myString):
+    if myString:
+        filtered_characters = list(s for s in myString if s.isprintable())
+        myString = ''.join(filtered_characters)
+    return myString
+
+
 def getServicesForCategories(categories, data):
-    allServicesForCategory = []
+    thisList = []
+    listOfServices = []
     for service in data.get("entitledServices"):
         serviceName = service.get("name")
         for servicePlan in service.get("servicePlans"):
             category = servicePlan.get("category")
-            if category in categories and serviceName not in allServicesForCategory:
-                allServicesForCategory.append(serviceName)
-    allServicesForCategory = sorted(allServicesForCategory, key=str.casefold)
-    allServicesForCategory = list(dict.fromkeys(allServicesForCategory))
-
-    thisList = []
-    for service in allServicesForCategory:
-        plans = getPlansForService(service, data)
-        myService = {"serviceName": service, "servicePlans": plans}
-        thisList.append(myService)
+            if category in categories and serviceName not in listOfServices:
+                listOfServices.append(serviceName)
+                plans = getPlansForService(serviceName, data)
+                description = removeNonPrintableChars(service.get("description"))
+                displayName = removeNonPrintableChars(service.get("displayName"))
+                myService = {"name": serviceName, "displayName": displayName, "description": description, "plans": plans}
+                thisList.append(myService)
+    if thisList:
+        thisList = sorted(thisList, key=lambda k: k['name'], reverse=False)
 
     return thisList
 
@@ -43,11 +50,19 @@ def getPlansForService(serviceName, data):
     for service in data.get("entitledServices"):
         thisServiceName = service["name"]
         if thisServiceName == serviceName:
+            listOfServicePlans = []
             for servicePlan in service.get("servicePlans"):
                 servicePlanName = servicePlan.get("name")
-                result.append(servicePlanName)
-            result.sort()
-            result = list(dict.fromkeys(result))
+                if servicePlanName not in listOfServicePlans:
+                    listOfServicePlans.append((servicePlanName))
+                    dcs = []
+                    for datacenter in servicePlan.get("dataCenters"):
+                        dataCenterInfo = datacenter.get("region") + " - " + datacenter.get("displayName")
+                        dcs.append(dataCenterInfo)
+                    dcs = sorted(dcs, reverse=False)
+                    thisPlan = {"name": servicePlanName, "dataCenters": dcs}
+                    result.append(thisPlan)
+            result = sorted(result, key=lambda k: k['name'], reverse=False)
     return result
 
 
@@ -58,9 +73,9 @@ def buildCategoryStructure(accountEntitlements):
     services_APPLICATION = getServicesForCategories(["APPLICATION"], accountEntitlements)
     services_ENVIRONMENT = getServicesForCategories(["ENVIRONMENT"], accountEntitlements)
 
-    list.append({"categoryName": "SERVICE", "services": services_SERVICE})
-    list.append({"categoryName": "APPLICATION", "services": services_APPLICATION})
-    list.append({"categoryName": "ENVIRONMENT", "services": services_ENVIRONMENT})
+    list.append({"name": "SERVICE", "services": services_SERVICE})
+    list.append({"name": "APPLICATION", "services": services_APPLICATION})
+    list.append({"name": "ENVIRONMENT", "services": services_ENVIRONMENT})
 
     return list
 
@@ -76,7 +91,7 @@ def buildServiceStructure(accountEntitlements):
             theseServicePlans.append(servicePlanName)
         theseServicePlans.sort()
         theseServicePlans = list(dict.fromkeys(theseServicePlans))
-        myService = {"serviceName": serviceName, "servicePlans": theseServicePlans}
+        myService = {"name": serviceName, "plans": theseServicePlans}
         enumList.append(myService)
 
     return enumList
@@ -94,7 +109,7 @@ def buildServicPlanStructure(accountEntitlements):
                 servicePlanName = thisServicePlan.get("name")
                 if servicePlanName == plan:
                     theseServices.append(service["name"])
-        myPlan = {"planName": plan, "services": theseServices}
+        myPlan = {"name": plan, "services": theseServices}
         enumList.append(myPlan)
 
     return enumList
