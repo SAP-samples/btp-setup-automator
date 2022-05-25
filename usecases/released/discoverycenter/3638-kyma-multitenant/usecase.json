@@ -60,7 +60,7 @@
     "executeAfterAccountSetup": [        
         {
             "description": "Get the tutorial code",
-            "command": "rm -rf /home/user/tutorial && git clone https://github.tools.sap/saas-extension-on-kyma/easyfranchise-main.git /home/user/tutorial && cd /home/user/tutorial/ && git checkout main-new-structure "
+            "command": "rm -rf /home/user/tutorial && git clone https://github.com/SAP-samples/btp-kyma-multitenant-extension.git /home/user/tutorial "
         },
         {
             "description": "Change permission on deployment script",
