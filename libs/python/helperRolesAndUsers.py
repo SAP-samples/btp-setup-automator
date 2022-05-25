@@ -11,6 +11,7 @@ log = logging.getLogger(__name__)
 
 def getMembersForRolecollection(btpUsecase, rolecollection):
     users = []
+    users.append(btpUsecase.myemail)
     if rolecollection:
         for usergroup in rolecollection.get("assignedUserGroupsFromParameterFile"):
             members = getMembersOfUserGroup(btpUsecase, usergroup)
@@ -79,7 +80,8 @@ def getRoleCollectionsOfServices(btpUsecase):
 
 
 def getMembersOfUserGroup(btpUsecase, usergroup):
-    members = None
+    members = []
+    members.append(btpUsecase.myemail)
     usergroupExists = False
 
     if btpUsecase.myusergroups and usergroup:
@@ -98,11 +100,15 @@ def getMembersOfUserGroup(btpUsecase, usergroup):
             for thisUserGroup in myusergroups:
                 if thisUserGroup.get("name") == usergroup:
                     usergroupExists = True
-                    members = thisUserGroup.get("members")
+                    theseMembers = thisUserGroup.get("members")
+                    if theseMembers:
+                        members.append(theseMembers)
+                        members = list(dict.fromkeys(members))
+
             if usergroupExists is False:
                 log.error("you didn't define a usergroup >" + usergroup + "< in your parameters file >" + btpUsecase.parameterfile + "<. Therefore no members where found.")
         else:
-            log.warning("you didn't define usergroups in your parameters file >" + btpUsecase.parameterfile + "<")
+            log.warning("didn't find user group >" + usergroup + "< as no usergroups defined in your parameters file >" + btpUsecase.parameterfile + "<")
 
     return members
 
@@ -278,7 +284,7 @@ def assignUsersToEnvironments(btpUsecase):
                     for rolecollection in rolecollectionsCloudFoundrySpace:
                         members = getMembersForRolecollection(btpUsecase, rolecollection)
                         spaceRole = rolecollection.get("name")
-                        log.info("assign users to space role >" + orgRole + "<")
+                        log.info("assign users to space role >" + spaceRole + "<")
                         for admin in members:
                             message = " - user >" + admin + "<"
                             command = "cf set-space-role '" + admin + "' '" + org + "' '" + cfspacename + "' '" + spaceRole + "'"
