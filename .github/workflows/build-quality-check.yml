@@ -61,7 +61,7 @@ jobs:
         uses: docker/build-push-action@v3.0.0
         with:
           context: .
-          file: ./config/containerdefinitions/btp-setup-automator/Dockerfile
+          file: ./config/Dockerfile
           build-args: |
             BTPSA_VERSION_GIT_ARG=${{ github.sha }}
           push: false

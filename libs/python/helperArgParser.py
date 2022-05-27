@@ -1,10 +1,13 @@
 import argparse
 from libs.python.helperGeneric import getEnvVariableValue
 from libs.python.helperJson import addKeyValuePairToJsonFile, getJsonFromFile
+from libs.python.helperFolders import FOLDER_SCHEMA_LIBS
+
 import getpass
 import logging
 import sys
 import os
+
 
 log = logging.getLogger(__name__)
 
@@ -82,7 +85,7 @@ def setupParams(myArguments):
                 setattr(args, key, valueToSet)
 
             # in case the parameter file does not include all parameter keys, add the missing ones to the args
-            btpSetupAutomatorArguments = "schemas/btpsa-parameters.json"
+            btpSetupAutomatorArguments = FOLDER_SCHEMA_LIBS + "btpsa-parameters.json"
             allJsonParameters = getJsonFromFile(None, btpSetupAutomatorArguments)
             for key, value in allJsonParameters.get("properties").items():
                 default = value.get("default")
@@ -114,13 +117,13 @@ def validateJson():
 
 
 def setupParamsBtpsa():
-    jsonSchema = "schemas/btpsa-parameters.json"
+    jsonSchema = FOLDER_SCHEMA_LIBS + "btpsa-parameters.json"
     args = setupParams(jsonSchema)
     return args
 
 
 def setupParamsServices():
-    serviceArguments = "schmemas/btpsa-usecase.json"
+    serviceArguments = FOLDER_SCHEMA_LIBS + "btpsa-usecase.json"
     args = setupParams(serviceArguments)
     return args
 

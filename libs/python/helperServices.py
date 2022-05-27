@@ -1,4 +1,5 @@
 from libs.python.helperJson import getJsonFromFile
+from libs.python.helperFolders import FOLDER_SCHEMA_LIBS
 import sys
 import os
 from json import JSONEncoder
@@ -89,7 +90,7 @@ class BTPSERVICEEncoder(JSONEncoder):
 
 def readAllServicesFromUsecaseFile(btpUsecase):
     # Initiate class with configured parameters
-    jsonSchema = "schemas/btpsa-usecase.json"
+    jsonSchema = FOLDER_SCHEMA_LIBS + "btpsa-usecase.json"
     paramDefinitionServices = getJsonFromFile(None, jsonSchema)
 
     usecase = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)

@@ -166,21 +166,22 @@ RUN    OS="$(uname | tr '[:upper:]' '[:lower:]')" \
 ENV PATH "$PATH:$HOME_FOLDER/.krew/bin"
 
 ## Copy over the all necessary resources
-COPY --chown=$USERNAME:$USERNAME usecases/                  $HOME_FOLDER/usecases/
-COPY --chown=$USERNAME:$USERNAME integrationtests/          $HOME_FOLDER/integrationtests/
+COPY --chown=$USERNAME:$USERNAME usecases/              $HOME_FOLDER/usecases/
+COPY --chown=$USERNAME:$USERNAME integrationtests/      $HOME_FOLDER/integrationtests/
 
-COPY --chown=$USERNAME:$USERNAME README.md                  $HOME_FOLDER/
-COPY --chown=$USERNAME:$USERNAME parameters.json            $HOME_FOLDER/
-COPY --chown=$USERNAME:$USERNAME docs                       $HOME_FOLDER/docs
-COPY --chown=$USERNAME:$USERNAME schemas                    $HOME_FOLDER/schemas
-COPY --chown=$USERNAME:$USERNAME libs/python/btpsa          $HOME_FOLDER/
-COPY --chown=$USERNAME:$USERNAME libs/python/btp_cli.py     $LIBS_FOLDER/python/
-COPY --chown=$USERNAME:$USERNAME libs/python/helper*.py     $LIBS_FOLDER/python/
-COPY --chown=$USERNAME:$USERNAME libs/json                  $LIBS_FOLDER/json/
+COPY --chown=$USERNAME:$USERNAME README.md              $HOME_FOLDER/
+COPY --chown=$USERNAME:$USERNAME parameters.json        $HOME_FOLDER/
+COPY --chown=$USERNAME:$USERNAME docs                   $HOME_FOLDER/docs
+COPY --chown=$USERNAME:$USERNAME libs/python/btpsa      $HOME_FOLDER/
+COPY --chown=$USERNAME:$USERNAME libs/python/btp_cli.py $LIBS_FOLDER/python/
+COPY --chown=$USERNAME:$USERNAME libs/python/helper*.py $LIBS_FOLDER/python/
+COPY --chown=$USERNAME:$USERNAME libs/*.json            $LIBS_FOLDER/
 
-COPY --chown=$USERNAME:$USERNAME .reuse                     $HOME_FOLDER/.reuse
-COPY --chown=$USERNAME:$USERNAME LICENSES                   $HOME_FOLDER/LICENSES
-COPY --chown=$USERNAME:$USERNAME LICENSE                    $HOME_FOLDER/
+COPY --chown=$USERNAME:$USERNAME config/templates       $HOME_FOLDER/config/templates/
+
+COPY --chown=$USERNAME:$USERNAME .reuse                 $HOME_FOLDER/.reuse
+COPY --chown=$USERNAME:$USERNAME LICENSES               $HOME_FOLDER/LICENSES
+COPY --chown=$USERNAME:$USERNAME LICENSE                $HOME_FOLDER/
 
 # Copy over some vscode settings to install the pyhton plugins
 COPY --chown=$USERNAME:$USERNAME .vscode                    $HOME_FOLDER/.vscode/

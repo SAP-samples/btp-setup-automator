@@ -1,6 +1,6 @@
 {
+    "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
     "aboutThisUseCase": {
-        "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa-usecase.json",
         "name": "Enrich a Kyma based multitenant application with additional identity features",
         "description": "This project contains a reference application, showcasing an end-to-end development scenario for a multitenant extension on SAP BTP Kyma runtime, which has an SAP partner as focus persona.",
         "author": "alexander.rieder@sap.com",

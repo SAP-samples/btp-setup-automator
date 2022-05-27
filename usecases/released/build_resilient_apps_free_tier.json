@@ -1,5 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa-usecase.json",
+    "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
     "aboutThisUseCase": {
         "name": "Safeguard key business processes with resilient applications on SAP BTP",
         "description": "This usecase complements an existing business process in an SAP solution - currently SAP S/4HANA - with additional business process steps",
