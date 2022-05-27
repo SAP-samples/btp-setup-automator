@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa-usecase.json",
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
   "aboutThisUseCase": {
     "name": "Establish a Central Inbox with SAP Task Center",
     "description": "This usecase provides the configuration set up the SAP Task Center service to establish a central approval inbox across SAP solutions.",

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa-usecase.json",
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
   "aboutThisUseCase": {
     "name": "Test roles and users assignment",
     "description": "Test use case for roles and users",

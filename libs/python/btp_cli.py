@@ -1,4 +1,5 @@
 import libs.python.helperArgParser as helperArgParser
+from libs.python.helperFolders import FOLDER_SCHEMA_LIBS
 from libs.python.helperJson import addKeyValuePair, dictToString, convertStringToJson, getJsonFromFile
 from libs.python.helperBtpTrust import delete_cf_service_key, runTrustFlow, get_cf_service_key
 from libs.python.helperCommandExecution import executeCommandsFromUsecaseFile, runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex, login_btp, login_cf
@@ -96,16 +97,17 @@ class BTPUSECASE:
         availableForAccount = getListOfAvailableServicesAndApps(self)
 
         if self.maintain_jsonschemas is True:
-            targetFilename = "schemas/btpsa-usecase.json"
+            targetFilename = "btpsa-usecase.json"
             buildJsonSchemaFile("BTPSA-USECASE.json", targetFilename, availableForAccount)
             log.success("updated the json schema file for use cases >" + targetFilename + "< based on your global account >" + self.globalaccount + "<")
-            targetFilename = "schemas/btpsa-parameters.json"
+
+            targetFilename = "btpsa-parameters.json"
             buildJsonSchemaFile("BTPSA-PARAMETERS.json", targetFilename, availableForAccount)
             log.success("updated the json schema file for parameters >" + targetFilename + "<")
             log.header("SUCCESSFULLY MAINTAINED THE TOOL: UPDATED JSON SCHEMAS")
             sys.exit(os.EX_OK)
         else:
-            targetFilename = "schemas/btpsa-usecase-" + self.globalaccount + ".json"
+            targetFilename = "btpsa-usecase-" + self.globalaccount + ".json"
             buildJsonSchemaFile("BTPSA-USECASE.json", targetFilename, availableForAccount)
             log.info("created a json schema file >" + targetFilename + "< for your global account >" + self.globalaccount + "<")
 
@@ -542,7 +544,7 @@ def getEnvironmentsForUsecase(btpUsecase: BTPUSECASE, allServices):
     items = []
     environments = []
 
-    paramServicesFile = "schemas/btpsa-usecase.json"
+    paramServicesFile = FOLDER_SCHEMA_LIBS + "btpsa-usecase.json"
     paramDefinition = getJsonFromFile(None, paramServicesFile)
 
     for usecaseService in allServices:

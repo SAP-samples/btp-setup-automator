@@ -4,9 +4,9 @@ import logging
 log = logging.getLogger(__name__)
 
 
-def renderTemplateWithJson(templateFilename, targetFilename, parameters):
+def renderTemplateWithJson(templateFolder, templateFilename, targetFilename, parameters):
 
-    templateLoader = jinja2.FileSystemLoader(searchpath="./libs/json/templates/")
+    templateLoader = jinja2.FileSystemLoader(searchpath=templateFolder)
     templateEnv = jinja2.Environment(loader=templateLoader)
     template = templateEnv.get_template(templateFilename)
 

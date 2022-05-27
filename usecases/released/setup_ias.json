@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa-usecase.json",
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
   "aboutThisUseCase": {
     "name": "Setup trust between SAP IAS and SAP BTP subaccount",
     "description": "This usecase provides the configuration of services to create trust between a SAP BTP subaccount and a customer IAS tenant",

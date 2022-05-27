@@ -1,5 +1,7 @@
 from libs.python.helperJson import dictToJson
 from libs.python.helperJinja2 import renderTemplateWithJson
+from libs.python.helperFolders import FOLDER_SCHEMA_LIBS, FOLDER_SCHEMA_TEMPLATES
+
 import logging
 
 log = logging.getLogger(__name__)
@@ -160,10 +162,10 @@ def buildEnumForDatacenters(accountEntitlements):
     return enumList
 
 
-def buildJsonSchemaFile(TEMPLATE_FILE, TARGET_FILE, accountEntitlements):
+def buildJsonSchemaFile(TEMPLATE_FILE, targetFilename, accountEntitlements):
     data = getDataForJsonSchemaTemplate(accountEntitlements)
 
     templateFilename = TEMPLATE_FILE
-    targetFilename = TARGET_FILE
+    targetFile = FOLDER_SCHEMA_LIBS + targetFilename
 
-    renderTemplateWithJson(templateFilename, targetFilename, data)
+    renderTemplateWithJson(FOLDER_SCHEMA_TEMPLATES, templateFilename, targetFile, data)
