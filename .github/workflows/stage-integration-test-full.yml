@@ -96,11 +96,6 @@ jobs:
         working-directory: /home/user
         shell: bash
         run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest07.json'
-      - name: "Integration test 09: Setup a Kyma environment (Free Tier)"
-        if: ${{ always() }}
-        working-directory: /home/user
-        shell: bash
-        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/parameterfiles/integrationtest09.json'
       - name: "Integration test 10: Setup a Kyma environment on GCP"
         if: ${{ always() }}
         working-directory: /home/user
