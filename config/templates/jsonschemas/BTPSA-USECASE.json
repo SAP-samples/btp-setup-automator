@@ -298,53 +298,9 @@
         }
     },
     "$defs": {
-        "parameters--service--hana-cloud--hana-free": {
-            "type": "object",
-            "properties": {
-                "data": {
-                    "type": "object",
-                    "properties": {
-                        "edition": {
-                            "type": "string"
-                        },
-                        "memory": {
-                            "type": "integer"
-                        },
-                        "serviceStopped": {
-                            "type": "boolean"
-                        },
-                        "storage": {
-                            "type": "integer"
-                        },
-                        "systempassword": {
-                            "type": "string"
-                        },
-                        "vcpu": {
-                            "type": "integer"
-                        },
-                        "versionIndicator": {
-                            "type": "string"
-                        },
-                        "whitelistIPs": {
-                            "type": "array",
-                            "items": {}
-                        }
-                    },
-                    "required": [
-                        "edition",
-                        "memory",
-                        "serviceStopped",
-                        "storage",
-                        "systempassword",
-                        "vcpu",
-                        "versionIndicator",
-                        "whitelistIPs"
-                    ]
-                }
-            },
-            "required": [
-                "data"
-            ]
-        }
+        {% for thisDef in jsonSchemaDefs -%}
+            "{{ thisDef.name }}": "{{ thisDef.value }}"
+            {% if not loop.last %}, {% endif %}
+        {% endfor %}
     }    
 }

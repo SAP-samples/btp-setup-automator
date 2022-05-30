@@ -1,8 +1,9 @@
-from libs.python.helperJson import dictToJson
+from libs.python.helperJson import dictToJson, getJsonFromFile
 from libs.python.helperJinja2 import renderTemplateWithJson
 from libs.python.helperFolders import FOLDER_SCHEMA_LIBS, FOLDER_SCHEMA_TEMPLATES
 
 import logging
+import glob
 
 log = logging.getLogger(__name__)
 
@@ -15,7 +16,11 @@ def getDataForJsonSchemaTemplate(accountEntitlements):
     serviceStructure = buildServiceStructure(accountEntitlements)
     categoryStructure = buildCategoryStructure(accountEntitlements)
 
-    result = {"enumServiceList": enumServiceList, "enumPlanList": enumPlanList, "enumDatacenterList": enumDatacenterList, "services": serviceStructure, "categoryStructure": categoryStructure}
+    defsContent = getJsonSchemaDefsContent()
+
+    jsonSchemaDefs = retrieveJsonSchemaDefs(defsContent)
+
+    result = {"enumServiceList": enumServiceList, "enumPlanList": enumPlanList, "enumDatacenterList": enumDatacenterList, "services": serviceStructure, "categoryStructure": categoryStructure, "jsonSchemaDefs": jsonSchemaDefs}
 
     return result
 
@@ -43,6 +48,8 @@ def getServicesForCategories(categories, data):
                 thisList.append(myService)
     if thisList:
         thisList = sorted(thisList, key=lambda k: k['name'], reverse=False)
+
+    thisList = addJsonSchemaServiceParameters(thisList)
 
     return thisList
 
@@ -169,3 +176,49 @@ def buildJsonSchemaFile(TEMPLATE_FILE, targetFilename, accountEntitlements):
     targetFile = FOLDER_SCHEMA_LIBS + targetFilename
 
     renderTemplateWithJson(FOLDER_SCHEMA_TEMPLATES, templateFilename, targetFile, data)
+
+
+def getJsonSchemaDefsContent():
+    folderParameterFiles = FOLDER_SCHEMA_TEMPLATES + "parameters/"
+
+    result = []
+
+    for filename in glob.iglob(folderParameterFiles + '**/*.json', recursive=True):
+        content = getJsonFromFile(None, filename)
+        result.append(content)
+
+    return result
+
+
+def retrieveJsonSchemaDefs(contents):
+
+    result = []
+    for content in contents:
+        defs = content.get("defs")
+        for thisDef in defs:
+            name = thisDef.get("def-name")
+            struct = thisDef.get("def-structure")
+            thisResult = {}
+            thisResult["name"] = name
+            thisResult["value"] = struct
+            result.append(thisResult)
+
+    return result
+
+
+def addJsonSchemaServiceParameters(servicesList):
+
+    folderParameterFiles = FOLDER_SCHEMA_TEMPLATES + "parameters/"
+
+    for filename in glob.iglob(folderParameterFiles + '**/*.json', recursive=True):
+        content = getJsonFromFile(None, filename)
+        category = content.get("category")
+        name = content.get("name")
+        plan = content.get("plan")
+
+        for thisService in servicesList:
+            thisServiceCategory = thisService.category
+            thisServiceName = thisService.name
+            thisServicePlan = thisService.plan
+
+    return servicesList

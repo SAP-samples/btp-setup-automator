@@ -1112,7 +1112,7 @@
                                             "if": { "properties": { "name": { "const": "enterprise-messaging"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": ["default", "event-mesh-connectivity"] },
+                                                    "plan": { "enum": ["default", "event-mesh-connectivity", "event-mesh-connectivity-beta"] },
                                                     "name": { "description": "Event Mesh:\nThe SAP Event Mesh service decouples communication and allows for event-driven business processes."} 
                                                 }, 
                                                 "allOf": [
@@ -1126,6 +1126,12 @@
                                                         "if": { "properties": { "plan": { "const": "event-mesh-connectivity"} } },
                                                         "then" :{
                                                             "properties": { "plan": { "description": "service plan >event-mesh-connectivity< for >enterprise-messaging< is available in data centers:\n- eu10 - Europe (Frankfurt)" } } 
+                                                        }
+                                                    }, 
+                                                    { 
+                                                        "if": { "properties": { "plan": { "const": "event-mesh-connectivity-beta"} } },
+                                                        "then" :{
+                                                            "properties": { "plan": { "description": "service plan >event-mesh-connectivity-beta< for >enterprise-messaging< is available in data centers:\n- eu10 - Europe (Frankfurt)\n- us20 - US West (WA)" } } 
                                                         }
                                                     }
                                                     
@@ -2659,13 +2665,13 @@
                                                     { 
                                                         "if": { "properties": { "plan": { "const": "free"} } },
                                                         "then" :{
-                                                            "properties": { "plan": { "description": "service plan >free< for >retention-manager< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- ap21 - Singapore\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- jp20 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)" } } 
+                                                            "properties": { "plan": { "description": "service plan >free< for >retention-manager< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- ap21 - Singapore\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- jp20 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)\n- us30 - US Central (IA)" } } 
                                                         }
                                                     }, 
                                                     { 
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
-                                                            "properties": { "plan": { "description": "service plan >standard< for >retention-manager< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- ap21 - Singapore\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- jp20 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)" } } 
+                                                            "properties": { "plan": { "description": "service plan >standard< for >retention-manager< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- ap21 - Singapore\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- jp20 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)\n- us30 - US Central (IA)" } } 
                                                         }
                                                     }
                                                     
@@ -4101,7 +4107,7 @@
                                                     { 
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
-                                                            "properties": { "plan": { "description": "application plan >standard< for >retention-manager-app< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)" } } 
+                                                            "properties": { "plan": { "description": "application plan >standard< for >retention-manager-app< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)\n- us30 - US Central (IA)" } } 
                                                         }
                                                     }
                                                     
@@ -4460,5 +4466,9 @@
                 }
             }
         }
-    }
+    },
+    "$defs": {
+        "parameters--service--hana-cloud--hana-free": {"properties": {"data": {"properties": {"edition": {"type": "string"}, "memory": {"type": "integer"}, "serviceStopped": {"type": "boolean"}, "storage": {"type": "integer"}, "systempassword": {"type": "string"}, "vcpu": {"type": "integer"}, "versionIndicator": {"type": "string"}, "whitelistIPs": {"items": {}, "type": "array"}}, "required": ["edition", "memory", "serviceStopped", "storage", "systempassword", "vcpu", "versionIndicator", "whitelistIPs"], "type": "object"}}, "required": ["data"], "type": "object"}
+            
+    }    
 }
