@@ -36,7 +36,7 @@ Let us take a closer look into the files needed for the setup.
 
 The main file for the setup is the `parameter file` written in JSON format. It provides the basic information for the `btp-setup-automator` to run.
 
-All available parameters are described in the file [`schemas/btpsa-parameters.json`](../schemas/btpsa-parameters.json). As there are quite some we will focus on the main cases.
+All available parameters are described in the file [`libs/btpsa-parameters.json`](../libs/btpsa-parameters.json). As there are quite some we will focus on the main cases.
 
 ### Basics
 
@@ -57,7 +57,7 @@ You can also provide further information like the name of your Cloud Foundry sap
 "cfspacename": "development",
 ```
 
-Think about the basics of this file as the very basic information needed to setup resources in SAP BTP. Some of them are defaulted (see [`schemas/btpsa-parameters.json`](../schemas/btpsa-parameters.json) for the default values).
+Think about the basics of this file as the very basic information needed to setup resources in SAP BTP. Some of them are defaulted (see [`libs/btpsa-parameters.json`](../libs/btpsa-parameters.json) for the default values).
 
 ### Authentication
 

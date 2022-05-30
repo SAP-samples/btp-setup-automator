@@ -5,7 +5,7 @@ When calling the '`btp-setup-automator` you can provide additional parameters to
 If you use VS Code or any other IDE that supports JSON schemas, you can just add the following key/value pair to your parameters file to get auto-fill help, when creating it:
 
 ````json
-  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa-usecase.json",
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
 ````
 
 These are the available parameters:

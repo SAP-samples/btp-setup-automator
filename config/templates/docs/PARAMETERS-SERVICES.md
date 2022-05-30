@@ -5,7 +5,7 @@ The `usecase.json` file has a section to define all services.
 If you use VS Code or any other IDE that supports JSON schemas, you can just add the following key/value pair to your use case file to get auto-fill help, when creating it:
 
 ````json
-  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/schemas/btpsa-parameters.json",
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
 ````
 
 These services can be configured through the following parameters:

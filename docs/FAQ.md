@@ -135,7 +135,7 @@ Just script the script :-). You can create 3 different parameter files, which on
 
 ### Where can I find more information about the available parameters?
 
-You find all available parameters for the `btpsa` CLI tool in the file [`schemas/btpsa-parameters.json`](../schemas/btpsa-parameters.json). All parameters including their data types and default values are defined in there. The CLI is using this definition during runtime.
+You find all available parameters for the `btpsa` CLI tool in the file [`libs/btpsa-parameters.json`](../libs/btpsa-parameters.json). All parameters including their data types and default values are defined in there. The CLI is using this definition during runtime.
 
 As an alternative you can also use the CLI directly and key in:
 
