@@ -45,7 +45,7 @@ Now run the main script `btpsa` with the following command:
 ### Trial Accounts
 
 ```bash
-./btpsa -parameterfile 'usecases/released/discoverycenter/4000-kyma-identity-management/parameters_trial.json' -usecasefile 'usecases/released/discoverycenter/4000-kyma-identity-management/usecase_trial.json' -subaccountname 'trial' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>'
+./btpsa -parameterfile 'usecases/released/discoverycenter/4000-kyma-identity-management/parameters.json' -usecasefile 'usecases/released/discoverycenter/4000-kyma-identity-management/usecase_trial.json' -subaccountname 'trial' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>'
 ```
 
 The btp-setup-automator script will now prepare your SAP BTP account to cover the discovery center mission. You can have a look at the [usecase.json](usecase.json) and [parameters.json](parameters.json) for more details about the used services and configuration parameters (e.g. DB Password for SAP HANA Cloud)
