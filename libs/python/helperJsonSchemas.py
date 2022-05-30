@@ -9,18 +9,16 @@ log = logging.getLogger(__name__)
 
 
 def getDataForJsonSchemaTemplate(accountEntitlements):
-
-    enumServiceList = buildEnumForServices(accountEntitlements)
-    enumPlanList = buildEnumForServicePlans(accountEntitlements)
-    enumDatacenterList = buildEnumForDatacenters(accountEntitlements)
-    serviceStructure = buildServiceStructure(accountEntitlements)
-    categoryStructure = buildCategoryStructure(accountEntitlements)
+    result = {}
 
     defsContent = getJsonSchemaDefsContent()
+    result["jsonSchemaDefs"] = retrieveJsonSchemaDefs(defsContent)
 
-    jsonSchemaDefs = retrieveJsonSchemaDefs(defsContent)
-
-    result = {"enumServiceList": enumServiceList, "enumPlanList": enumPlanList, "enumDatacenterList": enumDatacenterList, "services": serviceStructure, "categoryStructure": categoryStructure, "jsonSchemaDefs": jsonSchemaDefs}
+    result["services"] = buildServiceStructure(accountEntitlements)
+    result["enumPlanList"] = buildEnumForServicePlans(accountEntitlements)
+    result["enumServiceList"] = buildEnumForServices(accountEntitlements)
+    result["categoryStructure"] = buildCategoryStructure(accountEntitlements, defsContent)
+    result["enumDatacenterList"] = buildEnumForDatacenters(accountEntitlements)
 
     return result
 
@@ -32,7 +30,7 @@ def removeNonPrintableChars(myString):
     return myString
 
 
-def getServicesForCategories(categories, data):
+def getServicesForCategories(categoryBlock, categories, data, defsContent):
     thisList = []
     listOfServices = []
     for service in data.get("entitledServices"):
@@ -49,7 +47,7 @@ def getServicesForCategories(categories, data):
     if thisList:
         thisList = sorted(thisList, key=lambda k: k['name'], reverse=False)
 
-    thisList = addJsonSchemaServiceParameters(thisList)
+    thisList = addJsonSchemaServiceParameters(categoryBlock, thisList, defsContent)
 
     return thisList
 
@@ -75,12 +73,12 @@ def getPlansForService(serviceName, data):
     return result
 
 
-def buildCategoryStructure(accountEntitlements):
+def buildCategoryStructure(accountEntitlements, defsContent):
 
     list = []
-    services_SERVICE = getServicesForCategories(["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"], accountEntitlements)
-    services_APPLICATION = getServicesForCategories(["APPLICATION"], accountEntitlements)
-    services_ENVIRONMENT = getServicesForCategories(["ENVIRONMENT"], accountEntitlements)
+    services_SERVICE = getServicesForCategories("SERVICE", ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"], accountEntitlements, defsContent)
+    services_APPLICATION = getServicesForCategories("APPLICATION", ["APPLICATION"], accountEntitlements, defsContent)
+    services_ENVIRONMENT = getServicesForCategories("ENVIRONMENT", ["ENVIRONMENT"], accountEntitlements, defsContent)
 
     list.append({"name": "SERVICE", "services": services_SERVICE})
     list.append({"name": "APPLICATION", "services": services_APPLICATION})
@@ -179,7 +177,7 @@ def buildJsonSchemaFile(TEMPLATE_FILE, targetFilename, accountEntitlements):
 
 
 def getJsonSchemaDefsContent():
-    folderParameterFiles = FOLDER_SCHEMA_TEMPLATES + "parameters/"
+    folderParameterFiles = FOLDER_SCHEMA_TEMPLATES + "defs/"
 
     result = []
 
@@ -206,19 +204,37 @@ def retrieveJsonSchemaDefs(contents):
     return result
 
 
-def addJsonSchemaServiceParameters(servicesList):
+def addJsonSchemaServiceParameters(categoryBlock, servicesList, defsContent):
 
-    folderParameterFiles = FOLDER_SCHEMA_TEMPLATES + "parameters/"
-
-    for filename in glob.iglob(folderParameterFiles + '**/*.json', recursive=True):
-        content = getJsonFromFile(None, filename)
-        category = content.get("category")
-        name = content.get("name")
-        plan = content.get("plan")
+    for thisDef in defsContent:
+        category = thisDef.get("category")
+        name = thisDef.get("name")
+        defDefinitions = thisDef["defs"]
 
         for thisService in servicesList:
-            thisServiceCategory = thisService.category
-            thisServiceName = thisService.name
-            thisServicePlan = thisService.plan
+            if category == categoryBlock and name == thisService["name"]:
+
+                for defDefinition in defDefinitions:
+                    thisRefLevel = defDefinition["ref-level"]
+                    thisRefValue = defDefinition["ref-value"]
+                    thisRefAttribute = defDefinition["ref-attribute"]
+                    defName = defDefinition["def-name"]
+
+                    # check if there is an array for the ref level (e.g. plans)
+                    refLevelPlural = thisRefLevel + "s"
+                    if thisService[refLevelPlural]:
+                        for myRefLevel in thisService[refLevelPlural]:
+                            thisName = myRefLevel["name"]
+                            if thisName == thisRefValue:
+                                if not thisService.get("refs"):
+                                    thisService["refs"] = []
+                                thisEntry = {"name": defName, "attribute": thisRefAttribute}
+                                thisService["refs"].append(thisEntry)
+                    else:
+                        if thisService[thisRefLevel] == thisRefValue:
+                            if not thisService.get("refs"):
+                                thisService["refs"] = []
+                            thisEntry = {"name": defName, "attribute": thisRefAttribute}
+                            thisService["refs"].append(thisEntry)
 
     return servicesList
