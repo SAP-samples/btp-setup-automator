@@ -284,7 +284,7 @@
                         "type": "string",
                         "description": "",
                         "title": "",
-                        "enum": ["account", "cloudfoundry"]
+                        "enum": ["account", "cloudfoundry", "custom"]
                     },
                     "level": {
                         "type": "string",
