@@ -1,5 +1,6 @@
 {
-  "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/usecasefiles/usecase_it04_one_subscription_only.json",
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
+  "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/tests/integrationtests/usecasefiles/usecase_it04_one_subscription_only.json",
   "loginmethod": "envVariables",
   "region": "us10",
   "subaccountname": "BTPSA int-test subscription",

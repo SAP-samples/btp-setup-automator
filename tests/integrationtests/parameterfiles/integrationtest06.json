@@ -1,5 +1,6 @@
 {
-  "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/integrationtests/usecasefiles/usecase_it06_service_key_creation.json",
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
+  "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/tests/integrationtests/usecasefiles/usecase_it06_service_key_creation.json",
   "loginmethod": "envVariables",
   "cfspacename": "my own space",
   "prunesubaccount": true,

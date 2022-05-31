@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
   "aboutThisUseCase": {
     "name": "Integration test 05: Only one service without app subscriptions and with an admin, that is the same like the one logging into the script.",
     "description": "This usecase is used for a script integration test",
