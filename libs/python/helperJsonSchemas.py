@@ -177,7 +177,7 @@ def buildJsonSchemaFile(TEMPLATE_FILE, targetFilename, accountEntitlements):
 
 
 def getJsonSchemaDefsContent():
-    folderParameterFiles = FOLDER_SCHEMA_TEMPLATES + "defs/"
+    folderParameterFiles = FOLDER_SCHEMA_TEMPLATES + "services/"
 
     result = []
 
