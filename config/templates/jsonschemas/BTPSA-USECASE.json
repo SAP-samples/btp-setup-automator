@@ -163,15 +163,18 @@
                     { 
                         "if": { "properties": { "category": { "const": "{{ category.name }}"} } },
                         "then" :{
-                                    "properties": { "name": { "enum": [{% for service in category.services -%}"{{ service.name }}"{% if not loop.last %}, {% endif %}{% endfor %}] } },
+                                    "properties": { "name": { "enum": [{% for service in category.services -%}"{{ service.name }}"{% if not loop.last %}, {% endif %}{% endfor -%}] } },
                                     "allOf": [
                                         {% for service in category.services -%}
                                         { 
                                             "if": { "properties": { "name": { "const": "{{ service.name }}"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": [{% for plan in service.plans -%}"{{ plan.name }}"{% if not loop.last %}, {% endif %}{% endfor %}] },
-                                                    "name": { "description": "{{ service.displayName }}:\n{{ service.description }}"} 
+                                                    "plan": { "enum": [{% for plan in service.plans -%}"{{ plan.name }}"{% if not loop.last %}, {%- endif %}{% endfor -%}] },
+                                                    "name": { "description": "{{ service.displayName }}:\n{{ service.description }}"} {% if service.refs is defined %},{% endif %}
+                                                    {% for ref in service.refs -%}
+                                                        "{{ ref.attribute }}": { "$ref": "#/$defs/{{ ref.name }}" }
+                                                    {% if not loop.last %}, {%- endif %}{% endfor -%}
                                                 }, 
                                                 "allOf": [
                                                     {% for plan in service.plans -%}
@@ -181,16 +184,15 @@
                                                             "properties": { "plan": { "description": "{{ category.name.lower() }} plan >{{ plan.name }}< for >{{ service.name }}< is available in data centers:{% for datacenter in plan.dataCenters -%}\n- {{ datacenter }}{% if not loop.last %}{% endif %}{% endfor %}" } } 
                                                         }
                                                     }{% if not loop.last %}, {% endif %}
-                                                    {% endfor %}
-                                                ]
-            
+                                                    {% endfor -%}
+                                                ]            
                                             }
                                         }{% if not loop.last %}, {% endif %}
-                                        {% endfor %}
+                                        {% endfor -%}
                                     ]
                                 }
                     }{% if not loop.last %}, {% endif %}
-                    {% endfor %}
+                    {% endfor -%}
                 ]
             }
         },
@@ -296,5 +298,10 @@
                 }
             }
         }
+    },
+    "$defs": {
+        {% for thisDef in jsonSchemaDefs -%}
+            "{{ thisDef.name }}": {{ thisDef.value | tojson}}{% if not loop.last %}, {% endif -%}
+        {% endfor %}
     }
 }
