@@ -9,13 +9,13 @@ log = logging.getLogger(__name__)
 def updateDocumentation():
 
     data = getJsonFromFile(None, FOLDER_SCHEMA_LIBS + "btpsa-usecase.json")
-    parameters = data.get("properties")
-    targetFilename = FOLDER_DOCS_OUTPUT + "/PARAMETERS-SERVICES.md"
+    parameters = {"parameters": data.get("properties")}
+    targetFilename = FOLDER_DOCS_OUTPUT + "PARAMETERS-SERVICES.md"
     renderTemplateWithJson(FOLDER_DOCS_TEMPLATES, "PARAMETERS-SERVICES.md", targetFilename, parameters)
     log.success("updated the documentation for use cases at >" + targetFilename + "<")
 
     data = getJsonFromFile(None, FOLDER_SCHEMA_LIBS + "btpsa-parameters.json")
-    parameters = data.get("properties")
-    targetFilename = FOLDER_DOCS_OUTPUT + "/PARAMETERS-BTPSA.md"
+    parameters = {"parameters": data.get("properties")}
+    targetFilename = FOLDER_DOCS_OUTPUT + "PARAMETERS-BTPSA.md"
     renderTemplateWithJson(FOLDER_DOCS_TEMPLATES, "PARAMETERS-BTPSA.md", targetFilename, parameters)
     log.success("updated the documentation for btpsa parameters at >" + targetFilename + "<")

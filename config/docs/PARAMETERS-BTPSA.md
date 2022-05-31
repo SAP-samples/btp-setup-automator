@@ -10,10 +10,10 @@ If you use VS Code or any other IDE that supports JSON schemas, you can just add
 
 These are the available parameters:
 
-| Parameter | Description | Type  | Mandatory | Default value |
-|---|---|---|---|---|
-{% for param in params -%}
-| {{ param.argument }} | {{ param.help }} | {{ param.type }} | {{ param.mandatory }} | {{ param.default }} |
+| Parameter | Description | Type  | Default value |
+|---|---|---|---|
+{% for key, value in parameters.items() -%}
+| {{ key }} | {{ value.description }} | {{ value.type }} | {{ value.default }} |
 {% endfor %}
 You can get an overview of those commands as well, by simply typing the following command in your command line terminal:
 
