@@ -267,8 +267,8 @@
         },
         "assignrolecollections": {
             "type": "array",
-            "description": "create a list of commands, that should be executed to prune the use case from your SAP BTP account",
-            "title": "commands to run to prune use case from your SAP BTP account",
+            "description": "role collections to be assigned to a service",
+            "title": "role collections to be assigned to a service",
             "additionalProperties": false,
             "items": {
                 "type": "object",

@@ -13,7 +13,7 @@ These are the available parameters:
 | Parameter | Description | Type  | Default value |
 |---|---|---|---|
 {% for key, value in parameters.items() -%}
-| {{ key }} | {{ value.description }} | {{ value.type }} | {{ value.default }} |
+| {{ key }} | {{ value.title }} | {{ value.type }} | {{ value.default }} |
 {% endfor %}
 You can get an overview of those commands as well, by simply typing the following command in your command line terminal:
 

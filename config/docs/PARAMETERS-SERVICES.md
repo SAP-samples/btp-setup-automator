@@ -13,6 +13,6 @@ These services can be configured through the following parameters:
 | Parameter | Description | Type |
 |---|---|---|
 {% for key, value in parameters.items() -%}
-| {{ key }} | {{ value["description"] }} | {{ value["type"] }} |
+| {{ key }} | {{ value.description }} | {{ value.type }} |
 {% endfor %}
 Checkout the [SAMPLECONFIG.md](/docs/SAMPLECONFIG.md) documentation for some examples.
