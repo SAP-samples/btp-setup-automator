@@ -267,8 +267,8 @@
         },
         "assignrolecollections": {
             "type": "array",
-            "description": "create a list of commands, that should be executed to prune the use case from your SAP BTP account",
-            "title": "commands to run to prune use case from your SAP BTP account",
+            "description": "role collections to be assigned to a service",
+            "title": "role collections to be assigned to a service",
             "additionalProperties": false,
             "items": {
                 "type": "object",
@@ -284,7 +284,7 @@
                         "type": "string",
                         "description": "",
                         "title": "",
-                        "enum": ["account", "cloudfoundry"]
+                        "enum": ["account", "cloudfoundry", "custom"]
                     },
                     "level": {
                         "type": "string",
@@ -301,7 +301,7 @@
     },
     "$defs": {
         {% for thisDef in jsonSchemaDefs -%}
-            "{{ thisDef.name }}": {{ thisDef.value | tojson}}{% if not loop.last %}, {% endif -%}
-        {% endfor %}
+            "{{ thisDef.name }}": {{ thisDef.value | tojson}}{% if not loop.last %}, {% endif %}
+        {% endfor -%}
     }
 }

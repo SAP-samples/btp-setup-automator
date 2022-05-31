@@ -30,7 +30,7 @@
         "loginmethod": {
             "type": "string",
             "title": "login method to SAP BTP",
-            "description": "if set to sso, you'll need to open a link provided in a browser to login. Set to basicAuthentication (default) the script will ask if you want to provide username and password. If set to **envVariables** you need to provide the email address and password by setting the environment variable **BTPSA_PARAM_MYEMAIL** and **BTPSA_PARAM_MYPASSWORD**. In addition you can as well provide the global account through the environment variable **BTPSA_PARAM_GLOBALACCOUNT**.\n Like this:\nexport BTPSA_PARAM_MYEMAIL=youremail@x.com\nexport BTPSA_PARAM_MYPASSWORD=mypassword1234",
+            "description": "if set to sso, you'll need to open a link provided in a browser to login. Set to basicAuthentication (default) the script will ask if you want to provide username and password. If set to **envVariables** you need to provide the email address and password by setting the environment variable **BTPSA_PARAM_MYEMAIL** and **BTPSA_PARAM_MYPASSWORD**. In addition you can as well provide the global account through the environment variable **BTPSA_PARAM_GLOBALACCOUNT**. Like this: export BTPSA_PARAM_MYEMAIL=youremail@x.com",
             "default": "basicAuthentication",
             "enum": [
                 "basicAuthentication",

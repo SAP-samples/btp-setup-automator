@@ -10,9 +10,9 @@ If you use VS Code or any other IDE that supports JSON schemas, you can just add
 
 These services can be configured through the following parameters:
 
-| Parameter | Description | Type  | Mandatory | Default value |
-|---|---|---|---|---|
-{% for param in params -%}
-| {{ param.argument }} | {{ param.help }} | {{ param.type }} | {{ param.mandatory }} | {{ param.default }} |
+| Parameter | Description | Type |
+|---|---|---|
+{% for key, value in parameters.items() -%}
+| {{ key }} | {{ value.description }} | {{ value.type }} |
 {% endfor %}
 Checkout the [SAMPLECONFIG.md](/docs/SAMPLECONFIG.md) documentation for some examples.
