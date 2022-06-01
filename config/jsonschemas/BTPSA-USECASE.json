@@ -159,6 +159,12 @@
                     }
                 },
                 "allOf": [
+                    { 
+                        "if": { "properties": { "category": { "const": "CF_CUP_SERVICE"} } },
+                        "then" :{
+                                "properties": { "parameters": { "const": "-p '{\"username\":\"admin1\",\"password\":\"pa55woRD1\"}'"} }, "required": ["parameters"]
+                        }
+                    },
                     {% for category in categoryStructure -%}
                     { 
                         "if": { "properties": { "category": { "const": "{{ category.name }}"} } },

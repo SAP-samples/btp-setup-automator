@@ -1,0 +1,13 @@
+{
+    "category": "CF-CUP-SERVICE",
+    "defs": [
+        {
+            "ref-attribute": "parameters",
+            "def-name": "cf-cup-service",
+            "def-structure": {
+                "type": "string",
+                "default": "-p '{\"parameter1\":\"admin\",\"parameter2\":\"pa55woRD1\"}'"
+            }
+        }
+    ]
+}
