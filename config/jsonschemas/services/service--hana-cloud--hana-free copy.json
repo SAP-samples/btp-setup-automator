@@ -14,22 +14,28 @@
                         "type": "object",
                         "properties": {
                             "edition": {
-                                "type": "string"
+                                "type": "string",
+                                "default": "cloud"
                             },
                             "memory": {
-                                "type": "integer"
+                                "type": "integer",
+                                "default": 30
                             },
                             "serviceStopped": {
-                                "type": "boolean"
+                                "type": "boolean",
+                                "default": false
                             },
                             "storage": {
-                                "type": "integer"
+                                "type": "integer",
+                                "default": 120
                             },
                             "systempassword": {
-                                "type": "string"
+                                "type": "string",
+                                "default": "enterYour0wnPassw0rd!"
                             },
                             "vcpu": {
-                                "type": "integer"
+                                "type": "integer",
+                                "default": 0
                             },
                             "versionIndicator": {
                                 "type": "string"

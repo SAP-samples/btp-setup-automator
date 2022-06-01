@@ -159,6 +159,14 @@
                     }
                 },
                 "allOf": [
+                    { 
+                        "if": { "properties": { "category": { "const": "CF_CUP_SERVICE"} } },
+                        "then" :{
+                                "properties": { 
+                                    "parameters": { "default": "-p '{\"username\":\"admin1\",\"password\":\"pa55woRD1\"}'"}, "name": { "default": "nameForYourCfUserProvidedInstance"}, "category": { "const": "CF_CUP_SERVICE"}
+                                }, "required": ["parameters", "name", "category"], "additionalProperties": false
+                        }
+                    },
                     {% for category in categoryStructure -%}
                     { 
                         "if": { "properties": { "category": { "const": "{{ category.name }}"} } },
