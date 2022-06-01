@@ -36,7 +36,6 @@ With the built-in json schemas it's fairly simple to create your own use case fi
 
 You find more information on the different use cases in the [usecases document](./docs/USECASES.md).
 
-
 ## Requirements
 
 To use the tooling you first need to finish the following tasks:

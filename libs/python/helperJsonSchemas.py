@@ -1,4 +1,3 @@
-import this
 from libs.python.helperJson import dictToJson, getJsonFromFile
 from libs.python.helperJinja2 import renderTemplateWithJson
 from libs.python.helperFolders import FOLDER_SCHEMA_LIBS, FOLDER_SCHEMA_TEMPLATES
