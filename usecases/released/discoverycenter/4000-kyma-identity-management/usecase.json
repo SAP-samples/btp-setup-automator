@@ -56,7 +56,6 @@
             }
         }
     ],
-    "admins": [],   
     "executeAfterAccountSetup": [        
         {
             "description": "Get the tutorial code",
