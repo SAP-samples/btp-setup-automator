@@ -22,7 +22,7 @@ The services and subscriptions that are created are:
 
 The code of the application is pulled from the GitHub repository <https://github.com/SAP-samples/cloud-cap-risk-management>.
 
-The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest02.json](../integrationtests/parameterfiles/integrationtest02.json).
+The use case is referenced from the parameters file [/tests/integrationtests/parameterfiles/integrationtest02.json](../tests/integrationtests/parameterfiles/integrationtest02.json).
 
 ## Use case "build_resilient_apps_free_tier"
 
@@ -41,7 +41,7 @@ The services and subscriptions that are created are:
 
 The code of the application is pulled from the GitHub repository <https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension>.
 
-The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest03.json](../integrationtests/parameterfiles/integrationtest03.json).
+The use case is referenced from the parameters file [/tests/integrationtests/parameterfiles/integrationtest03.json](../tests/integrationtests/parameterfiles/integrationtest03.json).
 
 ## Use case "setup_ABAP_steampunk.json"
 
@@ -55,19 +55,19 @@ The file [setup_ias.json](../usecases/released/setup_ias.json) contains the setu
 
 The file [setup_kyma_free_tier.json](../usecases/released/setup_kyma_free_tier.json) contains the setup of a Kyma environment using the `free tier` plan
 
-The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest09.json](../integrationtests/parameterfiles/integrationtest09.json).
+The use case is referenced from the parameters file [/tests/integrationtests/parameterfiles/integrationtest09.json](../tests/integrationtests/parameterfiles/integrationtest09.json).
 
 ## Use case "setup_kyma_gcp.json"
 
 The file [setup_kyma_gcp.json](../usecases/released/setup_kyma_gcp.json) contains the setup of a Kyma environment on Google Cloud Platform (GCP) using the `GCP` plan.
 
-The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest10.json](../integrationtests/parameterfiles/integrationtest10.json).
+The use case is referenced from the parameters file [/tests/integrationtests/parameterfiles/integrationtest10.json](../tests/integrationtests/parameterfiles/integrationtest10.json).
 
 ## Use case "setup_kyma_TRIAL.json"
 
 The file [setup_kyma_TRIAL.json](../usecases/released/setup_kyma_TRIAL.json) contains the setup of a Kyma environment on SAP BTP Trial.
 
-The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest08.json](../integrationtests/parameterfiles/integrationtest08.json).
+The use case is referenced from the parameters file [/tests/integrationtests/parameterfiles/integrationtest08.json](../tests/integrationtests/parameterfiles/integrationtest08.json).
 
 ## Use case "setup_kyma_gcp_with_dapr.json"
 
@@ -75,7 +75,7 @@ The file [setup_kyma_gcp_with_dapr.json](../usecases/released/setup_kyma_gcp_wit
 
 The code of the application is pulled from the GitHub repository <https://github.com/SAP-samples/kyma-runtime-extension-samples/tree/main/custom-component-dapr>.
 
-The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest11.json](../integrationtests/parameterfiles/integrationtest11.json).
+The use case is referenced from the parameters file [/tests/integrationtests/parameterfiles/integrationtest11.json](../tests/integrationtests/parameterfiles/integrationtest11.json).
 
 ## Use case "setup_task_center.json"
 
@@ -87,4 +87,4 @@ The services and subscriptions that are created are:
 * SAP One Inbox
 * SAP Launchpad
 
-The use case is referenced from the parameters file [/integrationtests/parameterfiles/integrationtest07.json](../integrationtests/parameterfiles/integrationtest07.json).
+The use case is referenced from the parameters file [/tests/integrationtests/parameterfiles/integrationtest07.json](../tests/integrationtests/parameterfiles/integrationtest07.json).
