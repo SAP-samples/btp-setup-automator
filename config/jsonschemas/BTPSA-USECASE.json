@@ -181,13 +181,19 @@
                                                     { 
                                                         "if": { "properties": { "plan": { "const": "{{ plan.name }}"} } },
                                                         "then" :{
-                                                            "properties": { "plan": { "description": "{{ category.name.lower() }} plan >{{ plan.name }}< for >{{ service.name }}< is available in data centers:{% for datacenter in plan.dataCenters -%}\n- {{ datacenter }}{% if not loop.last %}{% endif %}{% endfor %}" } } 
+                                                            "properties": { 
+                                                                "plan": { "description": "{{ category.name.lower() }} plan >{{ plan.name }}< for >{{ service.name }}< is available in data centers:{% for datacenter in plan.dataCenters -%}\n- {{ datacenter }}{% if not loop.last %}{% endif %}{% endfor %}" } {% if plan.refs is defined %},{% endif %}
+                                                                {% for ref in plan.refs -%}
+                                                                    "{{ ref.attribute }}": { "$ref": "#/$defs/{{ ref.name }}" }
+                                                                {% if not loop.last %}, {%- endif %}{% endfor -%}
+                                                                }{% if plan.refs is defined -%},
+                                                            "required": [{% for ref in plan.refs -%}"{{ ref.attribute }}"{% if not loop.last %}, {%- endif %}{% endfor -%}] {% endif %}
                                                         }
-                                                    }{% if not loop.last %}, {% endif %}
+                                                    }{% if not loop.last %}, {% endif -%}
                                                     {% endfor -%}
                                                 ]            
                                             }
-                                        }{% if not loop.last %}, {% endif %}
+                                        }{% if not loop.last %}, {% endif -%}
                                         {% endfor -%}
                                     ]
                                 }

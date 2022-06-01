@@ -6,7 +6,7 @@
             "ref-attribute": "parameters",
             "ref-level": "plan",
             "ref-value": "lite",
-            "def-name": "parameters--service--destination-lite",
+            "def-name": "parameters--service--destination--lite",
             "def-structure": {
                 "type": "object",
                 "properties": {

@@ -1,0 +1,35 @@
+{
+    "category": "SERVICE",
+    "name": "abap",
+    "defs": [
+        {
+            "ref-attribute": "parameters",
+            "ref-level": "plan",
+            "ref-value": "free",
+            "def-name": "parameters--service--abap--free",
+            "def-structure": {
+                "type": "object",
+                "properties": {
+                    "admin_email": {
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "description": {
+                        "type": "string",
+                        "default": "Main development system"
+                    },
+                    "sapsystemname": {
+                        "type": "string",
+                        "default": "H01"
+                    }
+                },
+                "required": [
+                    "admin_email",
+                    "description",
+                    "sapsystemname"
+                ]    
+            }
+
+        }
+    ]
+}
