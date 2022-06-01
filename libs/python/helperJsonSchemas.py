@@ -1,3 +1,4 @@
+import this
 from libs.python.helperJson import dictToJson, getJsonFromFile
 from libs.python.helperJinja2 import renderTemplateWithJson
 from libs.python.helperFolders import FOLDER_SCHEMA_LIBS, FOLDER_SCHEMA_TEMPLATES
@@ -215,26 +216,40 @@ def addJsonSchemaServiceParameters(categoryBlock, servicesList, defsContent):
             if category == categoryBlock and name == thisService["name"]:
 
                 for defDefinition in defDefinitions:
-                    thisRefLevel = defDefinition["ref-level"]
-                    thisRefValue = defDefinition["ref-value"]
-                    thisRefAttribute = defDefinition["ref-attribute"]
-                    defName = defDefinition["def-name"]
-
-                    # check if there is an array for the ref level (e.g. plans)
-                    refLevelPlural = thisRefLevel + "s"
-                    if thisService[refLevelPlural]:
-                        for myRefLevel in thisService[refLevelPlural]:
-                            thisName = myRefLevel["name"]
-                            if thisName == thisRefValue:
-                                if not thisService.get("refs"):
-                                    thisService["refs"] = []
-                                thisEntry = {"name": defName, "attribute": thisRefAttribute}
-                                thisService["refs"].append(thisEntry)
-                    else:
-                        if thisService[thisRefLevel] == thisRefValue:
-                            if not thisService.get("refs"):
-                                thisService["refs"] = []
-                            thisEntry = {"name": defName, "attribute": thisRefAttribute}
-                            thisService["refs"].append(thisEntry)
+                    thisService = addDefToService(thisService, defDefinition)
 
     return servicesList
+
+
+def addDefToService(thisService, defDefinition):
+
+    refLevel = defDefinition["ref-level"]
+    refValue = defDefinition["ref-value"]
+    refAttribute = defDefinition["ref-attribute"]
+    defName = defDefinition["def-name"]
+
+    thisService = addRefsSectionToService(thisService, refLevel, refValue, refAttribute, defName)
+
+    return thisService
+
+
+def addRefsSectionToService(thisService, refLevel, refValue, refAttribute, defName):
+    thisEntry = {"name": defName, "attribute": refAttribute}
+
+    # check if there is an array for the ref level (e.g. plans)
+    refLevelPlural = refLevel + "s"
+    if thisService[refLevelPlural]:
+        for myRefLevel in thisService[refLevelPlural]:
+
+            if refValue == myRefLevel.get("name"):
+                if not myRefLevel.get("refs"):
+                    myRefLevel["refs"] = []
+                myRefLevel["refs"].append(thisEntry)
+    # else:
+    #     if thisService[refLevel] == refValue:
+    #         if not thisService.get("refs"):
+    #             thisService["refs"] = []
+    #         thisEntry = {"name": defName, "attribute": refAttribute}
+    #         thisService["refs"].append(thisEntry)
+
+    return thisService
