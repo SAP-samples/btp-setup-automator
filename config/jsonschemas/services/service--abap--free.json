@@ -20,16 +20,18 @@
                     },
                     "sapsystemname": {
                         "type": "string",
-                        "default": "H01"
+                        "default": "H01",
+                        "description": "this is the SID for the ABAP system. Consists of one (capital) letter and two numbers like e.g. H01",
+                        "title": "SID of the ABAP system",
+                        "pattern" : "^[A-Z][0-9][0-9]$"
                     }
                 },
                 "required": [
                     "admin_email",
                     "description",
                     "sapsystemname"
-                ]    
+                ]
             }
-
         }
     ]
 }
