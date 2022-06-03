@@ -16,7 +16,7 @@ The code and the container images of the application are taken from the GitHub r
 
 To use the tooling you first need to finish the following tasks:
 
-* Get a [productive SAP BTP account](https://account.hana.ondemand.com/#/home/welcome) where you can make use of the free tier service plans. It will also work with a trial account if you use the use case provided for trial.
+* Get a [productive SAP BTP account](https://account.hana.ondemand.com/#/home/welcome) where you can make use of the free tier service plans.
 * [Install a Docker engine](https://docs.docker.com/desktop/)
 
 > ⚠ NOTE: Be aware of the terms of Docker for usage in enterprises. For details see this [link](https://www.docker.com/blog/updating-product-subscriptions/).
@@ -36,16 +36,8 @@ docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/
 You'll notice that the prompt in your terminal has changed, because you are now working inside the docker container, that you just started.
 Now run the main script `btpsa` with the following command:
 
-### Productive SAP BTP account with free tier services
-
 ```bash
 ./btpsa -parameterfile 'usecases/released/discoverycenter/4000-kyma-identity-management/parameters.json' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>'
-```
-
-### Trial Accounts
-
-```bash
-./btpsa -parameterfile 'usecases/released/discoverycenter/4000-kyma-identity-management/parameters.json' -usecasefile 'usecases/released/discoverycenter/4000-kyma-identity-management/usecase_trial.json' -subaccountname 'trial' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>'
 ```
 
 The btp-setup-automator script will now prepare your SAP BTP account to cover the discovery center mission. You can have a look at the [usecase.json](usecase.json) and [parameters.json](parameters.json) for more details about the used services and configuration parameters (e.g. DB Password for SAP HANA Cloud)
