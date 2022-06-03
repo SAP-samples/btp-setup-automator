@@ -58,11 +58,13 @@ class BTPUSECASE:
         self.accountMetadata = None
 
         allServices = readAllServicesFromUsecaseFile(self)
+        self.availableCategoriesService = ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"]
+        self.availableCategoriesApplication = ["APPLICATION"]
 
-        self.definedServices = getServiceCategoryItemsFromUsecaseFile(self, allServices, ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"])
+        self.definedServices = getServiceCategoryItemsFromUsecaseFile(self, allServices, self.availableCategoriesService)
         self.definedEnvironments = getEnvironmentsForUsecase(self, allServices)
         self.admins = getAdminsFromUsecaseFile(self)
-        self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(self, allServices, ["APPLICATION"])
+        self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(self, allServices, self.availableCategoriesApplication)
         usecaseFileContent = getJsonFromFile(self, self.usecasefile)
         self.definedRoleCollections = usecaseFileContent.get("assignrolecollections")
 
@@ -627,9 +629,9 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
                     if fallbackServicePlan is not None and accountServicePlanName == fallbackServicePlan:
                         for accountServicePlanDataCenter in accountServicePlan["dataCenters"]:
                             accountServicePlanRegion = accountServicePlanDataCenter["region"]
-                            if (accountServicePlanRegion == usecaseRegion) and (accountServicePlanCategory == usecaseService.category):
+                            if (accountServicePlanRegion == usecaseRegion) and (isService(btpUsecase, accountServicePlanCategory, usecaseService.category)):
                                 supportedFallbackServicePlan = True
-                    if (accountServicePlanName == usecaseServicePlan) and (accountServicePlanCategory == usecaseService.category):
+                    if (accountServicePlanName == usecaseServicePlan) and (isService(btpUsecase, accountServicePlanCategory, usecaseService.category)):
                         for accountServicePlanDataCenter in accountServicePlan["dataCenters"]:
                             accountServicePlanRegion = accountServicePlanDataCenter["region"]
                             if (accountServicePlanRegion == usecaseRegion):
@@ -650,6 +652,17 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
                 usecaseSupported = False
 
     return usecaseSupported
+
+
+def isService(btpUsecase: BTPUSECASE, accountServicePlanCategory, category):
+    result = False
+    categoryService = btpUsecase.availableCategoriesService
+    categoryApplication = btpUsecase.availableCategoriesApplication
+
+    if accountServicePlanCategory in categoryService or accountServicePlanCategory in categoryApplication:
+        if category in categoryService or category in categoryApplication:
+            result = True
+    return result
 
 
 def checkIfSubaccountAlreadyExists(btpUsecase: BTPUSECASE):
