@@ -39,7 +39,7 @@ def getServicesForCategories(categoryBlock, categories, data, defsContent):
             category = servicePlan.get("category")
             if category in categories and serviceName not in listOfServices:
                 listOfServices.append(serviceName)
-                plans = getPlansForService(serviceName, data)
+                plans = getPlansForService(category, serviceName, data)
                 description = removeNonPrintableChars(service.get("description"))
                 displayName = removeNonPrintableChars(service.get("displayName"))
                 myService = {"name": serviceName, "displayName": displayName, "description": description, "plans": plans}
@@ -52,7 +52,7 @@ def getServicesForCategories(categoryBlock, categories, data, defsContent):
     return thisList
 
 
-def getPlansForService(serviceName, data):
+def getPlansForService(category, serviceName, data):
     result = []
     for service in data.get("entitledServices"):
         thisServiceName = service["name"]
@@ -60,7 +60,8 @@ def getPlansForService(serviceName, data):
             listOfServicePlans = []
             for servicePlan in service.get("servicePlans"):
                 servicePlanName = servicePlan.get("name")
-                if servicePlanName not in listOfServicePlans:
+                categoryPlanName = servicePlan.get("category")
+                if servicePlanName not in listOfServicePlans and categoryPlanName == category:
                     listOfServicePlans.append((servicePlanName))
                     dcs = []
                     for datacenter in servicePlan.get("dataCenters"):

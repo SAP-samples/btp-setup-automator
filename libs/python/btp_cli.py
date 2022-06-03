@@ -623,13 +623,13 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
             if (accountServiceName == usecaseServiceName):
                 for accountServicePlan in accountService["servicePlans"]:
                     accountServicePlanName = accountServicePlan["name"]
-#                   accountServicePlanCategory = accountServicePlan["category"]
+                    accountServicePlanCategory = accountServicePlan["category"]
                     if fallbackServicePlan is not None and accountServicePlanName == fallbackServicePlan:
                         for accountServicePlanDataCenter in accountServicePlan["dataCenters"]:
                             accountServicePlanRegion = accountServicePlanDataCenter["region"]
-                            if (accountServicePlanRegion == usecaseRegion):
+                            if (accountServicePlanRegion == usecaseRegion) and (accountServicePlanCategory == usecaseService.category):
                                 supportedFallbackServicePlan = True
-                    if (accountServicePlanName == usecaseServicePlan):
+                    if (accountServicePlanName == usecaseServicePlan) and (accountServicePlanCategory == usecaseService.category):
                         for accountServicePlanDataCenter in accountServicePlan["dataCenters"]:
                             accountServicePlanRegion = accountServicePlanDataCenter["region"]
                             if (accountServicePlanRegion == usecaseRegion):

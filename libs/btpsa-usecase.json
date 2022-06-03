@@ -269,18 +269,11 @@
                                             "if": { "properties": { "name": { "const": "IRPA"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": ["concurrent","concurrent-attended","concurrent-unattended","default","free"] },
+                                                    "plan": { "enum": ["concurrent-attended","concurrent-unattended"] },
                                                     "name": { "description": "SAP Intelligent Robotic Process Automation:\nSAP Intelligent Robotic Process Automation lets you automate enterprise business processes. Design process automations with the Desktop Studio by creating end-to-end scenarios. Import these scenarios into the cloud Factory to configure and execute them with Agents. An Agent can work as a Digital Assistant (attended automation) or as a Digital Worker (unattended automation)."} 
                                                     }, 
                                                 "allOf": [
                                                     { 
-                                                        "if": { "properties": { "plan": { "const": "concurrent"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "service plan >concurrent< for >IRPA< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
                                                         "if": { "properties": { "plan": { "const": "concurrent-attended"} } },
                                                         "then" :{
                                                             "properties": { 
@@ -292,20 +285,6 @@
                                                         "then" :{
                                                             "properties": { 
                                                                 "plan": { "description": "service plan >concurrent-unattended< for >IRPA< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
-                                                        "if": { "properties": { "plan": { "const": "default"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "service plan >default< for >IRPA< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
-                                                        "if": { "properties": { "plan": { "const": "free"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "service plan >free< for >IRPA< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)" } 
                                                                 }
                                                         }
                                                     }]            
@@ -331,7 +310,7 @@
                                             "if": { "properties": { "name": { "const": "abap"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": ["16_abap_64_db","abap_compute_unit","free","hana_compute_unit","standard"] },
+                                                    "plan": { "enum": ["16_abap_64_db","abap_compute_unit","free","hana_compute_unit"] },
                                                     "name": { "description": "ABAP environment:\nAccess an instance to build custom ABAP cloud apps, leveraging newest innovations powered by SAP HANA."} 
                                                     }, 
                                                 "allOf": [
@@ -363,13 +342,6 @@
                                                         "then" :{
                                                             "properties": { 
                                                                 "plan": { "description": "service plan >hana_compute_unit< for >abap< is available in data centers:\n- eu10 - Europe (Frankfurt)\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
-                                                        "if": { "properties": { "plan": { "const": "standard"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "service plan >standard< for >abap< is available in data centers:\n- eu10 - Europe (Frankfurt)\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)" } 
                                                                 }
                                                         }
                                                     }]            
@@ -535,7 +507,7 @@
                                             "if": { "properties": { "name": { "const": "application-logs"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": ["large","lite","standard"] },
+                                                    "plan": { "enum": ["large","standard"] },
                                                     "name": { "description": "Application Logging Service:\nIn the Cloud Foundry environment, the SAP Application Logging service for SAP BTP lets you stream logs of bound applications to a central application logging stack. SAP Application Logging service for SAP BTP uses Elastic Stack to store and visualize your application log data. To fully leverage this service, please also consider using one of SAP&apos;s open source libraries (for example, cf-java-logging-support or cf-nodejs-logging-support). In the Neo environment, the application logging allows you to configure loggers for Java applications through the cockpit or the console client. Furthermore, you can retrieve default trace logs, HTTP access logs, and garbage collection logs for the last 7 days."} 
                                                     }, 
                                                 "allOf": [
@@ -544,13 +516,6 @@
                                                         "then" :{
                                                             "properties": { 
                                                                 "plan": { "description": "service plan >large< for >application-logs< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- ap12 - South Korea (Seoul)\n- ap20 - Australia (Sydney) Azure\n- ap21 - Singapore\n- br10 - Brazil (Sao Paulo)\n- ca10 - Canada (Montreal)\n- ch20 - cf-ch20\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- eu30 - Europe (Frankfurt)\n- in30 - cf-in30\n- jp10 - Japan (Tokyo)\n- jp20 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)\n- us30 - US Central (IA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
-                                                        "if": { "properties": { "plan": { "const": "lite"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "service plan >lite< for >application-logs< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- ap12 - South Korea (Seoul)\n- ap20 - Australia (Sydney) Azure\n- ap21 - Singapore\n- br10 - Brazil (Sao Paulo)\n- ca10 - Canada (Montreal)\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- eu30 - Europe (Frankfurt)\n- jp10 - Japan (Tokyo)\n- jp20 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)\n- us30 - US Central (IA)" } 
                                                                 }
                                                         }
                                                     }, { 
@@ -720,7 +685,7 @@
                                             "if": { "properties": { "name": { "const": "cias"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": ["oauth2","standard"] },
+                                                    "plan": { "enum": ["oauth2"] },
                                                     "name": { "description": "Cloud Integration Automation Service:\nCloud Integration Automation service provides you a guided workflow to integrate SAP cloud solutions to On-Premise and other SAP Cloud solutions. The guided workflow contains instructions for manual and automated tasks to enable a simpler and faster integration configuration setup"} 
                                                     }, 
                                                 "allOf": [
@@ -729,13 +694,6 @@
                                                         "then" :{
                                                             "properties": { 
                                                                 "plan": { "description": "service plan >oauth2< for >cias< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- eu20 - Europe (Netherlands)\n- us10 - US East (VA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
-                                                        "if": { "properties": { "plan": { "const": "standard"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "service plan >standard< for >cias< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- eu20 - Europe (Netherlands)\n- us10 - US East (VA)" } 
                                                                 }
                                                         }
                                                     }]            
@@ -850,7 +808,7 @@
                                             "if": { "properties": { "name": { "const": "credstore"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": ["free","proxy","standard"] },
+                                                    "plan": { "enum": ["free","standard"] },
                                                     "name": { "description": "Credential Store:\nThe Credential Store provides a secure repository for passwords and keys to applications that are running on SAP Cloud Platform. It enables the applications to retrieve credentials and use them for authentication to external services, or to perform cryptographic operations and TLS communication. "} 
                                                     }, 
                                                 "allOf": [
@@ -859,13 +817,6 @@
                                                         "then" :{
                                                             "properties": { 
                                                                 "plan": { "description": "service plan >free< for >credstore< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- ap12 - South Korea (Seoul)\n- ap20 - Australia (Sydney) Azure\n- ap21 - Singapore\n- br10 - Brazil (Sao Paulo)\n- ca10 - Canada (Montreal)\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- eu30 - Europe (Frankfurt)\n- in30 - cf-in30\n- jp10 - Japan (Tokyo)\n- jp20 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)\n- us30 - US Central (IA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
-                                                        "if": { "properties": { "plan": { "const": "proxy"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "service plan >proxy< for >credstore< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- ap12 - South Korea (Seoul)\n- ap20 - Australia (Sydney) Azure\n- ap21 - Singapore\n- br10 - Brazil (Sao Paulo)\n- ca10 - Canada (Montreal)\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- eu30 - Europe (Frankfurt)\n- in30 - cf-in30\n- jp10 - Japan (Tokyo)\n- jp20 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)\n- us30 - US Central (IA)" } 
                                                                 }
                                                         }
                                                     }, { 
@@ -1481,25 +1432,11 @@
                                             "if": { "properties": { "name": { "const": "integrationsuite"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": ["enterprise_agreement","free","messages"] },
+                                                    "plan": { "enum": ["messages"] },
                                                     "name": { "description": "Integration Suite:\nSAP Integration Suite helps you to quickly develop and manage reliable communication between applications, services, and systems across heterogeneous landscapes."} 
                                                     }, 
                                                 "allOf": [
                                                     { 
-                                                        "if": { "properties": { "plan": { "const": "enterprise_agreement"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "service plan >enterprise_agreement< for >integrationsuite< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- ap12 - South Korea (Seoul)\n- ap20 - Australia (Sydney) Azure\n- ap21 - Singapore\n- br10 - Brazil (Sao Paulo)\n- ca10 - Canada (Montreal)\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- jp10 - Japan (Tokyo)\n- jp20 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)\n- us30 - US Central (IA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
-                                                        "if": { "properties": { "plan": { "const": "free"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "service plan >free< for >integrationsuite< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- ap12 - South Korea (Seoul)\n- ap20 - Australia (Sydney) Azure\n- ap21 - Singapore\n- br10 - Brazil (Sao Paulo)\n- ca10 - Canada (Montreal)\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- jp10 - Japan (Tokyo)\n- jp20 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)\n- us30 - US Central (IA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
                                                         "if": { "properties": { "plan": { "const": "messages"} } },
                                                         "then" :{
                                                             "properties": { 
@@ -1941,29 +1878,15 @@
                                             "if": { "properties": { "name": { "const": "mobile-services"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": ["b2c","free","standard"] },
+                                                    "plan": { "enum": ["free"] },
                                                     "name": { "description": "Mobile Services:\nUse Mobile Services to provide mobile access to enterprise information. Key features include app content lifecycle management, push notifications and support for offline apps, app security, app monitoring and usage reporting. Mobile Services can be used for native built apps, Mobile Development Kit apps and SAP Mobile Cards. Get started by clicking on the Support link below."} 
                                                     }, 
                                                 "allOf": [
                                                     { 
-                                                        "if": { "properties": { "plan": { "const": "b2c"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "service plan >b2c< for >mobile-services< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- ap12 - South Korea (Seoul)\n- ap20 - Australia (Sydney) Azure\n- ap21 - Singapore\n- br10 - Brazil (Sao Paulo)\n- ca10 - Canada (Montreal)\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- eu30 - Europe (Frankfurt)\n- jp10 - Japan (Tokyo)\n- jp20 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)\n- us30 - US Central (IA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
                                                         "if": { "properties": { "plan": { "const": "free"} } },
                                                         "then" :{
                                                             "properties": { 
                                                                 "plan": { "description": "service plan >free< for >mobile-services< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- ap12 - South Korea (Seoul)\n- ap20 - Australia (Sydney) Azure\n- ap21 - Singapore\n- br10 - Brazil (Sao Paulo)\n- ca10 - Canada (Montreal)\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- eu30 - Europe (Frankfurt)\n- jp10 - Japan (Tokyo)\n- jp20 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)\n- us30 - US Central (IA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
-                                                        "if": { "properties": { "plan": { "const": "standard"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "service plan >standard< for >mobile-services< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- ap12 - South Korea (Seoul)\n- ap20 - Australia (Sydney) Azure\n- ap21 - Singapore\n- br10 - Brazil (Sao Paulo)\n- ca10 - Canada (Montreal)\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- eu30 - Europe (Frankfurt)\n- jp10 - Japan (Tokyo)\n- jp20 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)\n- us30 - US Central (IA)" } 
                                                                 }
                                                         }
                                                     }]            
@@ -2254,18 +2177,11 @@
                                             "if": { "properties": { "name": { "const": "print"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": ["receiver","sender"] },
+                                                    "plan": { "enum": ["sender"] },
                                                     "name": { "description": "Print Service:\nManage print queues, connect print clients and monitor print status"} 
                                                     }, 
                                                 "allOf": [
                                                     { 
-                                                        "if": { "properties": { "plan": { "const": "receiver"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "service plan >receiver< for >print< is available in data centers:\n- eu10 - Europe (Frankfurt)\n- eu20 - Europe (Netherlands)\n- us10 - US East (VA)\n- us20 - US West (WA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
                                                         "if": { "properties": { "plan": { "const": "sender"} } },
                                                         "then" :{
                                                             "properties": { 
@@ -2295,7 +2211,7 @@
                                             "if": { "properties": { "name": { "const": "process-automation"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": ["advanced-user","automation-attended","automation-unattended","free","standard","standard-user"] },
+                                                    "plan": { "enum": ["advanced-user","automation-attended","automation-unattended","standard-user"] },
                                                     "name": { "description": "SAP Process Automation:\nSAP Process Automation is a citizen development solution to adapt, improve, and innovate business processes with the low-code/no-code capabilities of SAP Workflow Management and SAP Intelligent RPA."} 
                                                     }, 
                                                 "allOf": [
@@ -2318,20 +2234,6 @@
                                                         "then" :{
                                                             "properties": { 
                                                                 "plan": { "description": "service plan >automation-unattended< for >process-automation< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
-                                                        "if": { "properties": { "plan": { "const": "free"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "service plan >free< for >process-automation< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
-                                                        "if": { "properties": { "plan": { "const": "standard"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "service plan >standard< for >process-automation< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)" } 
                                                                 }
                                                         }
                                                     }, { 
@@ -2957,7 +2859,7 @@
                                             "if": { "properties": { "name": { "const": "ui5-flexibility-keyuser"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": ["free","keyuser"] },
+                                                    "plan": { "enum": ["free"] },
                                                     "name": { "description": "UI5 flexibility for key users:\nThe UI5 flexibility service for key users lets you provide UI adaptation capabilites for your UI5 applications on Cloud Foundry. Users of your applications can change the user interface of your applications in an upgrade-safe and modification-free way, without affecting any other customer."} 
                                                     }, 
                                                 "allOf": [
@@ -2966,13 +2868,6 @@
                                                         "then" :{
                                                             "properties": { 
                                                                 "plan": { "description": "service plan >free< for >ui5-flexibility-keyuser< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- ap12 - South Korea (Seoul)\n- ap20 - Australia (Sydney) Azure\n- ap21 - Singapore\n- br10 - Brazil (Sao Paulo)\n- ca10 - Canada (Montreal)\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- jp10 - Japan (Tokyo)\n- jp20 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)\n- us30 - US Central (IA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
-                                                        "if": { "properties": { "plan": { "const": "keyuser"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "service plan >keyuser< for >ui5-flexibility-keyuser< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- ap12 - South Korea (Seoul)\n- ap20 - Australia (Sydney) Azure\n- ap21 - Singapore\n- br10 - Brazil (Sao Paulo)\n- ca10 - Canada (Montreal)\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- eu30 - Europe (Frankfurt)\n- in30 - cf-in30\n- jp10 - Japan (Tokyo)\n- jp20 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)\n- us30 - US Central (IA)" } 
                                                                 }
                                                         }
                                                     }]            
@@ -3129,7 +3024,7 @@
                                             "if": { "properties": { "name": { "const": "IRPA"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": ["concurrent","concurrent-attended","concurrent-unattended","default","free"] },
+                                                    "plan": { "enum": ["concurrent","default","free"] },
                                                     "name": { "description": "SAP Intelligent Robotic Process Automation:\nSAP Intelligent Robotic Process Automation lets you automate enterprise business processes. Design process automations with the Desktop Studio by creating end-to-end scenarios. Import these scenarios into the cloud Factory to configure and execute them with Agents. An Agent can work as a Digital Assistant (attended automation) or as a Digital Worker (unattended automation)."} 
                                                     }, 
                                                 "allOf": [
@@ -3138,20 +3033,6 @@
                                                         "then" :{
                                                             "properties": { 
                                                                 "plan": { "description": "application plan >concurrent< for >IRPA< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
-                                                        "if": { "properties": { "plan": { "const": "concurrent-attended"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "application plan >concurrent-attended< for >IRPA< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
-                                                        "if": { "properties": { "plan": { "const": "concurrent-unattended"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "application plan >concurrent-unattended< for >IRPA< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)" } 
                                                                 }
                                                         }
                                                     }, { 
@@ -3485,7 +3366,7 @@
                                             "then" :{
                                                 "properties": { 
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "SAP Order Management Foundation:\nDisplay order data for physical and subscription products from multiple channels. Use filter functions to only display the order information you need. The order capture and distribution functionality is executed by the SAP Order Management foundation APIs."} 
+                                                    "name": { "description": "SAP Order Management Foundation:\nThe SAP Order Management foundation solution, including the application and service, provides order management functionality along with business configuration settings that allow you to create a customized solution. You can also integrate various systems and solutions to support your order management processes. This allows you to leverage, for example, your existing master data, order capture, and fulfillment systems while consolidating all of your orders and order-related data in a convenient cloud-based solution."} 
                                                     }, 
                                                 "allOf": [
                                                     { 
@@ -3501,18 +3382,11 @@
                                             "if": { "properties": { "name": { "const": "cias"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": ["oauth2","standard"] },
+                                                    "plan": { "enum": ["standard"] },
                                                     "name": { "description": "Cloud Integration Automation Service:\nCloud Integration Automation service provides you a guided workflow to integrate SAP cloud solutions to On-Premise and other SAP Cloud solutions. The guided workflow contains instructions for manual and automated tasks to enable a simpler and faster integration configuration setup"} 
                                                     }, 
                                                 "allOf": [
                                                     { 
-                                                        "if": { "properties": { "plan": { "const": "oauth2"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "application plan >oauth2< for >cias< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- eu20 - Europe (Netherlands)\n- us10 - US East (VA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": { 
@@ -3525,7 +3399,7 @@
                                             "if": { "properties": { "name": { "const": "cicd-app"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": ["default","free"] },
+                                                    "plan": { "enum": ["default"] },
                                                     "name": { "description": "Continuous Integration & Delivery:\nSAP Continuous Integration and Delivery lets you configure and run predefined continuous integration and delivery (CI/CD) pipelines that automatically build, test and deploy your code changes to speed up your development and delivery cycles."} 
                                                     }, 
                                                 "allOf": [
@@ -3534,13 +3408,6 @@
                                                         "then" :{
                                                             "properties": { 
                                                                 "plan": { "description": "application plan >default< for >cicd-app< is available in data centers:\n- eu10 - Europe (Frankfurt)\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
-                                                        "if": { "properties": { "plan": { "const": "free"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "application plan >free< for >cicd-app< is available in data centers:\n- eu10 - Europe (Frankfurt)\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)" } 
                                                                 }
                                                         }
                                                     }]            
@@ -3849,32 +3716,11 @@
                                             "if": { "properties": { "name": { "const": "process-automation"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": ["advanced-user","automation-attended","automation-unattended","free","standard","standard-user"] },
+                                                    "plan": { "enum": ["free","standard"] },
                                                     "name": { "description": "SAP Process Automation:\nSAP Process Automation is a citizen development solution to adapt, improve, and innovate business processes with the low-code/no-code capabilities of SAP Workflow Management and SAP Intelligent RPA."} 
                                                     }, 
                                                 "allOf": [
                                                     { 
-                                                        "if": { "properties": { "plan": { "const": "advanced-user"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "application plan >advanced-user< for >process-automation< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
-                                                        "if": { "properties": { "plan": { "const": "automation-attended"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "application plan >automation-attended< for >process-automation< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
-                                                        "if": { "properties": { "plan": { "const": "automation-unattended"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "application plan >automation-unattended< for >process-automation< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
                                                         "if": { "properties": { "plan": { "const": "free"} } },
                                                         "then" :{
                                                             "properties": { 
@@ -3886,13 +3732,6 @@
                                                         "then" :{
                                                             "properties": { 
                                                                 "plan": { "description": "application plan >standard< for >process-automation< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
-                                                        "if": { "properties": { "plan": { "const": "standard-user"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "application plan >standard-user< for >process-automation< is available in data centers:\n- ap10 - Australia (Sydney)\n- eu10 - Europe (Frankfurt)\n- jp10 - Japan (Tokyo)\n- us10 - US East (VA)" } 
                                                                 }
                                                         }
                                                     }]            
@@ -4017,18 +3856,11 @@
                                             "if": { "properties": { "name": { "const": "sapappstudio"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": ["free","standard-edition"] },
+                                                    "plan": { "enum": ["standard-edition"] },
                                                     "name": { "description": "SAP Business Application Studio:\nSAP Business Application Studio is the next generation of SAP Web IDE, offering a modular development environment tailored for efficient development of business applications for the SAP Intelligent Enterprise. It provides pre-configured environments where you can develop, build, test and run using pre-installed runtimes and tools tailored for key scenarios such as: S/4HANA extensions, full stack business applications, Fiori applications and more. It supports quick integration with SAP solutions and services to allow building smarter and more intelligent applications."} 
                                                     }, 
                                                 "allOf": [
                                                     { 
-                                                        "if": { "properties": { "plan": { "const": "free"} } },
-                                                        "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "application plan >free< for >sapappstudio< is available in data centers:\n- ap10 - Australia (Sydney)\n- ap11 - Singapore\n- ap12 - South Korea (Seoul)\n- ap20 - Australia (Sydney) Azure\n- ap21 - Singapore\n- br10 - Brazil (Sao Paulo)\n- ca10 - Canada (Montreal)\n- eu10 - Europe (Frankfurt)\n- eu11 - Europe (Frankfurt) EU Access - AWS\n- eu20 - Europe (Netherlands)\n- in30 - cf-in30\n- jp10 - Japan (Tokyo)\n- jp20 - Japan (Tokyo)\n- us10 - US East (VA)\n- us20 - US West (WA)\n- us21 - US East (VA)\n- us30 - US Central (IA)" } 
-                                                                }
-                                                        }
-                                                    }, { 
                                                         "if": { "properties": { "plan": { "const": "standard-edition"} } },
                                                         "then" :{
                                                             "properties": { 
@@ -4287,6 +4119,7 @@
     "$defs": {
         "parameters--service--hana-cloud--hana-free": {"properties": {"data": {"properties": {"edition": {"default": "cloud", "type": "string"}, "memory": {"default": 30, "type": "integer"}, "serviceStopped": {"default": false, "type": "boolean"}, "storage": {"default": 120, "type": "integer"}, "systempassword": {"default": "enterYour0wnPassw0rd!", "type": "string"}, "vcpu": {"default": 0, "type": "integer"}, "versionIndicator": {"type": "string"}, "whitelistIPs": {"items": {}, "type": "array"}}, "required": ["edition", "memory", "serviceStopped", "storage", "systempassword", "vcpu", "versionIndicator", "whitelistIPs"], "type": "object"}}, "required": ["data"], "type": "object"}, 
         "parameters--service--abap--free": {"properties": {"admin_email": {"format": "email", "type": "string"}, "description": {"default": "Main development system", "type": "string"}, "sapsystemname": {"default": "H01", "description": "this is the SID for the ABAP system. Consists of one (capital) letter and two numbers like e.g. H01", "pattern": "^[A-Z][0-9][0-9]$", "title": "SID of the ABAP system", "type": "string"}}, "required": ["admin_email", "description", "sapsystemname"], "type": "object"}, 
+        "parameters--service--abap--standard": {"properties": {"abap_compute_unit": {"default": 1, "description": "Defines the size of the ABAP runtime. With one ABAP compute unit is representing 16 GB. The number of abap_compute_unit may vary between 1 and 8.", "enum": [1, 2, 3, 4, 5, 6, 7, 8], "type": "integer"}, "admin_email": {"format": "email", "type": "string"}, "description": {"default": "Main development system", "type": "string"}, "hana_compute_unit": {"default": 2, "description": "HANA memory size. With one HANA compute unit representing the suitable block size for the underlying SAP HANA Cloud instance (15 GB on AWS). The supported number of hana_compute_unit per HANA instance is 2, 4, 8, 16, or 32. Larger sizes can be made available upon request.", "enum": [2, 4, 8, 16, 32], "type": "integer"}, "sapsystemname": {"default": "H01", "description": "this is the SID for the ABAP system. Consists of one (capital) letter and two numbers like e.g. H01", "pattern": "^[A-Z][0-9][0-9]$", "title": "SID of the ABAP system", "type": "string"}}, "required": ["admin_email", "description", "sapsystemname", "abap_compute_unit", "hana_compute_unit"], "type": "object"}, 
         "parameters--service--destination--lite": {"properties": {"HTML5Runtime_enabled": {"type": "string"}, "init_data": {"properties": {"subaccount": {"properties": {"destinations": {"items": [{"properties": {"Authentication": {"type": "string"}, "Description": {"type": "string"}, "Name": {"type": "string"}, "ProxyType": {"type": "string"}, "Type": {"type": "string"}, "URL": {"type": "string"}, "URL.headers.X-ApplicationKey": {"type": "string"}, "audience": {"type": "string"}, "authnContextClassRef": {"type": "string"}, "clientKey": {"type": "string"}, "nameIdFormat": {"type": "string"}, "tc.clientId": {"type": "string"}, "tc.provider_type": {"type": "string"}, "tc.ui.group": {"type": "string"}, "tc.ui.label": {"type": "string"}, "tokenServicePassword": {"type": "string"}, "tokenServiceURL": {"type": "string"}, "tokenServiceURL.headers.X-ApplicationKey": {"type": "string"}, "tokenServiceURL.queries.client_id": {"type": "string"}, "tokenServiceURL.queries.client_secret": {"type": "string"}, "tokenServiceURLType": {"type": "string"}, "tokenServiceUser": {"type": "string"}}, "required": ["Name", "Type", "URL", "Authentication", "ProxyType", "tokenServiceURLType", "audience", "Description", "authnContextClassRef", "tokenServiceURL.headers.X-ApplicationKey", "tokenServiceURL.queries.client_secret", "tokenServiceUser", "tokenServiceURL", "tokenServicePassword", "tc.ui.group", "tc.ui.label", "clientKey", "nameIdFormat", "URL.headers.X-ApplicationKey", "tokenServiceURL.queries.client_id", "tc.provider_type", "tc.clientId"], "type": "object"}, {"properties": {"Authentication": {"type": "string"}, "Description": {"type": "string"}, "Name": {"type": "string"}, "ProxyType": {"type": "string"}, "SystemUser": {"type": "string"}, "Type": {"type": "string"}, "URL": {"type": "string"}, "apiKey": {"type": "string"}, "audience": {"type": "string"}, "authnContextClassRef": {"type": "string"}, "clientKey": {"type": "string"}, "companyId": {"type": "string"}, "nameIdFormat": {"type": "string"}, "nameQualifier": {"type": "string"}, "tc.clientId": {"type": "string"}, "tc.provider_type": {"type": "string"}, "tc.ui.group": {"type": "string"}, "tc.ui.label": {"type": "string"}, "tokenServiceURL": {"type": "string"}, "tokenServiceURLType": {"type": "string"}}, "required": ["Name", "Type", "URL", "Authentication", "ProxyType", "tokenServiceURLType", "audience", "Description", "authnContextClassRef", "apiKey", "tokenServiceURL", "tc.ui.group", "tc.ui.label", "companyId", "clientKey", "nameIdFormat", "SystemUser", "nameQualifier", "tc.provider_type", "tc.clientId"], "type": "object"}, {"properties": {"Authentication": {"type": "string"}, "Description": {"type": "string"}, "Name": {"type": "string"}, "ProxyType": {"type": "string"}, "Type": {"type": "string"}, "URL": {"type": "string"}, "URL.headers.apikey": {"type": "string"}, "URL.queries.realm": {"type": "string"}, "audience": {"type": "string"}, "authnContextClassRef": {"type": "string"}, "clientKey": {"type": "string"}, "nameIdFormat": {"type": "string"}, "tc.provider_type": {"type": "string"}, "tc.ui.group": {"type": "string"}, "tc.ui.label": {"type": "string"}, "tokenServicePassword": {"type": "string"}, "tokenServiceURL": {"type": "string"}, "tokenServiceURL.headers.apikey": {"type": "string"}, "tokenServiceURLType": {"type": "string"}, "tokenServiceUser": {"type": "string"}}, "required": ["Name", "Type", "URL", "Authentication", "ProxyType", "tokenServiceURL.headers.apikey", "tokenServiceURLType", "audience", "Description", "authnContextClassRef", "tokenServiceUser", "tokenServiceURL", "tokenServicePassword", "tc.ui.group", "tc.ui.label", "URL.headers.apikey", "URL.queries.realm", "clientKey", "nameIdFormat", "tc.provider_type"], "type": "object"}, {"properties": {"Authentication": {"type": "string"}, "Description": {"type": "string"}, "Name": {"type": "string"}, "ProxyType": {"type": "string"}, "Type": {"type": "string"}, "URL": {"type": "string"}, "apiKey": {"type": "string"}, "audience": {"type": "string"}, "authnContextClassRef": {"type": "string"}, "clientKey": {"type": "string"}, "companyId": {"type": "string"}, "nameIdFormat": {"type": "string"}, "tc.provider_type": {"type": "string"}, "tokenServiceURL": {"type": "string"}, "tokenServiceURLType": {"type": "string"}}, "required": ["Name", "Type", "URL", "Authentication", "ProxyType", "tokenServiceURLType", "audience", "companyId", "Description", "authnContextClassRef", "apiKey", "clientKey", "nameIdFormat", "tokenServiceURL", "tc.provider_type"], "type": "object"}, {"properties": {"Authentication": {"type": "string"}, "Description": {"type": "string"}, "Name": {"type": "string"}, "ProxyType": {"type": "string"}, "Type": {"type": "string"}, "URL": {"type": "string"}, "audience": {"type": "string"}, "authnContextClassRef": {"type": "string"}, "clientKey": {"type": "string"}, "tc.concur.auth.req.token.enabled": {"type": "string"}, "tc.concur.companyUUID": {"type": "string"}, "tc.concur.dc": {"type": "string"}, "tc.grant_type": {"type": "string"}, "tc.provider_type": {"type": "string"}, "tc.ui.group": {"type": "string"}, "tc.ui.label": {"type": "string"}, "tokenServicePassword": {"type": "string"}, "tokenServiceURL": {"type": "string"}, "tokenServiceURLType": {"type": "string"}, "tokenServiceUser": {"type": "string"}}, "required": ["Name", "Type", "URL", "Authentication", "ProxyType", "tokenServiceURLType", "audience", "Description", "authnContextClassRef", "tokenServiceUser", "tokenServiceURL", "tc.concur.dc", "tc.grant_type", "tokenServicePassword", "tc.ui.group", "tc.ui.label", "clientKey", "tc.concur.companyUUID", "tc.concur.auth.req.token.enabled", "tc.provider_type"], "type": "object"}, {"properties": {"Authentication": {"type": "string"}, "Description": {"type": "string"}, "Name": {"type": "string"}, "ProxyType": {"type": "string"}, "Type": {"type": "string"}, "URL": {"type": "string"}, "tc.languages": {"type": "string"}}, "required": ["Name", "Type", "URL", "Authentication", "ProxyType", "Description", "tc.languages"], "type": "object"}, {"properties": {"Authentication": {"type": "string"}, "Description": {"type": "string"}, "Name": {"type": "string"}, "ProxyType": {"type": "string"}, "Type": {"type": "string"}, "URL": {"type": "string"}, "URL.queries.sap-client": {"type": "string"}, "audience": {"type": "string"}, "authnContextClassRef": {"type": "string"}, "clientKey": {"type": "string"}, "tc.provider_type": {"type": "string"}, "tc.ui.group": {"type": "string"}, "tc.ui.label": {"type": "string"}, "tokenServicePassword": {"type": "string"}, "tokenServiceURL": {"type": "string"}, "tokenServiceURLType": {"type": "string"}, "tokenServiceUser": {"type": "string"}}, "required": ["Name", "Type", "URL", "Authentication", "ProxyType", "tc.ui.label", "tokenServiceURLType", "audience", "Description", "authnContextClassRef", "clientKey", "tokenServiceUser", "tokenServiceURL", "URL.queries.sap-client", "tc.provider_type", "tokenServicePassword", "tc.ui.group"], "type": "object"}, {"properties": {"Authentication": {"type": "string"}, "Description": {"type": "string"}, "Name": {"type": "string"}, "ProxyType": {"type": "string"}, "Type": {"type": "string"}, "URL": {"type": "string"}, "audience": {"type": "string"}, "authnContextClassRef": {"type": "string"}, "clientKey": {"type": "string"}, "tc.concur.auth.req.token.enabled": {"type": "string"}, "tc.concur.companyUUID": {"type": "string"}, "tc.concur.dc": {"type": "string"}, "tc.grant_type": {"type": "string"}, "tc.provider_type": {"type": "string"}, "tc.ui.group": {"type": "string"}, "tc.ui.label": {"type": "string"}, "tokenServicePassword": {"type": "string"}, "tokenServiceURL": {"type": "string"}, "tokenServiceURLType": {"type": "string"}, "tokenServiceUser": {"type": "string"}}, "required": ["Name", "Type", "URL", "Authentication", "ProxyType", "tokenServiceURLType", "audience", "Description", "authnContextClassRef", "tokenServiceUser", "tokenServiceURL", "tc.concur.dc", "tc.grant_type", "tokenServicePassword", "tc.ui.group", "tc.ui.label", "clientKey", "tc.concur.companyUUID", "tc.concur.auth.req.token.enabled", "tc.provider_type"], "type": "object"}, {"properties": {"Authentication": {"type": "string"}, "Name": {"type": "string"}, "Password": {"type": "string"}, "ProxyType": {"type": "string"}, "Type": {"type": "string"}, "URL": {"type": "string"}, "User": {"type": "string"}}, "required": ["Name", "Type", "URL", "Authentication", "ProxyType", "User", "Password"], "type": "object"}], "type": "array"}, "existing_destinations_policy": {"type": "string"}}, "required": ["existing_destinations_policy", "destinations"], "type": "object"}}, "required": ["subaccount"], "type": "object"}}, "required": ["HTML5Runtime_enabled", "init_data"], "type": "object"}
         }
 }
