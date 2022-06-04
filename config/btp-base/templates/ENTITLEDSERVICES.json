@@ -1,25 +1,8 @@
 {
-    {% for category in categoryStructure -%}
-    "{{ category.name }}": [
-        {% for service in category.services -%}
-        {
-            "name": "{{ service.name }}",
-            "displayName": "{{ service.displayName }}",
-            "description": "{{ service.description }}",
-            "plans": [
-                {% for plan in service.plans -%}
-                {
-                    "name": "{{ plan.name }}",
-                    "datacenters": [
-                        {% for datacenter in plan.dataCenters -%}
-                        {"name": "{{ datacenter }}"}{% if not loop.last %}, {%- endif %}
-                        {% endfor -%}
-                    ]
-                }{% if not loop.last %}, {%- endif %}
-                {% endfor -%}
-            ]
-        }{% if not loop.last %}, {% endif %}
-        {% endfor -%}    
-    ]{% if not loop.last %}, {% endif %}
-    {% endfor -%}
+    {%- for category in btpservicelist %}
+        "{{ category.name }}": [
+            {%- for service in category.list %}
+            {%- endfor %}
+        ]{% if not loop.last %}, {% endif %}
+    {%- endfor %}
     }
