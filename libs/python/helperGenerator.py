@@ -2,7 +2,6 @@ from libs.python.helperGeneric import getEnvVariableValue
 from libs.python.helperLog import initLogger
 from libs.python.helperCommandExecution import login_btp, runCommandAndGetJsonResult
 from libs.python.helperJinja2 import renderTemplateWithJson
-from libs.python.helperFolders import FOLDER_BTPBASE_TEMPLATES
 from libs.python.helperJsonSchemas import getJsonSchemaDefsContent
 import logging
 import sys
@@ -199,30 +198,3 @@ def buildEnums(accountEntitlements):
     enumList = list(dict.fromkeys(enumList))
     accountEntitlements["btpenums"] = {}
     accountEntitlements["btpenums"]["regions"] = enumList
-
-#####################################################################################
-#####################################################################################
-#####################################################################################
-def updateDocumentation():
-
-    data = getJsonFromFile(None, FOLDER_SCHEMA_LIBS + "btpsa-usecase.json")
-    parameters = {"parameters": data.get("properties")}
-    targetFilename = FOLDER_DOCS_OUTPUT + "PARAMETERS-SERVICES.md"
-    renderTemplateWithJson(FOLDER_DOCS_TEMPLATES, "PARAMETERS-SERVICES.md", targetFilename, parameters)
-    log.success("updated the documentation for use cases at >" + targetFilename + "<")
-
-    data = getJsonFromFile(None, FOLDER_SCHEMA_LIBS + "btpsa-parameters.json")
-    parameters = {"parameters": data.get("properties")}
-    targetFilename = FOLDER_DOCS_OUTPUT + "PARAMETERS-BTPSA.md"
-    renderTemplateWithJson(FOLDER_DOCS_TEMPLATES, "PARAMETERS-BTPSA.md", targetFilename, parameters)
-    log.success("updated the documentation for btpsa parameters at >" + targetFilename + "<")
-
-def updateParameters():
-    targetFilename = "btpsa-usecase.json"
-    buildJsonSchemaFile("BTPSA-USECASE.json", targetFilename, availableForAccount)
-    log.success("updated the json schema file for use cases >" + targetFilename + "< based on your global account >" + self.globalaccount + "<")
-
-    targetFilename = "btpsa-parameters.json"
-    buildJsonSchemaFile("BTPSA-PARAMETERS.json", targetFilename, availableForAccount)
-    log.success("updated the json schema file for parameters >" + targetFilename + "<")
-    log.header("SUCCESSFULLY MAINTAINED THE TOOL: UPDATED JSON SCHEMAS")

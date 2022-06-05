@@ -8,7 +8,7 @@ log = logging.getLogger(__name__)
 def renderTemplateWithJson(templateFilename, targetFilename, parameters):
 
     templateFolder = os.path.dirname(templateFilename)
-    templateBasename = os.path.dirname(templateFilename)
+    templateBasename = os.path.basename(templateFilename)
 
     templateLoader = jinja2.FileSystemLoader(searchpath=templateFolder)
     templateEnv = jinja2.Environment(loader=templateLoader)
