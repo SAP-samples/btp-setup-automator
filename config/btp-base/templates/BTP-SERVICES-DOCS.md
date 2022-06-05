@@ -6,7 +6,7 @@ This page provides an overview over the services, app subscriptions (application
 # {{ category.name }}
 
 {%- for service in category.list %}
-- [{{ service.name }} ({{ service.displayName }})](#{{ category.name }}-service.name)
+- [{{ service.name }} ({{ service.displayName }})](#{{ category.name|lower }}-{{ service.name|lower }})
 {%- endfor %}
 
 {%- endfor %}
@@ -14,7 +14,7 @@ This page provides an overview over the services, app subscriptions (application
 {%- for category in btpservicelist %}
 
 {%- for service in category.list %}
-## [{{ service.name }} ({{ service.displayName }})](#{{ category.name }}-service.name)
+## [{{ service.name }} ({{ service.displayName }})](#{{ category.name|lower }}-{{ service.name|lower }})
 
 {{ service.description }}
 
