@@ -15,17 +15,19 @@ Services are listed and sorted by their technical name. The display name is adde
 {%- for category in btpservicelist %}
 
 {%- for service in category.list %}
+
 # {{ service.name }}
 
-**{{ service.displayName }}**: {{ service.description }}
+**{{ service.displayName }}**
 
-## Service plans
+{{ service.description }}
+
+### Service plans for {{ service.name }}
+
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
 {%- for plan in service.servicePlans %}
 |  {{ service.name }}  |  {{ service.displayName }}  |  {%- for datacenter in plan.dataCenters %} {{ datacenter.region }} - {{ datacenter.displayName }}{% if not loop.last %}<br>{% endif %} {%- endfor %}  |
-
-
 {%- endfor %}
 
 {%- endfor %}
