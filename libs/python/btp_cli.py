@@ -43,11 +43,6 @@ class BTPUSECASE:
 
         self.timeScriptStarted = time.time()
 
-        if self.maintain_documentation is True:
-            updateDocumentation()
-            log.header("SUCCESSFULLY MAINTAINED THE TOOL: UPDATED DOCUMENTATION FILES")
-            sys.exit(os.EX_OK)
-
         self = helperArgParser.checkProvidedArguments(self)
 
         self.outputCurrentBtpUsecaseVariables()
@@ -98,20 +93,20 @@ class BTPUSECASE:
 
         availableForAccount = getListOfAvailableServicesAndApps(self)
 
-        if self.maintain_jsonschemas is True:
-            targetFilename = "btpsa-usecase.json"
-            buildJsonSchemaFile("BTPSA-USECASE.json", targetFilename, availableForAccount)
-            log.success("updated the json schema file for use cases >" + targetFilename + "< based on your global account >" + self.globalaccount + "<")
+        # if self.maintain_jsonschemas is True:
+        #     targetFilename = "btpsa-usecase.json"
+        #     buildJsonSchemaFile("BTPSA-USECASE.json", targetFilename, availableForAccount)
+        #     log.success("updated the json schema file for use cases >" + targetFilename + "< based on your global account >" + self.globalaccount + "<")
 
-            targetFilename = "btpsa-parameters.json"
-            buildJsonSchemaFile("BTPSA-PARAMETERS.json", targetFilename, availableForAccount)
-            log.success("updated the json schema file for parameters >" + targetFilename + "<")
-            log.header("SUCCESSFULLY MAINTAINED THE TOOL: UPDATED JSON SCHEMAS")
-            sys.exit(os.EX_OK)
-        else:
-            targetFilename = "btpsa-usecase-" + self.globalaccount + ".json"
-            buildJsonSchemaFile("BTPSA-USECASE.json", targetFilename, availableForAccount)
-            log.info("created a json schema file >" + targetFilename + "< for your global account >" + self.globalaccount + "<")
+        #     targetFilename = "btpsa-parameters.json"
+        #     buildJsonSchemaFile("BTPSA-PARAMETERS.json", targetFilename, availableForAccount)
+        #     log.success("updated the json schema file for parameters >" + targetFilename + "<")
+        #     log.header("SUCCESSFULLY MAINTAINED THE TOOL: UPDATED JSON SCHEMAS")
+        #     sys.exit(os.EX_OK)
+        # else:
+        #     targetFilename = "btpsa-usecase-" + self.globalaccount + ".json"
+        #     buildJsonSchemaFile("BTPSA-USECASE.json", targetFilename, availableForAccount)
+        #     log.info("created a json schema file >" + targetFilename + "< for your global account >" + self.globalaccount + "<")
 
         usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(self, availableForAccount)
 
@@ -124,10 +119,6 @@ class BTPUSECASE:
     def assignUsersToSubaccountAndRoles(self):
         assignUsersToGlobalAndSubaccount(self)
         assignUsersToEnvironments(self)
-
-        # set_all_cf_space_roles(self)
-        # set_all_cf_org_roles(self)
-        None
 
     def prune_subaccount(self, subaccountid):
         login_btp(self)

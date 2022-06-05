@@ -6,6 +6,8 @@ from libs.python.helperGenerator import BTPUSECASE_GEN
 #######################################################################################
 generator = BTPUSECASE_GEN()
 generator.fetchEntitledServiceList()
+generator.addSchemaInfoToServiceList()
+generator.addNumSection()
 
 
 #######################################################################################
