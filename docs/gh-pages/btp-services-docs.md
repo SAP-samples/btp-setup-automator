@@ -1,66 +1,6 @@
 # BTP SERVICES
 
-This page provides an overview over the services, app subscriptions (applications) and environments.
-# APPLICATIONS
-
-Services are listed and sorted by their technical name. The display name is added in parentheses.
-
-- [abapcp-web-router (Web access for ABAP)](#abapcp-web-router)
-- [ads-configui (Forms Service by Adobe)](#ads-configui)
-- [ai-launchpad (SAP AI Launchpad)](#ai-launchpad)
-- [alm-ts (Cloud Transport Management)](#alm-ts)
-- [api-management-apiportal (API Management, API portal)](#api-management-apiportal)
-- [api-management-devportal (API Management, API Business Hub Enterprise)](#api-management-devportal)
-- [auditlog-viewer (Audit Log Viewer Service)](#auditlog-viewer)
-- [automationpilot (Automation Pilot)](#automationpilot)
-- [Backend-service (Backend Service)](#backend-service)
-- [c4-distributed-order-management-app (SAP Order Management Foundation)](#c4-distributed-order-management-app)
-- [cias (Cloud Integration Automation Service)](#cias)
-- [cicd-app (Continuous Integration & Delivery)](#cicd-app)
-- [data-privacy-integration-application (Data Privacy Integration)](#data-privacy-integration-application)
-- [document-information-extraction-application (Document Information Extraction UI)](#document-information-extraction-application)
-- [dqmmicroui (Data Quality Services UI)](#dqmmicroui)
-- [eadesigner (SAP EA Designer, cloud edition)](#eadesigner)
-- [edge-services (SAP Edge Services)](#edge-services)
-- [enterprise-messaging-hub (Event Mesh)](#enterprise-messaging-hub)
-- [extension-center (Extension Center)](#extension-center)
-- [feature-flags-dashboard (Feature Flags)](#feature-flags-dashboard)
-- [ibx-connection-app (SAP Ariba Shopping)](#ibx-connection-app)
-- [intelligent-situation-automation-app (Intelligent Situation Automation)](#intelligent-situation-automation-app)
-- [iotas (SAP IoT)](#iotas)
-- [IRPA (SAP Intelligent Robotic Process Automation)](#irpa)
-- [it-prod (Process Integration)](#it-prod)
-- [LandscapePortal (Landscape Portal)](#landscapeportal)
-- [market-rates-ux (SAP Market Rates Management)](#market-rates-ux)
-- [MDMBusinessPartnerApplication (SAP Business Partner Application)](#mdmbusinesspartnerapplication)
-- [mdo-one-mds-master (Master Data Integration (Orchestration))](#mdo-one-mds-master)
-- [MDOrchestrationApplication (Master Data Orchestration)](#mdorchestrationapplication)
-- [ocnselfserviceagent (Open Connectors)](#ocnselfserviceagent)
-- [PersonalDataManagerApp (Personal Data Manager)](#personaldatamanagerapp)
-- [PortalApplication (Cloud Portal Service)](#portalapplication)
-- [print-app (Print Service)](#print-app)
-- [process-automation (SAP Process Automation)](#process-automation)
-- [responsibility-management-application-beta (Responsibility Management Service)](#responsibility-management-application-beta)
-- [responsibilitymanagement-application (Responsibility Management Service)](#responsibilitymanagement-application)
-- [retention-manager-app (Data Retention Manager)](#retention-manager-app)
-- [sap-cai-onboarding (SAP Conversational AI)](#sap-cai-onboarding)
-- [sap-identity-services-onboarding (Cloud Identity Services)](#sap-identity-services-onboarding)
-- [sapappgyver (SAP AppGyver)](#sapappgyver)
-- [sapappstudio (SAP Business Application Studio)](#sapappstudio)
-- [SAPLaunchpad (Launchpad Service)](#saplaunchpad)
-- [SAPWebAnalytics (Web Analytics)](#sapwebanalytics)
-- [SAPWorkZone (SAP Work Zone)](#sapworkzone)
-- [sdm-web (Document Management Service, Application Option)](#sdm-web)
-- [spatialservices-app (HANA Spatial Services)](#spatialservices-app)
-- [tnt-onboard-dataenrichment-dcp (Data Enrichment)](#tnt-onboard-dataenrichment-dcp)
-- [WorkflowManagementSaaS (Workflow Management)](#workflowmanagementsaas)
-- [wums-c4re-beta (Workspace Utilization)](#wums-c4re-beta)
-# ENVIRONMENTS
-
-Services are listed and sorted by their technical name. The display name is added in parentheses.
-
-- [cloudfoundry (Cloud Foundry Runtime)](#cloudfoundry)
-- [kymaruntime (Kyma runtime)](#kymaruntime)
+This page provides an overview over the services, app subscriptions (applications) and environments fetched from an [SAP BTP "pay-as-you-go"](https://store.sap.com/dcp/en/product/display-9999951781_live_v1) global account.
 # SERVICES
 
 Services are listed and sorted by their technical name. The display name is added in parentheses.
@@ -185,646 +125,66 @@ Services are listed and sorted by their technical name. The display name is adde
 - [wums-partner-api-beta (Workspace Utilization)](#wums-partner-api-beta)
 - [xfs-runtime (Extension Factory, serverless runtime)](#xfs-runtime)
 - [xsuaa (Authorization and Trust Management Service)](#xsuaa)
-
-# abapcp-web-router
-
-**Web access for ABAP**
-
-Get web access to your instances in the ABAP Environment including access to administrative UIs 
-
-### Service plans for abapcp-web-router
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  abapcp-web-router  |  Web access for ABAP  | jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# ads-configui
-
-**Forms Service by Adobe**
-
-SAP Forms service by Adobe lets you generate print and interactive forms using Adobe Document Services (ADS). Call the service from your application using a REST API for rendering documents and for managing form templates in the template store. Configure ADS and access the template store via service-offered UIs. To use Forms service by Adobe, you must subscribe to the application (ads-configui) and set entitlements to both, the ADS (ads) and the REST API template store (adsrestapi) service. In the Service Marketplace, find all two tiles easily by entering 'adobe' into the search field.
-
-### Service plans for ads-configui
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  ads-configui  |  Forms Service by Adobe  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# ai-launchpad
-
-**SAP AI Launchpad**
-
-SAP AI Launchpad is an application layer for AI Foundation. It is a one-stop-shop to access tooling around ML lifecycle management & Data Science activity. It is a container to access both SAP and open sourced integrated apps and tools. It is connected to a number of ML runtimes with an AI API. It allows users to get an overview over all ML Scenarios in all connected ML runtimes and manage the lifecycle of these.
-
-### Service plans for ai-launchpad
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  ai-launchpad  |  SAP AI Launchpad  | ap10 - Australia (Sydney)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# alm-ts
-
-**Cloud Transport Management**
-
-SAP Cloud Transport Management service lets you manage software deliverables between accounts of different environments (such as Neo and Cloud Foundry), by transporting them across various runtimes. This includes application artifacts as well as their respective application-specific content.
-
-### Service plans for alm-ts
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  alm-ts  |  Cloud Transport Management  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> ap10 - Australia (Sydney)<br> ap21 - Singapore<br> us21 - US East (VA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  alm-ts  |  Cloud Transport Management  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap21 - Singapore<br> us21 - US East (VA)<br> us20 - US West (WA)<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# api-management-apiportal
-
-**API Management, API portal**
-
-API Management technology helps you to share digital assets and enables consumption of these assets in new user interfaces. An API Portal application in SAP API Management helps you grow new revenue streams. You can not only configure and share but also monetize you digital assets, enabling up-sell and cross-sell though your eco-system.
-
-### Service plans for api-management-apiportal
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  api-management-apiportal  |  API Management, API portal  | ap11 - Singapore<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> us20 - US West (WA)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> jp20 - Japan (Tokyo)<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> eu20 - Europe (Netherlands)  |
-
-# api-management-devportal
-
-**API Management, API Business Hub Enterprise**
-
-API Management technology helps you to share digital assets and enables consumption of these assets in new user interfaces. API Business Hub Enterprise application provides a common platform for application developers to consume APIs. It offers capabilities for onboarding application developers, exploring and testing APIs, and creating and subscribing to applications.
-
-### Service plans for api-management-devportal
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  api-management-devportal  |  API Management, API Business Hub Enterprise  | ap11 - Singapore<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> jp20 - Japan (Tokyo)<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> eu20 - Europe (Netherlands)  |
-
-# auditlog-viewer
-
-**Audit Log Viewer Service**
-
-SAP Audit Log Viewer service for SAP BTP helps to view and manage audit logs.
-
-### Service plans for auditlog-viewer
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  auditlog-viewer  |  Audit Log Viewer Service  | ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us30 - US Central (IA)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# automationpilot
-
-**Automation Pilot**
-
-SAP Automation Pilot provides out-of-the-box high-quality automation such as application restarts and reconfigurations, database restarts and updates, application and database health statuses, RCA, recommended actions, and more. Complex DevOps tasks are made simple without the need of having deep SAP Business Technology Platform knowledge. In addition, recommended actions are automated by using the SAP Alert Notification service for SAP BTP (sophisticated integration to immediately react on incoming alerts) or any other alerting system.
-
-### Service plans for automationpilot
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  automationpilot  |  Automation Pilot  | us30 - US Central (IA)<br> eu10 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> ap10 - Australia (Sydney)  |
-|  automationpilot  |  Automation Pilot  | ap10 - Australia (Sydney)<br> jp20 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> us30 - US Central (IA)  |
-
-# Backend-service
-
-**Backend Service**
-
-With SAP Cloud Platform Backed service you can build robust, scalable and enterprise-ready APIs/services to serve your applications and extensions in a serverless environment. It is a fully managed API service that helps you build, run, and manage APIs in a serverless environment [BETA]
-
-### Service plans for Backend-service
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  Backend-service  |  Backend Service  | eu10 - Europe (Frankfurt)  |
-
-# c4-distributed-order-management-app
-
-**SAP Order Management Foundation**
-
-The SAP Order Management foundation solution, including the application and service, provides order management functionality along with business configuration settings that allow you to create a customized solution. You can also integrate various systems and solutions to support your order management processes. This allows you to leverage, for example, your existing master data, order capture, and fulfillment systems while consolidating all of your orders and order-related data in a convenient cloud-based solution.
-
-### Service plans for c4-distributed-order-management-app
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  c4-distributed-order-management-app  |  SAP Order Management Foundation  | eu10 - Europe (Frankfurt)  |
-
-# cias
-
-**Cloud Integration Automation Service**
-
-Cloud Integration Automation service provides you a guided workflow to integrate SAP cloud solutions to On-Premise and other SAP Cloud solutions. The guided workflow contains instructions for manual and automated tasks to enable a simpler and faster integration configuration setup
-
-### Service plans for cias
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  cias  |  Cloud Integration Automation Service  | eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> ap10 - Australia (Sydney)  |
-
-# cicd-app
-
-**Continuous Integration & Delivery**
-
-SAP Continuous Integration and Delivery lets you configure and run predefined continuous integration and delivery (CI/CD) pipelines that automatically build, test and deploy your code changes to speed up your development and delivery cycles.
-
-### Service plans for cicd-app
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  cicd-app  |  Continuous Integration & Delivery  | us20 - US West (WA)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# data-privacy-integration-application
-
-**Data Privacy Integration**
-
-Data Privacy Integration (DPI) is a service that supports applications realize their data privacy functions i.e Business Purpose Management ( Ensure Data is processed in a compliant manner based on valid Business Purpose ), Data Deletion and Retrieval of personal data. Applications that are part of an end to end business process can integrate with DPI to provide a centralized management of data privacy.
-
-### Service plans for data-privacy-integration-application
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  data-privacy-integration-application  |  Data Privacy Integration  | ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# document-information-extraction-application
-
-**Document Information Extraction UI**
-
-UI Application to upload document for extraction to Document Information Extraction and correct the results.
-
-### Service plans for document-information-extraction-application
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  document-information-extraction-application  |  Document Information Extraction UI  | ap10 - Australia (Sydney)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)  |
-
-# dqmmicroui
-
-**Data Quality Services UI**
-
-Manage settings and field mappings using configurations. View number of transactions performed over a spefici time period.
-
-### Service plans for dqmmicroui
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  dqmmicroui  |  Data Quality Services UI  | eu10 - Europe (Frankfurt)  |
-
-# eadesigner
-
-**SAP EA Designer, cloud edition**
-
-SAP Enterprise Architecture Designer, Cloud Edition (SAP EA Designer) lets you capture, analyze, and present your organization's landscapes, strategies, requirements, processes, data, and other artifacts in a shared environment. Using industry-standard notations and techniques, organizations can leverage rich metadata and use models and diagrams to drive understanding and promote shared outcomes in creating innovative systems, information sets, and processes to support goals and capabilities.
-
-### Service plans for eadesigner
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  eadesigner  |  SAP EA Designer, cloud edition  | eu10 - Europe (Frankfurt)  |
-
-# edge-services
-
-**SAP Edge Services**
-
-SAP Edge Services
-
-### Service plans for edge-services
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  edge-services  |  SAP Edge Services  | us20 - US West (WA)<br> eu10 - Europe (Frankfurt)  |
-|  edge-services  |  SAP Edge Services  | eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)  |
-
-# enterprise-messaging-hub
-
-**Event Mesh**
-
-The SAP Event Mesh service decouples communication and allows for event-driven business processes.
-
-### Service plans for enterprise-messaging-hub
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  enterprise-messaging-hub  |  Event Mesh  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> ap11 - Singapore<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# extension-center
-
-**Extension Center**
-
-Allows you to create, manage, configure extensions on SAP Cloud Platform
-
-### Service plans for extension-center
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  extension-center  |  Extension Center  | ap12 - South Korea (Seoul)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# feature-flags-dashboard
-
-**Feature Flags**
-
-View and manage Feature Flags Service instances. Get information about flags status, usage and history. Also perform tasks, such as enabling, disabling, adding and removing flags.
-
-### Service plans for feature-flags-dashboard
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  feature-flags-dashboard  |  Feature Flags  | ch20 - cf-ch20<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> ap20 - Australia (Sydney) Azure  |
-
-# ibx-connection-app
-
-**SAP Ariba Shopping**
-
-With the SAP Ariba Shopping mobile app for iPhone and Android, you can have a personalized, intuitive, and sustainable shopping experience anywhere and anytime. This app connects you via the BTP to SAP Ariba and enables casual employees to easily purchase right from their phones. Key features of SAP Ariba Shopping include finding desired products through intelligent search, purchasing predefined product packages, viewing sustainability information on product level, and visualizing products with the augmented reality feature.
-
-### Service plans for ibx-connection-app
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  ibx-connection-app  |  SAP Ariba Shopping  | eu10 - Europe (Frankfurt)  |
-
-# intelligent-situation-automation-app
-
-**Intelligent Situation Automation**
-
-Intelligent Situation Automation is an extension of Situation Handling. It processes situations raised and resolves them automatically using business rules, thus reducing the time users spend on routine manual and repetitive tasks.
-
-### Service plans for intelligent-situation-automation-app
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  intelligent-situation-automation-app  |  Intelligent Situation Automation  | eu10 - Europe (Frankfurt)  |
-|  intelligent-situation-automation-app  |  Intelligent Situation Automation  | eu10 - Europe (Frankfurt)  |
-
-# iotas
-
-**SAP IoT**
-
-SAP IoT business services allow you to put raw sensor data into business object context and then use query models, rules, events and actions to leverage the data near real-time in analytical or transactional business applications.
-
-### Service plans for iotas
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  iotas  |  SAP IoT  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  iotas  |  SAP IoT  | us20 - US West (WA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)  |
-
-# IRPA
-
-**SAP Intelligent Robotic Process Automation**
-
-SAP Intelligent Robotic Process Automation lets you automate enterprise business processes. Design process automations with the Desktop Studio by creating end-to-end scenarios. Import these scenarios into the cloud Factory to configure and execute them with Agents. An Agent can work as a Digital Assistant (attended automation) or as a Digital Worker (unattended automation).
-
-### Service plans for IRPA
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  IRPA  |  SAP Intelligent Robotic Process Automation  | us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)  |
-|  IRPA  |  SAP Intelligent Robotic Process Automation  | us10 - US East (VA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)  |
-|  IRPA  |  SAP Intelligent Robotic Process Automation  | eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> ap10 - Australia (Sydney)  |
-
-# it-prod
-
-**Process Integration**
-
-The SAP Cloud Integration connects cloud applications with other SAP and non-SAP cloud and on-premise apps.
-
-### Service plans for it-prod
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  it-prod  |  Process Integration  | br10 - Brazil (Sao Paulo)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> us20 - US West (WA)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)  |
-
-# LandscapePortal
-
-**Landscape Portal**
-
-The Landscape Portal acts as a central tool that allows SaaS providers to keep track of the distribution of their consumers across their systems as well as perform lifecycle management operations such as updating add-ons, creating new tenants, and more.
-
-### Service plans for LandscapePortal
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  LandscapePortal  |  Landscape Portal  | eu10 - Europe (Frankfurt)  |
-
-# market-rates-ux
-
-**SAP Market Rates Management**
-
-The Manage Market Rates application enables you to read and manage market data you have uploaded by using the data options available with the SAP Market Rates Management service
-
-### Service plans for market-rates-ux
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  market-rates-ux  |  SAP Market Rates Management  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  market-rates-ux  |  SAP Market Rates Management  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# MDMBusinessPartnerApplication
-
-**SAP Business Partner Application**
-
-SAP Business Partner Application
-
-### Service plans for MDMBusinessPartnerApplication
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  MDMBusinessPartnerApplication  |  SAP Business Partner Application  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# mdo-one-mds-master
-
-**Master Data Integration (Orchestration)**
-
-Master data application that allows master data replication according to predetermined master data distribution models. SAP Master Data Orchestration can only be used in combination with the SAP Master Data Integration service.
-
-### Service plans for mdo-one-mds-master
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  mdo-one-mds-master  |  Master Data Integration (Orchestration)  | us10 - US East (VA)<br> ap11 - Singapore<br> eu10 - Europe (Frankfurt)<br> ap10 - Australia (Sydney)  |
-
-# MDOrchestrationApplication
-
-**Master Data Orchestration**
-
-Master data application for existing customers of SAP Master Data service for business partners and SAP Master Data service for products. New customers should use the Master Data Integration (Orchestration) tile. SAP Master Data Orchestration should only be used in combination with the SAP Master Data Integration service.
-
-### Service plans for MDOrchestrationApplication
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  MDOrchestrationApplication  |  Master Data Orchestration  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# ocnselfserviceagent
-
-**Open Connectors**
-
-Open Connectors provides pre-built and feature-rich connectors to simplify the connectivity and seamless integration with over 150 non-SAP cloud applications. Customers benefit from connectivity to third-party APIs via harmonized RESTful APIs and can develop and map canonical data models to extend pre-built connectors. Furthermore customers can easily build API compositions across the different connectors.
-
-### Service plans for ocnselfserviceagent
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  ocnselfserviceagent  |  Open Connectors  | us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> us21 - US East (VA)<br> ap21 - Singapore<br> ap11 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# PersonalDataManagerApp
-
-**Personal Data Manager**
-
-SAP Personal Data Manager provides the capability to generate reports showing the personal data stored in an application point of view with the help of a CSR. The reports can be generated and exported either in machine readable form (JSON) or human readable form (PDF). Data subjects can request the correction and deletion of personal data that is stored in an application point of view.
-
-### Service plans for PersonalDataManagerApp
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  PersonalDataManagerApp  |  Personal Data Manager  | ap21 - Singapore<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# PortalApplication
-
-**Cloud Portal Service**
-
-SAP Cloud Portal service lets you build digital experience portals for employees, customers, and partners. You can streamline access to business data so that your employees can execute their daily business tasks securely, from any device.
-
-### Service plans for PortalApplication
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  PortalApplication  |  Cloud Portal Service  | eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us30 - US Central (IA)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# print-app
-
-**Print Service**
-
-Allows you to manage print queue and monitor the print status
-
-### Service plans for print-app
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  print-app  |  Print Service  | eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# process-automation
-
-**SAP Process Automation**
-
-SAP Process Automation is a citizen development solution to adapt, improve, and innovate business processes with the low-code/no-code capabilities of SAP Workflow Management and SAP Intelligent RPA.
-
-### Service plans for process-automation
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  process-automation  |  SAP Process Automation  | jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  process-automation  |  SAP Process Automation  | jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# responsibility-management-application-beta
-
-**Responsibility Management Service**
-
-Provides APIs for DetermineAgents using responsibility rules or external APIs(bring your own code) and AgentDeterminationRequest.
-
-### Service plans for responsibility-management-application-beta
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  responsibility-management-application-beta  |  Responsibility Management Service  | eu10 - Europe (Frankfurt)  |
-
-# responsibilitymanagement-application
-
-**Responsibility Management Service**
-
-As we move toward an intelligent enterprise, intelligent systems need to determine agents who are responsible for business processes and objects, and automatically notify them. It is essential to define and manage these responsibilities for various contexts and retrieve responsible agents who can respond to tasks and activities.
-
-### Service plans for responsibilitymanagement-application
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  responsibilitymanagement-application  |  Responsibility Management Service  | eu10 - Europe (Frankfurt)  |
-
-# retention-manager-app
-
-**Data Retention Manager**
-
-The SAP Cloud Platform Data Retention Manager lets you block or delete personal data based on the residence and retention rules maintained.
-
-### Service plans for retention-manager-app
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  retention-manager-app  |  Data Retention Manager  | us30 - US Central (IA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# sap-cai-onboarding
-
-**SAP Conversational AI**
-
-SAP Conversational AI is a collaborative end-to-end platform for creating chatbots. Along with conversational natural language processing (NLP) and dialog management features supported with detailed API documentation, SAP Conversational AI makes it easy to connect your bots to different messaging channels.
-
-### Service plans for sap-cai-onboarding
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  sap-cai-onboarding  |  SAP Conversational AI  | eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# sap-identity-services-onboarding
-
-**Cloud Identity Services**
-
-Cloud Identity Services provide basic capabilities for user authentication.
-
-### Service plans for sap-identity-services-onboarding
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  sap-identity-services-onboarding  |  Cloud Identity Services  | ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> us30 - US Central (IA)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> jp20 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap21 - Singapore<br> us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)  |
-|  sap-identity-services-onboarding  |  Cloud Identity Services  | ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> us30 - US Central (IA)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> jp20 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap21 - Singapore<br> us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)  |
-|  sap-identity-services-onboarding  |  Cloud Identity Services  | ap12 - South Korea (Seoul)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)  |
-
-# sapappgyver
-
-**SAP AppGyver**
-
-Low-code / no-code tools from SAP that accelerate SAP business applications development.
-
-### Service plans for sapappgyver
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  sapappgyver  |  SAP AppGyver  | eu10 - Europe (Frankfurt)  |
-
-# sapappstudio
-
-**SAP Business Application Studio**
-
-SAP Business Application Studio is the next generation of SAP Web IDE, offering a modular development environment tailored for efficient development of business applications for the SAP Intelligent Enterprise. It provides pre-configured environments where you can develop, build, test and run using pre-installed runtimes and tools tailored for key scenarios such as: S/4HANA extensions, full stack business applications, Fiori applications and more. It supports quick integration with SAP solutions and services to allow building smarter and more intelligent applications.
-
-### Service plans for sapappstudio
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  sapappstudio  |  SAP Business Application Studio  | in30 - cf-in30<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> ap21 - Singapore  |
-
-# SAPLaunchpad
-
-**Launchpad Service**
-
-SAP Launchpad service provides users with a central point of access to applications from different sources.
-
-### Service plans for SAPLaunchpad
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  SAPLaunchpad  |  Launchpad Service  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> us20 - US West (WA)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> ap21 - Singapore<br> ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)  |
-|  SAPLaunchpad  |  Launchpad Service  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# SAPWebAnalytics
-
-**Web Analytics**
-
-SAP Web Analytics enables the collection and analysis of website data for understanding and optimizing web usage to measure organizational goals, drive strategy and improve the user's experience.
-
-### Service plans for SAPWebAnalytics
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  SAPWebAnalytics  |  Web Analytics  | ap21 - Singapore<br> us21 - US East (VA)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# SAPWorkZone
-
-**SAP Work Zone**
-
-SAP Work Zone centralizes access to relevant business applications, processes, information, and communication in a unified entry point that users can access from any device.
-
-### Service plans for SAPWorkZone
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  SAPWorkZone  |  SAP Work Zone  | ca10 - Canada (Montreal)<br> ap21 - Singapore<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# sdm-web
-
-**Document Management Service, Application Option**
-
-Benefit from the standalone, ready-to-use web application of SAP Document Management service that provides document management capabilities.
-
-### Service plans for sdm-web
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  sdm-web  |  Document Management Service, Application Option  | ap20 - Australia (Sydney) Azure<br> eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> ca10 - Canada (Montreal)<br> us21 - US East (VA)<br> jp20 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# spatialservices-app
-
-**HANA Spatial Services**
-
-HANA Spatial Services
-
-### Service plans for spatialservices-app
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  spatialservices-app  |  HANA Spatial Services  | eu10 - Europe (Frankfurt)  |
-|  spatialservices-app  |  HANA Spatial Services  | eu10 - Europe (Frankfurt)  |
-
-# tnt-onboard-dataenrichment-dcp
-
-**Data Enrichment**
-
-Provides Business Partner data from third-party data providers
-
-### Service plans for tnt-onboard-dataenrichment-dcp
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  tnt-onboard-dataenrichment-dcp  |  Data Enrichment  | ap11 - Singapore<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# WorkflowManagementSaaS
-
-**Workflow Management**
-
-Digitize workflows, manage decisions and gain end-to-end process visibility
-
-### Service plans for WorkflowManagementSaaS
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  WorkflowManagementSaaS  |  Workflow Management  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> us20 - US West (WA)<br> jp20 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us21 - US East (VA)<br> ap21 - Singapore<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-
-# wums-c4re-beta
-
-**Workspace Utilization**
-
-The Workspace Utilization Management application lets you assign sensors to workplaces and spaces. These sensors measure how your workspaces are used. The Workspace Utilization Management application integrates with SAP Cloud for Real Estate and SAP Analytics Cloud to analyze, manage, and optimize your workspaces.
-
-### Service plans for wums-c4re-beta
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  wums-c4re-beta  |  Workspace Utilization  | eu10 - Europe (Frankfurt)  |
-
-# cloudfoundry
-
-**Cloud Foundry Runtime**
-
-The SAP BTP, Cloud Foundry runtime lets you develop polyglot cloud-native applications and run them on the SAP BTP Cloud Foundry environment.
-
-### Service plans for cloudfoundry
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  cloudfoundry  |  Cloud Foundry Runtime  | ch20 - cf-ch20<br> eu30 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure  |
-
-# kymaruntime
-
-**Kyma runtime**
-
-SAP Cloud Platform, Kyma runtime is a fully managed Kubernetes runtime based on the open-source project Kyma. This cloud-native solution allows the developers to extend SAP solutions with serverless Functions and combine them with containerized microservices. The offered functionality ensures smooth consumption of SAP and non-SAP applications, running workloads in a highly scalable environment, and building event- and API-based extensions.
-
-### Service plans for kymaruntime
-
-| Name | Display name | Data center availability  |
-|------|----------------|---------------------------|
-|  kymaruntime  |  Kyma runtime  | us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  kymaruntime  |  Kyma runtime  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)  |
-|  kymaruntime  |  Kyma runtime  | us30 - US Central (IA)  |
-|  kymaruntime  |  Kyma runtime  | ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> ca10 - Canada (Montreal)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+# APPLICATIONS
+
+Services are listed and sorted by their technical name. The display name is added in parentheses.
+
+- [abapcp-web-router (Web access for ABAP)](#abapcp-web-router)
+- [ads-configui (Forms Service by Adobe)](#ads-configui)
+- [ai-launchpad (SAP AI Launchpad)](#ai-launchpad)
+- [alm-ts (Cloud Transport Management)](#alm-ts)
+- [api-management-apiportal (API Management, API portal)](#api-management-apiportal)
+- [api-management-devportal (API Management, API Business Hub Enterprise)](#api-management-devportal)
+- [auditlog-viewer (Audit Log Viewer Service)](#auditlog-viewer)
+- [automationpilot (Automation Pilot)](#automationpilot)
+- [Backend-service (Backend Service)](#backend-service)
+- [c4-distributed-order-management-app (SAP Order Management Foundation)](#c4-distributed-order-management-app)
+- [cias (Cloud Integration Automation Service)](#cias)
+- [cicd-app (Continuous Integration & Delivery)](#cicd-app)
+- [data-privacy-integration-application (Data Privacy Integration)](#data-privacy-integration-application)
+- [document-information-extraction-application (Document Information Extraction UI)](#document-information-extraction-application)
+- [dqmmicroui (Data Quality Services UI)](#dqmmicroui)
+- [eadesigner (SAP EA Designer, cloud edition)](#eadesigner)
+- [edge-services (SAP Edge Services)](#edge-services)
+- [enterprise-messaging-hub (Event Mesh)](#enterprise-messaging-hub)
+- [extension-center (Extension Center)](#extension-center)
+- [feature-flags-dashboard (Feature Flags)](#feature-flags-dashboard)
+- [ibx-connection-app (SAP Ariba Shopping)](#ibx-connection-app)
+- [intelligent-situation-automation-app (Intelligent Situation Automation)](#intelligent-situation-automation-app)
+- [iotas (SAP IoT)](#iotas)
+- [IRPA (SAP Intelligent Robotic Process Automation)](#irpa)
+- [it-prod (Process Integration)](#it-prod)
+- [LandscapePortal (Landscape Portal)](#landscapeportal)
+- [market-rates-ux (SAP Market Rates Management)](#market-rates-ux)
+- [MDMBusinessPartnerApplication (SAP Business Partner Application)](#mdmbusinesspartnerapplication)
+- [mdo-one-mds-master (Master Data Integration (Orchestration))](#mdo-one-mds-master)
+- [MDOrchestrationApplication (Master Data Orchestration)](#mdorchestrationapplication)
+- [ocnselfserviceagent (Open Connectors)](#ocnselfserviceagent)
+- [PersonalDataManagerApp (Personal Data Manager)](#personaldatamanagerapp)
+- [PortalApplication (Cloud Portal Service)](#portalapplication)
+- [print-app (Print Service)](#print-app)
+- [process-automation (SAP Process Automation)](#process-automation)
+- [responsibility-management-application-beta (Responsibility Management Service)](#responsibility-management-application-beta)
+- [responsibilitymanagement-application (Responsibility Management Service)](#responsibilitymanagement-application)
+- [retention-manager-app (Data Retention Manager)](#retention-manager-app)
+- [sap-cai-onboarding (SAP Conversational AI)](#sap-cai-onboarding)
+- [sap-identity-services-onboarding (Cloud Identity Services)](#sap-identity-services-onboarding)
+- [sapappgyver (SAP AppGyver)](#sapappgyver)
+- [sapappstudio (SAP Business Application Studio)](#sapappstudio)
+- [SAPLaunchpad (Launchpad Service)](#saplaunchpad)
+- [SAPWebAnalytics (Web Analytics)](#sapwebanalytics)
+- [SAPWorkZone (SAP Work Zone)](#sapworkzone)
+- [sdm-web (Document Management Service, Application Option)](#sdm-web)
+- [spatialservices-app (HANA Spatial Services)](#spatialservices-app)
+- [tnt-onboard-dataenrichment-dcp (Data Enrichment)](#tnt-onboard-dataenrichment-dcp)
+- [WorkflowManagementSaaS (Workflow Management)](#workflowmanagementsaas)
+- [wums-c4re-beta (Workspace Utilization)](#wums-c4re-beta)
+# ENVIRONMENTS
+
+Services are listed and sorted by their technical name. The display name is added in parentheses.
+
+- [cloudfoundry (Cloud Foundry Runtime)](#cloudfoundry)
+- [kymaruntime (Kyma runtime)](#kymaruntime)
 
 # abap
 
@@ -2421,3 +1781,643 @@ The Authorization and Trust Management service lets you manage user authorizatio
 |  xsuaa  |  Authorization and Trust Management Service  | ch20 - cf-ch20<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure  |
 |  xsuaa  |  Authorization and Trust Management Service  | ch20 - cf-ch20<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure  |
 |  xsuaa  |  Authorization and Trust Management Service  | ch20 - cf-ch20<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure  |
+
+# abapcp-web-router
+
+**Web access for ABAP**
+
+Get web access to your instances in the ABAP Environment including access to administrative UIs 
+
+### Service plans for abapcp-web-router
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  abapcp-web-router  |  Web access for ABAP  | jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# ads-configui
+
+**Forms Service by Adobe**
+
+SAP Forms service by Adobe lets you generate print and interactive forms using Adobe Document Services (ADS). Call the service from your application using a REST API for rendering documents and for managing form templates in the template store. Configure ADS and access the template store via service-offered UIs. To use Forms service by Adobe, you must subscribe to the application (ads-configui) and set entitlements to both, the ADS (ads) and the REST API template store (adsrestapi) service. In the Service Marketplace, find all two tiles easily by entering 'adobe' into the search field.
+
+### Service plans for ads-configui
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  ads-configui  |  Forms Service by Adobe  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# ai-launchpad
+
+**SAP AI Launchpad**
+
+SAP AI Launchpad is an application layer for AI Foundation. It is a one-stop-shop to access tooling around ML lifecycle management & Data Science activity. It is a container to access both SAP and open sourced integrated apps and tools. It is connected to a number of ML runtimes with an AI API. It allows users to get an overview over all ML Scenarios in all connected ML runtimes and manage the lifecycle of these.
+
+### Service plans for ai-launchpad
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  ai-launchpad  |  SAP AI Launchpad  | ap10 - Australia (Sydney)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# alm-ts
+
+**Cloud Transport Management**
+
+SAP Cloud Transport Management service lets you manage software deliverables between accounts of different environments (such as Neo and Cloud Foundry), by transporting them across various runtimes. This includes application artifacts as well as their respective application-specific content.
+
+### Service plans for alm-ts
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  alm-ts  |  Cloud Transport Management  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> ap10 - Australia (Sydney)<br> ap21 - Singapore<br> us21 - US East (VA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  alm-ts  |  Cloud Transport Management  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap21 - Singapore<br> us21 - US East (VA)<br> us20 - US West (WA)<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# api-management-apiportal
+
+**API Management, API portal**
+
+API Management technology helps you to share digital assets and enables consumption of these assets in new user interfaces. An API Portal application in SAP API Management helps you grow new revenue streams. You can not only configure and share but also monetize you digital assets, enabling up-sell and cross-sell though your eco-system.
+
+### Service plans for api-management-apiportal
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  api-management-apiportal  |  API Management, API portal  | ap11 - Singapore<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> us20 - US West (WA)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> jp20 - Japan (Tokyo)<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> eu20 - Europe (Netherlands)  |
+
+# api-management-devportal
+
+**API Management, API Business Hub Enterprise**
+
+API Management technology helps you to share digital assets and enables consumption of these assets in new user interfaces. API Business Hub Enterprise application provides a common platform for application developers to consume APIs. It offers capabilities for onboarding application developers, exploring and testing APIs, and creating and subscribing to applications.
+
+### Service plans for api-management-devportal
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  api-management-devportal  |  API Management, API Business Hub Enterprise  | ap11 - Singapore<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> jp20 - Japan (Tokyo)<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> eu20 - Europe (Netherlands)  |
+
+# auditlog-viewer
+
+**Audit Log Viewer Service**
+
+SAP Audit Log Viewer service for SAP BTP helps to view and manage audit logs.
+
+### Service plans for auditlog-viewer
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  auditlog-viewer  |  Audit Log Viewer Service  | ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us30 - US Central (IA)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# automationpilot
+
+**Automation Pilot**
+
+SAP Automation Pilot provides out-of-the-box high-quality automation such as application restarts and reconfigurations, database restarts and updates, application and database health statuses, RCA, recommended actions, and more. Complex DevOps tasks are made simple without the need of having deep SAP Business Technology Platform knowledge. In addition, recommended actions are automated by using the SAP Alert Notification service for SAP BTP (sophisticated integration to immediately react on incoming alerts) or any other alerting system.
+
+### Service plans for automationpilot
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  automationpilot  |  Automation Pilot  | us30 - US Central (IA)<br> eu10 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> ap10 - Australia (Sydney)  |
+|  automationpilot  |  Automation Pilot  | ap10 - Australia (Sydney)<br> jp20 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> us30 - US Central (IA)  |
+
+# Backend-service
+
+**Backend Service**
+
+With SAP Cloud Platform Backed service you can build robust, scalable and enterprise-ready APIs/services to serve your applications and extensions in a serverless environment. It is a fully managed API service that helps you build, run, and manage APIs in a serverless environment [BETA]
+
+### Service plans for Backend-service
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  Backend-service  |  Backend Service  | eu10 - Europe (Frankfurt)  |
+
+# c4-distributed-order-management-app
+
+**SAP Order Management Foundation**
+
+The SAP Order Management foundation solution, including the application and service, provides order management functionality along with business configuration settings that allow you to create a customized solution. You can also integrate various systems and solutions to support your order management processes. This allows you to leverage, for example, your existing master data, order capture, and fulfillment systems while consolidating all of your orders and order-related data in a convenient cloud-based solution.
+
+### Service plans for c4-distributed-order-management-app
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  c4-distributed-order-management-app  |  SAP Order Management Foundation  | eu10 - Europe (Frankfurt)  |
+
+# cias
+
+**Cloud Integration Automation Service**
+
+Cloud Integration Automation service provides you a guided workflow to integrate SAP cloud solutions to On-Premise and other SAP Cloud solutions. The guided workflow contains instructions for manual and automated tasks to enable a simpler and faster integration configuration setup
+
+### Service plans for cias
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  cias  |  Cloud Integration Automation Service  | eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> ap10 - Australia (Sydney)  |
+
+# cicd-app
+
+**Continuous Integration & Delivery**
+
+SAP Continuous Integration and Delivery lets you configure and run predefined continuous integration and delivery (CI/CD) pipelines that automatically build, test and deploy your code changes to speed up your development and delivery cycles.
+
+### Service plans for cicd-app
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  cicd-app  |  Continuous Integration & Delivery  | us20 - US West (WA)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# data-privacy-integration-application
+
+**Data Privacy Integration**
+
+Data Privacy Integration (DPI) is a service that supports applications realize their data privacy functions i.e Business Purpose Management ( Ensure Data is processed in a compliant manner based on valid Business Purpose ), Data Deletion and Retrieval of personal data. Applications that are part of an end to end business process can integrate with DPI to provide a centralized management of data privacy.
+
+### Service plans for data-privacy-integration-application
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  data-privacy-integration-application  |  Data Privacy Integration  | ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# document-information-extraction-application
+
+**Document Information Extraction UI**
+
+UI Application to upload document for extraction to Document Information Extraction and correct the results.
+
+### Service plans for document-information-extraction-application
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  document-information-extraction-application  |  Document Information Extraction UI  | ap10 - Australia (Sydney)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)  |
+
+# dqmmicroui
+
+**Data Quality Services UI**
+
+Manage settings and field mappings using configurations. View number of transactions performed over a spefici time period.
+
+### Service plans for dqmmicroui
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  dqmmicroui  |  Data Quality Services UI  | eu10 - Europe (Frankfurt)  |
+
+# eadesigner
+
+**SAP EA Designer, cloud edition**
+
+SAP Enterprise Architecture Designer, Cloud Edition (SAP EA Designer) lets you capture, analyze, and present your organization's landscapes, strategies, requirements, processes, data, and other artifacts in a shared environment. Using industry-standard notations and techniques, organizations can leverage rich metadata and use models and diagrams to drive understanding and promote shared outcomes in creating innovative systems, information sets, and processes to support goals and capabilities.
+
+### Service plans for eadesigner
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  eadesigner  |  SAP EA Designer, cloud edition  | eu10 - Europe (Frankfurt)  |
+
+# edge-services
+
+**SAP Edge Services**
+
+SAP Edge Services
+
+### Service plans for edge-services
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  edge-services  |  SAP Edge Services  | us20 - US West (WA)<br> eu10 - Europe (Frankfurt)  |
+|  edge-services  |  SAP Edge Services  | eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)  |
+
+# enterprise-messaging-hub
+
+**Event Mesh**
+
+The SAP Event Mesh service decouples communication and allows for event-driven business processes.
+
+### Service plans for enterprise-messaging-hub
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  enterprise-messaging-hub  |  Event Mesh  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> ap11 - Singapore<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# extension-center
+
+**Extension Center**
+
+Allows you to create, manage, configure extensions on SAP Cloud Platform
+
+### Service plans for extension-center
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  extension-center  |  Extension Center  | ap12 - South Korea (Seoul)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# feature-flags-dashboard
+
+**Feature Flags**
+
+View and manage Feature Flags Service instances. Get information about flags status, usage and history. Also perform tasks, such as enabling, disabling, adding and removing flags.
+
+### Service plans for feature-flags-dashboard
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  feature-flags-dashboard  |  Feature Flags  | ch20 - cf-ch20<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> ap20 - Australia (Sydney) Azure  |
+
+# ibx-connection-app
+
+**SAP Ariba Shopping**
+
+With the SAP Ariba Shopping mobile app for iPhone and Android, you can have a personalized, intuitive, and sustainable shopping experience anywhere and anytime. This app connects you via the BTP to SAP Ariba and enables casual employees to easily purchase right from their phones. Key features of SAP Ariba Shopping include finding desired products through intelligent search, purchasing predefined product packages, viewing sustainability information on product level, and visualizing products with the augmented reality feature.
+
+### Service plans for ibx-connection-app
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  ibx-connection-app  |  SAP Ariba Shopping  | eu10 - Europe (Frankfurt)  |
+
+# intelligent-situation-automation-app
+
+**Intelligent Situation Automation**
+
+Intelligent Situation Automation is an extension of Situation Handling. It processes situations raised and resolves them automatically using business rules, thus reducing the time users spend on routine manual and repetitive tasks.
+
+### Service plans for intelligent-situation-automation-app
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  intelligent-situation-automation-app  |  Intelligent Situation Automation  | eu10 - Europe (Frankfurt)  |
+|  intelligent-situation-automation-app  |  Intelligent Situation Automation  | eu10 - Europe (Frankfurt)  |
+
+# iotas
+
+**SAP IoT**
+
+SAP IoT business services allow you to put raw sensor data into business object context and then use query models, rules, events and actions to leverage the data near real-time in analytical or transactional business applications.
+
+### Service plans for iotas
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  iotas  |  SAP IoT  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  iotas  |  SAP IoT  | us20 - US West (WA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)  |
+
+# IRPA
+
+**SAP Intelligent Robotic Process Automation**
+
+SAP Intelligent Robotic Process Automation lets you automate enterprise business processes. Design process automations with the Desktop Studio by creating end-to-end scenarios. Import these scenarios into the cloud Factory to configure and execute them with Agents. An Agent can work as a Digital Assistant (attended automation) or as a Digital Worker (unattended automation).
+
+### Service plans for IRPA
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  IRPA  |  SAP Intelligent Robotic Process Automation  | us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)  |
+|  IRPA  |  SAP Intelligent Robotic Process Automation  | us10 - US East (VA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)  |
+|  IRPA  |  SAP Intelligent Robotic Process Automation  | eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> ap10 - Australia (Sydney)  |
+
+# it-prod
+
+**Process Integration**
+
+The SAP Cloud Integration connects cloud applications with other SAP and non-SAP cloud and on-premise apps.
+
+### Service plans for it-prod
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  it-prod  |  Process Integration  | br10 - Brazil (Sao Paulo)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> us20 - US West (WA)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)  |
+
+# LandscapePortal
+
+**Landscape Portal**
+
+The Landscape Portal acts as a central tool that allows SaaS providers to keep track of the distribution of their consumers across their systems as well as perform lifecycle management operations such as updating add-ons, creating new tenants, and more.
+
+### Service plans for LandscapePortal
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  LandscapePortal  |  Landscape Portal  | eu10 - Europe (Frankfurt)  |
+
+# market-rates-ux
+
+**SAP Market Rates Management**
+
+The Manage Market Rates application enables you to read and manage market data you have uploaded by using the data options available with the SAP Market Rates Management service
+
+### Service plans for market-rates-ux
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  market-rates-ux  |  SAP Market Rates Management  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  market-rates-ux  |  SAP Market Rates Management  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# MDMBusinessPartnerApplication
+
+**SAP Business Partner Application**
+
+SAP Business Partner Application
+
+### Service plans for MDMBusinessPartnerApplication
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  MDMBusinessPartnerApplication  |  SAP Business Partner Application  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# mdo-one-mds-master
+
+**Master Data Integration (Orchestration)**
+
+Master data application that allows master data replication according to predetermined master data distribution models. SAP Master Data Orchestration can only be used in combination with the SAP Master Data Integration service.
+
+### Service plans for mdo-one-mds-master
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  mdo-one-mds-master  |  Master Data Integration (Orchestration)  | us10 - US East (VA)<br> ap11 - Singapore<br> eu10 - Europe (Frankfurt)<br> ap10 - Australia (Sydney)  |
+
+# MDOrchestrationApplication
+
+**Master Data Orchestration**
+
+Master data application for existing customers of SAP Master Data service for business partners and SAP Master Data service for products. New customers should use the Master Data Integration (Orchestration) tile. SAP Master Data Orchestration should only be used in combination with the SAP Master Data Integration service.
+
+### Service plans for MDOrchestrationApplication
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  MDOrchestrationApplication  |  Master Data Orchestration  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# ocnselfserviceagent
+
+**Open Connectors**
+
+Open Connectors provides pre-built and feature-rich connectors to simplify the connectivity and seamless integration with over 150 non-SAP cloud applications. Customers benefit from connectivity to third-party APIs via harmonized RESTful APIs and can develop and map canonical data models to extend pre-built connectors. Furthermore customers can easily build API compositions across the different connectors.
+
+### Service plans for ocnselfserviceagent
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  ocnselfserviceagent  |  Open Connectors  | us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> us21 - US East (VA)<br> ap21 - Singapore<br> ap11 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# PersonalDataManagerApp
+
+**Personal Data Manager**
+
+SAP Personal Data Manager provides the capability to generate reports showing the personal data stored in an application point of view with the help of a CSR. The reports can be generated and exported either in machine readable form (JSON) or human readable form (PDF). Data subjects can request the correction and deletion of personal data that is stored in an application point of view.
+
+### Service plans for PersonalDataManagerApp
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  PersonalDataManagerApp  |  Personal Data Manager  | ap21 - Singapore<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# PortalApplication
+
+**Cloud Portal Service**
+
+SAP Cloud Portal service lets you build digital experience portals for employees, customers, and partners. You can streamline access to business data so that your employees can execute their daily business tasks securely, from any device.
+
+### Service plans for PortalApplication
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  PortalApplication  |  Cloud Portal Service  | eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us30 - US Central (IA)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# print-app
+
+**Print Service**
+
+Allows you to manage print queue and monitor the print status
+
+### Service plans for print-app
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  print-app  |  Print Service  | eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# process-automation
+
+**SAP Process Automation**
+
+SAP Process Automation is a citizen development solution to adapt, improve, and innovate business processes with the low-code/no-code capabilities of SAP Workflow Management and SAP Intelligent RPA.
+
+### Service plans for process-automation
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  process-automation  |  SAP Process Automation  | jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  process-automation  |  SAP Process Automation  | jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# responsibility-management-application-beta
+
+**Responsibility Management Service**
+
+Provides APIs for DetermineAgents using responsibility rules or external APIs(bring your own code) and AgentDeterminationRequest.
+
+### Service plans for responsibility-management-application-beta
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  responsibility-management-application-beta  |  Responsibility Management Service  | eu10 - Europe (Frankfurt)  |
+
+# responsibilitymanagement-application
+
+**Responsibility Management Service**
+
+As we move toward an intelligent enterprise, intelligent systems need to determine agents who are responsible for business processes and objects, and automatically notify them. It is essential to define and manage these responsibilities for various contexts and retrieve responsible agents who can respond to tasks and activities.
+
+### Service plans for responsibilitymanagement-application
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  responsibilitymanagement-application  |  Responsibility Management Service  | eu10 - Europe (Frankfurt)  |
+
+# retention-manager-app
+
+**Data Retention Manager**
+
+The SAP Cloud Platform Data Retention Manager lets you block or delete personal data based on the residence and retention rules maintained.
+
+### Service plans for retention-manager-app
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  retention-manager-app  |  Data Retention Manager  | us30 - US Central (IA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# sap-cai-onboarding
+
+**SAP Conversational AI**
+
+SAP Conversational AI is a collaborative end-to-end platform for creating chatbots. Along with conversational natural language processing (NLP) and dialog management features supported with detailed API documentation, SAP Conversational AI makes it easy to connect your bots to different messaging channels.
+
+### Service plans for sap-cai-onboarding
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  sap-cai-onboarding  |  SAP Conversational AI  | eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# sap-identity-services-onboarding
+
+**Cloud Identity Services**
+
+Cloud Identity Services provide basic capabilities for user authentication.
+
+### Service plans for sap-identity-services-onboarding
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  sap-identity-services-onboarding  |  Cloud Identity Services  | ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> us30 - US Central (IA)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> jp20 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap21 - Singapore<br> us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)  |
+|  sap-identity-services-onboarding  |  Cloud Identity Services  | ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> us30 - US Central (IA)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> jp20 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap21 - Singapore<br> us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)  |
+|  sap-identity-services-onboarding  |  Cloud Identity Services  | ap12 - South Korea (Seoul)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)  |
+
+# sapappgyver
+
+**SAP AppGyver**
+
+Low-code / no-code tools from SAP that accelerate SAP business applications development.
+
+### Service plans for sapappgyver
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  sapappgyver  |  SAP AppGyver  | eu10 - Europe (Frankfurt)  |
+
+# sapappstudio
+
+**SAP Business Application Studio**
+
+SAP Business Application Studio is the next generation of SAP Web IDE, offering a modular development environment tailored for efficient development of business applications for the SAP Intelligent Enterprise. It provides pre-configured environments where you can develop, build, test and run using pre-installed runtimes and tools tailored for key scenarios such as: S/4HANA extensions, full stack business applications, Fiori applications and more. It supports quick integration with SAP solutions and services to allow building smarter and more intelligent applications.
+
+### Service plans for sapappstudio
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  sapappstudio  |  SAP Business Application Studio  | in30 - cf-in30<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> ap21 - Singapore  |
+
+# SAPLaunchpad
+
+**Launchpad Service**
+
+SAP Launchpad service provides users with a central point of access to applications from different sources.
+
+### Service plans for SAPLaunchpad
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  SAPLaunchpad  |  Launchpad Service  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> us20 - US West (WA)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> ap21 - Singapore<br> ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)  |
+|  SAPLaunchpad  |  Launchpad Service  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# SAPWebAnalytics
+
+**Web Analytics**
+
+SAP Web Analytics enables the collection and analysis of website data for understanding and optimizing web usage to measure organizational goals, drive strategy and improve the user's experience.
+
+### Service plans for SAPWebAnalytics
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  SAPWebAnalytics  |  Web Analytics  | ap21 - Singapore<br> us21 - US East (VA)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# SAPWorkZone
+
+**SAP Work Zone**
+
+SAP Work Zone centralizes access to relevant business applications, processes, information, and communication in a unified entry point that users can access from any device.
+
+### Service plans for SAPWorkZone
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  SAPWorkZone  |  SAP Work Zone  | ca10 - Canada (Montreal)<br> ap21 - Singapore<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# sdm-web
+
+**Document Management Service, Application Option**
+
+Benefit from the standalone, ready-to-use web application of SAP Document Management service that provides document management capabilities.
+
+### Service plans for sdm-web
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  sdm-web  |  Document Management Service, Application Option  | ap20 - Australia (Sydney) Azure<br> eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> ca10 - Canada (Montreal)<br> us21 - US East (VA)<br> jp20 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# spatialservices-app
+
+**HANA Spatial Services**
+
+HANA Spatial Services
+
+### Service plans for spatialservices-app
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  spatialservices-app  |  HANA Spatial Services  | eu10 - Europe (Frankfurt)  |
+|  spatialservices-app  |  HANA Spatial Services  | eu10 - Europe (Frankfurt)  |
+
+# tnt-onboard-dataenrichment-dcp
+
+**Data Enrichment**
+
+Provides Business Partner data from third-party data providers
+
+### Service plans for tnt-onboard-dataenrichment-dcp
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  tnt-onboard-dataenrichment-dcp  |  Data Enrichment  | ap11 - Singapore<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# WorkflowManagementSaaS
+
+**Workflow Management**
+
+Digitize workflows, manage decisions and gain end-to-end process visibility
+
+### Service plans for WorkflowManagementSaaS
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  WorkflowManagementSaaS  |  Workflow Management  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> us20 - US West (WA)<br> jp20 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us21 - US East (VA)<br> ap21 - Singapore<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+
+# wums-c4re-beta
+
+**Workspace Utilization**
+
+The Workspace Utilization Management application lets you assign sensors to workplaces and spaces. These sensors measure how your workspaces are used. The Workspace Utilization Management application integrates with SAP Cloud for Real Estate and SAP Analytics Cloud to analyze, manage, and optimize your workspaces.
+
+### Service plans for wums-c4re-beta
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  wums-c4re-beta  |  Workspace Utilization  | eu10 - Europe (Frankfurt)  |
+
+# cloudfoundry
+
+**Cloud Foundry Runtime**
+
+The SAP BTP, Cloud Foundry runtime lets you develop polyglot cloud-native applications and run them on the SAP BTP Cloud Foundry environment.
+
+### Service plans for cloudfoundry
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  cloudfoundry  |  Cloud Foundry Runtime  | ch20 - cf-ch20<br> eu30 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure  |
+
+# kymaruntime
+
+**Kyma runtime**
+
+SAP Cloud Platform, Kyma runtime is a fully managed Kubernetes runtime based on the open-source project Kyma. This cloud-native solution allows the developers to extend SAP solutions with serverless Functions and combine them with containerized microservices. The offered functionality ensures smooth consumption of SAP and non-SAP applications, running workloads in a highly scalable environment, and building event- and API-based extensions.
+
+### Service plans for kymaruntime
+
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
+|  kymaruntime  |  Kyma runtime  | us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
+|  kymaruntime  |  Kyma runtime  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)  |
+|  kymaruntime  |  Kyma runtime  | us30 - US Central (IA)  |
+|  kymaruntime  |  Kyma runtime  | ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> ca10 - Canada (Montreal)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |

@@ -1,6 +1,6 @@
 # BTP SERVICES
 
-This page provides an overview over the services, app subscriptions (applications) and environments.
+This page provides an overview over the services, app subscriptions (applications) and environments fetched from an [SAP BTP "pay-as-you-go"](https://store.sap.com/dcp/en/product/display-9999951781_live_v1) global account.
 
 {%- for category in btpservicelist %}
 # {{ category.name }}

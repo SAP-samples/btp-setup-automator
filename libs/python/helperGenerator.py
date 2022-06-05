@@ -57,7 +57,6 @@ class BTPUSECASE_GEN:
 
             del temp["assignedServices"]
             temp = temp["entitledServices"]
-            temp = sorted(temp, key=lambda d: d['name'], reverse=False)
             result = convertToServiceListByCategory(temp)
 
             self.entitledServices = {"btpservicelist": result}
@@ -105,8 +104,6 @@ def convertToServiceListByCategory(rawData):
     for category in CATEGORIES:
         list = {"name": category + "S", "list": getBtpCategory(category, rawData)}
         result.append(list)
-
-    result = sorted(result, key=lambda d: d['name'], reverse=False)
 
     return result
 
