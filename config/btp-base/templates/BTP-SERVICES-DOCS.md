@@ -6,15 +6,28 @@ This page provides an overview over the services, app subscriptions (application
 # {{ category.name }}
 
 {%- for service in category.list %}
+- [{{ service.name }} ({{ service.displayName }})](#{{ category.name }}-service.name)
+{%- endfor %}
 
-## {{ service.displayName }} ({{ service.name }})
+{%- endfor %}
+
+{%- for category in btpservicelist %}
+
+{%- for service in category.list %}
+## [{{ service.name }} ({{ service.displayName }})](#{{ category.name }}-service.name)
 
 {{ service.description }}
 
+### Service plans
+| Name | Display name | Data center availability  |
+|------|----------------|---------------------------|
 {%- for plan in service.servicePlans %}
+|  {{ service.name }}  |  {{ service.displayName }}  |  {%- for datacenter in plan.dataCenters %} {{ datacenter.region }} - {{ datacenter.displayName }}{% if not loop.last %}<br>{% endif %} {%- endfor %}  |
 
-#### Service plan "{{ plan.name }}"
-{{ plan.description }}
+
 {%- endfor %}
+
 {%- endfor %}
+
 {%- endfor %}
+

@@ -2,12 +2,18 @@ from libs.python.helperGeneric import getEnvVariableValue
 from libs.python.helperLog import initLogger
 from libs.python.helperCommandExecution import login_btp, runCommandAndGetJsonResult
 from libs.python.helperJinja2 import renderTemplateWithJson
+from libs.python.helperJson import getJsonFromFile
 from libs.python.helperJsonSchemas import getJsonSchemaDefsContent
 import logging
 import sys
 import os
 
 log = logging.getLogger(__name__)
+
+CATEGORIES = {}
+CATEGORIES["SERVICE"] = ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"]
+CATEGORIES["APPLICATION"] = ["APPLICATION"]
+CATEGORIES["ENVIRONMENT"] = ["ENVIRONMENT"]
 
 
 class BTPUSECASE_GEN:
@@ -38,42 +44,28 @@ class BTPUSECASE_GEN:
             log.error("missing your BTP globalaccount subdomain id")
             sys.exit(os.EX_DATAERR)
 
-    def fetchEntitledServiceList(self):
-        login_btp(self)
+    def fetchEntitledServiceList(self, updateServiceData, mainDataJsonFile):
 
-        globalaccount = self.globalaccount
-        usecaseRegion = self.region
+        if updateServiceData:
+            login_btp(self)
 
-        command = "btp --format json list accounts/entitlement --global-account '" + globalaccount + "'"
-        message = "Get list of available services and app subsciptions for defined region >" + usecaseRegion + "<"
-        temp = runCommandAndGetJsonResult(self, command, "INFO", message)
+            globalaccount = self.globalaccount
+            usecaseRegion = self.region
+            command = "btp --format json list accounts/entitlement --global-account '" + globalaccount + "'"
+            message = "Get list of available services and app subsciptions for defined region >" + usecaseRegion + "<"
+            temp = runCommandAndGetJsonResult(self, command, "INFO", message)
 
-        del temp["assignedServices"]
-        temp = temp["entitledServices"]
-        temp = sorted(temp, key=lambda d: d['name'], reverse=False)
-        result = convertToServiceListByCategory(temp)
+            del temp["assignedServices"]
+            temp = temp["entitledServices"]
+            temp = sorted(temp, key=lambda d: d['name'], reverse=False)
+            result = convertToServiceListByCategory(temp)
 
-        self.entitledServices = {"btpservicelist": result}
-
-    def addSchemaInfoToServiceList(self):
-        entitledServices = self.entitledServices
-
-        defsContent = getJsonSchemaDefsContent()
-
-        for defBlock in defsContent:
-            for category in entitledServices.get("btpservicelist"):
-                for service in category.get("list"):
-                    # defBlockCategory = defBlock.get("category")
-                    defBlockServiceName = defBlock.get("name")
-                    serviceName = service.get("name")
-                    if defBlockServiceName == serviceName:
-                        for thisDefBlock in defBlock.get("defs"):
-                            if thisDefBlock.get("ref-level") == "plan":
-                                for plan in service.get("servicePlans"):
-                                    if plan.get("name") == thisDefBlock.get("ref-value"):
-                                        if not service.get("jsonSchemaDefs"):
-                                            service["jsonSchemaDefs"] = []
-                                        service["jsonSchemaDefs"].append(thisDefBlock)
+            self.entitledServices = {"btpservicelist": result}
+            addSchemaInfoToServiceList(self)
+            addNumSection(self)
+        else:
+            temp = getJsonFromFile(None, mainDataJsonFile)
+            self.entitledServices = temp
 
     def applyServiceListOnTemplate(self, templateFile, targetFilename):
 
@@ -81,15 +73,36 @@ class BTPUSECASE_GEN:
         renderTemplateWithJson(templateFile, targetFilename, serviceList)
         log.success("applied SAP BTP service list on template file >" + templateFile + "< and created the target file >" + targetFilename + "<")
 
-    def addNumSection(self):
-        buildEnums(self.entitledServices)
+
+def addNumSection(btpusecase_gen):
+    buildEnums(btpusecase_gen.entitledServices)
+
+
+def addSchemaInfoToServiceList(btpusecase_gen):
+    entitledServices = btpusecase_gen.entitledServices
+
+    defsContent = getJsonSchemaDefsContent()
+
+    for defBlock in defsContent:
+        for category in entitledServices.get("btpservicelist"):
+            for service in category.get("list"):
+                # defBlockCategory = defBlock.get("category")
+                defBlockServiceName = defBlock.get("name")
+                serviceName = service.get("name")
+                if defBlockServiceName == serviceName:
+                    for thisDefBlock in defBlock.get("defs"):
+                        if thisDefBlock.get("ref-level") == "plan":
+                            for plan in service.get("servicePlans"):
+                                if plan.get("name") == thisDefBlock.get("ref-value"):
+                                    if not service.get("jsonSchemaDefs"):
+                                        service["jsonSchemaDefs"] = []
+                                    service["jsonSchemaDefs"].append(thisDefBlock)
 
 
 def convertToServiceListByCategory(rawData):
-    listOfCategories = ["SERVICE", "APPLICATION", "ENVIRONMENT"]
 
     result = []
-    for category in listOfCategories:
+    for category in CATEGORIES:
         list = {"name": category + "S", "list": getBtpCategory(category, rawData)}
         result.append(list)
 
@@ -99,38 +112,32 @@ def convertToServiceListByCategory(rawData):
 
 
 def getBtpCategory(category, rawData):
-    categoriesServices = ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"]
-    categoriesApplications = ["APPLICATION"]
-    categoriesEnvironments = ["ENVIRONMENT"]
 
     services = None
 
-    if category in categoriesServices:
-        services = getServicesForCategory(categoriesServices, rawData)
-    if category in categoriesApplications:
-        services = getServicesForCategory(categoriesApplications, rawData)
-    if category in categoriesEnvironments:
-        services = getServicesForCategory(categoriesEnvironments, rawData)
+    if category in CATEGORIES["SERVICE"]:
+        services = getServicesForCategory("SERVICE", rawData)
+    if category in CATEGORIES["APPLICATION"]:
+        services = getServicesForCategory("APPLICATION", rawData)
+    if category in CATEGORIES["ENVIRONMENT"]:
+        services = getServicesForCategory("ENVIRONMENT", rawData)
     if services is None:
         log.error("the category >" + category + "< can't be assigned to one of the defined service categories")
-
-    services = sorted(services, key=lambda d: d['name'], reverse=False)
 
     return services
 
 
-def getServicesForCategory(categories, rawData):
+def getServicesForCategory(category, rawData):
     result = []
 
-    for category in categories:
-        for service in rawData:
-            servicePlans = getServicePlansForCategory(service, category)
-            if servicePlans:
-                thisService = getBtpService(service, servicePlans)
-                result.append(thisService)
-    result = sorted(result, key=lambda d: d['name'], reverse=False)
+    for service in rawData:
+        servicePlans = getServicePlansForCategory(service, category)
+        if servicePlans:
+            thisService = getBtpService(service, servicePlans)
+            result.append(thisService)
+    sortedResult = sorted(result, key=lambda d: (d['name'].lower()), reverse=False)
 
-    return result
+    return sortedResult
 
 
 def getBtpService(rawData, servicePlans):
@@ -148,7 +155,7 @@ def getServicePlansForCategory(service, category):
 
     for plan in service.get("servicePlans"):
         thisCategory = plan.get("category")
-        if thisCategory == category:
+        if thisCategory in CATEGORIES.get(category):
             result.append(getBtpServicePlan(plan))
     return result
 
