@@ -76,10 +76,10 @@ class BTPUSECASE_GEN:
                                             service["jsonSchemaDefs"] = []
                                         service["jsonSchemaDefs"].append(thisDefBlock)
 
-    def applyServiceListOnTemplate(self, targetFilename, templateFile):
+    def applyServiceListOnTemplate(self, templateFile, targetFilename):
 
         serviceList = self.entitledServices
-        renderTemplateWithJson(FOLDER_BTPBASE_TEMPLATES, templateFile, targetFilename, serviceList)
+        renderTemplateWithJson(templateFile, targetFilename, serviceList)
         log.success("applied SAP BTP service list on template file >" + templateFile + "< and created the target file >" + targetFilename + "<")
 
     def addNumSection(self):
@@ -200,12 +200,9 @@ def buildEnums(accountEntitlements):
     accountEntitlements["btpenums"] = {}
     accountEntitlements["btpenums"]["regions"] = enumList
 
-
-
 #####################################################################################
 #####################################################################################
 #####################################################################################
-
 def updateDocumentation():
 
     data = getJsonFromFile(None, FOLDER_SCHEMA_LIBS + "btpsa-usecase.json")
