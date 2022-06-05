@@ -16,3 +16,7 @@ generator.addNumSection()
 targetFilename = mainDataJsoFile
 templateFile = "./config/btp-base/templates/ENTITLEDSERVICES.json"
 generator.applyServiceListOnTemplate(templateFile, targetFilename)
+
+targetFilename = "./docs/gh-pages/btp-services-docs.md"
+templateFile = "./config/btp-base/templates/BTP-SERVICES-DOCS.md"
+generator.applyServiceListOnTemplate(templateFile, targetFilename)
