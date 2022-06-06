@@ -196,11 +196,11 @@ Access an instance to build custom ABAP cloud apps, leveraging newest innovation
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  abap_compute_unit  |  16 GB ABAP Compute Unit  | jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  hana_compute_unit  |  16 GB HANA Compute Unit  | jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  16_abap_64_db  |  16_abap_64_db  | jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  free  |  free  | us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)  |
-|  standard  |  standard  | jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  abap_compute_unit  |  16 GB ABAP Compute Unit  | eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  hana_compute_unit  |  16 GB HANA Compute Unit  | eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  16_abap_64_db  |  16_abap_64_db  | eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  free  |  free  | eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  standard  |  standard  | eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # abap-solution
 
@@ -212,7 +212,7 @@ Create an ABAP Environment based SaaS Solution
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Standard  | us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Standard  | eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # ads
 
@@ -224,7 +224,7 @@ SAP Forms service by Adobe lets you generate print and interactive forms using A
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Standard  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Standard  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # adsrestapi
 
@@ -236,7 +236,7 @@ SAP Forms service by Adobe lets you generate print and interactive forms using A
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Standard  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Standard  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # aicore
 
@@ -248,7 +248,7 @@ SAP AI Core provides an infrastructure for a number of machine learning applicat
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # alert-notification
 
@@ -260,8 +260,8 @@ SAP Cloud Platform Alert Notification offers a common API for providers to publi
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us30 - US Central (IA)<br> ap11 - Singapore<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> us21 - US East (VA)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  free  |  free  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> us20 - US West (WA)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> us30 - US Central (IA)<br> ap21 - Singapore<br> ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  free  |  free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # api-management
 
@@ -273,7 +273,7 @@ API Management
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  preview  |  Expose your data and processes as APIs for omni-channel consumption and manage the lifecycle of those APIs  | jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  preview  |  Expose your data and processes as APIs for omni-channel consumption and manage the lifecycle of those APIs  | eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # apimanagement-apiportal
 
@@ -285,9 +285,9 @@ API Management, API portal service drives innovation in modern business models. 
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  apiportal-apiaccess  |  apiportal-apiaccess  | us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> ap11 - Singapore<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> ap21 - Singapore<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)  |
-|  on-premise-connectivity  |  on-premise-connectivity  | us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> us21 - US East (VA)<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap21 - Singapore<br> ap11 - Singapore<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> ap10 - Australia (Sydney)  |
-|  apim-as-route-service  |  apim-as-route-service  | us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap21 - Singapore<br> ap11 - Singapore<br> us20 - US West (WA)<br> ap10 - Australia (Sydney)<br> eu20 - Europe (Netherlands)  |
+|  apiportal-apiaccess  |  apiportal-apiaccess  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  on-premise-connectivity  |  on-premise-connectivity  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  apim-as-route-service  |  apim-as-route-service  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # apimanagement-devportal
 
@@ -299,7 +299,7 @@ API Management, developer portal service simplifies sharing managed APIs and ena
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  devportal-apiaccess  |  devportal-apiaccess  | us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> ap21 - Singapore<br> us21 - US East (VA)<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> ap11 - Singapore<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)  |
+|  devportal-apiaccess  |  devportal-apiaccess  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # application-logs
 
@@ -311,9 +311,9 @@ In the Cloud Foundry environment, the SAP Application Logging service for SAP BT
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  large  |  large  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us30 - US Central (IA)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  lite  |  lite  | eu11 - Europe (Frankfurt) EU Access - AWS<br> eu30 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure  |
-|  standard  |  standard  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us30 - US Central (IA)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  large  |  large  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  lite  |  lite  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # ASE_PROVISIONING
 
@@ -325,11 +325,11 @@ The SAP ASE service on SAP Cloud Platform lets you consume SAP ASE databases fro
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  XLARGE  |  ASE 640GB  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> sa1 - KSA (Riyadh)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> ru1 - Russia (Moscow)<br> eu1 - Europe (Rot)  |
-|  MEDIUM  |  ASE 160GB  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> sa1 - KSA (Riyadh)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> ru1 - Russia (Moscow)<br> eu1 - Europe (Rot)  |
-|  SMALL  |  ASE 80GB  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> sa1 - KSA (Riyadh)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> ru1 - Russia (Moscow)<br> eu1 - Europe (Rot)  |
-|  XSMALL  |  ASE 40GB  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> sa1 - KSA (Riyadh)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> ru1 - Russia (Moscow)<br> eu1 - Europe (Rot)  |
-|  LARGE  |  ASE 320GB  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> sa1 - KSA (Riyadh)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> ru1 - Russia (Moscow)<br> eu1 - Europe (Rot)  |
+|  XLARGE  |  ASE 640GB  | ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
+|  MEDIUM  |  ASE 160GB  | ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
+|  SMALL  |  ASE 80GB  | ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
+|  XSMALL  |  ASE 40GB  | ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
+|  LARGE  |  ASE 320GB  | ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
 
 # auditlog-api
 
@@ -341,7 +341,7 @@ SAP Audit Log service API
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  default  | ch20 - cf-ch20<br> in30 - cf-in30<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> us30 - US Central (IA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  default  |  default  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # auditlog-management
 
@@ -353,7 +353,7 @@ SAP Audit Log Management service helps to retrieve logs and change retention.
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  default  | eu11 - Europe (Frankfurt) EU Access - AWS<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure  |
+|  default  |  default  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # autoscaler
 
@@ -365,7 +365,7 @@ The Application Autoscaler lets you automatically increase or decrease the numbe
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Standard  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> eu11 - Europe (Frankfurt) EU Access - AWS  |
+|  standard  |  Standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # blockchain-services
 
@@ -377,10 +377,10 @@ Deliver blockchain-based services on any connected blockchain network.
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  blockchain-proof-of-state  |  blockchain-proof-of-state  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  blockchain-proof-of-history  |  blockchain-proof-of-history  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  blockchain-timestamp  |  blockchain-timestamp  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  blockchain-hana-integration  |  Blockchain Services  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  blockchain-proof-of-state  |  blockchain-proof-of-state  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  blockchain-proof-of-history  |  blockchain-proof-of-history  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  blockchain-timestamp  |  blockchain-timestamp  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  blockchain-hana-integration  |  Blockchain Services  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # business-entity-recognition
 
@@ -392,8 +392,8 @@ Business Entity Recognition helps you to detect and highlight any given type of 
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  free  |  free  | eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  standard  |  standard  | us10 - US East (VA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)  |
+|  free  |  free  | eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  standard  |  standard  | eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # business-rules
 
@@ -405,8 +405,8 @@ SAP Business Rules service translates business-decision logic into natural langu
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  basic  |  basic  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  standard  |  standard  | us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  basic  |  basic  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # c4-distributed-order-management
 
@@ -418,7 +418,7 @@ The SAP Order Management foundation solution, including the application and serv
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  default  | eu10 - Europe (Frankfurt)  |
+|  default  |  default  | eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)  |
 
 # cias
 
@@ -430,7 +430,7 @@ Cloud Integration Automation service provides you a guided workflow to integrate
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  oauth2  |  oauth2  | eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> ap10 - Australia (Sydney)  |
+|  oauth2  |  oauth2  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)  |
 
 # cicd-service
 
@@ -442,7 +442,7 @@ SAP Continuous Integration and Delivery lets you configure and run predefined co
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  default  | us20 - US West (WA)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  default  |  default  | eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)  |
 
 # cis
 
@@ -454,8 +454,8 @@ Manage the control plane, account model, and product resources in SAP BTP using 
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  local  |  local  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> ap21 - Singapore<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> us30 - US Central (IA)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  central  |  central  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> ap21 - Singapore<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> us30 - US Central (IA)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  local  |  local  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  central  |  central  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # COMPUTE_UNIT
 
@@ -469,9 +469,9 @@ Java Quota
 |------|----------------|---------------------------|
 |  PRO  |  Professional Edition for VMs: 2 CPUs, 4096 MB Memory  | ae1 - UAE (Dubai)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)  |
 |  PREMIUM_PLUS  |  Premium Plus Edition for VMs: 8 CPUs, 16384 MB Memory  | ae1 - UAE (Dubai)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)  |
-|  PRO  |  Professional Edition for VMs: 2 CPUs, 4096 MB Memory  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> eu1 - Europe (Rot)  |
-|  PREMIUM  |  Premium Edition for VMs: 4 CPUs, 8192 MB Memory  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> eu1 - Europe (Rot)  |
-|  PREMIUM_PLUS  |  Premium Plus Edition for VMs: 8 CPUs, 16384 MB Memory  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> eu1 - Europe (Rot)  |
+|  PRO  |  Professional Edition for VMs: 2 CPUs, 4096 MB Memory  | ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
+|  PREMIUM  |  Premium Edition for VMs: 4 CPUs, 8192 MB Memory  | ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
+|  PREMIUM_PLUS  |  Premium Plus Edition for VMs: 8 CPUs, 16384 MB Memory  | ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
 |  PREMIUM  |  Premium Edition for VMs: 4 CPUs, 8192 MB Memory  | ae1 - UAE (Dubai)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)  |
 
 # connectivity
@@ -484,8 +484,8 @@ SAP BTP Connectivity service allows you to establish secure and reliable connect
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  lite  |  lite  | ch20 - cf-ch20<br> us20 - US West (WA)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> us30 - US Central (IA)<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> ap20 - Australia (Sydney) Azure  |
-|  connectivity_proxy  |  connectivity_proxy  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> us30 - US Central (IA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  lite  |  lite  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  connectivity_proxy  |  connectivity_proxy  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # content-agent
 
@@ -497,8 +497,8 @@ SAP Content Agent service allows you to assemble the content into MTAR and expor
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  application  |  application  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us30 - US Central (IA)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> us10 - US East (VA)<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> ap12 - South Korea (Seoul)<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap21 - Singapore<br> ap11 - Singapore<br> ap10 - Australia (Sydney)  |
-|  standard  |  standard  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure  |
+|  application  |  application  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # conversational-ai
 
@@ -522,9 +522,9 @@ The Credential Store provides a secure repository for passwords and keys to appl
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  free  |  free  | eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> us20 - US West (WA)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> us30 - US Central (IA)<br> ap21 - Singapore<br> ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap20 - Australia (Sydney) Azure<br> ap10 - Australia (Sydney)  |
-|  standard  |  standard  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> us30 - US Central (IA)<br> jp20 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> us20 - US West (WA)<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  proxy  |  proxy  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> us30 - US Central (IA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  free  |  free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  proxy  |  proxy  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # data-attribute-recommendation
 
@@ -536,8 +536,8 @@ Data Attribute Recommendation uses free text, numbers and categories as input to
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  free  |  free  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  free  |  free  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # data-intelligence
 
@@ -549,9 +549,9 @@ SAP Data Intelligence is the all-in-one data orchestration solution to discover,
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  enterprise  |  enterprise  | ap11 - Singapore<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  dedicated  |  Dedicated  | ap11 - Singapore<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us10 - US East (VA)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)  |
-|  tenant  |  Tenant  | ap11 - Singapore<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us10 - US East (VA)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)  |
+|  enterprise  |  enterprise  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)  |
+|  dedicated  |  Dedicated  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)  |
+|  tenant  |  Tenant  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)  |
 
 # data-privacy-integration-service
 
@@ -563,8 +563,8 @@ Data Privacy Integration (DPI) is a service that supports applications realize t
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  free  |  free  | ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  application  |  application  | ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  free  |  free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap21 - Singapore<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  application  |  application  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap21 - Singapore<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # dataenrichment-business-partner
 
@@ -576,7 +576,7 @@ Industrializes the use of third-party data for enterprise applications, and make
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  default  | ap11 - Singapore<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  default  |  default  | ap11 - Singapore<br> eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # dateandtime
 
@@ -588,7 +588,7 @@ Get default date format for a given country, timezone details and time differenc
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  default  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  default  |  default  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # destination
 
@@ -600,7 +600,7 @@ The Destination service lets you retrieve the backend destination details you ne
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  lite  |  lite  | ch20 - cf-ch20<br> us20 - US West (WA)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> us30 - US Central (IA)<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> ap20 - Australia (Sydney) Azure  |
+|  lite  |  lite  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # document-classification
 
@@ -625,8 +625,8 @@ Provides an API that allows you to translate documents of various formats into m
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  Default  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  free  |  Free  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  default  |  Default  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  free  |  Free  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # dq-services
 
@@ -652,8 +652,8 @@ The SAP Event Mesh service decouples communication and allows for event-driven b
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
 |  event-mesh-connectivity  |  Event Mesh Connectivity  | eu10 - Europe (Frankfurt)  |
-|  event-mesh-connectivity-beta  |  Event Mesh Connectivity BETA  | us20 - US West (WA)<br> eu10 - Europe (Frankfurt)  |
-|  default  |  default  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  event-mesh-connectivity-beta  |  Event Mesh Connectivity BETA  | eu10 - Europe (Frankfurt)<br> us20 - US West (WA)  |
+|  default  |  default  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # feature-flags
 
@@ -665,8 +665,8 @@ The Feature Flags service allows you to enable or disable new features at runtim
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure  |
-|  lite  |  lite  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  lite  |  lite  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # hana
 
@@ -678,10 +678,10 @@ Use the SAP HANA schemas & HDI containers service to create service instances on
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  hdi-shared  |  hdi-shared  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> eu20 - Europe (Netherlands)<br> us30 - US Central (IA)<br> br10 - Brazil (Sao Paulo)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  schema  |  schema  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us30 - US Central (IA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  sbss  |  sbss  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us30 - US Central (IA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  securestore  |  securestore  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us30 - US Central (IA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  hdi-shared  |  hdi-shared  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  schema  |  schema  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  sbss  |  sbss  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  securestore  |  securestore  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # hana-cloud
 
@@ -693,14 +693,14 @@ SAP HANA Cloud provides a single place to access, store, and process all enterpr
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  relational-data-lake-free  |  relational-data-lake-free  | ap10 - Australia (Sydney)<br> ap20 - Australia (Sydney) Azure<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> ap21 - Singapore<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> ap12 - South Korea (Seoul)<br> us20 - US West (WA)  |
-|  adaptive-server-enterprise-replication  |  adaptive-server-enterprise-replication  | ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> eu20 - Europe (Netherlands)  |
-|  hana-cloud-connection-free  |  hana-cloud-connection-free  | ap10 - Australia (Sydney)<br> ap20 - Australia (Sydney) Azure<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> ap21 - Singapore<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> ap12 - South Korea (Seoul)<br> us20 - US West (WA)  |
-|  hana  |  hana  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us21 - US East (VA)<br> jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  hana-free  |  hana-free  | ap10 - Australia (Sydney)<br> ap20 - Australia (Sydney) Azure<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> ap21 - Singapore<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> ap12 - South Korea (Seoul)<br> us20 - US West (WA)  |
-|  hana-cloud-connection  |  hana-cloud-connection  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap11 - Singapore<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us21 - US East (VA)<br> jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  adaptive-server-enterprise  |  adaptive-server-enterprise  | ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> eu20 - Europe (Netherlands)  |
-|  relational-data-lake  |  relational-data-lake  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us21 - US East (VA)<br> jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  relational-data-lake-free  |  relational-data-lake-free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  adaptive-server-enterprise-replication  |  adaptive-server-enterprise-replication  | ap20 - Australia (Sydney) Azure<br> eu20 - Europe (Netherlands)<br> us21 - US East (VA)  |
+|  hana-cloud-connection-free  |  hana-cloud-connection-free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  hana  |  hana  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  hana-free  |  hana-free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  hana-cloud-connection  |  hana-cloud-connection  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  adaptive-server-enterprise  |  adaptive-server-enterprise  | ap20 - Australia (Sydney) Azure<br> eu20 - Europe (Netherlands)<br> us21 - US East (VA)  |
+|  relational-data-lake  |  relational-data-lake  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # hana-db
 
@@ -712,28 +712,28 @@ The SAP HANA service allows you to leverage the in-memory data processing capabi
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  512standard  |  HANA 512GB Standard edition  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> sa1 - KSA (Riyadh)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> ru1 - Russia (Moscow)<br> eu1 - Europe (Rot)  |
-|  256premium  |  HANA 256GB Premium edition  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> sa1 - KSA (Riyadh)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> ru1 - Russia (Moscow)<br> eu1 - Europe (Rot)  |
-|  128standard  |  HANA 128GB Standard edition  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> sa1 - KSA (Riyadh)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> ru1 - Russia (Moscow)<br> eu1 - Europe (Rot)  |
-|  enterprise  |  SAP HANA Service  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us30 - US Central (IA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  standard  |  SAP HANA Service  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us30 - US Central (IA)<br> eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  512standard  |  HANA 512GB Standard edition  | ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
+|  256premium  |  HANA 256GB Premium edition  | ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
+|  128standard  |  HANA 128GB Standard edition  | ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
+|  enterprise  |  SAP HANA Service  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
+|  standard  |  SAP HANA Service  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
 |  enterprise  |  SAP HANA Service  | br10 - Brazil (Sao Paulo)  |
-|  64premium  |  HANA 64GB Premium edition  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> sa1 - KSA (Riyadh)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> ru1 - Russia (Moscow)<br> eu1 - Europe (Rot)  |
+|  64premium  |  HANA 64GB Premium edition  | ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
 |  standard  |  SAP HANA Service  | br10 - Brazil (Sao Paulo)  |
-|  1024standard  |  HANA 1TB Standard edition  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> sa1 - KSA (Riyadh)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> ru1 - Russia (Moscow)<br> eu1 - Europe (Rot)  |
-|  1024premium  |  HANA 1TB Premium edition  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> sa1 - KSA (Riyadh)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> ru1 - Russia (Moscow)<br> eu1 - Europe (Rot)  |
-|  2048standard  |  SAP Cloud Platform, SAP HANA service (SAP DC), standard edition (2 TB) for Microsoft Azure EU-West  | ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  1024standard  |  SAP Cloud Platform, SAP HANA service (SAP DC), standard edition (1 TB) for Microsoft Azure EU-West  | ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  512standard  |  SAP Cloud Platform, SAP HANA service (SAP DC), standard edition (512 GB) for Microsoft Azure EU-West  | ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  256standard  |  SAP Cloud Platform, SAP HANA service (SAP DC), standard edition (256 GB) for Microsoft Azure EU-West  | ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  1024premium  |  SAP Cloud Platform, SAP HANA service (SAP DC), enterprise edition (1 TB) for Microsoft Azure EU-West  | ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  512premium  |  SAP Cloud Platform, SAP HANA service (SAP DC), enterprise edition (512 GB) for Microsoft Azure EU-West  | ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  256premium  |  SAP Cloud Platform, SAP HANA service (SAP DC), enterprise edition (256 GB) for Microsoft Azure EU-West  | ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  2048premium  |  SAP Cloud Platform, SAP HANA service (SAP DC), enterprise edition (2 TB) for Microsoft Azure EU-West  | ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  512premium  |  HANA 512GB Premium edition  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> sa1 - KSA (Riyadh)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> ru1 - Russia (Moscow)<br> eu1 - Europe (Rot)  |
-|  64standard  |  HANA 64GB Standard edition  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> sa1 - KSA (Riyadh)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> ru1 - Russia (Moscow)<br> eu1 - Europe (Rot)  |
-|  256standard  |  HANA 256GB Standard edition  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> sa1 - KSA (Riyadh)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> ru1 - Russia (Moscow)<br> eu1 - Europe (Rot)  |
-|  128premium  |  HANA 128GB Premium edition  | ca1 - Canada (Toronto)<br> ap2 - Australia (Sydney DR)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)<br> jp1 - Japan (Tokyo)<br> eu2 - Europe (Frankfurt)<br> cn1 - China (Shanghai)<br> sa1 - KSA (Riyadh)<br> ca2 - Canada (Toronto DR)<br> us2 - US West (Chandler)<br> eu3 - Europe (Amsterdam)<br> ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> us1 - US East (Ashburn)<br> br1 - Brazil (Sao Paulo)<br> ru1 - Russia (Moscow)<br> eu1 - Europe (Rot)  |
+|  1024standard  |  HANA 1TB Standard edition  | ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
+|  1024premium  |  HANA 1TB Premium edition  | ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
+|  2048standard  |  SAP Cloud Platform, SAP HANA service (SAP DC), standard edition (2 TB) for Microsoft Azure EU-West  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  1024standard  |  SAP Cloud Platform, SAP HANA service (SAP DC), standard edition (1 TB) for Microsoft Azure EU-West  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  512standard  |  SAP Cloud Platform, SAP HANA service (SAP DC), standard edition (512 GB) for Microsoft Azure EU-West  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  256standard  |  SAP Cloud Platform, SAP HANA service (SAP DC), standard edition (256 GB) for Microsoft Azure EU-West  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  1024premium  |  SAP Cloud Platform, SAP HANA service (SAP DC), enterprise edition (1 TB) for Microsoft Azure EU-West  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  512premium  |  SAP Cloud Platform, SAP HANA service (SAP DC), enterprise edition (512 GB) for Microsoft Azure EU-West  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  256premium  |  SAP Cloud Platform, SAP HANA service (SAP DC), enterprise edition (256 GB) for Microsoft Azure EU-West  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  2048premium  |  SAP Cloud Platform, SAP HANA service (SAP DC), enterprise edition (2 TB) for Microsoft Azure EU-West  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  512premium  |  HANA 512GB Premium edition  | ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
+|  64standard  |  HANA 64GB Standard edition  | ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
+|  256standard  |  HANA 256GB Standard edition  | ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
+|  128premium  |  HANA 128GB Premium edition  | ae1 - UAE (Dubai)<br> ap1 - Australia (Sydney)<br> ap2 - Australia (Sydney DR)<br> br1 - Brazil (Sao Paulo)<br> ca1 - Canada (Toronto)<br> ca2 - Canada (Toronto DR)<br> cn1 - China (Shanghai)<br> eu1 - Europe (Rot)<br> eu2 - Europe (Frankfurt)<br> eu3 - Europe (Amsterdam)<br> jp1 - Japan (Tokyo)<br> ru1 - Russia (Moscow)<br> sa1 - KSA (Riyadh)<br> us1 - US East (Ashburn)<br> us2 - US West (Chandler)<br> us3 - US East (Sterling)<br> us4 - US West (Colorado Springs)  |
 
 # hana-tenant-db
 
@@ -745,7 +745,7 @@ SAP HANA Tenant Database
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  SAP HANA Tenant Database  | us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
+|  standard  |  SAP HANA Tenant Database  | ap21 - Singapore<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # html5-apps-repo
 
@@ -757,8 +757,8 @@ The HTML5 Application Repository service enables central storage of HTML5 applic
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  app-host  |  app-host  | ch20 - cf-ch20<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure  |
-|  app-runtime  |  app-runtime  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure  |
+|  app-host  |  app-host  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  app-runtime  |  app-runtime  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # hyperledger-fabric
 
@@ -770,12 +770,12 @@ The Hyperledger Fabric service on SAP BTP lets you provision a Hyperledger Fabri
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  testnet  |  testnet  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  dev  |  dev  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  backbone  |  backbone  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  cyon  |  cyon  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  node  |  node  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  channel  |  channel  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  testnet  |  testnet  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  dev  |  dev  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  backbone  |  backbone  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  cyon  |  cyon  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  node  |  node  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  channel  |  channel  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # ibanservice
 
@@ -787,7 +787,7 @@ Check validity and get details of given IBAN number.
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  default  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  default  |  default  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # identity
 
@@ -799,7 +799,7 @@ Cloud Identity Services provide basic capabilities for user authentication.
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  application  |  application  | eu11 - Europe (Frankfurt) EU Access - AWS<br> ap20 - Australia (Sydney) Azure<br> us30 - US Central (IA)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> ap21 - Singapore<br> us21 - US East (VA)<br> eu20 - Europe (Netherlands)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> ap12 - South Korea (Seoul)  |
+|  application  |  application  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # INFRA
 
@@ -811,7 +811,7 @@ The SAP Cloud Platform Custom Domain service lets you configure your own custom 
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  custom_domains  |  Quota for Custom Domains  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> us30 - US Central (IA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  custom_domains  |  Quota for Custom Domains  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # integrationsuite
 
@@ -823,7 +823,7 @@ SAP Integration Suite helps you to quickly develop and manage reliable communica
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  messages  |  Integration Suite Messages  | jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> us21 - US East (VA)  |
+|  messages  |  Integration Suite Messages  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # intercompany-reconciliation
 
@@ -859,7 +859,7 @@ The SAP Cloud Platform Internet of Things service for the Cloud Foundry environm
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # iotae
 
@@ -871,8 +871,8 @@ SAP IoT business services allow you to put raw sensor data into business object 
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)  |
-|  default  |  default  | us20 - US West (WA)<br> eu10 - Europe (Frankfurt)<br> us10 - US East (VA)<br> eu20 - Europe (Netherlands)  |
+|  standard  |  standard  | eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)  |
+|  default  |  default  | eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> us20 - US West (WA)  |
 
 # IRPA
 
@@ -884,8 +884,8 @@ SAP Intelligent Robotic Process Automation lets you automate enterprise business
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  concurrent-attended  |  concurrent-attended  | eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)  |
-|  concurrent-unattended  |  concurrent-unattended  | eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)  |
+|  concurrent-attended  |  concurrent-attended  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  concurrent-unattended  |  concurrent-unattended  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # irpa-service
 
@@ -897,7 +897,7 @@ SAP Intelligent Robotic Process Automation (SAP Intelligent RPA) lets you automa
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # it-rt
 
@@ -909,8 +909,8 @@ Provides access to SAP Cloud Platform Integration runtime (integration flows) an
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  api  |  api  | ap20 - Australia (Sydney) Azure<br> us30 - US Central (IA)<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp20 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore  |
-|  integration-flow  |  integration-flow  | ap20 - Australia (Sydney) Azure<br> us30 - US Central (IA)<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> jp20 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> us20 - US West (WA)<br> jp10 - Japan (Tokyo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  api  |  api  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  integration-flow  |  integration-flow  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # jobscheduler
 
@@ -922,7 +922,7 @@ The Job Scheduling Service allows you to define and manage jobs that run once or
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us30 - US Central (IA)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # malware-scanner
 
@@ -934,7 +934,7 @@ Scan business documents uploaded by your custom-developed apps for malware
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  external  |  external  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> us30 - US Central (IA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  external  |  external  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # market-rates-byor
 
@@ -946,8 +946,8 @@ The Market Rates Management, Bring Your Own Rates data option allows you to uplo
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  default  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  free  |  free  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  default  |  default  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  free  |  free  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # market-rates-thr
 
@@ -959,7 +959,7 @@ The Market Rates Management, Refinitiv data option is a reuse service that allow
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  default  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  default  |  default  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # MDMBusinessPartnerService
 
@@ -971,7 +971,7 @@ SAP Business Partner Service
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  SAP Cloud Platform Master Data Management for business partners  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  default  |  SAP Cloud Platform Master Data Management for business partners  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # ml-foundation
 
@@ -983,7 +983,7 @@ SAP Leonardo Machine Learning Foundation enables you to enhance business process
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us30 - US Central (IA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
 
 # mobile-app-catalog
 
@@ -995,7 +995,7 @@ Mobile App Catalog
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Mobile App Lab Service provides access to mobile applications uploaded from Mobile Services cockpit  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Mobile App Lab Service provides access to mobile applications uploaded from Mobile Services cockpit  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # mobile-app-update
 
@@ -1007,7 +1007,7 @@ Mobile App Update
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Mobile App Update Service is used to update new versions of an App Modeler application  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Mobile App Update Service is used to update new versions of an App Modeler application  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # mobile-c2g
 
@@ -1019,7 +1019,7 @@ Mobile Content
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Mobile Content to Go Service, the back-end for the corresponding iPhone application  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Mobile Content to Go Service, the back-end for the corresponding iPhone application  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # mobile-cbms
 
@@ -1031,7 +1031,7 @@ Mobile Cloud Build
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Mobile Cloud Build enables customized builds of SAP mobile applications  | ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Mobile Cloud Build enables customized builds of SAP mobile applications  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # mobile-client-log-upload
 
@@ -1043,7 +1043,7 @@ Mobile Client Log Upload Service
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Mobile Client Log Upload Service is used by mobile applications to upload technical log files  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Mobile Client Log Upload Service is used by mobile applications to upload technical log files  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # mobile-client-resource
 
@@ -1055,7 +1055,7 @@ Mobile Client Resource Service
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Mobile Client Resource Service allows to manage resources that can be accessed from mobile applications  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Mobile Client Resource Service allows to manage resources that can be accessed from mobile applications  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # mobile-client-usage
 
@@ -1067,7 +1067,7 @@ Mobile Client Usage Service
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Mobile Client Usage Service allows mobile application to upload client usage information and to analyze them on the server  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Mobile Client Usage Service allows mobile application to upload client usage information and to analyze them on the server  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # mobile-discovery
 
@@ -1079,7 +1079,7 @@ Mobile Discovery
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Mobile Discovery service stores and facilitates retrieval of application configuration data  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Mobile Discovery service stores and facilitates retrieval of application configuration data  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # mobile-network-trace
 
@@ -1091,7 +1091,7 @@ Mobile Network Trace
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Mobile Network Trace collects network trace information from mobile applications for debugging  | ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Mobile Network Trace collects network trace information from mobile applications for debugging  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # mobile-offline
 
@@ -1103,7 +1103,7 @@ Mobile Offline
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Mobile Offline Service enables secure offline access to data on the mobile device  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Mobile Offline Service enables secure offline access to data on the mobile device  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # mobile-proxy
 
@@ -1115,7 +1115,7 @@ Mobile Connectivity Service
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Mobile Connectivity Service is used in the context of a Mobile application to connect to back-ends  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Mobile Connectivity Service is used in the context of a Mobile application to connect to back-ends  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # mobile-push
 
@@ -1127,7 +1127,7 @@ Mobile Push Notification
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Mobile Push Notification Service is used to send out push messages to mobile devices  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Mobile Push Notification Service is used to send out push messages to mobile devices  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # mobile-sample-odata-v2-espm
 
@@ -1139,7 +1139,7 @@ Mobile Sample OData
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Mobile Sample OData v2 ESPM Service is a sample OData service used for development and testing  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Mobile Sample OData v2 ESPM Service is a sample OData service used for development and testing  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # mobile-services
 
@@ -1151,9 +1151,9 @@ Use Mobile Services to provide mobile access to enterprise information. Key feat
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  free  |  free  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> us21 - US East (VA)<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  b2c  |  b2c  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ca10 - Canada (Montreal)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap12 - South Korea (Seoul)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  standard  |  standard  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ca10 - Canada (Montreal)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap12 - South Korea (Seoul)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
+|  free  |  free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  b2c  |  b2c  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # mobile-services-preview
 
@@ -1177,8 +1177,8 @@ Mobile Settings Exchange Service
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Mobile Settings Exchange Service is used for device registrations and general access to JSON data  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  b2c  |  Mobile Settings Exchange Service is used for device registrations and general access to JSON data  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Mobile Settings Exchange Service is used for device registrations and general access to JSON data  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  b2c  |  Mobile Settings Exchange Service is used for device registrations and general access to JSON data  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # multichain
 
@@ -1190,10 +1190,10 @@ The MultiChain service lets you create, delete, monitor and maintain individual 
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  small  |  small  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  large  |  large  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  medium  |  medium  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  cyon  |  cyon  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  small  |  small  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  large  |  large  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  medium  |  medium  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  cyon  |  cyon  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # objectstore
 
@@ -1205,10 +1205,10 @@ Object Store on SAP BTP provisions an object storage space that can be used by a
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  azure-standard  |  azure-standard  | ch20 - cf-ch20<br> ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
+|  azure-standard  |  azure-standard  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> ch20 - cf-ch20<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 |  s3-standard  |  s3-standard  | br10 - Brazil (Sao Paulo)  |
-|  s3-standard  |  s3-standard  | ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  gcs-standard  |  gcs-standard  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)  |
+|  s3-standard  |  s3-standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  gcs-standard  |  gcs-standard  | eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> us30 - US Central (IA)  |
 
 # one-inbox-service
 
@@ -1220,7 +1220,7 @@ The SAP Task Center service only enables, but does not include the integration i
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | jp20 - Japan (Tokyo)<br> eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> eu20 - Europe (Netherlands)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap20 - Australia (Sydney) Azure<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # one-mds
 
@@ -1232,8 +1232,8 @@ SAP Business Technology Platform Master Data Integration service offers master d
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  sap-integration  |  sap-integration  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  s4hana-onpremise  |  s4hana-onpremise  | ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  sap-integration  |  sap-integration  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  s4hana-onpremise  |  s4hana-onpremise  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # personal-data-manager-service
 
@@ -1245,8 +1245,8 @@ SAP Personal Data Manager provides the capability to generate reports showing th
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  free  |  free  | ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us20 - US West (WA)<br> us10 - US East (VA)<br> eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)  |
-|  standard  |  standard  | ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  free  |  free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap21 - Singapore<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap21 - Singapore<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # portal
 
@@ -1258,7 +1258,7 @@ SAP Cloud Platform Portal lets you build digital experience portals for employee
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us30 - US Central (IA)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # postgresql
 
@@ -1270,21 +1270,21 @@ PostgreSQL on SAP BTP offers an object-relational database management system wit
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  large  |  large  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us30 - US Central (IA)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  xxsmall  |  xxsmall  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us30 - US Central (IA)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  xsmall  |  xsmall  | ch20 - cf-ch20<br> ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  small  |  small  | ch20 - cf-ch20<br> ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  medium  |  medium  | ch20 - cf-ch20<br> ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  large  |  large  | ch20 - cf-ch20<br> ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  medium  |  medium  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us30 - US Central (IA)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  large  |  large  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
+|  xxsmall  |  xxsmall  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
+|  xsmall  |  xsmall  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> ch20 - cf-ch20<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  small  |  small  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> ch20 - cf-ch20<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  medium  |  medium  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> ch20 - cf-ch20<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  large  |  large  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> ch20 - cf-ch20<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  medium  |  medium  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
 |  small  |  small  | br10 - Brazil (Sao Paulo)  |
 |  medium  |  medium  | br10 - Brazil (Sao Paulo)  |
 |  xxsmall  |  xxsmall  | br10 - Brazil (Sao Paulo)  |
 |  xsmall  |  xsmall  | br10 - Brazil (Sao Paulo)  |
-|  small  |  small  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us30 - US Central (IA)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  small  |  small  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
 |  large  |  large  | br10 - Brazil (Sao Paulo)  |
-|  xsmall  |  xsmall  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us30 - US Central (IA)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  xxsmall  |  xxsmall  | ch20 - cf-ch20<br> ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
+|  xsmall  |  xsmall  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
+|  xxsmall  |  xxsmall  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> ch20 - cf-ch20<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # postgresql-db
 
@@ -1296,11 +1296,11 @@ The PostgreSQL service on SAP BTP provides a way to directly consume the Postgre
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  storage_ha  |  storage_ha  | ch20 - cf-ch20<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> us10 - US East (VA)<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)  |
-|  standard  |  standard  | ch20 - cf-ch20<br> ap12 - South Korea (Seoul)<br> us10 - US East (VA)<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)  |
-|  premium  |  premium  | ch20 - cf-ch20<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)  |
-|  storage  |  storage  | ch20 - cf-ch20<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)  |
-|  free  |  Free  | us10 - US East (VA)<br> ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)  |
+|  storage_ha  |  storage_ha  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  premium  |  premium  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  storage  |  storage  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  free  |  Free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # print
 
@@ -1312,8 +1312,8 @@ Manage print queues, connect print clients and monitor print status
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  sender  |  sender  | eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  receiver  |  receiver  | eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  sender  |  sender  | eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> us20 - US West (WA)  |
+|  receiver  |  receiver  | eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> us20 - US West (WA)  |
 
 # privatelink
 
@@ -1325,7 +1325,7 @@ The SAP Private Link service (BETA) establishes a private connection between sel
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | ap21 - Singapore<br> ap20 - Australia (Sydney) Azure<br> jp20 - Japan (Tokyo)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
+|  standard  |  standard  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # process-automation
 
@@ -1337,10 +1337,10 @@ SAP Process Automation is a citizen development solution to adapt, improve, and 
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  automation-unattended  |  automation-unattended  | jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  standard-user  |  standard-user  | jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  automation-attended  |  automation-attended  | jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  advanced-user  |  advanced-user  | jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  automation-unattended  |  automation-unattended  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  standard-user  |  standard-user  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  automation-attended  |  automation-attended  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  advanced-user  |  advanced-user  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # process-automation-service
 
@@ -1352,7 +1352,7 @@ SAP Process Automation is a citizen development solution to adapt, improve, and 
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # processvisibility
 
@@ -1364,8 +1364,8 @@ Provides end-to-end visibility into processes that run in cloud, on-premise & in
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | ca10 - Canada (Montreal)<br> ap12 - South Korea (Seoul)<br> br10 - Brazil (Sao Paulo)<br> ap21 - Singapore<br> us21 - US East (VA)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  workflow  |  workflow  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap12 - South Korea (Seoul)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> ca10 - Canada (Montreal)<br> jp10 - Japan (Tokyo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  workflow  |  workflow  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # quorum
 
@@ -1377,9 +1377,9 @@ The Quorum service lets you create, delete, monitor and maintain individual Quor
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  cyon  |  cyon  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  testnet  |  testnet  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  dev  |  dev  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  cyon  |  cyon  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  testnet  |  testnet  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  dev  |  dev  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # rabbitmq
 
@@ -1391,19 +1391,19 @@ RabbitMQ on SAP BTP includes a message broker that implements message queues for
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  virtualhost  |  virtualhost  | ap11 - Singapore<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> us30 - US Central (IA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  large  |  large  | ch20 - cf-ch20<br> ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  xsmall  |  xsmall  | ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us30 - US Central (IA)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  medium  |  medium  | ch20 - cf-ch20<br> ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
+|  virtualhost  |  virtualhost  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us30 - US Central (IA)  |
+|  large  |  large  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> ch20 - cf-ch20<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  xsmall  |  xsmall  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
+|  medium  |  medium  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> ch20 - cf-ch20<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 |  xsmall  |  xsmall  | br10 - Brazil (Sao Paulo)  |
 |  small  |  small  | br10 - Brazil (Sao Paulo)  |
 |  medium  |  medium  | br10 - Brazil (Sao Paulo)  |
 |  large  |  large  | br10 - Brazil (Sao Paulo)  |
-|  small  |  small  | ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us30 - US Central (IA)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  medium  |  medium  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us30 - US Central (IA)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  xsmall  |  xsmall  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  small  |  small  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  large  |  large  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us30 - US Central (IA)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  small  |  small  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
+|  medium  |  medium  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
+|  xsmall  |  xsmall  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> ch20 - cf-ch20<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  small  |  small  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> ch20 - cf-ch20<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  large  |  large  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
 
 # recommendation-systems-production
 
@@ -1415,8 +1415,8 @@ Personalized Recommendation is a generic reusable service. It uses state-of-the-
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  free  |  free  | eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)  |
+|  free  |  free  | eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)  |
 
 # redis
 
@@ -1428,18 +1428,18 @@ Redis on SAP BTP offers an in-memory data structure store that you can use as a 
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  xsmall  |  xsmall  | ch20 - cf-ch20<br> ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  medium  |  medium  | ch20 - cf-ch20<br> ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  large  |  large  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  medium  |  medium  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us30 - US Central (IA)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  small  |  small  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us30 - US Central (IA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  large  |  large  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us30 - US Central (IA)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  xsmall  |  xsmall  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> ch20 - cf-ch20<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  medium  |  medium  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> ch20 - cf-ch20<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  large  |  large  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  medium  |  medium  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
+|  small  |  small  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
+|  large  |  large  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
 |  xsmall  |  xsmall  | br10 - Brazil (Sao Paulo)  |
 |  small  |  small  | br10 - Brazil (Sao Paulo)  |
 |  medium  |  medium  | br10 - Brazil (Sao Paulo)  |
 |  large  |  large  | br10 - Brazil (Sao Paulo)  |
-|  xsmall  |  xsmall  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us30 - US Central (IA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  small  |  small  | ch20 - cf-ch20<br> ap20 - Australia (Sydney) Azure<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
+|  xsmall  |  xsmall  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
+|  small  |  small  | ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> ch20 - cf-ch20<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # redis-cache
 
@@ -1451,9 +1451,9 @@ The Redis service on SAP BTP provides a way to directly consume the Redis cache 
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  premium  |  premium  | ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)  |
-|  standard  |  standard  | ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)  |
-|  free  |  Free  | us20 - US West (WA)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> ap20 - Australia (Sydney) Azure  |
+|  premium  |  premium  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  free  |  Free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # responsibility-management-service-beta
 
@@ -1489,8 +1489,8 @@ The SAP Cloud Platform Data Retention Manager lets you block or delete personal 
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  free  |  free  | us30 - US Central (IA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> eu20 - Europe (Netherlands)<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> eu10 - Europe (Frankfurt)<br> ap11 - Singapore  |
-|  standard  |  standard  | us30 - US Central (IA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  free  |  free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap21 - Singapore<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap21 - Singapore<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # saas-registry
 
@@ -1502,7 +1502,7 @@ Service for application providers to register multitenant applications and servi
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  application  |  application  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us20 - US West (WA)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> us30 - US Central (IA)<br> ap21 - Singapore<br> ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap20 - Australia (Sydney) Azure<br> ap10 - Australia (Sydney)  |
+|  application  |  application  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # sap-analytics-cloud-embedded-edition
 
@@ -1514,7 +1514,7 @@ With SAP Analytics Cloud, embedded edition, you can build and embed reports, das
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> jp10 - Japan (Tokyo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # sap-bigdataservices
 
@@ -1526,7 +1526,7 @@ Big Data Services
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Big Data Services  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Big Data Services  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # sap-calm
 
@@ -1538,7 +1538,7 @@ This is memory extension for SAP Cloud ALM.
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  default  | eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)  |
+|  default  |  default  | eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)  |
 
 # sap-document-information-extraction
 
@@ -1550,8 +1550,8 @@ Document Information Extraction helps you to process various documents that have
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  default  | ap10 - Australia (Sydney)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)  |
-|  blocks_of_100  |  blocks_of_100  | ap10 - Australia (Sydney)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)  |
+|  default  |  default  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  blocks_of_100  |  blocks_of_100  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # sap-graph
 
@@ -1563,7 +1563,7 @@ SAP Graph is a new unified API for SAP, using modern open standards like OData v
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  free  |  Free  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  free  |  Free  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # sap-workzone
 
@@ -1575,7 +1575,7 @@ SAP Work Zone centralizes access to relevant business applications, processes, i
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | eu30 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> ap11 - Singapore<br> jp20 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> ap21 - Singapore<br> us20 - US West (WA)<br> eu10 - Europe (Frankfurt)<br> us10 - US East (VA)<br> us30 - US Central (IA)<br> us21 - US East (VA)<br> ca10 - Canada (Montreal)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # scp-launchpad
 
@@ -1587,7 +1587,7 @@ SAP Launchpad service provides users with a central point of access to applicati
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> ap11 - Singapore<br> jp20 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> ap21 - Singapore<br> us20 - US West (WA)<br> eu10 - Europe (Frankfurt)<br> us10 - US East (VA)<br> us30 - US Central (IA)<br> us21 - US East (VA)<br> ca10 - Canada (Montreal)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # sdm
 
@@ -1599,8 +1599,8 @@ Leverage the APIs of SAP Document Management service and build your own document
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | ap20 - Australia (Sydney) Azure<br> us30 - US Central (IA)<br> eu30 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> ca10 - Canada (Montreal)<br> us21 - US East (VA)<br> jp20 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
-|  free  |  free  | ap20 - Australia (Sydney) Azure<br> us30 - US Central (IA)<br> eu30 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us20 - US West (WA)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  free  |  free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # sdm-repository
 
@@ -1612,8 +1612,8 @@ Use a CMIS complaint repository provided internally with all SAP Document Manage
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | ap20 - Australia (Sydney) Azure<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> ca10 - Canada (Montreal)<br> us21 - US East (VA)<br> jp20 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us20 - US West (WA)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)  |
-|  free  |  free  | ap20 - Australia (Sydney) Azure<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> ca10 - Canada (Montreal)<br> us21 - US East (VA)<br> jp20 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> jp10 - Japan (Tokyo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  free  |  free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # service-manager
 
@@ -1625,10 +1625,10 @@ SAP Service Manager service allows you to consume platform services in any conne
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  subaccount-admin  |  subaccount-admin  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us30 - US Central (IA)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> us10 - US East (VA)<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap21 - Singapore<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)  |
-|  service-operator-access  |  service-operator-access  | ap20 - Australia (Sydney) Azure<br> ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> us10 - US East (VA)<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap21 - Singapore<br> ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)  |
-|  container  |  container  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us30 - US Central (IA)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> us10 - US East (VA)<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap21 - Singapore<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)  |
-|  subaccount-audit  |  subaccount-audit  | ch20 - cf-ch20<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us30 - US Central (IA)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> us10 - US East (VA)<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap21 - Singapore<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)  |
+|  subaccount-admin  |  subaccount-admin  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  service-operator-access  |  service-operator-access  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  container  |  container  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  subaccount-audit  |  subaccount-audit  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # service-ticket-intelligence
 
@@ -1640,9 +1640,9 @@ With Service Ticket Intelligence, incoming customers service tickets are automat
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  blocks_of_100  |  blocks_of_100  | us10 - US East (VA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us30 - US Central (IA)<br> eu10 - Europe (Frankfurt)  |
-|  free  |  Free  | us10 - US East (VA)<br> us30 - US Central (IA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)  |
-|  standard  |  standard  | eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> us30 - US Central (IA)<br> eu10 - Europe (Frankfurt)  |
+|  blocks_of_100  |  blocks_of_100  | eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
+|  free  |  Free  | eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
+|  standard  |  standard  | eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> us30 - US Central (IA)  |
 
 # spatialservices
 
@@ -1655,7 +1655,7 @@ SAP HANA spatial services provides a unified access layer for location-based ser
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
 |  standard  |  standard  | eu10 - Europe (Frankfurt)  |
-|  lite  |  lite  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  lite  |  lite  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # theming
 
@@ -1667,7 +1667,7 @@ The UI theme designer lets you apply your corporate branding to applications bui
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us30 - US Central (IA)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # transport
 
@@ -1679,7 +1679,7 @@ SAP Cloud Transport Management service lets you manage software deliverables bet
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> jp10 - Japan (Tokyo)<br> ap11 - Singapore<br> ca10 - Canada (Montreal)<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> ap21 - Singapore<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # uas
 
@@ -1691,8 +1691,8 @@ The Usage Data Management service broker allows you to use the new REST APIs to 
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  reporting-ga-admin  |  reporting-ga-admin  | ap20 - Australia (Sydney) Azure<br> us30 - US Central (IA)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> us10 - US East (VA)<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap21 - Singapore<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)  |
-|  reporting-directory  |  reporting-directory  | us30 - US Central (IA)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> us10 - US East (VA)<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap21 - Singapore<br> ap20 - Australia (Sydney) Azure<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)  |
+|  reporting-ga-admin  |  reporting-ga-admin  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  reporting-directory  |  reporting-directory  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # ui5-flexibility-keyuser
 
@@ -1704,8 +1704,8 @@ The UI5 flexibility service for key users lets you provide UI adaptation capabil
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  free  |  free  | us20 - US West (WA)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> us30 - US Central (IA)<br> ap21 - Singapore<br> ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap20 - Australia (Sydney) Azure<br> ap10 - Australia (Sydney)  |
-|  keyuser  |  keyuser  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> ap21 - Singapore<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us30 - US Central (IA)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> us10 - US East (VA)<br> eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)  |
+|  free  |  free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  keyuser  |  keyuser  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # workcalendar
 
@@ -1717,7 +1717,7 @@ Get details of factory calendar such as weekday, holiday, workday for a country.
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  default  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  default  |  default  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # workflow
 
@@ -1729,7 +1729,7 @@ SAP Workflow service allows you to build, run, and manage workflows, from simple
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # workflowmanagement
 
@@ -1741,7 +1741,7 @@ Digitize workflows, manage decisions and gain end-to-end process visibility
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  workflow  |  workflow  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> eu20 - Europe (Netherlands)<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  workflow  |  workflow  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # wums-partner-api-beta
 
@@ -1765,7 +1765,7 @@ Allows you to create, manage, configure extensions on SAP Cloud Platform
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  default  | ap12 - South Korea (Seoul)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  default  |  default  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # xsuaa
 
@@ -1777,10 +1777,10 @@ The Authorization and Trust Management service lets you manage user authorizatio
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  application  |  application  | ch20 - cf-ch20<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure  |
-|  broker  |  broker  | ch20 - cf-ch20<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure  |
-|  apiaccess  |  apiaccess  | ch20 - cf-ch20<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure  |
-|  space  |  space  | ch20 - cf-ch20<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure  |
+|  application  |  application  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  broker  |  broker  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  apiaccess  |  apiaccess  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  space  |  space  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # abapcp-web-router
 
@@ -1792,7 +1792,7 @@ Get web access to your instances in the ABAP Environment including access to adm
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  Web Access for ABAP Environment  | jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  default  |  Web Access for ABAP Environment  | eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # ads-configui
 
@@ -1804,7 +1804,7 @@ SAP Forms service by Adobe lets you generate print and interactive forms using A
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  Default  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  default  |  Default  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # ai-launchpad
 
@@ -1816,7 +1816,7 @@ SAP AI Launchpad is an application layer for AI Foundation. It is a one-stop-sho
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Standard  | ap10 - Australia (Sydney)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Standard  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # alm-ts
 
@@ -1828,8 +1828,8 @@ SAP Cloud Transport Management service lets you manage software deliverables bet
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Standard  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> ap10 - Australia (Sydney)<br> ap21 - Singapore<br> us21 - US East (VA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  free  |  free  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap21 - Singapore<br> us21 - US East (VA)<br> us20 - US West (WA)<br> jp20 - Japan (Tokyo)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  free  |  free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # api-management-apiportal
 
@@ -1841,7 +1841,7 @@ API Management technology helps you to share digital assets and enables consumpt
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  API Management-API Portal  | ap11 - Singapore<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> us20 - US West (WA)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> jp20 - Japan (Tokyo)<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> eu20 - Europe (Netherlands)  |
+|  standard  |  API Management-API Portal  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # api-management-devportal
 
@@ -1853,7 +1853,7 @@ API Management technology helps you to share digital assets and enables consumpt
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  API Management-Developer Portal  | ap11 - Singapore<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> jp20 - Japan (Tokyo)<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> eu20 - Europe (Netherlands)  |
+|  standard  |  API Management-Developer Portal  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # auditlog-viewer
 
@@ -1865,7 +1865,7 @@ SAP Audit Log Viewer service for SAP BTP helps to view and manage audit logs.
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  free  |  Audit Log Viewer  | ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us30 - US Central (IA)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  free  |  Audit Log Viewer  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # automationpilot
 
@@ -1877,8 +1877,8 @@ SAP Automation Pilot provides out-of-the-box high-quality automation such as app
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  free  |  free  | us30 - US Central (IA)<br> eu10 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> ap10 - Australia (Sydney)  |
-|  standard  |  Standard  | ap10 - Australia (Sydney)<br> jp20 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> us30 - US Central (IA)  |
+|  free  |  free  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)  |
+|  standard  |  Standard  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)  |
 
 # Backend-service
 
@@ -1914,7 +1914,7 @@ Cloud Integration Automation service provides you a guided workflow to integrate
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> ap10 - Australia (Sydney)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)  |
 
 # cicd-app
 
@@ -1926,7 +1926,7 @@ SAP Continuous Integration and Delivery lets you configure and run predefined co
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  Default  | us20 - US West (WA)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  default  |  Default  | eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)  |
 
 # data-privacy-integration-application
 
@@ -1938,7 +1938,7 @@ Data Privacy Integration (DPI) is a service that supports applications realize t
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  default  | ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  default  |  default  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap21 - Singapore<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # document-information-extraction-application
 
@@ -1950,7 +1950,7 @@ UI Application to upload document for extraction to Document Information Extract
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  default  | ap10 - Australia (Sydney)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)  |
+|  default  |  default  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # dqmmicroui
 
@@ -1986,8 +1986,8 @@ SAP Edge Services
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  Enterprise  |  SAP Edge Services  | us20 - US West (WA)<br> eu10 - Europe (Frankfurt)  |
-|  Standard  |  SAP Edge Services Cloud Standard Edition  | eu20 - Europe (Netherlands)<br> eu10 - Europe (Frankfurt)  |
+|  Enterprise  |  SAP Edge Services  | eu10 - Europe (Frankfurt)<br> us20 - US West (WA)  |
+|  Standard  |  SAP Edge Services Cloud Standard Edition  | eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)  |
 
 # enterprise-messaging-hub
 
@@ -1999,7 +1999,7 @@ The SAP Event Mesh service decouples communication and allows for event-driven b
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Event Mesh Hub  | in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> ap11 - Singapore<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Event Mesh Hub  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # extension-center
 
@@ -2011,7 +2011,7 @@ Allows you to create, manage, configure extensions on SAP Cloud Platform
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Extension Center  | ap12 - South Korea (Seoul)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Extension Center  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # feature-flags-dashboard
 
@@ -2023,7 +2023,7 @@ View and manage Feature Flags Service instances. Get information about flags sta
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  dashboard  |  Dashboard  | ch20 - cf-ch20<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> in30 - cf-in30<br> eu30 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> ap20 - Australia (Sydney) Azure  |
+|  dashboard  |  Dashboard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # ibx-connection-app
 
@@ -2060,8 +2060,8 @@ SAP IoT business services allow you to put raw sensor data into business object 
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Leonardo IoT  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  oneproduct  |  oneproduct  | us20 - US West (WA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)  |
+|  standard  |  Leonardo IoT  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  oneproduct  |  oneproduct  | eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> us20 - US West (WA)  |
 
 # IRPA
 
@@ -2073,9 +2073,9 @@ SAP Intelligent Robotic Process Automation lets you automate enterprise business
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  SAP Intelligent Robotic Process Automation  | us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)  |
-|  free  |  Free  | us10 - US East (VA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)  |
-|  concurrent  |  Concurrent  | eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> ap10 - Australia (Sydney)  |
+|  default  |  SAP Intelligent Robotic Process Automation  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  free  |  Free  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  concurrent  |  Concurrent  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # it-prod
 
@@ -2087,7 +2087,7 @@ The SAP Cloud Integration connects cloud applications with other SAP and non-SAP
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  enterprise  |  Process Integration  | br10 - Brazil (Sao Paulo)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> us20 - US West (WA)<br> jp10 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)  |
+|  enterprise  |  Process Integration  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # LandscapePortal
 
@@ -2111,8 +2111,8 @@ The Manage Market Rates application enables you to read and manage market data y
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  mrtr  |  SAP Market Rates Management  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  mror  |  SAP Market Rates Management  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  mrtr  |  SAP Market Rates Management  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  mror  |  SAP Market Rates Management  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # MDMBusinessPartnerApplication
 
@@ -2124,7 +2124,7 @@ SAP Business Partner Application
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  saas-application  |  SAP Cloud Platform Master Data Management for business partners  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  saas-application  |  SAP Cloud Platform Master Data Management for business partners  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # mdo-one-mds-master
 
@@ -2136,7 +2136,7 @@ Master data application that allows master data replication according to predete
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Standard  | us10 - US East (VA)<br> ap11 - Singapore<br> eu10 - Europe (Frankfurt)<br> ap10 - Australia (Sydney)  |
+|  standard  |  Standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # MDOrchestrationApplication
 
@@ -2148,7 +2148,7 @@ Master data application for existing customers of SAP Master Data service for bu
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  saas-application  |  Master data application that allows master data replication according to predetermined master data distribution models  | us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  saas-application  |  Master data application that allows master data replication according to predetermined master data distribution models  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # ocnselfserviceagent
 
@@ -2160,7 +2160,7 @@ Open Connectors provides pre-built and feature-rich connectors to simplify the c
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Standard  | us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> us21 - US East (VA)<br> ap21 - Singapore<br> ap11 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # PersonalDataManagerApp
 
@@ -2172,7 +2172,7 @@ SAP Personal Data Manager provides the capability to generate reports showing th
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | ap21 - Singapore<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap21 - Singapore<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # PortalApplication
 
@@ -2184,7 +2184,7 @@ SAP Cloud Portal service lets you build digital experience portals for employees
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | eu30 - Europe (Frankfurt)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us30 - US Central (IA)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # print-app
 
@@ -2196,7 +2196,7 @@ Allows you to manage print queue and monitor the print status
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> us20 - US West (WA)  |
 
 # process-automation
 
@@ -2208,8 +2208,8 @@ SAP Process Automation is a citizen development solution to adapt, improve, and 
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Standard  | jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
-|  free  |  Free  | jp10 - Japan (Tokyo)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Standard  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
+|  free  |  Free  | ap10 - Australia (Sydney)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 
 # responsibility-management-application-beta
 
@@ -2245,7 +2245,7 @@ The SAP Cloud Platform Data Retention Manager lets you block or delete personal 
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Standard  | us30 - US Central (IA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us21 - US East (VA)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # sap-cai-onboarding
 
@@ -2257,7 +2257,7 @@ SAP Conversational AI is a collaborative end-to-end platform for creating chatbo
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  standard  | eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  standard  | eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> us10 - US East (VA)  |
 
 # sap-identity-services-onboarding
 
@@ -2269,9 +2269,9 @@ Cloud Identity Services provide basic capabilities for user authentication.
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  default  |  default  | ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> us30 - US Central (IA)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> jp20 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap21 - Singapore<br> us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)  |
-|  additional-tenant  |  additional-tenant  | ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> us30 - US Central (IA)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> jp20 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> ap21 - Singapore<br> us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)  |
-|  connectivity  |  connectivity  | ap12 - South Korea (Seoul)<br> us20 - US West (WA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> eu10 - Europe (Frankfurt)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)  |
+|  default  |  default  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  additional-tenant  |  additional-tenant  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  connectivity  |  connectivity  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)  |
 
 # sapappgyver
 
@@ -2295,7 +2295,7 @@ SAP Business Application Studio is the next generation of SAP Web IDE, offering 
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard-edition  |  standard-edition  | in30 - cf-in30<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap11 - Singapore<br> br10 - Brazil (Sao Paulo)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> eu10 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> ap21 - Singapore  |
+|  standard-edition  |  standard-edition  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> in30 - cf-in30<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # SAPLaunchpad
 
@@ -2307,8 +2307,8 @@ SAP Launchpad service provides users with a central point of access to applicati
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  free  |  Free  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> us20 - US West (WA)<br> us10 - US East (VA)<br> us21 - US East (VA)<br> ap21 - Singapore<br> ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> eu20 - Europe (Netherlands)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu10 - Europe (Frankfurt)<br> ca10 - Canada (Montreal)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)  |
-|  standard  |  standard  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> ap12 - South Korea (Seoul)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ca10 - Canada (Montreal)<br> us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  free  |  Free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
+|  standard  |  standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # SAPWebAnalytics
 
@@ -2320,7 +2320,7 @@ SAP Web Analytics enables the collection and analysis of website data for unders
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  SAP Web Analytics  | ap21 - Singapore<br> us21 - US East (VA)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  SAP Web Analytics  | ap10 - Australia (Sydney)<br> ap21 - Singapore<br> eu10 - Europe (Frankfurt)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # SAPWorkZone
 
@@ -2332,7 +2332,7 @@ SAP Work Zone centralizes access to relevant business applications, processes, i
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Standard  | ca10 - Canada (Montreal)<br> ap21 - Singapore<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> br10 - Brazil (Sao Paulo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us21 - US East (VA)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Standard  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
 
 # sdm-web
 
@@ -2344,7 +2344,7 @@ Benefit from the standalone, ready-to-use web application of SAP Document Manage
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  standard  |  Document Management, application option  | ap20 - Australia (Sydney) Azure<br> eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap12 - South Korea (Seoul)<br> ap21 - Singapore<br> ca10 - Canada (Montreal)<br> us21 - US East (VA)<br> jp20 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  standard  |  Document Management, application option  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # spatialservices-app
 
@@ -2369,7 +2369,7 @@ Provides Business Partner data from third-party data providers
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  saas-application  |  Data Enrichment  | ap11 - Singapore<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  saas-application  |  Data Enrichment  | ap11 - Singapore<br> eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
 
 # WorkflowManagementSaaS
 
@@ -2381,7 +2381,7 @@ Digitize workflows, manage decisions and gain end-to-end process visibility
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  saas-application  |  saas-application  | eu30 - Europe (Frankfurt)<br> us30 - US Central (IA)<br> ap20 - Australia (Sydney) Azure<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap12 - South Korea (Seoul)<br> ca10 - Canada (Montreal)<br> us20 - US West (WA)<br> jp20 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> us21 - US East (VA)<br> ap21 - Singapore<br> eu20 - Europe (Netherlands)<br> jp10 - Japan (Tokyo)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> us10 - US East (VA)<br> eu10 - Europe (Frankfurt)  |
+|  saas-application  |  saas-application  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # wums-c4re-beta
 
@@ -2405,7 +2405,7 @@ The SAP BTP, Cloud Foundry runtime lets you develop polyglot cloud-native applic
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  free  |  free  | ch20 - cf-ch20<br> eu30 - Europe (Frankfurt)<br> jp20 - Japan (Tokyo)<br> us30 - US Central (IA)<br> ca10 - Canada (Montreal)<br> us10 - US East (VA)<br> jp10 - Japan (Tokyo)<br> ap21 - Singapore<br> ap10 - Australia (Sydney)<br> br10 - Brazil (Sao Paulo)<br> eu20 - Europe (Netherlands)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure  |
+|  free  |  free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> ap20 - Australia (Sydney) Azure<br> ap21 - Singapore<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> ch20 - cf-ch20<br> eu11 - Europe (Frankfurt) EU Access - AWS<br> eu20 - Europe (Netherlands)<br> eu30 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> jp20 - Japan (Tokyo)<br> us10 - US East (VA)<br> us20 - US West (WA)<br> us21 - US East (VA)<br> us30 - US Central (IA)  |
 
 # kymaruntime
 
@@ -2417,7 +2417,7 @@ SAP Cloud Platform, Kyma runtime is a fully managed Kubernetes runtime based on 
 
 | Name | Display name | Data center availability  |
 |------|----------------|---------------------------|
-|  azure  |  Kyma Runtime Azure  | us21 - US East (VA)<br> ap21 - Singapore<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> eu20 - Europe (Netherlands)  |
-|  aws  |  Kyma Runtime AWS  | eu10 - Europe (Frankfurt)<br> us10 - US East (VA)<br> br10 - Brazil (Sao Paulo)<br> ap10 - Australia (Sydney)<br> jp10 - Japan (Tokyo)<br> ca10 - Canada (Montreal)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)  |
+|  azure  |  Kyma Runtime Azure  | ap21 - Singapore<br> eu20 - Europe (Netherlands)<br> jp20 - Japan (Tokyo)<br> us20 - US West (WA)<br> us21 - US East (VA)  |
+|  aws  |  Kyma Runtime AWS  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |
 |  gcp  |  Kyma Runtime GCP  | us30 - US Central (IA)  |
-|  free  |  free  | ap12 - South Korea (Seoul)<br> ap11 - Singapore<br> ap10 - Australia (Sydney)<br> ca10 - Canada (Montreal)<br> jp10 - Japan (Tokyo)<br> br10 - Brazil (Sao Paulo)<br> eu10 - Europe (Frankfurt)<br> us10 - US East (VA)  |
+|  free  |  free  | ap10 - Australia (Sydney)<br> ap11 - Singapore<br> ap12 - South Korea (Seoul)<br> br10 - Brazil (Sao Paulo)<br> ca10 - Canada (Montreal)<br> eu10 - Europe (Frankfurt)<br> jp10 - Japan (Tokyo)<br> us10 - US East (VA)  |

@@ -168,6 +168,8 @@ def getBtpServicePlan(rawData):
     for plan in rawData.get("dataCenters"):
         dataCenters.append(getBtpDataCenter(plan))
 
+    dataCenters = sorted(dataCenters, key=lambda d: d['region'], reverse=False)
+
     result = {"name": name, "displayName": displayName, "description": description, "uniqueIdentifier": uniqueIdentifier, "category": category, "dataCenters": dataCenters}
     return result
 
