@@ -131,6 +131,8 @@ def getServicesForCategory(category, rawData):
         servicePlans = getServicePlansForCategory(service, category)
         if servicePlans:
             thisService = getBtpService(service, servicePlans)
+            addAdditionalMetadata(thisService, service)
+
             result.append(thisService)
     sortedResult = sorted(result, key=lambda d: (d['name'].lower()), reverse=False)
 
@@ -204,3 +206,41 @@ def buildEnums(accountEntitlements):
     enumList = list(dict.fromkeys(enumList))
     accountEntitlements["btpenums"] = {}
     accountEntitlements["btpenums"]["regions"] = enumList
+
+
+def addAdditionalMetadata(serviceResult, serviceDataRaw):
+
+    appCoordinates = serviceDataRaw.get("applicationCoordinates")
+
+    if appCoordinates:
+        # Fetch icon format
+        serviceResult["iconFormat"] = appCoordinates.get("iconFormat")
+
+        # Fetch service ids
+        if appCoordinates.get("inventoryIds"):
+            ids=[]
+            for theseIds in appCoordinates.get("inventoryIds"):
+                if theseIds:
+                    if type(theseIds) == str:
+                        ids.append(theseIds.get("key"))
+                    if type(theseIds) == list:
+                        for id in theseIds:
+                            ids.append(id.get("key"))
+            if ids and len(ids) > 0:
+                serviceResult["serviceIds"] = ids
+
+        # Fetch links
+        if appCoordinates.get("serviceDescription"):
+            serviceResult["links"] = appCoordinates.get("serviceDescription")
+
+        # Fetch service categories
+        if appCoordinates.get("serviceCategories"):
+            serviceResult["serviceCategories"] = []
+            for thisCategory in appCoordinates.get("serviceCategories"):
+                serviceResult["serviceCategories"].append(thisCategory.get("name"))
+
+    # Fetch business categories
+    if serviceDataRaw.get("businessCategories"):
+        serviceResult["businessCategories"] = []
+        for thisCategory in serviceDataRaw.get("businessCategories"):
+            serviceResult["serviceCategories"].append(thisCategory.get("displayName"))

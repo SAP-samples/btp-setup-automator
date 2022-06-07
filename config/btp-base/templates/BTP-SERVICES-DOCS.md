@@ -14,13 +14,30 @@ Services are listed and sorted by their technical name. The display name is adde
 
 {%- for category in btpservicelist %}
 
+# ALL SERVICES OF TYPE "{{ category.name }}"
+
 {%- for service in category.list %}
 
 # {{ service.name }}
 
+<img src="data:{{ service.iconFormat }}, {{ service.iconBase64 }}" />
+
 **{{ service.displayName }}**
 
 {{ service.description }}
+
+### Related categories
+{%- for serviceCategory in service.serviceCategories %}
+- {{ serviceCategory }}
+{%- endfor %}
+{%- for businessCategory in service.businessCategories %}
+- {{ businessCategory }}
+{%- endfor %}
+
+### Additional information
+{%- for link in service.links %}
+- [{{ link.title }}]({{ link.linkURL }})
+{%- endfor %}
 
 ### Service plans for {{ service.name }}
 
