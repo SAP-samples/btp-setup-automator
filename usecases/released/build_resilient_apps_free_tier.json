@@ -4,7 +4,7 @@
         "name": "Safeguard key business processes with resilient applications on SAP BTP",
         "description": "This usecase complements an existing business process in an SAP solution - currently SAP S/4HANA - with additional business process steps",
         "author": "maximilian.streifenender@sap.com",
-        "testStatus": "tested successfully on May 10th",
+        "testStatus": "tested successfully",
         "usageStatus": "READY TO BE USED",
         "relatedLinks": [
             "https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension"
