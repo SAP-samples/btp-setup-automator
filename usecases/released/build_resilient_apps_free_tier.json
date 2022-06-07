@@ -46,7 +46,7 @@
             "parameters": {
                 "data": {
                     "edition": "cloud",
-                    "memory": 32,
+                    "memory": 30,
                     "serviceStopped": false,
                     "storage": 120,
                     "systempassword": "PleaseChangeBeforeRunningScript12345",
