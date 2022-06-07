@@ -13,10 +13,19 @@ generator.fetchEntitledServiceList(UPDATE_SERVICE_DATA, mainDataJsoFile)
 #######################################################################################
 # Generate all files
 #######################################################################################
-targetFilename = mainDataJsoFile
-templateFile = "./config/btp-base/templates/ENTITLEDSERVICES.json"
-generator.applyServiceListOnTemplate(templateFile, targetFilename)
+if UPDATE_SERVICE_DATA:
+    targetFilename = mainDataJsoFile
+    templateFile = "./config/btp-base/templates/ENTITLEDSERVICES.json"
+    generator.applyServiceListOnTemplate(templateFile, targetFilename)
 
 targetFilename = "./docs/gh-pages/btp-services-docs.md"
 templateFile = "./config/btp-base/templates/BTP-SERVICES-DOCS.md"
+generator.applyServiceListOnTemplate(templateFile, targetFilename)
+
+targetFilename = "./libs/btpsa-usecase.json"
+templateFile = "./config/jsonschemas/BTPSA-USECASE.json"
+generator.applyServiceListOnTemplate(templateFile, targetFilename)
+
+targetFilename = "./libs/btpsa-parameters.md"
+templateFile = "./config/jsonschemas/BTPSA-PARAMETERS.json"
 generator.applyServiceListOnTemplate(templateFile, targetFilename)

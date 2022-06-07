@@ -3,7 +3,8 @@
     "btpservicelist": [
 {%- for category in btpservicelist %}
         {
-            "{{ category.name }}": [
+            "name": "{{ category.name }}",
+            "list": [
                 {%- for service in category.list %}
                 {
                     {%- for elem in service %}
@@ -13,5 +14,10 @@
                 {%- endfor %}
             ]
         }{% if not loop.last %}, {% endif %}
-{% endfor %}    ]
+{% endfor %}    ],
+    "$jsonSchemaDefs": {
+        {% for thisDef in jsonSchemaDefs -%}
+            "{{ thisDef.name }}": {{ thisDef.value | tojson}}{% if not loop.last %}, {% endif %}
+        {% endfor -%}
+    }
 }
