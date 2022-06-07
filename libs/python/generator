@@ -20,7 +20,3 @@ generator.applyServiceListOnTemplate(templateFile, targetFilename)
 targetFilename = "./docs/gh-pages/btp-services-docs.md"
 templateFile = "./config/btp-base/templates/BTP-SERVICES-DOCS.md"
 generator.applyServiceListOnTemplate(templateFile, targetFilename)
-
-targetFilename = "./docs/gh-pages/btp-services-docs.html"
-templateFile = "./config/btp-base/templates/BTP-SERVICES-DOCS.html"
-generator.applyServiceListOnTemplate(templateFile, targetFilename)
