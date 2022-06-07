@@ -182,11 +182,11 @@ def getBtpDataCenter(rawData):
     result["name"] = rawData.get("name")
     result["displayName"] = rawData.get("displayName")
     result["region"] = rawData.get("region")
-    result["environment"] = rawData.get("environment")
-    result["provisioningServiceUrl"] = rawData.get("provisioningServiceUrl")
-    result["saasRegistryServiceUrl"] = rawData.get("saasRegistryServiceUrl")
-    result["domain"] = rawData.get("domain")
-    result["geoAccess"] = rawData.get("geoAccess")
+    # result["environment"] = rawData.get("environment")
+    # result["provisioningServiceUrl"] = rawData.get("provisioningServiceUrl")
+    # result["saasRegistryServiceUrl"] = rawData.get("saasRegistryServiceUrl")
+    # result["domain"] = rawData.get("domain")
+    # result["geoAccess"] = rawData.get("geoAccess")
 
     return result
 
@@ -232,6 +232,12 @@ def addAdditionalMetadata(serviceResult, serviceDataRaw):
         # Fetch links
         if appCoordinates.get("serviceDescription"):
             serviceResult["links"] = appCoordinates.get("serviceDescription")
+            if serviceResult.get("links"):
+                for link in serviceResult.get("links"):
+                    if link.get("propagateTheme"):
+                        del link["propagateTheme"]
+                    if link.get("descriptionCategory"):
+                        del link["descriptionCategory"]
 
         # Fetch service categories
         if appCoordinates.get("serviceCategories"):
