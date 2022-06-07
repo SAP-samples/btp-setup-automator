@@ -71,11 +71,16 @@ jobs:
       BTPSA_PARAM_GLOBALACCOUNT: ${{ secrets.BTPSA_PARAM_GLOBALACCOUNT }}
       BTPSA_PARAM_MYPASSWORD: ${{ secrets.BTPSA_PARAM_MYPASSWORD }}
     steps:
-      - name: "Integration test 02: Deploy full-stack CAP application running in SAP Launchpad"
+      - name: 'Integration test 01: Build resilient apps"'
         if: ${{ always() }}
         working-directory: /home/user
         shell: bash
-        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/tests/integrationtests/parameterfiles/integrationtest02.json'
+        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/tests/integrationtests/parameterfiles/integrationtest01.json'
+      - name: 'Integration test 07: Setup SAP Task Center"'
+        if: ${{ always() }}
+        working-directory: /home/user
+        shell: bash
+        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/tests/integrationtests/parameterfiles/integrationtest07.json'
       - name: "Integration test 04: Only app subscriptions"
         if: ${{ always() }}
         working-directory: /home/user
@@ -91,11 +96,6 @@ jobs:
         working-directory: /home/user
         shell: bash
         run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/tests/integrationtests/parameterfiles/integrationtest06.json'
-      - name: 'Integration test 07: Setup SAP Task Center"'
-        if: ${{ always() }}
-        working-directory: /home/user
-        shell: bash
-        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/tests/integrationtests/parameterfiles/integrationtest07.json'
       - name: "Integration test 10: Setup a Kyma environment on GCP"
         if: ${{ always() }}
         working-directory: /home/user
