@@ -173,12 +173,13 @@ COPY --chown=$USERNAME:$USERNAME README.md              $HOME_FOLDER/
 COPY --chown=$USERNAME:$USERNAME parameters.json        $HOME_FOLDER/
 COPY --chown=$USERNAME:$USERNAME docs                   $HOME_FOLDER/docs
 COPY --chown=$USERNAME:$USERNAME libs/python/btpsa      $HOME_FOLDER/
+COPY --chown=$USERNAME:$USERNAME libs/python/generator  $HOME_FOLDER/
 COPY --chown=$USERNAME:$USERNAME libs/python/btp_cli.py $LIBS_FOLDER/python/
 COPY --chown=$USERNAME:$USERNAME libs/python/helper*.py $LIBS_FOLDER/python/
 COPY --chown=$USERNAME:$USERNAME libs/*.json            $LIBS_FOLDER/
 
-COPY --chown=$USERNAME:$USERNAME config/docs            $HOME_FOLDER/config/docs/
-COPY --chown=$USERNAME:$USERNAME config/jsonschemas      $HOME_FOLDER/config/jsonschemas/
+COPY --chown=$USERNAME:$USERNAME config/btp-base        $HOME_FOLDER/config/btp-base/
+COPY --chown=$USERNAME:$USERNAME config/jsonschemas     $HOME_FOLDER/config/jsonschemas/
 
 COPY --chown=$USERNAME:$USERNAME .reuse                 $HOME_FOLDER/.reuse
 COPY --chown=$USERNAME:$USERNAME LICENSES               $HOME_FOLDER/LICENSES

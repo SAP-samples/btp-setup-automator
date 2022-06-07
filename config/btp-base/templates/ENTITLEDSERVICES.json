@@ -1,0 +1,17 @@
+{
+    "btpenums": {{ btpenums|tojson }},
+    "btpservicelist": [
+{%- for category in btpservicelist %}
+        {
+            "{{ category.name }}": [
+                {%- for service in category.list %}
+                {
+                    {%- for elem in service %}
+                    "{{ elem }}": {{ service[elem]|tojson  }}{% if not loop.last %}, {% endif %}
+                    {%- endfor %}
+                }{% if not loop.last %}, {% endif %}
+                {%- endfor %}
+            ]
+        }{% if not loop.last %}, {% endif %}
+{% endfor %}    ]
+}
