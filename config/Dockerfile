@@ -83,7 +83,7 @@ ARG BTPSA_VERSION_GIT_ARG=default
 ##################################################################################################################################################
 # Now putting all pieces together 
 ##################################################################################################################################################
-FROM python:3.9.9-alpine3.15 AS final_build
+FROM python:3.9-alpine3.16 AS final_build
 ENV USERNAME=user
 ENV HOME_FOLDER /home/$USERNAME
 ENV LIBS_FOLDER $HOME_FOLDER/libs
@@ -124,10 +124,12 @@ RUN adduser \
     ## Set the right timezone in the container image
     && cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime \
 ##########################################################################################
-# Install CAP CDS
+# Install CAP CDS 
+# - currently (Jun 7th, 2022) it's no longer possible to install CDS
+# - to be determined what the root cause is (seems related to deprecation of v1.x Cloud SDK)
 ##########################################################################################
-    && npm install -g @sap/cds-dk --allow-root \
-    && npm cache clean --force \
+    # && npm install -g @sap/cds-dk --allow-root \
+    # && npm cache clean --force \
 ##########################################################################################
 # Add user to sudo user
 ##########################################################################################
