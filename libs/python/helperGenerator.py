@@ -47,24 +47,13 @@ class BTPUSECASE_GEN:
     def fetchEntitledServiceList(self, updateServiceData, mainDataJsonFile):
 
         if updateServiceData:
-            login_btp(self)
-
-            globalaccount = self.globalaccount
-            usecaseRegion = self.region
-            command = "btp --format json list accounts/entitlement --global-account '" + globalaccount + "'"
-            message = "Get list of available services and app subsciptions for defined region >" + usecaseRegion + "<"
-            temp = runCommandAndGetJsonResult(self, command, "INFO", message)
-
-            del temp["assignedServices"]
-            temp = temp["entitledServices"]
-            result = convertToServiceListByCategory(temp)
-
+            result = fetchDataFromBtpAccount(self, updateServiceData, mainDataJsonFile)
             self.entitledServices = {"btpservicelist": result}
             addSchemaInfoToServiceList(self)
             addNumSection(self)
         else:
-            temp = getJsonFromFile(None, mainDataJsonFile)
-            self.entitledServices = temp
+            result = fetchDataFromConfigFile(self, updateServiceData, mainDataJsonFile)
+            self.entitledServices = result
 
     def applyServiceListOnTemplate(self, templateFile, targetFilename):
 
@@ -73,36 +62,57 @@ class BTPUSECASE_GEN:
         log.success("applied SAP BTP service list on template file >" + templateFile + "< and created the target file >" + targetFilename + "<")
 
 
+def fetchDataFromConfigFile(btpusecase_gen, updateServiceData, mainDataJsonFile):
+
+    result = getJsonFromFile(None, mainDataJsonFile)
+    btpservicelist = result["btpservicelist"]
+    btpenums = result["btpenums"]
+
+    thisResult = {"btpservicelist": btpservicelist, "btpenums": btpenums}
+    return thisResult
+
+
+def fetchDataFromBtpAccount(btpusecase_gen, updateServiceData, mainDataJsonFile):
+
+    login_btp(btpusecase_gen)
+
+    globalaccount = btpusecase_gen.globalaccount
+    usecaseRegion = btpusecase_gen.region
+    command = "btp --format json list accounts/entitlement --global-account '" + globalaccount + "'"
+    message = "Get list of available services and app subsciptions for defined region >" + usecaseRegion + "<"
+    temp = runCommandAndGetJsonResult(btpusecase_gen, command, "INFO", message)
+
+    del temp["assignedServices"]
+    temp = temp["entitledServices"]
+    result = convertToServiceListByCategory(temp)
+
+    return result
+
+
 def addNumSection(btpusecase_gen):
     buildEnums(btpusecase_gen.entitledServices)
 
 
 def addSchemaInfoToServiceList(btpusecase_gen):
-    entitledServices = btpusecase_gen.entitledServices
-
+    result = None
     defsContent = getJsonSchemaDefsContent()
 
     for defBlock in defsContent:
-        for category in entitledServices.get("btpservicelist"):
-            for service in category.get("list"):
-                # defBlockCategory = defBlock.get("category")
-                defBlockServiceName = defBlock.get("name")
-                serviceName = service.get("name")
-                if defBlockServiceName == serviceName:
-                    for thisDefBlock in defBlock.get("defs"):
-                        if thisDefBlock.get("ref-level") == "plan":
-                            for plan in service.get("servicePlans"):
-                                if plan.get("name") == thisDefBlock.get("ref-value"):
-                                    if not service.get("jsonSchemaDefs"):
-                                        service["jsonSchemaDefs"] = []
-                                    service["jsonSchemaDefs"].append(thisDefBlock)
+        for thisDef in defBlock.get("defs"):
+            item = {"name": thisDef.get("def-name"), "value": thisDef.get("def-structure")}
+            if not result:
+                result = []
+            result.append(item)
+
+    if result:
+        btpusecase_gen.entitledServices["jsonSchemaDefs"] = result
 
 
 def convertToServiceListByCategory(rawData):
 
     result = []
     for category in CATEGORIES:
-        list = {"name": category + "S", "list": getBtpCategory(category, rawData)}
+        list = {"name": category, "list": getBtpCategory(category, rawData)}
         result.append(list)
 
     return result
@@ -155,7 +165,16 @@ def getServicePlansForCategory(service, category):
     for plan in service.get("servicePlans"):
         thisCategory = plan.get("category")
         if thisCategory in CATEGORIES.get(category):
-            result.append(getBtpServicePlan(plan))
+            alreadyExistsInResult = False
+            for temp in result:
+                if temp.get("name") == plan.get("name"):
+                    alreadyExistsInResult = True
+            if not alreadyExistsInResult:
+                schemaInfo = getSchemaInfoForServicePlan(service, plan)
+                if schemaInfo:
+                    plan["refs"] = schemaInfo
+                result.append(getBtpServicePlan(plan))
+
     return result
 
 
@@ -165,6 +184,7 @@ def getBtpServicePlan(rawData):
     description = rawData.get("description")
     uniqueIdentifier = rawData.get("uniqueIdentifier")
     category = rawData.get("category")
+    jsonschemaRefs = rawData.get("refs")
     dataCenters = []
 
     for plan in rawData.get("dataCenters"):
@@ -173,6 +193,29 @@ def getBtpServicePlan(rawData):
     dataCenters = sorted(dataCenters, key=lambda d: d['region'], reverse=False)
 
     result = {"name": name, "displayName": displayName, "description": description, "uniqueIdentifier": uniqueIdentifier, "category": category, "dataCenters": dataCenters}
+    if jsonschemaRefs and len(jsonschemaRefs) > 0:
+        result["jsonschemarefs"] = jsonschemaRefs
+
+    return result
+
+
+def getSchemaInfoForServicePlan(service, plan):
+
+    result = None
+
+    defsContent = getJsonSchemaDefsContent()
+
+    for defBlock in defsContent:
+        defBlockServiceName = defBlock.get("name")
+        serviceName = service.get("name")
+        if defBlockServiceName == serviceName:
+            for thisDefBlock in defBlock.get("defs"):
+                if thisDefBlock.get("ref-level") == "plan":
+                    if plan.get("name") == thisDefBlock.get("ref-value"):
+                        if not result:
+                            result = []
+                        ref = {"attribute": thisDefBlock.get("ref-attribute"), "name": thisDefBlock.get("def-name")}
+                        result.append(ref)
     return result
 
 
@@ -182,11 +225,6 @@ def getBtpDataCenter(rawData):
     result["name"] = rawData.get("name")
     result["displayName"] = rawData.get("displayName")
     result["region"] = rawData.get("region")
-    # result["environment"] = rawData.get("environment")
-    # result["provisioningServiceUrl"] = rawData.get("provisioningServiceUrl")
-    # result["saasRegistryServiceUrl"] = rawData.get("saasRegistryServiceUrl")
-    # result["domain"] = rawData.get("domain")
-    # result["geoAccess"] = rawData.get("geoAccess")
 
     return result
 
