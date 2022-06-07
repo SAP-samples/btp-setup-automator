@@ -20,8 +20,6 @@ Services are listed and sorted by their technical name. The display name is adde
 
 # {{ service.name }}
 
-<img src="data:{{ service.iconFormat }}, {{ service.iconBase64 }}" />
-
 **{{ service.displayName }}**
 
 {{ service.description }}

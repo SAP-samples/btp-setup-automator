@@ -143,9 +143,9 @@ def getBtpService(rawData, servicePlans):
     name = rawData["name"]
     displayName = rawData.get("displayName")
     description = rawData.get("description")
-    iconBase64 = rawData.get("iconBase64")
+    # iconBase64 = rawData.get("iconBase64")
     servicePlans = servicePlans
-    result = {"name": name, "displayName": displayName, "description": description, "iconBase64": iconBase64, "servicePlans": servicePlans}
+    result = {"name": name, "displayName": displayName, "description": description, "servicePlans": servicePlans}
     return result
 
 
@@ -214,11 +214,11 @@ def addAdditionalMetadata(serviceResult, serviceDataRaw):
 
     if appCoordinates:
         # Fetch icon format
-        serviceResult["iconFormat"] = appCoordinates.get("iconFormat")
+        # serviceResult["iconFormat"] = appCoordinates.get("iconFormat")
 
         # Fetch service ids
         if appCoordinates.get("inventoryIds"):
-            ids=[]
+            ids = []
             for theseIds in appCoordinates.get("inventoryIds"):
                 if theseIds:
                     if type(theseIds) == str:
