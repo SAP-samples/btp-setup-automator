@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
-  "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/usecases/released/build_resilient_apps_free_tier.json",
+  "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/usecases/released/default.json",
   "loginmethod": "envVariables",
   "prunesubaccount": true,
-  "subaccountname": "BTPSA int-test resilient apps"
+  "subaccountname": "BTPSA int-test default use case"
 }

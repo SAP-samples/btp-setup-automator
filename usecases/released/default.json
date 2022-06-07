@@ -1,0 +1,134 @@
+{
+    "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
+    "aboutThisUseCase": {
+        "name": "Default use case on how to show how btp-setup-automator works",
+        "description": "This usecase sets up various services and app subscriptions on SAP BTP",
+        "author": "rui.nogueira@sap.com",
+        "testStatus": "tested successfully",
+        "usageStatus": "READY TO BE USED"
+    },
+    "services": [
+        {
+            "name": "connectivity",
+            "plan": "lite",
+            "category": "SERVICE"
+        },
+        {
+            "name": "application-logs",
+            "plan": "lite",
+            "category": "SERVICE"
+        },
+        {
+            "name": "xsuaa",
+            "plan": "apiaccess",
+            "category": "SERVICE"
+        },
+        {
+            "name": "autoscaler",
+            "plan": "standard",
+            "category": "SERVICE"
+        },
+        {
+            "name": "SAPLaunchpad",
+            "plan": "standard",
+            "category": "APPLICATION",
+            "requiredrolecollections": [
+                {
+                    "name": "Launchpad_Admin",
+                    "assignedUserGroupsFromParameterFile": [
+                        "developers"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "sapappstudio",
+            "plan": "standard-edition",
+            "category": "APPLICATION"
+        },
+        {
+            "name": "cicd-app",
+            "plan": "default",
+            "category": "APPLICATION",
+            "requiredrolecollections": [
+                {
+                    "name": "CICD Service Administrator",
+                    "assignedUserGroupsFromParameterFile": [
+                        "developers"
+                    ]
+                }
+            ]
+        }
+    ],
+    "assignrolecollections": [
+        {
+            "name": "Global Account Administrator",
+            "type": "account",
+            "level": "global account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "Subaccount Administrator",
+            "type": "account",
+            "level": "sub account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "Subaccount Service Administrator",
+            "type": "account",
+            "level": "sub account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "SpaceManager",
+            "type": "cloudfoundry",
+            "level": "space",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "developers"
+            ]
+        },
+        {
+            "name": "SpaceDeveloper",
+            "type": "cloudfoundry",
+            "level": "space",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "developers"
+            ]
+        },
+        {
+            "name": "SpaceAuditor",
+            "type": "cloudfoundry",
+            "level": "space",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "developers"
+            ]
+        },
+        {
+            "name": "OrgManager",
+            "type": "cloudfoundry",
+            "level": "org",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "testers"
+            ]
+        },
+        {
+            "name": "OrgAuditor",
+            "type": "cloudfoundry",
+            "level": "org",
+            "assignedUserGroupsFromParameterFile": [
+                "admins",
+                "auditors"
+            ]
+        }
+    ]
+}
