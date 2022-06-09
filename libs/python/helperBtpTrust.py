@@ -91,7 +91,7 @@ def get_api_access_token_for_xsuaa(btpUsecase, authClientUrl, authClientId, auth
     result = None
     myData = {'grant_type': 'client_credentials', 'client_id': authClientId, 'client_secret': authClientSecret}
     try:
-        log.info("sending a POST request to url >" + authClientUrl + "< with the data >" + str(myData) + "<")
+        log.info("sending a POST request to url >" + authClientUrl + "< with cliend id and client secret")
         p = requests.post(authClientUrl, data=myData, headers={"content-type": "application/x-www-form-urlencoded"})
         log.success("fetched API access token for XSUAA")
         result = p.json()
@@ -163,15 +163,8 @@ def registerUserOnIDP(btpUsecase, url, clientId, clientSecret, idpUserName, pass
     clientIdSecretEncoded = base64.b64encode(clientIdSecret.encode('ascii'))
     clientIdSecretDecoded = clientIdSecretEncoded.decode('ascii')
 
-    log.info("clientIdSecret       : >" + clientIdSecret + "<")
-    log.info("clientIdSecretDecoded: >" + str(clientIdSecretEncoded) + "<")
-
-    myData = "username=" + idpUserName + "&password=" + password + \
-        "&grant_type=password&login_hint=%7B%22origin%22%3A%22sap.custom%22%7D"
-    headers = {"Content-Type": "application/x-www-form-urlencoded",
-               "Accept": "application/json", "Authorization": "Basic " + clientIdSecretDecoded}
-    log.info("myData: >" + myData + "<")
-
+    myData = "username=" + idpUserName + "&password=" + password + "&grant_type=password&login_hint=%7B%22origin%22%3A%22sap.custom%22%7D"
+    headers = {"Content-Type": "application/x-www-form-urlencoded", "Accept": "application/json", "Authorization": "Basic " + clientIdSecretDecoded}
     try:
         log.info("sending a POST request to url >" + url + "< to create a user on the IDP")
         p1 = requests.post(url, data=myData, headers=headers)
