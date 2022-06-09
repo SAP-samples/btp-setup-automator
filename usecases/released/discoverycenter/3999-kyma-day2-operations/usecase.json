@@ -71,18 +71,22 @@
             ]
         }
     ],       
-    "executeAfterAccountSetup": [        
+    "executeAfterAccountSetup": [                
         {
             "description": "Get the tutorial code",
-            "command": "rm -rf /home/user/tutorial && git clone https://github.com/SAP-samples/btp-kyma-day2-operations.git /home/user/tutorial"
+            "command": "rm -rf /home/user/tutorial && git clone  https://github.com/SAP-samples/btp-kyma-day2-operations.git /home/user/tutorial"
         },
         {
+            "description": "Copy deploymentscript",
+            "command": "cp /home/user/tutorial/code/setup/btp-setup-automator/btpsa-deployment.sh /home/user/tutorial"
+        },        
+        {
             "description": "Change permission on deployment script",
-            "command": "chmod 777 /home/user/tutorial/code/setup/btp-setup-automator/btpsa-deployment.sh"
+            "command": "chmod 777 /home/user/tutorial/btpsa-deployment.sh"
         },
         {
             "description": "Run deployment script",
-            "command": "/home/user/tutorial/code/setup/btp-setup-automator/btpsa-deployment.sh"            
+            "command": "/home/user/tutorial/btpsa-deployment.sh"            
         }
     ]
 }
