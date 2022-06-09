@@ -15,7 +15,7 @@
             ]
         }{% if not loop.last %}, {% endif %}
 {% endfor %}    ],
-    "$jsonSchemaDefs": {
+    "jsonSchemaDefs": {
         {% for thisDef in jsonSchemaDefs -%}
             "{{ thisDef.name }}": {{ thisDef.value | tojson}}{% if not loop.last %}, {% endif %}
         {% endfor -%}
