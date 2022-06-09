@@ -1,15 +1,12 @@
 {
   "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
-  "usecasefile": "usecases/released/cap_app_launchpad.json",
+  "usecasefile": "usecases/released/default.json",
   "region": "us10",
   "globalaccount": null,
   "myemail": null,
   "loginmethod": "basicAuthentication",
   "subaccountname": null,
-  "orgid": null,
   "cfspacename": "development",
-  "suffixinstancename": null,
-  "iashost": null,
   "envvariables": {
     "BTPSA_YOUR_OWN_ENV_VARIABLE1": "Hi! I'm BTPSA!",
     "BTPSA_YOUR_OWN_ENV_VARIABLE2": "How are you doing?",

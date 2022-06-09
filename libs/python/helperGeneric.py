@@ -159,7 +159,9 @@ def getDictWithEnvVariables(btpUsecase):
 
 
 def getEnvVariableValue(variable):
-    result = os.environ[variable]
+    result = None
+    if (os.environ.get(variable)):
+        result = os.environ[variable]
     return result
 
 

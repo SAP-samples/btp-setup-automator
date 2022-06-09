@@ -1,0 +1,31 @@
+#! /usr/bin/env python
+from libs.python.helperGenerator import BTPUSECASE_GEN
+
+UPDATE_SERVICE_DATA = True
+
+mainDataJsoFile = "./config/btp-base/entitledServices.json"
+#######################################################################################
+# Initialize the tool and fetch the BTP service list
+#######################################################################################
+generator = BTPUSECASE_GEN()
+generator.fetchEntitledServiceList(UPDATE_SERVICE_DATA, mainDataJsoFile)
+
+#######################################################################################
+# Generate all files
+#######################################################################################
+if UPDATE_SERVICE_DATA:
+    targetFilename = mainDataJsoFile
+    templateFile = "./config/btp-base/templates/ENTITLEDSERVICES.json"
+    generator.applyServiceListOnTemplate(templateFile, targetFilename)
+
+targetFilename = "./docs/gh-pages/btp-services-docs.md"
+templateFile = "./config/btp-base/templates/BTP-SERVICES-DOCS.md"
+generator.applyServiceListOnTemplate(templateFile, targetFilename)
+
+targetFilename = "./libs/btpsa-usecase.json"
+templateFile = "./config/jsonschemas/BTPSA-USECASE.json"
+generator.applyServiceListOnTemplate(templateFile, targetFilename)
+
+targetFilename = "./libs/btpsa-parameters.md"
+templateFile = "./config/jsonschemas/BTPSA-PARAMETERS.json"
+generator.applyServiceListOnTemplate(templateFile, targetFilename)
