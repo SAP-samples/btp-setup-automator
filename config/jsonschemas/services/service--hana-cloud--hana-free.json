@@ -38,11 +38,13 @@
                                 "default": 0
                             },
                             "versionIndicator": {
-                                "type": "string"
+                                "type": "string",
+                                "default": "1"
                             },
                             "whitelistIPs": {
                                 "type": "array",
-                                "items": {}
+                                "items": {},
+                                "default": {}
                             }
                         },
                         "required": [

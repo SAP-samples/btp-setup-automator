@@ -12,7 +12,8 @@
                 "properties": {
                     "admin_email": {
                         "type": "string",
-                        "format": "email"
+                        "format": "email",
+                        "default": "you@your.foo"
                     },
                     "description": {
                         "type": "string",
