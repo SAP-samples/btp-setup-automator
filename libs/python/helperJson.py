@@ -151,8 +151,8 @@ def convertCloudFoundryCommandForSingleServiceToJson(lines):
         if len(columns) > 2:
             key = columns[0]
             value = ""
-            for counter in len(columns):
-                value += columns[counter + 1]
+            for counter in columns:
+                value += counter
             value = value.strip()
             if value == "":
                 value = None
