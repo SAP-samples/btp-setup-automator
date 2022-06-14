@@ -76,6 +76,11 @@ jobs:
         working-directory: /home/user
         shell: bash
         run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/tests/integrationtests/parameterfiles/integrationtest01.json'
+      - name: "Integration test 02: Deploy full-stack CAP application running in SAP Launchpad"
+        if: ${{ always() }}
+        working-directory: /home/user
+        shell: bash
+        run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/tests/integrationtests/parameterfiles/integrationtest02.json'
       - name: 'Integration test 07: Setup SAP Task Center"'
         if: ${{ always() }}
         working-directory: /home/user
