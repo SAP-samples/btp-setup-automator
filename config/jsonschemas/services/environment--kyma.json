@@ -156,7 +156,7 @@
                         ],
                         "type": "string",
                         "title": "Cluster Region",
-                        "region": "us-east-1"
+                        "default": "us-east-1"
                     },
                     "autoScalerMin": {
                         "default": 2,
@@ -286,27 +286,6 @@
                         "type": "string",
                         "title": "Type of VM",
                         "default": "Standard_D4_v3"
-                    }
-                },
-                "required": [
-                    "name"
-                ]
-            }
-        },
-        {
-            "ref-attribute": "parameters",
-            "ref-level": "plan",
-            "ref-value": "trial",
-            "def-name": "parameters--environment--kymaruntime--trial",
-            "def-structure": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "minLength": 1,
-                        "pattern": "^[a-zA-Z0-9-]*$",
-                        "title": "Cluster Name",
-                        "type": "string",
-                        "default": "myKymaCluster"
                     }
                 },
                 "required": [
