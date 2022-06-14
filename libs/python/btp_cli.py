@@ -41,7 +41,8 @@ class BTPUSECASE:
 
         self.timeScriptStarted = time.time()
 
-        self = helperArgParser.checkProvidedArguments(self)
+        if self.rundefaulttests == True:
+            self = helperArgParser.checkProvidedArguments(self)
 
         self.outputCurrentBtpUsecaseVariables()
 
@@ -87,32 +88,17 @@ class BTPUSECASE:
                 log.info(message)
 
     def check_if_account_can_cover_use_case(self):
-        log.header("Checking if all configured services & app subscriptions are available on your global account")
+        if self.rundefaulttests is True:
+            log.header("Checking if all configured services & app subscriptions are available on your global account")
 
-        availableForAccount = getListOfAvailableServicesAndApps(self)
+            availableForAccount = getListOfAvailableServicesAndApps(self)
+            usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(self, availableForAccount)
 
-        # if self.maintain_jsonschemas is True:
-        #     targetFilename = "btpsa-usecase.json"
-        #     buildJsonSchemaFile("BTPSA-USECASE.json", targetFilename, availableForAccount)
-        #     log.success("updated the json schema file for use cases >" + targetFilename + "< based on your global account >" + self.globalaccount + "<")
-
-        #     targetFilename = "btpsa-parameters.json"
-        #     buildJsonSchemaFile("BTPSA-PARAMETERS.json", targetFilename, availableForAccount)
-        #     log.success("updated the json schema file for parameters >" + targetFilename + "<")
-        #     log.header("SUCCESSFULLY MAINTAINED THE TOOL: UPDATED JSON SCHEMAS")
-        #     sys.exit(os.EX_OK)
-        # else:
-        #     targetFilename = "btpsa-usecase-" + self.globalaccount + ".json"
-        #     buildJsonSchemaFile("BTPSA-USECASE.json", targetFilename, availableForAccount)
-        #     log.info("created a json schema file >" + targetFilename + "< for your global account >" + self.globalaccount + "<")
-
-        usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(self, availableForAccount)
-
-        if usecaseSupportsServices is False:
-            log.error("USE CASE NOT SUPPORTED IN YOUR GLOBAL ACCOUNT!")
-            sys.exit(os.EX_PROTOCOL)
-        else:
-            log.success("Use case supported in your global account!")
+            if usecaseSupportsServices is False:
+                log.error("USE CASE NOT SUPPORTED IN YOUR GLOBAL ACCOUNT!")
+                sys.exit(os.EX_PROTOCOL)
+            else:
+                log.success("Use case supported in your global account!")
 
     def assignUsersToSubaccountAndRoles(self):
         assignUsersToGlobalAndSubaccount(self)
@@ -250,8 +236,14 @@ class BTPUSECASE:
             self.subaccountid = subaccountid
         else:
             log.header("USING CONFIGURED SUBACCOUNT WITH ID >" + self.subaccountid + "<")
-            result = getDetailsAboutSubaccount(self, self.subaccountid)
-            self.accountMetadata = addKeyValuePair(accountMetadata, "subdomain", result["subdomain"])
+            if self.subdomain and self.rundefaulttests is False:
+                self.accountMetadata = addKeyValuePair(accountMetadata, "subdomain", self.subdomain)
+            else:
+                if self.subdomain:
+                    self.accountMetadata = addKeyValuePair(accountMetadata, "subdomain", self.subdomain)
+                else:
+                    result = getDetailsAboutSubaccount(self, self.subaccountid)
+                    self.accountMetadata = addKeyValuePair(accountMetadata, "subdomain", result["subdomain"])
 
         save_collected_metadata(self)
 
