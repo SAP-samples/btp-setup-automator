@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
+  "aboutThisUseCase": {
+      "name": "Integration test for all BTP service plans",
+      "description": "This use case prepares a sub account for several integration tests",
+      "author": "rui.nogueira@sap.com",
+      "testStatus": "tested successfully",
+      "usageStatus": "READY TO BE USED",
+      "relatedLinks": []
+  }
+}

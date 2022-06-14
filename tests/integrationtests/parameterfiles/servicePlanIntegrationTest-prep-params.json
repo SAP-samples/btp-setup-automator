@@ -1,0 +1,8 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
+  "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/tests/integrationtests/usecasefiles/servicePlanIntegrationTest-prep-usecase.json",
+  "loginmethod": "envVariables",
+  "pruneusecase": true,
+  "rundefaulttests": false,
+  "subaccountname": "BTPSA test all service plans"
+}
