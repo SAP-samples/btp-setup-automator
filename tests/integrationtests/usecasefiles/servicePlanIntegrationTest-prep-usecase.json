@@ -12,7 +12,7 @@
     {
       "category":"ENVIRONMENT",
       "name":"cloudfoundry",
-      "plan":"standard"
+      "plan":"free"
     }
   ]
 }
