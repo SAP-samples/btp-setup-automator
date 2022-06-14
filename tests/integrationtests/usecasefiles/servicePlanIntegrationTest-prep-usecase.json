@@ -10,9 +10,9 @@
   },
   "services": [
     {
-      "category":"ENVIRONMENT",
-      "name":"cloudfoundry",
-      "plan":"standard"
+      "category": "ENVIRONMENT",
+      "name": "cloudfoundry",
+      "plan": "standard"
     }
   ]
 }
