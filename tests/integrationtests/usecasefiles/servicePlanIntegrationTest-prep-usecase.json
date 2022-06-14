@@ -7,5 +7,12 @@
       "testStatus": "tested successfully",
       "usageStatus": "READY TO BE USED",
       "relatedLinks": []
-  }
+  },
+  "services": [
+    {
+      "category":"ENVIRONMENT",
+      "name":"cloudfoundry",
+      "plan":"free"
+    }
+  ]
 }
