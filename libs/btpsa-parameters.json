@@ -279,6 +279,11 @@
             "title": "list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`.",
             "default": null
         },
+        "rundefaulttests": {
+            "type": "boolean",
+            "title": "switch to run default tests at the beginning of the script",
+            "default": true
+        },
         "myusergroups": {
             "type": "array",
             "description": "list of user groups to be used in btpsa",
