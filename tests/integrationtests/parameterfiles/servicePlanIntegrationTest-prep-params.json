@@ -4,7 +4,5 @@
   "loginmethod": "envVariables",
   "pruneusecase": true,
   "rundefaulttests": false,
-  "subaccountname": "BTPSA test all service plans",
-  "logfile": "log/int-test-prep.log",
-  "metadatafile": "log/int-test-prep.json"
+  "subaccountname": "BTPSA test all service plans"
 }
