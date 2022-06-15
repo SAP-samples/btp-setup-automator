@@ -55,8 +55,8 @@ def login_btp(btpUsecase):
         runShellCommandFlex(btpUsecase, command, "INFO", message, True, True)
         fetchEmailAddressFromBtpConfigFile(btpUsecase)
     else:
-        message = "Logging-in to your global account with subdomain ID >" + globalaccount + "< for your user >" + myemail + "<"
-        command = command + " --user '" + myemail + "' --password '" + password + "'"
+        message = "Logging-in to your global account with subdomain ID >" + str(globalaccount) + "< for your user >" + str(myemail) + "<"
+        command = command + " --user '" + str(myemail) + "' --password '" + str(password) + "'"
         runShellCommandFlex(btpUsecase, command, "INFO", message, True, False)
 
 

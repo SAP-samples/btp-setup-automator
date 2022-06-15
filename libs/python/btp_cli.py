@@ -43,6 +43,8 @@ class BTPUSECASE:
 
         if self.rundefaulttests is True:
             self = helperArgParser.checkProvidedArguments(self)
+        else:
+            helperArgParser.getMainVariablesThroughEnvParameters(self)
 
         self.outputCurrentBtpUsecaseVariables()
 
@@ -1235,10 +1237,8 @@ def selectEnvironmentLandscape(btpUsecase: BTPUSECASE, environment):
 
     while timeout_after_x_seconds > current_time:
         number_of_tries += 1
-        checkMessage = message + " (try " + str(number_of_tries) + \
-            " - trying again in " + str(search_every_x_seconds) + "s)"
-        result = runCommandAndGetJsonResult(
-            btpUsecase, command, "INFO", checkMessage)
+        checkMessage = message + " (try " + str(number_of_tries) + " - trying again in " + str(search_every_x_seconds) + "s)"
+        result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", checkMessage)
         if "availableEnvironments" in result:
             for item in result["availableEnvironments"]:
                 servicePlan = item["planName"]
