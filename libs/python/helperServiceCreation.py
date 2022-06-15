@@ -130,7 +130,7 @@ def createServiceInstance(btpUsecase, service, targetEnvironment, serviceCategor
         service = create_kyma_service(btpUsecase, service)
     elif targetEnvironment == "other":
         service = create_btp_service(btpUsecase, service)   
-    return service   
+    return service  
 
 
 def getStatusResponseFromCreatedInstance(btpUsecase, instancename, targetEnvironment):
