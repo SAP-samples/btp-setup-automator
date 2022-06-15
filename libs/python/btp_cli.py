@@ -3,7 +3,8 @@ from libs.python.helperFolders import FOLDER_SCHEMA_LIBS
 from libs.python.helperJson import addKeyValuePair, dictToString, convertStringToJson, getJsonFromFile
 from libs.python.helperBtpTrust import delete_cf_service_key, runTrustFlow, get_cf_service_key
 from libs.python.helperCommandExecution import executeCommandsFromUsecaseFile, runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex, login_btp, login_cf
-from libs.python.helperEnvCF import checkIfAllServiceInstancesCreated, checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, try_until_cf_space_done, initiateCreationOfServiceInstances, get_cf_service_deletion_status
+from libs.python.helperEnvCF import checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, try_until_cf_space_done, get_cf_service_deletion_status
+from libs.python.helperServiceCreation import initiateCreationOfServiceInstances, checkIfAllServiceInstancesCreated
 from libs.python.helperGeneric import buildUrltoSubaccount, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, createOrgName, getTimingsForStatusRequest, save_collected_metadata
 from libs.python.helperFileAccess import writeKubeConfigFileToDefaultDir
 from libs.python.helperEnvKyma import extractKymaDashboardUrlFromEnvironmentDataEntry, getKymaEnvironmentInfoByClusterName, getKymaEnvironmentStatusFromEnvironmentDataEntry, extractKymaKubeConfigUrlFromEnvironmentDataEntry, getKymaEnvironmentIdByClusterName
@@ -919,37 +920,6 @@ def checkIfAllSubscriptionsAreAvailable(btpUsecase: BTPUSECASE):
     return allSubscriptionsAvailable
 
 
-# def checkIfAllSubscriptionsAreAvailable(btpUsecase: BTPUSECASE):
-#     command = "btp --format json list accounts/subscription --subaccount '" + btpUsecase.subaccountid + "'"
-#     resultCommand = runCommandAndGetJsonResult(btpUsecase, command, "INFO", "check status of app subscriptions")
-
-#     allSubscriptionsAvailable = True
-#     for thisJson in resultCommand["applications"]:
-#         name = thisJson["appName"]
-#         plan = thisJson["planName"]
-#         status = thisJson["state"]
-#         tenantId = thisJson["tenantId"]
-#         for app in btpUsecase.definedAppSubscriptions:
-#             if app.name == name and app.plan == plan and app.successInfoShown is False:
-#                 if status == "SUBSCRIBE_FAILED":
-#                     log.error("BTP account reported that subscription on >" + app.name + "< has failed.")
-#                     sys.exit(os.EX_DATAERR)
-
-#                 if status != "SUBSCRIBED":
-#                     allSubscriptionsAvailable = False
-#                     app.status = status
-#                     app.successInfoShown = False
-#                     app.statusResponse = thisJson
-#                 else:
-#                     log.success("subscription to app >" + app.name + "< (plan " + app.plan + ") is now available")
-#                     app.tenantId = tenantId
-#                     app.successInfoShown = True
-#                     app.statusResponse = thisJson
-#                     app.status = "SUBSCRIBED"
-
-#     return allSubscriptionsAvailable
-
-
 def determineTimeToFetchStatusUpdates(btpUsecase: BTPUSECASE):
     maxTiming = int(btpUsecase.repeatstatusrequest)
 
@@ -1100,7 +1070,7 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
 
     if "createdServiceInstances" in accountMetadata and len(accountMetadata["createdServiceInstances"]) > 0:
         log.info("Delete service instances")
-        # login_cf(btpUsecase)
+       
         # Initiate deletion of service instances
         for environment in btpUsecase.definedEnvironments:
             if environment.name == "cloudfoundry":
