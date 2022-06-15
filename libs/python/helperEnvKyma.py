@@ -49,7 +49,7 @@ def create_kyma_service(btpUsecase, service):
 
     # Call kubectl to create the service
     command = "kubectl apply -f " + filepath + " -n " + btpUsecase.accountMetadata.get("k8snamespace") + " --kubeconfig " + btpUsecase.accountMetadata.get("kubeconfigpath")
-    message = "Create instance >" + service.instanceName + "< for service >" + service.name + "< and plan >" + service.plan + "<" + "in namespace >" + btpUsecase.accountMetadata.get("k8snamespace") + "<"
+    message = "Create instance >" + service.instanceName + "< for service >" + service.name + "< and plan >" + service.plan + "<" + " in namespace >" + btpUsecase.accountMetadata.get("k8snamespace") + "<"
 
     runShellCommand(btpUsecase, command, "INFO", message)
 
