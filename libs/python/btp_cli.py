@@ -41,10 +41,7 @@ class BTPUSECASE:
 
         self.timeScriptStarted = time.time()
 
-        if self.rundefaulttests is True:
-            self = helperArgParser.checkProvidedArguments(self)
-        else:
-            helperArgParser.getMainVariablesThroughEnvParameters(self)
+        self = helperArgParser.checkProvidedArguments(self)
 
         self.outputCurrentBtpUsecaseVariables()
 

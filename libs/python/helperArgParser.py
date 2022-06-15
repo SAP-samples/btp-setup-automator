@@ -128,7 +128,22 @@ def setupParamsServices():
     return args
 
 
-def getMainVariablesThroughEnvParameters(btpUsecase):
+def checkProvidedArguments(btpUsecase):
+    usecaseInfo = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
+    if "aboutThisUseCase" in usecaseInfo:
+        info = usecaseInfo["aboutThisUseCase"]
+        log.header("Info about use case to be executed")
+        filename = btpUsecase.usecasefile
+        if filename is not None:
+            log.info("file  : " + filename)
+        if "name" in info:
+            name = info["name"]
+            log.info("name  : " + name)
+        if "description" in info:
+            description = info["description"]
+            log.info("descr.: " + description)
+
+    log.header("Checking provided arguments and files")
 
     if btpUsecase.loginmethod == "envVariables":
 
@@ -158,26 +173,6 @@ def getMainVariablesThroughEnvParameters(btpUsecase):
             else:
                 log.error("env variable " + param + " for parameter >globalaccount< was not set. Please set it, or change loginmethod")
                 sys.exit(os.EX_DATAERR)
-
-
-def checkProvidedArguments(btpUsecase):
-    usecaseInfo = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
-    if "aboutThisUseCase" in usecaseInfo:
-        info = usecaseInfo["aboutThisUseCase"]
-        log.header("Info about use case to be executed")
-        filename = btpUsecase.usecasefile
-        if filename is not None:
-            log.info("file  : " + filename)
-        if "name" in info:
-            name = info["name"]
-            log.info("name  : " + name)
-        if "description" in info:
-            description = info["description"]
-            log.info("descr.: " + description)
-
-    log.header("Checking provided arguments and files")
-
-    getMainVariablesThroughEnvParameters(btpUsecase)
 
     if btpUsecase.loginmethod == "basicAuthentication":
         # Check CREDENTIALS: EMAIL
