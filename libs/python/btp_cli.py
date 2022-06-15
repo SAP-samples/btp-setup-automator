@@ -294,11 +294,16 @@ class BTPUSECASE:
                         message = "Create " + envName + " environment >" + org + "<"
                         result = runCommandAndGetJsonResult(self, command, "INFO", message)
 
-                        orgid = result["id"]
+                        orgid = None
+                        labels = convertStringToJson(result.get("labels"))
+                        if labels.get("Org ID:"):
+                            orgid = labels.get("Org ID:")
+                        if labels.get("Org ID"):
+                            orgid = labels.get("Org ID")
 
                         # Wait until the org has been created
                         message = "is CF environment >" + org + "< created"
-                        command = "btp --format json get accounts/environment-instance '" + orgid + "' --subaccount '" + subaccountid + "'"
+                        command = "btp --format json get accounts/environment-instance '" + result.get("id") + "' --subaccount '" + subaccountid + "'"
 
                         result = try_until_done(self, command, message, "state", "OK", self.repeatstatusrequest, 100)
                         if result == "ERROR":
