@@ -99,12 +99,12 @@ jobs:
 
   delete-temporary-image:
     if: ${{ success() }} || ${{ failure() }}
-    needs: integration-test-for-pr-slim
+    needs: [build-temporary-image, integration-test-for-pr-slim]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v6
         env:
-          IMAGE: ${{ env.IMAGE_NAME }}
+          IMAGE: ${{ needs.build-temporary-image.outputs.image_path }}
         with:
           github-token: ${{ secrets.DELETE_IMAGE_TOKEN }}
           script: |
