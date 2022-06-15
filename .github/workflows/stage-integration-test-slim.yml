@@ -19,7 +19,6 @@ env:
   IMAGE_NAME: tmp-${{ github.ref_name }}
   LABEL: ${{ github.ref_name }}
   ORG: sap-samples
-  PATHFORTEST: ghcr.io/sap-samples/btp-setup-automator/tmp-${{ github.ref_name }}:${{ github.ref_name }}
 
 jobs:
   build-temporary-image:
@@ -45,6 +44,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.IMAGE_NAME }}
       - name: Build Docker image
+        id: dockerbuild
         uses: docker/build-push-action@v3.0.0
         with:
           context: .
@@ -58,7 +58,7 @@ jobs:
       # We therefore use the output parameters which can be referenced via needs
       - id: set-image-path
         name: Set image path to output
-        run: echo "::set-output name=image_path::${{ env.PATHFORTEST }}"
+        run: echo "::set-output name=image_path::${{ fromJSON(steps.dockerbuild.outputs.metadata)['image.name'] }}"
 
   integration-test-for-pr-slim:
     needs: build-temporary-image
