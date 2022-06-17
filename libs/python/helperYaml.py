@@ -1,36 +1,31 @@
 import yaml
+import os
 from libs.python.helperJson import getJsonFromFile
 
 
-def build_service_instance_yaml_from_parameters(service):
+def build_and_store_service_instance_yaml_from_parameters(service, yamlFilePath):
 
-    serviceInstanceTemplate = getJsonFromFile('libs/json/templates/K8s-SERVICE-INSTANCE.json')
+    serviceInstanceTemplate = getJsonFromFile(None, 'config/jsonschemas/K8s-SERVICE-INSTANCE.json')
 
-    serviceInstanceTemplate.metadata.name = service.instanceName
-    serviceInstanceTemplate.spec.serviceOfferingName = service.name
-    serviceInstanceTemplate.spec.servicePlanName = service.plan
-    serviceInstanceTemplate.spec.externalName = service.instanceName
+    serviceInstanceTemplate["metadata"]["name"] = service.instancename
+    serviceInstanceTemplate["spec"]["serviceOfferingName"] = service.name
+    serviceInstanceTemplate["spec"]["servicePlanName"] = service.plan
+    serviceInstanceTemplate["spec"]["externalName"] = service.instancename
 
     if service.parameters is not None:
-        serviceInstanceTemplate.spec.parameters = service.parameters
+        serviceInstanceTemplate["spec"]["parameters"] = service.parameters
     elif service.serviceparameterfile is not None:
-        serviceInstanceTemplate.spec.parameters = getJsonFromFile(service.serviceparameterfile)       
+        serviceInstanceTemplate["spec"]["parameters"] = getJsonFromFile(service.serviceparameterfile)       
 
-    serviceInstanceYaml = yaml.dump(serviceInstanceTemplate, default_flow_style=False)
+    os.makedirs(os.path.dirname(yamlFilePath), exist_ok=True)
+    with open(yamlFilePath, "w") as outfile:
+        yaml.dump(serviceInstanceTemplate, outfile, default_flow_style=False)
 
-    return serviceInstanceYaml
-
-
+   
 def build_service_binding_yaml_from_parameters():
 
-    serviceBindingTemplate = getJsonFromFile('libs/json/templates/K8s-SERVICE-BINDING.json')
+    serviceBindingTemplate = getJsonFromFile(None, 'config/jsonschemas/K8s-SERVICE-BINDING.json')
 
-    serviceBindingYaml = yaml.dump(serviceBindingTemplate, default_flow_style=False)
+    serviceBindingYaml = yaml.dump(serviceBindingTemplate)
 
     return serviceBindingYaml
-
-
-def store_yaml_to_disk(yamlFilePath, yamlContent):
-    with open(yamlFilePath, 'w') as outfile:
-        yaml.dump(yamlContent, outfile)
-    return True
