@@ -1,7 +1,7 @@
 from libs.python.helperCommandExecution import runShellCommand
 from libs.python.helperGeneric import getServiceByServiceName, createInstanceName, getTimingsForStatusRequest
-from libs.python.helperJson import convertCloudFoundryCommandOutputToJson
-from libs.python.helperEnvCF import get_cf_service_status, create_cf_service, create_cf_cup_service, getStatusResponseFromCreatedCFInstance
+from libs.python.helperJson import convertCloudFoundryCommandOutputToJson, convertStringToJson
+from libs.python.helperEnvCF import get_cf_service_status, create_cf_service, create_cf_cup_service, getStatusResponseFromCreatedInstance
 from libs.python.helperEnvBTP import get_btp_service_status, create_btp_service, getStatusResponseFromCreatedBTPInstance
 from libs.python.helperEnvKyma import get_kyma_service_status, create_kyma_service, getStatusResponseFromCreatedKymaInstance
 import time
@@ -37,9 +37,9 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
         command = "cf services"
         p = runShellCommand(btpUsecase, command, "INFO", None)
         result = p.stdout.decode()
-        jsonResults = convertCloudFoundryCommandOutputToJson(result)
+        jsonResultsCF = convertCloudFoundryCommandOutputToJson(result)
 
-        for thisJson in jsonResults:
+        for thisJson in jsonResultsCF:
             name = thisJson.get("service")
             if name is None:
                 name = thisJson.get("offering")
@@ -59,11 +59,34 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
                         service.servicebroker = servicebroker
                         service.successInfoShown = True
                         service.status = "create succeeded"
-                        service.statusResponse = getStatusResponseFromCreatedInstance(btpUsecase, instancename)
+                        service.statusResponse = getStatusResponseFromCreatedInstanceGen(btpUsecase, instancename, service.targetenvironment)
 
     if kubernetesServices:
-        log.error("Kubernetes services defined in the usecase. Please check your configuration file!")
-        allServicesCreated = False
+
+        command = "kubectl get ServiceInstance -n " + btpUsecase.k8snamespace + " --kubeconfig " + btpUsecase.kubeconfigpath + " --output json"
+        p = runShellCommand(btpUsecase, command, "INFO", None)
+
+        jsonResultsK8s = convertStringToJson(p)
+
+        jsonResultsK8sServiceInstances = jsonResultsK8s.get("items")
+
+        for thisJson in jsonResultsK8sServiceInstances:
+            name = thisJson.get("spec").get("serviceOfferingName")
+
+            plan = thisJson.get("spec").get("servicePlanName")
+            instancename = thisJson.get("metadata").get("name")
+            status = thisJson.get("status").get("ready")
+            for service in btpUsecase.definedServices:
+                if service.name == name and service.plan == plan and service.instancename == instancename and service.successInfoShown is False:
+                    if status != "True":
+                        allServicesCreated = False
+                        service.status = "NOT READY"
+                        service.successInfoShown = False
+                    else:
+                        log.success("Service instance for service >" + service.name + "< (plan " + service.plan + ") is now available")
+                        service.successInfoShown = True
+                        service.status = "create succeeded"
+                        service.statusResponse = getStatusResponseFromCreatedInstanceGen(btpUsecase, instancename, service.targetenvironment)
 
     if otherServices:
         log.error("BTP CLI services defined in the usecase. Please check your configuration file!")
@@ -157,17 +180,17 @@ def createServiceInstance(btpUsecase, service, targetEnvironment, serviceCategor
     elif targetEnvironment == "kymaruntime":
         service = create_kyma_service(btpUsecase, service)
     elif targetEnvironment == "other":
-        service = create_btp_service(btpUsecase, service)   
+        service = create_btp_service(btpUsecase, service)
     
-    return service  
+    return service
 
 
-def getStatusResponseFromCreatedInstance(btpUsecase, instancename, targetEnvironment):
+def getStatusResponseFromCreatedInstanceGen(btpUsecase, instancename, targetEnvironment):
     if targetEnvironment == "cloudfoundry":
-        statusResponse = getStatusResponseFromCreatedCFInstance(btpUsecase, instancename)
+        statusResponse = getStatusResponseFromCreatedInstance(btpUsecase, instancename)
     elif targetEnvironment == "kymaruntime":
         statusResponse = getStatusResponseFromCreatedKymaInstance(btpUsecase, instancename)
     elif targetEnvironment == "other":
-        statusResponse = getStatusResponseFromCreatedBTPInstance(btpUsecase, instancename)
+        statusResponse = getStatusResponseFromCreatedBTPInstance(btpUsecase, instancename) 
     
     return statusResponse

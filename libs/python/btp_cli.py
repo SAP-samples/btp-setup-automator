@@ -536,6 +536,13 @@ def getEnvironmentsForUsecase(btpUsecase: BTPUSECASE, allServices):
     paramDefinition = getJsonFromFile(None, paramServicesFile)
 
     for usecaseService in allServices:
+        category = usecaseService.category
+        name = usecaseService.name
+        if category == "ENVIRONMENT" and name not in items:
+            items.append(name)
+            environments.append(usecaseService)
+
+    for usecaseService in allServices:
         environmentServices = usecaseService.targetenvironment
         if environmentServices not in items and usecaseService.category != "ENVIRONMENT":
             items.append(environmentServices)
@@ -543,14 +550,7 @@ def getEnvironmentsForUsecase(btpUsecase: BTPUSECASE, allServices):
             thisUsecaseService = {"name": usecaseService.targetenvironment, "category": "ENVIRONMENT", "plan": "standard"}
             thisEnv = BTPSERVICE(paramDefinitionServices, thisUsecaseService, btpUsecase)
             environments.append(thisEnv)
-
-    for usecaseService in allServices:
-        category = usecaseService.category
-        name = usecaseService.name
-        if category == "ENVIRONMENT" and name not in items:
-            items.append(name)
-            environments.append(usecaseService)
-
+   
     return environments
 
 

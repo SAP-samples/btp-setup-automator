@@ -1,0 +1,32 @@
+{
+    "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
+    "aboutThisUseCase": {
+        "name": "Default use case on how to show how btp-setup-automator works",
+        "description": "This usecase sets up various services and app subscriptions on SAP BTP",
+        "author": "rui.nogueira@sap.com",
+        "testStatus": "tested successfully",
+        "usageStatus": "READY TO BE USED"
+    },
+    "services": [
+        {
+            "category": "ENVIRONMENT",
+            "name": "kymaruntime",
+            "plan": "gcp",
+            "amount": 1,
+            "parameters": {
+                "name": "test-2vffsrde",
+                "region": "europe-west3",
+                "autoScalerMin": 2,
+                "autoScalerMax": 10,
+                "machineType": "n2-standard-8"
+            }
+        },
+        {
+            "name": "application-logs",
+            "instancename": "applicationlog",
+            "plan": "lite",
+            "category": "SERVICE",
+            "targetenvironment": "kymaruntime"
+        }
+    ]
+}

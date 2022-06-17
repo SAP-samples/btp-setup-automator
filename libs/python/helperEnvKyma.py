@@ -1,5 +1,5 @@
 from libs.python.helperJson import convertStringToJson
-from libs.python.helperYaml import build_service_binding_yaml_from_parameters, store_yaml_to_disk
+from libs.python.helperYaml import build_and_store_service_instance_yaml_from_parameters
 from libs.python.helperCommandExecution import runShellCommand
 
 
@@ -31,7 +31,7 @@ def getKymaEnvironmentIdByClusterName(environmentData, kymaClusterName):
 
 
 def get_kyma_service_status(btpUsecase, service):
-    command = "kubectl get ServiceInstance " + service.instanceName + " -n " + btpUsecase.accountMetadata.get("k8snamespace") + " --kubeconfig " + btpUsecase.accountMetadata.get("kubeconfigpath") + " | jq .status.ready"
+    command = "kubectl get ServiceInstance " + service.instanceName + " -n " + btpUsecase.k8snamespace + " --kubeconfig " + btpUsecase.kubeconfigpath + " | jq .status.ready"
 
     p = runShellCommand(btpUsecase, command, "INFO", None)
 
@@ -42,14 +42,14 @@ def get_kyma_service_status(btpUsecase, service):
 
 
 def create_kyma_service(btpUsecase, service):
-    serviceInstanceYaml = build_service_binding_yaml_from_parameters(service)
 
     filepath = "k8s/service-instance/service-instance-" + btpUsecase.accountMetadata.get("subaccountid") + ".yaml"
-    store_yaml_to_disk(filepath, serviceInstanceYaml)
+
+    build_and_store_service_instance_yaml_from_parameters(service, filepath)
 
     # Call kubectl to create the service
-    command = "kubectl apply -f " + filepath + " -n " + btpUsecase.accountMetadata.get("k8snamespace") + " --kubeconfig " + btpUsecase.accountMetadata.get("kubeconfigpath")
-    message = "Create instance >" + service.instanceName + "< for service >" + service.name + "< and plan >" + service.plan + "<" + " in namespace >" + btpUsecase.accountMetadata.get("k8snamespace") + "<"
+    command = "kubectl apply -f " + filepath + " -n " + btpUsecase.k8snamespace + " --kubeconfig " + btpUsecase.kubeconfigpath
+    message = "Create instance >" + service.instancename + "< for service >" + service.name + "< and plan >" + service.plan + "<" + " in namespace >" + btpUsecase.k8snamespace + "<"
 
     runShellCommand(btpUsecase, command, "INFO", message)
 
@@ -57,7 +57,7 @@ def create_kyma_service(btpUsecase, service):
 
 
 def getStatusResponseFromCreatedKymaInstance(btpUsecase, instanceName):
-    command = "kubectl get ServiceInstance " + instanceName + " -n " + btpUsecase.accountMetadata.get("k8snamespace") + " --kubeconfig " + btpUsecase.accountMetadata.get("kubeconfigpath") + " -o json"
+    command = "kubectl get ServiceInstance " + instanceName + " -n " + btpUsecase.k8snamespace + " --kubeconfig " + btpUsecase.kubeconfigpath + " -o json"
 
     p = runShellCommand(btpUsecase, command, "INFO", None)
 
