@@ -78,7 +78,7 @@
                         "type": "string",
                         "title": "environment in which the service should be created",
                         "default": "cloudfoundry",
-                        "enum": ["cloudfoundry", "kymaruntime"]
+                        "enum": ["cloudfoundry", "kymaruntime", "other"]
                     },
                     "plan": {
                         "type": "string",
@@ -167,35 +167,35 @@
                                 }, "required": ["parameters", "name", "category"], "additionalProperties": false
                         }
                     },
-                    {% for category in categoryStructure -%}
+                    {% for category in btpservicelist -%}
                     { 
                         "if": { "properties": { "category": { "const": "{{ category.name }}"} } },
                         "then" :{
-                                    "properties": { "name": { "enum": [{% for service in category.services -%}"{{ service.name }}"{% if not loop.last %}, {% endif %}{% endfor -%}] } },
+                                    "properties": { "name": { "enum": [{% for service in category.list -%}"{{ service.name }}"{% if not loop.last %}, {% endif %}{% endfor -%}] } },
                                     "allOf": [
-                                        {% for service in category.services -%}
+                                        {% for service in category.list -%}
                                         { 
                                             "if": { "properties": { "name": { "const": "{{ service.name }}"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": [{% for plan in service.plans -%}"{{ plan.name }}"{% if not loop.last %}, {%- endif %}{% endfor -%}] },
-                                                    "name": { "description": "{{ service.displayName }}:\n{{ service.description }}"} {% if service.refs is defined %},{% endif %}
+                                                    "plan": { "enum": [{% for plan in service.servicePlans -%}"{{ plan.name }}"{% if not loop.last %}, {%- endif %}{% endfor -%}] },
+                                                    "name": { "description": "{{ service.displayName }}: {{ service.description | trim }}"} {% if service.refs is defined %},{% endif %}
                                                     {% for ref in service.refs -%}
                                                         "{{ ref.attribute }}": { "$ref": "#/$defs/{{ ref.name }}" }
                                                     {% if not loop.last %}, {%- endif %}{% endfor -%}
                                                 }, 
                                                 "allOf": [
-                                                    {% for plan in service.plans -%}
+                                                    {% for plan in service.servicePlans -%}
                                                     { 
                                                         "if": { "properties": { "plan": { "const": "{{ plan.name }}"} } },
                                                         "then" :{
                                                             "properties": { 
-                                                                "plan": { "description": "{{ category.name.lower() }} plan >{{ plan.name }}< for >{{ service.name }}< is available in data centers:{% for datacenter in plan.dataCenters -%}\n- {{ datacenter }}{% if not loop.last %}{% endif %}{% endfor %}" } {% if plan.refs is defined %},{% endif %}
-                                                                {% for ref in plan.refs -%}
+                                                                "plan": { "description": "{{ category.name.lower() }} plan >{{ plan.name }}< for >{{ service.name }}< is available in data centers:{% for datacenter in plan.dataCenters -%}\n- {{ datacenter }}{% if not loop.last %}{% endif %}{% endfor %}" } {% if plan.jsonschemarefs is defined %},{% endif %}
+                                                                {% for ref in plan.jsonschemarefs -%}
                                                                     "{{ ref.attribute }}": { "$ref": "#/$defs/{{ ref.name }}" }
                                                                 {% if not loop.last %}, {%- endif %}{% endfor -%}
-                                                                }{% if plan.refs is defined -%},
-                                                            "required": [{% for ref in plan.refs -%}"{{ ref.attribute }}"{% if not loop.last %}, {%- endif %}{% endfor -%}] {% endif %}
+                                                                }{% if plan.jsonschemarefs is defined -%},
+                                                            "required": [{% for ref in plan.jsonschemarefs -%}"{{ ref.attribute }}"{% if not loop.last %}, {%- endif %}{% endfor -%}] {% endif %}
                                                         }
                                                     }{% if not loop.last %}, {% endif -%}
                                                     {% endfor -%}

@@ -4,6 +4,8 @@ import sys
 import re
 import requests
 import logging
+from libs.python.helperDrawio import getUseCaseDataFromDrawIoFile
+import os.path
 
 log = logging.getLogger(__name__)
 
@@ -12,6 +14,12 @@ def getJsonFromFile(self, filename):
     data = None
     foundError = False
     f = None
+
+    extension = os.path.splitext(filename)[1][1:]
+    if extension == "drawio":
+        data = getUseCaseDataFromDrawIoFile(filename)
+        result = convertStringToJson(data)
+        return result
 
     if "http://" in filename or "https://" in filename:
         data = None
@@ -151,8 +159,8 @@ def convertCloudFoundryCommandForSingleServiceToJson(lines):
         if len(columns) > 2:
             key = columns[0]
             value = ""
-            for counter in len(columns):
-                value += columns[counter + 1]
+            for counter in columns:
+                value += counter
             value = value.strip()
             if value == "":
                 value = None

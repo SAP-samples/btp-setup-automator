@@ -1,0 +1,13 @@
+{
+    "apiVersion": "services.cloud.sap.com/v1",
+    "kind": "ServiceInstance",
+    "metadata": {
+        "name": "my-service-instance"
+    },
+    "spec": {
+        "serviceOfferingName": "sample-service",
+        "servicePlanName": "sample-plan",
+        "externalName": "my-service-instance-external",
+        "parameters": {}
+    }
+}

@@ -10,7 +10,7 @@ Remember, that the built-in json schemas allow you creating your own use case fi
 
 ![json schema for creating use case files](pics/btpsa-json-schema.gif)
 
-## Use case "cap_app_launchpad.json"
+## Use case "cap_app_launchpad.json" (currently not 100% functional)
 
 The file [cap_app_launchpad.json](../usecases/released/cap_app_launchpad.json) contains the setup and deployment of a of a CAP application to a Cloud Foundry Environment in a SAP BTP account. This includes the necessary service instance, app subscriptions and role collections.
 

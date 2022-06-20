@@ -25,6 +25,10 @@
             ]
         },
         {
+            "category": "SERVICE",
+            "name": 
+        },
+        {
             "name": "abapcp-web-router",
             "plan": "default",
             "category": "APPLICATION"

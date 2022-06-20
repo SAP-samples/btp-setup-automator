@@ -4,7 +4,20 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-            {
+        {
+            "name": "Generator",
+            "type": "python",
+            "request": "launch",
+            "program": "generator",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {
+                "BTPSA_PARAM_MYEMAIL": "foo",
+                "BTPSA_PARAM_GLOBALACCOUNT": "foo",
+                "BTPSA_PARAM_MYPASSWORD": "***"
+            }
+        },
+        {
             "name": "Python: with env variables",
             "type": "python",
             "request": "launch",

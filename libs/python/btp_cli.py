@@ -7,14 +7,12 @@ from libs.python.helperEnvCF import checkIfAllServiceInstancesCreated, checkIfCF
 from libs.python.helperGeneric import buildUrltoSubaccount, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, createOrgName, getTimingsForStatusRequest, save_collected_metadata
 from libs.python.helperFileAccess import writeKubeConfigFileToDefaultDir
 from libs.python.helperEnvKyma import extractKymaDashboardUrlFromEnvironmentDataEntry, getKymaEnvironmentInfoByClusterName, getKymaEnvironmentStatusFromEnvironmentDataEntry, extractKymaKubeConfigUrlFromEnvironmentDataEntry, getKymaEnvironmentIdByClusterName
-from libs.python.helperDocumentation import updateDocumentation
 
 import os
 import sys
 import time
 import requests
 import json
-from libs.python.helperJsonSchemas import buildJsonSchemaFile
 from libs.python.helperRolesAndUsers import assignUsersToEnvironments, assignUsersToGlobalAndSubaccount, getSubaccountAdmins, assignUsersToRoleCollectionsForServices, assignUsersToCustomRoleCollections
 
 from libs.python.helperServices import BTPSERVICE, BTPSERVICEEncoder, getServiceParameterDefinition, readAllServicesFromUsecaseFile
@@ -43,11 +41,6 @@ class BTPUSECASE:
 
         self.timeScriptStarted = time.time()
 
-        if self.maintain_documentation is True:
-            updateDocumentation()
-            log.header("SUCCESSFULLY MAINTAINED THE TOOL: UPDATED DOCUMENTATION FILES")
-            sys.exit(os.EX_OK)
-
         self = helperArgParser.checkProvidedArguments(self)
 
         self.outputCurrentBtpUsecaseVariables()
@@ -58,11 +51,13 @@ class BTPUSECASE:
         self.accountMetadata = None
 
         allServices = readAllServicesFromUsecaseFile(self)
+        self.availableCategoriesService = ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"]
+        self.availableCategoriesApplication = ["APPLICATION"]
 
-        self.definedServices = getServiceCategoryItemsFromUsecaseFile(self, allServices, ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"])
+        self.definedServices = getServiceCategoryItemsFromUsecaseFile(self, allServices, self.availableCategoriesService)
         self.definedEnvironments = getEnvironmentsForUsecase(self, allServices)
         self.admins = getAdminsFromUsecaseFile(self)
-        self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(self, allServices, ["APPLICATION"])
+        self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(self, allServices, self.availableCategoriesApplication)
         usecaseFileContent = getJsonFromFile(self, self.usecasefile)
         self.definedRoleCollections = usecaseFileContent.get("assignrolecollections")
 
@@ -92,40 +87,21 @@ class BTPUSECASE:
                 log.info(message)
 
     def check_if_account_can_cover_use_case(self):
-        log.header("Checking if all configured services & app subscriptions are available on your global account")
+        if self.rundefaulttests is True:
+            log.header("Checking if all configured services & app subscriptions are available on your global account")
 
-        availableForAccount = getListOfAvailableServicesAndApps(self)
+            availableForAccount = getListOfAvailableServicesAndApps(self)
+            usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(self, availableForAccount)
 
-        if self.maintain_jsonschemas is True:
-            targetFilename = "btpsa-usecase.json"
-            buildJsonSchemaFile("BTPSA-USECASE.json", targetFilename, availableForAccount)
-            log.success("updated the json schema file for use cases >" + targetFilename + "< based on your global account >" + self.globalaccount + "<")
-
-            targetFilename = "btpsa-parameters.json"
-            buildJsonSchemaFile("BTPSA-PARAMETERS.json", targetFilename, availableForAccount)
-            log.success("updated the json schema file for parameters >" + targetFilename + "<")
-            log.header("SUCCESSFULLY MAINTAINED THE TOOL: UPDATED JSON SCHEMAS")
-            sys.exit(os.EX_OK)
-        else:
-            targetFilename = "btpsa-usecase-" + self.globalaccount + ".json"
-            buildJsonSchemaFile("BTPSA-USECASE.json", targetFilename, availableForAccount)
-            log.info("created a json schema file >" + targetFilename + "< for your global account >" + self.globalaccount + "<")
-
-        usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(self, availableForAccount)
-
-        if usecaseSupportsServices is False:
-            log.error("USE CASE NOT SUPPORTED IN YOUR GLOBAL ACCOUNT!")
-            sys.exit(os.EX_PROTOCOL)
-        else:
-            log.success("Use case supported in your global account!")
+            if usecaseSupportsServices is False:
+                log.error("USE CASE NOT SUPPORTED IN YOUR GLOBAL ACCOUNT!")
+                sys.exit(os.EX_PROTOCOL)
+            else:
+                log.success("Use case supported in your global account!")
 
     def assignUsersToSubaccountAndRoles(self):
         assignUsersToGlobalAndSubaccount(self)
         assignUsersToEnvironments(self)
-
-        # set_all_cf_space_roles(self)
-        # set_all_cf_org_roles(self)
-        None
 
     def prune_subaccount(self, subaccountid):
         login_btp(self)
@@ -259,8 +235,14 @@ class BTPUSECASE:
             self.subaccountid = subaccountid
         else:
             log.header("USING CONFIGURED SUBACCOUNT WITH ID >" + self.subaccountid + "<")
-            result = getDetailsAboutSubaccount(self, self.subaccountid)
-            self.accountMetadata = addKeyValuePair(accountMetadata, "subdomain", result["subdomain"])
+            if self.subdomain and self.rundefaulttests is False:
+                self.accountMetadata = addKeyValuePair(accountMetadata, "subdomain", self.subdomain)
+            else:
+                if self.subdomain:
+                    self.accountMetadata = addKeyValuePair(accountMetadata, "subdomain", self.subdomain)
+                else:
+                    result = getDetailsAboutSubaccount(self, self.subaccountid)
+                    self.accountMetadata = addKeyValuePair(accountMetadata, "subdomain", result["subdomain"])
 
         save_collected_metadata(self)
 
@@ -312,11 +294,16 @@ class BTPUSECASE:
                         message = "Create " + envName + " environment >" + org + "<"
                         result = runCommandAndGetJsonResult(self, command, "INFO", message)
 
-                        orgid = result["id"]
+                        orgid = None
+                        labels = convertStringToJson(result.get("labels"))
+                        if labels.get("Org ID:"):
+                            orgid = labels.get("Org ID:")
+                        if labels.get("Org ID"):
+                            orgid = labels.get("Org ID")
 
                         # Wait until the org has been created
                         message = "is CF environment >" + org + "< created"
-                        command = "btp --format json get accounts/environment-instance '" + orgid + "' --subaccount '" + subaccountid + "'"
+                        command = "btp --format json get accounts/environment-instance '" + result.get("id") + "' --subaccount '" + subaccountid + "'"
 
                         result = try_until_done(self, command, message, "state", "OK", self.repeatstatusrequest, 100)
                         if result == "ERROR":
@@ -623,13 +610,13 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
             if (accountServiceName == usecaseServiceName):
                 for accountServicePlan in accountService["servicePlans"]:
                     accountServicePlanName = accountServicePlan["name"]
-                    #accountServicePlanCategory = accountServicePlan["category"]
+                    accountServicePlanCategory = accountServicePlan["category"]
                     if fallbackServicePlan is not None and accountServicePlanName == fallbackServicePlan:
                         for accountServicePlanDataCenter in accountServicePlan["dataCenters"]:
                             accountServicePlanRegion = accountServicePlanDataCenter["region"]
-                            if (accountServicePlanRegion == usecaseRegion):
+                            if (accountServicePlanRegion == usecaseRegion) and (isService(btpUsecase, accountServicePlanCategory, usecaseService.category)):
                                 supportedFallbackServicePlan = True
-                    if (accountServicePlanName == usecaseServicePlan):
+                    if (accountServicePlanName == usecaseServicePlan) and (isService(btpUsecase, accountServicePlanCategory, usecaseService.category)):
                         for accountServicePlanDataCenter in accountServicePlan["dataCenters"]:
                             accountServicePlanRegion = accountServicePlanDataCenter["region"]
                             if (accountServicePlanRegion == usecaseRegion):
@@ -650,6 +637,17 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
                 usecaseSupported = False
 
     return usecaseSupported
+
+
+def isService(btpUsecase: BTPUSECASE, accountServicePlanCategory, category):
+    result = False
+    categoryService = btpUsecase.availableCategoriesService
+    categoryApplication = btpUsecase.availableCategoriesApplication
+
+    if accountServicePlanCategory in categoryService or accountServicePlanCategory in categoryApplication:
+        if category in categoryService or category in categoryApplication:
+            result = True
+    return result
 
 
 def checkIfSubaccountAlreadyExists(btpUsecase: BTPUSECASE):
@@ -1241,10 +1239,8 @@ def selectEnvironmentLandscape(btpUsecase: BTPUSECASE, environment):
 
     while timeout_after_x_seconds > current_time:
         number_of_tries += 1
-        checkMessage = message + " (try " + str(number_of_tries) + \
-            " - trying again in " + str(search_every_x_seconds) + "s)"
-        result = runCommandAndGetJsonResult(
-            btpUsecase, command, "INFO", checkMessage)
+        checkMessage = message + " (try " + str(number_of_tries) + " - trying again in " + str(search_every_x_seconds) + "s)"
+        result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", checkMessage)
         if "availableEnvironments" in result:
             for item in result["availableEnvironments"]:
                 servicePlan = item["planName"]

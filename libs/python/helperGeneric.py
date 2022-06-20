@@ -122,7 +122,12 @@ def createSubdomainID(btpUsecase):
 
 def createOrgName(btpUsecase, envName):
     result = None
-    result = envName + "-" + btpUsecase.accountMetadata["subdomain"]
+    if envName == "cloudfoundry":
+        result = "cf-" + btpUsecase.accountMetadata["subdomain"]
+    if envName == "kymaruntime":
+        result = "kyma-" + btpUsecase.accountMetadata["subdomain"]
+    if envName != "kymaruntime" and envName != "cloudfoundry":
+        result = envName + "-" + btpUsecase.accountMetadata["subdomain"]
 
     result = re.sub(r"[^\w\s]", '-', result)
     result = result.replace(" ", "-").lower()
@@ -163,7 +168,9 @@ def getDictWithEnvVariables(btpUsecase):
 
 
 def getEnvVariableValue(variable):
-    result = os.environ[variable]
+    result = None
+    if (os.environ.get(variable)):
+        result = os.environ[variable]
     return result
 
 

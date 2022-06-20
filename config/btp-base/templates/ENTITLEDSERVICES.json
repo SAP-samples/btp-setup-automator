@@ -1,0 +1,23 @@
+{
+    "btpenums": {{ btpenums|tojson }},
+    "btpservicelist": [
+{%- for category in btpservicelist %}
+        {
+            "name": "{{ category.name }}",
+            "list": [
+                {%- for service in category.list %}
+                {
+                    {%- for elem in service %}
+                    "{{ elem }}": {{ service[elem]|tojson  }}{% if not loop.last %}, {% endif %}
+                    {%- endfor %}
+                }{% if not loop.last %}, {% endif %}
+                {%- endfor %}
+            ]
+        }{% if not loop.last %}, {% endif %}
+{% endfor %}    ],
+    "jsonSchemaDefs": {
+        {% for thisDef in jsonSchemaDefs -%}
+            "{{ thisDef.name }}": {{ thisDef.value | tojson}}{% if not loop.last %}, {% endif %}
+        {% endfor -%}
+    }
+}
