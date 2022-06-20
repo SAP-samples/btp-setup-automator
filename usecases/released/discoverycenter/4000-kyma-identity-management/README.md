@@ -1,7 +1,9 @@
+> NOTE: The mission is planned to be released End of June
+
 # Instructions for running SAP Discovery Center Mission in btp-setup-automator
 
 The [btp-setup-automator](https://github.com/SAP-samples/btp-setup-automator) is an open source project to help developers setting-up their SAP BTP accounts quickly via various command line interfaces.
-The current script was designed to setup the account and spin up the application which is used by the Discovery Center Mission, [Enrich a Kyma based multitenant application with additional identity features](https://discovery-center.cloud.sap/missiondetail/4000/4207/).
+The current script was designed to setup the account and spin up the application which is used by the Discovery Center Mission, [Enrich a Kyma based multitenant application with additional identity features](https ://discovery-center.cloud.sap/missiondetail/4000/4207/).
 
 The script will create a subaccount with the necessary entitlements and deploy the Easy Franchise application in the SAP BTP Kyma Environment. The following services and subscriptions are created:
 
@@ -10,7 +12,7 @@ The script will create a subaccount with the necessary entitlements and deploy t
 * SAP HANA Cloud with hana-free plan
 * Kyma Runtime with free plan
 
-The code and the container images of the application are taken from the GitHub repository [SAP-samples/btp-kyma-identity-management](https://github.com/SAP-samples/btp-kyma-identity-management).
+The code and the container images of the application are taken from the GitHub repository [SAP-samples/btp-kyma-identity-management](https ://github.com/SAP-samples/btp-kyma-identity-management).
 
 ## Pre-Requisites
 
@@ -55,3 +57,21 @@ Now run the main script `btpsa` with the following command:
 ```
 
 The btp-setup-automator script will now prepare your SAP BTP account to cover the discovery center mission. You can have a look at the [usecase.json](usecase.json) and [parameters.json](parameters.json) for more details about the used services and configuration parameters (e.g. DB Password for SAP HANA Cloud)
+
+## Troubleshooting
+
+### How can I use a paid plan for my Kyma Environment? 
+
+The easiest way to change the plan of the Kyma environment is to attach a Visual Studio Code to the running container and change [usecase.json](usecase.json) file directly in there. You can find the used plan in the servies section under "kymaruntime". The following values are allowed for the plan attribute:
+
+* aws - for Amazon
+* gcp - for Google Cloud Plattform
+* azure - for Microsoft azure
+
+### How can I use an existing subaccount?
+
+If you already have an existing subaccount you can either change the name in the parameter file directly in the running container or you can add it via the commandline when you run the script: 
+
+```bash
+./btpsa -subaccountname <Display Name of your existing subaccount>  
+```
