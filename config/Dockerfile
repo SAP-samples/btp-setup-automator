@@ -128,8 +128,8 @@ RUN adduser \
 # - currently (Jun 7th, 2022) it's no longer possible to install CDS
 # - to be determined what the root cause is (seems related to deprecation of v1.x Cloud SDK)
 ##########################################################################################
-    # && npm install -g @sap/cds-dk --allow-root \
-    # && npm cache clean --force \
+    && npm install -g @sap/cds-dk --allow-root \
+    && npm cache clean --force \
 ##########################################################################################
 # Add user to sudo user
 ##########################################################################################

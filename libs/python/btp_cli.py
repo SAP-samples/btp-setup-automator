@@ -87,32 +87,17 @@ class BTPUSECASE:
                 log.info(message)
 
     def check_if_account_can_cover_use_case(self):
-        log.header("Checking if all configured services & app subscriptions are available on your global account")
+        if self.rundefaulttests is True:
+            log.header("Checking if all configured services & app subscriptions are available on your global account")
 
-        availableForAccount = getListOfAvailableServicesAndApps(self)
+            availableForAccount = getListOfAvailableServicesAndApps(self)
+            usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(self, availableForAccount)
 
-        # if self.maintain_jsonschemas is True:
-        #     targetFilename = "btpsa-usecase.json"
-        #     buildJsonSchemaFile("BTPSA-USECASE.json", targetFilename, availableForAccount)
-        #     log.success("updated the json schema file for use cases >" + targetFilename + "< based on your global account >" + self.globalaccount + "<")
-
-        #     targetFilename = "btpsa-parameters.json"
-        #     buildJsonSchemaFile("BTPSA-PARAMETERS.json", targetFilename, availableForAccount)
-        #     log.success("updated the json schema file for parameters >" + targetFilename + "<")
-        #     log.header("SUCCESSFULLY MAINTAINED THE TOOL: UPDATED JSON SCHEMAS")
-        #     sys.exit(os.EX_OK)
-        # else:
-        #     targetFilename = "btpsa-usecase-" + self.globalaccount + ".json"
-        #     buildJsonSchemaFile("BTPSA-USECASE.json", targetFilename, availableForAccount)
-        #     log.info("created a json schema file >" + targetFilename + "< for your global account >" + self.globalaccount + "<")
-
-        usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(self, availableForAccount)
-
-        if usecaseSupportsServices is False:
-            log.error("USE CASE NOT SUPPORTED IN YOUR GLOBAL ACCOUNT!")
-            sys.exit(os.EX_PROTOCOL)
-        else:
-            log.success("Use case supported in your global account!")
+            if usecaseSupportsServices is False:
+                log.error("USE CASE NOT SUPPORTED IN YOUR GLOBAL ACCOUNT!")
+                sys.exit(os.EX_PROTOCOL)
+            else:
+                log.success("Use case supported in your global account!")
 
     def assignUsersToSubaccountAndRoles(self):
         assignUsersToGlobalAndSubaccount(self)
@@ -250,8 +235,14 @@ class BTPUSECASE:
             self.subaccountid = subaccountid
         else:
             log.header("USING CONFIGURED SUBACCOUNT WITH ID >" + self.subaccountid + "<")
-            result = getDetailsAboutSubaccount(self, self.subaccountid)
-            self.accountMetadata = addKeyValuePair(accountMetadata, "subdomain", result["subdomain"])
+            if self.subdomain and self.rundefaulttests is False:
+                self.accountMetadata = addKeyValuePair(accountMetadata, "subdomain", self.subdomain)
+            else:
+                if self.subdomain:
+                    self.accountMetadata = addKeyValuePair(accountMetadata, "subdomain", self.subdomain)
+                else:
+                    result = getDetailsAboutSubaccount(self, self.subaccountid)
+                    self.accountMetadata = addKeyValuePair(accountMetadata, "subdomain", result["subdomain"])
 
         save_collected_metadata(self)
 
@@ -303,11 +294,16 @@ class BTPUSECASE:
                         message = "Create " + envName + " environment >" + org + "<"
                         result = runCommandAndGetJsonResult(self, command, "INFO", message)
 
-                        orgid = result["id"]
+                        orgid = None
+                        labels = convertStringToJson(result.get("labels"))
+                        if labels.get("Org ID:"):
+                            orgid = labels.get("Org ID:")
+                        if labels.get("Org ID"):
+                            orgid = labels.get("Org ID")
 
                         # Wait until the org has been created
                         message = "is CF environment >" + org + "< created"
-                        command = "btp --format json get accounts/environment-instance '" + orgid + "' --subaccount '" + subaccountid + "'"
+                        command = "btp --format json get accounts/environment-instance '" + result.get("id") + "' --subaccount '" + subaccountid + "'"
 
                         result = try_until_done(self, command, message, "state", "OK", self.repeatstatusrequest, 100)
                         if result == "ERROR":
@@ -1243,10 +1239,8 @@ def selectEnvironmentLandscape(btpUsecase: BTPUSECASE, environment):
 
     while timeout_after_x_seconds > current_time:
         number_of_tries += 1
-        checkMessage = message + " (try " + str(number_of_tries) + \
-            " - trying again in " + str(search_every_x_seconds) + "s)"
-        result = runCommandAndGetJsonResult(
-            btpUsecase, command, "INFO", checkMessage)
+        checkMessage = message + " (try " + str(number_of_tries) + " - trying again in " + str(search_every_x_seconds) + "s)"
+        result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", checkMessage)
         if "availableEnvironments" in result:
             for item in result["availableEnvironments"]:
                 servicePlan = item["planName"]

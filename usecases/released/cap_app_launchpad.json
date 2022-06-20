@@ -4,8 +4,8 @@
     "name": "Deploy full-stack CAP application running in SAP Launchpad (on productive SAP BTP account)",
     "description": "This usecase provides all necessary information to create the necessary service instances and app subscription for a CAP application and to deploy that application on a SAP BTP account.",
     "author": "rui.nogueira@sap.com",
-    "testStatus": "not tested",
-    "usageStatus": "NOT READY TO BE USED",
+    "testStatus": "tested successfully",
+    "usageStatus": "READY TO BE USED",
     "relatedLinks": [
       "https://developers.sap.com/tutorials/btp-app-launchpad-service.html"
     ]

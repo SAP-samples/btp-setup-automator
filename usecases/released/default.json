@@ -9,11 +9,6 @@
     },
     "services": [
         {
-            "name": "connectivity",
-            "plan": "lite",
-            "category": "SERVICE"
-        },
-        {
             "name": "application-logs",
             "plan": "lite",
             "category": "SERVICE"
@@ -22,24 +17,6 @@
             "name": "xsuaa",
             "plan": "apiaccess",
             "category": "SERVICE"
-        },
-        {
-            "name": "autoscaler",
-            "plan": "standard",
-            "category": "SERVICE"
-        },
-        {
-            "name": "SAPLaunchpad",
-            "plan": "standard",
-            "category": "APPLICATION",
-            "requiredrolecollections": [
-                {
-                    "name": "Launchpad_Admin",
-                    "assignedUserGroupsFromParameterFile": [
-                        "developers"
-                    ]
-                }
-            ]
         },
         {
             "name": "sapappstudio",

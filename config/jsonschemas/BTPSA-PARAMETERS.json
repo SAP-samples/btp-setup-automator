@@ -242,6 +242,11 @@
             "title": "list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`.",
             "default": null
         },
+        "rundefaulttests": {
+            "type": "boolean",
+            "title": "switch to run default tests at the beginning of the script",
+            "default": true
+        },
         "myusergroups": {
             "type": "array",
             "description": "list of user groups to be used in btpsa",
@@ -265,6 +270,18 @@
                     }
                 }
             }
+        },
+        "k8snamespace": {
+            "type": "string",
+            "description": "name for the Kubernetes namespace to be used for your use case",
+            "title": "name for the Kubernetes namespace",
+            "default": "default"
+        },
+        "kubeconfigpath": {
+            "type": "string",
+            "description": "path to kubeconfig file to be used for your use case",
+            "title": "path to kubeconfig file",
+            "default": ".kube/config"
         }
     },
     "required": ["loginmethod","usecasefile"],
