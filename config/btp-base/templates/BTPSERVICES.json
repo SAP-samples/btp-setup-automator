@@ -1,5 +1,11 @@
 {
-    "generics": {{ btpenums|tojson }},
+    "general": {
+        {{ btpenums|tojson }},
+        "jsonSchemaDefs": {
+            {% for thisDef in jsonSchemaDefs -%}
+                "{{ thisDef.name }}": {{ thisDef.value | tojson}}{% if not loop.last %}, {% endif %}
+            {% endfor -%}
+        }
     "services": [
 {%- for category in btpservicelist %}
         {
@@ -14,10 +20,5 @@
                 {%- endfor %}
             ]
         }{% if not loop.last %}, {% endif %}
-{% endfor %}    ],
-    "jsonSchemaDefs": {
-        {% for thisDef in jsonSchemaDefs -%}
-            "{{ thisDef.name }}": {{ thisDef.value | tojson}}{% if not loop.last %}, {% endif %}
-        {% endfor -%}
-    }
+{% endfor %}    ]
 }
