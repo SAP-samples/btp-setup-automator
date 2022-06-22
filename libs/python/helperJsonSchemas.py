@@ -183,7 +183,7 @@ def getJsonSchemaDefsContent():
     result = []
 
     for filename in glob.iglob(folderParameterFiles + '**/*.json', recursive=True):
-        content = getJsonFromFile(None, filename)
+        content = getJsonFromFile(filename)
         result.append(content)
 
     return result

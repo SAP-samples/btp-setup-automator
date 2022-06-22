@@ -8,7 +8,7 @@ import logging
 log = logging.getLogger(__name__)
 
 
-def getJsonFromFile(self, filename):
+def getJsonFromFile(filename):
     data = None
     foundError = False
     f = None
@@ -88,7 +88,7 @@ def saveJsonToFile(filename, jsonData):
 
 
 def addKeyValuePairToJsonFile(filename, key, value):
-    myJson = getJsonFromFile(None, filename)
+    myJson = getJsonFromFile(filename)
     myJson = addKeyValuePair(myJson, key, value)
     saveJsonToFile(filename, myJson)
 
