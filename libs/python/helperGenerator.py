@@ -64,7 +64,7 @@ class BTPUSECASE_GEN:
 
 def fetchDataFromConfigFile(btpusecase_gen, updateServiceData, mainDataJsonFile):
 
-    result = getJsonFromFile(None, mainDataJsonFile)
+    result = getJsonFromFile(mainDataJsonFile)
     btpservicelist = result["btpservicelist"]
     btpenums = result["btpenums"]
 

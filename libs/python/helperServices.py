@@ -91,9 +91,9 @@ class BTPSERVICEEncoder(JSONEncoder):
 def readAllServicesFromUsecaseFile(btpUsecase):
     # Initiate class with configured parameters
     jsonSchema = FOLDER_SCHEMA_LIBS + "btpsa-usecase.json"
-    paramDefinitionServices = getJsonFromFile(None, jsonSchema)
+    paramDefinitionServices = getJsonFromFile(jsonSchema)
 
-    usecase = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
+    usecase = getJsonFromFile(btpUsecase.usecasefile)
     items = []
     if "services" in usecase:
         for usecaseService in usecase.get("services"):

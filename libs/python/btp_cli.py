@@ -59,7 +59,7 @@ class BTPUSECASE:
         self.definedEnvironments = getEnvironmentsForUsecase(self, allServices)
         self.admins = getAdminsFromUsecaseFile(self)
         self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(self, allServices, self.availableCategoriesApplication)
-        usecaseFileContent = getJsonFromFile(self, self.usecasefile)
+        usecaseFileContent = getJsonFromFile(self.usecasefile)
         self.definedRoleCollections = usecaseFileContent.get("assignrolecollections")
 
         ##############################################################################################
@@ -533,7 +533,7 @@ def getEnvironmentsForUsecase(btpUsecase: BTPUSECASE, allServices):
     environments = []
 
     paramServicesFile = FOLDER_SCHEMA_LIBS + "btpsa-usecase.json"
-    paramDefinition = getJsonFromFile(None, paramServicesFile)
+    paramDefinition = getJsonFromFile(paramServicesFile)
 
     for usecaseService in allServices:
         category = usecaseService.category
@@ -567,7 +567,7 @@ def getServiceCategoryItemsFromUsecaseFile(btpUsecase: BTPUSECASE, allServices, 
 
 
 def getAdminsFromUsecaseFile(btpUsecase: BTPUSECASE):
-    usecase = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
+    usecase = getJsonFromFile(btpUsecase.usecasefile)
 
     items = []
     if "admins" in usecase:

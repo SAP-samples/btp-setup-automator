@@ -68,7 +68,7 @@ def getSubaccountAdmins(btpUsecase):
 
 
 def getRoleCollectionsOfServices(btpUsecase):
-    usecase = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
+    usecase = getJsonFromFile(btpUsecase.usecasefile)
     items = []
     if usecase.get("services") is not None:
         for service in usecase.get("services"):
@@ -90,7 +90,7 @@ def getMembersOfUserGroup(btpUsecase, usergroup):
         myusergroups = None
         # If the usergroup is defined as a string it might be
         if usergroupIsString:
-            usergroupsFromHttp = getJsonFromFile(None, btpUsecase.myusergroups)
+            usergroupsFromHttp = getJsonFromFile(btpUsecase.myusergroups)
             if usergroupsFromHttp:
                 myusergroups = usergroupsFromHttp
         if usergroupIsList:

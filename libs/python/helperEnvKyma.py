@@ -1,6 +1,6 @@
 from libs.python.helperJson import convertStringToJson
 from libs.python.helperYaml import build_and_store_service_instance_yaml_from_parameters
-from libs.python.helperCommandExecution import runShellCommand
+from libs.python.helperCommandExecution import runShellCommand, runShellCommandFlex
 
 
 def getKymaEnvironmentInfoByClusterName(environmentData, kymaClusterName):
@@ -51,7 +51,7 @@ def create_kyma_service(btpUsecase, service):
     command = "kubectl apply -f " + filepath + " -n " + btpUsecase.k8snamespace + " --kubeconfig " + btpUsecase.kubeconfigpath
     message = "Create instance >" + service.instancename + "< for service >" + service.name + "< and plan >" + service.plan + "<" + " in namespace >" + btpUsecase.k8snamespace + "<"
 
-    runShellCommand(btpUsecase, command, "INFO", message)
+    runShellCommandFlex(btpUsecase, command, "INFO", message, True, True)
 
     return service
 
