@@ -18,6 +18,10 @@ if UPDATE_SERVICE_DATA:
     templateFile = "./config/btp-base/templates/ENTITLEDSERVICES.json"
     generator.applyServiceListOnTemplate(templateFile, targetFilename)
 
+    targetFilename = "./config/btp-base/btpServices.json"
+    templateFile = "./config/btp-base/templates/BTPSERVICES.json"
+    generator.applyServiceListOnTemplate(templateFile, targetFilename)
+
 targetFilename = "./docs/gh-pages/btp-services-docs.md"
 templateFile = "./config/btp-base/templates/BTP-SERVICES-DOCS.md"
 generator.applyServiceListOnTemplate(templateFile, targetFilename)
