@@ -178,11 +178,9 @@ def buildJsonSchemaFile(TEMPLATE_FILE, targetFilename, accountEntitlements):
 
 
 def getJsonSchemaDefsContent():
-    folderParameterFiles = FOLDER_SCHEMA_TEMPLATES + "services/"
-
     result = []
 
-    for filename in glob.iglob(folderParameterFiles + '**/*.json', recursive=True):
+    for filename in glob.iglob(FOLDER_SCHEMA_TEMPLATES + '**/*.json', recursive=True):
         content = getJsonFromFile(None, filename)
         result.append(content)
 

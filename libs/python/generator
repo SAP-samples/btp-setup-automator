@@ -3,29 +3,33 @@ from libs.python.helperGenerator import BTPUSECASE_GEN
 
 UPDATE_SERVICE_DATA = True
 
-mainDataJsoFile = "./config/btp-base/entitledServices.json"
+mainDataJsonFile = "./config/btp-base/btpServices.json"
 #######################################################################################
 # Initialize the tool and fetch the BTP service list
 #######################################################################################
 generator = BTPUSECASE_GEN()
-generator.fetchEntitledServiceList(UPDATE_SERVICE_DATA, mainDataJsoFile)
+generator.fetchEntitledServiceList(UPDATE_SERVICE_DATA, mainDataJsonFile)
 
 #######################################################################################
 # Generate all files
 #######################################################################################
 if UPDATE_SERVICE_DATA:
-    targetFilename = mainDataJsoFile
-    templateFile = "./config/btp-base/templates/ENTITLEDSERVICES.json"
+    targetFilename = mainDataJsonFile
+    templateFile = "./config/templates/btp-base/BTPSERVICES.json"
+    generator.applyServiceListOnTemplate(templateFile, targetFilename)
+
+    targetFilename = "./config/btp-base/btpServices.json"
+    templateFile = "./config/templates/btp-base/BTPSERVICES.json"
     generator.applyServiceListOnTemplate(templateFile, targetFilename)
 
 targetFilename = "./docs/gh-pages/btp-services-docs.md"
-templateFile = "./config/btp-base/templates/BTP-SERVICES-DOCS.md"
+templateFile = "./config/templates/docs-gh-pages/BTP-SERVICES-DOCS.md"
 generator.applyServiceListOnTemplate(templateFile, targetFilename)
 
 targetFilename = "./libs/btpsa-usecase.json"
-templateFile = "./config/jsonschemas/BTPSA-USECASE.json"
+templateFile = "./config/templates/libs/BTPSA-USECASE.json"
 generator.applyServiceListOnTemplate(templateFile, targetFilename)
 
 targetFilename = "./libs/btpsa-parameters.md"
-templateFile = "./config/jsonschemas/BTPSA-PARAMETERS.json"
+templateFile = "./config/templates/libs/BTPSA-PARAMETERS.json"
 generator.applyServiceListOnTemplate(templateFile, targetFilename)
