@@ -194,3 +194,13 @@ def getStatusResponseFromCreatedInstanceGen(btpUsecase, instancename, targetEnvi
         statusResponse = getStatusResponseFromCreatedBTPInstance(btpUsecase, instancename) 
     
     return statusResponse
+
+def deleteServiceKeys(btpUsecase, service):
+    if targetEnvironment == "cloudfoundry":
+        statusResponse = 'to be done'
+    elif targetEnvironment == "kymaruntime":
+        statusResponse = 'to be done'
+    elif targetEnvironment == "other":
+        statusResponse = 'to be done'
+    
+    return statusResponse
