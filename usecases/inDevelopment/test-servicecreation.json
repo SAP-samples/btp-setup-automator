@@ -22,8 +22,7 @@
             }
         },
         {
-            "name": "application-logs",
-            "instancename": "applicationlog",
+            "name": "feature-flags",
             "plan": "lite",
             "category": "SERVICE",
             "targetenvironment": "kymaruntime"

@@ -129,7 +129,7 @@ def setupParamsServices():
 
 
 def checkProvidedArguments(btpUsecase):
-    usecaseInfo = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
+    usecaseInfo = getJsonFromFile(btpUsecase.usecasefile)
     if "aboutThisUseCase" in usecaseInfo:
         info = usecaseInfo["aboutThisUseCase"]
         log.header("Info about use case to be executed")

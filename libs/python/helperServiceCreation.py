@@ -1,4 +1,4 @@
-from libs.python.helperCommandExecution import runShellCommand
+from libs.python.helperCommandExecution import runShellCommand, runShellCommandFlex
 from libs.python.helperGeneric import getServiceByServiceName, createInstanceName, getTimingsForStatusRequest
 from libs.python.helperJson import convertCloudFoundryCommandOutputToJson, convertStringToJson
 from libs.python.helperEnvCF import get_cf_service_status, create_cf_service, create_cf_cup_service, getStatusResponseFromCreatedInstance
@@ -64,7 +64,7 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
     if kubernetesServices:
 
         command = "kubectl get ServiceInstance -n " + btpUsecase.k8snamespace + " --kubeconfig " + btpUsecase.kubeconfigpath + " --output json"
-        p = runShellCommand(btpUsecase, command, "INFO", None)
+        p = runShellCommandFlex(btpUsecase, command, "INFO", True, True)
 
         jsonResultsK8s = convertStringToJson(p)
 
