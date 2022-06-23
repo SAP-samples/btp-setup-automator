@@ -281,7 +281,7 @@
             "type": "string",
             "description": "path to kubeconfig file to be used for your use case",
             "title": "path to kubeconfig file",
-            "default": ".kube/config"
+            "default": ".kube/configsa"
         }
     },
     "required": ["loginmethod","usecasefile"],
