@@ -242,8 +242,8 @@ def buildEnums(accountEntitlements):
 
     enumList.sort()
     enumList = list(dict.fromkeys(enumList))
-    accountEntitlements["btpenums"] = {}
-    accountEntitlements["btpenums"]["regions"] = enumList
+    # accountEntitlements["regions"] = {}
+    accountEntitlements["regions"] = enumList
 
 
 def addAdditionalMetadata(serviceResult, serviceDataRaw):

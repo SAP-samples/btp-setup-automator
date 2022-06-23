@@ -1,6 +1,6 @@
 {
-    "btpenums": {{ btpenums|tojson }},
-    "btpservicelist": [
+    "regions": {{ regions|tojson }},
+    "services": [
 {%- for category in btpservicelist %}
         {
             "name": "{{ category.name }}",

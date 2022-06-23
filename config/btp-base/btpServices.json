@@ -1,5 +1,4 @@
 {
-    "general": {"regions": ["ae1", "ap1", "ap10", "ap11", "ap12", "ap2", "ap20", "ap21", "br1", "br10", "ca1", "ca10", "ca2", "ch20", "cn1", "eu1", "eu10", "eu11", "eu2", "eu20", "eu3", "eu30", "in30", "jp1", "jp10", "jp20", "ru1", "sa1", "us1", "us10", "us2", "us20", "us21", "us3", "us30", "us4"]},
     "services": [
         {
             "name": "SERVICE",
@@ -1362,6 +1361,7 @@
             ]
         }
     ],
+    "regions": ["ae1", "ap1", "ap10", "ap11", "ap12", "ap2", "ap20", "ap21", "br1", "br10", "ca1", "ca10", "ca2", "ch20", "cn1", "eu1", "eu10", "eu11", "eu2", "eu20", "eu3", "eu30", "in30", "jp1", "jp10", "jp20", "ru1", "sa1", "us1", "us10", "us2", "us20", "us21", "us3", "us30", "us4"],
     "jsonSchemaDefs": {
         "parameters--environment--kymaruntime--gcp": {"properties": {"autoScalerMax": {"default": 10, "description": "Specifies the maximum number of virtual machines to create", "maximum": 40, "minimum": 2, "title": "Maximum number of VMs to create", "type": "integer"}, "autoScalerMin": {"default": 2, "description": "Specifies the minimum number of virtual machines to create", "minimum": 2, "title": "Minimum number of VMs to create", "type": "integer"}, "machineType": {"default": "n2-standard-8", "enum": ["n2-standard-8", "n2-standard-16", "n2-standard-32", "n2-standard-48"], "title": "Type of VM", "type": "string"}, "name": {"default": "myKymaCluster", "minLength": 1, "pattern": "^[a-zA-Z0-9-]*$", "title": "Cluster Name", "type": "string"}, "region": {"default": "us-central1", "enum": ["asia-northeast1", "europe-west3", "us-central1"], "title": "Cluster Region", "type": "string"}}, "required": ["name"], "type": "object"}, 
         "parameters--environment--kymaruntime--azure": {"properties": {"autoScalerMax": {"default": 10, "description": "Specifies the maximum number of virtual machines to create", "maximum": 40, "minimum": 2, "title": "Maximum number of VMs to create", "type": "integer"}, "autoScalerMin": {"default": 2, "description": "Specifies the minimum number of virtual machines to create", "minimum": 2, "title": "Minimum number of VMs to create", "type": "integer"}, "machineType": {"default": "Standard_D8_v3", "enum": ["Standard_D8_v3", "Standard_D16_v3", "Standard_D32_v3", "Standard_D48_v3"], "title": "Type of VM", "type": "string"}, "name": {"default": "myKymaCluster", "minLength": 1, "pattern": "^[a-zA-Z0-9-]*$", "title": "Cluster Name", "type": "string"}, "region": {"default": "eastus", "enum": ["eastus", "centralus", "westus2", "canadacentral", "brazilsouth", "uksouth", "northeurope", "westeurope", "centralindia", "japaneast", "southeastasia", "australiaeast"], "title": "Cluster Region", "type": "string"}}, "required": ["name"], "type": "object"}, 
