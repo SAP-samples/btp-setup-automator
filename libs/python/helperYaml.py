@@ -22,10 +22,14 @@ def build_and_store_service_instance_yaml_from_parameters(service, yamlFilePath)
         yaml.dump(serviceInstanceTemplate, outfile, default_flow_style=False)
 
    
-def build_service_binding_yaml_from_parameters():
+def build_and_store_service_binding_yaml_from_parameters(keyname, service, yamlFilePath):
 
     serviceBindingTemplate = getJsonFromFile('config/jsonschemas/K8s-SERVICE-BINDING.json')
 
-    serviceBindingYaml = yaml.dump(serviceBindingTemplate)
+    serviceBindingTemplate["metadata"]["name"] = keyname
+    serviceBindingTemplate["spec"]["serviceInstanceName"] = service.instancename
+    serviceBindingTemplate["spec"]["secretName"] = keyname
 
-    return serviceBindingYaml
+    os.makedirs(os.path.dirname(yamlFilePath), exist_ok=True)
+    with open(yamlFilePath, "w") as outfile:
+        yaml.dump(serviceBindingTemplate, outfile, default_flow_style=False)
