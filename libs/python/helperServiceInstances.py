@@ -203,7 +203,8 @@ def deleteServiceKeysAndWait(key, service, btpUsecase):
     elif targetenvironment == "kymaruntime":
         deleteKymaServiceBindingAndWait(key, service, btpUsecase)
     elif targetenvironment == "other":
-        statusResponse = 'to be done'
+        log.error("Service instance and service key creation via BTP CLI is not supported yet by the tool")
+        sys.exit(os.EX_DATAERR)
     
 
 def deleteServiceInstance(service, btpUsecase):
@@ -213,7 +214,9 @@ def deleteServiceInstance(service, btpUsecase):
     elif targetenvironment == "kymaruntime":
         statusResponse = deleteKymaServiceInstance(service, btpUsecase)
     elif targetenvironment == "other":
-        statusResponse = 'to be done'
+        log.error("Service instance and service key creation via BTP CLI is not supported yet by the tool")
+        sys.exit(os.EX_DATAERR)
+
     
     return statusResponse
 
@@ -225,8 +228,9 @@ def getServiceDeletionStatus(service, btpUsecase):
     elif targetenvironment == "kymaruntime":
         statusResponse = getKymaServiceDeletionStatus(service, btpUsecase)
     elif targetenvironment == "other":
-        statusResponse = 'to be done'
-    
+        log.error("Service instance and service key creation via BTP CLI is not supported yet by the tool")
+        sys.exit(os.EX_DATAERR)
+
     return statusResponse
     
 
@@ -237,6 +241,7 @@ def createServiceKey(serviceKey, service, btpUsecase):
     elif targetenvironment == "kymaruntime":
         statusResponse = createKymaServiceBinding(btpUsecase, service, serviceKey)
     elif targetenvironment == "other":
-        statusResponse = 'to be done'
+        log.error("Service instance and service key creation via BTP CLI is not supported yet by the tool")
+        sys.exit(os.EX_DATAERR)
     
     return statusResponse

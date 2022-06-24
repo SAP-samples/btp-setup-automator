@@ -1,9 +1,14 @@
 from libs.python.helperCommandExecution import runShellCommand
+import os
+import sys
+import logging
 
+log = logging.getLogger(__name__)
 
 def get_btp_service_status(btpUsecase, service):
-    return "to be done"
-
+    log.error("Service instance and service key creation via BTP CLI is not supported yet by the tool")
+    sys.exit(os.EX_DATAERR)
+    
 
 def create_btp_service(btpUsecase, service):
 
@@ -20,4 +25,5 @@ def create_btp_service(btpUsecase, service):
 
 
 def getStatusResponseFromCreatedBTPInstance(btpUsecase, instancename):
-    return "to be done"
+    log.error("Service instance and service key creation via BTP CLI is not supported yet by the tool")
+    sys.exit(os.EX_DATAERR)
