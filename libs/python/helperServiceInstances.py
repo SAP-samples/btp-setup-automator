@@ -55,15 +55,18 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
                         service.status = "NOT READY"
                         service.successInfoShown = False
                     else:
-                        log.success("Service instance for service >" + service.name + "< (plan " + service.plan + ") is now available")
+                        log.success("Service instance for service >" + service.name +
+                                    "< (plan " + service.plan + ") is now available")
                         service.servicebroker = servicebroker
                         service.successInfoShown = True
                         service.status = "create succeeded"
-                        service.statusResponse = getStatusResponseFromCreatedInstanceGen(btpUsecase, instancename, service.targetenvironment)
+                        service.statusResponse = getStatusResponseFromCreatedInstanceGen(
+                            btpUsecase, instancename, service.targetenvironment)
 
     if kubernetesServices:
 
-        command = "kubectl get ServiceInstance -n " + btpUsecase.k8snamespace + " --kubeconfig " + btpUsecase.kubeconfigpath + " --output json"
+        command = "kubectl get ServiceInstance -n " + btpUsecase.k8snamespace + \
+            " --kubeconfig " + btpUsecase.kubeconfigpath + " --output json"
         p = runShellCommand(btpUsecase, command, "INFO", None)
 
         jsonResultsK8s = convertStringToJson(p.stdout.decode())
@@ -83,20 +86,24 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
                         service.status = "NOT READY"
                         service.successInfoShown = False
                     else:
-                        log.success("Service instance for service >" + service.name + "< (plan " + service.plan + ") is now available")
+                        log.success("Service instance for service >" + service.name +
+                                    "< (plan " + service.plan + ") is now available")
                         service.successInfoShown = True
                         service.status = "create succeeded"
-                        service.statusResponse = getStatusResponseFromCreatedInstanceGen(btpUsecase, instancename, service.targetenvironment)
+                        service.statusResponse = getStatusResponseFromCreatedInstanceGen(
+                            btpUsecase, instancename, service.targetenvironment)
 
     if otherServices:
-        log.error("BTP CLI services defined in the usecase. Please check your configuration file!")
+        log.error(
+            "BTP CLI services defined in the usecase. Please check your configuration file!")
         allServicesCreated = False
 
     return allServicesCreated
 
 
 def initiateCreationOfServiceInstances(btpUsecase):
-    createServiceInstances = btpUsecase.definedServices is not None and len(btpUsecase.definedServices) > 0
+    createServiceInstances = btpUsecase.definedServices is not None and len(
+        btpUsecase.definedServices) > 0
 
     if createServiceInstances is True:
         log.header("Initiate creation of service instances")
@@ -116,7 +123,8 @@ def initiateCreationOfServiceInstances(btpUsecase):
                 if thisInstanceName == instanceName:
                     counter += 1
             if counter > 1:
-                log.error("there is more than one service with the instance name >" + instanceName + "<. Please fix that before moving on.")
+                log.error("there is more than one service with the instance name >" +
+                          instanceName + "<. Please fix that before moving on.")
                 sys.exit(os.EX_DATAERR)
 
         serviceInstancesToBeCreated = []
@@ -132,19 +140,25 @@ def initiateCreationOfServiceInstances(btpUsecase):
             # Quickly initiate the creation of all service instances (without waiting until they are all created)
             if service.requiredServices is not None and len(service.requiredServices) > 0:
                 for requiredService in service.requiredServices:
-                    thisService = getServiceByServiceName(btpUsecase, requiredService)
+                    thisService = getServiceByServiceName(
+                        btpUsecase, requiredService)
                     if thisService is not None:
                         current_time = 0
-                        search_every_x_seconds, usecaseTimeout = getTimingsForStatusRequest(btpUsecase, thisService)
+                        search_every_x_seconds, usecaseTimeout = getTimingsForStatusRequest(
+                            btpUsecase, thisService)
                         # Wait until thisService has been created and is available
                         while usecaseTimeout > current_time:
-                            status = get_service_status(btpUsecase, thisService, service.targetenvironment)
+                            status = get_service_status(
+                                btpUsecase, thisService, service.targetenvironment)
                             if (status == "create succeeded" or status == "update succeeded"):
-                                log.success("service >" + requiredService + "< now ready as pre-requisite for service >" + serviceName + "<")
+                                log.success(
+                                    "service >" + requiredService + "< now ready as pre-requisite for service >" + serviceName + "<")
                                 if service.category == "SERVICE" or service.category == "ELASTIC_SERVICE":
-                                    service = createServiceInstance(btpUsecase, service, service.targetenvironment, service.category)
+                                    service = createServiceInstance(
+                                        btpUsecase, service, service.targetenvironment, service.category)
                                 else:
-                                    log.info("this service >" + serviceName + "< is not of type SERVICE or ELASTIC_SERVICE and a service instance won't be created")
+                                    log.info(
+                                        "this service >" + serviceName + "< is not of type SERVICE or ELASTIC_SERVICE and a service instance won't be created")
                                     service.status = "create succeeded"
                                 break
                             else:
@@ -157,16 +171,23 @@ def initiateCreationOfServiceInstances(btpUsecase):
                         log.error("did not find the defined required service >" + requiredService +
                                   "<, which is a pre-requisite for the service >" + serviceName + "<. Please check your configuration file!")
             else:
-                service = createServiceInstance(btpUsecase, service, service.targetenvironment, service.category)
+                service = createServiceInstance(
+                    btpUsecase, service, service.targetenvironment, service.category)
 
 
 def get_service_status(btpUsecase, service, targetEnvironment):
+    status = None
+
     if targetEnvironment == "cloudfoundry":
         [servicebroker, status] = get_cf_service_status(btpUsecase, service)
     elif targetEnvironment == "kymaruntime":
         status = get_kyma_service_status(btpUsecase, service)
     elif targetEnvironment == "other":
         status = get_btp_service_status(btpUsecase, service)
+    else:
+        log.error(
+            "The targetenvironment is not supported ")
+        sys.exit(os.EX_DATAERR)
 
     return status
 
@@ -181,18 +202,27 @@ def createServiceInstance(btpUsecase, service, targetEnvironment, serviceCategor
         service = create_kyma_service(btpUsecase, service)
     elif targetEnvironment == "other":
         service = create_btp_service(btpUsecase, service)
-    
+    else:
+        log.error(
+            "The targetenvironment is not supported ")
+        sys.exit(os.EX_DATAERR)
+
     return service
 
 
 def getStatusResponseFromCreatedInstanceGen(btpUsecase, instancename, targetEnvironment):
+    statusResponse = None
+
     if targetEnvironment == "cloudfoundry":
         statusResponse = getStatusResponseFromCreatedInstance(btpUsecase, instancename)
     elif targetEnvironment == "kymaruntime":
         statusResponse = getStatusResponseFromCreatedKymaInstance(btpUsecase, instancename)
     elif targetEnvironment == "other":
-        statusResponse = getStatusResponseFromCreatedBTPInstance(btpUsecase, instancename) 
-    
+        statusResponse = getStatusResponseFromCreatedBTPInstance(btpUsecase, instancename)
+    else:
+        log.error("The targetenvironment is not supported ")
+        sys.exit(os.EX_DATAERR)
+
     return statusResponse
 
 
@@ -205,10 +235,15 @@ def deleteServiceKeysAndWait(key, service, btpUsecase):
     elif targetenvironment == "other":
         log.error("Service instance and service key creation via BTP CLI is not supported yet by the tool")
         sys.exit(os.EX_DATAERR)
-    
+    else:
+        log.error("The targetenvironment is not supported ")
+        sys.exit(os.EX_DATAERR)
+
 
 def deleteServiceInstance(service, btpUsecase):
     targetenvironment = service.get("targetenvironment")
+    statusResponse = None
+
     if targetenvironment == "cloudfoundry":
         statusResponse = deleteCFServiceInstance(service, btpUsecase)
     elif targetenvironment == "kymaruntime":
@@ -216,13 +251,17 @@ def deleteServiceInstance(service, btpUsecase):
     elif targetenvironment == "other":
         log.error("Service instance and service key creation via BTP CLI is not supported yet by the tool")
         sys.exit(os.EX_DATAERR)
+    else:
+        log.error("The targetenvironment is not supported ")
+        sys.exit(os.EX_DATAERR)
 
-    
     return statusResponse
 
 
 def getServiceDeletionStatus(service, btpUsecase):
     targetenvironment = service.get("targetenvironment")
+    statusResponse = None
+
     if targetenvironment == "cloudfoundry":
         statusResponse = get_cf_service_deletion_status(btpUsecase, service)
     elif targetenvironment == "kymaruntime":
@@ -230,18 +269,28 @@ def getServiceDeletionStatus(service, btpUsecase):
     elif targetenvironment == "other":
         log.error("Service instance and service key creation via BTP CLI is not supported yet by the tool")
         sys.exit(os.EX_DATAERR)
+    else:
+        log.error("The targetenvironment is not supported ")
+        sys.exit(os.EX_DATAERR)
 
     return statusResponse
-    
+
 
 def createServiceKey(serviceKey, service, btpUsecase):
     targetenvironment = service.targetenvironment
+    statusResponse = None
+
     if targetenvironment == "cloudfoundry":
-        statusResponse = get_cf_service_key(btpUsecase, service.instancename, serviceKey)
+        statusResponse = get_cf_service_key(
+            btpUsecase, service.instancename, serviceKey)
     elif targetenvironment == "kymaruntime":
-        statusResponse = createKymaServiceBinding(btpUsecase, service, serviceKey)
+        statusResponse = createKymaServiceBinding(
+            btpUsecase, service, serviceKey)
     elif targetenvironment == "other":
         log.error("Service instance and service key creation via BTP CLI is not supported yet by the tool")
         sys.exit(os.EX_DATAERR)
-    
+    else:
+        log.error("The targetenvironment is not supported ")
+        sys.exit(os.EX_DATAERR)
+
     return statusResponse
