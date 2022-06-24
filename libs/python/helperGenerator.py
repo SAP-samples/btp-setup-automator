@@ -24,7 +24,7 @@ class BTPUSECASE_GEN:
         self.templatefoler = "./"
         self.btpcliapihostregion = "eu10"
         self.loginmethod = "basicAuthentication"
-        self.logcommands = False
+        self.logcommands = True
         self.region = "us10"
         self.envvariables = None
         self.logfile = "./log/generator.log"

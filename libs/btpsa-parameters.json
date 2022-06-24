@@ -43,44 +43,7 @@
             "description": "region for the SAP BTP sub account that should be used for the use case",
             "title": "region for SAP BTP subaccount",
             "default": "us10",
-            "enum": [
-  "ae1",
-  "ap1",
-  "ap10",
-  "ap11",
-  "ap12",
-  "ap2",
-  "ap20",
-  "ap21",
-  "br1",
-  "br10",
-  "ca1",
-  "ca10",
-  "ca2",
-  "ch20",
-  "cn1",
-  "eu1",
-  "eu10",
-  "eu11",
-  "eu2",
-  "eu20",
-  "eu3",
-  "eu30",
-  "in30",
-  "jp1",
-  "jp10",
-  "jp20",
-  "ru1",
-  "sa1",
-  "us1",
-  "us10",
-  "us2",
-  "us20",
-  "us21",
-  "us3",
-  "us30",
-  "us4"
-]
+            "enum": ['ae1', 'ap1', 'ap10', 'ap11', 'ap12', 'ap2', 'ap20', 'ap21', 'br1', 'br10', 'ca1', 'ca10', 'ca2', 'ch20', 'cn1', 'eu1', 'eu10', 'eu11', 'eu2', 'eu20', 'eu3', 'eu30', 'in30', 'jp1', 'jp10', 'jp20', 'ru1', 'sa1', 'us1', 'us10', 'us2', 'us20', 'us21', 'us3', 'us30', 'us4']
         },
         "clusterregion": {
             "type": "string",
@@ -260,7 +223,7 @@
                 "string",
                 "null"
             ],
-            "description": "host region for the Cloud Foundry CLI calls",
+            "description": "host region for the Cloud Foundry CLI (nornally the same like 'region'). In case of errors you might have to set this to e.g. 'eu10-004' (check CF API in your SAP BTP cockpit in the sub account and CF environment).",
             "title": "host region for the Cloud Foundry CLI calls",
             "default": null
         },
@@ -321,6 +284,7 @@
             "default": ".kube/config"
         }
     },
+    "required": ["loginmethod","usecasefile"],
     "allOf": [
         {
             "if": {"properties": { "region": { "anyOf": [ {"enum": ["us10", "eu10", "br10", "jp10", "ca10", "ap12", "ap10", "ap11"]}] }}},

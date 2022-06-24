@@ -18,10 +18,6 @@ if UPDATE_SERVICE_DATA:
     templateFile = "./config/templates/btp-base/BTPSERVICES.json"
     generator.applyServiceListOnTemplate(templateFile, targetFilename)
 
-    targetFilename = "./config/btp-base/btpServices.json"
-    templateFile = "./config/templates/btp-base/BTPSERVICES.json"
-    generator.applyServiceListOnTemplate(templateFile, targetFilename)
-
 targetFilename = "./docs/gh-pages/btp-services-docs.md"
 templateFile = "./config/templates/docs-gh-pages/BTP-SERVICES-DOCS.md"
 generator.applyServiceListOnTemplate(templateFile, targetFilename)
@@ -30,6 +26,6 @@ targetFilename = "./libs/btpsa-usecase.json"
 templateFile = "./config/templates/libs/BTPSA-USECASE.json"
 generator.applyServiceListOnTemplate(templateFile, targetFilename)
 
-targetFilename = "./libs/btpsa-parameters.md"
+targetFilename = "./libs/btpsa-parameters.json"
 templateFile = "./config/templates/libs/BTPSA-PARAMETERS.json"
 generator.applyServiceListOnTemplate(templateFile, targetFilename)
