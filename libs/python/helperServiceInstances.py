@@ -1,9 +1,9 @@
 from libs.python.helperCommandExecution import runShellCommand
 from libs.python.helperGeneric import getServiceByServiceName, createInstanceName, getTimingsForStatusRequest
 from libs.python.helperJson import convertCloudFoundryCommandOutputToJson, convertStringToJson
-from libs.python.helperEnvCF import deleteCFServiceInstance, deleteCFServiceKeysAndWait, get_cf_service_deletion_status, get_cf_service_status, create_cf_service, create_cf_cup_service, getStatusResponseFromCreatedInstance
+from libs.python.helperEnvCF import deleteCFServiceInstance, deleteCFServiceKeysAndWait, get_cf_service_deletion_status, get_cf_service_key, get_cf_service_status, create_cf_service, create_cf_cup_service, getStatusResponseFromCreatedInstance
 from libs.python.helperEnvBTP import get_btp_service_status, create_btp_service, getStatusResponseFromCreatedBTPInstance
-from libs.python.helperEnvKyma import deleteKymaServiceInstance, get_kyma_service_status, create_kyma_service, getKymaServiceDeletionStatus, getStatusResponseFromCreatedKymaInstance
+from libs.python.helperEnvKyma import createKymaServiceBinding, deleteKymaServiceInstance, get_kyma_service_status, create_kyma_service, getKymaServiceDeletionStatus, getStatusResponseFromCreatedKymaInstance
 import time
 import os
 import sys
@@ -224,6 +224,18 @@ def getServiceDeletionStatus(service, btpUsecase):
         statusResponse = get_cf_service_deletion_status(btpUsecase, service)
     elif targetenvironment == "kymaruntime":
         statusResponse = getKymaServiceDeletionStatus(service, btpUsecase)
+    elif targetenvironment == "other":
+        statusResponse = 'to be done'
+    
+    return statusResponse
+    
+
+def createServiceKey(serviceKey, service, btpUsecase):
+    targetenvironment = service.targetenvironment
+    if targetenvironment == "cloudfoundry":
+        statusResponse = get_cf_service_key(btpUsecase, service.instancename, serviceKey)
+    elif targetenvironment == "kymaruntime":
+        statusResponse = createKymaServiceBinding(btpUsecase, service, serviceKey)
     elif targetenvironment == "other":
         statusResponse = 'to be done'
     

@@ -6,7 +6,6 @@
     },
     "spec": {
         "serviceInstanceName": "my-service-instance",
-        "externalName": "my-service-instance-external",
         "secretName": "mySecret",
         "parameters": {}
     }

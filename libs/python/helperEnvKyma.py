@@ -1,7 +1,12 @@
 from libs.python.helperGeneric import getTimingsForStatusRequest
 from libs.python.helperJson import convertStringToJson
-from libs.python.helperYaml import build_and_store_service_instance_yaml_from_parameters
+from libs.python.helperYaml import build_and_store_service_binding_yaml_from_parameters, build_and_store_service_instance_yaml_from_parameters
 from libs.python.helperCommandExecution import runShellCommand, runShellCommandFlex
+import os
+import sys
+import logging
+
+log = logging.getLogger(__name__)
 
 
 def getKymaEnvironmentInfoByClusterName(environmentData, kymaClusterName):
@@ -66,8 +71,26 @@ def getStatusResponseFromCreatedKymaInstance(btpUsecase, instanceName):
     return jsonResult
 
 
-def getKymaServiceBinding(btpUsecase, instanceName, keyName):
-    return "to be done"
+def createKymaServiceBinding(btpUsecase, service, keyName):
+    filepath = "k8s/service-binding/service-binding-" + btpUsecase.accountMetadata.get("subaccountid") + ".yaml"
+
+    build_and_store_service_binding_yaml_from_parameters(keyName, service, filepath)
+
+    command = "kubectl apply -f " + filepath + " -n " + btpUsecase.k8snamespace + " --kubeconfig " + btpUsecase.kubeconfigpath
+    message = "Create service binding for service instance> " + service.instancename + " <"
+
+    p = runShellCommandFlex(btpUsecase, command, "INFO", message, True, True)
+
+    if p.returncode == 0:
+        command = "kubectl get ServiceBinding " + keyName + " -n " + btpUsecase.k8snamespace + " --kubeconfig " + btpUsecase.kubeconfigpath + " -o json"
+
+        p = runShellCommand(btpUsecase, command, "INFO", None)
+
+        result = convertStringToJson(p.stdout.decode())    
+    else:
+        log.error("can't create service key!")
+        sys.exit(os.EX_DATAERR)
+    return result
 
 
 def deleteKymaServiceBindingAndWait(key, service, btpUsecase):

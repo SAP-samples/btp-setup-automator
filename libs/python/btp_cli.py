@@ -4,7 +4,7 @@ from libs.python.helperJson import addKeyValuePair, dictToString, convertStringT
 from libs.python.helperBtpTrust import runTrustFlow
 from libs.python.helperCommandExecution import executeCommandsFromUsecaseFile, runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex, login_btp, login_cf
 from libs.python.helperEnvCF import checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, try_until_cf_space_done, get_cf_service_key
-from libs.python.helperServiceInstances import deleteServiceInstance, deleteServiceKeysAndWait, getServiceDeletionStatus, initiateCreationOfServiceInstances, checkIfAllServiceInstancesCreated
+from libs.python.helperServiceInstances import createServiceKey, deleteServiceInstance, deleteServiceKeysAndWait, getServiceDeletionStatus, initiateCreationOfServiceInstances, checkIfAllServiceInstancesCreated
 from libs.python.helperGeneric import buildUrltoSubaccount, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, createOrgName, save_collected_metadata
 from libs.python.helperFileAccess import writeKubeConfigFileToDefaultDir
 from libs.python.helperEnvKyma import extractKymaDashboardUrlFromEnvironmentDataEntry, getKymaEnvironmentInfoByClusterName, getKymaEnvironmentStatusFromEnvironmentDataEntry, extractKymaKubeConfigUrlFromEnvironmentDataEntry, getKymaEnvironmentIdByClusterName
@@ -502,7 +502,7 @@ class BTPUSECASE:
                 for service in self.definedServices:
                     if service.name == createdService["name"] and service.plan == createdService["plan"] and service.instancename is not None and service.instancename == createdService["instancename"] and "createServiceKeys" in createdService and createdService["createServiceKeys"] is not None:
                         for serviceKey in createdService["createServiceKeys"]:
-                            result = get_cf_service_key(self, service.instancename, serviceKey)
+                            result = createServiceKey(serviceKey, service, self)
                             if "createdServiceKeys" not in createdService:
                                 createdService["createdServiceKeys"] = []
                             completeResult = {"keyname": serviceKey, "payload": result}
