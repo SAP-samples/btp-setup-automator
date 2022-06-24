@@ -1,11 +1,13 @@
 import yaml
 import os
 from libs.python.helperJson import getJsonFromFile
+from libs.python.helperFolders import FOLDER_K8S_YAML_TEMPLATES
 
 
 def build_and_store_service_instance_yaml_from_parameters(service, yamlFilePath):
 
-    serviceInstanceTemplate = getJsonFromFile('config/jsonschemas/K8s-SERVICE-INSTANCE.json')
+    templatePath = FOLDER_K8S_YAML_TEMPLATES + 'K8s-SERVICE-INSTANCE.json'
+    serviceInstanceTemplate = getJsonFromFile(templatePath)
 
     serviceInstanceTemplate["metadata"]["name"] = service.instancename
     serviceInstanceTemplate["spec"]["serviceOfferingName"] = service.name
@@ -24,7 +26,8 @@ def build_and_store_service_instance_yaml_from_parameters(service, yamlFilePath)
    
 def build_and_store_service_binding_yaml_from_parameters(keyname, service, yamlFilePath):
 
-    serviceBindingTemplate = getJsonFromFile('config/jsonschemas/K8s-SERVICE-BINDING.json')
+    templatePath = FOLDER_K8S_YAML_TEMPLATES + 'K8s-SERVICE-BINDING.json'
+    serviceInstanceTemplate = getJsonFromFile(templatePath)
 
     serviceBindingTemplate["metadata"]["name"] = keyname
     serviceBindingTemplate["spec"]["serviceInstanceName"] = service.instancename
