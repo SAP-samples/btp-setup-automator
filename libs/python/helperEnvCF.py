@@ -54,7 +54,7 @@ def deleteCFServiceKeysAndWait(key, service, btpUsecase):
         command = "cf service-key '" + service["instancename"] + "' " + key["keyname"]
         # Calling the command with the goal to get back the "FAILED" status, as this means that the service key was not found (because deletion was successfull)
         # If the status is not "FAILED", this means that the deletion hasn't been finished so far
-        message = "check if service key >" + key["keyname"] + "< for service instance >" + service["instancename"] + "<"
+        message = "check if service key >" + key["keyname"] + "< for service instance >" + service["instancename"] + "< is deleted"
         p = runShellCommandFlex(btpUsecase, command, "CHECK", message, False, False)
         result = p.stdout.decode()
         if "FAILED" in result:

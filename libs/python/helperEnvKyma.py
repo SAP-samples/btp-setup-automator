@@ -5,6 +5,7 @@ from libs.python.helperCommandExecution import runShellCommand, runShellCommandF
 import os
 import sys
 import logging
+import time
 
 log = logging.getLogger(__name__)
 
@@ -95,24 +96,28 @@ def createKymaServiceBinding(btpUsecase, service, keyName):
 
 def deleteKymaServiceBindingAndWait(key, service, btpUsecase):
     deleteKymaServiceBinding(key["keyname"], service["instancename"], btpUsecase)
+    
     search_every_x_seconds, usecaseTimeout = getTimingsForStatusRequest(btpUsecase, service)
     current_time = 0
-    #while usecaseTimeout > current_time:
-    #    command = "cf service-key '" + service["instancename"] + "' " + key["keyname"]
-    #    # Calling the command with the goal to get back the "FAILED" status, as this means that the service key was not found (because deletion was successfull)
-    #    # If the status is not "FAILED", this means that the deletion hasn't been finished so far
-    #    message = "check if service key >" + key["keyname"] + "< for service instance >" + service["instancename"] + "<"
-    #    p = runShellCommandFlex(btpUsecase, command, "CHECK", message, False, False)
-    #    result = p.stdout.decode()
-    #    if "FAILED" in result:
-    #        usecaseTimeout = current_time - 1
-    #    time.sleep(search_every_x_seconds)
-    #    current_time += search_every_x_seconds
-    return "to be done"    
+    while usecaseTimeout > current_time:
+        message = "check if service binding >" + key["keyname"] + "< for service instance >" + service["instancename"] + "< is deleted"
+        command = "kubectl get ServiceBinding " + key["keyname"] + " -n " + btpUsecase.k8snamespace + " --kubeconfig " + btpUsecase.kubeconfigpath
+        p = runShellCommandFlex(btpUsecase, command, "CHECK", message, False, False)
+           
+        output = p.stdout.decode()
+        err = p.stderr.decode()
+        if output == "" and "NotFound" in err:
+            usecaseTimeout = current_time - 1
+        time.sleep(search_every_x_seconds)
+        current_time += search_every_x_seconds        
 
 
 def deleteKymaServiceBinding(keyName, instanceName, btpUsecase):
-    return "to be done"
+    command = "kubectl delete ServiceBinding " + keyName + " -n " + btpUsecase.k8snamespace + " --kubeconfig " + btpUsecase.kubeconfigpath
+    message = "Delete Kyma service binding >" + keyName + "< for service instance >" + instanceName + "< from subaccount"
+    result = runShellCommand(btpUsecase, command, "INFO", message)
+
+    return result
 
 
 def deleteKymaServiceInstance(service, btpUsecase):

@@ -3,7 +3,7 @@ from libs.python.helperGeneric import getServiceByServiceName, createInstanceNam
 from libs.python.helperJson import convertCloudFoundryCommandOutputToJson, convertStringToJson
 from libs.python.helperEnvCF import deleteCFServiceInstance, deleteCFServiceKeysAndWait, get_cf_service_deletion_status, get_cf_service_key, get_cf_service_status, create_cf_service, create_cf_cup_service, getStatusResponseFromCreatedInstance
 from libs.python.helperEnvBTP import get_btp_service_status, create_btp_service, getStatusResponseFromCreatedBTPInstance
-from libs.python.helperEnvKyma import createKymaServiceBinding, deleteKymaServiceInstance, get_kyma_service_status, create_kyma_service, getKymaServiceDeletionStatus, getStatusResponseFromCreatedKymaInstance
+from libs.python.helperEnvKyma import createKymaServiceBinding, deleteKymaServiceBindingAndWait, deleteKymaServiceInstance, get_kyma_service_status, create_kyma_service, getKymaServiceDeletionStatus, getStatusResponseFromCreatedKymaInstance
 import time
 import os
 import sys
@@ -201,7 +201,7 @@ def deleteServiceKeysAndWait(key, service, btpUsecase):
     if targetenvironment == "cloudfoundry":
         deleteCFServiceKeysAndWait(key, service, btpUsecase)
     elif targetenvironment == "kymaruntime":
-        statusResponse = 'to be done'
+        deleteKymaServiceBindingAndWait(key, service, btpUsecase)
     elif targetenvironment == "other":
         statusResponse = 'to be done'
     
