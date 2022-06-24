@@ -2,7 +2,7 @@ from libs.python.helperCommandExecution import runShellCommand
 
 
 def get_btp_service_status(btpUsecase, service):
-    return "status"
+    return "to be done"
 
 
 def create_btp_service(btpUsecase, service):
@@ -20,4 +20,4 @@ def create_btp_service(btpUsecase, service):
 
 
 def getStatusResponseFromCreatedBTPInstance(btpUsecase, instancename):
-    return "status"
+    return "to be done"

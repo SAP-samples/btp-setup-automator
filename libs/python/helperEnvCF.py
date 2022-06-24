@@ -1,6 +1,7 @@
 import os
 import sys
 from libs.python.helperCommandExecution import runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex
+from libs.python.helperGeneric import getTimingsForStatusRequest
 from libs.python.helperJson import convertCloudFoundryCommandForSingleServiceToJson, convertStringToJson, dictToString
 import time
 import logging
@@ -44,10 +45,36 @@ def get_cf_service_key(btpUsecase, instanceName, keyName):
     return result
 
 
+def deleteCFServiceKeysAndWait(key, service, btpUsecase):
+    delete_cf_service_key(btpUsecase, service["instancename"], key["keyname"])
+    
+    search_every_x_seconds, usecaseTimeout = getTimingsForStatusRequest(btpUsecase, service)
+    current_time = 0
+    while usecaseTimeout > current_time:
+        command = "cf service-key '" + service["instancename"] + "' " + key["keyname"]
+        # Calling the command with the goal to get back the "FAILED" status, as this means that the service key was not found (because deletion was successfull)
+        # If the status is not "FAILED", this means that the deletion hasn't been finished so far
+        message = "check if service key >" + key["keyname"] + "< for service instance >" + service["instancename"] + "<"
+        p = runShellCommandFlex(btpUsecase, command, "CHECK", message, False, False)
+        result = p.stdout.decode()
+        if "FAILED" in result:
+            usecaseTimeout = current_time - 1
+        time.sleep(search_every_x_seconds)
+        current_time += search_every_x_seconds 
+
+
 def delete_cf_service_key(btpUsecase, instanceName, keyName):
     command = "cf delete-service-key '" + instanceName + "' '" + keyName + "' -f"
     message = "delete service key from instance >" + instanceName + "< for key >" + keyName + "<"
     runShellCommand(btpUsecase, command, "INFO", message)
+
+
+def deleteCFServiceInstance(service, btpUsecase):
+    command = "cf delete-service '" + service["instancename"] + "' -f"
+    message = "Delete CF service instance >" + service["instancename"] + "< from subaccount"
+    result = runShellCommand(btpUsecase, command, "INFO", message)
+
+    return result
 
 
 def checkIfCFEnvironmentAlreadyExists(btpUsecase):

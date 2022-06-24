@@ -1,9 +1,9 @@
-from libs.python.helperCommandExecution import runShellCommand, runShellCommandFlex
+from libs.python.helperCommandExecution import runShellCommand
 from libs.python.helperGeneric import getServiceByServiceName, createInstanceName, getTimingsForStatusRequest
 from libs.python.helperJson import convertCloudFoundryCommandOutputToJson, convertStringToJson
-from libs.python.helperEnvCF import get_cf_service_status, create_cf_service, create_cf_cup_service, getStatusResponseFromCreatedInstance
+from libs.python.helperEnvCF import deleteCFServiceInstance, deleteCFServiceKeysAndWait, get_cf_service_deletion_status, get_cf_service_status, create_cf_service, create_cf_cup_service, getStatusResponseFromCreatedInstance
 from libs.python.helperEnvBTP import get_btp_service_status, create_btp_service, getStatusResponseFromCreatedBTPInstance
-from libs.python.helperEnvKyma import get_kyma_service_status, create_kyma_service, getStatusResponseFromCreatedKymaInstance
+from libs.python.helperEnvKyma import deleteKymaServiceInstance, get_kyma_service_status, create_kyma_service, getKymaServiceDeletionStatus, getStatusResponseFromCreatedKymaInstance
 import time
 import os
 import sys
@@ -64,9 +64,9 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
     if kubernetesServices:
 
         command = "kubectl get ServiceInstance -n " + btpUsecase.k8snamespace + " --kubeconfig " + btpUsecase.kubeconfigpath + " --output json"
-        p = runShellCommandFlex(btpUsecase, command, "INFO", True, True)
+        p = runShellCommand(btpUsecase, command, "INFO", None)
 
-        jsonResultsK8s = convertStringToJson(p)
+        jsonResultsK8s = convertStringToJson(p.stdout.decode())
 
         jsonResultsK8sServiceInstances = jsonResultsK8s.get("items")
 
@@ -195,12 +195,36 @@ def getStatusResponseFromCreatedInstanceGen(btpUsecase, instancename, targetEnvi
     
     return statusResponse
 
-def deleteServiceKeys(btpUsecase, service):
-    if targetEnvironment == "cloudfoundry":
+
+def deleteServiceKeysAndWait(key, service, btpUsecase):
+    targetenvironment = service.get("targetenvironment")
+    if targetenvironment == "cloudfoundry":
+        deleteCFServiceKeysAndWait(key, service, btpUsecase)
+    elif targetenvironment == "kymaruntime":
         statusResponse = 'to be done'
-    elif targetEnvironment == "kymaruntime":
+    elif targetenvironment == "other":
         statusResponse = 'to be done'
-    elif targetEnvironment == "other":
+    
+
+def deleteServiceInstance(service, btpUsecase):
+    targetenvironment = service.get("targetenvironment")
+    if targetenvironment == "cloudfoundry":
+        statusResponse = deleteCFServiceInstance(service, btpUsecase)
+    elif targetenvironment == "kymaruntime":
+        statusResponse = deleteKymaServiceInstance(service, btpUsecase)
+    elif targetenvironment == "other":
+        statusResponse = 'to be done'
+    
+    return statusResponse
+
+
+def getServiceDeletionStatus(service, btpUsecase):
+    targetenvironment = service.get("targetenvironment")
+    if targetenvironment == "cloudfoundry":
+        statusResponse = get_cf_service_deletion_status(btpUsecase, service)
+    elif targetenvironment == "kymaruntime":
+        statusResponse = getKymaServiceDeletionStatus(service, btpUsecase)
+    elif targetenvironment == "other":
         statusResponse = 'to be done'
     
     return statusResponse
