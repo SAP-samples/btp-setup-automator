@@ -1,11 +1,11 @@
 import libs.python.helperArgParser as helperArgParser
 from libs.python.helperFolders import FOLDER_SCHEMA_LIBS
 from libs.python.helperJson import addKeyValuePair, dictToString, convertStringToJson, getJsonFromFile
-from libs.python.helperBtpTrust import delete_cf_service_key, runTrustFlow, get_cf_service_key
+from libs.python.helperBtpTrust import runTrustFlow
 from libs.python.helperCommandExecution import executeCommandsFromUsecaseFile, runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex, login_btp, login_cf
-from libs.python.helperEnvCF import checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, try_until_cf_space_done, get_cf_service_deletion_status
-from libs.python.helperServiceInstances import initiateCreationOfServiceInstances, checkIfAllServiceInstancesCreated
-from libs.python.helperGeneric import buildUrltoSubaccount, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, createOrgName, getTimingsForStatusRequest, save_collected_metadata
+from libs.python.helperEnvCF import checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, try_until_cf_space_done, get_cf_service_key
+from libs.python.helperServiceInstances import deleteServiceInstance, deleteServiceKeysAndWait, getServiceDeletionStatus, initiateCreationOfServiceInstances, checkIfAllServiceInstancesCreated
+from libs.python.helperGeneric import buildUrltoSubaccount, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, createOrgName, save_collected_metadata
 from libs.python.helperFileAccess import writeKubeConfigFileToDefaultDir
 from libs.python.helperEnvKyma import extractKymaDashboardUrlFromEnvironmentDataEntry, getKymaEnvironmentInfoByClusterName, getKymaEnvironmentStatusFromEnvironmentDataEntry, extractKymaKubeConfigUrlFromEnvironmentDataEntry, getKymaEnvironmentIdByClusterName
 
@@ -1075,27 +1075,11 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
         for service in accountMetadata["createdServiceInstances"]:
             if "createdServiceKeys" in service:
                 for key in service["createdServiceKeys"]:
-                    if service.targetenvironment == "cloudfoundry":    
-                        delete_cf_service_key(btpUsecase, service["instancename"], key["keyname"])
-                    search_every_x_seconds, usecaseTimeout = getTimingsForStatusRequest(btpUsecase, service)
-                    current_time = 0
-                    while usecaseTimeout > current_time:
-                        command = "cf service-key '" + service["instancename"] + "' " + key["keyname"]
-                        # Calling the command with the goal to get back the "FAILED" status, as this means that the service key was not found (because deletion was successfull)
-                        # If the status is not "FAILED", this means that the deletion hasn't been finished so far
-                        message = "check if service key >" + key["keyname"] + "< for service instance >" + service["instancename"] + "<"
-                        p = runShellCommandFlex(btpUsecase, command, "CHECK", message, False, False)
-                        result = p.stdout.decode()
-                        if "FAILED" in result:
-                            usecaseTimeout = current_time - 1
-                        time.sleep(search_every_x_seconds)
-                        current_time += search_every_x_seconds
+                    deleteServiceKeysAndWait(key, service, btpUsecase) 
             
             if "instancename" in service and service["instancename"] is not None and service["instancename"] != "":
-                command = "cf delete-service '" + service["instancename"] + "' -f"
-                message = "Delete CF service instance >" + service["instancename"] + "< from subaccount"
-                result = runShellCommand(btpUsecase, command, "INFO", message)
-        
+                deleteServiceInstance(service, btpUsecase)
+                
         log.info("Check deletion status for service instances")
         # check status of deletion
         search_every_x_seconds = btpUsecase.repeatstatusrequest
@@ -1112,7 +1096,9 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                     service["deletionStatus"] = status
                     log.info("no service instance available for service >" + service["name"] + "<. Deletion not needed.")
                     continue
-                status = get_cf_service_deletion_status(btpUsecase, service)
+                
+                status = getServiceDeletionStatus(service, btpUsecase)
+                
                 if (status == "deleted"):
                     log.success("service instance >" + service["instancename"] + "< for service >" + service["name"] + "< now deleted.")
                     service["deletionStatus"] = "deleted"
