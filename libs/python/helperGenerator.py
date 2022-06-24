@@ -24,7 +24,7 @@ class BTPUSECASE_GEN:
         self.templatefoler = "./"
         self.btpcliapihostregion = "eu10"
         self.loginmethod = "basicAuthentication"
-        self.logcommands = False
+        self.logcommands = True
         self.region = "us10"
         self.envvariables = None
         self.logfile = "./log/generator.log"
@@ -153,9 +153,9 @@ def getBtpService(rawData, servicePlans):
     name = rawData["name"]
     displayName = rawData.get("displayName")
     description = rawData.get("description")
-    # iconBase64 = rawData.get("iconBase64")
+    iconBase64 = rawData.get("iconBase64")
     servicePlans = servicePlans
-    result = {"name": name, "displayName": displayName, "description": description, "servicePlans": servicePlans}
+    result = {"name": name, "displayName": displayName, "description": description, "servicePlans": servicePlans, "icon": iconBase64}
     return result
 
 
@@ -254,12 +254,16 @@ def addAdditionalMetadata(serviceResult, serviceDataRaw):
         # Fetch icon format
         # serviceResult["iconFormat"] = appCoordinates.get("iconFormat")
 
+        # Fetch icon format
+        if appCoordinates.get("iconFormat"):
+            serviceResult["iconFormat"] = appCoordinates.get("iconFormat")
+
         # Fetch service ids
         if appCoordinates.get("inventoryIds"):
             ids = []
             for theseIds in appCoordinates.get("inventoryIds"):
                 if theseIds:
-                    if type(theseIds) == str:
+                    if type(theseIds) == str or type(theseIds) == dict:
                         ids.append(theseIds.get("key"))
                     if type(theseIds) == list:
                         for id in theseIds:
