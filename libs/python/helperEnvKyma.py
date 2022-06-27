@@ -10,46 +10,6 @@ import time
 log = logging.getLogger(__name__)
 
 
-def getKymaEnvironmentInfoByClusterName(environmentData, kymaClusterName):
-    for entry in environmentData["environmentInstances"]:
-        parametersFromEntry = convertStringToJson(entry["parameters"])
-        if entry["environmentType"] == "kyma" and parametersFromEntry["name"] == kymaClusterName:
-            return entry
-
-
-def getKymaEnvironmentStatusFromEnvironmentDataEntry(environmentDataEntry):
-    return environmentDataEntry["state"]
-
-
-def extractKymaDashboardUrlFromEnvironmentDataEntry(environmentDataEntry):
-    return environmentDataEntry["dashboardUrl"]
-
-
-def extractKymaKubeConfigUrlFromEnvironmentDataEntry(environmentDataEntry):
-    labelsFromEntry = convertStringToJson(environmentDataEntry["labels"])
-    return labelsFromEntry["KubeconfigURL"]
-
-
-def getKymaEnvironmentIdByClusterName(environmentData, kymaClusterName):
-    for entry in environmentData["environmentInstances"]:
-        parametersFromEntry = convertStringToJson(entry["parameters"])
-        if entry["environmentType"] == "kyma" and parametersFromEntry["name"] == kymaClusterName:
-            return entry["id"]
-
-
-def get_kyma_service_status(btpUsecase, service):
-    command = "kubectl get ServiceInstance " + service.instanceName + " -n " + \
-        btpUsecase.k8snamespace + " --kubeconfig " + \
-        btpUsecase.kubeconfigpath + " | jq .status.ready"
-
-    p = runShellCommand(btpUsecase, command, "INFO", None)
-
-    if p.stdout.decode() == "TRUE":
-        return "create succeeded"
-    else:
-        return "NotReady"
-
-
 def create_kyma_service(btpUsecase, service):
 
     filepath = "logs/k8s/service-instance/service-instance-" + \
@@ -67,19 +27,7 @@ def create_kyma_service(btpUsecase, service):
 
     return service
 
-
-def getStatusResponseFromCreatedKymaInstance(btpUsecase, instanceName):
-    command = "kubectl get ServiceInstance " + instanceName + " -n " + \
-        btpUsecase.k8snamespace + " --kubeconfig " + \
-        btpUsecase.kubeconfigpath + " -o json"
-
-    p = runShellCommand(btpUsecase, command, "INFO", None)
-
-    jsonResult = convertStringToJson(p.stdout.decode())
-
-    return jsonResult
-
-
+    
 def createKymaServiceBinding(btpUsecase, service, keyName):
     filepath = "logs/k8s/service-binding/service-binding-" + \
         btpUsecase.accountMetadata.get("subaccountid") + ".yaml"
@@ -152,6 +100,58 @@ def deleteKymaServiceInstance(service, btpUsecase):
     result = runShellCommand(btpUsecase, command, "INFO", message)
 
     return result
+
+
+def extractKymaDashboardUrlFromEnvironmentDataEntry(environmentDataEntry):
+    return environmentDataEntry["dashboardUrl"]
+
+
+def extractKymaKubeConfigUrlFromEnvironmentDataEntry(environmentDataEntry):
+    labelsFromEntry = convertStringToJson(environmentDataEntry["labels"])
+    return labelsFromEntry["KubeconfigURL"]
+
+
+def getKymaEnvironmentInfoByClusterName(environmentData, kymaClusterName):
+    for entry in environmentData["environmentInstances"]:
+        parametersFromEntry = convertStringToJson(entry["parameters"])
+        if entry["environmentType"] == "kyma" and parametersFromEntry["name"] == kymaClusterName:
+            return entry
+
+
+def getKymaEnvironmentStatusFromEnvironmentDataEntry(environmentDataEntry):
+    return environmentDataEntry["state"]
+
+
+def getKymaEnvironmentIdByClusterName(environmentData, kymaClusterName):
+    for entry in environmentData["environmentInstances"]:
+        parametersFromEntry = convertStringToJson(entry["parameters"])
+        if entry["environmentType"] == "kyma" and parametersFromEntry["name"] == kymaClusterName:
+            return entry["id"]
+
+
+def get_kyma_service_status(btpUsecase, service):
+    command = "kubectl get ServiceInstance " + service.instanceName + " -n " + \
+        btpUsecase.k8snamespace + " --kubeconfig " + \
+        btpUsecase.kubeconfigpath + " | jq .status.ready"
+
+    p = runShellCommand(btpUsecase, command, "INFO", None)
+
+    if p.stdout.decode() == "TRUE":
+        return "create succeeded"
+    else:
+        return "NotReady"
+
+
+def getStatusResponseFromCreatedKymaInstance(btpUsecase, instanceName):
+    command = "kubectl get ServiceInstance " + instanceName + " -n " + \
+        btpUsecase.k8snamespace + " --kubeconfig " + \
+        btpUsecase.kubeconfigpath + " -o json"
+
+    p = runShellCommand(btpUsecase, command, "INFO", None)
+
+    jsonResult = convertStringToJson(p.stdout.decode())
+
+    return jsonResult
 
 
 def getKymaServiceDeletionStatus(service, btpUsecase):

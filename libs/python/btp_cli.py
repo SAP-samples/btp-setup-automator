@@ -620,7 +620,7 @@ def getEnvironmentsForUsecase(btpUsecase: BTPUSECASE, allServices):
 
     for usecaseService in allServices:
         environmentServices = usecaseService.targetenvironment
-        if environmentServices not in items and usecaseService.category != "ENVIRONMENT":
+        if environmentServices not in items and usecaseService.category != "ENVIRONMENT" and usecaseService.targetenvironment != "other":
             items.append(environmentServices)
             paramDefinitionServices = getServiceParameterDefinition(
                 paramDefinition)

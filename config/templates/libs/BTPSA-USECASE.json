@@ -13,6 +13,11 @@
             "description": "name of the service",
             "title": "name of the service",
             "properties": {
+                "id": {
+                    "type": "string",
+                    "title": "ID of the service (internal use only)",
+                    "default": "1234"
+                },
                 "name": {
                     "type": "string",
                     "title": "name of the use case"

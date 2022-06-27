@@ -61,7 +61,7 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
                         service.successInfoShown = True
                         service.status = "create succeeded"
                         service.statusResponse = getStatusResponseFromCreatedInstanceGen(
-                            btpUsecase, instancename, service.targetenvironment)
+                            btpUsecase, instancename, service)
 
     if kubernetesServices:
 
@@ -91,12 +91,46 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
                         service.successInfoShown = True
                         service.status = "create succeeded"
                         service.statusResponse = getStatusResponseFromCreatedInstanceGen(
-                            btpUsecase, instancename, service.targetenvironment)
+                            btpUsecase, instancename, service)
 
     if otherServices:
-        log.error(
-            "BTP CLI services defined in the usecase. Please check your configuration file!")
-        allServicesCreated = False
+        command = "btp --format json list services/instance --subaccount " + \
+            btpUsecase.accountMetadata.get("subaccountid")
+        p = runShellCommand(btpUsecase, command, "INFO", None)
+
+        jsonResultsBTP = convertStringToJson(p.stdout.decode())
+
+        for thisJson in jsonResultsBTP:
+
+            if thisJson.get("context").get("origin") == "sapcp":
+                serviceId = thisJson.get("id")
+                instancename = thisJson.get("context").get("instance_name")
+                status = str(thisJson.get("ready"))
+                subaccountId = thisJson.get("context").get("subaccount_id")
+                serviceplanId = thisJson.get("service_plan_id")
+
+                command = "btp --format json get services/plan --id " + \
+                    serviceplanId + " --subaccount " + subaccountId
+
+                q = runShellCommand(btpUsecase, command, "INFO", None)
+
+                jsonResultServicePlan = convertStringToJson(q.stdout.decode())
+
+                servicePlanName = jsonResultServicePlan.get("name")
+
+                for service in btpUsecase.definedServices:
+                    if service.id == serviceId and service.plan == servicePlanName and service.instancename == instancename and service.successInfoShown is False:
+                        if status != "True":
+                            allServicesCreated = False
+                            service.status = "NOT READY"
+                            service.successInfoShown = False
+                        else:
+                            log.success("Service instance for service >" + service.name +
+                                        "< (plan " + service.plan + ") is now available")
+                            service.successInfoShown = True
+                            service.status = "create succeeded"
+                            service.statusResponse = getStatusResponseFromCreatedInstanceGen(
+                                btpUsecase, instancename, service)
 
     return allServicesCreated
 
@@ -210,15 +244,18 @@ def createServiceInstance(btpUsecase, service, targetEnvironment, serviceCategor
     return service
 
 
-def getStatusResponseFromCreatedInstanceGen(btpUsecase, instancename, targetEnvironment):
+def getStatusResponseFromCreatedInstanceGen(btpUsecase, instancename, service):
     statusResponse = None
 
-    if targetEnvironment == "cloudfoundry":
-        statusResponse = getStatusResponseFromCreatedInstance(btpUsecase, instancename)
-    elif targetEnvironment == "kymaruntime":
-        statusResponse = getStatusResponseFromCreatedKymaInstance(btpUsecase, instancename)
-    elif targetEnvironment == "other":
-        statusResponse = getStatusResponseFromCreatedBTPInstance(btpUsecase, instancename)
+    if service.targetenvironment == "cloudfoundry":
+        statusResponse = getStatusResponseFromCreatedInstance(
+            btpUsecase, instancename)
+    elif service.targetenvironment == "kymaruntime":
+        statusResponse = getStatusResponseFromCreatedKymaInstance(
+            btpUsecase, instancename)
+    elif service.targetenvironment == "other":
+        statusResponse = getStatusResponseFromCreatedBTPInstance(
+            btpUsecase, instancename, service)
     else:
         log.error("The targetenvironment is not supported ")
         sys.exit(os.EX_DATAERR)
@@ -233,7 +270,8 @@ def deleteServiceKeysAndWait(key, service, btpUsecase):
     elif targetenvironment == "kymaruntime":
         deleteKymaServiceBindingAndWait(key, service, btpUsecase)
     elif targetenvironment == "other":
-        log.error("Service instance and service key creation via BTP CLI is not supported yet by the tool")
+        log.error(
+            "Service instance and service key creation via BTP CLI is not supported yet by the tool")
         sys.exit(os.EX_DATAERR)
     else:
         log.error("The targetenvironment is not supported ")
@@ -249,7 +287,8 @@ def deleteServiceInstance(service, btpUsecase):
     elif targetenvironment == "kymaruntime":
         statusResponse = deleteKymaServiceInstance(service, btpUsecase)
     elif targetenvironment == "other":
-        log.error("Service instance and service key creation via BTP CLI is not supported yet by the tool")
+        log.error(
+            "Service instance and service key creation via BTP CLI is not supported yet by the tool")
         sys.exit(os.EX_DATAERR)
     else:
         log.error("The targetenvironment is not supported ")
@@ -267,7 +306,8 @@ def getServiceDeletionStatus(service, btpUsecase):
     elif targetenvironment == "kymaruntime":
         statusResponse = getKymaServiceDeletionStatus(service, btpUsecase)
     elif targetenvironment == "other":
-        log.error("Service instance and service key creation via BTP CLI is not supported yet by the tool")
+        log.error(
+            "Service instance and service key creation via BTP CLI is not supported yet by the tool")
         sys.exit(os.EX_DATAERR)
     else:
         log.error("The targetenvironment is not supported ")
@@ -287,7 +327,8 @@ def createServiceKey(serviceKey, service, btpUsecase):
         statusResponse = createKymaServiceBinding(
             btpUsecase, service, serviceKey)
     elif targetenvironment == "other":
-        log.error("Service instance and service key creation via BTP CLI is not supported yet by the tool")
+        log.error(
+            "Service instance and service key creation via BTP CLI is not supported yet by the tool")
         sys.exit(os.EX_DATAERR)
     else:
         log.error("The targetenvironment is not supported ")
