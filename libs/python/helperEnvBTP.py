@@ -1,8 +1,10 @@
-from libs.python.helperCommandExecution import runShellCommand
+from libs.python.helperGeneric import getTimingsForStatusRequest
+from libs.python.helperCommandExecution import runShellCommand, runShellCommandFlex
 from libs.python.helperJson import convertStringToJson
 import logging
 import os
 import sys
+import time
 
 log = logging.getLogger(__name__)
 
@@ -65,14 +67,72 @@ def createBtpServiceBinding(btpUsecase, instanceId, instanceName, keyName):
     if returnCode == 0:
         jsonResult = convertStringToJson(p.stdout.decode())
 
-        command = "btp --format JSON get services/binding --id " + jsonResult.get("id") + " --subaccount " + btpUsecase.accountMetadata.get("subaccountid")
+        command = "btp --format JSON get services/binding --id " + \
+            jsonResult.get("id") + " --subaccount " + \
+            btpUsecase.accountMetadata.get("subaccountid")
         message = "get service key for instance >" + \
             instanceName + "< and keyname >" + keyName + "<"
         response = runShellCommand(btpUsecase, command, "CHECK", message)
-        # Delete the first 2 lines of the CF result string as they don't contain json data
         result = convertStringToJson(response.stdout.decode())
     else:
         log.error("can't create service key!")
         sys.exit(os.EX_DATAERR)
 
     return result
+
+
+def deleteBtpServiceBindingAndWait(key, service, btpUsecase):
+    deleteBtpServiceBinding(
+        key["keyname"], service["instancename"], btpUsecase)
+
+    search_every_x_seconds, usecaseTimeout = getTimingsForStatusRequest(
+        btpUsecase, service)
+    current_time = 0
+    while usecaseTimeout > current_time:
+        message = "check if service binding >" + \
+            key["keyname"] + "< for service instance >" + \
+            service["instancename"] + "< is deleted"
+        command = "btp --format JSON get services/binding --name " + \
+            key["keyname"] + " --subaccount " + \
+            btpUsecase.accountMetadata.get("subaccountid")
+        p = runShellCommandFlex(btpUsecase, command,
+                                "CHECK", message, False, False)
+
+        output = p.stdout.decode()
+        err = p.stderr.decode()
+        if output == "" and "FAILED" in err:
+            usecaseTimeout = current_time - 1
+        time.sleep(search_every_x_seconds)
+        current_time += search_every_x_seconds
+
+
+def deleteBtpServiceBinding(keyName, instanceName, btpUsecase):
+    command = "btp --format JSON delete services/binding -n " + \
+        keyName + " -sa " + btpUsecase.accountMetadata.get("subaccountid") + " --confirm"
+    message = "Delete BTP service binding >" + keyName + \
+        "< for service instance >" + instanceName + "< from subaccount"
+    result = runShellCommand(btpUsecase, command, "INFO", message)
+
+    return result
+
+
+def deleteBtpServiceInstance(service, btpUsecase):
+    command = "btp --format JSON delete services/instance " + \
+        service["id"] + " -sa " + btpUsecase.accountMetadata.get("subaccountid") + " --confirm"
+    message = "Delete BTP service instance >" + \
+        service["instancename"] + "< from subaccount"
+    result = runShellCommand(btpUsecase, command, "INFO", message)
+
+    return result
+
+
+def getBtpServiceDeletionStatus(service, btpUsecase):
+    command = "btp --format JSON get services/instance " + \
+        service["id"] + " -sa " + btpUsecase.accountMetadata.get("subaccountid")
+    p = runShellCommandFlex(btpUsecase, command, "CHECK", None, False, False)
+    output = p.stdout.decode()
+    err = p.stderr.decode()
+    if output == "" and "FAILED" in err:
+        return "deleted"
+    else:
+        return "not deleted"

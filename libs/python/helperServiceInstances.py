@@ -2,7 +2,7 @@ from libs.python.helperCommandExecution import runShellCommand
 from libs.python.helperGeneric import getServiceByServiceName, createInstanceName, getTimingsForStatusRequest
 from libs.python.helperJson import convertCloudFoundryCommandOutputToJson, convertStringToJson
 from libs.python.helperEnvCF import deleteCFServiceInstance, deleteCFServiceKeysAndWait, get_cf_service_deletion_status, get_cf_service_key, get_cf_service_status, create_cf_service, create_cf_cup_service, getStatusResponseFromCreatedInstance
-from libs.python.helperEnvBTP import get_btp_service_status, create_btp_service, getStatusResponseFromCreatedBTPInstance, createBtpServiceBinding
+from libs.python.helperEnvBTP import get_btp_service_status, create_btp_service, getStatusResponseFromCreatedBTPInstance, createBtpServiceBinding, deleteBtpServiceBindingAndWait, deleteBtpServiceInstance, getBtpServiceDeletionStatus
 from libs.python.helperEnvKyma import createKymaServiceBinding, deleteKymaServiceBindingAndWait, deleteKymaServiceInstance, get_kyma_service_status, create_kyma_service, getKymaServiceDeletionStatus, getStatusResponseFromCreatedKymaInstance
 import time
 import os
@@ -270,9 +270,7 @@ def deleteServiceKeysAndWait(key, service, btpUsecase):
     elif targetenvironment == "kymaruntime":
         deleteKymaServiceBindingAndWait(key, service, btpUsecase)
     elif targetenvironment == "other":
-        log.error(
-            "Service instance and service key creation via BTP CLI is not supported yet by the tool")
-        sys.exit(os.EX_DATAERR)
+        deleteBtpServiceBindingAndWait(key, service, btpUsecase)
     else:
         log.error("The targetenvironment is not supported ")
         sys.exit(os.EX_DATAERR)
@@ -287,9 +285,7 @@ def deleteServiceInstance(service, btpUsecase):
     elif targetenvironment == "kymaruntime":
         statusResponse = deleteKymaServiceInstance(service, btpUsecase)
     elif targetenvironment == "other":
-        log.error(
-            "Service instance and service key creation via BTP CLI is not supported yet by the tool")
-        sys.exit(os.EX_DATAERR)
+        deleteBtpServiceInstance(service, btpUsecase)
     else:
         log.error("The targetenvironment is not supported ")
         sys.exit(os.EX_DATAERR)
@@ -306,9 +302,7 @@ def getServiceDeletionStatus(service, btpUsecase):
     elif targetenvironment == "kymaruntime":
         statusResponse = getKymaServiceDeletionStatus(service, btpUsecase)
     elif targetenvironment == "other":
-        log.error(
-            "Service instance and service key creation via BTP CLI is not supported yet by the tool")
-        sys.exit(os.EX_DATAERR)
+        statusResponse = getBtpServiceDeletionStatus(service, btpUsecase)
     else:
         log.error("The targetenvironment is not supported ")
         sys.exit(os.EX_DATAERR)
