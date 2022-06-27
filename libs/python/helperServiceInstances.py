@@ -2,7 +2,7 @@ from libs.python.helperCommandExecution import runShellCommand
 from libs.python.helperGeneric import getServiceByServiceName, createInstanceName, getTimingsForStatusRequest
 from libs.python.helperJson import convertCloudFoundryCommandOutputToJson, convertStringToJson
 from libs.python.helperEnvCF import deleteCFServiceInstance, deleteCFServiceKeysAndWait, get_cf_service_deletion_status, get_cf_service_key, get_cf_service_status, create_cf_service, create_cf_cup_service, getStatusResponseFromCreatedInstance
-from libs.python.helperEnvBTP import get_btp_service_status, create_btp_service, getStatusResponseFromCreatedBTPInstance
+from libs.python.helperEnvBTP import get_btp_service_status, create_btp_service, getStatusResponseFromCreatedBTPInstance, createBtpServiceBinding
 from libs.python.helperEnvKyma import createKymaServiceBinding, deleteKymaServiceBindingAndWait, deleteKymaServiceInstance, get_kyma_service_status, create_kyma_service, getKymaServiceDeletionStatus, getStatusResponseFromCreatedKymaInstance
 import time
 import os
@@ -327,9 +327,7 @@ def createServiceKey(serviceKey, service, btpUsecase):
         statusResponse = createKymaServiceBinding(
             btpUsecase, service, serviceKey)
     elif targetenvironment == "other":
-        log.error(
-            "Service instance and service key creation via BTP CLI is not supported yet by the tool")
-        sys.exit(os.EX_DATAERR)
+        statusResponse = createBtpServiceBinding(btpUsecase, service.id, service.instancename, serviceKey)
     else:
         log.error("The targetenvironment is not supported ")
         sys.exit(os.EX_DATAERR)
