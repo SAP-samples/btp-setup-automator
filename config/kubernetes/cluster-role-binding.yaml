@@ -9,4 +9,4 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: btpsa-service-account
-    namespace: testservicecreation
+    namespace: <YOUR NAMESPACE>
