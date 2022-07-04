@@ -1,3 +1,4 @@
 https?://localhost.*
 https://api.reuse.software/badge/github.com/SAP-samples/btp-setup-automator
 https://api.reuse.software/info/github.com/SAP-samples/btp-setup-automator
+https://github.wdf.sap.corp*
