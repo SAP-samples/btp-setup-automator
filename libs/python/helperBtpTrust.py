@@ -1,8 +1,5 @@
-from libs.python.helperCommandExecution import runShellCommand
-from libs.python.helperJson import addKeyValuePair, convertStringToJson, saveJsonToFile, dictToJson
+from libs.python.helperJson import addKeyValuePair, saveJsonToFile, dictToJson
 
-import os
-import sys
 import requests
 import base64
 import inquirer
@@ -57,34 +54,6 @@ def runTrustFlow(btpUsecase):
 
                 else:
                     log.warning("couldn't execute trust flow, as instance name and/or service key for the XSUAA service was not found!")
-
-
-def get_cf_service_key(btpUsecase, instanceName, keyName):
-    result = None
-
-    command = "cf create-service-key '" + instanceName + "' '" + keyName + "'"
-    message = "create service key from XSUAA instance >" + instanceName + "< for keyname >" + keyName + "<"
-    p = runShellCommand(btpUsecase, command, "INFO", message)
-    returnCode = p.returncode
-
-    if returnCode == 0:
-        command = "cf service-key '" + instanceName + "' '" + keyName + "'"
-        message = "get service key for instance >" + instanceName + "< and keyname >" + keyName + "<"
-        response = runShellCommand(btpUsecase, command, "CHECK", message)
-        # Delete the first 2 lines of the CF result string as they don't contain json data
-        result = response.stdout.decode()
-        result = result.split('\n', 2)[-1]
-        result = convertStringToJson(result)
-    else:
-        log.error("can't create service key!")
-        sys.exit(os.EX_DATAERR)
-    return result
-
-
-def delete_cf_service_key(btpUsecase, instanceName, keyName):
-    command = "cf delete-service-key '" + instanceName + "' '" + keyName + "' -f"
-    message = "delete service key from instance >" + instanceName + "< for key >" + keyName + "<"
-    runShellCommand(btpUsecase, command, "INFO", message)
 
 
 def get_api_access_token_for_xsuaa(btpUsecase, authClientUrl, authClientId, authClientSecret):

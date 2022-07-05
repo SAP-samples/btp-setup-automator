@@ -1,3 +1,4 @@
 .DS_Store
 cred.txt
 integrationtestExecute.sh
+kubeconfig.yaml

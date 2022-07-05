@@ -16,7 +16,7 @@ def setupParams(myArguments):
     parser = argparse.ArgumentParser()
     if myArguments is not None and myArguments != "":
 
-        allJsonParameters = getJsonFromFile(None, myArguments)
+        allJsonParameters = getJsonFromFile(myArguments)
         for key, value in allJsonParameters.get("properties").items():
             argument = key
             type = value.get("type")
@@ -59,7 +59,7 @@ def setupParams(myArguments):
             parameterfile = getDefaultValueForParameter(allJsonParameters, "parameterfile")
 
         if parameterfile is not None and parameterfile != "":
-            myParameters = getJsonFromFile(None, parameterfile)
+            myParameters = getJsonFromFile(parameterfile)
 
             for key in myParameters:
                 # Get the default values for the keys of the args object
@@ -86,7 +86,7 @@ def setupParams(myArguments):
 
             # in case the parameter file does not include all parameter keys, add the missing ones to the args
             btpSetupAutomatorArguments = FOLDER_SCHEMA_LIBS + "btpsa-parameters.json"
-            allJsonParameters = getJsonFromFile(None, btpSetupAutomatorArguments)
+            allJsonParameters = getJsonFromFile(btpSetupAutomatorArguments)
             for key, value in allJsonParameters.get("properties").items():
                 default = value.get("default")
                 if key not in myParameters:
@@ -129,7 +129,7 @@ def setupParamsServices():
 
 
 def checkProvidedArguments(btpUsecase):
-    usecaseInfo = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
+    usecaseInfo = getJsonFromFile(btpUsecase.usecasefile)
     if "aboutThisUseCase" in usecaseInfo:
         info = usecaseInfo["aboutThisUseCase"]
         log.header("Info about use case to be executed")
