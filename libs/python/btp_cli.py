@@ -528,7 +528,7 @@ class BTPUSECASE:
                 self.accountMetadata = addKeyValuePair(
                     accountMetadata, "cfspacename", cfspacename)
 
-            command = 'cf target -s ' + cfspacename
+            command = 'cf target -s ' + "'" + cfspacename + "'"
             message = "Set CF target to space >" + cfspacename + "<"
             runShellCommand(self, command, "INFO", message)
 
