@@ -44,7 +44,7 @@
                             "whitelistIPs": {
                                 "type": "array",
                                 "items": {},
-                                "default": {}
+                                "default": []
                             }
                         },
                         "required": [
