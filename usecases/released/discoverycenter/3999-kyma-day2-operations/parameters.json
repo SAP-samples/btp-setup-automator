@@ -3,6 +3,7 @@
   "usecasefile": "usecases/released/discoverycenter/3999-kyma-day2-operations/usecase.json",
   "region": "us10",
   "subaccountname": "EasyFranchise",
+  "cfspacename": "hana",
   "loginmethod": "sso",
   "envvariables": {
     "BTPSA_KYMA_IMAGE_TAG": "main",

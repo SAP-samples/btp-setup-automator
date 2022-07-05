@@ -3,6 +3,7 @@
   "usecasefile": "usecases/released/discoverycenter/3638-kyma-multitenant/usecase.json",
   "region": "us10",
   "subaccountname": "EasyFranchise",
+  "cfspacename": "hana",
   "loginmethod": "sso",
   "envvariables": {        
     "BTPSA_KYMA_IMAGE_NAME_APPROUTER": "ghcr.io/sap-samples/btp-kyma-multitenant-extension-approuter:main",
