@@ -110,8 +110,8 @@ jobs:
           script: |
             const imageName = process.env.IMAGE; 
             const {owner, repo} = context.repo; 
-            const imageName = `${imageName}`;
-            const imageNameLowerCase = imageName.toLowerCase();
+            const imageNameString = `${imageName}`;
+            const imageNameLowerCase = imageNameString.toLowerCase();
             const packageName = `${repo}/${imageNameLowerCase}`;
 
             const result = await github.rest.packages.getPackageForOrganization({
