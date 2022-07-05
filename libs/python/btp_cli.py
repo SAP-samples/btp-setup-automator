@@ -52,7 +52,7 @@ class BTPUSECASE:
 
         allServices = readAllServicesFromUsecaseFile(self)
         self.availableCategoriesService = ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"]
-        self.availableCategoriesApplication = ["APPLICATION"]
+        self.availableCategoriesApplication = ["APPLICATION", "QUOTA_BASED_APPLICATION"]
 
         self.definedServices = getServiceCategoryItemsFromUsecaseFile(self, allServices, self.availableCategoriesService)
         self.definedEnvironments = getEnvironmentsForUsecase(self, allServices)
