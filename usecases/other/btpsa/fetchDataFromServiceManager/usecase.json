@@ -1,0 +1,20 @@
+{
+    "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
+    "services": [
+      {
+        "name": "service-manager",
+        "plan": "global-offerings-audit",
+        "category": "SERVICE",
+        "instancename": "btpsa-sm-instance",
+        "createServiceKeys": [
+          "serviceKey"
+        ]
+      }
+    ],
+    "executeAfterAccountSetup": [
+        {
+            "description": "Get the access token for the service manager instance",
+            "command": "cat ./log/metadata_log.json | jq '.payload.credentials.url')"
+        }        
+    ]
+  }
