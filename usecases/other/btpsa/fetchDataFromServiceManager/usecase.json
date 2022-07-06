@@ -18,11 +18,11 @@
     },
     {
       "description": "Get the service data from service manager",
-      "command": "curl -X GET $(jq -r '.createdServiceInstances[].createdServiceKeys[].payload.credentials.sm_url' ./log/metadata_log.json)/v1/service_offerings?max_items=10000 -H \"Authorization: bearer $(jq -r '.access_token' ./log/sm_accessTokenSM.json)\" > ./log/sm_services.json"
+      "command": "curl -X GET $(jq -r '.createdServiceInstances[].createdServiceKeys[].payload.credentials.sm_url' ./log/metadata_log.json)/v1/service_offerings?max_items=10000 -H \"Authorization: bearer $(jq -r '.access_token' ./log/sm_accessToken.json)\" > ./log/sm_services.json"
     },
     {
       "description": "Get the service plan data from service manager",
-      "command": "curl -X GET $(jq -r '.createdServiceInstances[].createdServiceKeys[].payload.credentials.sm_url' ./log/metadata_log.json)/v1/service_plans?max_items=10000 -H \"Authorization: bearer $(jq -r '.access_token' ./log/sm_accessTokenSM.json)\" > ./log/sm_servicePlans.json"
+      "command": "curl -X GET $(jq -r '.createdServiceInstances[].createdServiceKeys[].payload.credentials.sm_url' ./log/metadata_log.json)/v1/service_plans?max_items=10000 -H \"Authorization: bearer $(jq -r '.access_token' ./log/sm_accessToken.json)\" > ./log/sm_servicePlans.json"
     }
   ]
 }
