@@ -1,5 +1,4 @@
 {
-    "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
     "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/usecases/other/btpsa/fetchDataFromServiceManager/usecase.json",
     "region": "us10",
     "loginmethod": "envVariables",
