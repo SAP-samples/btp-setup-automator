@@ -39,14 +39,14 @@
             "category": "SERVICE",
             "repeatstatusrequest": 60,
             "repeatstatustimeout": 3600,
-            "instancename": "hana-cloud",
+            "instancename": "EasyFranchiseHANADB",
             "parameters": {
                 "data": {
                     "edition": "cloud",
                     "memory": 30,
                     "serviceStopped": false,
                     "storage": 120,
-                    "systempassword": "mYy8QJ9gQsghfaHjrkeP",
+                    "systempassword": "mySAP123",
                     "vcpu": 0,
                     "versionIndicator": "",
                     "whitelistIPs": [
@@ -68,6 +68,6 @@
         {
             "description": "Run deployment script",
             "command": "/home/user/tutorial/code/setup/btp-setup-automator/btpsa-deployment.sh"            
-        }
+        }        
     ]
 }
