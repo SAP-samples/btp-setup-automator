@@ -1,0 +1,27 @@
+{
+    "category": "SERVICE",
+    "name": "one-mds",
+    "defs": [
+        
+        {
+            "ref-attribute": "parameters",
+            "ref-level": "plan",
+            "ref-value": "sap-integration",
+            "def-name": "parameters--one-mds--sap-integration",
+            "def-structure":
+                {"service_instance": {"create": {"parameters": {"$schema": "http://json-schema.org/draft-04/schema#", "properties": {"application": {"description": "Name of the application you are connecting to MDI. Allowed values are: \"ariba\", \"c4c\", \"cdc\", \"commerceCloud\", \"concur\", \"hrc\", \"mdg\", \"s4\", \"cpq\", sfsf\".", "enum": ["ariba", "c4c", "cdc", "commerceCloud", "concur", "hrc", "mdg", "s4", "cpq", "sfsf"], "type": "string"}, "businessSystemId": {"description": "Name to be displayed in Master Data Orchestration UI. If not provided, a random UUID will be assigned.", "pattern": "^.{1,60}$", "type": "string"}, "enableTenantDeletion": {"default": false, "description": "Boolean flag to be set to true for confirming deletion of last service instance for the tenant.", "type": "boolean"}, "writePermissions": {"description": "Array of entities the service instance has write permission for", "items": {"properties": {"entityType": {"type": "string"}}, "type": "object"}, "type": "array"}}, "type": "object"}}, "update": {"parameters": {"$schema": "http://json-schema.org/draft-04/schema#", "properties": {"application": {"description": "Name of the application you are connecting to MDI. Allowed values are: \"ariba\", \"c4c\", \"cdc\", \"commerceCloud\", \"concur\", \"hrc\", \"mdg\", \"s4\", \"cpq\", sfsf\".", "enum": ["ariba", "c4c", "cdc", "commerceCloud", "concur", "hrc", "mdg", "s4", "cpq", "sfsf"], "type": "string"}, "businessSystemId": {"description": "Name to be displayed in Master Data Orchestration UI. If not provided, a random UUID will be assigned.", "pattern": "^.{1,60}$", "type": "string"}, "enableTenantDeletion": {"default": false, "description": "Boolean flag to be set to true for confirming deletion of last service instance for the tenant.", "type": "boolean"}, "writePermissions": {"description": "Array of entities the service instance has write permission for", "items": {"properties": {"entityType": {"type": "string"}}, "type": "object"}, "type": "array"}}, "type": "object"}}}}
+            
+        },
+        
+        {
+            "ref-attribute": "parameters",
+            "ref-level": "plan",
+            "ref-value": "s4hana-onpremise",
+            "def-name": "parameters--one-mds--s4hana-onpremise",
+            "def-structure":
+                {"service_instance": {"create": {"parameters": {"$schema": "http://json-schema.org/draft-04/schema#", "properties": {"businessSystemId": {"description": "Name to be displayed in Master Data Orchestration UI. If not provided, a random UUID will be assigned.", "pattern": "^.{1,60}$", "type": "string"}, "enableTenantDeletion": {"default": false, "description": "Boolean flag to be set to true for confirming deletion of last service instance for the tenant.", "type": "boolean"}, "writePermissions": {"description": "Array of entities the service instance has write permission for", "items": {"properties": {"entityType": {"type": "string"}}, "type": "object"}, "type": "array"}}, "type": "object"}}, "update": {"parameters": {"$schema": "http://json-schema.org/draft-04/schema#", "properties": {"businessSystemId": {"description": "Name to be displayed in Master Data Orchestration UI. If not provided, a random UUID will be assigned.", "pattern": "^.{1,60}$", "type": "string"}, "enableTenantDeletion": {"default": false, "description": "Boolean flag to be set to true for confirming deletion of last service instance for the tenant.", "type": "boolean"}, "writePermissions": {"description": "Array of entities the service instance has write permission for", "items": {"properties": {"entityType": {"type": "string"}}, "type": "object"}, "type": "array"}}, "type": "object"}}}}
+            
+        }
+         
+    ]
+}

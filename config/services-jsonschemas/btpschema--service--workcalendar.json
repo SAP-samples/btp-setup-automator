@@ -1,0 +1,17 @@
+{
+    "category": "SERVICE",
+    "name": "workcalendar",
+    "defs": [
+        
+        {
+            "ref-attribute": "parameters",
+            "ref-level": "plan",
+            "ref-value": "default",
+            "def-name": "parameters--workcalendar--default",
+            "def-structure":
+                {"service_binding": {"create": {"parameters": null}}, "service_instance": {"create": {"parameters": {"_show_form_view": true, "_show_standard_config_view": true, "properties": {"keyRef": {"description": "named key reference", "type": "string"}, "multiTenancy": {"description": "set multi tenancy mode", "type": "boolean"}, "privilegedMode": {"description": "set privileged mode", "type": "boolean"}, "skipCredentialActivation": {"description": "do not activate credentials for AppTU", "type": "boolean"}}, "type": "object"}}, "update": {"parameters": null}}}
+            
+        }
+         
+    ]
+}

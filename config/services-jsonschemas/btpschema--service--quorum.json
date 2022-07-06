@@ -1,0 +1,37 @@
+{
+    "category": "SERVICE",
+    "name": "quorum",
+    "defs": [
+        
+        {
+            "ref-attribute": "parameters",
+            "ref-level": "plan",
+            "ref-value": "cyon",
+            "def-name": "parameters--quorum--cyon",
+            "def-structure":
+                {"service_instance": {"create": {"parameters": {"$schema": "http://json-schema.org/draft-04/schema#", "properties": {"dashboard": {"default": "", "description": "", "type": "string"}, "enode": {"default": "", "description": "", "type": "string"}, "rpc": {"default": "\u003c RPC URL (required, https only)\u003e", "description": "", "type": "string"}}, "type": "object"}}}}
+            
+        },
+        
+        {
+            "ref-attribute": "parameters",
+            "ref-level": "plan",
+            "ref-value": "testnet",
+            "def-name": "parameters--quorum--testnet",
+            "def-structure":
+                {"service_binding": {"create": {"parameters": {"$schema": "http://json-schema.org/draft-04/schema#", "properties": {"password": {"default": "", "description": "Account password for locking the account", "type": "string"}}, "type": "object"}}}, "service_instance": {"create": {"parameters": {"$schema": "http://json-schema.org/draft-04/schema#", "properties": {"nodeSecret": {"default": "", "description": "Secret that is used for encrypting resources of the instance", "type": "string"}}, "type": "object"}}}}
+            
+        },
+        
+        {
+            "ref-attribute": "parameters",
+            "ref-level": "plan",
+            "ref-value": "dev",
+            "def-name": "parameters--quorum--dev",
+            "def-structure":
+                {"service_binding": {"create": {"parameters": {"$schema": "http://json-schema.org/draft-04/schema#", "properties": {"password": {"default": "", "description": "Account password for locking the account", "type": "string"}}, "type": "object"}}}}
+            
+        }
+         
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "category": "SERVICE",
+    "name": "workflowmanagement",
+    "defs": [
+        
+        {
+            "ref-attribute": "parameters",
+            "ref-level": "plan",
+            "ref-value": "workflow",
+            "def-name": "parameters--workflowmanagement--workflow",
+            "def-structure":
+                {"service_instance": {"create": {"parameters": {"$schema": "http://json-schema.org/draft-04/schema#", "properties": {}, "type": "object"}}}}
+            
+        }
+         
+    ]
+}
