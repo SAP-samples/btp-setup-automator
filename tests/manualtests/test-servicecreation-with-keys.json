@@ -1,0 +1,35 @@
+{
+    "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
+    "aboutThisUseCase": {
+        "name": "Test for service creation in Kyma without service parameters with service binding",
+        "description": "This usecase sets up the feature flag service in Kyma including a service binding",
+        "author": "christian.lechner@sap.com",
+        "testStatus": "tested successfully",
+        "usageStatus": "READY TO BE USED"
+    },
+    "services": [
+        {
+            "category": "ENVIRONMENT",
+            "name": "kymaruntime",
+            "plan": "gcp",
+            "amount": 1,
+            "parameters": {
+                "name": "test-2vffsrde",
+                "region": "europe-west3",
+                "autoScalerMin": 2,
+                "autoScalerMax": 10,
+                "machineType": "n2-standard-8"
+            }
+        },
+        {
+            "name": "feature-flags",
+            "plan": "lite",
+            "category": "SERVICE",
+            "targetenvironment": "kymaruntime",
+            "createServiceKeys": [
+                "myfeatureflagbinding"
+            ]
+
+        }
+    ]
+}
