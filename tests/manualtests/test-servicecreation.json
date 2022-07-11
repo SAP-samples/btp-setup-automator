@@ -1,9 +1,9 @@
 {
     "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
     "aboutThisUseCase": {
-        "name": "Default use case on how to show how btp-setup-automator works",
-        "description": "This usecase sets up various services and app subscriptions on SAP BTP",
-        "author": "rui.nogueira@sap.com",
+        "name": "Test for service creation in Kyma without service parameters",
+        "description": "This usecase sets up the feature flag service in Kyma",
+        "author": "christian.lechner@sap.com",
         "testStatus": "tested successfully",
         "usageStatus": "READY TO BE USED"
     },

@@ -13,7 +13,7 @@ log = logging.getLogger(__name__)
 def create_kyma_service(btpUsecase, service):
 
     filepath = "logs/k8s/service-instance/service-instance-" + \
-        btpUsecase.accountMetadata.get("subaccountid") + ".yaml"
+        btpUsecase.accountMetadata.get("subaccountid") + "-" + service.instancename + ".yaml"
 
     build_and_store_service_instance_yaml_from_parameters(service, filepath)
 
