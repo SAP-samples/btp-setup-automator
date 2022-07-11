@@ -777,9 +777,10 @@ def getListOfAvailableServicesAndApps(btpUsecase: BTPUSECASE):
 
 
 def getListOfAvailableCustomApps(btpUsecase: BTPUSECASE):
-    if btpUsecase.subaccountid is not None:
-        command = "btp --format json list accounts/subscription --subaccount '" + btpUsecase.subaccountid + "'"
-        message = "Get list of available apps subsciptions for defined subaccount id >" + btpUsecase.subaccountid + "<"
+    customAppProviderSubaccountId = btpUsecase.customAppProviderSubaccountId
+    if btpUsecase.customAppProviderSubaccountId is not None:
+        command = "btp --format json list accounts/subscription --subaccount '" + customAppProviderSubaccountId + "'"
+        message = "Get list of available apps subsciptions for provider subaccount id >" + customAppProviderSubaccountId + "<"
         resultSubaccount = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
 
         result = []

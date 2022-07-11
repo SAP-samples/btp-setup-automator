@@ -110,6 +110,12 @@
             "title": "IAS host for your SAP BTP sub account",
             "default": null
         },
+        "customAppProviderSubaccountId": {
+            "type": "string",
+            "description": "id of provider sub account of custom app",
+            "title": "provider subaccount id of custom app on SAP BTP",
+            "default": null    
+        },
         "suffixinstancename": {
             "type": [
                 "string",
