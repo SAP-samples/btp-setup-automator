@@ -93,6 +93,11 @@
                         "type": "string",
                         "title": "catalog name of the service plan"
                     },
+                    "customerDeveloped": {
+                        "type": "boolean",
+                        "title": "custom developed application",
+                        "default": false
+                    },
                     "statusResponse": {
                         "type": "object",
                         "description": "information that is available only durng the execution of the script (should not be set in the usecase.json file)",
