@@ -17,6 +17,7 @@
             "category": "APPLICATION",
             "repeatstatusrequest": 10,
             "repeatstatustimeout": 120,
+            "customerDeveloped": true,
             "requiredrolecollections": [
                 {
                     "name": "Easy Franchise Backend (<provider-subdomain>)",
@@ -26,7 +27,5 @@
                   }                
             ]
         }
-    ], 
-    "executeAfterAccountSetup": [                
     ]
 }
