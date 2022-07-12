@@ -160,6 +160,15 @@ At the same time you can add any additional packages inside the `executeBeforeAc
 ..
 ```
 
+### How can I subscribe to a deployed SaaS application?
+
+SaaS applications are deployed in a global account and if registered available in all subaccounts. They have to be handled differently when creating an app subscription. You have to provide the following values in your btpsa files:
+
+* In the `parameters.json` file you must provide a value for the `"customAppProviderSubaccountId"`. This subaccount must be a subaccount where the application is available e. g. the provider subaccount. This is needed to execute the validation of the use case file.
+* In the `usecase.json` file when you specify the values for the `APPLICATION` that you want to subscribe to, make sure that you set the value of `"customerDeveloped"` to `true` as this will distinguish it from a regular application available on SAP BTP.
+
+> 📝 Tip - When deploying the app to SAP BTP into the provider subaccount make sure that the value for the plan is available via the BTP CLI. You can check that via `btp --format json list accounts/subscription --subaccount <YOUR SUBACCOUNT ID>`.
+
 ## Docker Specifics
 
 ### Suddenly I'm getting an "docker: Error response from daemon: Head "../ghcr.io/v2/sap-samples/btp-setup-automator/manifests/main": denied: denied.". What's going on here?
