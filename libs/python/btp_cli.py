@@ -59,7 +59,6 @@ class BTPUSECASE:
         self.definedServices = getServiceCategoryItemsFromUsecaseFile(
             self, allServices, self.availableCategoriesService)
         self.definedEnvironments = getEnvironmentsForUsecase(self, allServices)
-        self.admins = getAdminsFromUsecaseFile(self)
         self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(
             self, allServices, self.availableCategoriesApplication)
         usecaseFileContent = getJsonFromFile(self.usecasefile)
