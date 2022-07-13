@@ -11,4 +11,4 @@ jobs:
       - name: "fetch event"
         shell: bash
         run: |
-          echo "Event received"
+          echo "Event from Metadata Fetcher received"
