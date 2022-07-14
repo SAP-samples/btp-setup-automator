@@ -417,7 +417,7 @@ class BTPUSECASE:
                     if envEntry is not None:
                         log.info("Kyma environment with name >" +
                                  kymaClusterName + "< already exists - Creation skipped")
-                        return
+                        continue
 
                     log.header("Create environment >" + environment.name + "<")
 
