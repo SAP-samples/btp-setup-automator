@@ -44,49 +44,21 @@ class BTPUSECASE_GEN:
             log.error("missing your BTP globalaccount subdomain id")
             sys.exit(os.EX_DATAERR)
 
-    def fetchEntitledServiceList(self, updateServiceData, mainDataJsonFile):
+    def fetchEntitledServiceList(self, mainDataJsonFile, datacenterFile):
+        resultServices = getJsonFromFile(mainDataJsonFile)
+        resultDCs = getJsonFromFile(datacenterFile)
+        btpservicelist = resultServices["services"]
 
-        if updateServiceData:
-            result = fetchDataFromBtpAccount(self, updateServiceData, mainDataJsonFile)
-            self.entitledServices = {"btpservicelist": result}
-            addSchemaInfoToServiceList(self)
-            addNumSection(self)
-        else:
-            result = fetchDataFromConfigFile(self, updateServiceData, mainDataJsonFile)
-            self.entitledServices = result
+        resultDCs = sorted(resultDCs, key=lambda d: (d['region'].lower()), reverse=False)
+
+        thisResult = {"btpservicelist": btpservicelist, "datacenterslist": resultDCs}
+        self.entitledServices = thisResult
 
     def applyServiceListOnTemplate(self, templateFile, targetFilename):
 
         serviceList = self.entitledServices
         renderTemplateWithJson(templateFile, targetFilename, serviceList)
         log.success("applied SAP BTP service list on template file >" + templateFile + "< and created the target file >" + targetFilename + "<")
-
-
-def fetchDataFromConfigFile(btpusecase_gen, updateServiceData, mainDataJsonFile):
-
-    result = getJsonFromFile(mainDataJsonFile)
-    btpservicelist = result["btpservicelist"]
-    btpenums = result["btpenums"]
-
-    thisResult = {"btpservicelist": btpservicelist, "btpenums": btpenums}
-    return thisResult
-
-
-def fetchDataFromBtpAccount(btpusecase_gen, updateServiceData, mainDataJsonFile):
-
-    login_btp(btpusecase_gen)
-
-    globalaccount = btpusecase_gen.globalaccount
-    usecaseRegion = btpusecase_gen.region
-    command = "btp --format json list accounts/entitlement --global-account '" + globalaccount + "'"
-    message = "Get list of available services and app subsciptions for defined region >" + usecaseRegion + "<"
-    temp = runCommandAndGetJsonResult(btpusecase_gen, command, "INFO", message)
-
-    del temp["assignedServices"]
-    temp = temp["entitledServices"]
-    result = convertToServiceListByCategory(temp)
-
-    return result
 
 
 def addNumSection(btpusecase_gen):
