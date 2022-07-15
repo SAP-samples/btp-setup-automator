@@ -108,7 +108,7 @@ jobs:
         with:
           github-token: ${{ secrets.DELETE_IMAGE_TOKEN }}
           script: |
-            const imageName = process.env.IMAGE; 
+            const imageName = process.env.IMAGE_NAME;
             const {owner, repo} = context.repo; 
             const imageNameString = `${imageName}`;
             const imageNameLowerCase = imageNameString.toLowerCase();
