@@ -1,22 +1,23 @@
 #! /usr/bin/env python
-from libs.python.helperGenerator import BTPUSECASE_GEN
+from libs.python.helperGenerator import fetchEntitledServiceList
+from libs.python.helperJinja2 import renderTemplateWithJson
 
-mainDataJsonFile = "./config/btp-base/btpServices.json"
+servicesListJsonFile = "./config/btp-base/btpServices.json"
 datacenterFile = "./config/btp-base/datacenters.json"
 
 #######################################################################################
-# Initialize the tool and fetch the BTP service list
+# Fetch the BTP service list (including datacenter information)
 #######################################################################################
-generator = BTPUSECASE_GEN()
-generator.fetchEntitledServiceList(mainDataJsonFile, datacenterFile)
+allMetadata = fetchEntitledServiceList(servicesListJsonFile, datacenterFile)
 
 #######################################################################################
 # Generate all files
 #######################################################################################
 targetFilename = "./libs/btpsa-parameters.json"
 templateFile = "./config/templates/libs/BTPSA-PARAMETERS.json"
-generator.applyServiceListOnTemplate(templateFile, targetFilename)
+renderTemplateWithJson(templateFile, targetFilename, allMetadata)
 
 targetFilename = "./libs/btpsa-usecase.json"
 templateFile = "./config/templates/libs/BTPSA-USECASE.json"
-generator.applyServiceListOnTemplate(templateFile, targetFilename)
+renderTemplateWithJson(templateFile, targetFilename, allMetadata)
+print("INFO: applied SAP BTP service list on template file >" + templateFile + "< and created the target file >" + targetFilename + "<")
