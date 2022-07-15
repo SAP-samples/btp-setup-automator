@@ -1,0 +1,14 @@
+name: Fetch event
+
+on:
+  repository_dispatch:
+    types: [metadata-update]
+
+jobs:
+  catch-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "fetch event"
+        shell: bash
+        run: |
+          echo "Event from Metadata Fetcher received"
