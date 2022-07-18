@@ -2,7 +2,7 @@
 from helperGenerator import fetchEntitledServiceList
 from helperJinja2 import renderTemplateWithJson
 
-servicesListJsonFile = "./config/btp-base/btpServices.json"
+servicesListJsonFile = "./config/btp-base/serviceCategories.json"
 datacenterFile = "./config/btp-base/datacenters.json"
 
 #######################################################################################

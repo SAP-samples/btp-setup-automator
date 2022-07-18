@@ -4,7 +4,7 @@ import sys
 import re
 import requests
 import logging
-from libs.python.helperDrawio import getUseCaseDataFromDrawIoFile
+from helperDrawio import getUseCaseDataFromDrawIoFile
 import os.path
 
 log = logging.getLogger(__name__)
