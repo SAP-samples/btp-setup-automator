@@ -1,0 +1,76 @@
+{
+  "description": "Data Attribute Recommendation uses free text, numbers and categories as input to classify entities such as products, stores and users into multiple classes and also to predict the value of missing numerical attributes in your data records. You can use Data Attribute Recommendation, for example, to classify incoming product information and predict the price of commodities based on their description.",
+  "displayName": "Data Attribute Recommendation",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iZGF0YS1hdHRyaWJ1dGUtcmVjb21tZW5kYXRpb24iIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDU2IDU2Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6IzBhNmVkMTt9LmNscy0ye2ZpbGw6IzA1M2I3MDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmRhdGEtYXR0cmlidXRlLXJlY29tbWVuZGF0aW9uPC90aXRsZT48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yMy41NTIsMzcuMTQsMjEuNjEsMzkuMDgzYTEuMTI0LDEuMTI0LDAsMCwwLDEuNTksMS41OWwxLjk0My0xLjk0MmExLjEyNSwxLjEyNSwwLDAsMC0xLjU5MS0xLjU5MVoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yMS43LDMzLjY5NGExLjEyNiwxLjEyNiwwLDAsMC0xLjU5LDBsLTEuOTQzLDEuOTQzYTEuMTI1LDEuMTI1LDAsMSwwLDEuNTkxLDEuNTlMMjEuNywzNS4yODVBMS4xMjYsMS4xMjYsMCwwLDAsMjEuNywzMy42OTRaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTguMjUxLDMwLjI0OWExLjEyNCwxLjEyNCwwLDAsMC0xLjU5LDBsLTEuOTQyLDEuOTQyYTEuMTI1LDEuMTI1LDAsMSwwLDEuNTksMS41OTFsMS45NDItMS45NDNBMS4xMjQsMS4xMjQsMCwwLDAsMTguMjUxLDMwLjI0OVoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yMy41NTIsMTguMjQ4YTEuMTI1LDEuMTI1LDAsMSwwLDEuNTkxLTEuNTlMMjMuMiwxNC43MTVhMS4xMjUsMS4xMjUsMCwwLDAtMS41OSwxLjU5MVoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yMC4xMDcsMjEuNjk0QTEuMTI0LDEuMTI0LDAsMSwwLDIxLjcsMjAuMWwtMS45NDItMS45NDNhMS4xMjUsMS4xMjUsMCwwLDAtMS41OTEsMS41OVoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xNi42NjEsMjUuMTRhMS4xMjUsMS4xMjUsMCwxLDAsMS41OS0xLjU5MWwtMS45NDItMS45NDJhMS4xMjQsMS4xMjQsMCwwLDAtMS41OSwxLjU5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTM2LjUsMzAuMTM2YTMuMDEyLDMuMDEyLDAsMCwwLDAtNC4yNTJsLTYuMzUyLTYuMzUyYTMuMDExLDMuMDExLDAsMCwwLTQuMjQ5LDBsLTYuMzUyLDYuMzUyYTMuMDExLDMuMDExLDAsMCwwLDAsNC4yNTJMMjUuOSwzNi40ODhhMy4wMDksMy4wMDksMCwwLDAsNC4yNDksMFptLTguNDgxLDQuMjMyLTYuMzUyLTYuMzQ5VjI4bDYuMzYxLTYuMzUyLDYuMzUyLDYuMzY0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTMxLjY0NiwyNi44MDlsLTIuNDI3LTIuNDNhMS43MTUsMS43MTUsMCwwLDAtMi40LDBsLTIuNDI4LDIuNDMxYTEuNzEzLDEuNzEzLDAsMCwwLDAsMi40bDIuNDI1LDIuNDI1YTEuNzE0LDEuNzE0LDAsMCwwLDIuNDA3LDBsMi40MjItMi40MjJBMS43LDEuNywwLDAsMCwzMS42NDYsMjYuODA5Wm0tMy42MjUsMi44NUwyNi4zNzIsMjguMDFsMS42NDktMS42NDksMS42NDYsMS42NDlaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMzguNzM0LDMwLjI0OWExLjEyNCwxLjEyNCwwLDEsMC0xLjU5LDEuNTlsMS45NDIsMS45NDNhMS4xMjUsMS4xMjUsMCwwLDAsMS41OS0xLjU5MVoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zNS4yODgsMzMuNjk0YTEuMTI1LDEuMTI1LDAsMSwwLTEuNTksMS41OTFsMS45NDIsMS45NDJhMS4xMjUsMS4xMjUsMCwxLDAsMS41OTEtMS41OVoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zMS44NDIsMzcuMTRhMS4xMjUsMS4xMjUsMCwwLDAtMS41OSwxLjU5MUwzMi4yLDQwLjY3M2ExLjEyNCwxLjEyNCwwLDAsMCwxLjU5LTEuNTlaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMzcuMTQ0LDI1LjE0YTEuMTI0LDEuMTI0LDAsMCwwLDEuNTksMEw0MC42NzYsMjMuMmExLjEyNCwxLjEyNCwwLDAsMC0xLjU5LTEuNTlsLTEuOTQyLDEuOTQyQTEuMTI0LDEuMTI0LDAsMCwwLDM3LjE0NCwyNS4xNFoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zMy43LDIxLjY5NGExLjEyNCwxLjEyNCwwLDAsMCwxLjU5LDBsMS45NDMtMS45NDNhMS4xMjUsMS4xMjUsMCwxLDAtMS41OTEtMS41OUwzMy43LDIwLjFBMS4xMjQsMS4xMjQsMCwwLDAsMzMuNywyMS42OTRaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMzEuODQyLDE4LjI0OGwxLjk0My0xLjk0MmExLjEyNSwxLjEyNSwwLDAsMC0xLjU5LTEuNTkxbC0xLjk0MywxLjk0M2ExLjEyNCwxLjEyNCwwLDEsMCwxLjU5LDEuNTlaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMjYuNTIxLDM2Ljl2OS4ySDEzLjAwNlY0MC41MmEyLjAxNCwyLjAxNCwwLDAsMC0yLjAxNC0yLjAxNEg2LjAyNEEyLjAxNCwyLjAxNCwwLDAsMCw0LjAxLDQwLjUydjkuNDY2QTIuMDE0LDIuMDE0LDAsMCwwLDYuMDI0LDUyaDQuOTY4YTIuMDE0LDIuMDE0LDAsMCwwLDIuMDE0LTIuMDE0VjQ5LjFIMjguMDIxYTEuNSwxLjUsMCwwLDAsMS41LTEuNVYzNi45YTIuNjU1LDIuNjU1LDAsMCwxLTMsMFpNMTAuMDA4LDQ5aC0zVjQxLjVoM1oiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xMi4wMjksMjYuNTFsLTUuMy0zLjQ5MUExLjczLDEuNzMsMCwwLDAsNC4wNCwyNC40NDV2Ny4yMDZhMS43MywxLjczLDAsMCwwLDIuNjg2LDEuNDI2bDUuNDI5LTMuNTY4aDYuOTcyYTIuOTM2LDIuOTM2LDAsMCwxLDAtM1ptLTQuOTksMi43NzNWMjYuODE1TDguOTE1LDI4LjA1WiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI4LjAyMSw3SDEyLjczMWE0LjUsNC41LDAsMSwwLDAsM2gxMy43OXY5LjEyYTIuOTMyLDIuOTMyLDAsMCwxLDMsMFY4LjVBMS41LDEuNSwwLDAsMCwyOC4wMjEsN1pNOC41MDgsMTBhMS41LDEuNSwwLDEsMSwxLjUtMS41QTEuNSwxLjUsMCwwLDEsOC41MDgsMTBaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDkuOTc2LDIxLjI2M0g0NS4wMDhhMi4wMTQsMi4wMTQsMCwwLDAtMi4wMTQsMi4wMTRWMjYuNTFIMzYuOTExYTIuOTM2LDIuOTM2LDAsMCwxLDAsM2g2LjA4M3YzLjIzNGEyLjAxNCwyLjAxNCwwLDAsMCwyLjAxNCwyLjAxNGg0Ljk2OGEyLjAxNCwyLjAxNCwwLDAsMCwyLjAxNC0yLjAxNFYyMy4yNzdBMi4wMTQsMi4wMTQsMCwwLDAsNDkuOTc2LDIxLjI2M1ptLS45ODUsMTAuNDk1aC0zdi03LjVoM1oiLz48L3N2Zz4=",
+  "id": "766aa07d-85f4-471d-bff2-158f3d5bb085",
+  "inventoryIds": [
+    "SERVICE-458"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/dar",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://help.sap.com/viewer/105bcfd88921418e8c29b24a7a402ec3/SHIP/en-US/4fb850f57a7848cab74f180c129c0b86.html",
+      "title": "Support"
+    },
+    {
+      "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/data-attribute-recommendation",
+      "title": "Discovery Center"
+    },
+    {
+      "linkURL": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english\u0026search=Supplement%20Business%20Technology%20Platform\u0026sort=latest_desc",
+      "title": "Business Technology Platform Supplemental Terms and Conditions"
+    }
+  ],
+  "name": "data-attribute-recommendation",
+  "servicePlans": [
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Default standard plan",
+      "displayName": "standard",
+      "free": false,
+      "name": "standard",
+      "schemas": null
+    },
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "displayName": "free",
+      "free": true,
+      "name": "free",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": null,
+  "supportedPlatforms": null
+}

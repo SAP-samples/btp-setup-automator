@@ -1,0 +1,33 @@
+{
+  "description": "With SAP Cloud Platform Backed service you can build robust, scalable and enterprise-ready APIs/services to serve your applications and extensions in a serverless environment. It is a fully managed API service that helps you build, run, and manage APIs in a serverless environment [BETA]",
+  "displayName": "Backend Service",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iYmFja2VuZC1zZXJ2aWNlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiM1YTdhOTQ7fS5jbHMtMntmaWxsOiMwMDkyZDE7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5iYWNrZW5kPC90aXRsZT48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xMywyNy45ODZoLS41OWE1LjM4Nyw1LjM4NywwLDAsMS0xLjY3NS0xMC41MTVsMi4zMDgtLjc1OUwxMi43ODEsMTQuM2E4LjEsOC4xLDAsMCwxLDEuNS01LjI4NEE2LjUsNi41LDAsMCwxLDE5LjEwOSw3YTYuMDU0LDYuMDU0LDAsMCwxLDUuODY0LDQuMDMzbDEuMzA3LDMuMjlMMjkuMzEsMTIuNWEzLjkyMiwzLjkyMiwwLDAsMSwyLjA0My0uNTkxLDMuOTg4LDMuOTg4LDAsMCwxLDMuOTE0LDMuMjQ5bC4xNTkuODQ1aDNjLS4wNDctLjQzOS0uMTA5LS45LS4yMS0xLjRBNi45NDEsNi45NDEsMCwwLDAsMjcuNzYyLDkuOTI4LDkuNDUyLDkuNDUyLDAsMCwwLDE5LjA1NSw0QzguODYzLDQuMjQyLDkuOCwxNC42MjEsOS44LDE0LjYyMUE4LjM4Nyw4LjM4NywwLDAsMCwxMi40MSwzMC45ODZIMTNaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDYuNzUsMjYuNDgyYTUuMjI4LDUuMjI4LDAsMCwwLTQuNjIxLDIuODA5bC0yLjIxNC0uNDQ0Yy4wMi0uMjg1LjA4NS0uNTU3LjA4NS0uODQ3YTEyLDEyLDAsMSwwLTE4LjgsOS44NzNMMTkuMjYyLDQxLjZBNS4yNjEsNS4yNjEsMCwxLDAsMjEuOTE1LDQzbDEuOTU3LTMuNzc0YTExLjQ4MSwxMS40ODEsMCwwLDAsOS41NTItLjU3N2wzLjI4Miw0LjgwNmE1LjIsNS4yLDAsMCwwLTEuMTk0LDMuMyw1LjI1LDUuMjUsMCwxLDAsNS4yNS01LjI1LDUuMTgsNS4xOCwwLDAsMC0xLjU3Ny4yNjhsLTMuMjgtNC44YTExLjkzNSwxMS45MzUsMCwwLDAsMy40MjYtNS4xNzVsMi4yMi40NDVhNS4yMzcsNS4yMzcsMCwxLDAsNS4yLTUuNzUyWk0xOC4yNSw0OWEyLjI1LDIuMjUsMCwxLDEsMi4yNS0yLjI1QTIuMjUyLDIuMjUyLDAsMCwxLDE4LjI1LDQ5Wm0yNC43NjItMi4yNWEyLjI1LDIuMjUsMCwxLDEtMi4yNS0yLjI1QTIuMjUzLDIuMjUzLDAsMCwxLDQzLjAxMiw0Ni43NVpNMjgsMzdhOSw5LDAsMSwxLDktOUE5LjAxLDkuMDEsMCwwLDEsMjgsMzdabTE4Ljc1LTMuMDE4QTIuMjUsMi4yNSwwLDEsMSw0OSwzMS43MzIsMi4yNTIsMi4yNTIsMCwwLDEsNDYuNzUsMzMuOTgyWiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTMyLjE1NywyMy4yMTJhMi42MzcsMi42MzcsMCwwLDAtLjk1LS42NjJBOC4xNDYsOC4xNDYsMCwwLDAsMjgsMjJhOC4xNDYsOC4xNDYsMCwwLDAtMy4yMDcuNTUsMi42MzcsMi42MzcsMCwwLDAtLjk1LjY2MiwxLjM2OSwxLjM2OSwwLDAsMC0uMzYzLjkxNnY3LjcyYTEuMzI0LDEuMzI0LDAsMCwwLC4zNjMuOTE0LDIuNjA5LDIuNjA5LDAsMCwwLC45NDguNjYyQTcuNyw3LjcsMCwwLDAsMjgsMzRhOC4xNDYsOC4xNDYsMCwwLDAsMy4yMDctLjU1LDIuNjM3LDIuNjM3LDAsMCwwLC45NS0uNjYyLDEuNDI3LDEuNDI3LDAsMCwwLC4zNjMtLjkxNlYyNC4xMjhBMS4zNjksMS4zNjksMCwwLDAsMzIuMTU3LDIzLjIxMlptLTMuMTQsOS43NjFjLS4zMjUuMDMtLjY2MS4wNTItMS4wMTcuMDUyYTEwLjI4NiwxMC4yODYsMCwwLDEtMS4yMzktLjA3N3YtNi43NGExMi4wNzMsMTIuMDczLDAsMCwwLDEuMjM5LjA2Yy4zNTYsMCwuNjkzLS4wMTgsMS4wMTctLjA0NlptMi42MDYtMS4xYzAsLjI1NC0uMzMzLjUzMS0uODkzLjc0YTUuMTcyLDUuMTcyLDAsMCwxLS44MS4yMjZWMjYuMWE0Ljk1LDQuOTUsMCwwLDAsMS43LS42Wk0zMC43MywyNC45YTcuODQ3LDcuODQ3LDAsMCwxLTIuNzMuNDEzLDcuODI3LDcuODI3LDAsMCwxLTIuNzI4LS40MTNjLS41NTQtLjIzNy0uODcyLS41MTUtLjg3Mi0uNzY0di0uMDEyYzAtLjQ3MSwxLjI4My0xLjE1MywzLjYtMS4xNTMsMi4zMzMsMCwzLjYyMy42ODIsMy42MjMsMS4xNjZDMzEuNjIzLDI0LjM5MiwzMS4zLDI0LjY3LDMwLjczLDI0LjlaIi8+PC9zdmc+",
+  "id": null,
+  "inventoryIds": null,
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/70dea311943a4ab99f903ccc584225f6/Cloud/en-US",
+      "title": "Documentation"
+    }
+  ],
+  "name": "Backend-service",
+  "servicePlans": [
+    {
+      "category": "APPLICATION",
+      "dataCenters": [
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "SAP Cloud Platform Backend service",
+      "displayName": "SAP Cloud Platform Backend service",
+      "name": "standard",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": null,
+  "supportedPlatforms": null
+}

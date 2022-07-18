@@ -1,0 +1,161 @@
+{
+  "description": "The SAP Cloud Platform Custom Domain service lets you configure your own custom domain to expose publicly your SAP Cloud Platform application instead of using the default subdomain.",
+  "displayName": "Custom Domain Service",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iY3VzdG9tLWRvbWFpbiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMDUzYjcwO30uY2xzLTJ7ZmlsbDojMGE2ZWQxO308L3N0eWxlPjwvZGVmcz48dGl0bGU+Y3VzdG9tLWRvbWFpbjwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIzNCIgeT0iNyIgd2lkdGg9IjEyIiBoZWlnaHQ9IjMiIHJ4PSIwLjc1Ii8+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIxOSIgeT0iNyIgd2lkdGg9IjEyIiBoZWlnaHQ9IjMiIHJ4PSIwLjc1Ii8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNCw0NnYwYTIuODc3LDIuODc3LDAsMCwwLC4yMzYsMS4xNTcsMy4wMjgsMy4wMjgsMCwwLDAsMS42MDYsMS42MDdBMi44NzUsMi44NzUsMCwwLDAsNyw0OUg0OWEzLjAxMywzLjAxMywwLDAsMCwzLTNWMTZhMy4wMTMsMy4wMTMsMCwwLDAtMy0zSDE2VjcuNzVBLjY2NC42NjQsMCwwLDAsMTUuMjUsN0g0Ljc1QS42NjMuNjYzLDAsMCwwLDQsNy43NVpNNDksMTZsMCwwLDAsMzBMNyw0Niw3LDE2WiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTM5LjIxNCwyNi43M2ExMi43NDUsMTIuNzQ1LDAsMCwwLTIuMTA3LTMuNTczLDExLjkxNCwxMS45MTQsMCwwLDAtMy4yMS0yLjYyOCwxMi4wNTUsMTIuMDU1LDAsMCwwLTMuOTktMS4zOTNsMCwwYy0uMzE3LS4wNDYtLjYyNC0uMDc4LS45MjEtLjFhMTUuNjkxLDE1LjY5MSwwLDAsMC0xLjksMGMtLjI5NC4wMjYtLjYuMDU4LS45MjIuMTA3YTExLjY2MywxMS42NjMsMCwwLDAtNC4wMjQsMS40LDEyLjQ4MiwxMi40ODIsMCwwLDAtMy4yLDIuNjIyLDEyLjE2MSwxMi4xNjEsMCwwLDAtMi4xNDYsMy41NzlBMTEuNjkxLDExLjY5MSwwLDAsMCwxNiwzMWExMS40NzIsMTEuNDcyLDAsMCwwLC45NTcsNC42NDIsMTIuMjIxLDEyLjIyMSwwLDAsMCw2LjQsNi40QTExLjUsMTEuNSwwLDAsMCwyOCw0M2ExMS42MzgsMTEuNjM4LDAsMCwwLDQuNzA3LS45NTcsMTIuMzg5LDEyLjM4OSwwLDAsMCwzLjgxNS0yLjU4NkExMS45MDYsMTEuOTA2LDAsMCwwLDQwLDMxLDExLjcxOSwxMS43MTksMCwwLDAsMzkuMjE0LDI2LjczWm0tMy4zMTQtMUgzMi40NzdhMTMuMjUxLDEzLjI1MSwwLDAsMC0yLjEwNy0zLjg4NEE4Ljk0MSw4Ljk0MSwwLDAsMSwzNS45LDI1LjczWm0tNC4wMTYsNWExMS43NjUsMTEuNzY1LDAsMCwxLS4xMzIsMS43NzhBMTQuNzgyLDE0Ljc4MiwwLDAsMSwzMS40MjMsMzRoLTYuNzhhMTQuMjUyLDE0LjI1MiwwLDAsMS0uMzI5LTEuNDg5LDExLjUxMSwxMS41MTEsMCwwLDEtLjEzMi0xLjc3OEExMi4xODMsMTIuMTgzLDAsMCwxLDI0LjUxMSwyOGg3LjA0NEExMi4zLDEyLjMsMCwwLDEsMzEuODg0LDMwLjczM1pNMjgsMjEuNjQ5YTcuNDExLDcuNDExLDAsMCwxLDEuNjc5LDEuNzExLDExLjE3MiwxMS4xNzIsMCwwLDEsMS4yODMsMi4zN0gyNS4xQTguNzQxLDguNzQxLDAsMCwxLDI4LDIxLjY0OVptLTIuMy4yYTEzLjE4MiwxMy4xODIsMCwwLDAtMi4xMDcsMy44ODRIMjAuMTY2QTguOTMsOC45MywwLDAsMSwyNS43LDIxLjg0NlpNMTkuMTEzLDM0YTguNjM1LDguNjM1LDAsMCwxLS40MjgtMS4zNTgsOC4yODgsOC4yODgsMCwwLDEsMC0zLjI5MUE4LjU4NCw4LjU4NCwwLDAsMSwxOS4xMTMsMjhoMy45NWExMi4xODMsMTIuMTgzLDAsMCwwLS4zMjksMi43MzNBMTIuODI1LDEyLjgyNSwwLDAsMCwyMy4xMjgsMzRaTTIyLjgsMzguODYzYTEwLjIyMywxMC4yMjMsMCwwLDEtMi42MzMtMi42aDMuNTU1YTEyLjM1NiwxMi4zNTYsMCwwLDAsMi41NjcsNC4wMTZBOC42NjMsOC42NjMsMCwwLDEsMjIuOCwzOC44NjNaTTI4LDM5Ljg4NGE3LjQ2NCw3LjQ2NCwwLDAsMS0xLjQ4MS0xLjUxNEExMC43NDUsMTAuNzQ1LDAsMCwxLDI1LjMsMzYuMjYzaDUuNDY0QTguMDgxLDguMDgxLDAsMCwxLDI4LDM5Ljg4NFptNS4yNjYtMS4wMjFhOC42NjMsOC42NjMsMCwwLDEtMy40ODksMS40MTYsMTIuNDQsMTIuNDQsMCwwLDAsMi41NjgtNC4wMTZIMzUuOUExMC4yNDMsMTAuMjQzLDAsMCwxLDMzLjI2NiwzOC44NjNaTTM2Ljk1MywzNEgzMi45MzdhOC4yNjksOC4yNjksMCwwLDAsLjI2NC0xLjQ4OXEuMDY1LS44NTUuMDY1LTEuNzc4QTEyLjU5LDEyLjU5LDAsMCwwLDMzLDI4aDMuOTVhOC44LDguOCwwLDAsMSwwLDZaIi8+PC9zdmc+",
+  "id": "8090f37d-3890-4bac-bf9e-f5bc3c133e3b",
+  "inventoryIds": [
+    "SERVICE-318",
+    "SERVICE-12"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/product/CUSTOM_DOMAINS/Cloud/en-US",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/custom-domain",
+      "title": "Discovery Center"
+    },
+    {
+      "linkURL": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/5dd739823b824b539eee47b7860a00be.html",
+      "title": "Support"
+    },
+    {
+      "linkURL": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/2291aea5e22440f7a161bdeb9c16b664.html",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://ga.support.sap.com/dtp/viewer/index.html#/tree/2437/actions/32393",
+      "title": "Support information"
+    }
+  ],
+  "name": "INFRA",
+  "servicePlans": [
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "cf-ch20",
+          "environment": "cloudfoundry",
+          "name": "cf-ch20",
+          "region": "ch20"
+        },
+        {
+          "displayName": "India (Mumbai)",
+          "environment": "cloudfoundry",
+          "name": "cf-in30",
+          "region": "in30"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu30",
+          "region": "eu30"
+        },
+        {
+          "displayName": "Australia (Sydney) Azure",
+          "environment": "cloudfoundry",
+          "name": "cf-ap20",
+          "region": "ap20"
+        },
+        {
+          "displayName": "South Korea (Seoul)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap12",
+          "region": "ap12"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "Canada (Montreal)",
+          "environment": "cloudfoundry",
+          "name": "cf-ca10",
+          "region": "ca10"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Quota for Custom Domains",
+      "displayName": "Quota for Custom Domains",
+      "free": false,
+      "name": "custom_domains",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": null,
+  "supportedPlatforms": null
+}

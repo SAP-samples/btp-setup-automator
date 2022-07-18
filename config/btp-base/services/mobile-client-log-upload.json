@@ -1,0 +1,68 @@
+{
+  "description": "Mobile Client Log Upload Service",
+  "displayName": "Mobile Client Log Upload Service",
+  "icon": "sap-icon://document-text",
+  "id": "945d20df-a5a9-4d37-b101-a7648571b3e2",
+  "inventoryIds": null,
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/468990a67780424a9e66eb096d4345bb/Cloud/en-US/ee280404f7ea4bb1ac12d2271815e3e0.html",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://mobile-service-cockpit-web.cfapps.us10.hana.ondemand.com",
+      "title": "Support information"
+    }
+  ],
+  "name": "mobile-client-log-upload",
+  "servicePlans": [
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Mobile Client Log Upload Service is used by mobile applications to upload technical log files",
+      "displayName": "Mobile Client Log Upload Service is used by mobile applications to upload technical log files",
+      "free": true,
+      "name": "standard",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": null,
+  "supportedPlatforms": null
+}

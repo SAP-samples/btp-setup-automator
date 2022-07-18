@@ -1,0 +1,54 @@
+{
+  "description": "Document Classification helps you to automate the management and processing of large amounts of business documents by applying machine learning. Based on customer specific classification models, Document Classification can be utilized in a wide range of business scenarios and adapted to special requirements. Document Classification is targeting organizations and business units struggling with the fast, economic, high quality and efficient processing of documents used in critical business processes like Enterprise Mail-Inbox Processing, Contract Management or Invoice Processing.",
+  "displayName": "Document Classification",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iZG9jdW1lbnQtY2xhc3NpZmljYXRpb24iIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDU2IDU2Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6IzA1M2I3MDt9LmNscy0ye2ZpbGw6IzBhNmVkMTt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmRvY3VtZW50LWNsYXNzaWZpY2F0aW9uPC90aXRsZT48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik01MS42MjUsMzIuNWEyLjg5NCwyLjg5NCwwLDAsMC0uOTM3LTEuMDMxQTIuODQ5LDIuODQ5LDAsMCwwLDQ5LDMxSDM5LjE1NmwtMi42MjUtM0gyNWEyLjc5MiwyLjc5MiwwLDAsMC0xLjczNC40NjksMy4wMSwzLjAxLDAsMCwwLS44OTEsMS4wMzFBMi45NTIsMi45NTIsMCwwLDAsMjIsMzFWNDlhMi43ODEsMi43ODEsMCwwLDAsLjQ2OSwxLjczNEEzLjEzOSwzLjEzOSwwLDAsMCwyNSw1Mkg0OWEyLjk3NSwyLjk3NSwwLDAsMCwxLjUtLjM3NSwzLjAxLDMuMDEsMCwwLDAsMS4wMzEtLjg5MUEyLjgsMi44LDAsMCwwLDUyLDQ5VjM0QTIuOTgyLDIuOTgyLDAsMCwwLDUxLjYyNSwzMi41Wk00OSw0OWwtMjQsLjAyM1Y0OWwtLjAyNS0xOGgxMC4yTDM2LjksMzIuOTc2LDM3LjgsMzRoMS4zNjFMNDksMzQuMDA5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI1LDRIMTBMNCwxMFYzMWEyLjg4OSwyLjg4OSwwLDAsMCwzLDNIMTlWMzFIN1YxM0g5LjkwNmEzLjA4MiwzLjA4MiwwLDAsMCwyLjItLjg0NEEyLjg0NCwyLjg0NCwwLDAsMCwxMywxMFY3SDI1VjI1aDNWN2EyLjg0NCwyLjg0NCwwLDAsMC0uODkxLTIuMTU2QTIuOTYyLDIuOTYyLDAsMCwwLDI1LDRaIi8+PHJlY3QgY2xhc3M9ImNscy0yIiB4PSIxMCIgeT0iMTYiIHdpZHRoPSIxMiIgaGVpZ2h0PSIzIi8+PHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjEwIDI1IDE5IDI1IDIyIDI1IDIyIDIyIDEwIDIyIDEwIDI1Ii8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDguNjQ4LDE5LjM1MmExLjEsMS4xLDAsMCwwLTEuNjE3LDBsLTIuNiwzLjAyMy4wNy0xLjEyNWE4Ljc2Nyw4Ljc2NywwLDAsMC0uNy0zLjQ4LDguOTY4LDguOTY4LDAsMCwwLTEuOTM0LTIuODgzLDkuMTU4LDkuMTU4LDAsMCwwLTIuODQ3LTEuOTM0LDguNzMsOC43MywwLDAsMC0zLjUxNi0uN0gzMVYxNC41aDQuNWE2LjcyMyw2LjcyMywwLDAsMSw2Ljc1LDYuNzVsLS4wNywxLjEyNS0yLjUzMi0zLjAyM2ExLjAzNywxLjAzNywwLDAsMC0xLjYxNywwLC45NjguOTY4LDAsMCwwLDAsMS41NDZsMy43MjcsNC4yMTlhMi4zODIsMi4zODIsMCwwLDAsMy4yMzQsMEw0OC42NDgsMjAuOWExLjAyNSwxLjAyNSwwLDAsMCwwLTEuNTQ2WiIvPjwvc3ZnPg==",
+  "id": null,
+  "inventoryIds": [
+    "SERVICE-459"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/dc",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/document-classification",
+      "title": "Discovery Center"
+    }
+  ],
+  "name": "document-classification",
+  "servicePlans": [
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Service plan \u0027blocks_of_100\u0027 for production usage of Document Classification, charged in blocks of 100 documents.",
+      "displayName": "blocks_of_100",
+      "name": "blocks_of_100",
+      "schemas": null
+    },
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Service plan \u0027default\u0027 for production usage of Document Classification, charged in blocks of 1000 documents.",
+      "displayName": "default",
+      "name": "default",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": null,
+  "supportedPlatforms": null
+}

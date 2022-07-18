@@ -1,0 +1,68 @@
+{
+  "description": "SAP Leonardo Machine Learning Foundation enables you to enhance business processes and software applications with intelligence. Unlock knowledge from structured and unstructured data such as images, text, time series and tabular data. By consuming easy-to-use APIs you can detect the content of pictures, extract keywords from natural language texts or analyze and forecast time-series data. All this can be done without prior investmentintospecial hardware or expertise in machine learning. Besides using pre-trained ML services you can also deploy custom ML models or tune existing models with your own training data. This allows you to easily serve customized ML models for critical business processes in a scalable and secure manner.",
+  "displayName": "SAP Leonardo ML Foundation",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0ibWFjaGluZS1sZWFybmluZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMGE2ZWQxO30uY2xzLTJ7ZmlsbDojMDUzYjcwO308L3N0eWxlPjwvZGVmcz48dGl0bGU+bWFjaGluZS1sZWFybmluZzwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIyMy43MTQiIHk9IjE2LjAyMyIgd2lkdGg9IjEuNzE0IiBoZWlnaHQ9IjUuMTQzIiByeD0iMC43NSIvPjxyZWN0IGNsYXNzPSJjbHMtMSIgeD0iMjcuMTQzIiB5PSIxNi4wMjMiIHdpZHRoPSIxLjcxNCIgaGVpZ2h0PSI1LjE0MyIgcng9IjAuNzUiLz48cmVjdCBjbGFzcz0iY2xzLTEiIHg9IjMwLjU3MiIgeT0iMTYuMDIzIiB3aWR0aD0iMS43MTQiIGhlaWdodD0iNS4xNDMiIHJ4PSIwLjc1Ii8+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIyMy43MTQiIHk9IjM0Ljg4IiB3aWR0aD0iMS43MTQiIGhlaWdodD0iNS4xNDMiIHJ4PSIwLjc1Ii8+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIyNy4xNDMiIHk9IjM0Ljg4IiB3aWR0aD0iMS43MTQiIGhlaWdodD0iNS4xNDMiIHJ4PSIwLjc1Ii8+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIzMC41NzIiIHk9IjM0Ljg4IiB3aWR0aD0iMS43MTQiIGhlaWdodD0iNS4xNDMiIHJ4PSIwLjc1Ii8+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIzNC44NTciIHk9IjIzLjczNyIgd2lkdGg9IjUuMTQzIiBoZWlnaHQ9IjEuNzE0IiByeD0iMC43NSIvPjxyZWN0IGNsYXNzPSJjbHMtMSIgeD0iMzQuODU3IiB5PSIyNy4xNjUiIHdpZHRoPSI1LjE0MyIgaGVpZ2h0PSIxLjcxNCIgcng9IjAuNzUiLz48cmVjdCBjbGFzcz0iY2xzLTEiIHg9IjM0Ljg1NyIgeT0iMzAuNTk0IiB3aWR0aD0iNS4xNDMiIGhlaWdodD0iMS43MTQiIHJ4PSIwLjc1Ii8+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIxNiIgeT0iMjMuNzM3IiB3aWR0aD0iNS4xNDMiIGhlaWdodD0iMS43MTQiIHJ4PSIwLjc1Ii8+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIxNiIgeT0iMjcuMTY1IiB3aWR0aD0iNS4xNDMiIGhlaWdodD0iMS43MTQiIHJ4PSIwLjc1Ii8+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIxNiIgeT0iMzAuNTk0IiB3aWR0aD0iNS4xNDMiIGhlaWdodD0iMS43MTQiIHJ4PSIwLjc1Ii8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMzIuNSwyMi4wMjNIMjMuNWExLjUsMS41LDAsMCwwLTEuNSwxLjV2OC45OTNhMS41LDEuNSwwLDAsMCwxLjUsMS41SDMyLjVhMS41LDEuNSwwLDAsMCwxLjUtMS41VjIzLjUyNkExLjUsMS41LDAsMCwwLDMyLjUsMjIuMDIzWk0zMSwzMS4wMTFIMjV2LTZoNloiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik00OSwyMy44NDZhNy42MDcsNy42MDcsMCwwLDAtMy43NDktNi42MTUsNy40NDEsNy40NDEsMCwwLDAtNS45MzctNy4xNjcsNy4wMTksNy4wMTksMCwwLDAtNS43NC0zLjA0M0E4LjkzMiw4LjkzMiwwLDAsMCwyOCw4Ljc0MmE4LjkzMSw4LjkzMSwwLDAsMC01LjU3My0xLjcyMSw3LjAxOSw3LjAxOSwwLDAsMC01Ljc0MSwzLjA0Myw3LjQ0MSw3LjQ0MSwwLDAsMC01LjkzNyw3LjE2N0E3LjYwNyw3LjYwNywwLDAsMCw3LDIzLjg0NmE3Ljc2NCw3Ljc2NCwwLDAsMCwxLjAyOCwzLjg4MUE3Ljc2NCw3Ljc2NCwwLDAsMCw3LDMxLjYwOGE3LjU3OCw3LjU3OCwwLDAsMCwzLjc0NSw2LjYxOHYuMDA5YTcuNDcxLDcuNDcxLDAsMCwwLDUuNzQzLDcuNEE3LjA2LDcuMDYsMCwwLDAsMjIuNDI3LDQ5LDguMzEsOC4zMSwwLDAsMCwyOCw0Ni44MzgsOC4zMTEsOC4zMTEsMCwwLDAsMzMuNTc0LDQ5YTcuMDU5LDcuMDU5LDAsMCwwLDUuOTM4LTMuMzY1LDcuNDcxLDcuNDcxLDAsMCwwLDUuNzQzLTcuNHYtLjAxQTcuNTc2LDcuNTc2LDAsMCwwLDQ5LDMxLjYwOGE3Ljc3NCw3Ljc3NCwwLDAsMC0xLjAyNy0zLjg4MUE3Ljc3NCw3Ljc3NCwwLDAsMCw0OSwyMy44NDZabS0yLjYyNSw3Ljc2MmE0Ljc3LDQuNzcsMCwwLDEtNC4wNTUsNC44NzEsNS4yNjQsNS4yNjQsMCwwLDEsLjMxLDEuNzU2QTQuNzM4LDQuNzM4LDAsMCwxLDM4LjEsNDMuMTU4Yy0uMSwwLS4xOS0uMDI1LS4yODYtLjAzMmE0LjU1Nyw0LjU1NywwLDAsMS00LjI0MiwzLjI1LDUuMjU1LDUuMjU1LDAsMCwxLTUuNDg3LTQuNTQxaC0uMmE1LjIzMiw1LjIzMiwwLDAsMS01LjQ2NSw0LjU0MSw0LjU1Nyw0LjU1NywwLDAsMS00LjI0My0zLjI1Yy0uMS4wMDctLjE4OC4wMzItLjI4Ni4wMzJhNC43MzgsNC43MzgsMCwwLDEtNC41MjgtNC45MjMsNS4yNjQsNS4yNjQsMCwwLDEsLjMxLTEuNzU2LDQuNzcsNC43NywwLDAsMS00LjA1NS00Ljg3MUE1LjA1NCw1LjA1NCwwLDAsMSwxMS40LDI3LjcyN2E1LjA1MSw1LjA1MSwwLDAsMS0xLjc3My0zLjg4MUE0Ljc4LDQuNzgsMCwwLDEsMTMuNiwxOC45ODQsNS4yNiw1LjI2LDAsMCwxLDEzLjM3LDE3LjUsNC43MzcsNC43MzcsMCwwLDEsMTcuOSwxMi41ODFjLjEyNywwLC4yNDcuMDI5LjM3Mi4wNDFhNC41MzUsNC41MzUsMCwwLDEsNC4xNTctMi45NzZjMy41NzcsMCw1LjIsMS44ODcsNS41MDksMy43MDdoLjEyOGMuMzA4LTEuODIsMS45MzItMy43MDcsNS41MS0zLjcwN2E0LjUzNiw0LjUzNiwwLDAsMSw0LjE1NywyLjk3NmMuMTI0LS4wMTIuMjQ0LS4wNDEuMzcxLS4wNDFBNC43MzcsNC43MzcsMCwwLDEsNDIuNjMsMTcuNWE1LjI2LDUuMjYsMCwwLDEtLjIzMSwxLjQ4MSw0Ljc4LDQuNzgsMCwwLDEsMy45NzYsNC44NjJBNS4wNDgsNS4wNDgsMCwwLDEsNDQuNiwyNy43MjcsNS4wNTEsNS4wNTEsMCwwLDEsNDYuMzc1LDMxLjYwOFoiLz48L3N2Zz4=",
+  "id": "0c038bc8-ab4e-40e1-ae5a-eb1f9462c517",
+  "inventoryIds": [
+    "SERVICE-226"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/p/SAP_LEONARDO_MACHINE_LEARNING_FOUNDATION",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/machine-learning-foundation",
+      "title": "Discovery Center"
+    },
+    {
+      "linkURL": "http://help.sap.com/mlf",
+      "title": "Documentation"
+    }
+  ],
+  "name": "ml-foundation",
+  "servicePlans": [
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Default standard plan",
+      "displayName": "standard",
+      "free": false,
+      "name": "standard",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": null,
+  "supportedPlatforms": null
+}

@@ -1,0 +1,180 @@
+{
+  "description": "The SAP Cloud Platform Data Retention Manager lets you block or delete personal data based on the residence and retention rules maintained.",
+  "displayName": "Data Retention Manager",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iZGF0YS1yZXRlbnRpb24tbWFuYWdlciIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMGE2ZWQxO30uY2xzLTJ7ZmlsbDojMDUzYjcwO308L3N0eWxlPjwvZGVmcz48dGl0bGU+ZGF0YS1yZXRlbnRpb24tbWFuYWdlcjwvdGl0bGU+PHBvbHlnb24gY2xhc3M9ImNscy0xIiBwb2ludHM9IjQwLjE0OCAzNCAzNi4yMSAzOCAzMi4xNDggMzQgMzAuMTQ4IDM2IDM0LjIxMSAzOS45MzcgMzAuMTQ4IDQ0IDMyLjE0OCA0NiAzNi4yMSA0MS45MzcgNDAuMTQ4IDQ2IDQyLjE0OCA0NCAzOC4wODUgMzkuOTM3IDQyLjE0OCAzNiA0MC4xNDggMzQiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik00Mi43MTYsMTguODc3YTEuOTM1LDEuOTM1LDAsMCwwLS42ODgtLjYyNSwxLjk5LDEuOTksMCwwLDAtLjM3Ni0uMDk0VjE1LjJhNS4wMTIsNS4wMTIsMCwwLDAtMi4yMzItNC4xNzMsNi4xLDYuMSwwLDAsMC02Ljc4MiwwQTUsNSwwLDAsMCwzMC40LDE1LjJ2Mi45NTZhMS45NjksMS45NjksMCwwLDAtLjM3NC4wOTQsMS45MTYsMS45MTYsMCwwLDAtLjY4Ny42MjVBMS44ODcsMS44ODcsMCwwLDAsMjkuMDI4LDIwdjZhMS44NTYsMS44NTYsMCwwLDAsLjMxMywxLjE1NkEyLjA5MSwyLjA5MSwwLDAsMCwzMS4wMjgsMjhoMTBhMi4zLDIuMywwLDAsMCwyLTJWMjBBMS45LDEuOSwwLDAsMCw0Mi43MTYsMTguODc3Wk0zMi42NTIsMTUuMmEyLjc1NiwyLjc1NiwwLDAsMSwxLjIzNC0yLjMsMy44NTMsMy44NTMsMCwwLDEsNC4yODYsMCwyLjc2MiwyLjc2MiwwLDAsMSwxLjIzLDIuM3YyLjc5MmgtNi43NVpNMzMuOSwyNmwxLjEyNS0yLjMxMmEyLjkyMiwyLjkyMiwwLDAsMS0uNzE5LS43MTlBMS42NjQsMS42NjQsMCwwLDEsMzQuMDI4LDIyYTEuODkxLDEuODkxLDAsMCwxLC41OTQtMS40MzhBMS45NywxLjk3LDAsMCwxLDM2LjAyOCwyMGExLjkyNCwxLjkyNCwwLDAsMSwyLDIsMS45MTEsMS45MTEsMCwwLDEtMSwxLjY4OEwzOC4zNDEsMjZaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDguMTU2LDQuODkxQTIuODQxLDIuODQxLDAsMCwwLDQ2LDRIMTlMNywxNlY0OWEyLjgzNywyLjgzNywwLDAsMCwuODkxLDIuMTU2LDMuMDcyLDMuMDcyLDAsMCwwLDIuMi44NDRoMzZhMi44LDIuOCwwLDAsMCwyLjA2Mi0uODQ0QTIuOTIsMi45MiwwLDAsMCw0OSw0OVY3QTIuOTYyLDIuOTYyLDAsMCwwLDQ4LjE1Niw0Ljg5MVpNMTAsNDlWMTloOWEyLjk2MiwyLjk2MiwwLDAsMCwyLjEwOS0uODQ0QTIuODQ0LDIuODQ0LDAsMCwwLDIyLDE2VjdINDZWNDlaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMjAuNSwzMi41YTguMzU4LDguMzU4LDAsMCwwLTUuNTg2LDEuNjQxUTEzLDM1Ljc4MSwxMyw0MEgyOHEwLTQuMjE4LTEuOTE0LTUuODU5QTguMzY3LDguMzY3LDAsMCwwLDIwLjUsMzIuNVoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNS41LDI3LjVhNC43NzYsNC43NzYsMCwwLDAtMS40ODQtMy41NTUsNSw1LDAsMCwwLTcuMDMyLDAsNC45NTMsNC45NTMsMCwwLDAsMCw3LjA3MSw0LjkwNyw0LjkwNywwLDAsMCw3LjAzMiwwQTQuODA5LDQuODA5LDAsMCwwLDI1LjUsMjcuNVoiLz48L3N2Zz4=",
+  "id": "d4e83261-2b52-4805-9493-c7db94f8b370",
+  "inventoryIds": [
+    "SERVICE-261"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/p/DATA_RETENTION_MANAGER",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/sap-data-retention-manager",
+      "title": "Discovery Center"
+    },
+    {
+      "linkURL": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english\u0026search=Supplement%20Business%20Technology%20Platform\u0026sort=latest_desc",
+      "title": "Business Technology Platform Supplemental Terms and Conditions"
+    }
+  ],
+  "name": "retention-manager",
+  "servicePlans": [
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        }
+      ],
+      "description": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "displayName": "free",
+      "free": true,
+      "name": "free",
+      "schemas": null
+    },
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Standard Plan",
+      "displayName": "standard",
+      "free": true,
+      "name": "standard",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": null,
+  "supportedPlatforms": null
+}

@@ -1,0 +1,184 @@
+{
+  "description": "SAP Personal Data Manager provides the capability to generate reports showing the personal data stored in an application point of view with the help of a CSR. The reports can be generated and exported either in machine readable form (JSON) or human readable form (PDF). Data subjects can request the correction and deletion of personal data that is stored in an application point of view.",
+  "displayName": "Personal Data Manager",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0icGVyc29uYWwtZGF0YS1tYW5hZ2VyX2NvcHkiIGRhdGEtbmFtZT0icGVyc29uYWwtZGF0YS1tYW5hZ2VyIGNvcHkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDU2IDU2Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6IzA1M2I3MDt9LmNscy0ye2ZpbGw6IzBhNmVkMTt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPnBlcnNvbmFsLWRhdGEtbWFuYWdlciBjb3B5PC90aXRsZT48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik00OC4zNzcsOC4yOTFWMzIuMXEwLDQuNTk1LTQsOWEyMi41MTQsMjIuNTE0LDAsMCwxLTMuOTQ3LDMuNDY5cS0yLjM4OCwxLjY4OC00LjU4LDN0LTMuODQ5LDIuMTA5YTE4Ljk0MiwxOC45NDIsMCwwLDEtMS43NTQuOEwyNy40MjYsNTEuNywyNC41LDUwLjQ3OXEtLjI5My0uMTg5LTIuNzI5LTEuMjY2YTM1LjMyNSwzNS4zMjUsMCwwLDEtNS4zNi0zLjA0NywyOC42MjIsMjguNjIyLDAsMCwxLTcuNjQ5LTcuMDMxQTEyLjI4NCwxMi4yODQsMCwwLDEsNi4zNzcsMzIuMVY4LjI5MUwyNy40MjYsMy43Wk00NC44NjksMTEuMDEsMjcuNDI2LDcuMTY2LDkuODg1LDExLjAxVjMyLjFhOS43MTUsOS43MTUsMCwwLDAsMy4wMjEsNi43NUEyMi41MzMsMjIuNTMzLDAsMCwwLDE2LjQxNCw0MS45cTIuMTQzLDEuNTQ3LDQuMTkxLDIuNzY1dDMuNjA1LDEuOTY5YTkuOCw5LjgsMCwwLDAsMS43NTQuNzVsMS40NjIuNjU2LDEuMzY0LS42NTZxLjEsMCwyLjQzNy0xLjEyNWE0NS40NjMsNDUuNDYzLDAsMCwwLDUuMDY3LTIuOTA2cTguNTc0LTUuNDM2LDguNTc1LTExLjI1WiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTM3LjM3NywzMC45VjI4LjdhNCw0LDAsMCwwLTgsMFYzMC45YTIuOTkxLDIuOTkxLDAsMCwwLTIsMi44djIuOTg5QTMuMDE1LDMuMDE1LDAsMCwwLDMwLjM4MiwzOS43aDUuOTlhMy4wMTQsMy4wMTQsMCwwLDAsMy4wMDUtMy4wMDZWMzMuN0EyLjk5MSwyLjk5MSwwLDAsMCwzNy4zNzcsMzAuOVptLTYtMi4yMDVhMiwyLDAsMCwxLDQsMHYyaC00Wm0tLjIsOS40ODMsMS4xMDgtMi4zYTIuODcyLDIuODcyLDAsMCwxLS43MTktLjcxOSwxLjY0OSwxLjY0OSwwLDAsMS0uMjgxLS45NjgsMS44OTQsMS44OTQsMCwwLDEsLjU5My0xLjQzOCwxLjk3NCwxLjk3NCwwLDAsMSwxLjQwNy0uNTYyLDEuOTI2LDEuOTI2LDAsMCwxLDIsMiwxLjkwOSwxLjkwOSwwLDAsMS0xLDEuNjg3bDEuMzI5LDIuM1oiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yMi43OTQsMTYuODY0QTQuMjIzLDQuMjIzLDAsMCwwLDE4LjYyNywxMi43YTQuMjIzLDQuMjIzLDAsMCwwLTQuMTY2LDQuMTY2QTMuOTY0LDMuOTY0LDAsMCwwLDE1LjcsMTkuODI2YTQuMTYzLDQuMTYzLDAsMCwwLDUuODU5LDBBMy45NzEsMy45NzEsMCwwLDAsMjIuNzk0LDE2Ljg2NFoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNC40NTQsMjMuNzMzYTMuNywzLjcsMCwwLDAtMS4yLTEuODU2LDMuOTI3LDMuOTI3LDAsMCwwLTEuOTUzLS43MTYsMjQuOTEsMjQuOTEsMCwwLDAtMi42Ny0uMTMsMjQuODUsMjQuODUsMCwwLDAtMi42NjkuMTMsMy45MjcsMy45MjcsMCwwLDAtMS45NTMuNzE2LDMuNjg5LDMuNjg5LDAsMCwwLTEuMiwxLjg1NiwxNC45MjEsMTQuOTIxLDAsMCwwLS40MjMsMy45NjVoMTIuNUExNC45NjMsMTQuOTYzLDAsMCwwLDI0LjQ1NCwyMy43MzNaIi8+PC9zdmc+",
+  "id": "68ca5a29-8690-46b7-bb68-65916b5d408b",
+  "inventoryIds": [
+    "SERVICE-259"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/product/PERSONAL_DATA_MANAGER/SHIP/en-US",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/personal-data-manager",
+      "title": "Discovery Center"
+    },
+    {
+      "linkURL": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english\u0026search=Supplement%20Business%20Technology%20Platform\u0026sort=latest_desc",
+      "title": "Business Technology Platform Supplemental Terms and Conditions"
+    },
+    {
+      "linkURL": "https://help.sap.com/viewer/620a3ea6aaf64610accdd05cca9e3de2/SHIP/en-US/392fff93d1de4d168d320010ddc3b803.html",
+      "title": "Support information"
+    }
+  ],
+  "name": "personal-data-manager-service",
+  "servicePlans": [
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        }
+      ],
+      "description": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "displayName": "free",
+      "free": true,
+      "name": "free",
+      "schemas": null
+    },
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Standard Plan",
+      "displayName": "standard",
+      "free": true,
+      "name": "standard",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": null,
+  "supportedPlatforms": null
+}

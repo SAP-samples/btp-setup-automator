@@ -1,0 +1,55 @@
+{
+  "description": "SAP Edge Services",
+  "displayName": "SAP Edge Services",
+  "icon": null,
+  "id": null,
+  "inventoryIds": null,
+  "links": [],
+  "name": "edge-services",
+  "servicePlans": [
+    {
+      "category": "APPLICATION",
+      "dataCenters": [
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "SAP Edge Services",
+      "displayName": "SAP Edge Services",
+      "name": "Enterprise",
+      "schemas": null
+    },
+    {
+      "category": "APPLICATION",
+      "dataCenters": [
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "SAP Edge Services Cloud Standard Edition",
+      "displayName": "SAP Edge Services Cloud Standard Edition",
+      "name": "Standard",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": null,
+  "supportedPlatforms": null
+}
