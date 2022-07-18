@@ -1,5 +1,5 @@
-from libs.python.helperJinja2 import renderTemplateWithJson
-from libs.python.helperJson import getJsonFromFile
+from helperJinja2 import renderTemplateWithJson
+from helperJson import getJsonFromFile
 
 
 def fetchEntitledServiceList(mainDataJsonFile, datacenterFile):
