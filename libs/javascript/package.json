@@ -7,7 +7,7 @@
     "fetch:metadata": "node metadatafetcher.js"
   },
   "author": "Christian Lechner",
-  "license": "Apache2",
+  "license": "APACHE-2.0",
   "dependencies": {
     "@octokit/auth-token": "3.0.0",
     "@octokit/request": "6.2.0",

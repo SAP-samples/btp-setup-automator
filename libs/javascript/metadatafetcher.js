@@ -3,8 +3,8 @@
 const { createTokenAuth } = require("@octokit/auth-token");
 const fetch = require('node-fetch');
 const fs = require('node:fs');
-const { mkdir } = require('node:fs/promises');
 const {join} = require('node:path');
+const { mkdir } = require('node:fs/promises');
 const { request } = require("@octokit/request");
 
 async function createDirIfNotExisting(dirPath) {
@@ -29,8 +29,9 @@ async function getContent() {
 async function getContentFromGitHub(sourcePath) {
 
     const pat = process.env["METADATA_READ_TOKEN"];
-    const owner = "btp-setup-automator";
-    const repo = "btp-metadata-fetcher";
+    const owner = process.env["METADATA_SOURCE_OWNER"];
+    const repo = process.env["METADATA_SOURCE_REPO"];
+
 
     const auth = createTokenAuth(pat);
     const authentication = await auth();
