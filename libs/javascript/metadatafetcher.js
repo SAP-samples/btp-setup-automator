@@ -86,7 +86,6 @@ async function storeResultInRepo(result, targetPath) {
     const typeFile = "file";
     const typeDir = "dir";
 
-
     for (let resultEntry of result.data) {
 
         if (resultEntry.type === typeFile) {
