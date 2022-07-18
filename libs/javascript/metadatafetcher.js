@@ -3,7 +3,7 @@
 const { createTokenAuth } = require("@octokit/auth-token");
 const fetch = require('node-fetch');
 const fs = require('node:fs');
-const {join} = require('node:path');
+const { join } = require('node:path');
 const { mkdir } = require('node:fs/promises');
 const { request } = require("@octokit/request");
 
