@@ -3,6 +3,7 @@ import os
 import requests
 import logging
 import json
+import jinja2
 
 log = logging.getLogger(__name__)
 
@@ -15,6 +16,21 @@ def fetchEntitledServiceList(mainDataJsonFile, datacenterFile):
 
     thisResult = {"btpservicelist": btpservicelist, "datacenterslist": resultDCs}
     return thisResult
+
+
+def renderTemplateWithJson(templateFilename, targetFilename, parameters):
+
+    templateFolder = os.path.dirname(templateFilename)
+    templateBasename = os.path.basename(templateFilename)
+
+    templateLoader = jinja2.FileSystemLoader(searchpath=templateFolder)
+    templateEnv = jinja2.Environment(loader=templateLoader)
+    template = templateEnv.get_template(templateBasename)
+
+    renderedText = template.render(parameters)  # this is where to put args to the template renderer
+
+    with open(targetFilename, 'w') as f:
+        f.write(renderedText)
 
 
 def getJsonFromFile(filename):
