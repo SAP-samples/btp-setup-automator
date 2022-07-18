@@ -35,8 +35,8 @@ jobs:
           export METADATA_SOURCE_PATH=${{ env.METADATA_SOURCE_PATH }} 
           export METADATA_SOURCE_VERSION=${{ env.METADATA_SOURCE_VERSION }} 
           export METADATA_TARGET_PATH=${{ github.workspace }}/${{ env.METADATA_TARGET_PATH}}
-          export METADATA_SOURCE_OWNER= ${{ env.METADATA_SOURCE_OWNER }}
-          export METADATA_SOURCE_REPO= ${{ env.METADATA_SOURCE_REPO }}
+          export METADATA_SOURCE_OWNER=${{ env.METADATA_SOURCE_OWNER }}
+          export METADATA_SOURCE_REPO=${{ env.METADATA_SOURCE_REPO }}
           npm run fetch:metadata
       - name: "Store changes in GH repository"
         run: |
