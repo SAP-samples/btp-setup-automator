@@ -1,31 +1,23 @@
 #! /usr/bin/env python
-from libs.python.helperGenerator import BTPUSECASE_GEN
+from libs.python.helperGenerator import fetchEntitledServiceList
+from libs.python.helperJinja2 import renderTemplateWithJson
 
-UPDATE_SERVICE_DATA = True
+servicesListJsonFile = "./config/btp-base/btpServices.json"
+datacenterFile = "./config/btp-base/datacenters.json"
 
-mainDataJsonFile = "./config/btp-base/btpServices.json"
 #######################################################################################
-# Initialize the tool and fetch the BTP service list
+# Fetch the BTP service list (including datacenter information)
 #######################################################################################
-generator = BTPUSECASE_GEN()
-generator.fetchEntitledServiceList(UPDATE_SERVICE_DATA, mainDataJsonFile)
+allMetadata = fetchEntitledServiceList(servicesListJsonFile, datacenterFile)
 
 #######################################################################################
 # Generate all files
 #######################################################################################
-if UPDATE_SERVICE_DATA:
-    targetFilename = mainDataJsonFile
-    templateFile = "./config/templates/btp-base/BTPSERVICES.json"
-    generator.applyServiceListOnTemplate(templateFile, targetFilename)
-
-targetFilename = "./docs/gh-pages/btp-services-docs.md"
-templateFile = "./config/templates/docs-gh-pages/BTP-SERVICES-DOCS.md"
-generator.applyServiceListOnTemplate(templateFile, targetFilename)
+targetFilename = "./libs/btpsa-parameters.json"
+templateFile = "./config/templates/libs/BTPSA-PARAMETERS.json"
+renderTemplateWithJson(templateFile, targetFilename, allMetadata)
 
 targetFilename = "./libs/btpsa-usecase.json"
 templateFile = "./config/templates/libs/BTPSA-USECASE.json"
-generator.applyServiceListOnTemplate(templateFile, targetFilename)
-
-targetFilename = "./libs/btpsa-parameters.json"
-templateFile = "./config/templates/libs/BTPSA-PARAMETERS.json"
-generator.applyServiceListOnTemplate(templateFile, targetFilename)
+renderTemplateWithJson(templateFile, targetFilename, allMetadata)
+print("INFO: applied SAP BTP service list on template file >" + templateFile + "< and created the target file >" + targetFilename + "<")
