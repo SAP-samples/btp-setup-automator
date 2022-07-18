@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "JSON Schema for service parameters used in BTPSA",
+    "title": "New JSON Schema for service parameters used in BTPSA",
     "description": "Provide service parameters in usecase.json files of BTPSA",
     "type": "object",
     "additionalProperties": false,
