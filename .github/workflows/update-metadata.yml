@@ -45,3 +45,25 @@ jobs:
           git config user.name "BTPSA Bot"
           git diff --quiet && git diff --staged --quiet || git commit -m "[btpsa-bot] $(date '+%Y-%m-%d %H:%M:%S'): fetched BTP metadata"
           git push origin ${{ github.ref_name }}
+
+  update-btp-libs:
+    needs: fetch-metadata
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: "Checkout repository"
+      - name: "setup python"
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+      - name: "install python packages"
+        run: pip install -r config/python/requirements.txt
+      - name: "run python script to update btpsa libs based on new metadata"
+        run: python libs/python/generator
+      - name: "Store changes in GH repository"
+        run: |
+          git add -A
+          git config user.email "btpsabot@users.noreply.github.com"
+          git config user.name "BTPSA Bot"
+          git diff --quiet && git diff --staged --quiet || git commit -m "[btpsa-bot] $(date '+%Y-%m-%d %H:%M:%S'): updated btpsa libs"
+          git push origin ${{ github.ref_name }}
