@@ -4,7 +4,7 @@ const { createTokenAuth } = require("@octokit/auth-token");
 const fetch = require('node-fetch');
 const fs = require('node:fs');
 const { mkdir } = require('node:fs/promises');
-const path = require('node:path');
+const {join} = require('node:path');
 const { request } = require("@octokit/request");
 
 async function createDirIfNotExisting(dirPath) {
@@ -18,7 +18,7 @@ async function createDirIfNotExisting(dirPath) {
 
 async function getContent() {
 
-    const sourcePath = `${process.env["METADATA_SOURCE_PATH"]}/${process.env["METADATA_SOURCE_VERSION"]}`;
+    const sourcePath = join(process.env["METADATA_SOURCE_PATH"], process.env["METADATA_SOURCE_VERSION"]);
     const targetPath = process.env["METADATA_TARGET_PATH"];
 
     const result = await getContentFromGitHub(sourcePath);
@@ -50,7 +50,7 @@ async function getContentFromGitHub(sourcePath) {
 
 async function handleDirResult(resultEntry, targetPath) {
 
-    const dirPath = path.join(targetPath, 'services');
+    const dirPath = join(targetPath, 'services');
 
     await createDirIfNotExisting(dirPath);
 
@@ -66,7 +66,7 @@ async function handleFileResult(resultEntry, basePath) {
     const downloadUrl = resultEntry.download_url;
 
     if (basePath !== "") {
-        fileName = `${basePath}/${fileName}`
+        fileName = join(basePath, fileName);
     }
 
     const fileDownload = await fetch(downloadUrl);
