@@ -1,0 +1,43 @@
+name: Update Metadata Files
+# Update the metadata information from the central metadata fetcher repository
+
+on:
+  repository_dispatch:
+    types: [metadata-update]
+  workflow_dispatch: {}
+
+env:
+  METADATA_SOURCE_VERSION: v1
+  METADATA_SOURCE_PATH: metadata
+  METADATA_TARGET_PATH: config/btp-base
+jobs:
+  fetch-metadata:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        name: "Checkout repository"
+
+      - name: "Setup Node.js"
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: "Prepare collection of data from metadata repository"
+        run: |
+          cd libs/javascript
+          npm ci
+      - name: "Execute collection of data from metadata repository"
+        run: |
+          cd libs/javascript
+          export METADATA_READ_TOKEN=${{ secrets.METADATA_READ_TOKEN }} 
+          export METADATA_SOURCE_PATH=${{ env.METADATA_SOURCE_PATH }} 
+          export METADATA_SOURCE_VERSION=${{ env.METADATA_SOURCE_VERSION }} 
+          export METADATA_TARGET_PATH=${{ github.workspace }}/${{ env.METADATA_TARGET_PATH}}
+          npm run fetch:metadata
+      - name: "Store changes in GH repository"
+        run: |
+          git add -A
+          git config user.email "btpsabot@users.noreply.github.com"
+          git config user.name "BTPSA Bot"
+          git diff --quiet && git diff --staged --quiet || git commit -m "[btpsa bot] updated metadata"
+          git push origin ${{ github.ref_name }}
