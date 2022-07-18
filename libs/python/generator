@@ -1,6 +1,6 @@
 #! /usr/bin/env python
-from helperGenerator import fetchEntitledServiceList
-from helperJinja2 import renderTemplateWithJson
+from libs.python.helperGenerator import fetchEntitledServiceList
+from libs.python.helperJinja2 import renderTemplateWithJson
 
 servicesListJsonFile = "./config/btp-base/serviceCategories.json"
 datacenterFile = "./config/btp-base/datacenters.json"
