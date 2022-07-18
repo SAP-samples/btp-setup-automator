@@ -38,6 +38,9 @@
       "schemas": null
     }
   ],
-  "supportedEnvironments": null,
-  "supportedPlatforms": null
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
+  ]
 }

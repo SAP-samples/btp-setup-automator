@@ -386,8 +386,5 @@
   ],
   "supportedEnvironments": [
     "cloudfoundry"
-  ],
-  "supportedPlatforms": [
-    "cloudfoundry"
   ]
 }

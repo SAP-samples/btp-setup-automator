@@ -138,9 +138,5 @@
   "supportedEnvironments": [
     "cloudfoundry",
     "kymaruntime"
-  ],
-  "supportedPlatforms": [
-    "cloudfoundry",
-    "kubernetes"
   ]
 }

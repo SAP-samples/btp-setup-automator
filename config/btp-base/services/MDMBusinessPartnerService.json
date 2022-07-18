@@ -39,10 +39,5 @@
     "cloudfoundry",
     "kymaruntime",
     "sapcp"
-  ],
-  "supportedPlatforms": [
-    "cloudfoundry",
-    "kubernetes",
-    "sapcp"
   ]
 }
