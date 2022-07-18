@@ -16,6 +16,7 @@ allMetadata = fetchEntitledServiceList(servicesListJsonFile, datacenterFile)
 targetFilename = "./libs/btpsa-parameters.json"
 templateFile = "./config/templates/libs/BTPSA-PARAMETERS.json"
 renderTemplateWithJson(templateFile, targetFilename, allMetadata)
+print("INFO: applied SAP BTP service list on template file >" + templateFile + "< and created the target file >" + targetFilename + "<")
 
 targetFilename = "./libs/btpsa-usecase.json"
 templateFile = "./config/templates/libs/BTPSA-USECASE.json"
