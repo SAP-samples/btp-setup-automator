@@ -1,0 +1,46 @@
+{
+  "description": "HANA Spatial Services",
+  "displayName": "HANA Spatial Services",
+  "icon": null,
+  "id": null,
+  "inventoryIds": null,
+  "links": [],
+  "name": "spatialservices-app",
+  "servicePlans": [
+    {
+      "category": "APPLICATION",
+      "dataCenters": [
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "HANA Spatial Services",
+      "displayName": "HANA Spatial Services",
+      "name": "professional",
+      "schemas": null
+    },
+    {
+      "category": "APPLICATION",
+      "dataCenters": [
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "HANA Spatial Services",
+      "displayName": "HANA Spatial Services",
+      "name": "starter",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
+  ]
+}

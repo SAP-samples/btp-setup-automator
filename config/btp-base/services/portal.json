@@ -1,0 +1,138 @@
+{
+  "description": "SAP Cloud Platform Portal lets you build digital experience portals for employees, customers, and partners. You can streamline access to business data so that your employees can execute their daily business tasks securely, from any device.",
+  "displayName": "Cloud Portal Service",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0icG9ydGFsIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwNTNiNzA7fS5jbHMtMntmaWxsOiMwYTZlZDE7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5wb3J0YWw8L3RpdGxlPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQ1Ljg0LDIzLjk2MmE4LjQ4OSw4LjQ4OSwwLDAsMC0xMi43ODMtNS43MTNBMTAuNzQ3LDEwLjc0NywwLDAsMCwyMi40MSwxMUMxMCwxMSwxMS4wOSwyMy45ODgsMTEuMDksMjMuOTg4QTEwLjI1NywxMC4yNTcsMCwwLDAsMTQuMjg1LDQ0SDIyVjI5aDlWNDRINDEuNWExMC40ODYsMTAuNDg2LDAsMCwwLDQuMzQtMjAuMDM4Wk00MS41LDQxSDM0VjI2SDE5VjQxSDE0LjI4NWE3LjI1Nyw3LjI1NywwLDAsMS0yLjI1OC0xNC4xNjJsMi4yNzktLjc2OC0uMjMyLTIuMzg5YzAtLjA0Mi0uMzc5LTQuMjM3LDIuMDEtNy4wMTNDMTcuNDYxLDE1LjA2OCwxOSwxNCwyMi40NjUsMTRjMi41MzUsMCw2LjQxNywyLjE4Niw3Ljk5NCw1LjMzOWwxLjE3NiwyLjg3MSwyLjQyNC0xLjMxOEE3LjYsNy42LDAsMCwxLDM3LjQ0OSwyMGE1LjU0Niw1LjU0NiwwLDAsMSw1LjQ0Myw0LjUxOGwuMjg4LDEuNTI4LDEuNDE1LjY0NkE3LjQ4Niw3LjQ4NiwwLDAsMSw0MS41LDQxWiIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxOS4wMDYgNDQgMjIuMDA2IDQ0IDIyLjAwNiAyOSAzMS4wMDYgMjkgMzEuMDA2IDQ0IDM0LjAwNiA0NCAzNC4wMDYgMjYgMTkuMDA2IDI2IDE5LjAwNiA0NCIvPjwvc3ZnPg==",
+  "id": "1f093d24-69e6-42ea-a549-691401c1311e",
+  "inventoryIds": [
+    "SERVICE-2",
+    "SERVICE-134"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/product/Portal_Service/latest/en-US",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://help.sap.com/viewer/ad4b9f0b14b0458cad9bd27bf435637d/Cloud/en-US/5798687972fd4c2bace31c65b47f5587.html",
+      "title": "Documentation"
+    }
+  ],
+  "name": "portal",
+  "servicePlans": [
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu30",
+          "region": "eu30"
+        },
+        {
+          "displayName": "Australia (Sydney) Azure",
+          "environment": "cloudfoundry",
+          "name": "cf-ap20",
+          "region": "ap20"
+        },
+        {
+          "displayName": "South Korea (Seoul)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap12",
+          "region": "ap12"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "Canada (Montreal)",
+          "environment": "cloudfoundry",
+          "name": "cf-ca10",
+          "region": "ca10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Create a launchpad module that acts as a central entry point for your developed apps.",
+      "displayName": "standard",
+      "free": false,
+      "name": "standard",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+  ]
+}

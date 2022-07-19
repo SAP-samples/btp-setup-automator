@@ -1,0 +1,71 @@
+{
+  "description": "Mobile App Update",
+  "displayName": "Mobile App Update",
+  "icon": "sap-icon://settings",
+  "id": "4051ef70-6430-4d54-a2c0-35328cfc7b4d",
+  "inventoryIds": null,
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/468990a67780424a9e66eb096d4345bb/Cloud/en-US/fb0364cb13b44f84803657a386811f2a.html",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://mobile-service-cockpit-web.cfapps.us10.hana.ondemand.com",
+      "title": "Support information"
+    }
+  ],
+  "name": "mobile-app-update",
+  "servicePlans": [
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Mobile App Update Service is used to update new versions of an App Modeler application",
+      "displayName": "Mobile App Update Service is used to update new versions of an App Modeler application",
+      "free": true,
+      "name": "standard",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
+  ]
+}

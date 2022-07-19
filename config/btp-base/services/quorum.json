@@ -1,0 +1,166 @@
+{
+  "description": "The Quorum service lets you create, delete, monitor and maintain individual Quorum nodes and connect them to a blockchain network.",
+  "displayName": "Quorum",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgODAgODAiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50IiB4MT0iMC4xOCIgeTE9IjQwIiB4Mj0iNzkuODIiIHkyPSI0MCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzNiODNjMSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzg2YmZjOCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjx0aXRsZT5sb2dvMTI4eDEyODwvdGl0bGU+PHBvbHlsaW5lIHBvaW50cz0iNTIuNzkgNDAuOSA3Ni4zMiA0MC45IDc2LjMyIDcwLjY3IDQxLjM2IDcwLjY3IDQxLjM2IDkuMzMgMy42OCA5LjMzIDMuNjggMzkuMDIgMjcuNDcgMzkuMDIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI3IiBzdHJva2U9InVybCgjbGluZWFyLWdyYWRpZW50KSIvPjwvc3ZnPg==",
+  "id": "97972007-236f-430b-870c-74b7352d96b0",
+  "inventoryIds": [
+    "SERVICE-322"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/p/QUORUM",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/5dd739823b824b539eee47b7860a00be.html",
+      "title": "Support"
+    }
+  ],
+  "name": "quorum",
+  "servicePlans": [
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Connect Your Own Network (CYON) into SAP BTP.",
+      "displayName": "cyon",
+      "free": true,
+      "name": "cyon",
+      "schemas": {
+        "service_instance": {
+          "create": {
+            "parameters": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "properties": {
+                "dashboard": {
+                  "default": "",
+                  "description": "",
+                  "type": "string"
+                },
+                "enode": {
+                  "default": "",
+                  "description": "",
+                  "type": "string"
+                },
+                "rpc": {
+                  "default": "\u003c RPC URL (required, https only)\u003e",
+                  "description": "",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Quorum node which is part of a cross organizational test network available for developing and testing distributed applications. It may not be used productively.",
+      "displayName": "testnet",
+      "free": true,
+      "name": "testnet",
+      "schemas": {
+        "service_binding": {
+          "create": {
+            "parameters": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "properties": {
+                "password": {
+                  "default": "",
+                  "description": "Account password for locking the account",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "service_instance": {
+          "create": {
+            "parameters": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "properties": {
+                "nodeSecret": {
+                  "default": "",
+                  "description": "Secret that is used for encrypting resources of the instance",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Environment with all relevant APIs for developing and testing of Solidity Smart Contracts on a fixed network with shared nodes.",
+      "displayName": "dev",
+      "free": true,
+      "name": "dev",
+      "schemas": {
+        "service_binding": {
+          "create": {
+            "parameters": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "properties": {
+                "password": {
+                  "default": "",
+                  "description": "Account password for locking the account",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
+  ]
+}

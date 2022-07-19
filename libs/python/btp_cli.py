@@ -59,7 +59,6 @@ class BTPUSECASE:
         self.definedServices = getServiceCategoryItemsFromUsecaseFile(
             self, allServices, self.availableCategoriesService)
         self.definedEnvironments = getEnvironmentsForUsecase(self, allServices)
-        self.admins = getAdminsFromUsecaseFile(self)
         self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(
             self, allServices, self.availableCategoriesApplication)
         usecaseFileContent = getJsonFromFile(self.usecasefile)
@@ -72,6 +71,7 @@ class BTPUSECASE:
 
         login_btp(self)
         self.accountMetadata = get_globalaccount_details(self)
+        self.accountMetadata = addKeyValuePair(self.accountMetadata, "myemail", self.myemail)
         save_collected_metadata(self)
         checkConfigurationInfo(self)
 
@@ -97,8 +97,9 @@ class BTPUSECASE:
                 "Checking if all configured services & app subscriptions are available on your global account")
 
             availableForAccount = getListOfAvailableServicesAndApps(self)
+            availableCustomApps = getListOfAvailableCustomApps(self)
             usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(
-                self, availableForAccount)
+                self, availableForAccount, availableCustomApps)
 
             if usecaseSupportsServices is False:
                 log.error("USE CASE NOT SUPPORTED IN YOUR GLOBAL ACCOUNT!")
@@ -416,7 +417,7 @@ class BTPUSECASE:
                     if envEntry is not None:
                         log.info("Kyma environment with name >" +
                                  kymaClusterName + "< already exists - Creation skipped")
-                        return
+                        continue
 
                     log.header("Create environment >" + environment.name + "<")
 
@@ -662,7 +663,7 @@ def getAdminsFromUsecaseFile(btpUsecase: BTPUSECASE):
     return items
 
 
-def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, availableForAccount):
+def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, availableForAccount, availableCustomApps):
 
     usecaseRegion = btpUsecase.region
     fallbackServicePlan = None
@@ -706,6 +707,13 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
                             accountServicePlanRegion = accountServicePlanDataCenter["region"]
                             if (accountServicePlanRegion == usecaseRegion):
                                 supported = True
+
+        # Special Case for custom apps (exist only in subaccount)
+        if supported is False and usecaseService.category == "APPLICATION" and usecaseService.customerDeveloped is True and len(availableCustomApps) != 0:
+            # Custom apps are only available in subaccount as app => check "availableCustomApps"
+            for customApp in availableCustomApps:
+                if customApp["appName"] == usecaseService.name:
+                    supported = True
 
         if (supported is True):
             log.success("service  >" + usecaseServiceName + "< with plan >" +
@@ -764,6 +772,21 @@ def getListOfAvailableServicesAndApps(btpUsecase: BTPUSECASE):
     message = "Get list of available services and app subsciptions for defined region >" + \
         usecaseRegion + "<"
     result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
+
+    return result
+
+
+def getListOfAvailableCustomApps(btpUsecase: BTPUSECASE):
+    customAppProviderSubaccountId = btpUsecase.customAppProviderSubaccountId
+    result = []
+    if btpUsecase.customAppProviderSubaccountId is not None:
+        command = "btp --format json list accounts/subscription --subaccount '" + customAppProviderSubaccountId + "'"
+        message = "Get list of available apps subsciptions for provider subaccount id >" + customAppProviderSubaccountId + "<"
+        resultSubaccount = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
+
+        for appSubaccount in resultSubaccount["applications"]:
+            if appSubaccount["customerDeveloped"] is True:
+                result.append(appSubaccount)
 
     return result
 
@@ -905,7 +928,8 @@ def doAllEntitlements(btpUsecase: BTPUSECASE, allItems):
     for service in allItems:
         thisName = service.name
         thisPlan = service.plan
-        if not any(d.name == thisName and d.plan == thisPlan for d in entitlements):
+        # Exclude custom developed services as they cannot be entitled
+        if not any(d.name == thisName and d.plan == thisPlan for d in entitlements) and service.customerDeveloped is False:
             entitlements.append(service)
 
     # Now set the amount for the entitlement right

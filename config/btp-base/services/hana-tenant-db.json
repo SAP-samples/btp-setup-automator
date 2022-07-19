@@ -1,0 +1,55 @@
+{
+  "description": "SAP HANA Tenant Database",
+  "displayName": "SAP HANA Tenant Database",
+  "icon": null,
+  "id": null,
+  "inventoryIds": null,
+  "links": [],
+  "name": "hana-tenant-db",
+  "servicePlans": [
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        }
+      ],
+      "description": "SAP HANA Tenant Database",
+      "displayName": "SAP HANA Tenant Database",
+      "name": "standard",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
+  ]
+}

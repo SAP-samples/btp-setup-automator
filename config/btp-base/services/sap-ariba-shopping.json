@@ -1,0 +1,31 @@
+{
+  "description": "The SAP Ariba Shopping mobile app enables casual employees to easily search and purchase products.",
+  "displayName": "SAP Ariba Shopping",
+  "icon": null,
+  "id": null,
+  "inventoryIds": null,
+  "links": [],
+  "name": "sap-ariba-shopping",
+  "servicePlans": [
+    {
+      "category": "APPLICATION",
+      "dataCenters": [
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "This plan enables the connection between the SAP Ariba Shopping app and Ariba\u2019s Core Procurement and Catalog modules.",
+      "displayName": "Standard",
+      "name": "standard",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
+  ]
+}

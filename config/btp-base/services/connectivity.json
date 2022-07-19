@@ -1,0 +1,289 @@
+{
+  "description": "SAP BTP Connectivity service allows you to establish secure and reliable connectivity between your cloud applications and on-premise systems running in isolated networks.",
+  "displayName": "Connectivity Service",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0ic2FwLWhhbmEtY2xvdWQtY29ubmVjdG9yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwYTZlZDE7fS5jbHMtMntmaWxsOiMwNTNiNzA7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5zYXAtaGFuYS1jbG91ZC1jb25uZWN0b3I8L3RpdGxlPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQxLjUsNDloLTlhMS41LDEuNSwwLDAsMCwwLDNoOWExLjUsMS41LDAsMCwwLDAtM1oiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik00OC45OTEsMjVIMjUuMDA5QTMuMDA5LDMuMDA5LDAsMCwwLDIyLDI4LjAwOVY0Mi45OTFBMy4wMDksMy4wMDksMCwwLDAsMjUuMDA5LDQ2SDQ4Ljk5MUEzLjAwOSwzLjAwOSwwLDAsMCw1Miw0Mi45OTFWMjguMDA5QTMuMDA5LDMuMDA5LDAsMCwwLDQ4Ljk5MSwyNVptMCwxOEwyNSw0Mi45OTEsMjUuMDA5LDI4SDQ4Ljk5MWwuMDA5LjAwOVoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xOS4xMDksN2E2LjQ1NSw2LjQ1NSwwLDAsMSw1Ljg2NCw0LjAzM2wxLjMwNywzLjI5TDI5LjMxLDEyLjVhMy45MjIsMy45MjIsMCwwLDEsMi4wNDMtLjU5MSwzLjk4OCwzLjk4OCwwLDAsMSwzLjkxNCwzLjI0OWwuMjg4LDEuNTI5LDEuNDE1LjY0NmE1LjM1MSw1LjM1MSwwLDAsMSwzLDQuNjdINDNhOC4zNTUsOC4zNTUsMCwwLDAtNC43ODUtNy40QTYuOTQxLDYuOTQxLDAsMCwwLDI3Ljc2Miw5LjkyOCw5LjQ1Miw5LjQ1MiwwLDAsMCwxOS4wNTUsNEM4LjY1LDQsOS44LDE0LjYyMSw5LjgsMTQuNjIxQTguMzg3LDguMzg3LDAsMCwwLDEyLjQxLDMwLjk4NkgxOXYtM0gxMi40MWE1LjM4Nyw1LjM4NywwLDAsMS0xLjY3NS0xMC41MTVsMi4zMDgtLjc1OUwxMi43ODEsMTQuM2E4LjEsOC4xLDAsMCwxLDEuNS01LjI4NEE2LjUsNi41LDAsMCwxLDE5LjEwOSw3WiIvPjwvc3ZnPg==",
+  "id": "3a50dc9c-0f77-4e32-82ee-3f36f115d13a",
+  "inventoryIds": [
+    "SERVICE-37",
+    "SERVICE-50",
+    "SERVICE-169"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/e54cc8fbbb571014beb5caaf6aa31280.html",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/e6c7616abb5710148cfcf3e75d96d596.html",
+      "title": "Documentation - Cloud Connector"
+    },
+    {
+      "linkURL": "https://discovery-center.cloud.sap/#/serviceCatalog/connectivity-service",
+      "title": "Discovery Center"
+    },
+    {
+      "linkURL": "https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/34010ace6ac84574a4ad02f5055d3597.html",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/e5580c5dbb5710149e53c6013301a9f2.html",
+      "title": "Support information"
+    }
+  ],
+  "name": "connectivity",
+  "servicePlans": [
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "cf-ch20",
+          "environment": "cloudfoundry",
+          "name": "cf-ch20",
+          "region": "ch20"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "South Korea (Seoul)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap12",
+          "region": "ap12"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu30",
+          "region": "eu30"
+        },
+        {
+          "displayName": "India (Mumbai)",
+          "environment": "cloudfoundry",
+          "name": "cf-in30",
+          "region": "in30"
+        },
+        {
+          "displayName": "Canada (Montreal)",
+          "environment": "cloudfoundry",
+          "name": "cf-ca10",
+          "region": "ca10"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "Australia (Sydney) Azure",
+          "environment": "cloudfoundry",
+          "name": "cf-ap20",
+          "region": "ap20"
+        }
+      ],
+      "description": "Allow cloud applications to establish secure connections to on-premise systems through SAP Cloud Connector",
+      "displayName": "lite",
+      "free": true,
+      "name": "lite",
+      "schemas": null
+    },
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "cf-ch20",
+          "environment": "cloudfoundry",
+          "name": "cf-ch20",
+          "region": "ch20"
+        },
+        {
+          "displayName": "India (Mumbai)",
+          "environment": "cloudfoundry",
+          "name": "cf-in30",
+          "region": "in30"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu30",
+          "region": "eu30"
+        },
+        {
+          "displayName": "Australia (Sydney) Azure",
+          "environment": "cloudfoundry",
+          "name": "cf-ap20",
+          "region": "ap20"
+        },
+        {
+          "displayName": "South Korea (Seoul)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap12",
+          "region": "ap12"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "Canada (Montreal)",
+          "environment": "cloudfoundry",
+          "name": "cf-ca10",
+          "region": "ca10"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Pair Connectivity Proxy with SAP CP Connectivity service for establishing secure connections to on-premise systems through SAP Cloud Connector",
+      "displayName": "connectivity_proxy",
+      "free": true,
+      "name": "connectivity_proxy",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
+  ]
+}

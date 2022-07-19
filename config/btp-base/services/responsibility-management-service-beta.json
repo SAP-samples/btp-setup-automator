@@ -1,0 +1,38 @@
+{
+  "description": "Provides APIs for DetermineAgents using responsibility rules or external APIs(bring your own code) and AgentDeterminationRequest.",
+  "displayName": "Responsibility Management Service",
+  "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjMuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9InNjcmVlbmluZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiCgkgdmlld0JveD0iMCAwIDU2IDU2IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1NiA1NjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiMwQTZFRDE7fQoJLnN0MXtmaWxsOiMwNTNCNzA7fQo8L3N0eWxlPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzAuNywyMy44YzAtMS4xLTAuNC0yLjMtMS4zLTNjLTEuNy0xLjctNC40LTEuNy02LDBjLTEuNywxLjYtMS43LDQuMy0wLjEsNmMwLDAsMCwwLDAuMSwwLjEKCWMxLjcsMS43LDQuNCwxLjYsNi4xLDBDMzAuMywyNS45LDMwLjcsMjQuOSwzMC43LDIzLjhMMzAuNywyMy44eiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjYuNCwyOGMtMS43LTAuMS0zLjQsMC40LTQuOCwxLjRjLTEuMSwwLjktMS42LDIuNi0xLjYsNWgxMi45YzAtMi40LTAuNS00LjEtMS42LTUKCUMyOS45LDI4LjQsMjguMiwyNy45LDI2LjQsMjh6Ii8+CjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0xNi4zLDEyLjhjLTEuMi0xLjYtMy41LTItNS4xLTAuOGMtMS42LDEuMi0yLDMuNC0wLjksNWMxLjEsMS42LDMuMywyLDUsMWwzLjgsMy44YzAuNC0wLjQsMC43LTAuOCwxLjItMS4xCglsLTMuOC0zLjhDMTcuMiwxNS41LDE3LjIsMTQsMTYuMywxMi44eiIvPgo8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNDIuNiwyNi4xYy0xLjktMC41LTMuOSwwLjUtNC41LDIuNGwtMi4yLTAuMmMwLDAsMCwwLDAsMC4xYzAsMC41LDAsMS0wLjEsMS42bDIuMiwwLjJjMC4yLDEuNSwxLjIsMi43LDIuNywzCgljMiwwLjUsNC0wLjYsNC41LTIuNlM0NC41LDI2LjcsNDIuNiwyNi4xTDQyLjYsMjYuMXoiLz4KPHBhdGggY2xhc3M9InN0MSIgZD0iTTMwLjUsNDAuNkwyOS45LDM4Yy0wLjUsMC4yLTEsMC4zLTEuNiwwLjRsMC42LDIuNWMtMS4zLDAuNi0yLjEsMi0yLjEsMy41YzAuMSwyLDEuOCwzLjYsMy44LDMuNQoJczMuNi0xLjgsMy41LTMuOGwwLDBDMzQuMSw0Mi4yLDMyLjUsNDAuNiwzMC41LDQwLjZ6Ii8+CjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0xNywzMS4zbC0wLjEtMC4zYzAtMC4xLDAtMC4yLTAuMS0wLjNsLTMuMSwxLjRjLTAuOS0xLjItMi40LTEuNy0zLjgtMS4zYy0yLDAuNS0zLjEsMi41LTIuNiw0LjUKCWMwLjUsMiwyLjUsMy4xLDQuNSwyLjZsMCwwYzEuOS0wLjUsMy4xLTIuNCwyLjYtNC40bDIuOS0xLjRDMTcuMiwzMS45LDE3LjEsMzEuNiwxNywzMS4zeiIvPgo8cG9seWdvbiBjbGFzcz0ic3QwIiBwb2ludHM9IjM2LjgsMTIuMiAzNS42LDEzLjQgMzkuMiwxNyA0Ni4zLDEwLjMgNDUsOC45IDM5LjIsMTQuNiAiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTQzLjgsMTQuOWMwLDAuMSwwLDAuMSwwLDAuMmMwLDIuNy0yLjIsNC45LTQuOSw0LjljLTIuNywwLTQuOS0yLjItNC45LTQuOXMyLjItNC45LDQuOS00LjljMCwwLDAsMCwwLDAKCWMwLjYsMCwxLjMsMC4yLDEuOSwwLjRsMC45LTAuOUM0MC45LDkuMiw0MCw4LjksMzksOC45Yy0zLjQsMC02LjEsMi43LTYuMSw2LjFjMCwzLjQsMi43LDYuMSw2LjEsNi4xYzMuNCwwLDYuMS0yLjcsNi4xLTYuMQoJYzAtMC40LTAuMS0wLjgtMC4yLTEuM0w0My44LDE0Ljl6Ii8+Cjwvc3ZnPgo=",
+  "id": null,
+  "inventoryIds": [
+    "SERVICE-XXX"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/product/DRAFT/RESPONSIBILITY_MANAGEMENT/1.0/en-US",
+      "title": "Documentation"
+    }
+  ],
+  "name": "responsibility-management-service-beta",
+  "servicePlans": [
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Beta Plan",
+      "displayName": "beta",
+      "name": "beta",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
+  ]
+}

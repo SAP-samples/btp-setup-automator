@@ -1,0 +1,225 @@
+{
+  "description": "SAP Process Automation is a citizen development solution to adapt, improve, and innovate business processes with the low-code/no-code capabilities of SAP Workflow Management and SAP Intelligent RPA.",
+  "displayName": "SAP Process Automation",
+  "icon": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHZpZXdCb3g9IjAgMCA1NiA1NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgb3BhY2l0eT0iMC45NiI+CjxyZWN0IHdpZHRoPSI1NiIgaGVpZ2h0PSI1NiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zNC40NTk1IDE1LjQ2OTdDMzUuNjM2NiAxNC40MjMzIDM3LjQ1ODQgMTQuNTA4MSAzOC41Mjg1IDE1LjY1OTFMNDguMjQxMiAyNi4xMDU4QzQ5LjI0IDI3LjE4IDQ5LjI0IDI4LjgyMDYgNDguMjQxMiAyOS44OTQ5TDM4LjUyODUgNDAuMzQxNkMzNy40NTg0IDQxLjQ5MjUgMzUuNjM2NiA0MS41Nzc0IDM0LjQ1OTUgNDAuNTMxQzMzLjI4MjQgMzkuNDg0NyAzMy4xOTU2IDM3LjcwMzQgMzQuMjY1NyAzNi41NTI0TDQyLjIxNyAyOC4wMDAzTDM0LjI2NTcgMTkuNDQ4M0MzMy4xOTU2IDE4LjI5NzMgMzMuMjgyNCAxNi41MTYgMzQuNDU5NSAxNS40Njk3WiIgZmlsbD0iIzA1M0I3MCIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTIxLjYwMjggMTUuNDY5N0MyMi43Nzk5IDE0LjQyMzMgMjQuNjAxNyAxNC41MDgxIDI1LjY3MTggMTUuNjU5MUwzNS4zODQ1IDI2LjEwNThDMzYuMzgzMyAyNy4xOCAzNi4zODMzIDI4LjgyMDYgMzUuMzg0NSAyOS44OTQ5TDI1LjY3MTggNDAuMzQxNkMyNC42MDE3IDQxLjQ5MjUgMjIuNzc5OSA0MS41Nzc0IDIxLjYwMjggNDAuNTMxQzIwLjQyNTcgMzkuNDg0NyAyMC4zMzg5IDM3LjcwMzQgMjEuNDA5IDM2LjU1MjRMMjkuMzYwMyAyOC4wMDAzTDIxLjQwOSAxOS40NDgzQzIwLjMzODkgMTguMjk3MyAyMC40MjU3IDE2LjUxNiAyMS42MDI4IDE1LjQ2OTdaIiBmaWxsPSIjMEE2RUQxIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNOC4xNDQxOCAxNS41NjMxQzkuNTg4NjIgMTQuMjc5MSAxMS44MTkxIDE0LjM4MTMgMTMuMTM1IDE1Ljc5NjdMMjIuMjk2NiAyNS42NTA1QzIzLjUzMzIgMjYuOTgwNSAyMy41MzMyIDI5LjAxODUgMjIuMjk2NiAzMC4zNDg1TDEzLjEzNSA0MC4yMDIzQzExLjgxOTEgNDEuNjE3NyA5LjU4ODYyIDQxLjcxOTkgOC4xNDQxOSA0MC40MzU5QzYuNjg5MDYgMzkuMTQyNSA2LjU3OTQ1IDM2LjkzMDMgNy45MDUzIDM1LjUwNDNMMTQuODgyOCAyNy45OTk1TDcuOTA1MyAyMC40OTQ3QzYuNTc5NDUgMTkuMDY4NyA2LjY4OTA2IDE2Ljg1NjUgOC4xNDQxOCAxNS41NjMxWk0xMS45MjYxIDE2LjkyMDZDMTEuMjIzMyAxNi4xNjQ3IDEwLjAxNzEgMTYuMTA2OCA5LjI0MDg1IDE2Ljc5NjhDOC40NzUzMiAxNy40NzczIDguNDIxMjggMTguNjI1NSA5LjExNDIgMTkuMzcwOEwxNi42MTQyIDI3LjQzNzVDMTYuOTA4NyAyNy43NTQzIDE2LjkwODcgMjguMjQ0NyAxNi42MTQyIDI4LjU2MTVMOS4xMTQyIDM2LjYyODJMOC41MDk3NSAzNi4wNjYyTDkuMTE0MiAzNi42MjgyQzguNDIxMjggMzcuMzczNSA4LjQ3NTMyIDM4LjUyMTcgOS4yNDA4NSAzOS4yMDIyTDguNjkyNTIgMzkuODE5MUw5LjI0MDg1IDM5LjIwMjJDMTAuMDE3MSAzOS44OTIyIDExLjIyMzMgMzkuODM0MyAxMS45MjYxIDM5LjA3ODRMMjEuMDg3NyAyOS4yMjQ2QzIxLjczNTIgMjguNTI4IDIxLjczNTIgMjcuNDcxIDIxLjA4NzcgMjYuNzc0NEwxMS45MjYxIDE2LjkyMDZaIiBmaWxsPSIjMEE2RUQxIi8+CjwvZz4KPC9zdmc+Cg==",
+  "id": null,
+  "inventoryIds": [
+    "SERVICE-863"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/p/PROCESS_AUTOMATION",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english\u0026search=Supplement%20Business%20Technology%20Platform\u0026sort=latest_desc",
+      "title": "Business Technology Platform Supplemental Terms and Conditions"
+    }
+  ],
+  "name": "process-automation",
+  "servicePlans": [
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "This plan enables you to execute unattended automation",
+      "displayName": "automation-unattended",
+      "name": "automation-unattended",
+      "schemas": null
+    },
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "This plan enables you to add a standard user",
+      "displayName": "standard-user",
+      "name": "standard-user",
+      "schemas": null
+    },
+    {
+      "category": "APPLICATION",
+      "dataCenters": [
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Default plan for using Process Automation",
+      "displayName": "Standard",
+      "name": "standard",
+      "schemas": null
+    },
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "This plan enables you to execute attended automation",
+      "displayName": "automation-attended",
+      "name": "automation-attended",
+      "schemas": null
+    },
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "This plan enables you to add an advanced user",
+      "displayName": "advanced-user",
+      "name": "advanced-user",
+      "schemas": null
+    },
+    {
+      "category": "APPLICATION",
+      "dataCenters": [
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions. Limits may apply.",
+      "displayName": "Free",
+      "name": "free",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
+  ]
+}

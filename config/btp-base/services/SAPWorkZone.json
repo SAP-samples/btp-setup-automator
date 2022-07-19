@@ -1,0 +1,110 @@
+{
+  "description": "SAP Work Zone centralizes access to relevant business applications, processes, information, and communication in a unified entry point that users can access from any device.",
+  "displayName": "SAP Work Zone",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0ic2FwLXdvcmstem9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMDA2ZGQ3O30uY2xzLTJ7ZmlsbDojMDAzYjc0O308L3N0eWxlPjwvZGVmcz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik00MywzMUg0MFYyOEgzN3Y5YTMuMDA5LDMuMDA5LDAsMCwwLDMsM2gzYTMuMDA5LDMuMDA5LDAsMCwwLDMtM1YzNEEzLjAwOSwzLjAwOSwwLDAsMCw0MywzMVptMCw2SDQwVjM0aDNaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTksMzguNXYtOUgxNnYzSDEzYTMuMDA5LDMuMDA5LDAsMCwwLTMsM3YzYTMuMDA5LDMuMDA5LDAsMCwwLDMsM2gzQTMuMDA5LDMuMDA5LDAsMCwwLDE5LDM4LjVabS0zLDBIMTN2LTNoM1oiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yMy41LDQzaC0zYTMuMDA5LDMuMDA5LDAsMCwwLTMsM3YzYTMuMDA5LDMuMDA5LDAsMCwwLDMsM2gzYTMuMDA5LDMuMDA5LDAsMCwwLDMtM1YzN2gtM1ptMCw2aC0zVjQ2aDNaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMzUuNSw0MS41aC0zdi05aC0zdjE1YTMuMDA5LDMuMDA5LDAsMCwwLDMsM2gzYTMuMDA5LDMuMDA5LDAsMCwwLDMtM3YtM0EzLjAwOSwzLjAwOSwwLDAsMCwzNS41LDQxLjVabTAsNmgtM3YtM2gzWiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTI0LjcsMjMuNDg4Yy41OCwwLDEuMDUtLjg3MywxLjA1LTEuOTQ5cy0uNDctMS45NS0xLjA1LTEuOTUtMS4wNS44NzMtMS4wNSwxLjk1UzI0LjExNiwyMy40ODgsMjQuNywyMy40ODhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMzEuMywyMy40ODhjLjU4LDAsMS4wNS0uODczLDEuMDUtMS45NDlzLS40Ny0xLjk1LTEuMDUtMS45NS0xLjA1Ljg3My0xLjA1LDEuOTVTMzAuNzE2LDIzLjQ4OCwzMS4zLDIzLjQ4OFoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yOCwyNi40ODhhMS41LDEuNSwwLDAsMCwxLjUtMS41aC0zQTEuNSwxLjUsMCwwLDAsMjgsMjYuNDg4WiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTQ5LDEzSDQ2YTMuMDA5LDMuMDA5LDAsMCwwLTMsM3Y2Ljk5YS41MjYuNTI2LDAsMCwxLS41MS41MUg0MC41MWEuNTI2LjUyNiwwLDAsMS0uNTEtLjUxVjE1LjgyQTExLjg3NSwxMS44NzUsMCwwLDAsMjguMTIsNGgtLjI3QTExLjg2OSwxMS44NjksMCwwLDAsMTYsMTUuODJ2Ny4xN2EuNS41LDAsMCwxLS41MS40OEgxMy41MWEuNS41LDAsMCwxLS41MS0uNDhWMTNhMy4wMDksMy4wMDksMCwwLDAtMy0zSDdhMy4wMDksMy4wMDksMCwwLDAtMywzdjNhMy4wMDksMy4wMDksMCwwLDAsMywzaDN2My45OWEzLjQ4OSwzLjQ4OSwwLDAsMCwzLjUxLDMuNDhoMS45OEEzLjU0MiwzLjU0MiwwLDAsMCwxOSwyMi45OVYxNS44MmE4Ljg2Niw4Ljg2NiwwLDAsMSw4Ljg1LTguODVoLjI3YTguODA2LDguODA2LDAsMCwxLDUuMTg3LDEuNzA3QTEuNDg1LDEuNDg1LDAsMCwwLDMyLjUsOS45ODhhMS40ODcsMS40ODcsMCwwLDAsMi44MTIuNjg5QTguNzQ1LDguNzQ1LDAsMCwxLDM3LDE1LjgydjcuMTdhMy41LDMuNSwwLDAsMCwxLjcxLDMsMy40LDMuNCwwLDAsMCwxLjguNTFoMS45OEEzLjUxNCwzLjUxNCwwLDAsMCw0NiwyMi45OVYyMmgzYTMuMDA5LDMuMDA5LDAsMCwwLDMtM1YxNkEzLjAwOSwzLjAwOSwwLDAsMCw0OSwxM1pNMTAsMTZIN1YxM2gzWm0zOSwzSDQ2VjE2aDNaIi8+PGNpcmNsZSBjbGFzcz0iY2xzLTIiIGN4PSIzNC43NDYiIGN5PSIxMy43MzgiIHI9IjAuNzUiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMiIgY3g9IjMwLjI0NiIgY3k9IjkuMjM4IiByPSIwLjc1Ii8+PC9zdmc+",
+  "id": null,
+  "inventoryIds": [
+    "SERVICE-965"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/product/WZ/Cloud/en-US",
+      "title": "Documentation"
+    }
+  ],
+  "name": "SAPWorkZone",
+  "servicePlans": [
+    {
+      "category": "APPLICATION",
+      "dataCenters": [
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Canada (Montreal)",
+          "environment": "cloudfoundry",
+          "name": "cf-ca10",
+          "region": "ca10"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "SAP Work Zone",
+      "displayName": "Standard",
+      "name": "standard",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
+  ]
+}

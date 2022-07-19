@@ -1,0 +1,462 @@
+{
+  "description": "The Application Autoscaler lets you automatically increase or decrease the number of application instances based on a policy you define.",
+  "displayName": "Application Autoscaler",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iYXBwYXV0b3NjYWxpbmciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDU2IDU2Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6IzBhNmVkMTt9LmNscy0ye2ZpbGw6IzA1M2I3MDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFwcGF1dG9zY2FsaW5nPC90aXRsZT48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xMy43LDQyLjNhMi4zMzMsMi4zMzMsMCwwLDAsMS44NDcuNzExbDkuOTQ3LS4yODRBMS4xODksMS4xODksMCwwLDAsMjYuOCw0MS40MnEuMDU3LTEuMzA4LTEuMzA3LTEuMzA3bC04LjEyOC40LDIzLjEzLTIzLjEzLS40LDguMTI4YTEuMzA4LDEuMzA4LDAsMSwwLDIuNjE1LDBMNDMsMTUuNTYyQTIuNDM1LDIuNDM1LDAsMCwwLDQwLjQzOCwxM2wtOS44OS4zNDFhMS4zMDgsMS4zMDgsMCwxLDAsMCwyLjYxNWw4LjEyOC0uNC0yMy4xMywyMy4xM0wxNiwzMC42MnEuMDU1LTEuMzA4LTEuMzA4LTEuMzA3YTEuMTg5LDEuMTg5LDAsMCwwLTEuMzA3LDEuMzA3bC0uNCw5LjgzNEEyLjMzMywyLjMzMywwLDAsMCwxMy43LDQyLjNaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDguMTU2LDcuODkxQTIuODQ4LDIuODQ4LDAsMCwwLDQ2LDdIMTlhMi44NDQsMi44NDQsMCwwLDAtMi4xNTYuODkxQTIuOTYyLDIuOTYyLDAsMCwwLDE2LDEwVjI4aDNWMTBINDZWMzdIMjh2M0g0NmEyLjg4OSwyLjg4OSwwLDAsMCwzLTNWMTBBMi45NjIsMi45NjIsMCwwLDAsNDguMTU2LDcuODkxWiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI4LDQ2SDEwVjI4aDNWMjVIMTBhMi44NDQsMi44NDQsMCwwLDAtMi4xNTYuODkxQTIuOTYyLDIuOTYyLDAsMCwwLDcsMjhWNDZhMi44ODksMi44ODksMCwwLDAsMywzSDI4YTIuODg5LDIuODg5LDAsMCwwLDMtM1Y0M0gyOFoiLz48L3N2Zz4=",
+  "id": "1936a64a-c61c-43b6-9cf7-a1922acc28f7",
+  "inventoryIds": [
+    "SERVICE-177"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/product/Application_Autoscaler/Cloud/en-US",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/5dd739823b824b539eee47b7860a00be.html",
+      "title": "Support"
+    },
+    {
+      "linkURL": "https://discovery-center.cloud.sap/#/serviceCatalog/application-autoscaler",
+      "title": "Discovery Center"
+    }
+  ],
+  "name": "autoscaler",
+  "servicePlans": [
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "cf-ch20",
+          "environment": "cloudfoundry",
+          "name": "cf-ch20",
+          "region": "ch20"
+        },
+        {
+          "displayName": "India (Mumbai)",
+          "environment": "cloudfoundry",
+          "name": "cf-in30",
+          "region": "in30"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu30",
+          "region": "eu30"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "Canada (Montreal)",
+          "environment": "cloudfoundry",
+          "name": "cf-ca10",
+          "region": "ca10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "South Korea (Seoul)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap12",
+          "region": "ap12"
+        },
+        {
+          "displayName": "Australia (Sydney) Azure",
+          "environment": "cloudfoundry",
+          "name": "cf-ap20",
+          "region": "ap20"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        }
+      ],
+      "description": "This plan allows ten scaling rules and ten schedules per policy document",
+      "displayName": "Standard",
+      "free": true,
+      "name": "standard",
+      "schemas": {
+        "service_binding": {
+          "create": {
+            "parameters": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "anyOf": [
+                {
+                  "required": [
+                    "scaling_rules"
+                  ]
+                },
+                {
+                  "required": [
+                    "schedules"
+                  ]
+                }
+              ],
+              "definitions": {
+                "recurring_schedule": {
+                  "oneOf": [
+                    {
+                      "required": [
+                        "days_of_week"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "days_of_month"
+                      ]
+                    }
+                  ],
+                  "properties": {
+                    "days_of_month": {
+                      "description": "The list of the days of the month when to trigger scaling. Values ranging from 1 to 31",
+                      "items": {
+                        "enum": [
+                          1,
+                          2,
+                          3,
+                          4,
+                          5,
+                          6,
+                          7,
+                          8,
+                          9,
+                          10,
+                          11,
+                          12,
+                          13,
+                          14,
+                          15,
+                          16,
+                          17,
+                          18,
+                          19,
+                          20,
+                          21,
+                          22,
+                          23,
+                          24,
+                          25,
+                          26,
+                          27,
+                          28,
+                          29,
+                          30,
+                          31
+                        ],
+                        "type": "number"
+                      },
+                      "minItems": 1,
+                      "type": "array",
+                      "uniqueItems": true
+                    },
+                    "days_of_week": {
+                      "description": "The list of the days of the week when to trigger scaling. Values ranging from 1 to 7",
+                      "items": {
+                        "enum": [
+                          1,
+                          2,
+                          3,
+                          4,
+                          5,
+                          6,
+                          7
+                        ],
+                        "type": "number"
+                      },
+                      "minItems": 1,
+                      "type": "array",
+                      "uniqueItems": true
+                    },
+                    "end_date": {
+                      "description": "End date of the recurrence in YYYY-MM-DD format",
+                      "oneOf": [
+                        {
+                          "pattern": "^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$",
+                          "type": "string"
+                        },
+                        {
+                          "enum": [
+                            ""
+                          ],
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "end_time": {
+                      "description": "End time of the recurrence in 24 hour format",
+                      "pattern": "^(2[0-3]|1[0-9]|0[0-9]):([0-5][0-9])$",
+                      "type": "string"
+                    },
+                    "initial_min_instance_count": {
+                      "description": "The number of instances to scale up to as soon as the recurrence period starts",
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "instance_max_count": {
+                      "description": "Maximum number of instances to scale up during recurrence period",
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "instance_min_count": {
+                      "description": "The number of instances to scale down to once recurrence period",
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "start_date": {
+                      "description": "Start date of the recurrence in YYYY-MM-DD format",
+                      "oneOf": [
+                        {
+                          "pattern": "^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$",
+                          "type": "string"
+                        },
+                        {
+                          "enum": [
+                            ""
+                          ],
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "start_time": {
+                      "description": "Start time of the recurrence in 24 hour format",
+                      "pattern": "^(2[0-3]|1[0-9]|0[0-9]):([0-5][0-9])$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "start_time",
+                    "end_time",
+                    "instance_min_count",
+                    "instance_max_count"
+                  ],
+                  "type": "object"
+                },
+                "scaling_rules": {
+                  "properties": {
+                    "adjustment": {
+                      "description": "Magnitude of scaling in each step, +1 means scale up 1 Instance -2 means scale down 2 instances",
+                      "pattern": "^[-+][1-9]+[0-9]*$",
+                      "type": "string"
+                    },
+                    "breach_duration_secs": {
+                      "description": "The length of the past period when a scaling action might be triggered based on metric usage",
+                      "maximum": 3600,
+                      "minimum": 60,
+                      "type": "number"
+                    },
+                    "cool_down_secs": {
+                      "description": "The interval between two successive scaling activity",
+                      "maximum": 3600,
+                      "minimum": 60,
+                      "type": "number"
+                    },
+                    "metric_type": {
+                      "pattern": "^[a-zA-Z0-9_]+$",
+                      "type": "string"
+                    },
+                    "operator": {
+                      "enum": [
+                        "\u003c",
+                        "\u003e",
+                        "\u003c=",
+                        "\u003e="
+                      ],
+                      "type": "string"
+                    },
+                    "threshold": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "metric_type",
+                    "threshold",
+                    "operator",
+                    "adjustment"
+                  ],
+                  "type": "object"
+                },
+                "schedules": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "specific_date"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "recurring_schedule"
+                      ]
+                    }
+                  ],
+                  "properties": {
+                    "recurring_schedule": {
+                      "items": {
+                        "$ref": "#/definitions/recurring_schedule"
+                      },
+                      "maxItems": 10,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "specific_date": {
+                      "items": {
+                        "$ref": "#/definitions/specific_date"
+                      },
+                      "maxItems": 10,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "timezone": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "timezone"
+                  ],
+                  "type": "object"
+                },
+                "specific_date": {
+                  "properties": {
+                    "end_date_time": {
+                      "description": "End date and time to scale in YYYY-MM-DDTHH:MM format",
+                      "pattern": "^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T(2[0-3]|1[0-9]|0[0-9]):([0-5][0-9])$",
+                      "type": "string"
+                    },
+                    "initial_min_instance_count": {
+                      "description": "The number of instances to scale up to as soon as the recurrence period starts",
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "instance_max_count": {
+                      "description": "Maximum number of instances to scale up during recurrence period",
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "instance_min_count": {
+                      "description": "The number of instances to scale down to once recurrence period",
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "start_date_time": {
+                      "description": "Start date and time to scale in YYYY-MM-DDTHH:MM format",
+                      "pattern": "^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T(2[0-3]|1[0-9]|0[0-9]):([0-5][0-9])$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "start_date_time",
+                    "end_date_time",
+                    "instance_min_count",
+                    "instance_max_count"
+                  ],
+                  "type": "object"
+                }
+              },
+              "description": "schema for autoscaler policy for standard plan",
+              "properties": {
+                "instance_max_count": {
+                  "description": "Maximum how many instances of application can be provisioned as part of application scaling",
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "instance_min_count": {
+                  "description": "Minimum number of application instance always runs",
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "scaling_rules": {
+                  "items": {
+                    "$ref": "#/definitions/scaling_rules"
+                  },
+                  "maxItems": 10,
+                  "type": "array"
+                },
+                "schedules": {
+                  "$ref": "#/definitions/schedules"
+                }
+              },
+              "required": [
+                "instance_min_count",
+                "instance_max_count"
+              ],
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
+  ]
+}

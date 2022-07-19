@@ -1,0 +1,279 @@
+{
+  "description": "The HTML5 Application Repository service enables central storage of HTML5 applications in SAP BTP. In runtime, the service enables the consuming application, typically the application router, to access HTML5 application static content in a secure and efficient manner.",
+  "displayName": "HTML5 Application Repository Service",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iaHRtbDUtYXBwbGljYXRpb25zIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwNTNiNzA7fS5jbHMtMntmaWxsOiMwYTZlZDE7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQyLjMsMTlhOC4wMDgsOC4wMDgsMCwwLDAtNC4wNzgtNC40QTYuOTQ0LDYuOTQ0LDAsMCwwLDI3Ljc2OSw5LjkyOCw5LjQ1Myw5LjQ1MywwLDAsMCwxOS4wNiw0QzkuMDc4LDQsOS44LDE0LjYyMSw5LjgsMTQuNjIxYTguMzg3LDguMzg3LDAsMCwwLDIuNjEzLDE2LjM2NUgyOC4wMDd2LTNIMTIuNDEzYTUuMzg3LDUuMzg3LDAsMCwxLTEuNjc2LTEwLjUxNWwyLjMwOS0uNzU5TDEyLjc4MywxNC4zYTguMTE0LDguMTE0LDAsMCwxLDEuNS01LjI4NCw2LjQ4NCw2LjQ4NCwwLDAsMSwxMC43LDIuMDIybDEuMzA3LDMuMjlMMjkuMzE4LDEyLjVhMy45MjMsMy45MjMsMCwwLDEsMi4wNDQtLjU5MSwzLjk4OCwzLjk4OCwwLDAsMSwzLjkxNCwzLjI0OWwuMjg5LDEuNTI5LDEuNDE1LjY0NkE0LjgsNC44LDAsMCwxLDM4LjkzMywxOVoiLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMzQuMDcgMjQuNjkxIDM1LjMwOCAyNC42OTEgMzUuMzA4IDI2LjA0NiAzNi42NiAyNi4wNDYgMzYuNjYgMjIgMzUuMzA4IDIyIDM1LjMwOCAyMy4zMzYgMzQuMDcgMjMuMzM2IDM0LjA3IDIyIDMyLjcxOCAyMiAzMi43MTggMjYuMDQ2IDM0LjA3IDI2LjA0NiAzNC4wNyAyNC42OTEiLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMzguNDM5IDI2LjA0NiAzOS43OTIgMjYuMDQ2IDM5Ljc5MiAyMy4zNDIgNDAuOTgzIDIzLjM0MiA0MC45ODMgMjIgMzcuMjQ4IDIyIDM3LjI0OCAyMy4zNDIgMzguNDM5IDIzLjM0MiAzOC40MzkgMjYuMDQ2Ii8+PHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjQyLjg5OSAyNC4wNCA0My44MyAyNS40NzkgNDMuODU0IDI1LjQ3OSA0NC43ODQgMjQuMDQgNDQuNzg0IDI2LjA0NiA0Ni4xMzEgMjYuMDQ2IDQ2LjEzMSAyMiA0NC43MiAyMiA0My44NTQgMjMuNDIxIDQyLjk4NiAyMiA0MS41NzYgMjIgNDEuNTc2IDI2LjA0NiA0Mi44OTkgMjYuMDQ2IDQyLjg5OSAyNC4wNCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSI1MC4wNTkgMjQuNzA4IDQ4LjE1NyAyNC43MDggNDguMTU3IDIyIDQ2LjgwNCAyMiA0Ni44MDQgMjYuMDQ2IDUwLjA1OSAyNi4wNDYgNTAuMDU5IDI0LjcwOCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIzNi4xNyAzNC40OTEgMzYuNjg1IDQwLjI2OCA0MS4zNjMgNDAuMjY4IDQxLjM3NyA0MC4yNjggNDMuOTQ1IDQwLjI2OCA0My43MDIgNDIuOTg2IDQxLjM2MyA0My42MTcgNDEuMzYzIDQzLjYxOCA0MS4zNjEgNDMuNjE4IDM5LjAyNiA0Mi45ODggMzguODc2IDQxLjMxNiAzNy43NDIgNDEuMzE2IDM2Ljc3MSA0MS4zMTYgMzcuMDY1IDQ0LjYwNyA0MS4zNjEgNDUuNzk5IDQxLjM3IDQ1Ljc5NiA0MS4zNyA0NS43OTYgNDUuNjYyIDQ0LjYwNyA0NS42OTMgNDQuMjUzIDQ2LjE4NiAzOC43MzUgNDYuMjM3IDM4LjE3MiA0NS42NzIgMzguMTcyIDQxLjM3NyAzOC4xNzIgNDEuMzYzIDM4LjE3MiAzOC42MDMgMzguMTcyIDM4LjQxMSAzNi4wMjUgNDEuMzcgMzYuMDI1IDQxLjM3NyAzNi4wMjUgNDYuNDI4IDM2LjAyNSA0Ni40MzUgMzYuMDI1IDQ2LjQ3NyAzNS41NTQgNDYuNTczIDM0LjQ5MSA0Ni42MjMgMzMuOTI5IDQxLjM3NyAzMy45MjkgNDEuMzcgMzMuOTI5IDM2LjEyIDMzLjkyOSAzNi4xNyAzNC40OTEiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0zMC43NCwyNy45LDMyLjY3NCw0OS41OSw0MS4zNTcsNTJsOC43MDYtMi40MTNMNTIsMjcuOVpNNDcuNjg2LDQ3LjM1OCw0MS4zNyw0OS4xMDlsLTYuMzE2LTEuNzUxTDMzLjU2NywzMC43MTZoMTUuNloiLz48L3N2Zz4=",
+  "id": "3335c91b-8e02-4a2c-9687-9bc86c0856e5",
+  "inventoryIds": [
+    "SERVICE-234"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/11d77aa154f64c2e83cc9652a78bb985.html",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/9220a2fd35d84c888c0ae870ca62bfb7.html",
+      "title": "Support"
+    },
+    {
+      "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/html5-application-repository-service",
+      "title": "Discovery Center"
+    }
+  ],
+  "name": "html5-apps-repo",
+  "servicePlans": [
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "cf-ch20",
+          "environment": "cloudfoundry",
+          "name": "cf-ch20",
+          "region": "ch20"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu30",
+          "region": "eu30"
+        },
+        {
+          "displayName": "India (Mumbai)",
+          "environment": "cloudfoundry",
+          "name": "cf-in30",
+          "region": "in30"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "Canada (Montreal)",
+          "environment": "cloudfoundry",
+          "name": "cf-ca10",
+          "region": "ca10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "South Korea (Seoul)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap12",
+          "region": "ap12"
+        },
+        {
+          "displayName": "Australia (Sydney) Azure",
+          "environment": "cloudfoundry",
+          "name": "cf-ap20",
+          "region": "ap20"
+        }
+      ],
+      "description": "Use this service plan to deploy HTML5 applications to the repository.",
+      "displayName": "app-host",
+      "free": true,
+      "name": "app-host",
+      "schemas": null
+    },
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "cf-ch20",
+          "environment": "cloudfoundry",
+          "name": "cf-ch20",
+          "region": "ch20"
+        },
+        {
+          "displayName": "India (Mumbai)",
+          "environment": "cloudfoundry",
+          "name": "cf-in30",
+          "region": "in30"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu30",
+          "region": "eu30"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "Canada (Montreal)",
+          "environment": "cloudfoundry",
+          "name": "cf-ca10",
+          "region": "ca10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "South Korea (Seoul)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap12",
+          "region": "ap12"
+        },
+        {
+          "displayName": "Australia (Sydney) Azure",
+          "environment": "cloudfoundry",
+          "name": "cf-ap20",
+          "region": "ap20"
+        }
+      ],
+      "description": "Use this service plan to consume HTML5 applications stored in the repository.",
+      "displayName": "app-runtime",
+      "free": true,
+      "name": "app-runtime",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
+  ]
+}

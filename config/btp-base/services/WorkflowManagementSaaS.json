@@ -1,0 +1,138 @@
+{
+  "description": "Digitize workflows, manage decisions and gain end-to-end process visibility",
+  "displayName": "Workflow Management",
+  "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI0LjAuMywgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1NiA1NiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTYgNTY7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDojMkQ2RkNBO30KCS5zdDF7ZmlsbDojMTYzQzZDO30KPC9zdHlsZT4KPGcgaWQ9IkxheWVyXzJfMV8iPgoJPGc+CgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTQ5LDIyLjJoLTIuNWwwLDBjLTAuMy0wLjktMC43LTEuOS0xLjItMi44bDAsMGwxLjgtMS44YzAuNi0wLjYsMC45LTEuMywwLjktMi4xYzAtMC44LTAuMy0xLjYtMC45LTIuMQoJCQlsLTQuMi00LjJjLTEuMS0xLjEtMy4xLTEuMS00LjIsMEwzNi45LDExbDAsMEMzNiwxMC41LDM1LDEwLjEsMzQsOS44VjcuMmMwLTEuNi0xLjMtMy0zLTNoLTZjLTEuNiwwLTMsMS4zLTMsM3YyLjRsMCwwCgkJCWMtMC45LDAuMy0xLjksMC43LTIuOSwxLjJsMCwwbC0xLjctMS43Yy0xLjEtMS4xLTMuMS0xLjEtNC4yLDBMOSwxMy4zYy0wLjcsMC42LTEsMS40LTEsMi4yYzAsMC44LDAuMywxLjUsMC45LDIuMWwxLjcsMS43bDAsMAoJCQljLTAuNSwwLjktMC45LDEuOS0xLjIsMi45SDdjLTEuNiwwLTMsMS4zLTMsM3Y2YzAsMS43LDEuMywzLDMsM2gyLjRsMCwwYzAuMywxLDAuNywxLjksMS4yLDIuOWwwLDBsLTEuNywxLjcKCQkJQzguMywzOS40LDgsNDAuMiw4LDQxczAuMywxLjUsMC45LDIuMWw0LjIsNC4yYzAuNiwwLjYsMS4zLDAuOCwyLjEsMC44czEuNS0wLjMsMi4xLTAuOGwxLjctMS43bDAsMGMwLjQsMC4yLDAuOSwwLjQsMS40LDAuNgoJCQlsMC40LDAuMmwxLjctMi41TDIyLDQzLjZjLTAuNi0wLjItMS0wLjQtMS41LTAuN2wtMS45LTFsLTMuMywzLjNMMTEsNDAuOWwzLjMtMy4zbC0xLTEuOWMtMC40LTAuOC0wLjgtMS42LTEtMi40bC0wLjctMi4xSDd2LTYKCQkJaDQuNmwwLjctMi4xYzAuMy0wLjgsMC42LTEuNywxLTIuNWwxLTEuOUwxMSwxNS41bDQuMy00LjNsMy4zLDMuM2wxLjktMWMwLjgtMC40LDEuNi0wLjgsMi40LTFsMi4xLTAuN1Y3LjJoNnY0LjZsMi4xLDAuNwoJCQljMC44LDAuMywxLjYsMC42LDIuNCwxbDEuOSwxbDMuMy0zLjNsNC4zLDQuM2wtMy4zLDMuM2wxLDEuOWMwLjQsMC44LDAuNywxLjYsMSwyLjRsMC43LDIuMUg0OXYyLjJoM3YtMi4yCgkJCUM1MiwyMy42LDUwLjYsMjIuMiw0OSwyMi4yeiIvPgoJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0zNS4yLDQwLjRsLTYuOS04LjhjLTEuNC0xLjctNC4xLDAuMi0yLjYsMi4xYzAsMCw1LjEsNi41LDUuMiw2LjdjMC41LDAuNiwwLjUsMS4zLDAsMS45CgkJCWMtMC4yLDAuMi01LjIsNi43LTUuMiw2LjdjLTAuOCwwLjktMC41LDEuOSwwLjEsMi40czEuNywwLjYsMi40LTAuM2w2LjktOC43QzM1LjYsNDEuOCwzNS42LDQwLjksMzUuMiw0MC40eiIvPgoJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik00My4xLDQwLjRsLTYuOS04LjhjLTEuNC0xLjctNC4xLDAuMi0yLjYsMi4xYzAsMCw1LjEsNi41LDUuMiw2LjdjMC41LDAuNiwwLjUsMS4zLDAsMS45CgkJCWMtMC4yLDAuMi01LjIsNi43LTUuMiw2LjdjLTAuOCwwLjktMC41LDEuOSwwLjIsMi40czEuNywwLjYsMi40LTAuM2w2LjktOC43QzQzLjYsNDEuOCw0My42LDQwLjksNDMuMSw0MC40eiIvPgoJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik00NC4zLDMxLjZjLTEuNC0xLjctNC4xLDAuMi0yLjYsMi4xYzAsMCw1LjEsNi41LDUuMiw2LjdjMC41LDAuNiwwLjUsMS4zLDAsMS45Yy0wLjIsMC4yLTUuMiw2LjctNS4yLDYuNwoJCQljLTAuNywwLjktMC41LDEuOCwwLjEsMi4zczEuNywwLjYsMi40LTAuMmw2LjktOC43YzAuNC0wLjYsMC40LTEuNSwwLTIuMUw0NC4zLDMxLjZ6Ii8+CgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTI4LDIyLjRjMywwLDUuNSwyLjMsNS44LDUuMmgzYy0wLjQtNC42LTQuMS04LjItOC44LTguMmMtNC45LDAtOC45LDQtOC45LDguOWMwLDEuNCwwLjMsMi42LDAuOSwzLjgKCQkJbDIuNC0yLjFjLTAuMi0wLjUtMC4zLTEuMS0wLjMtMS43QzIyLjEsMjUsMjQuOCwyMi40LDI4LDIyLjR6Ii8+Cgk8L2c+CjwvZz4KPC9zdmc+Cg==",
+  "id": null,
+  "inventoryIds": [
+    "SERVICE-488"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/product/WORKFLOW_MANAGEMENT/Cloud/en-US",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/workflow-management",
+      "title": "Discovery Center"
+    }
+  ],
+  "name": "WorkflowManagementSaaS",
+  "servicePlans": [
+    {
+      "category": "APPLICATION",
+      "dataCenters": [
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu30",
+          "region": "eu30"
+        },
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "Australia (Sydney) Azure",
+          "environment": "cloudfoundry",
+          "name": "cf-ap20",
+          "region": "ap20"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "South Korea (Seoul)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap12",
+          "region": "ap12"
+        },
+        {
+          "displayName": "Canada (Montreal)",
+          "environment": "cloudfoundry",
+          "name": "cf-ca10",
+          "region": "ca10"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Plan for usage of process flexibility for customers with Workflow Management entitlement to enable Digital Process Automation",
+      "displayName": "saas-application",
+      "name": "saas-application",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
+  ]
+}

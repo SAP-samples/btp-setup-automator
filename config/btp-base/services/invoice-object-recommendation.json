@@ -1,0 +1,38 @@
+{
+  "description": "The Invoice Object Recommendation services provides the functionality to train a machine learning model with customer specific data that can give recommendations on G/L Accounts for incoming invoices without a purchase order reference attached. The service therefore provides a training call as described and an inference call that gives back recommendations based on a trained model to semi-automate the invoice processing in the area of accounts payable.",
+  "displayName": "Invoice Object Recommendation",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iaW52b2ljZS1vYmplY3QtcmVjb21tZW5kYXRpb24iIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDU2IDU2Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6IzA1M2I3MDt9LmNscy0ye2ZpbGw6IzBhNmVkMTt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmludm9pY2Utb2JqZWN0LXJlY29tbWVuZGF0aW9uPC90aXRsZT48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yMiwyMkgxM2ExLjUsMS41LDAsMCwwLDAsM2g5YTEuNSwxLjUsMCwwLDAsMC0zWiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIyLDI4SDEzYTEuNSwxLjUsMCwwLDAsMCwzaDlhMS41LDEuNSwwLDAsMCwwLTNaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjIsMzRIMTNhMS41LDEuNSwwLDAsMCwwLDNoOWExLjUsMS41LDAsMCwwLDAtM1oiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yNi41LDdIMTQuNTk0TDUuNSwxNlY0NmEyLjg4OSwyLjg4OSwwLDAsMCwzLDNoMThWNDZIOC41VjE5aDZhMy4wODQsMy4wODQsMCwwLDAsMi4yLS44NDRBMi44NDQsMi44NDQsMCwwLDAsMTcuNTk0LDE2VjEwSDI2LjVaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDkuNjA5LDcuODQ0QTIuOTYyLDIuOTYyLDAsMCwwLDQ3LjUsN2gtMThWNGgtM1Y1MmgzVjQ5aDE4YTIuODg5LDIuODg5LDAsMCwwLDMtM1YxMEEyLjg0OCwyLjg0OCwwLDAsMCw0OS42MDksNy44NDRaTTQ3LjUsNDZoLTE4VjEwaDE4WiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTMxLjIsMzAuM2w1LjUzOCw2LjUwOWEuNTc4LjU3OCwwLDAsMCwuNTMyLjE4Ny41NTMuNTUzLDAsMCwwLC40NDMtLjMyOGw4LjItMTIuNzM2YS42LjYsMCwwLDAtLjA4OS0uNzVsLS45NzUtLjk4M2EuNTQ4LjU0OCwwLDAsMC0uNTA5LS4xODcuNTQyLjU0MiwwLDAsMC0uNDIxLjMyOGwtNi40NjgsOS42OTNhLjUzOC41MzgsMCwwLDEtLjkzLjE4N0wzMi45NzEsMjguNDdhLjUuNSwwLDAsMC0uODQxLDBsLS45MzEuOTgzQS41NDYuNTQ2LDAsMCwwLDMxLjIsMzAuM1oiLz48L3N2Zz4=",
+  "id": null,
+  "inventoryIds": [
+    "SERVICE-461"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/product/Invoice_Object_Recommendation",
+      "title": "Documentation"
+    }
+  ],
+  "name": "invoice-object-recommendation",
+  "servicePlans": [
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Default Plan for Invoice Object Recommendation",
+      "displayName": "standard",
+      "name": "standard",
+      "schemas": null
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
+  ]
+}
