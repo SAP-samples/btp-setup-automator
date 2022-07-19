@@ -66,6 +66,12 @@
       "category": "ELASTIC_SERVICE",
       "dataCenters": [
         {
+          "displayName": "cf-ch20",
+          "environment": "cloudfoundry",
+          "name": "cf-ch20",
+          "region": "ch20"
+        },
+        {
           "displayName": "India (Mumbai)",
           "environment": "cloudfoundry",
           "name": "cf-in30",

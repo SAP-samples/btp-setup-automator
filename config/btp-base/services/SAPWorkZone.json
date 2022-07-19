@@ -20,6 +20,12 @@
         {
           "displayName": "Japan (Tokyo)",
           "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
           "name": "cf-jp10",
           "region": "jp10"
         },
