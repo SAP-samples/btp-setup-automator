@@ -1,6 +1,8 @@
 name: Build GH Pages
 
 on:
+  repository_dispatch:
+    types: [documentation-update]
   workflow_dispatch: {}
 
 env:
