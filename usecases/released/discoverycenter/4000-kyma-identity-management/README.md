@@ -5,8 +5,10 @@
 The [btp-setup-automator](https://github.com/SAP-samples/btp-setup-automator) is an open source project to help developers setting-up their SAP BTP accounts quickly via various command line interfaces.
 The current script was designed to setup the account and spin up the application which is used by the Discovery Center Mission, [Enrich a Kyma based multitenant application with additional identity features](https ://discovery-center.cloud.sap/missiondetail/4000/4207/).
 
-The script will create a subaccount with the necessary entitlements and deploy the Easy Franchise application in the SAP BTP Kyma Environment. The following services and subscriptions are created:
+TThe script will create a subaccount with the necessary entitlements and deploy the Easy Franchise application in the SAP BTP Kyma Environment. Furthermore a consumer subaccount will be created and the EasyFranchise Application will be subscribed. The following services and subscriptions are created:
 
+* Subaccount EasyFranchise
+* Subaccount EasyFranchise-Customer
 * Authorization and Trust Management Service with broker plan
 * Destination Service with lite plan
 * SAP HANA Cloud with hana-free plan
