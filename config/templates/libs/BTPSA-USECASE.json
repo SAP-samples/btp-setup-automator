@@ -198,7 +198,7 @@
                                             "if": { "properties": { "name": { "const": "{{ service.name }}"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": [{% for plan in service.servicePlans-%}"{{ plan.name }}{% if not loop.last %}, {%- endif %}{% endfor -%}] },
+                                                    "plan": { "enum": [{% for plan in service.servicePlans-%}"{{ plan.name }}"{% if not loop.last %}, {%- endif %}{% endfor -%}] },
                                                     "name": { "description": "{{ service.displayName }}: {{ service.description | trim }}"}
                                                 }, 
                                                 "allOf": [
