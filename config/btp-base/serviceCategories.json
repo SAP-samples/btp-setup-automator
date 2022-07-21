@@ -2440,9 +2440,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "tbd"
       },
       {
         "description": "SAP Audit Log service API",
@@ -3692,9 +3690,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "tbd"
       },
       {
         "description": "Cloud Integration Automation service provides you a guided workflow to integrate SAP cloud solutions to On-Premise and other SAP Cloud solutions. The guided workflow contains instructions for manual and automated tasks to enable a simpler and faster integration configuration setup",
@@ -4312,9 +4308,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "tbd"
       },
       {
         "description": "SAP BTP Connectivity service allows you to establish secure and reliable connectivity between your cloud applications and on-premise systems running in isolated networks.",
@@ -6171,9 +6165,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "tbd"
       },
       {
         "description": "Provides an API that allows you to translate documents of various formats into multiple languages.",
@@ -6309,9 +6301,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "tbd"
       },
       {
         "description": "The SAP Event Mesh service decouples communication and allows for event-driven business processes.",
@@ -11799,9 +11789,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "tbd"
       },
       {
         "description": "The HTML5 Application Repository service enables central storage of HTML5 applications in SAP BTP. In runtime, the service enables the consuming application, typically the application router, to access HTML5 application static content in a secure and efficient manner.",
@@ -12868,9 +12856,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "Intelligent Intercompany Reconciliation is introduced to speed up your intercompany reconciliation process from company close to corporate close. The service is based on Artificial Intelligence in order to reconcile your financial data with high accuracy.",
@@ -12909,9 +12895,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "tbd"
       },
       {
         "description": "The Invoice Object Recommendation services provides the functionality to train a machine learning model with customer specific data that can give recommendations on G/L Accounts for incoming invoices without a purchase order reference attached. The service therefore provides a training call as described and an inference call that gives back recommendations based on a trained model to semi-automate the invoice processing in the area of accounts payable.",
@@ -12946,9 +12930,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "tbd"
       },
       {
         "description": "The SAP Cloud Platform Internet of Things service for the Cloud Foundry environment connects devices to SAP Cloud Platform to provide scalable ingestion of IoT data and device management. The respective services provide a secure connection to remote devices using a broad variety of IoT protocols and manage the device lifecycle from onboarding to decommissioning. ",
@@ -13212,9 +13194,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Intelligent Robotic Process Automation (SAP Intelligent RPA) lets you automate enterprise business processes. Design process automations with the Desktop Studio by creating end-to-end scenarios. Import these scenarios into the cloud Factory powered by SAP Cloud Platform to configure and execute them with Agents. Agents running on workstations can work as a Digital Assistant (attended automation) or as a Digital Worker (unattended automation).\t",
@@ -15680,9 +15660,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "tbd"
       },
       {
         "description": "Mobile Settings Exchange Service",
@@ -18044,9 +18022,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "tbd"
       },
       {
         "description": "SAP Process Automation is a citizen development solution to adapt, improve, and innovate business processes with the low-code/no-code capabilities of SAP Workflow Management and SAP Intelligent RPA.",
@@ -18193,9 +18169,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Process Automation is a citizen development solution to adapt, improve, and innovate business processes with the low-code/no-code capabilities of SAP Workflow Management and SAP Intelligent RPA.",
@@ -20011,9 +19985,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "tbd"
       },
       {
         "description": "As we move toward an intelligent enterprise, intelligent systems need to determine agents who are responsible for business processes and objects, and automatically notify them. It is essential to define and manage these responsibilities for various contexts and retrieve responsible agents who can respond to tasks and activities.",
@@ -20052,9 +20024,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "tbd"
       },
       {
         "description": "The SAP Cloud Platform Data Retention Manager lets you block or delete personal data based on the residence and retention rules maintained.",
@@ -20476,9 +20446,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "tbd"
       },
       {
         "description": "This is memory extension for SAP Cloud ALM.",
@@ -20522,9 +20490,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "tbd"
       },
       {
         "description": "Document Information Extraction helps you to process various documents that have content in headers and tables. You can use the extracted information, for example, to automatically process payables, invoices, or payment notes while making sure that invoices and payables match.",
@@ -21344,9 +21310,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Service Manager service allows you to consume platform services in any connected runtime environment, track service instances creation, and share services and service instances between different environments.",
@@ -23057,9 +23021,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "tbd"
       },
       {
         "description": "Allows you to create, manage, configure extensions on SAP Cloud Platform",
@@ -23671,9 +23633,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Forms service by Adobe lets you generate print and interactive forms using Adobe Document Services (ADS). Call the service from your application using a REST API for rendering documents and for managing form templates in the template store. Configure ADS and access the template store via service-offered UIs. To use Forms service by Adobe, you must subscribe to the application (ads-configui) and set entitlements to both, the ADS (ads) and the REST API template store (adsrestapi) service. In the Service Marketplace, find all two tiles easily by entering \u0027adobe\u0027 into the search field.",
@@ -23717,9 +23677,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP AI Launchpad is an application layer for AI Foundation. It is a one-stop-shop to access tooling around ML lifecycle management \u0026 Data Science activity. It is a container to access both SAP and open sourced integrated apps and tools. It is connected to a number of ML runtimes with an AI API. It allows users to get an overview over all ML Scenarios in all connected ML runtimes and manage the lifecycle of these.",
@@ -23778,9 +23736,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Cloud Transport Management service lets you manage software deliverables between accounts of different environments (such as Neo and Cloud Foundry), by transporting them across various runtimes. This includes application artifacts as well as their respective application-specific content.",
@@ -23995,9 +23951,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "API Management technology helps you to share digital assets and enables consumption of these assets in new user interfaces. An API Portal application in SAP API Management helps you grow new revenue streams. You can not only configure and share but also monetize you digital assets, enabling up-sell and cross-sell though your eco-system.",
@@ -24085,9 +24039,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "API Management technology helps you to share digital assets and enables consumption of these assets in new user interfaces. API Business Hub Enterprise application provides a common platform for application developers to consume APIs. It offers capabilities for onboarding application developers, exploring and testing APIs, and creating and subscribing to applications.",
@@ -24175,9 +24127,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Audit Log Viewer service for SAP BTP helps to view and manage audit logs.",
@@ -24286,9 +24236,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Automation Pilot provides out-of-the-box high-quality automation such as application restarts and reconfigurations, database restarts and updates, application and database health statuses, RCA, recommended actions, and more. Complex DevOps tasks are made simple without the need of having deep SAP Business Technology Platform knowledge. In addition, recommended actions are automated by using the SAP Alert Notification service for SAP BTP (sophisticated integration to immediately react on incoming alerts) or any other alerting system.",
@@ -24377,9 +24325,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "With SAP Cloud Platform Backed service you can build robust, scalable and enterprise-ready APIs/services to serve your applications and extensions in a serverless environment. It is a fully managed API service that helps you build, run, and manage APIs in a serverless environment [BETA]",
@@ -24412,9 +24358,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "The SAP Order Management foundation solution, including the application and service, provides order management functionality along with business configuration settings that allow you to create a customized solution. You can also integrate various systems and solutions to support your order management processes. This allows you to leverage, for example, your existing master data, order capture, and fulfillment systems while consolidating all of your orders and order-related data in a convenient cloud-based solution.",
@@ -24458,9 +24402,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "Cloud Integration Automation service provides you a guided workflow to integrate SAP cloud solutions to On-Premise and other SAP Cloud solutions. The guided workflow contains instructions for manual and automated tasks to enable a simpler and faster integration configuration setup",
@@ -24610,9 +24552,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "The SAP Cloud Platform Custom Domain service lets you configure your own custom domain to expose publicly your SAP Cloud Platform application instead of using the default subdomain.",
@@ -24741,9 +24681,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "Data Privacy Integration (DPI) is a service that supports applications realize their data privacy functions i.e Business Purpose Management ( Ensure Data is processed in a compliant manner based on valid Business Purpose ), Data Deletion and Retrieval of personal data. Applications that are part of an end to end business process can integrate with DPI to provide a centralized management of data privacy.",
@@ -24836,9 +24774,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "UI Application to upload document for extraction to Document Information Extraction and correct the results.",
@@ -24893,9 +24829,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "Manage settings and field mappings using configurations. View number of transactions performed over a spefici time period.",
@@ -24934,9 +24868,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Enterprise Architecture Designer, Cloud Edition (SAP EA Designer) lets you capture, analyze, and present your organization\u0027s landscapes, strategies, requirements, processes, data, and other artifacts in a shared environment. Using industry-standard notations and techniques, organizations can leverage rich metadata and use models and diagrams to drive understanding and promote shared outcomes in creating innovative systems, information sets, and processes to support goals and capabilities.",
@@ -24971,9 +24903,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Edge Services",
@@ -25027,9 +24957,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "The SAP Event Mesh service decouples communication and allows for event-driven business processes.",
@@ -25154,9 +25082,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "Allows you to create, manage, configure extensions on SAP Cloud Platform",
@@ -25255,9 +25181,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "View and manage Feature Flags Service instances. Get information about flags status, usage and history. Also perform tasks, such as enabling, disabling, adding and removing flags.",
@@ -25375,9 +25299,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "Advanced event mesh for SAP Integration Suite is a complete event streaming, event management, and monitoring platform that incorporates best practices, expertise, and technology for event-driven architecture (EDA) on a single platform.",
@@ -25412,9 +25334,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Integration Suite helps you to quickly develop and manage reliable communication between applications, services, and systems across heterogeneous landscapes.",
@@ -25619,9 +25539,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "Intelligent Situation Automation is an extension of Situation Handling. It processes situations raised and resolves them automatically using business rules, thus reducing the time users spend on routine manual and repetitive tasks.",
@@ -25692,9 +25610,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP IoT business services allow you to put raw sensor data into business object context and then use query models, rules, events and actions to leverage the data near real-time in analytical or transactional business applications.",
@@ -25763,9 +25679,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Intelligent Robotic Process Automation lets you automate enterprise business processes. Design process automations with the Desktop Studio by creating end-to-end scenarios. Import these scenarios into the cloud Factory to configure and execute them with Agents. An Agent can work as a Digital Assistant (attended automation) or as a Digital Worker (unattended automation).",
@@ -25921,9 +25835,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "The SAP Cloud Integration connects cloud applications with other SAP and non-SAP cloud and on-premise apps.",
@@ -26013,9 +25925,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "The Landscape Portal acts as a central tool that allows SaaS providers to keep track of the distribution of their consumers across their systems as well as perform lifecycle management operations such as updating add-ons, creating new tenants, and more.",
@@ -26050,9 +25960,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "The Manage Market Rates application enables you to read and manage market data you have uploaded by using the data options available with the SAP Market Rates Management service",
@@ -26115,9 +26023,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Business Partner Application",
@@ -26150,9 +26056,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "Master data application that allows master data replication according to predetermined master data distribution models. SAP Master Data Orchestration can only be used in combination with the SAP Master Data Integration service.",
@@ -26204,9 +26108,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "Master data application for existing customers of SAP Master Data service for business partners and SAP Master Data service for products. New customers should use the Master Data Integration (Orchestration) tile. SAP Master Data Orchestration should only be used in combination with the SAP Master Data Integration service.",
@@ -26246,9 +26148,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "Open Connectors provides pre-built and feature-rich connectors to simplify the connectivity and seamless integration with over 150 non-SAP cloud applications. Customers benefit from connectivity to third-party APIs via harmonized RESTful APIs and can develop and map canonical data models to extend pre-built connectors. Furthermore customers can easily build API compositions across the different connectors.",
@@ -26353,9 +26253,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Personal Data Manager provides the capability to generate reports showing the personal data stored in an application point of view with the help of a CSR. The reports can be generated and exported either in machine readable form (JSON) or human readable form (PDF). Data subjects can request the correction and deletion of personal data that is stored in an application point of view.",
@@ -26434,9 +26332,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Cloud Portal service lets you build digital experience portals for employees, customers, and partners. You can streamline access to business data so that your employees can execute their daily business tasks securely, from any device.",
@@ -26552,9 +26448,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "Allows you to manage print queue and monitor the print status",
@@ -26609,9 +26503,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Process Automation is a citizen development solution to adapt, improve, and innovate business processes with the low-code/no-code capabilities of SAP Workflow Management and SAP Intelligent RPA.",
@@ -26696,9 +26588,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "Provides APIs for DetermineAgents using responsibility rules or external APIs(bring your own code) and AgentDeterminationRequest.",
@@ -26733,9 +26623,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "As we move toward an intelligent enterprise, intelligent systems need to determine agents who are responsible for business processes and objects, and automatically notify them. It is essential to define and manage these responsibilities for various contexts and retrieve responsible agents who can respond to tasks and activities.",
@@ -26770,9 +26658,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "The SAP Cloud Platform Data Retention Manager lets you block or delete personal data based on the residence and retention rules maintained.",
@@ -26851,9 +26737,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "The SAP Ariba Shopping mobile app enables casual employees to easily search and purchase products.",
@@ -26881,9 +26765,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Conversational AI is a collaborative end-to-end platform for creating chatbots. Along with conversational natural language processing (NLP) and dialog management features supported with detailed API documentation, SAP Conversational AI makes it easy to connect your bots to different messaging channels.",
@@ -26944,9 +26826,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "Cloud Identity Services provide basic capabilities for user authentication.",
@@ -27204,9 +27084,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "Low-code / no-code tools from SAP that accelerate SAP business applications development.",
@@ -27243,9 +27121,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Business Application Studio is the next generation of SAP Web IDE, offering a modular development environment tailored for efficient development of business applications for the SAP Intelligent Enterprise. It provides pre-configured environments where you can develop, build, test and run using pre-installed runtimes and tools tailored for key scenarios such as: S/4HANA extensions, full stack business applications, Fiori applications and more. It supports quick integration with SAP solutions and services to allow building smarter and more intelligent applications.",
@@ -27450,9 +27326,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Launchpad service provides users with a central point of access to applications from different sources.",
@@ -27667,9 +27541,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Web Analytics enables the collection and analysis of website data for understanding and optimizing web usage to measure organizational goals, drive strategy and improve the user\u0027s experience.",
@@ -27750,9 +27622,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Work Zone centralizes access to relevant business applications, processes, information, and communication in a unified entry point that users can access from any device.",
@@ -27847,9 +27717,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "Benefit from the standalone, ready-to-use web application of SAP Document Management service that provides document management capabilities.",
@@ -27964,9 +27832,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "HANA Spatial Services",
@@ -28010,9 +27876,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "Provides Business Partner data from third-party data providers",
@@ -28057,9 +27921,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "Digitize workflows, manage decisions and gain end-to-end process visibility",
@@ -28178,9 +28040,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "The Workspace Utilization Management application lets you assign sensors to workplaces and spaces. These sensors measure how your workspaces are used. The Workspace Utilization Management application integrates with SAP Cloud for Real Estate and SAP Analytics Cloud to analyze, manage, and optimize your workspaces.",
@@ -28213,9 +28073,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       }
     ],
     "name": "APPLICATION"
@@ -28347,9 +28205,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       },
       {
         "description": "SAP Cloud Platform, Kyma runtime is a fully managed Kubernetes runtime based on the open-source project Kyma. This cloud-native solution allows the developers to extend SAP solutions with serverless Functions and combine them with containerized microservices. The offered functionality ensures smooth consumption of SAP and non-SAP applications, running workloads in a highly scalable environment, and building event- and API-based extensions.",
@@ -28524,9 +28380,7 @@
             "uniqueIdentifier": null
           }
         ],
-        "supportedEnvironments": [
-          "tbd"
-        ]
+        "supportedEnvironments": "N/A"
       }
     ],
     "name": "ENVIRONMENT"

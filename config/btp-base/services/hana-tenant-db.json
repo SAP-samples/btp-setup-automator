@@ -48,7 +48,5 @@
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "tbd"
-  ]
+  "supportedEnvironments": "tbd"
 }
