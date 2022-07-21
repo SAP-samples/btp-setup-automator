@@ -1905,6 +1905,12 @@
                 "region": "ca10"
               },
               {
+                "displayName": "cf-ch20",
+                "iaasProvider": null,
+                "name": "cf-ch20",
+                "region": "ch20"
+              },
+              {
                 "displayName": "Europe (Frankfurt)",
                 "iaasProvider": null,
                 "name": "cf-eu10",
@@ -13810,8 +13816,8 @@
                 "region": "us30"
               }
             ],
-            "description": "Quota for Custom Domains",
-            "displayName": "Quota for Custom Domains",
+            "description": "The Custom Domain service gives the user the possibility of using their own domains instead of the default Cloud Platform domains for their applications as well as choosing their own certificates to protect their applications.",
+            "displayName": "custom_domains",
             "name": "custom_domains",
             "schemas": null,
             "uniqueIdentifier": null
@@ -27302,6 +27308,12 @@
                 "iaasProvider": null,
                 "name": "cf-ca10",
                 "region": "ca10"
+              },
+              {
+                "displayName": "cf-ch20",
+                "iaasProvider": null,
+                "name": "cf-ch20",
+                "region": "ch20"
               },
               {
                 "displayName": "Europe (Frankfurt)",

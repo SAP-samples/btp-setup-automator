@@ -149,8 +149,8 @@
           "region": "eu10"
         }
       ],
-      "description": "Quota for Custom Domains",
-      "displayName": "Quota for Custom Domains",
+      "description": "The Custom Domain service gives the user the possibility of using their own domains instead of the default Cloud Platform domains for their applications as well as choosing their own certificates to protect their applications.",
+      "displayName": "custom_domains",
       "free": false,
       "name": "custom_domains",
       "schemas": null

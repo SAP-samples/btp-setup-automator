@@ -154,6 +154,12 @@
       "category": "ELASTIC_SERVICE",
       "dataCenters": [
         {
+          "displayName": "cf-ch20",
+          "environment": "cloudfoundry",
+          "name": "cf-ch20",
+          "region": "ch20"
+        },
+        {
           "displayName": "Europe (Frankfurt) EU Access - AWS",
           "environment": "cloudfoundry",
           "name": "cf-eu11",
