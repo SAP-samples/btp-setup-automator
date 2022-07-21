@@ -104,6 +104,7 @@
       "displayName": "free",
       "free": true,
       "name": "free",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -180,6 +181,7 @@
       "displayName": "application",
       "free": true,
       "name": "application",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

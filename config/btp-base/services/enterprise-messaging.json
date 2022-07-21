@@ -39,6 +39,7 @@
       "description": "Event Mesh Connectivity",
       "displayName": "Event Mesh Connectivity",
       "name": "event-mesh-connectivity",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -60,6 +61,7 @@
       "description": "Event Mesh - Connectivity (Beta) - Manage connectivity configurations of different applications and services (including 3rd party eventing infrastructures) for seamless exchange of business events across your landscape",
       "displayName": "event-mesh-connectivity-beta",
       "name": "event-mesh-connectivity-beta",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -184,6 +186,7 @@
       "displayName": "default",
       "free": false,
       "name": "default",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

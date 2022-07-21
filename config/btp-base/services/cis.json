@@ -145,6 +145,7 @@
       "displayName": "local",
       "free": true,
       "name": "local",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {
@@ -320,6 +321,7 @@
       "displayName": "central",
       "free": true,
       "name": "central",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {

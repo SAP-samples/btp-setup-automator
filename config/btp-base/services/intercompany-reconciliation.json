@@ -31,6 +31,7 @@
       "description": "Default standard plan for Intelligent Intercompany Reconciliation.",
       "displayName": "standard",
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

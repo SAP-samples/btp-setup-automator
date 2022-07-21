@@ -46,6 +46,7 @@
       "displayName": "Free",
       "free": true,
       "name": "free",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

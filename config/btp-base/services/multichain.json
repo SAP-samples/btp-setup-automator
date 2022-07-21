@@ -46,6 +46,7 @@
       "displayName": "small",
       "free": true,
       "name": "small",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -68,6 +69,7 @@
       "displayName": "large",
       "free": true,
       "name": "large",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -90,6 +92,7 @@
       "displayName": "medium",
       "free": true,
       "name": "medium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -112,6 +115,7 @@
       "displayName": "cyon",
       "free": true,
       "name": "cyon",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

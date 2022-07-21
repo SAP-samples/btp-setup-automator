@@ -141,6 +141,7 @@
       "displayName": "application",
       "free": true,
       "name": "application",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

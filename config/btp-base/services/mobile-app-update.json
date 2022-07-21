@@ -60,6 +60,7 @@
       "displayName": "Mobile App Update Service is used to update new versions of an App Modeler application",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

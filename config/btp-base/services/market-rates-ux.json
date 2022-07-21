@@ -35,6 +35,7 @@
       "description": "SAP Market Rates Management",
       "displayName": "SAP Market Rates Management",
       "name": "mrtr",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -56,6 +57,7 @@
       "description": "SAP Market Rates Management",
       "displayName": "SAP Market Rates Management",
       "name": "mror",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

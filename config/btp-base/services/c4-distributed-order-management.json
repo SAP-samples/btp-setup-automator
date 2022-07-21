@@ -37,6 +37,7 @@
       "description": "Receive orders for physical and subscription products from multiple channels. The APIs provide basic order management functionality along with business configuration settings.",
       "displayName": "default",
       "name": "default",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

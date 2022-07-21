@@ -60,6 +60,7 @@
       "displayName": "Mobile Client Usage Service allows mobile application to upload client usage information and to analyze them on the server",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

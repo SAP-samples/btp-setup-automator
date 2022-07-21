@@ -127,6 +127,7 @@
       "description": "Plan for usage of process flexibility for customers with Workflow Management entitlement to enable Digital Process Automation",
       "displayName": "saas-application",
       "name": "saas-application",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

@@ -99,6 +99,7 @@
       "description": "SAP Work Zone",
       "displayName": "Standard",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

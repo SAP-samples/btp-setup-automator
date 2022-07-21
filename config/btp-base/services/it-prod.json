@@ -93,6 +93,7 @@
       "description": "Process Integration",
       "displayName": "Process Integration",
       "name": "enterprise",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

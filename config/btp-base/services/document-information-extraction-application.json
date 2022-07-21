@@ -51,6 +51,7 @@
       "description": "default",
       "displayName": "default",
       "name": "default",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

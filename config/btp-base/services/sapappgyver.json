@@ -29,6 +29,7 @@
       "description": "Use the plan for productive development in pre-configured dev spaces.",
       "displayName": "standard",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

@@ -26,6 +26,7 @@
       "description": "SAP Cloud Platform Master Data Management for business partners",
       "displayName": "SAP Cloud Platform Master Data Management for business partners",
       "name": "saas-application",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

@@ -20,6 +20,7 @@
       "description": "This plan enables the connection between the SAP Ariba Shopping app and Ariba\u2019s Core Procurement and Catalog modules.",
       "displayName": "Standard",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

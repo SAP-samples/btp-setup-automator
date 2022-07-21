@@ -72,6 +72,7 @@
       "displayName": "enterprise",
       "free": false,
       "name": "enterprise",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {
@@ -191,6 +192,7 @@
       "displayName": "Dedicated",
       "free": false,
       "name": "dedicated",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {
@@ -310,6 +312,7 @@
       "displayName": "Tenant",
       "free": true,
       "name": "tenant",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {

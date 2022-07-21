@@ -37,6 +37,7 @@
       "description": "Plan default",
       "displayName": "default",
       "name": "default",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

@@ -145,6 +145,7 @@
       "displayName": "standard",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

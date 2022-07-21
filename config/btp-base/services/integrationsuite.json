@@ -121,6 +121,7 @@
       "description": "Explore Integration Suite capabilities Cloud Integration, API Management,Open Connectors and Integration Advisor. Once the free tier service plan has been activated, it will be available for the following 90 days. After 90 days, the Integration Suite tenant will be decommissioned automatically if you don\u0027t upgrade to a paid service plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
       "displayName": "Free",
       "name": "free",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -226,6 +227,7 @@
       "description": "CPEA, Capabilities: Cloud Integration, API Management,Open Connectors and Integration Advisor",
       "displayName": "Enterprise Agreement",
       "name": "enterprise_agreement",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -307,6 +309,7 @@
       "description": "Integration Suite Messages",
       "displayName": "Integration Suite Messages",
       "name": "messages",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

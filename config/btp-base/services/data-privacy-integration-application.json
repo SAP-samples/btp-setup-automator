@@ -95,6 +95,7 @@
       "description": "Default Plan",
       "displayName": "default",
       "name": "default",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

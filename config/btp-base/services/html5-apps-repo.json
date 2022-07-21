@@ -144,6 +144,7 @@
       "displayName": "app-host",
       "free": true,
       "name": "app-host",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -268,6 +269,7 @@
       "displayName": "app-runtime",
       "free": true,
       "name": "app-runtime",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

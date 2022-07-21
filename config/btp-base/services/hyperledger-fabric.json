@@ -38,6 +38,7 @@
       "displayName": "testnet",
       "free": false,
       "name": "testnet",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_binding": {
           "create": {
@@ -91,6 +92,7 @@
       "displayName": "dev",
       "free": false,
       "name": "dev",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_binding": {
           "create": {
@@ -144,6 +146,7 @@
       "displayName": "backbone",
       "free": false,
       "name": "backbone",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_binding": {
           "create": {
@@ -197,6 +200,7 @@
       "displayName": "cyon",
       "free": true,
       "name": "cyon",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_binding": {
           "create": {
@@ -329,6 +333,7 @@
       "displayName": "node",
       "free": false,
       "name": "node",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_binding": {
           "create": {
@@ -382,6 +387,7 @@
       "displayName": "channel",
       "free": true,
       "name": "channel",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {

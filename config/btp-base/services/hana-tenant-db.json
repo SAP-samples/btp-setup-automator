@@ -44,6 +44,7 @@
       "description": "SAP HANA Tenant Database",
       "displayName": "SAP HANA Tenant Database",
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

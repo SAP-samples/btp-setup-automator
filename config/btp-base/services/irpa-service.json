@@ -22,6 +22,12 @@
       "category": "SERVICE",
       "dataCenters": [
         {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
           "displayName": "Singapore",
           "environment": "cloudfoundry",
           "name": "cf-ap11",
@@ -62,6 +68,7 @@
       "displayName": "standard",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

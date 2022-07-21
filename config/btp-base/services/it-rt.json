@@ -122,6 +122,7 @@
       "displayName": "api",
       "free": true,
       "name": "api",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_binding": {
           "create": {
@@ -495,6 +496,7 @@
       "displayName": "integration-flow",
       "free": true,
       "name": "integration-flow",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_binding": {
           "create": {

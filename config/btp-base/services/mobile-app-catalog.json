@@ -60,6 +60,7 @@
       "displayName": "Mobile App Lab Service provides access to mobile applications uploaded from Mobile Services cockpit",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

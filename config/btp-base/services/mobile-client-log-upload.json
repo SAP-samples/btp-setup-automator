@@ -60,6 +60,7 @@
       "displayName": "Mobile Client Log Upload Service is used by mobile applications to upload technical log files",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

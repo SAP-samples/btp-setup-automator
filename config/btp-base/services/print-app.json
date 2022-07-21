@@ -51,6 +51,7 @@
       "description": "Allows you to manage print queue and monitor the print status",
       "displayName": "standard",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

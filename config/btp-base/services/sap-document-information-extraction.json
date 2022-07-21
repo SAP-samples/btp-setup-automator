@@ -60,6 +60,7 @@
       "displayName": "default",
       "free": false,
       "name": "default",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -100,6 +101,7 @@
       "displayName": "blocks_of_100",
       "free": false,
       "name": "blocks_of_100",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

@@ -75,6 +75,7 @@
       "description": "Redis service - multi-node xsmall plan",
       "displayName": "xsmall",
       "name": "xsmall",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -126,6 +127,7 @@
       "description": "Redis service - multi-node medium plan",
       "displayName": "medium",
       "name": "medium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -183,6 +185,7 @@
       "description": "Redis service - multi-node large plan",
       "displayName": "large",
       "name": "large",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -258,6 +261,7 @@
       "description": "Redis service - multi-node medium plan",
       "displayName": "medium",
       "name": "medium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -333,6 +337,7 @@
       "description": "Redis service - multi-node small plan",
       "displayName": "small",
       "name": "small",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -408,6 +413,7 @@
       "description": "Redis service - multi-node large plan",
       "displayName": "large",
       "name": "large",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -423,6 +429,7 @@
       "description": "Redis service - multi-node xsmall plan",
       "displayName": "xsmall",
       "name": "xsmall",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -438,6 +445,7 @@
       "description": "Redis service - multi-node small plan",
       "displayName": "small",
       "name": "small",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -453,6 +461,7 @@
       "description": "Redis service - multi-node medium plan",
       "displayName": "medium",
       "name": "medium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -468,6 +477,7 @@
       "description": "Redis service - multi-node large plan",
       "displayName": "large",
       "name": "large",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -543,6 +553,7 @@
       "description": "Redis service - multi-node xsmall plan",
       "displayName": "xsmall",
       "name": "xsmall",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -594,6 +605,7 @@
       "description": "Redis service - multi-node small plan",
       "displayName": "small",
       "name": "small",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

@@ -95,6 +95,7 @@
       "description": "PostgreSQL relational database service - large plan",
       "displayName": "large",
       "name": "large",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -170,6 +171,7 @@
       "description": "PostgreSQL relational database service - xxsmall plan",
       "displayName": "xxsmall",
       "name": "xxsmall",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -221,6 +223,7 @@
       "description": "PostgreSQL relational database service - xsmall plan",
       "displayName": "xsmall",
       "name": "xsmall",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -272,6 +275,7 @@
       "description": "PostgreSQL relational database service - small plan",
       "displayName": "small",
       "name": "small",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -323,6 +327,7 @@
       "description": "PostgreSQL relational database service - medium plan",
       "displayName": "medium",
       "name": "medium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -374,6 +379,7 @@
       "description": "PostgreSQL relational database service - large plan",
       "displayName": "large",
       "name": "large",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -449,6 +455,7 @@
       "description": "PostgreSQL relational database service - medium plan",
       "displayName": "medium",
       "name": "medium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -464,6 +471,7 @@
       "description": "PostgreSQL relational database service - small plan",
       "displayName": "small",
       "name": "small",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -479,6 +487,7 @@
       "description": "PostgreSQL relational database service - medium plan",
       "displayName": "medium",
       "name": "medium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -494,6 +503,7 @@
       "description": "PostgreSQL relational database service - xxsmall plan",
       "displayName": "xxsmall",
       "name": "xxsmall",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -509,6 +519,7 @@
       "description": "PostgreSQL relational database service - xsmall plan",
       "displayName": "xsmall",
       "name": "xsmall",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -584,6 +595,7 @@
       "description": "PostgreSQL relational database service - small plan",
       "displayName": "small",
       "name": "small",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -599,6 +611,7 @@
       "description": "PostgreSQL relational database service - large plan",
       "displayName": "large",
       "name": "large",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -674,6 +687,7 @@
       "description": "PostgreSQL relational database service - xsmall plan",
       "displayName": "xsmall",
       "name": "xsmall",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -725,6 +739,7 @@
       "description": "PostgreSQL relational database service - xxsmall plan",
       "displayName": "xxsmall",
       "name": "xxsmall",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

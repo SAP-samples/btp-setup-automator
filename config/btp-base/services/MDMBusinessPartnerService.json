@@ -32,6 +32,7 @@
       "displayName": "SAP Cloud Platform Master Data Management for business partners",
       "free": true,
       "name": "default",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

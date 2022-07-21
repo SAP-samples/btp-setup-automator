@@ -129,6 +129,7 @@
       "displayName": "basic",
       "free": false,
       "name": "basic",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -205,6 +206,7 @@
       "displayName": "standard",
       "free": false,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

@@ -31,6 +31,7 @@
       "description": "Service plan \u0027blocks_of_100\u0027 for production usage of Document Classification, charged in blocks of 100 documents.",
       "displayName": "blocks_of_100",
       "name": "blocks_of_100",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -46,6 +47,7 @@
       "description": "Service plan \u0027default\u0027 for production usage of Document Classification, charged in blocks of 1000 documents.",
       "displayName": "default",
       "name": "default",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

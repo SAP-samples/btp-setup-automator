@@ -144,6 +144,7 @@
       "displayName": "hdi-shared",
       "free": true,
       "name": "hdi-shared",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -268,6 +269,7 @@
       "displayName": "schema",
       "free": true,
       "name": "schema",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -392,6 +394,7 @@
       "displayName": "sbss",
       "free": true,
       "name": "sbss",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -516,6 +519,7 @@
       "displayName": "securestore",
       "free": true,
       "name": "securestore",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

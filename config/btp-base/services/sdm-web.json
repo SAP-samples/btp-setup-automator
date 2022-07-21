@@ -123,6 +123,7 @@
       "description": "Benefit from the standalone, ready-to-use web application of SAP Cloud Platform Document Management that provides document management capabilities.",
       "displayName": "Document Management, application option",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

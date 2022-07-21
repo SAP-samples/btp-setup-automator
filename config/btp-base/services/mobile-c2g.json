@@ -60,6 +60,7 @@
       "displayName": "Mobile Content to Go Service, the back-end for the corresponding iPhone application",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

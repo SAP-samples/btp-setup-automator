@@ -35,6 +35,7 @@
       "description": "Build and run mobile apps.",
       "displayName": "standard",
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

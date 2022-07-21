@@ -128,6 +128,7 @@
       "displayName": "workflow",
       "free": false,
       "name": "workflow",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {

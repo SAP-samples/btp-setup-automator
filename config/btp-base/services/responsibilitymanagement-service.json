@@ -31,6 +31,7 @@
       "description": "Standard Plan",
       "displayName": "Standard",
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

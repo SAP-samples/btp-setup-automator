@@ -31,6 +31,7 @@
       "description": "Standard plan for Data Quality Services UI.",
       "displayName": "Standard",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

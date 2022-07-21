@@ -62,6 +62,7 @@
       "displayName": "Standard",
       "free": false,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

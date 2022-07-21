@@ -60,6 +60,7 @@
       "displayName": "Mobile Offline Service enables secure offline access to data on the mobile device",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

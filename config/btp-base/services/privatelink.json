@@ -57,6 +57,7 @@
       "description": "Establish a private connection between your CF application and selected services in your own IaaS provider accounts.",
       "displayName": "standard",
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

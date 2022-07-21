@@ -60,6 +60,7 @@
       "displayName": "Mobile Sample OData v2 ESPM Service is a sample OData service used for development and testing",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

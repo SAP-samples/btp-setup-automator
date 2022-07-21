@@ -49,6 +49,7 @@
       "description": "This plan enables you to execute unattended automation",
       "displayName": "automation-unattended",
       "name": "automation-unattended",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -82,6 +83,7 @@
       "description": "This plan enables you to add a standard user",
       "displayName": "standard-user",
       "name": "standard-user",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -115,6 +117,7 @@
       "description": "Default plan for using Process Automation",
       "displayName": "Standard",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -148,6 +151,7 @@
       "description": "This plan enables you to execute attended automation",
       "displayName": "automation-attended",
       "name": "automation-attended",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -181,6 +185,7 @@
       "description": "This plan enables you to add an advanced user",
       "displayName": "advanced-user",
       "name": "advanced-user",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -214,6 +219,7 @@
       "description": "Only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions. Limits may apply.",
       "displayName": "Free",
       "name": "free",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

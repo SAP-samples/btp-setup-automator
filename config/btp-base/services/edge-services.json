@@ -26,6 +26,7 @@
       "description": "SAP Edge Services",
       "displayName": "SAP Edge Services",
       "name": "Enterprise",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -47,6 +48,7 @@
       "description": "SAP Edge Services Cloud Standard Edition",
       "displayName": "SAP Edge Services Cloud Standard Edition",
       "name": "Standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

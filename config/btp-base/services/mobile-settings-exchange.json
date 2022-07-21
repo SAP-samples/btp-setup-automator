@@ -60,6 +60,7 @@
       "displayName": "Mobile Settings Exchange Service is used for device registrations and general access to JSON data",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -106,6 +107,7 @@
       "displayName": "Mobile Settings Exchange Service is used for device registrations and general access to JSON data",
       "free": true,
       "name": "b2c",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

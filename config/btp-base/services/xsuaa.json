@@ -148,6 +148,7 @@
       "displayName": "application",
       "free": true,
       "name": "application",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -272,6 +273,7 @@
       "displayName": "broker",
       "free": true,
       "name": "broker",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -396,6 +398,7 @@
       "displayName": "apiaccess",
       "free": true,
       "name": "apiaccess",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -520,6 +523,7 @@
       "displayName": "space",
       "free": true,
       "name": "space",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

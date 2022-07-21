@@ -27,6 +27,7 @@
       "description": "Beta Plan",
       "displayName": "beta",
       "name": "beta",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

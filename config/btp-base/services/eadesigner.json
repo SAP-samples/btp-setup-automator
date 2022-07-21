@@ -27,6 +27,7 @@
       "description": "SAP Enterprise Architecture Designer, cloud edition",
       "displayName": "SAP Enterprise Architecture Designer, cloud edition",
       "name": "eadesigner",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

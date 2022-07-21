@@ -103,6 +103,7 @@
       "description": "Allows you to create, manage, configure extensions on SAP Cloud Platform",
       "displayName": "Extension Center",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

@@ -37,6 +37,7 @@
       "description": "Display order data for physical and subscription products from multiple channels. Use filter functions to only display the order information you need. The order capture and distribution functionality is executed by the SAP Order Management foundation APIs.",
       "displayName": "default",
       "name": "default",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

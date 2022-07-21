@@ -25,6 +25,7 @@
       "description": "SAP Cloud for Real Estate Workspace Utilization Management (BETA)",
       "displayName": "SAP Cloud for Real Estate Workspace Utilization Management (BETA)",
       "name": "default",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

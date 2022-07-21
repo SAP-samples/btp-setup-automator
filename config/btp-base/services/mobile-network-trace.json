@@ -60,6 +60,7 @@
       "displayName": "Mobile Network Trace collects network trace information from mobile applications for debugging",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

@@ -126,6 +126,7 @@
       "displayName": "premium",
       "free": false,
       "name": "premium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {
@@ -441,6 +442,7 @@
       "displayName": "standard",
       "free": false,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {
@@ -746,6 +748,7 @@
       "displayName": "Free",
       "free": true,
       "name": "free",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {

@@ -125,6 +125,7 @@
       "description": "HA Storage for PostgreSQL service",
       "displayName": "storage_ha",
       "name": "storage_ha",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -195,6 +196,7 @@
       "displayName": "standard",
       "free": false,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {
@@ -497,6 +499,7 @@
       "displayName": "premium",
       "free": false,
       "name": "premium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {
@@ -806,6 +809,7 @@
       "description": "Storage for PostgreSQL service",
       "displayName": "storage",
       "name": "storage",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -870,6 +874,7 @@
       "displayName": "Free",
       "free": true,
       "name": "free",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {

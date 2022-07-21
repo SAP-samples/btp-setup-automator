@@ -112,6 +112,7 @@
       "displayName": "relational-data-lake-free",
       "free": true,
       "name": "relational-data-lake-free",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_binding": {
           "create": {
@@ -981,6 +982,7 @@
       "description": "SAP HANA Cloud, Adaptive Server Enterprise Replication",
       "displayName": "adaptive-server-enterprise-replication",
       "name": "adaptive-server-enterprise-replication",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -1069,6 +1071,7 @@
       "displayName": "hana-cloud-connection-free",
       "free": true,
       "name": "hana-cloud-connection-free",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_binding": {
           "create": {
@@ -1259,6 +1262,7 @@
       "displayName": "hana",
       "free": false,
       "name": "hana",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_binding": {
           "create": {
@@ -1767,6 +1771,7 @@
       "displayName": "hana-free",
       "free": true,
       "name": "hana-free",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_binding": {
           "create": {
@@ -2299,6 +2304,7 @@
       "displayName": "hana-cloud-connection",
       "free": true,
       "name": "hana-cloud-connection",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_binding": {
           "create": {
@@ -2398,6 +2404,7 @@
       "description": "SAP HANA Cloud, Adaptive Server Enterprise",
       "displayName": "adaptive-server-enterprise",
       "name": "adaptive-server-enterprise",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -2510,6 +2517,7 @@
       "displayName": "relational-data-lake",
       "free": false,
       "name": "relational-data-lake",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_binding": {
           "create": {

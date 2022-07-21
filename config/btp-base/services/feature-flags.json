@@ -148,6 +148,7 @@
       "displayName": "standard",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -272,6 +273,7 @@
       "displayName": "lite",
       "free": true,
       "name": "lite",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

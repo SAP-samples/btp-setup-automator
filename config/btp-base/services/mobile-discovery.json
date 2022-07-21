@@ -60,6 +60,7 @@
       "displayName": "Mobile Discovery service stores and facilitates retrieval of application configuration data",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

@@ -32,6 +32,7 @@
       "displayName": "Pair Connectivity Proxy with SAP CP Connectivity service for establishing secure connections to on-premise systems through SAP Cloud Connector",
       "free": true,
       "name": "connectivity_proxy",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

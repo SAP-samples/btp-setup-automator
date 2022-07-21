@@ -38,6 +38,7 @@
       "displayName": "blockchain-proof-of-state",
       "free": true,
       "name": "blockchain-proof-of-state",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {
@@ -87,6 +88,7 @@
       "displayName": "blockchain-proof-of-history",
       "free": true,
       "name": "blockchain-proof-of-history",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {
@@ -136,6 +138,7 @@
       "displayName": "blockchain-timestamp",
       "free": true,
       "name": "blockchain-timestamp",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {
@@ -185,6 +188,7 @@
       "displayName": "Blockchain Services",
       "free": true,
       "name": "blockchain-hana-integration",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {

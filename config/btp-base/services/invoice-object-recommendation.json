@@ -27,6 +27,7 @@
       "description": "Default Plan for Invoice Object Recommendation",
       "displayName": "standard",
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

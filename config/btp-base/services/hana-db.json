@@ -133,6 +133,7 @@
       "displayName": "HANA 512GB Standard edition",
       "free": false,
       "name": "512standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -245,6 +246,7 @@
       "displayName": "HANA 256GB Premium edition",
       "free": false,
       "name": "256premium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -357,6 +359,7 @@
       "displayName": "HANA 128GB Standard edition",
       "free": false,
       "name": "128standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -403,6 +406,7 @@
       "displayName": "SAP HANA Service",
       "free": false,
       "name": "enterprise",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -449,6 +453,7 @@
       "displayName": "SAP HANA Service",
       "free": false,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -465,6 +470,7 @@
       "displayName": "SAP HANA Service",
       "free": false,
       "name": "enterprise",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -577,6 +583,7 @@
       "displayName": "HANA 64GB Premium edition",
       "free": false,
       "name": "64premium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -593,6 +600,7 @@
       "displayName": "SAP HANA Service",
       "free": false,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -705,6 +713,7 @@
       "displayName": "HANA 1TB Standard edition",
       "free": false,
       "name": "1024standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -817,6 +826,7 @@
       "displayName": "HANA 1TB Premium edition",
       "free": false,
       "name": "1024premium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -863,6 +873,7 @@
       "displayName": "SAP Cloud Platform, SAP HANA service (SAP DC), standard edition (2 TB) for Microsoft Azure EU-West",
       "free": false,
       "name": "2048standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -909,6 +920,7 @@
       "displayName": "SAP Cloud Platform, SAP HANA service (SAP DC), standard edition (1 TB) for Microsoft Azure EU-West",
       "free": false,
       "name": "1024standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -955,6 +967,7 @@
       "displayName": "SAP Cloud Platform, SAP HANA service (SAP DC), standard edition (512 GB) for Microsoft Azure EU-West",
       "free": false,
       "name": "512standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -1001,6 +1014,7 @@
       "displayName": "SAP Cloud Platform, SAP HANA service (SAP DC), standard edition (256 GB) for Microsoft Azure EU-West",
       "free": false,
       "name": "256standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -1047,6 +1061,7 @@
       "displayName": "SAP Cloud Platform, SAP HANA service (SAP DC), enterprise edition (1 TB) for Microsoft Azure EU-West",
       "free": false,
       "name": "1024premium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -1093,6 +1108,7 @@
       "displayName": "SAP Cloud Platform, SAP HANA service (SAP DC), enterprise edition (512 GB) for Microsoft Azure EU-West",
       "free": false,
       "name": "512premium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -1139,6 +1155,7 @@
       "displayName": "SAP Cloud Platform, SAP HANA service (SAP DC), enterprise edition (256 GB) for Microsoft Azure EU-West",
       "free": false,
       "name": "256premium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -1185,6 +1202,7 @@
       "displayName": "SAP Cloud Platform, SAP HANA service (SAP DC), enterprise edition (2 TB) for Microsoft Azure EU-West",
       "free": false,
       "name": "2048premium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -1297,6 +1315,7 @@
       "displayName": "HANA 512GB Premium edition",
       "free": false,
       "name": "512premium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -1409,6 +1428,7 @@
       "displayName": "HANA 64GB Standard edition",
       "free": false,
       "name": "64standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -1521,6 +1541,7 @@
       "displayName": "HANA 256GB Standard edition",
       "free": false,
       "name": "256standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -1633,6 +1654,7 @@
       "displayName": "HANA 128GB Premium edition",
       "free": false,
       "name": "128premium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

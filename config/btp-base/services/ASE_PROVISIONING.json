@@ -127,6 +127,7 @@
       "description": "ASE 640GB",
       "displayName": "ASE 640GB",
       "name": "XLARGE",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -238,6 +239,7 @@
       "description": "ASE 160GB",
       "displayName": "ASE 160GB",
       "name": "MEDIUM",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -349,6 +351,7 @@
       "description": "ASE 80GB",
       "displayName": "ASE 80GB",
       "name": "SMALL",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -460,6 +463,7 @@
       "description": "ASE 40GB",
       "displayName": "ASE 40GB",
       "name": "XSMALL",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -571,6 +575,7 @@
       "description": "ASE 320GB",
       "displayName": "ASE 320GB",
       "name": "LARGE",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

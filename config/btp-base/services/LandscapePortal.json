@@ -27,6 +27,7 @@
       "description": "Standard-Plan-Beta",
       "displayName": "Standard",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

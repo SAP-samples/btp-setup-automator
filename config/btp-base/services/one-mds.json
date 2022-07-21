@@ -50,6 +50,7 @@
       "displayName": "sap-integration",
       "free": true,
       "name": "sap-integration",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {
@@ -179,6 +180,7 @@
       "displayName": "s4hana-onpremise",
       "free": true,
       "name": "s4hana-onpremise",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {

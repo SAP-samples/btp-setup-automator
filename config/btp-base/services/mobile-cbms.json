@@ -60,6 +60,7 @@
       "displayName": "Mobile Cloud Build enables customized builds of SAP mobile applications",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

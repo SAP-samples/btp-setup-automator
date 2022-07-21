@@ -53,6 +53,7 @@
       "description": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
       "displayName": "free",
       "name": "free",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -86,6 +87,7 @@
       "description": "standard",
       "displayName": "Standard",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

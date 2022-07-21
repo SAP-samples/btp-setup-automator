@@ -46,6 +46,7 @@
       "displayName": "Expose your data and processes as APIs for omni-channel consumption and manage the lifecycle of those APIs",
       "free": true,
       "name": "preview",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

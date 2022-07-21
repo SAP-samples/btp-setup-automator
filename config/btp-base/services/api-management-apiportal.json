@@ -91,6 +91,7 @@
       "description": "API Management-API Portal",
       "displayName": "API Management-API Portal",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

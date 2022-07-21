@@ -60,6 +60,7 @@
       "displayName": "Mobile Push Notification Service is used to send out push messages to mobile devices",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

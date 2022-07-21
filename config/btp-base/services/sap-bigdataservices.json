@@ -26,6 +26,7 @@
       "description": "Big Data Services",
       "displayName": "Big Data Services",
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

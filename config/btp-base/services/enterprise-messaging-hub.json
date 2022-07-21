@@ -135,6 +135,7 @@
       "description": "Event Mesh",
       "displayName": "Event Mesh Hub",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

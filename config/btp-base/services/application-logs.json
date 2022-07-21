@@ -148,6 +148,7 @@
       "displayName": "large",
       "free": false,
       "name": "large",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -266,6 +267,7 @@
       "displayName": "lite",
       "free": true,
       "name": "lite",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -390,6 +392,7 @@
       "displayName": "standard",
       "free": false,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

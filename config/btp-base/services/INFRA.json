@@ -153,6 +153,7 @@
       "displayName": "custom_domains",
       "free": false,
       "name": "custom_domains",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

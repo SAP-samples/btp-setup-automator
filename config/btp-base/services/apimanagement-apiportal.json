@@ -126,6 +126,7 @@
       "displayName": "apiportal-apiaccess",
       "free": true,
       "name": "apiportal-apiaccess",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -232,6 +233,7 @@
       "displayName": "on-premise-connectivity",
       "free": true,
       "name": "on-premise-connectivity",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -338,6 +340,7 @@
       "displayName": "apim-as-route-service",
       "free": true,
       "name": "apim-as-route-service",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

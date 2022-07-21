@@ -53,6 +53,7 @@
       "description": "Kyma Runtime Azure",
       "displayName": "Kyma Runtime Azure",
       "name": "azure",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -110,6 +111,7 @@
       "description": "Kyma Runtime AWS",
       "displayName": "Kyma Runtime AWS",
       "name": "aws",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -125,6 +127,7 @@
       "description": "Kyma Runtime GCP",
       "displayName": "Kyma Runtime GCP",
       "name": "gcp",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -182,6 +185,7 @@
       "description": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
       "displayName": "free",
       "name": "free",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

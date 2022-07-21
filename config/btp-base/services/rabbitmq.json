@@ -94,6 +94,7 @@
       "displayName": "virtualhost",
       "free": true,
       "name": "virtualhost",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -145,6 +146,7 @@
       "description": "RabbitMQ service - multi-node large plan with load balancing",
       "displayName": "large",
       "name": "large",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -208,6 +210,7 @@
       "description": "RabbitMQ service - multi-node x-small plan without load balancing",
       "displayName": "xsmall",
       "name": "xsmall",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -259,6 +262,7 @@
       "description": "RabbitMQ service - multi-node medium plan with load balancing",
       "displayName": "medium",
       "name": "medium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -274,6 +278,7 @@
       "description": "RabbitMQ service - multi-node x-small plan without load balancing",
       "displayName": "xsmall",
       "name": "xsmall",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -289,6 +294,7 @@
       "description": "RabbitMQ service - multi-node small plan with load balancing",
       "displayName": "small",
       "name": "small",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -304,6 +310,7 @@
       "description": "RabbitMQ service - multi-node medium plan with load balancing",
       "displayName": "medium",
       "name": "medium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -319,6 +326,7 @@
       "description": "RabbitMQ service - multi-node large plan with load balancing",
       "displayName": "large",
       "name": "large",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -382,6 +390,7 @@
       "description": "RabbitMQ service - multi-node small plan with load balancing",
       "displayName": "small",
       "name": "small",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -457,6 +466,7 @@
       "description": "RabbitMQ service - multi-node medium plan with load balancing",
       "displayName": "medium",
       "name": "medium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -520,6 +530,7 @@
       "description": "RabbitMQ service - multi-node x-small plan without load balancing",
       "displayName": "xsmall",
       "name": "xsmall",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -583,6 +594,7 @@
       "description": "RabbitMQ service - multi-node small plan with load balancing",
       "displayName": "small",
       "name": "small",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -658,6 +670,7 @@
       "description": "RabbitMQ service - multi-node large plan with load balancing",
       "displayName": "large",
       "name": "large",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

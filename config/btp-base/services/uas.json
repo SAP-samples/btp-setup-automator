@@ -116,6 +116,7 @@
       "displayName": "reporting-ga-admin",
       "free": true,
       "name": "reporting-ga-admin",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -216,6 +217,7 @@
       "displayName": "reporting-directory",
       "free": true,
       "name": "reporting-directory",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

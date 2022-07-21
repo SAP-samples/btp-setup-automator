@@ -156,6 +156,7 @@
       "displayName": "subaccount-admin",
       "free": true,
       "name": "subaccount-admin",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -280,6 +281,7 @@
       "displayName": "service-operator-access",
       "free": true,
       "name": "service-operator-access",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -404,6 +406,7 @@
       "displayName": "container",
       "free": true,
       "name": "container",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -528,6 +531,7 @@
       "displayName": "subaccount-audit",
       "free": true,
       "name": "subaccount-audit",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

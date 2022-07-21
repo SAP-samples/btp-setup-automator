@@ -49,11 +49,24 @@
       "description": "SAP Intelligent Robotic Process Automation",
       "displayName": "SAP Intelligent Robotic Process Automation",
       "name": "default",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
       "category": "APPLICATION",
       "dataCenters": [
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
         {
           "displayName": "Singapore",
           "environment": "cloudfoundry",
@@ -94,11 +107,24 @@
       "description": "SAP Intelligent Robotic Process Automation Free Model",
       "displayName": "Free",
       "name": "free",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
       "category": "SERVICE",
       "dataCenters": [
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
         {
           "displayName": "Singapore",
           "environment": "cloudfoundry",
@@ -139,11 +165,24 @@
       "description": "Number of concurrent attended runs (in blocks of 10)",
       "displayName": "concurrent-attended",
       "name": "concurrent-attended",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
       "category": "APPLICATION",
       "dataCenters": [
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
         {
           "displayName": "Singapore",
           "environment": "cloudfoundry",
@@ -184,11 +223,24 @@
       "description": "SAP Intelligent Robotic Process Automation Concurrent Model",
       "displayName": "Concurrent",
       "name": "concurrent",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
       "category": "SERVICE",
       "dataCenters": [
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
         {
           "displayName": "Singapore",
           "environment": "cloudfoundry",
@@ -229,6 +281,7 @@
       "description": "Number of concurrent unattended runs (in blocks of 1)",
       "displayName": "concurrent-unattended",
       "name": "concurrent-unattended",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

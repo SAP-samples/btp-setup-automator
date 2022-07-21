@@ -127,6 +127,7 @@
       "description": "Free",
       "displayName": "Free",
       "name": "free",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -238,6 +239,7 @@
       "description": "Access your applications from a central launchpad.",
       "displayName": "standard",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

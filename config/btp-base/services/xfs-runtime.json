@@ -104,6 +104,7 @@
       "displayName": "default",
       "free": false,
       "name": "default",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

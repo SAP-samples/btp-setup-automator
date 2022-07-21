@@ -75,6 +75,7 @@
       "description": "Provides an objectstore on Azure Storage account that applications can use to store \u0026 manage objects",
       "displayName": "azure-standard",
       "name": "azure-standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -91,6 +92,7 @@
       "displayName": "s3-standard",
       "free": false,
       "name": "s3-standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -149,6 +151,7 @@
       "displayName": "s3-standard",
       "free": false,
       "name": "s3-standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -176,6 +179,7 @@
       "description": "Provides an objectstore on Google Cloud Storage that applications can use to store \u0026 manage objects",
       "displayName": "gcs-standard",
       "name": "gcs-standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

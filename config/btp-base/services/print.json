@@ -60,6 +60,7 @@
       "displayName": "sender",
       "free": false,
       "name": "sender",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -100,6 +101,7 @@
       "displayName": "receiver",
       "free": true,
       "name": "receiver",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

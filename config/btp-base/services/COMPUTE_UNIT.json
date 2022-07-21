@@ -37,6 +37,7 @@
       "description": "Professional Edition for VMs: 2 CPUs, 4096 MB Memory",
       "displayName": "Professional Edition for VMs: 2 CPUs, 4096 MB Memory",
       "name": "PRO",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -64,6 +65,7 @@
       "description": "Premium Plus Edition for VMs: 8 CPUs, 16384 MB Memory",
       "displayName": "Premium Plus Edition for VMs: 8 CPUs, 16384 MB Memory",
       "name": "PREMIUM_PLUS",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -157,6 +159,7 @@
       "description": "Professional Edition for VMs: 2 CPUs, 4096 MB Memory",
       "displayName": "Professional Edition for VMs: 2 CPUs, 4096 MB Memory",
       "name": "PRO",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -250,6 +253,7 @@
       "description": "Premium Edition for VMs: 4 CPUs, 8192 MB Memory",
       "displayName": "Premium Edition for VMs: 4 CPUs, 8192 MB Memory",
       "name": "PREMIUM",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -343,6 +347,7 @@
       "description": "Premium Plus Edition for VMs: 8 CPUs, 16384 MB Memory",
       "displayName": "Premium Plus Edition for VMs: 8 CPUs, 16384 MB Memory",
       "name": "PREMIUM_PLUS",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -370,6 +375,7 @@
       "description": "Premium Edition for VMs: 4 CPUs, 8192 MB Memory",
       "displayName": "Premium Edition for VMs: 4 CPUs, 8192 MB Memory",
       "name": "PREMIUM",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

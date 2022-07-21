@@ -38,6 +38,7 @@
       "displayName": "cyon",
       "free": true,
       "name": "cyon",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {
@@ -86,6 +87,7 @@
       "displayName": "testnet",
       "free": true,
       "name": "testnet",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_binding": {
           "create": {
@@ -139,6 +141,7 @@
       "displayName": "dev",
       "free": true,
       "name": "dev",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_binding": {
           "create": {

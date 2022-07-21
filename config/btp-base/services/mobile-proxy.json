@@ -60,6 +60,7 @@
       "displayName": "Mobile Connectivity Service is used in the context of a Mobile application to connect to back-ends",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

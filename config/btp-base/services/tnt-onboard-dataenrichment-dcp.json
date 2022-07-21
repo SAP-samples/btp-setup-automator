@@ -39,6 +39,7 @@
       "description": "Data Enrichment",
       "displayName": "Data Enrichment",
       "name": "saas-application",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

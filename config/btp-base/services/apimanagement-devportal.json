@@ -120,6 +120,7 @@
       "displayName": "devportal-apiaccess",
       "free": true,
       "name": "devportal-apiaccess",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

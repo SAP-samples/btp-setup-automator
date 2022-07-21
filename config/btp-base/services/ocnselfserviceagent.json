@@ -111,6 +111,7 @@
       "description": "Open Connectors",
       "displayName": "Standard",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

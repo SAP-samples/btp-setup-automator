@@ -27,6 +27,7 @@
       "description": "Console application that allows to manage, monitor event brokers.",
       "displayName": "default",
       "name": "default",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],

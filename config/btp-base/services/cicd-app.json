@@ -53,6 +53,7 @@
       "description": "Free Tier Plan",
       "displayName": "Free",
       "name": "free",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -86,6 +87,7 @@
       "description": "Make full use of SAP Continuous Integration and Delivery.",
       "displayName": "Default",
       "name": "default",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
