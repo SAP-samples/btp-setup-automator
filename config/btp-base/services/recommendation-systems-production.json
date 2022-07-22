@@ -2,7 +2,7 @@
   "description": "Personalized Recommendation is a generic reusable service. It uses state-of-the-art machine learning techniques to give visitors to your website highly personalized recommendations based on their browsing history and/or item description. Train and use machine learning models to deliver these recommendations across a wide range of business scenarios. Personalized Recommendation is part of the SAP AI Business Services portfolio.",
   "displayName": "Personalized Recommendation",
   "icon": "Icon too big. Service owner needs to reduce size.",
-  "id": "8a7f2b29-1d18-4a63-81fd-96a02fd45de6",
+  "id": "c3e5bfa1-8324-4118-9284-395ebdf42d26",
   "inventoryIds": [
     "SERVICE-483"
   ],
@@ -46,7 +46,6 @@
       ],
       "description": "Standard access plan for Personalized Recommendation",
       "displayName": "standard",
-      "free": false,
       "name": "standard",
       "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
@@ -75,7 +74,6 @@
       ],
       "description": "Free access plan for Personalized Recommendation. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
       "displayName": "free",
-      "free": true,
       "name": "free",
       "provisioningMethod": "SERVICE_BROKER",
       "schemas": null

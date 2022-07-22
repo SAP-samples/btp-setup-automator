@@ -2,7 +2,7 @@
   "description": "The Feature Flags service allows you to enable or disable new features at runtime without redeploying or restarting the application. You can use feature flags to control code delivery, synchronized rollout, direct shipment, and fast rollback of features.",
   "displayName": "Feature Flags",
   "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iZmVhdHVyZWZsYWdzIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwYTZlY2Y7fS5jbHMtMntmaWxsOiMwNjNiNzA7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5mZWF0dXJlZmxhZ3M8L3RpdGxlPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTM3LDI5LjVIMTlhOSw5LDAsMCwwLDAsMThIMzdhOSw5LDAsMCwwLDAtMThabTAsMTUuNzVIMTlhNi43NSw2Ljc1LDAsMCwxLDAtMTMuNUgzN2E2Ljc1LDYuNzUsMCwwLDEsMCwxMy41WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE5LDI2LjVIMzdhOSw5LDAsMCwwLDAtMThIMTlhOSw5LDAsMCwwLDAsMThabTE4LTE1YTYsNiwwLDEsMS02LDZBNiw2LDAsMCwxLDM3LDExLjVaIi8+PGNpcmNsZSBjbGFzcz0iY2xzLTIiIGN4PSIzNyIgY3k9IjE3LjUiIHI9IjQuMTI1Ii8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTksMzMuNjI1QTQuODc1LDQuODc1LDAsMSwwLDIzLjg3NSwzOC41LDQuODc1LDQuODc1LDAsMCwwLDE5LDMzLjYyNVptMCw3LjVBMi42MjUsMi42MjUsMCwxLDEsMjEuNjI1LDM4LjUsMi42MjksMi42MjksMCwwLDEsMTksNDEuMTI1WiIvPjwvc3ZnPg==",
-  "id": "bd5d9d23-96ce-409b-bb93-7c9225c4e56b",
+  "id": "ed29dd74-e067-4d07-beb5-9b0b3d356e21",
   "inventoryIds": [
     "SERVICE-172"
   ],

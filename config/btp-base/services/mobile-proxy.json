@@ -2,7 +2,7 @@
   "description": "Mobile Connectivity Service",
   "displayName": "Mobile Connectivity Service",
   "icon": "sap-icon://connected",
-  "id": "f04b260b-91e9-4486-979c-82017b42b0d4",
+  "id": "f6150a0a-a903-4af8-9c15-075353328d25",
   "inventoryIds": null,
   "links": [
     {
@@ -10,7 +10,7 @@
       "title": "Documentation"
     },
     {
-      "linkURL": "https://mobile-service-cockpit-web.cfapps.us10.hana.ondemand.com",
+      "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
       "title": "Support information"
     }
   ],

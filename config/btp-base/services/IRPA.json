@@ -284,5 +284,6 @@
       "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
-  ]
+  ],
+  "supportedEnvironments": "N/A"
 }

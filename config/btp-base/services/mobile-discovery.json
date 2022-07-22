@@ -2,7 +2,7 @@
   "description": "Mobile Discovery",
   "displayName": "Mobile Discovery",
   "icon": "sap-icon://course-book",
-  "id": "768921c3-6f4e-4052-9fc4-3c7b09ba50a8",
+  "id": "bc07d86f-ebae-473f-b7a4-68a09c76bd8e",
   "inventoryIds": null,
   "links": [
     {
@@ -10,7 +10,7 @@
       "title": "Documentation"
     },
     {
-      "linkURL": "https://mobile-service-cockpit-web.cfapps.us10.hana.ondemand.com",
+      "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
       "title": "Support information"
     }
   ],

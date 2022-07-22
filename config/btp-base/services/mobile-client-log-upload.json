@@ -2,7 +2,7 @@
   "description": "Mobile Client Log Upload Service",
   "displayName": "Mobile Client Log Upload Service",
   "icon": "sap-icon://document-text",
-  "id": "945d20df-a5a9-4d37-b101-a7648571b3e2",
+  "id": "52aa146c-36e0-49d7-8638-3e554d74c11b",
   "inventoryIds": null,
   "links": [
     {
@@ -10,7 +10,7 @@
       "title": "Documentation"
     },
     {
-      "linkURL": "https://mobile-service-cockpit-web.cfapps.us10.hana.ondemand.com",
+      "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
       "title": "Support information"
     }
   ],

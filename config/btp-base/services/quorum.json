@@ -2,7 +2,7 @@
   "description": "The Quorum service lets you create, delete, monitor and maintain individual Quorum nodes and connect them to a blockchain network.",
   "displayName": "Quorum",
   "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgODAgODAiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50IiB4MT0iMC4xOCIgeTE9IjQwIiB4Mj0iNzkuODIiIHkyPSI0MCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzNiODNjMSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzg2YmZjOCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjx0aXRsZT5sb2dvMTI4eDEyODwvdGl0bGU+PHBvbHlsaW5lIHBvaW50cz0iNTIuNzkgNDAuOSA3Ni4zMiA0MC45IDc2LjMyIDcwLjY3IDQxLjM2IDcwLjY3IDQxLjM2IDkuMzMgMy42OCA5LjMzIDMuNjggMzkuMDIgMjcuNDcgMzkuMDIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI3IiBzdHJva2U9InVybCgjbGluZWFyLWdyYWRpZW50KSIvPjwvc3ZnPg==",
-  "id": "97972007-236f-430b-870c-74b7352d96b0",
+  "id": "3244556d-71b6-4534-9bd7-9d1591d855ab",
   "inventoryIds": [
     "SERVICE-322"
   ],

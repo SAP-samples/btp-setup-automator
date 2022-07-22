@@ -2,7 +2,7 @@
   "description": "Mobile Offline",
   "displayName": "Mobile Offline",
   "icon": "sap-icon://disconnected",
-  "id": "bea9e820-5ecb-4d68-83bf-9f84b976b356",
+  "id": "431ddf54-fcee-444d-9073-727c1d81c42c",
   "inventoryIds": null,
   "links": [
     {
@@ -10,7 +10,7 @@
       "title": "Documentation"
     },
     {
-      "linkURL": "https://mobile-service-cockpit-web.cfapps.us10.hana.ondemand.com",
+      "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
       "title": "Support information"
     }
   ],
