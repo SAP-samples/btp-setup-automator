@@ -91,12 +91,9 @@
       "description": "API Management-Developer Portal",
       "displayName": "API Management-Developer Portal",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }

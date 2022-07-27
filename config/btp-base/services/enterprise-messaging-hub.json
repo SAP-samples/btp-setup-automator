@@ -18,6 +18,12 @@
       "category": "APPLICATION",
       "dataCenters": [
         {
+          "displayName": "cf-ch20",
+          "environment": "cloudfoundry",
+          "name": "cf-ch20",
+          "region": "ch20"
+        },
+        {
           "displayName": "India (Mumbai)",
           "environment": "cloudfoundry",
           "name": "cf-in30",
@@ -129,12 +135,9 @@
       "description": "Event Mesh",
       "displayName": "Event Mesh Hub",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }

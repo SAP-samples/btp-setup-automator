@@ -2,7 +2,7 @@
   "description": "Mobile Sample OData",
   "displayName": "Mobile Sample OData",
   "icon": "sap-icon://cloud",
-  "id": "42235bd2-0b06-4f47-82db-a5e66f4ebf82",
+  "id": "143ed86b-a8a8-4ecc-8e87-5514d4108440",
   "inventoryIds": null,
   "links": [
     {
@@ -10,7 +10,7 @@
       "title": "Documentation"
     },
     {
-      "linkURL": "https://mobile-service-cockpit-web.cfapps.us10.hana.ondemand.com",
+      "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
       "title": "Support information"
     }
   ],
@@ -60,6 +60,7 @@
       "displayName": "Mobile Sample OData v2 ESPM Service is a sample OData service used for development and testing",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

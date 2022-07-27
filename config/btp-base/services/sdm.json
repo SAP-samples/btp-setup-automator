@@ -2,7 +2,7 @@
   "description": "Leverage the APIs of SAP Document Management service and build your own document management layer to enable document management capabilities for your business applications. You can also embed the easy-to-use, UI5-based, reusable UI component of Document Management into your application for document management scenarios.",
   "displayName": "Document Management Service, Integration Option",
   "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iZG9jdW1lbnQtc2VydmljZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMGE2ZWQxO30uY2xzLTJ7ZmlsbDojMDUzYjcwO30uY2xzLTN7ZmlsbDojMDA5MmQxO308L3N0eWxlPjwvZGVmcz48dGl0bGU+ZG9jdW1lbnQtc2VydmljZTwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDksMjBoLS4yTDQzLDhIMTNMNy4yLDIwSDdhMi45NDYsMi45NDYsMCwwLDAtMywzVjQ0YTIuOTQ2LDIuOTQ2LDAsMCwwLDMsM0g0OWEyLjk0NiwyLjk0NiwwLDAsMCwzLTNWMjNBMi45NDYsMi45NDYsMCwwLDAsNDksMjBabS0zLjItLjFIMTAuMWw0LjYtOS42SDQxLjNNNyw0NFYyM0g0OVY0NFoiLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMzQgMzggMjIgMzggMjIgMzYuNSAxOSAzNi41IDE5IDM4IDE5IDQxIDM3IDQxIDM3IDM4IDM3IDM2LjUgMzQgMzYuNSAzNCAzOCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjQxLjMiIHkxPSIxMC4zIiB4Mj0iNDUuOCIgeTI9IjE5LjkiLz48cmVjdCBjbGFzcz0iY2xzLTIiIHg9IjE0LjEiIHk9IjE2LjEiIHdpZHRoPSIyNy44IiBoZWlnaHQ9IjEuNSIvPjxyZWN0IGNsYXNzPSJjbHMtMiIgeD0iMTYiIHk9IjEyLjQiIHdpZHRoPSIyNCIgaGVpZ2h0PSIxLjUiLz48L3N2Zz4=",
-  "id": "4ff235d4-f418-439d-8bcd-a95a48e4c6ba",
+  "id": "19a4739e-923a-48fb-bdcb-cdd3176c4cca",
   "inventoryIds": [
     "SERVICE-285"
   ],
@@ -132,6 +132,7 @@
       "displayName": "standard",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -244,6 +245,7 @@
       "displayName": "free",
       "free": true,
       "name": "free",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

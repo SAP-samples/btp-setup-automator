@@ -2,7 +2,7 @@
   "description": "With SAP Analytics Cloud, embedded edition, you can build and embed reports, dashboards, and visuals into your business application to make confident decisions. Explore your business data via live connection between your SAP Analytics Cloud tenant and the remote SAP HANA database on SAP Cloud Platform.",
   "displayName": "SAP Analytics Cloud, embedded edition",
   "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iY2xvdWQtZm9yLWFuYWx5dGljcyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMGE2ZWQxO30uY2xzLTJ7ZmlsbDojMDUzYjcwO308L3N0eWxlPjwvZGVmcz48dGl0bGU+Y2xvdWQtZm9yLWFuYWx5dGljczwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjksMzMuNDcxLDQxLjk0Nyw0Ni40MjJBMjMuMywyMy4zLDAsMCwxLDI5LDUxLjg1N2EyOC4xMDUsMjguMTA1LDAsMCwxLTMuODk0LDBBMjMuMDc4LDIzLjA3OCwwLDAsMSw2LjgwOCwzOS45LDIyLjU0NywyMi41NDcsMCwwLDEsNCwyOC45NDMsMjIuNzQ1LDIyLjc0NSwwLDAsMSw5LjQzNCwxMy45MDlhMzYuNTcsMzYuNTcsMCwwLDEsMi43MTctMi42MjZBMjIuNzYsMjIuNzYsMCwwLDEsMjUuMSw1Ljg0OVYyOS42NjhaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNTAuNjQxLDIwLjUyMSwzMC4zNTUsMjkuNDg3LDQ0LjU3Myw0My44bDEuNDQ5LDEuMjY4QTI0LjAzLDI0LjAzLDAsMCwwLDUyLDI4Ljk0MywyNi40NDgsMjYuNDQ4LDAsMCwwLDUwLjY0MSwyMC41MjFaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDkuMDExLDE2Ljk4OUEyNC44MDksMjQuODA5LDAsMCwwLDI5LDQuMDM4VjI1Ljg2NEw0Ny4yLDE3LjhaIi8+PC9zdmc+",
-  "id": "a8cdf112-4352-4fc9-8af3-ddc7b242723d",
+  "id": "a53a45e7-c546-49b6-b264-e6f09f83a833",
   "inventoryIds": [
     "SERVICE-475"
   ],
@@ -90,6 +90,7 @@
       "displayName": "standard",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

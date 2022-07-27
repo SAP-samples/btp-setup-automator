@@ -2,7 +2,7 @@
   "description": "Mobile Cloud Build",
   "displayName": "Mobile Cloud Build",
   "icon": "sap-icon://documents",
-  "id": "4c6feef5-77c0-402c-876c-387bca0fe9c9",
+  "id": "dc1467b5-996b-4403-9159-5446989b433c",
   "inventoryIds": null,
   "links": [
     {
@@ -10,7 +10,7 @@
       "title": "Documentation"
     },
     {
-      "linkURL": "https://mobile-service-cockpit-web.cfapps.us10.hana.ondemand.com",
+      "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
       "title": "Support information"
     }
   ],
@@ -60,6 +60,7 @@
       "displayName": "Mobile Cloud Build enables customized builds of SAP mobile applications",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

@@ -2,7 +2,7 @@
   "description": "SAP Service Manager service allows you to consume platform services in any connected runtime environment, track service instances creation, and share services and service instances between different environments.",
   "displayName": "Service Manager",
   "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMjI5IiBkYXRhLW5hbWU9IkxheWVyIDIyOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMGE2ZWQxO30uY2xzLTJ7ZmlsbDojMDUzYjcwO308L3N0eWxlPjwvZGVmcz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yOCw3YTMsMywwLDEsMS0zLDMsMywzLDAsMCwxLDMtM20wLTNhNiw2LDAsMSwwLDYsNiw2LjAwNyw2LjAwNywwLDAsMC02LTZaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjgsNDNhMywzLDAsMSwxLTMsMywzLDMsMCwwLDEsMy0zbTAtM2E2LDYsMCwxLDAsNiw2LDYuMDA3LDYuMDA3LDAsMCwwLTYtNloiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xMywyNXY2SDdWMjVoNm0zLTNINFYzNEgxNlYyMloiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik00OSwyNXY2SDQzVjI1aDZtMy0zSDQwVjM0SDUyVjIyWiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTM3LDI2LjEyNUE3LjEzMyw3LjEzMywwLDAsMSwyOS44NzUsMTlhMS4xMjUsMS4xMjUsMCwwLDEsMi4yNSwwQTQuODc5LDQuODc5LDAsMCwwLDM3LDIzLjg3NWExLjEyNSwxLjEyNSwwLDAsMSwwLDIuMjVaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTksMjYuMTI1YTEuMTI1LDEuMTI1LDAsMCwxLDAtMi4yNUE0Ljg3OSw0Ljg3OSwwLDAsMCwyMy44NzUsMTlhMS4xMjUsMS4xMjUsMCwwLDEsMi4yNSwwQTcuMTMzLDcuMTMzLDAsMCwxLDE5LDI2LjEyNVoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNSwzOC4xMjVBMS4xMjUsMS4xMjUsMCwwLDEsMjMuODc1LDM3LDQuODgsNC44OCwwLDAsMCwxOSwzMi4xMjVhMS4xMjUsMS4xMjUsMCwwLDEsMC0yLjI1QTcuMTMzLDcuMTMzLDAsMCwxLDI2LjEyNSwzNywxLjEyNSwxLjEyNSwwLDAsMSwyNSwzOC4xMjVaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMzEsMzguMTI1QTEuMTI1LDEuMTI1LDAsMCwxLDI5Ljg3NSwzNyw3LjEzMyw3LjEzMywwLDAsMSwzNywyOS44NzVhMS4xMjUsMS4xMjUsMCwwLDEsMCwyLjI1QTQuODgsNC44OCwwLDAsMCwzMi4xMjUsMzcsMS4xMjUsMS4xMjUsMCwwLDEsMzEsMzguMTI1WiIvPjwvc3ZnPg==",
-  "id": "401522bd-666a-4748-82ef-8b2e4ca4113c",
+  "id": "1a2a2561-a590-46d7-aa3d-58878f92174c",
   "inventoryIds": [
     "SERVICE-324"
   ],
@@ -156,6 +156,7 @@
       "displayName": "subaccount-admin",
       "free": true,
       "name": "subaccount-admin",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -280,6 +281,7 @@
       "displayName": "service-operator-access",
       "free": true,
       "name": "service-operator-access",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -404,6 +406,7 @@
       "displayName": "container",
       "free": true,
       "name": "container",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -528,6 +531,7 @@
       "displayName": "subaccount-audit",
       "free": true,
       "name": "subaccount-audit",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

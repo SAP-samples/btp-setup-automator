@@ -2,7 +2,7 @@
   "description": "Mobile App Update",
   "displayName": "Mobile App Update",
   "icon": "sap-icon://settings",
-  "id": "4051ef70-6430-4d54-a2c0-35328cfc7b4d",
+  "id": "43b22dcb-fba7-4700-b5a1-060357c4fde2",
   "inventoryIds": null,
   "links": [
     {
@@ -10,7 +10,7 @@
       "title": "Documentation"
     },
     {
-      "linkURL": "https://mobile-service-cockpit-web.cfapps.us10.hana.ondemand.com",
+      "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
       "title": "Support information"
     }
   ],
@@ -60,6 +60,7 @@
       "displayName": "Mobile App Update Service is used to update new versions of an App Modeler application",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

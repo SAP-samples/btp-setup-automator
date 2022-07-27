@@ -2,7 +2,7 @@
   "description": "The Redis service on SAP BTP provides a way to directly consume the Redis cache service provided by the Infrastructure providers such as AWS and Azure.",
   "displayName": "Redis, hyperscaler option",
   "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIxLjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA0OCA0OCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDggNDg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDojQTQxRTExO30KCS5zdDF7ZmlsbDojRDgyQzIwO30KCS5zdDJ7ZmlsbDojRkZGRkZGO30KCS5zdDN7ZmlsbDojN0EwQzAwO30KCS5zdDR7ZmlsbDojQUQyMTE1O30KPC9zdHlsZT4KPGc+Cgk8Zz4KCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDYuMSwzNS4yYy0yLjYsMS4zLTE1LjgsNi44LTE4LjcsOC4zYy0yLjgsMS41LTQuNCwxLjUtNi42LDAuNGMtMi4yLTEuMS0xNi40LTYuOC0xOC45LTgKCQkJQzAuNywzNS4yLDAsMzQuNywwLDM0LjJjMC0wLjUsMC00LjksMC00LjlzMTguNC00LDIxLjQtNS4xYzMtMS4xLDQtMS4xLDYuNS0wLjJjMi41LDAuOSwxNy42LDMuNywyMC4xLDQuNmMwLDAsMCw0LjMsMCw0LjgKCQkJQzQ4LDMzLjksNDcuNCwzNC41LDQ2LjEsMzUuMnoiLz4KCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNDYuMSwzMC4zYy0yLjYsMS4zLTE1LjgsNi44LTE4LjcsOC4zQzI0LjYsNDAsMjMuMSw0MCwyMC44LDM5Yy0yLjItMS4xLTE2LjQtNi44LTE4LjktOAoJCQljLTIuNS0xLjItMi42LTIuMS0wLjEtM2MyLjUtMSwxNi41LTYuNSwxOS41LTcuNmMzLTEuMSw0LTEuMSw2LjUtMC4yYzIuNSwwLjksMTUuNyw2LjIsMTguMiw3LjFDNDguNiwyOC4yLDQ4LjcsMjksNDYuMSwzMC4zeiIvPgoJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00Ni4xLDI3LjJjLTIuNiwxLjMtMTUuOCw2LjgtMTguNyw4LjNjLTIuOCwxLjUtNC40LDEuNS02LjYsMC40Yy0yLjItMS4xLTE2LjQtNi44LTE4LjktOAoJCQlDMC43LDI3LjMsMCwyNi44LDAsMjYuM2MwLTAuNSwwLTQuOSwwLTQuOXMxOC40LTQsMjEuNC01LjFjMy0xLjEsNC0xLjEsNi41LTAuMmMyLjUsMC45LDE3LjYsMy42LDIwLjEsNC42YzAsMCwwLDQuMywwLDQuOAoJCQlDNDgsMjYsNDcuNCwyNi42LDQ2LjEsMjcuMnoiLz4KCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNDYuMSwyMi40Yy0yLjYsMS4zLTE1LjgsNi44LTE4LjcsOC4zYy0yLjgsMS41LTQuNCwxLjUtNi42LDAuNGMtMi4yLTEuMS0xNi40LTYuOC0xOC45LTgKCQkJYy0yLjUtMS4yLTIuNi0yLjEtMC4xLTNjMi41LTEsMTYuNS02LjUsMTkuNS03LjZjMy0xLjEsNC0xLjEsNi41LTAuMmMyLjUsMC45LDE1LjcsNi4yLDE4LjIsNy4xQzQ4LjYsMjAuMyw0OC43LDIxLjEsNDYuMSwyMi40eiIKCQkJLz4KCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDYuMSwxOWMtMi42LDEuMy0xNS44LDYuOC0xOC43LDguM2MtMi44LDEuNS00LjQsMS41LTYuNiwwLjRjLTIuMi0xLjEtMTYuNC02LjgtMTguOS04CgkJCUMwLjcsMTkuMSwwLDE4LjYsMCwxOC4xYzAtMC41LDAtNC45LDAtNC45czE4LjQtNCwyMS40LTUuMWMzLTEuMSw0LTEuMSw2LjUtMC4yYzIuNSwwLjksMTcuNiwzLjYsMjAuMSw0LjZjMCwwLDAsNC4zLDAsNC44CgkJCUM0OCwxNy44LDQ3LjQsMTguNCw0Ni4xLDE5eiIvPgoJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik00Ni4xLDE0LjJjLTIuNiwxLjMtMTUuOCw2LjgtMTguNyw4LjNjLTIuOCwxLjUtNC40LDEuNS02LjYsMC40cy0xNi40LTYuOC0xOC45LThjLTIuNS0xLjItMi42LTIuMS0wLjEtMwoJCQljMi41LTEsMTYuNS02LjUsMTkuNS03LjZjMy0xLjEsNC0xLjEsNi41LTAuMmMyLjUsMC45LDE1LjcsNi4yLDE4LjIsNy4xQzQ4LjYsMTIuMSw0OC43LDEyLjgsNDYuMSwxNC4yeiIvPgoJCTxwb2x5Z29uIGNsYXNzPSJzdDIiIHBvaW50cz0iMjQuOCw3LjMgMjcuOSw2LjMgMjcuMSw4LjMgMzAuMyw5LjUgMjYuMSw5LjkgMjUuMiwxMi4yIDIzLjcsOS43IDE4LjksOS4zIDIyLjUsOCAyMS40LDYgCQkiLz4KCQk8cG9seWdvbiBjbGFzcz0ic3QyIiBwb2ludHM9IjI1LDIwLjQgMTcuMiwxNy4yIDI4LjMsMTUuNSAJCSIvPgoJCTxlbGxpcHNlIGNsYXNzPSJzdDIiIGN4PSIxNC4yIiBjeT0iMTMuMSIgcng9IjUuOSIgcnk9IjIuMyIvPgoJPC9nPgoJPHBvbHlnb24gY2xhc3M9InN0MyIgcG9pbnRzPSIzNS4yLDEwLjEgNDEuOCwxMi43IDM1LjIsMTUuMyAJIi8+Cgk8cG9seWdvbiBjbGFzcz0ic3Q0IiBwb2ludHM9IjM1LjIsMTAuMSAzNS4yLDE1LjMgMzQuNSwxNS42IDI3LjksMTMgCSIvPgo8L2c+Cjwvc3ZnPgo=",
-  "id": "f85bc850-2425-4c1a-ad35-f2985273048a",
+  "id": "f4b5bb34-8ddb-4edb-a4f3-93894110cf32",
   "inventoryIds": [
     "SERVICE-508"
   ],
@@ -126,6 +126,7 @@
       "displayName": "premium",
       "free": false,
       "name": "premium",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {
@@ -441,6 +442,7 @@
       "displayName": "standard",
       "free": false,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {
@@ -744,78 +746,9 @@
       ],
       "description": "Create Redis Cache instances for limited use.",
       "displayName": "Free",
-      "free": true,
       "name": "free",
-      "schemas": {
-        "service_instance": {
-          "create": {
-            "parameters": {
-              "$id": "http://example.com/schemas/redis-free-create.json",
-              "$schema": "http://json-schema.org/draft-06/schema#",
-              "_show_form_view": true,
-              "additionalProperties": true,
-              "properties": {
-                "engine_version": {
-                  "default": "4.0",
-                  "description": "The major version number of the cache engine to be used for the clusters. If not provided, the major version is defaulted to 4.0",
-                  "enum": [
-                    "4.0"
-                  ],
-                  "type": "string"
-                },
-                "eviction_policy": {
-                  "default": "noeviction",
-                  "description": "The eviction policy for keys when maximum memory usage is reached. Default is \u0027noeviction\u0027",
-                  "enum": [
-                    "allkeys-lru",
-                    "volatile-lru",
-                    "allkeys-lfu",
-                    "volatile-lfu",
-                    "allkeys-random",
-                    "volatile-random",
-                    "volatile-ttl",
-                    "noeviction"
-                  ],
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            }
-          },
-          "update": {
-            "parameters": {
-              "$id": "http://example.com/schemas/redis-free-update.json",
-              "$schema": "http://json-schema.org/draft-06/schema#",
-              "_show_form_view": true,
-              "additionalProperties": true,
-              "properties": {
-                "engine_version": {
-                  "description": "The major version number of the cache engine to be used for the clusters. If not provided, the major version is defaulted to 4.0",
-                  "enum": [
-                    "4.0"
-                  ],
-                  "type": "string"
-                },
-                "eviction_policy": {
-                  "description": "The eviction policy for keys when maximum memory usage is reached. Default is \u0027noeviction\u0027",
-                  "enum": [
-                    "allkeys-lru",
-                    "volatile-lru",
-                    "allkeys-lfu",
-                    "volatile-lfu",
-                    "allkeys-random",
-                    "volatile-random",
-                    "volatile-ttl",
-                    "noeviction"
-                  ],
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            }
-          }
-        }
-      }
+      "provisioningMethod": "SERVICE_BROKER",
+      "schemas": null
     }
   ],
   "supportedEnvironments": [

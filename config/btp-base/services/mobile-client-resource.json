@@ -2,7 +2,7 @@
   "description": "Mobile Client Resource Service",
   "displayName": "Mobile Client Resource Service",
   "icon": "sap-icon://program-triangles",
-  "id": "6c92e1c2-9d0d-4b4f-b2ad-e536d7f03941",
+  "id": "845231bd-7341-4ea0-a0c4-4e9f373fc71a",
   "inventoryIds": null,
   "links": [
     {
@@ -10,7 +10,7 @@
       "title": "Documentation"
     },
     {
-      "linkURL": "https://mobile-service-cockpit-web.cfapps.us10.hana.ondemand.com",
+      "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
       "title": "Support information"
     }
   ],
@@ -60,6 +60,7 @@
       "displayName": "Mobile Client Resource Service allows to manage resources that can be accessed from mobile applications",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

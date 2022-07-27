@@ -2,7 +2,7 @@
   "description": "Mobile Content",
   "displayName": "Mobile Content",
   "icon": null,
-  "id": "7336bd45-829c-4568-8046-deb3fe9762f9",
+  "id": "b3f5dc28-fcf3-4de4-8e83-aa76ee274316",
   "inventoryIds": null,
   "links": [
     {
@@ -10,7 +10,7 @@
       "title": "Documentation"
     },
     {
-      "linkURL": "https://mobile-service-cockpit-web.cfapps.us10.hana.ondemand.com",
+      "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
       "title": "Support information"
     }
   ],
@@ -60,6 +60,7 @@
       "displayName": "Mobile Content to Go Service, the back-end for the corresponding iPhone application",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

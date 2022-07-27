@@ -121,6 +121,7 @@
       "description": "Use the plan for productive development in pre-configured dev spaces.",
       "displayName": "standard-edition",
       "name": "standard-edition",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -226,12 +227,9 @@
       "description": "Use the free offering for evaluation purposes. Restrictions apply to the development environments.",
       "displayName": "Free",
       "name": "free",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }

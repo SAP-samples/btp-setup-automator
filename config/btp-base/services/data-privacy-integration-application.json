@@ -95,12 +95,9 @@
       "description": "Default Plan",
       "displayName": "default",
       "name": "default",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }

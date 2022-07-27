@@ -2,7 +2,7 @@
   "description": "The SAP Task Center service only enables, but does not include the integration implementation from the supported SAP solutions. The SAP Task Center service enables integration with SAP applications to provide a single entry point for end users to access all their assigned workflow tasks. The tasks can be accessed by end users through the SAP Task Center Web application.",
   "displayName": "SAP Task Center",
   "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PGRlZnM+PHN0eWxlPi5jbHMtMSwuY2xzLTN7ZmlsbDojMDUzYjcwO30uY2xzLTJ7ZmlsbDojMGE2ZWQxO30uY2xzLTN7ZmlsbC1ydWxlOmV2ZW5vZGQ7fTwvc3R5bGU+PC9kZWZzPjxnIGlkPSJ0YXNrLWNlbnRlciI+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDcuNzQ0LDM1Ljg0MmE3LjUxNSw3LjUxNSwwLDAsMS0yLS4yN0ExOS40MzQsMTkuNDM0LDAsMCwxLDM0Ljg4LDQ2LjFhNy41NTQsNy41NTQsMCwwLDEsLjYzNiwyLjNBMjEuODE2LDIxLjgxNiwwLDAsMCw0OC4yLDM1LjgyN0M0OC4wNDUsMzUuODM2LDQ3LjksMzUuODQyLDQ3Ljc0NCwzNS44NDJaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNOC4wMiwyMC42MzRhNy41NTIsNy41NTIsMCwwLDEsMi4wMzUuMjhBMTkuNDMzLDE5LjQzMywwLDAsMSwyMS4xNjgsOS44ODYsNy41OTQsNy41OTQsMCwwLDEsMjAuNSw3LjYsMjEuODEsMjEuODEsMCwwLDAsNy42MzEsMjAuNjQ0QzcuNzYsMjAuNjM3LDcuODg5LDIwLjYzNCw4LjAyLDIwLjYzNFoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zNC44MzEsOS44ODZBMTkuNDMzLDE5LjQzMywwLDAsMSw0NS45MiwyMC44NThhNy41MTIsNy41MTIsMCwwLDEsMS44MjQtLjIyNGMuMjEyLDAsLjQyMi4wMTEuNjMuMDI4QTIxLjgxMiwyMS44MTIsMCwwLDAsMzUuNSw3LjYsNy41NTMsNy41NTMsMCwwLDEsMzQuODMxLDkuODg2WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIxLjEyLDQ2LjFBMTkuNDMyLDE5LjQzMiwwLDAsMSwxMC4yMjYsMzUuNTEyYTcuNTE2LDcuNTE2LDAsMCwxLTIuMjA2LjMzYy0uMDcyLDAtLjE0MiwwLS4yMTMtLjAwNkEyMS44MTEsMjEuODExLDAsMCwwLDIwLjQ4NCw0OC40LDcuNTU0LDcuNTU0LDAsMCwxLDIxLjEyLDQ2LjFaIi8+PGVsbGlwc2UgY2xhc3M9ImNscy0yIiBjeD0iMjgiIGN5PSI3LjgwMiIgcng9IjMuNzgzIiByeT0iMy44MDIiLz48ZWxsaXBzZSBjbGFzcz0iY2xzLTIiIGN4PSIyOC4xMTgiIGN5PSI0OC4xOTgiIHJ4PSIzLjc4MyIgcnk9IjMuODAyIi8+PGVsbGlwc2UgY2xhc3M9ImNscy0yIiBjeD0iNDguMjE3IiBjeT0iMjguMjM4IiByeD0iMy43ODMiIHJ5PSIzLjgwMiIvPjxlbGxpcHNlIGNsYXNzPSJjbHMtMiIgY3g9IjcuNzgzIiBjeT0iMjguMjM4IiByeD0iMy43ODMiIHJ5PSIzLjgwMiIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMyIgcG9pbnRzPSIzNS4yMjcgMjAuMDQgMjUuNzQxIDMwLjA1MiAyMS4zNjUgMjYuMDM3IDE4LjE4NyAyOS41MyAyNS45NzIgMzYuNjczIDM4LjY0IDIzLjMwMiAzNS4yMjcgMjAuMDQiLz48L2c+PC9zdmc+",
-  "id": "458bf50c-edc5-40ab-82ab-15afaf060343",
+  "id": "1f2bd266-5767-43fa-a43a-7e17f140a7b7",
   "inventoryIds": [
     "SERVICE-457"
   ],
@@ -114,6 +114,7 @@
       "displayName": "standard",
       "free": false,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_instance": {
           "create": {

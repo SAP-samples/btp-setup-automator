@@ -2,7 +2,7 @@
   "description": "Mobile Network Trace",
   "displayName": "Mobile Network Trace",
   "icon": "sap-icon://physical-activity",
-  "id": "7ed9f058-9a51-4775-bc2f-ed50a21ff515",
+  "id": "36705ae1-21d7-4a3c-b44d-a516d887d4e9",
   "inventoryIds": null,
   "links": [
     {
@@ -10,7 +10,7 @@
       "title": "Documentation"
     },
     {
-      "linkURL": "https://mobile-service-cockpit-web.cfapps.us10.hana.ondemand.com",
+      "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
       "title": "Support information"
     }
   ],
@@ -60,6 +60,7 @@
       "displayName": "Mobile Network Trace collects network trace information from mobile applications for debugging",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

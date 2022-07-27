@@ -33,12 +33,9 @@
       "description": "Master data application that allows master data replication according to predetermined master data distribution models",
       "displayName": "Master data application that allows master data replication according to predetermined master data distribution models",
       "name": "saas-application",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }

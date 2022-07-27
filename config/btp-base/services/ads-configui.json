@@ -37,12 +37,9 @@
       "description": "Configure Adobe Document Services. Access the template store UI.",
       "displayName": "Default",
       "name": "default",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }

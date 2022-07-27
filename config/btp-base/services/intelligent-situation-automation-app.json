@@ -31,6 +31,7 @@
       "description": "For exploring features in testing environment only; do not use in production scenarios. Only community support is available for this plan and it is not subject to SLAs",
       "displayName": "Free",
       "name": "free",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -46,6 +47,7 @@
       "description": "For production scenarios",
       "displayName": "standard",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -61,12 +63,9 @@
       "description": "For trial purposes only; not to be used in production scenarios",
       "displayName": "Beta",
       "name": "beta",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }

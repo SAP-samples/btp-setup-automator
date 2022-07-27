@@ -39,12 +39,9 @@
       "description": "Web Access for ABAP Environment",
       "displayName": "Web Access for ABAP Environment",
       "name": "default",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }

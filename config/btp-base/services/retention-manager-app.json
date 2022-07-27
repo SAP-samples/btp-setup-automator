@@ -79,12 +79,9 @@
       "description": "Standard Plan",
       "displayName": "Standard",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }

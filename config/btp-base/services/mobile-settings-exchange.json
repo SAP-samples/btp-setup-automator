@@ -2,7 +2,7 @@
   "description": "Mobile Settings Exchange Service",
   "displayName": "Mobile Settings Exchange Service",
   "icon": "sap-icon://bbyd-active-sales",
-  "id": "0e1cb1b2-f8e5-415b-a203-08e3064e2954",
+  "id": "2012fd08-8b99-432d-be1c-7be0ef21363d",
   "inventoryIds": null,
   "links": [
     {
@@ -10,7 +10,7 @@
       "title": "Documentation"
     },
     {
-      "linkURL": "https://mobile-service-cockpit-web.cfapps.us10.hana.ondemand.com",
+      "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
       "title": "Support information"
     }
   ],
@@ -60,6 +60,7 @@
       "displayName": "Mobile Settings Exchange Service is used for device registrations and general access to JSON data",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -106,6 +107,7 @@
       "displayName": "Mobile Settings Exchange Service is used for device registrations and general access to JSON data",
       "free": true,
       "name": "b2c",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

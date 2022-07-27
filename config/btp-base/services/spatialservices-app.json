@@ -20,6 +20,7 @@
       "description": "HANA Spatial Services",
       "displayName": "HANA Spatial Services",
       "name": "professional",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -35,12 +36,9 @@
       "description": "HANA Spatial Services",
       "displayName": "HANA Spatial Services",
       "name": "starter",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }

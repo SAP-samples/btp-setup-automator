@@ -128,12 +128,9 @@
       "description": "View and manage Feature Flags Service instances.",
       "displayName": "Dashboard",
       "name": "dashboard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }

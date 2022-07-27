@@ -2,7 +2,7 @@
   "description": "Mobile Client Usage Service",
   "displayName": "Mobile Client Usage Service",
   "icon": "sap-icon://line-chart",
-  "id": "70c75d67-b53c-4ee4-88cd-c5e68c0578d9",
+  "id": "a53e9fb4-8a5d-44b9-a4a5-23e4759036bd",
   "inventoryIds": null,
   "links": [
     {
@@ -10,7 +10,7 @@
       "title": "Documentation"
     },
     {
-      "linkURL": "https://mobile-service-cockpit-web.cfapps.us10.hana.ondemand.com",
+      "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
       "title": "Support information"
     }
   ],
@@ -60,6 +60,7 @@
       "displayName": "Mobile Client Usage Service allows mobile application to upload client usage information and to analyze them on the server",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

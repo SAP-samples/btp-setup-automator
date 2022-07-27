@@ -115,12 +115,9 @@
       "description": "Audit Log Viewer",
       "displayName": "Audit Log Viewer",
       "name": "free",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }

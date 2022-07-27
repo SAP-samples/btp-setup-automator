@@ -118,6 +118,7 @@
       "description": "User Management and Authentication.",
       "displayName": "default",
       "name": "default",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -223,6 +224,7 @@
       "description": "SAP Cloud Platform Identity Authentication provides you with simple and secure cloud-based access to business processes, applications, and data.",
       "displayName": "additional-tenant",
       "name": "additional-tenant",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -286,12 +288,9 @@
       "description": "Enable connectivity to on-premise systems for SAP Identity Services.",
       "displayName": "connectivity",
       "name": "connectivity",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }

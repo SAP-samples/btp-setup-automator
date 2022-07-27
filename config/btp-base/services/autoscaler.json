@@ -2,7 +2,7 @@
   "description": "The Application Autoscaler lets you automatically increase or decrease the number of application instances based on a policy you define.",
   "displayName": "Application Autoscaler",
   "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iYXBwYXV0b3NjYWxpbmciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDU2IDU2Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6IzBhNmVkMTt9LmNscy0ye2ZpbGw6IzA1M2I3MDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFwcGF1dG9zY2FsaW5nPC90aXRsZT48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xMy43LDQyLjNhMi4zMzMsMi4zMzMsMCwwLDAsMS44NDcuNzExbDkuOTQ3LS4yODRBMS4xODksMS4xODksMCwwLDAsMjYuOCw0MS40MnEuMDU3LTEuMzA4LTEuMzA3LTEuMzA3bC04LjEyOC40LDIzLjEzLTIzLjEzLS40LDguMTI4YTEuMzA4LDEuMzA4LDAsMSwwLDIuNjE1LDBMNDMsMTUuNTYyQTIuNDM1LDIuNDM1LDAsMCwwLDQwLjQzOCwxM2wtOS44OS4zNDFhMS4zMDgsMS4zMDgsMCwxLDAsMCwyLjYxNWw4LjEyOC0uNC0yMy4xMywyMy4xM0wxNiwzMC42MnEuMDU1LTEuMzA4LTEuMzA4LTEuMzA3YTEuMTg5LDEuMTg5LDAsMCwwLTEuMzA3LDEuMzA3bC0uNCw5LjgzNEEyLjMzMywyLjMzMywwLDAsMCwxMy43LDQyLjNaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDguMTU2LDcuODkxQTIuODQ4LDIuODQ4LDAsMCwwLDQ2LDdIMTlhMi44NDQsMi44NDQsMCwwLDAtMi4xNTYuODkxQTIuOTYyLDIuOTYyLDAsMCwwLDE2LDEwVjI4aDNWMTBINDZWMzdIMjh2M0g0NmEyLjg4OSwyLjg4OSwwLDAsMCwzLTNWMTBBMi45NjIsMi45NjIsMCwwLDAsNDguMTU2LDcuODkxWiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI4LDQ2SDEwVjI4aDNWMjVIMTBhMi44NDQsMi44NDQsMCwwLDAtMi4xNTYuODkxQTIuOTYyLDIuOTYyLDAsMCwwLDcsMjhWNDZhMi44ODksMi44ODksMCwwLDAsMywzSDI4YTIuODg5LDIuODg5LDAsMCwwLDMtM1Y0M0gyOFoiLz48L3N2Zz4=",
-  "id": "1936a64a-c61c-43b6-9cf7-a1922acc28f7",
+  "id": "7c78ac9e-e865-4b85-a7aa-91e7a150bd23",
   "inventoryIds": [
     "SERVICE-177"
   ],
@@ -144,6 +144,7 @@
       "displayName": "Standard",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": {
         "service_binding": {
           "create": {

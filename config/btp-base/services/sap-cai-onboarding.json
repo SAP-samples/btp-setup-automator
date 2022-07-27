@@ -55,12 +55,9 @@
       "description": "With this plan, you have all your chatbots and data securely isolated in your own tenant and access to benefits like premium features, seamless integration of chatbot with other SAP products, 24/7 support for all questions and issues related to the platform.",
       "displayName": "standard",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }

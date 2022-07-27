@@ -127,6 +127,7 @@
       "description": "Standard Plan",
       "displayName": "Standard",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     },
     {
@@ -238,12 +239,9 @@
       "description": "Manage transports of development artifacts and application-specific content in restricted mode. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
       "displayName": "free",
       "name": "free",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }

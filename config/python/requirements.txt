@@ -15,10 +15,10 @@ pyflakes==2.4.0
 pyrsistent==0.18.1
 python-dateutil==2.8.2
 python-editor==1.0.4
-readchar==3.0.5
+readchar==3.1.0
 requests==2.28.1
 six==1.16.0
-urllib3==1.26.10
+urllib3==1.26.11
 wcwidth==0.2.5
 pyyaml==6.0
 xmltodict==0.13.0

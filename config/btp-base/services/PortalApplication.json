@@ -124,12 +124,9 @@
       "description": "Create portal sites with content and business apps.",
       "displayName": "standard",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }

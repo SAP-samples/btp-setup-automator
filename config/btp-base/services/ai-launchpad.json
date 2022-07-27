@@ -55,12 +55,9 @@
       "description": "SAP AI Launchpad is a central vehicle to manage AI Functions across all landscapes and deployment options.",
       "displayName": "Standard",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }

@@ -2,7 +2,7 @@
   "description": "SAP BTP Connectivity service allows you to establish secure and reliable connectivity between your cloud applications and on-premise systems running in isolated networks.",
   "displayName": "Connectivity Service",
   "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0ic2FwLWhhbmEtY2xvdWQtY29ubmVjdG9yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwYTZlZDE7fS5jbHMtMntmaWxsOiMwNTNiNzA7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5zYXAtaGFuYS1jbG91ZC1jb25uZWN0b3I8L3RpdGxlPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQxLjUsNDloLTlhMS41LDEuNSwwLDAsMCwwLDNoOWExLjUsMS41LDAsMCwwLDAtM1oiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik00OC45OTEsMjVIMjUuMDA5QTMuMDA5LDMuMDA5LDAsMCwwLDIyLDI4LjAwOVY0Mi45OTFBMy4wMDksMy4wMDksMCwwLDAsMjUuMDA5LDQ2SDQ4Ljk5MUEzLjAwOSwzLjAwOSwwLDAsMCw1Miw0Mi45OTFWMjguMDA5QTMuMDA5LDMuMDA5LDAsMCwwLDQ4Ljk5MSwyNVptMCwxOEwyNSw0Mi45OTEsMjUuMDA5LDI4SDQ4Ljk5MWwuMDA5LjAwOVoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xOS4xMDksN2E2LjQ1NSw2LjQ1NSwwLDAsMSw1Ljg2NCw0LjAzM2wxLjMwNywzLjI5TDI5LjMxLDEyLjVhMy45MjIsMy45MjIsMCwwLDEsMi4wNDMtLjU5MSwzLjk4OCwzLjk4OCwwLDAsMSwzLjkxNCwzLjI0OWwuMjg4LDEuNTI5LDEuNDE1LjY0NmE1LjM1MSw1LjM1MSwwLDAsMSwzLDQuNjdINDNhOC4zNTUsOC4zNTUsMCwwLDAtNC43ODUtNy40QTYuOTQxLDYuOTQxLDAsMCwwLDI3Ljc2Miw5LjkyOCw5LjQ1Miw5LjQ1MiwwLDAsMCwxOS4wNTUsNEM4LjY1LDQsOS44LDE0LjYyMSw5LjgsMTQuNjIxQTguMzg3LDguMzg3LDAsMCwwLDEyLjQxLDMwLjk4NkgxOXYtM0gxMi40MWE1LjM4Nyw1LjM4NywwLDAsMS0xLjY3NS0xMC41MTVsMi4zMDgtLjc1OUwxMi43ODEsMTQuM2E4LjEsOC4xLDAsMCwxLDEuNS01LjI4NEE2LjUsNi41LDAsMCwxLDE5LjEwOSw3WiIvPjwvc3ZnPg==",
-  "id": "3a50dc9c-0f77-4e32-82ee-3f36f115d13a",
+  "id": "cdba1577-94d6-4728-9124-7c1bc4754c5b",
   "inventoryIds": [
     "SERVICE-37",
     "SERVICE-50",
@@ -154,6 +154,7 @@
       "displayName": "lite",
       "free": true,
       "name": "lite",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -278,6 +279,7 @@
       "displayName": "connectivity_proxy",
       "free": true,
       "name": "connectivity_proxy",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

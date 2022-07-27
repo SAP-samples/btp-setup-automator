@@ -2,7 +2,7 @@
   "description": "Mobile App Catalog",
   "displayName": "Mobile App Catalog",
   "icon": "sap-icon://course-book",
-  "id": "d428567c-3013-4fd7-8a47-50675690f365",
+  "id": "138b6f66-4f99-40ff-9c12-736a9df3509c",
   "inventoryIds": null,
   "links": [
     {
@@ -10,7 +10,7 @@
       "title": "Documentation"
     },
     {
-      "linkURL": "https://mobile-service-cockpit-web.cfapps.us10.hana.ondemand.com",
+      "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
       "title": "Support information"
     }
   ],
@@ -60,6 +60,7 @@
       "displayName": "Mobile App Lab Service provides access to mobile applications uploaded from Mobile Services cockpit",
       "free": true,
       "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

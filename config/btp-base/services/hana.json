@@ -2,7 +2,7 @@
   "description": "Use the SAP HANA schemas \u0026 HDI containers service to create service instances on SAP HANA databases and bind them to cloud applications. To create schemas and HDI containers, an SAP HANA database must be available in your space. The SAP HANA schemas \u0026 HDI containers service is part of the SAP HANA service.",
   "displayName": "SAP HANA Schemas \u0026 HDI Containers",
   "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iaGFuYSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMGE2ZWQxO30uY2xzLTJ7ZmlsbDojMDUzYjcwO308L3N0eWxlPjwvZGVmcz48dGl0bGU+aGFuYTwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNTEsMjIuMzMyYTcuMjM2LDcuMjM2LDAsMCwwLTIuNjEzLTEuODJBMjIuNDA4LDIyLjQwOCwwLDAsMCwzOS41NjksMTlhMjIuNCwyMi40LDAsMCwwLTguODE3LDEuNTEyLDcuMjM2LDcuMjM2LDAsMCwwLTIuNjEzLDEuODIsMy43NzIsMy43NzIsMCwwLDAtMSwyLjUyMVY0Ni4wODFhMy42MzIsMy42MzIsMCwwLDAsMSwyLjUxNCw3LjEwNyw3LjEwNywwLDAsMCwyLjYwNywxLjgyMUEyMS4xNTQsMjEuMTU0LDAsMCwwLDM5LjU2OSw1MmEyMi40MDgsMjIuNDA4LDAsMCwwLDguODE4LTEuNTEyQTcuMjM2LDcuMjM2LDAsMCwwLDUxLDQ4LjY2OGEzLjkyNywzLjkyNywwLDAsMCwxLTIuNTIxVjI0Ljg1M0EzLjc3MiwzLjc3MiwwLDAsMCw1MSwyMi4zMzJaTTQyLjM2NSw0OS4xNzRjLS44OTMuMDg1LTEuODE4LjE0NC0yLjguMTQ0YTI4LjUzOCwyOC41MzgsMCwwLDEtMy40MDYtLjIxMVYzMC41NzJhMzMuMjYsMzMuMjYsMCwwLDAsMy40MDYuMTY1Yy45NzksMCwxLjktLjA1LDIuOC0uMTI2Wm03LjE2Ny0zLjAyN2MwLC43LS45MTYsMS40Ni0yLjQ1NCwyLjAzNWExNC4yOCwxNC4yOCwwLDAsMS0yLjIyOS42MjJWMzAuMjY3YTEzLjYyOCwxMy42MjgsMCwwLDAsNC42ODMtMS42NDNaTTQ3LjA3OCwyNi45ODVhMjEuNTcsMjEuNTcsMCwwLDEtNy41MDksMS4xMzYsMjEuNTA4LDIxLjUwOCwwLDAsMS03LjUtMS4xMzZjLTEuNTI0LS42NS0yLjQtMS40MTYtMi40LTIuMXYtLjAzMWMwLTEuMywzLjUyNi0zLjE3MSw5LjktMy4xNzEsNi40MTcsMCw5Ljk2MywxLjg3Niw5Ljk2MywzLjIwNUM0OS41MzIsMjUuNTc4LDQ4LjYzNiwyNi4zNDQsNDcuMDc4LDI2Ljk4NVoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNC4zLDI3Ljk4NkgxMi40MWE1LjM4Nyw1LjM4NywwLDAsMS0xLjY3NS0xMC41MTVsMi4zMDgtLjc1OUwxMi43ODEsMTQuM2E4LjEsOC4xLDAsMCwxLDEuNS01LjI4NEE2LjUsNi41LDAsMCwxLDE5LjEwOSw3YTYuMDU0LDYuMDU0LDAsMCwxLDUuODY0LDQuMDMzbDEuMzA3LDMuMjlMMjkuMzEsMTIuNWEzLjkyMiwzLjkyMiwwLDAsMSwyLjA0My0uNTkxLDMuOTg4LDMuOTg4LDAsMCwxLDMuOTE0LDMuMjQ5bC4xNTkuODQ1aDNjLS4wNDctLjQzOS0uMTA4LS45LS4yMS0xLjRBNi45NDEsNi45NDEsMCwwLDAsMjcuNzYyLDkuOTI4LDkuNDUyLDkuNDUyLDAsMCwwLDE5LjA1NSw0QzguODYzLDQuMjQyLDkuOCwxNC42MjEsOS44LDE0LjYyMUE4LjM4Nyw4LjM4NywwLDAsMCwxMi40MSwzMC45ODZIMjQuM1oiLz48L3N2Zz4=",
-  "id": "a7e1b6b9-46e6-4c62-ab30-a3ef02bdb642",
+  "id": "381f52f7-c2f7-442b-b2aa-b50b5f2ebfab",
   "inventoryIds": [
     "SERVICE-218"
   ],
@@ -144,6 +144,7 @@
       "displayName": "hdi-shared",
       "free": true,
       "name": "hdi-shared",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -268,6 +269,7 @@
       "displayName": "schema",
       "free": true,
       "name": "schema",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -392,6 +394,7 @@
       "displayName": "sbss",
       "free": true,
       "name": "sbss",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     },
     {
@@ -516,6 +519,7 @@
       "displayName": "securestore",
       "free": true,
       "name": "securestore",
+      "provisioningMethod": "SERVICE_BROKER",
       "schemas": null
     }
   ],

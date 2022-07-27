@@ -139,12 +139,9 @@
       "description": "The service plan standard applies to all usage scenarios of the custom domain service.",
       "displayName": "standard",
       "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
       "schemas": null
     }
   ],
-  "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+  "supportedEnvironments": "N/A"
 }
