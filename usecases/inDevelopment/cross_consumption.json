@@ -1,0 +1,376 @@
+{
+
+  "aboutThisUseCase": {
+
+    "name": "Kyma cross consumption service test",
+
+    "description": "This project will test the service for cross consumability",
+
+    "author": "n.murkute@sap.com, shivakumar.prabhuswamy@sap.com",
+
+    "testStatus": "tested successfully",
+
+    "usageStatus": "READY TO BE USED",
+
+    "relatedLinks": [
+
+          "https://github.com/I559299/kymatest"
+
+      ]
+
+  },
+  "admins": ["n.murkute@sap.com","shivakumar.prabhuswamy@sap.com" ],
+  "services": [
+
+      {
+
+          "category": "ENVIRONMENT",
+
+          "name": "kymaruntime",
+
+          "plan": "azure",
+
+          "amount": 1,
+
+          "parameters": {
+
+            "name": "kymaeu10-n3x822fu_kymaeu10",
+
+            "region": "eastus"
+
+          }
+
+        },
+
+      {
+
+          "name": "destination",
+
+          "plan": "lite",
+
+          "category": "SERVICE",
+
+          "targetenvironment": "kymaruntime",
+
+          "createServiceKeys": [
+
+              "destination-lite"
+
+          ]
+
+      }
+
+  ],
+  "enablecrossconsumptiontest":true,
+  "api_resource_uri" : [
+    {
+      "servicename":"destination",
+      "plan":"lite",
+      "testapi":"/destination-configuration/v1/subaccountDestinations",
+      "apiBaseUrlPathKey":"data.uri",
+      "oauthurlPathkey":"data.url",
+      "clientId_basicUN_PathKey":"data.clientid",
+      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-171"
+    },
+    {
+      "servicename":"auditlog",
+      "plan":"standard",
+      "testapi":"/",
+      "apiBaseUrlPathKey":"data.url",
+      "oauthurlPathkey":"",
+      "clientId_basicUN_PathKey":"data.user",
+      "clientSecret_basicPW_PathKey":"data.password",
+      "authMethod": "basic",
+      "APITest": "yes",
+      "serviceID": "SERVICE-136"
+    },
+    {
+      "servicename":"auditlog",
+      "plan":"oauth2",
+      "testapi":"/",
+      "apiBaseUrlPathKey":"data.url",
+      "oauthurlPathkey":"",
+      "clientId_basicUN_PathKey":"data.user",
+      "clientSecret_basicPW_PathKey":"data.password",
+      "authMethod": "basic",
+      "APITest": "yes",
+      "serviceID": "SERVICE-136"
+    },
+    {
+      "servicename":"enterprise-messaging",
+      "plan":"default",
+      "testapi":"/messagingrest/v1/subscriptions",
+      "apiBaseUrlPathKey":"data.messaging.2.uri",
+      "oauthurlPathkey":"data.uaa.url",
+      "clientId_basicUN_PathKey":"data.uaa.clientid",
+      "clientSecret_basicPW_PathKey":"data.uaa.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-799"
+    },
+    {
+      "servicename":"data-custodian",
+      "plan":"default",
+      "testapi":"/users",
+      "apiBaseUrlPathKey":"data.apiUrl",
+      "oauthurlPathkey":"data.tokenUrl",
+      "clientId_basicUN_PathKey":"data.clientId",
+      "clientSecret_basicPW_PathKey":"data.clientSecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-528"
+    },
+    {
+      "servicename":"subscription-manager",
+      "plan":"provider",
+      "testapi":"/subscription-manager/v1/applications",
+      "apiBaseUrlPathKey":"data.subscription_manager_url",
+      "oauthurlPathkey":"data.url",
+      "clientId_basicUN_PathKey":"data.clientid",
+      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-859"
+
+    },
+    {
+      "servicename":"data-privacy-integration-service",
+      "plan":"standard",
+      "testapi":"/sap/cp-kernel/dpi/ext/consent/v1/consentConfigurationServices/applications",
+      "apiBaseUrlPathKey":"data.url",
+      "oauthurlPathkey":"data.uaa.url",
+      "clientId_basicUN_PathKey":"data.uaa.clientid",
+      "clientSecret_basicPW_PathKey":"data.uaa.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-462"
+
+    },
+    {
+      "servicename":"service-manager",
+      "plan":"container",
+      "testapi":"/v1/agents/versions",
+      "apiBaseUrlPathKey":"data.sm_url",
+      "oauthurlPathkey":"data.url",
+      "clientId_basicUN_PathKey":"data.clientid",
+      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-324"
+    },
+    {
+      "servicename":"service-manager",
+      "plan":"subaccount-admin",
+      "testapi":"/v1/platforms",
+      "apiBaseUrlPathKey":"data.sm_url",
+      "oauthurlPathkey":"data.url",
+      "clientId_basicUN_PathKey":"data.clientid",
+      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-324"
+    },
+    {
+      "servicename":"slis",
+      "plan":"standard",
+      "testapi":"/",
+      "apiBaseUrlPathKey":"na",
+      "oauthurlPathkey":"na",
+      "clientId_basicUN_PathKey":"ns",
+      "clientSecret_basicPW_PathKey":"ns",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-455"
+    },
+    {
+      "servicename":"one-inbox-service",
+      "plan":"standard",
+      "testapi":"na",
+      "apiBaseUrlPathKey":"na",
+      "oauthurlPathkey":"na",
+      "clientId_basicUN_PathKey":"na",
+      "clientSecret_basicPW_PathKey":"na",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-457"
+
+    },
+    {
+      "servicename":"identity",
+      "plan":"application",
+      "testapi":"/oauth2/userinfo",
+      "apiBaseUrlPathKey":"data.url",
+      "oauthurlPathkey":"data.url",
+      "clientId_basicUN_PathKey":"data.clientid",
+      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-111"
+    },
+    {
+      "servicename":"one-mds",
+      "plan":"sap-integration",
+      "testapi":"/v0/status/log",
+      "apiBaseUrlPathKey":"data.uri",
+      "oauthurlPathkey":"data.uaa.url",
+      "clientId_basicUN_PathKey":"data.uaa.clientid",
+      "clientSecret_basicPW_PathKey":"data.uaa.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-469"
+    },
+    {
+      "servicename":"connectivity",
+      "plan":"connectivity_proxy",
+      "testapi":"/api/v1/CAs",
+      "apiBaseUrlPathKey":"data.connectivity_service.url",
+      "oauthurlPathkey":"data.token_service_url",
+      "clientId_basicUN_PathKey":"data.clientid",
+      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-169"
+    }, 
+    {
+      "servicename":"metering-service",
+      "plan":"development",
+      "testapi":"/usage/v3/usage/documents ",
+      "apiBaseUrlPathKey":"data.metering_url",
+      "oauthurlPathkey":"data.token_url",
+      "clientId_basicUN_PathKey":"data.clientid",
+      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-367"
+    },
+    {
+      "servicename":"feature-flags",
+      "plan":"standard",
+      "testapi":"/api/v1/CAs",
+      "apiBaseUrlPathKey":"data.connectivity_service.url",
+      "oauthurlPathkey":"data.token_service_url",
+      "clientId_basicUN_PathKey":"data.clientid",
+      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-172"
+    },
+    {
+      "servicename":"cloud-logging",
+      "plan":"standard",
+      "testapi":"/",
+      "apiBaseUrlPathKey":"data.Kibana-endpoint",
+      "oauthurlPathkey":"",
+      "clientId_basicUN_PathKey":"data.Kibana-username",
+      "clientSecret_basicPW_PathKey":"data.Kibana-password",
+      "authMethod": "basic",
+      "APITest": "yes",
+      "serviceID": "SERVICE-487"
+    },
+    {
+      "servicename":"message-queuing",
+      "plan":"standard",
+      "testapi":"/v1/management/queues",
+      "apiBaseUrlPathKey":"data.management.url",
+      "oauthurlPathkey":"data.uaa.url",
+      "clientId_basicUN_PathKey":"data.uaa.clientid",
+      "clientSecret_basicPW_PathKey":"data.uaa.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-319"
+    },
+    {
+      "servicename":"connected-products-acceptance",
+      "plan":"standard",
+      "testapi":"/sap/newton/dts/templates/api/api-docs",
+      "apiBaseUrlPathKey":"data.endpoints.cli",
+      "oauthurlPathkey":"data.uaa.url",
+      "clientId_basicUN_PathKey":"data.uaa.clientid",
+      "clientSecret_basicPW_PathKey":"data.uaa.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-662"
+    },
+    {
+      "servicename":"connected-products-stage",
+      "plan":"standard",
+      "testapi":"/sap/newton/dts/templates/api/api-docs",
+      "apiBaseUrlPathKey":"data.endpoints.cli",
+      "oauthurlPathkey":"data.uaa.url",
+      "clientId_basicUN_PathKey":"data.uaa.clientid",
+      "clientSecret_basicPW_PathKey":"data.uaa.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-662"
+    },
+    {
+      "servicename":"sap-graph",
+      "plan":"free",
+      "testapi":"/",
+      "apiBaseUrlPathKey":"data.uri",
+      "oauthurlPathkey":"data.uaa.url",
+      "clientId_basicUN_PathKey":"data.uaa.clientid",
+      "clientSecret_basicPW_PathKey":"data.uaa.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-532"
+    },
+    {
+      "servicename":"sap-document-information-extraction",
+      "plan":"default",
+      "testapi":"/document-information-extraction/v1/capabilities",
+      "apiBaseUrlPathKey":"data.url",
+      "oauthurlPathkey":"data.uaa.url",
+      "clientId_basicUN_PathKey":"data.uaa.clientid",
+      "clientSecret_basicPW_PathKey":"data.uaa.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-819"
+    },       
+    {
+      "servicename":"xsuaa",
+      "plan":"application",
+      "testapi":"/sap/rest/authorization/v2/ownapp",
+      "apiBaseUrlPathKey":"data.apiurl",
+      "oauthurlPathkey":"data.url",
+      "clientId_basicUN_PathKey":"data.clientid",
+      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-92"
+    },
+    {
+      "servicename":"cassandra",
+      "plan":"dedicated",
+      "testapi":"/sap/rest/authorization/v2/ownapp",
+      "apiBaseUrlPathKey":"data.apiurl",
+      "oauthurlPathkey":"data.url",
+      "clientId_basicUN_PathKey":"data.clientid",
+      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-92"
+    },
+    {
+      "servicename":"workflow",
+      "plan":"standard",
+      "testapi":"/sap/rest/authorization/v2/ownapp",
+      "apiBaseUrlPathKey":"data.apiurl",
+      "oauthurlPathkey":"data.url",
+      "clientId_basicUN_PathKey":"data.clientid",
+      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-92"
+    }                               
+  ],
+  "executeAfterAccountSetup": [
+      {
+          "description": "Set the service account kubeconfig",
+          "command": "python3 ./libs/python/helperApiTest.py"
+      }     
+  ]
+}

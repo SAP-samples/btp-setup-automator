@@ -55,7 +55,7 @@ class BTPUSECASE:
         allServices = readAllServicesFromUsecaseFile(self)
         self.availableCategoriesService = ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"]
         self.availableCategoriesApplication = ["APPLICATION", "QUOTA_BASED_APPLICATION"]
-
+        self.enablecrossconsumptiontest = getenablecrossconsumptiontestUsecaseFile(self)
         self.definedServices = getServiceCategoryItemsFromUsecaseFile(
             self, allServices, self.availableCategoriesService)
         self.definedEnvironments = getEnvironmentsForUsecase(self, allServices)
@@ -663,6 +663,11 @@ def getAdminsFromUsecaseFile(btpUsecase: BTPUSECASE):
     return items
 
 
+def getenablecrossconsumptiontestUsecaseFile(btpUsecase: BTPUSECASE):
+    usecase = getJsonFromFile(btpUsecase.usecasefile)
+    return usecase["enablecrossconsumptiontest"]
+
+    
 def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, availableForAccount, availableCustomApps):
 
     usecaseRegion = btpUsecase.region

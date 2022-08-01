@@ -1,11 +1,12 @@
 from libs.python.helperGeneric import getTimingsForStatusRequest
-from libs.python.helperJson import convertStringToJson
+from libs.python.helperJson import convertStringToJson, saveJsonToFile
 from libs.python.helperYaml import build_and_store_service_binding_yaml_from_parameters, build_and_store_service_instance_yaml_from_parameters
 from libs.python.helperCommandExecution import runShellCommand, runShellCommandFlex
 import os
 import sys
 import logging
 import time
+import base64
 
 log = logging.getLogger(__name__)
 
@@ -50,10 +51,25 @@ def createKymaServiceBinding(btpUsecase, service, keyName):
         p = runShellCommand(btpUsecase, command, "INFO", None)
 
         result = convertStringToJson(p.stdout.decode())
+        if (btpUsecase.enablecrossconsumptiontest):
+            getBindingSecret(btpUsecase, keyName)
     else:
         log.error("can't create service key!")
         sys.exit(os.EX_DATAERR)
     return result
+
+
+def getBindingSecret(btpUsecase, keyName):
+    bindingfilepath = "logs/k8s/bindings/" + keyName + ".json"  
+    command = "kubectl get secrets " + keyName + " -n " + \
+        btpUsecase.k8snamespace + " --kubeconfig " + \
+        btpUsecase.kubeconfigpath + " -o json"
+    p = runShellCommand(btpUsecase, command, "INFO", None)
+    jsonresult = convertStringToJson(p.stdout.decode())
+    for k, v in jsonresult['data'].items():
+        d = base64.b64decode(v)
+        jsonresult['data'][k] = d.decode('utf-8')
+    saveJsonToFile(bindingfilepath, jsonresult)  
 
 
 def deleteKymaServiceBindingAndWait(key, service, btpUsecase):

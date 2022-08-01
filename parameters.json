@@ -1,42 +1,25 @@
 {
-  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
-  "usecasefile": "usecases/released/default.json",
-  "region": "us10",
-  "globalaccount": null,
-  "myemail": null,
+
+  "usecasefile": "usecases/inDevelopment/cross_consumption.json",
+
+  "region": "eu10-canary",
+
+  "globalaccount": "2a979d83-c576-4ff8-a281-8bb45bc5480d",
+
+  "myemail": "shivakumar.prabhuswamy@sap.com",
+
   "loginmethod": "basicAuthentication",
-  "subaccountname": null,
-  "cfspacename": "development",
+
+  "btpcliapihostregion":"sap",
+
+  "subaccountname": "kymaeu10",
+
+  "subaccountid": "cf013f39-cf0a-4a53-b2b0-420049b6213d",
+
+  "kubeconfigpath": "/home/user/kubeconfig.yaml",
+
   "envvariables": {
-    "BTPSA_YOUR_OWN_ENV_VARIABLE1": "Hi! I'm BTPSA!",
-    "BTPSA_YOUR_OWN_ENV_VARIABLE2": "How are you doing?",
-    "BTPSA_YOUR_OWN_ENV_VARIABLE3": "You can use these variables in any command within the `executeBeforeAccountSetup` and `executeAfterAccountSetup` section by accessing (and manupulating) them as an OS environment variable!"
-  },
-  "myusergroups": [
-    {
-      "name": "admins",
-      "members": [
-        "john.admin@test.com",
-        "jane.admin@test.com"
-      ]
-    },
-    {
-      "name": "developers",
-      "members": [
-        "tony@stark.com"
-      ]
-    },
-    {
-      "name": "auditors",
-      "members": [
-        "captain@america.com"
-      ]
-    },
-    {
-      "name": "testers",
-      "members": [
-        "hulk@angry.arg"
-      ]
-    }
-  ]
+
+  }
+
 }
