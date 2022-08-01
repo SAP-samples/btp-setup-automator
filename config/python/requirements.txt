@@ -1,4 +1,4 @@
-attrs==21.4.0
+attrs==22.1.0
 blessed==1.19.1
 certifi==2022.6.15
 charset-normalizer==2.0.12
