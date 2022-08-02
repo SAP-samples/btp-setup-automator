@@ -2,7 +2,7 @@ attrs==22.1.0
 blessed==1.19.1
 certifi==2022.6.15
 charset-normalizer==2.0.12
-flake8==4.0.1
+flake8==5.0.3
 idna==3.3
 inquirer==2.10.0
 Jinja2==3.1.2
