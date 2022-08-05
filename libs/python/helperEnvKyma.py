@@ -60,6 +60,8 @@ def createKymaServiceBinding(btpUsecase, service, keyName):
 
 
 def getBindingSecret(btpUsecase, keyName):
+    if not os.path.exists("../logs/k8s/bindings/"):
+        os.mkdir("../logs/k8s/bindings/")
     bindingfilepath = "logs/k8s/bindings/" + keyName + ".json"  
     command = "kubectl get secrets " + keyName + " -n " + \
         btpUsecase.k8snamespace + " --kubeconfig " + \
