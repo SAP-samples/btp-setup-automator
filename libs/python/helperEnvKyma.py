@@ -7,6 +7,7 @@ import sys
 import logging
 import time
 import base64
+import json
 
 log = logging.getLogger(__name__)
 
@@ -59,6 +60,14 @@ def createKymaServiceBinding(btpUsecase, service, keyName):
     return result
 
 
+def is_json(myjson):
+    try:
+        json.loads(myjson)
+    except ValueError as e:
+        return False
+    return True
+
+
 def getBindingSecret(btpUsecase, keyName):
     if not os.path.exists("logs/k8s/bindings"):
         os.mkdir("logs/k8s/bindings")
@@ -67,11 +76,14 @@ def getBindingSecret(btpUsecase, keyName):
         btpUsecase.k8snamespace + " --kubeconfig " + \
         btpUsecase.kubeconfigpath + " -o json"
     p = runShellCommand(btpUsecase, command, "INFO", None)
-    jsonresult = convertStringToJson(p.stdout.decode())
-    for k, v in jsonresult['data'].items():
+    data = convertStringToJson(p.stdout.decode())
+    for k, v in data['data'].items():
         d = base64.b64decode(v)
-        jsonresult['data'][k] = d.decode('utf-8')
-    saveJsonToFile(bindingfilepath, jsonresult)  
+        data['data'][k] = d.decode('utf-8')
+        isJson = is_json(data['data'][k])
+        if isJson:
+            data['data'][k] = json.loads(data['data'][k])
+    saveJsonToFile(bindingfilepath, data)  
 
 
 def deleteKymaServiceBindingAndWait(key, service, btpUsecase):
