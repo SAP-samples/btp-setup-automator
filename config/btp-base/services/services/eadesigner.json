@@ -1,0 +1,44 @@
+{
+  "description": "SAP Enterprise Architecture Designer, Cloud Edition (SAP EA Designer) lets you capture, analyze, and present your organization\u0027s landscapes, strategies, requirements, processes, data, and other artifacts in a shared environment. Using industry-standard notations and techniques, organizations can leverage rich metadata and use models and diagrams to drive understanding and promote shared outcomes in creating innovative systems, information sets, and processes to support goals and capabilities.",
+  "displayName": "SAP EA Designer, cloud edition",
+  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2Ni45MyA2Ni4wNCI+CjxkZWZzPgo8c3R5bGU+LmNscy0xLC5jbHMtNSwuY2xzLTZ7ZmlsbDojNDY4ZWNjO30uY2xzLTF7c3Ryb2tlOiM0NjhlY2M7c3Ryb2tlLXdpZHRoOjJweDt9LmNscy0xLC5jbHMtMiwuY2xzLTQsLmNscy02e3N0cm9rZS1taXRlcmxpbWl0OjEwO30uY2xzLTIsLmNscy00e2ZpbGw6bm9uZTt9LmNscy0ye3N0cm9rZTojNTVhMGQ3O3N0cm9rZS13aWR0aDowLjRweDt9LmNscy0ze2ZpbGw6I2ZmZjt9LmNscy00LC5jbHMtNntzdHJva2U6I2ZmZjt9PC9zdHlsZT4KPC9kZWZzPgo8dGl0bGU+QXNzZXQgOTwvdGl0bGU+Cgk8ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj4KCQk8ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEiPgoJCQk8cmVjdCBjbGFzcz0iY2xzLTEiIHg9IjEuMSIgeT0iMS4wNCIgd2lkdGg9IjY0LjgyIiBoZWlnaHQ9IjY0IiByeD0iNCIgcnk9IjQiLz4KCQkJPGxpbmUgY2xhc3M9ImNscy0yIiB4MT0iMC4wNSIgeTE9IjEwLjIzIiB4Mj0iNjYuMzIiIHkyPSIxMC4yMyIvPgoJCQk8bGluZSBjbGFzcz0iY2xzLTIiIHgxPSIwLjA1IiB5MT0iMjEuNzgiIHgyPSI2Ni4zMiIgeTI9IjIxLjc4Ii8+CgkJCTxsaW5lIGNsYXNzPSJjbHMtMiIgeDE9IjAuMzgiIHkxPSIzMy4zMyIgeDI9IjY2LjY1IiB5Mj0iMzMuMzMiLz4KCQkJPGxpbmUgY2xhc3M9ImNscy0yIiB5MT0iNDQuODgiIHgyPSI2Ni4yOCIgeTI9IjQ0Ljg4Ii8+CgkJCTxsaW5lIGNsYXNzPSJjbHMtMiIgeDE9IjAuMTkiIHkxPSI1Ni40MiIgeDI9IjY2LjQ3IiB5Mj0iNTYuNDIiLz4KCQkJPGxpbmUgY2xhc3M9ImNscy0yIiB4MT0iNTYuOTgiIHkxPSIwLjA1IiB4Mj0iNTYuOTgiIHkyPSI2NS41NyIvPgoJCQk8bGluZSBjbGFzcz0iY2xzLTIiIHgxPSI0NS43NyIgeTE9IjAuMDUiIHgyPSI0NS43NyIgeTI9IjY1LjU3Ii8+CgkJCTxsaW5lIGNsYXNzPSJjbHMtMiIgeDE9IjM0LjU1IiB5MT0iMC4zNyIgeDI9IjM0LjU1IiB5Mj0iNjUuODkiLz4KCQkJPGxpbmUgY2xhc3M9ImNscy0yIiB4MT0iMjMuMzMiIHgyPSIyMy4zMyIgeTI9IjY1LjUyIi8+CgkJCTxsaW5lIGNsYXNzPSJjbHMtMiIgeDE9IjEyLjExIiB5MT0iMC4xOSIgeDI9IjEyLjExIiB5Mj0iNjUuNzEiLz4KCQkJPGNpcmNsZSBjbGFzcz0iY2xzLTMiIGN4PSIyOC43OSIgY3k9IjExLjU3IiByPSIzLjE2Ii8+CgkJCTxsaW5lIGNsYXNzPSJjbHMtNCIgeDE9IjI5LjI0IiB5MT0iMTMuMjEiIHgyPSIzNC4zMiIgeTI9IjMxLjkxIi8+CgkJCTxsaW5lIGNsYXNzPSJjbHMtNCIgeDE9IjUyLjk5IiB5MT0iOS4wOCIgeDI9IjM0LjMyIiB5Mj0iMzEuOTEiLz4KCQkJPGxpbmUgY2xhc3M9ImNscy00IiB4MT0iMzQuMzIiIHkxPSIzMS45MSIgeDI9IjguNDEiIHkyPSIxOS40MSIvPgoJCQk8bGluZSBjbGFzcz0iY2xzLTQiIHgxPSIzMy44OCIgeTE9IjMxLjkxIiB4Mj0iMTEuNjgiIHkyPSI0My4xNiIvPgoJCQk8bGluZSBjbGFzcz0iY2xzLTQiIHgxPSIzNy42NiIgeTE9IjU2LjkxIiB4Mj0iMzQuMzIiIHkyPSIzMS45MSIvPgoJCQk8bGluZSBjbGFzcz0iY2xzLTQiIHgxPSI1NS44MiIgeTE9IjM1LjI1IiB4Mj0iMzQuMzIiIHkyPSIzMS45MSIvPgoJCQk8Y2lyY2xlIGNsYXNzPSJjbHMtMyIgY3g9IjUyLjgyIiBjeT0iOS4yOSIgcj0iMy4xNiIvPgoJCQk8Y2lyY2xlIGNsYXNzPSJjbHMtMyIgY3g9IjU1LjQ1IiBjeT0iMzUuMTkiIHI9IjMuMTYiLz4KCQkJPGNpcmNsZSBjbGFzcz0iY2xzLTMiIGN4PSIzNy45NSIgY3k9IjU2LjMzIiByPSIzLjE2Ii8+CgkJCTxjaXJjbGUgY2xhc3M9ImNscy0zIiBjeD0iMTEuNjgiIGN5PSI0My4xNiIgcj0iMy4xNiIvPgoJCQk8Y2lyY2xlIGNsYXNzPSJjbHMtMyIgY3g9IjguNDIiIGN5PSIxOS43NSIgcj0iMy4xNiIvPgoJCQk8cmVjdCBjbGFzcz0iY2xzLTUiIHg9IjIzLjY2IiB5PSIyMy40NCIgd2lkdGg9IjIwLjI1IiBoZWlnaHQ9IjE4Ljk1Ii8+CgkJCTxyZWN0IGNsYXNzPSJjbHMtNiIgeD0iMjQuNTciIHk9IjIyLjM5IiB3aWR0aD0iMTkuNDkiIGhlaWdodD0iNS41MyIvPgoJCQk8cmVjdCBjbGFzcz0iY2xzLTYiIHg9IjI0LjU3IiB5PSIzMC4wNCIgd2lkdGg9IjE5LjQ5IiBoZWlnaHQ9IjUuNTMiLz4KCQkJPHJlY3QgY2xhc3M9ImNscy02IiB4PSIyNC41NyIgeT0iMzcuNjgiIHdpZHRoPSIxOS40OSIgaGVpZ2h0PSI1LjUzIi8+CgkJCTxyZWN0IGNsYXNzPSJjbHMtMyIgeD0iMzAuOSIgeT0iMjQuNSIgd2lkdGg9IjYuODUiIGhlaWdodD0iMS4zMSIvPgoJCQk8cmVjdCBjbGFzcz0iY2xzLTMiIHg9IjMwLjkiIHk9IjMyLjE0IiB3aWR0aD0iNi44NSIgaGVpZ2h0PSIxLjMxIi8+CgkJCTxyZWN0IGNsYXNzPSJjbHMtMyIgeD0iMzAuOSIgeT0iMzkuOSIgd2lkdGg9IjYuODUiIGhlaWdodD0iMS4zMSIvPgoJCTwvZz4KCTwvZz4KPC9zdmc+",
+  "inventoryIds": [
+    "SERVICE-223"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/product/EAD_CLOUD/Cloud/en-US",
+      "title": "Documentation"
+    }
+  ],
+  "name": "eadesigner",
+  "servicePlans": [
+    {
+      "category": "APPLICATION",
+      "dataCenters": [
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "SAP Enterprise Architecture Designer, cloud edition",
+      "displayName": "SAP Enterprise Architecture Designer, cloud edition",
+      "name": "eadesigner",
+      "provisioningMethod": "NONE_REQUIRED",
+      "schemas": null,
+      "supportedEnvironments": [
+        "cloudfoundry"
+      ]
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+  ],
+  "supportedPlatforms": [
+    [
+      "cloudfoundry"
+    ]
+  ]
+}

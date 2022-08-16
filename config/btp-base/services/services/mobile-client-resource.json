@@ -1,0 +1,82 @@
+{
+  "description": "Mobile Client Resource Service",
+  "displayName": "Mobile Client Resource Service",
+  "icon": null,
+  "inventoryIds": null,
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/468990a67780424a9e66eb096d4345bb/Cloud/en-US/f54ce45999d143ea8357210d580f0268.html",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
+      "title": "Support information"
+    },
+    {
+      "linkURL": "https://mobile-service-cockpit-web.cfapps.br10.hana.ondemand.com",
+      "title": "Support information"
+    }
+  ],
+  "name": "mobile-client-resource",
+  "servicePlans": [
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Mobile Client Resource Service allows to manage resources that can be accessed from mobile applications",
+      "displayName": "Mobile Client Resource Service allows to manage resources that can be accessed from mobile applications",
+      "free": true,
+      "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
+      "schemas": null,
+      "supportedEnvironments": [
+        "cloudfoundry"
+      ],
+      "supportedPlatforms": [
+        "cloudfoundry"
+      ]
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+  ],
+  "supportedPlatforms": [
+    "cloudfoundry"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "description": "Get default date format for a given country, timezone details and time difference between two provided time values.",
+  "displayName": "Date and Time",
+  "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjMuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9InNlY3VyaXR5LWRhc2hib2FyZCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IgoJIHk9IjBweCIgdmlld0JveD0iMCAwIDU2IDU2IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1NiA1NjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOm5vbmU7c3Ryb2tlOiMwMDNCNzQ7c3Ryb2tlLXdpZHRoOjI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO30KCS5zdDF7ZGlzcGxheTpub25lO2ZpbGw6bm9uZTtzdHJva2U6I0UwRUJCRjtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9Cgkuc3Qye2ZpbGw6I0ZGRkZGRjt9Cgkuc3Qze2ZpbGw6IzBBNkVEMTt9Cjwvc3R5bGU+CjxnPgoJPGc+CgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTE4LjgsMjcuN2M0LjQsMCw4LTMuNiw4LThzLTMuNi04LTgtOHMtOCwzLjYtOCw4UzE0LjQsMjcuNywxOC44LDI3Ljd6Ii8+CgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTE4LjgsMTUuN3Y0aDMiLz4KCTwvZz4KCTxyZWN0IGlkPSJwYWRkaW5nXzAwMDAwMDc2NTg2MzIyMjk3Nzk5MjgwNjcwMDAwMDA1MjA3ODY3NzEwNjczMDYxNTQ0XyIgeD0iNi44IiB5PSI2LjIiIGNsYXNzPSJzdDEiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIvPgo8L2c+CjxjaXJjbGUgY2xhc3M9InN0MiIgY3g9IjI2LjUiIGN5PSIyOC4yIiByPSI3LjkiLz4KPHBhdGggY2xhc3M9InN0MyIgZD0iTTQxLjYsMjMuNkgyNC42Yy0xLjQsMC0yLjYsMS4xLTIuNiwyLjZjMCwwLDAsMCwwLDB2MTVjMCwxLjQsMS4xLDIuNiwyLjYsMi42YzAsMCwwLDAsMCwwaDE3LjEKCWMxLjQsMCwyLjYtMS4xLDIuNi0yLjZsMCwwdi0xNUM0NC4yLDI0LjcsNDMsMjMuNiw0MS42LDIzLjZMNDEuNiwyMy42eiBNNDIuMiw0MS4yYzAsMC4zLTAuMiwwLjUtMC41LDAuNUgyNC42CgljLTAuMywwLTAuNS0wLjItMC41LTAuNXYtOS41aDE4LjFMNDIuMiw0MS4yeiBNNDIuMiwyOS42SDI0di0zLjVjMC0wLjMsMC4yLTAuNSwwLjUtMC41aDE3LjFjMC4zLDAsMC41LDAuMiwwLjUsMC41VjI5LjZ6Ii8+CjxwYXRoIGNsYXNzPSJzdDMiIGQ9Ik00MC4xLDI2LjZoLTJjLTAuNiwwLTEsMC41LTEsMWMwLDAuNSwwLjQsMSwxLDFoMmMwLjYsMCwxLTAuNSwxLTFDNDEuMSwyNy4xLDQwLjcsMjYuNiw0MC4xLDI2LjZ6Ii8+Cjwvc3ZnPgo=",
+  "inventoryIds": [
+    "SERVICE-894"
+  ],
+  "links": [
+    {
+      "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/date-and-time",
+      "title": "Discovery Center"
+    },
+    {
+      "linkURL": "https://help.sap.com/docs/DATE_AND_TIME",
+      "title": "Documentation"
+    }
+  ],
+  "name": "dateandtime",
+  "servicePlans": [
+    {
+      "category": "SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Default Plan",
+      "displayName": "default",
+      "name": "default",
+      "provisioningMethod": "SERVICE_BROKER",
+      "schemas": null,
+      "supportedEnvironments": [
+        "cloudfoundry"
+      ]
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+  ],
+  "supportedPlatforms": [
+    "cloudfoundry"
+  ]
+}

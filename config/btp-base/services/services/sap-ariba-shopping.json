@@ -1,0 +1,42 @@
+{
+  "description": "With the SAP Ariba Shopping mobile app for iPhone and Android, you can have a personalized, intuitive, and sustainable shopping experience anywhere and anytime. This app connects you via the BTP to SAP Ariba and enables casual employees to easily purchase right from their phones. Key features of SAP Ariba Shopping include finding desired products through intelligent search, purchasing predefined product packages, viewing sustainability information on product level, and visualizing products with the augmented reality feature.",
+  "displayName": "SAP Ariba Shopping",
+  "icon": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgZmlsdGVyPSJ1cmwoI2ZpbHRlcjBfZF8yNzk3XzEyNjMzNikiPgo8ZyBmaWx0ZXI9InVybCgjZmlsdGVyMV9kXzI3OTdfMTI2MzM2KSI+CjxwYXRoIGQ9Ik0xMi43MDY0IDE3LjgyNDZDMTIuODIxNCAxNi4xMDEgMTQuMjUzIDE0Ljc2MTggMTUuOTgwNCAxNC43NjE4SDMyLjAxOTdDMzMuNzQ3MSAxNC43NjE4IDM1LjE3ODcgMTYuMTAxIDM1LjI5MzYgMTcuODI0NkwzNi40MjI4IDM0Ljc1MDNDMzYuNTQ5MiAzNi42NDQyIDM1LjA0NyAzOC4yNDk5IDMzLjE0ODggMzguMjQ5OUgxNC44NTEyQzEyLjk1MzEgMzguMjQ5OSAxMS40NTA5IDM2LjY0NDIgMTEuNTc3MiAzNC43NTAzTDEyLjcwNjQgMTcuODI0NloiIGZpbGw9IiMxODgyRkMiLz4KPC9nPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTI0IDEwLjEyNUMyMS4zNjMgMTAuMTI1IDE5LjA3OTUgMTIuNTAwNSAxOS4wNzk1IDE1LjYxOTRDMTkuMDc5NSAxNi4xMzcxIDE4LjY1OTcgMTYuNTU2OSAxOC4xNDIgMTYuNTU2OUMxNy42MjQyIDE2LjU1NjkgMTcuMjA0NSAxNi4xMzcxIDE3LjIwNDUgMTUuNjE5NEMxNy4yMDQ1IDExLjYzMzcgMjAuMTY2NCA4LjI1IDI0IDguMjVDMjcuODMzNiA4LjI1IDMwLjc5NTUgMTEuNjMzNyAzMC43OTU1IDE1LjYxOTRDMzAuNzk1NSAxNi4xMzcxIDMwLjM3NTggMTYuNTU2OSAyOS44NTggMTYuNTU2OUMyOS4zNDAzIDE2LjU1NjkgMjguOTIwNSAxNi4xMzcxIDI4LjkyMDUgMTUuNjE5NEMyOC45MjA1IDEyLjUwMDUgMjYuNjM3IDEwLjEyNSAyNCAxMC4xMjVaIiBmaWxsPSIjMDcyQUE0Ii8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMzUuMzM5OSAxOC41MTY4QzMzLjc2MTMgMjguMDI0MiAyNS4wNjUyIDM1LjI5NiAxNC41NzQyIDM1LjI5NkMxMy41NTUgMzUuMjk2IDEyLjU1MjYgMzUuMjI3NCAxMS41NzIxIDM1LjA5NDdDMTEuNjM2NSAzNi44MzQ5IDEzLjA2OTQgMzguMjUgMTQuODUxMyAzOC4yNUgzMy4xNDg5QzM1LjA0NyAzOC4yNSAzNi41NDkyIDM2LjY0NDIgMzYuNDIyOSAzNC43NTAzTDM1LjMzOTkgMTguNTE2OFoiIGZpbGw9IiMwMTcxRkYiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zNS41MyAyMS4zNjdDMzUuMjE1NyAyOC43MzI2IDMwLjY2ODUgMzUuMDY2NiAyNC4xMjc5IDM4LjI1SDMzLjE0ODhDMzUuMDQ3IDM4LjI1IDM2LjU0OTEgMzYuNjQ0MyAzNi40MjI4IDM0Ljc1MDNMMzUuNTMgMjEuMzY3WiIgZmlsbD0iIzAyM0NGRiIvPgo8L2c+CjxkZWZzPgo8ZmlsdGVyIGlkPSJmaWx0ZXIwX2RfMjc5N18xMjYzMzYiIHg9Ii02OC40MzAyIiB5PSItNDEuNzUiIHdpZHRoPSIxODQuODYiIGhlaWdodD0iMTkwIiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiI+CjxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ii8+CjxmZUNvbG9yTWF0cml4IGluPSJTb3VyY2VBbHBoYSIgdHlwZT0ibWF0cml4IiB2YWx1ZXM9IjAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDEyNyAwIiByZXN1bHQ9ImhhcmRBbHBoYSIvPgo8ZmVPZmZzZXQgZHk9IjMwIi8+CjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjQwIi8+CjxmZUNvbXBvc2l0ZSBpbjI9ImhhcmRBbHBoYSIgb3BlcmF0b3I9Im91dCIvPgo8ZmVDb2xvck1hdHJpeCB0eXBlPSJtYXRyaXgiIHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMC4yODIzNTMgMCAwIDAgMCAxIDAgMCAwIDAuMjUgMCIvPgo8ZmVCbGVuZCBtb2RlPSJub3JtYWwiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9ImVmZmVjdDFfZHJvcFNoYWRvd18yNzk3XzEyNjMzNiIvPgo8ZmVCbGVuZCBtb2RlPSJub3JtYWwiIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImVmZmVjdDFfZHJvcFNoYWRvd18yNzk3XzEyNjMzNiIgcmVzdWx0PSJzaGFwZSIvPgo8L2ZpbHRlcj4KPGZpbHRlciBpZD0iZmlsdGVyMV9kXzI3OTdfMTI2MzM2IiB4PSItOTMuMjU0IiB5PSItMjMuODU3NSIgd2lkdGg9IjIzNC41MDgiIGhlaWdodD0iMjMzLjEzNiIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiPgo8ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCIvPgo8ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlQWxwaGEiIHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAxMjcgMCIgcmVzdWx0PSJoYXJkQWxwaGEiLz4KPGZlT2Zmc2V0IGR5PSI2Ni4yMDQ1Ii8+CjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjUyLjQxMTkiLz4KPGZlQ29sb3JNYXRyaXggdHlwZT0ibWF0cml4IiB2YWx1ZXM9IjAgMCAwIDAgMC4xMDU4ODIgMCAwIDAgMCAwLjU2NDcwNiAwIDAgMCAwIDEgMCAwIDAgMC4xNCAwIi8+CjxmZUJsZW5kIG1vZGU9Im5vcm1hbCIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0iZWZmZWN0MV9kcm9wU2hhZG93XzI3OTdfMTI2MzM2Ii8+CjxmZUJsZW5kIG1vZGU9Im5vcm1hbCIgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iZWZmZWN0MV9kcm9wU2hhZG93XzI3OTdfMTI2MzM2IiByZXN1bHQ9InNoYXBlIi8+CjwvZmlsdGVyPgo8L2RlZnM+Cjwvc3ZnPgo=",
+  "inventoryIds": null,
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/docs/ARIBA_SHOP_MOB",
+      "title": "Documentation"
+    }
+  ],
+  "name": "sap-ariba-shopping",
+  "servicePlans": [
+    {
+      "category": "APPLICATION",
+      "dataCenters": [
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "This plan enables the connection between the SAP Ariba Shopping app and Ariba\u0027s Core Procurement and Catalog modules.",
+      "displayName": "standard",
+      "name": "standard",
+      "provisioningMethod": "NONE_REQUIRED",
+      "schemas": null,
+      "supportedEnvironments": [
+        "cloudfoundry"
+      ]
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+  ],
+  "supportedPlatforms": [
+    [
+      "cloudfoundry"
+    ]
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "description": "Provides end-to-end visibility into processes that run in cloud, on-premise \u0026 in hybrid environments",
+  "displayName": "Process Visibility",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0icHJvY2Vzcy12aXNpYmlsaXR5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwNTNiNzA7fS5jbHMtMntmaWxsOiMwYTZlZDE7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5wcm9jZXNzLXZpc2liaWxpdHk8L3RpdGxlPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTUxLjA2Miw0Ni45MzgsMzkuMjE4LDM1LjAwN0ExOS41NTUsMTkuNTU1LDAsMSwwLDM1LDM5LjIyNEw0Ni44NDQsNTEuMTU2QTMuMTIyLDMuMTIyLDAsMCwwLDQ5LDUyYTIuOCwyLjgsMCwwLDAsMi4wNjItLjg0NCwyLjg0LDIuODQsMCwwLDAsMC00LjIxOFpNNywyMy41QTE2LjUsMTYuNSwwLDEsMSwyMy41LDQwLDE2LjUxOSwxNi41MTksMCwwLDEsNywyMy41WiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI2LjM1MSwxOC45MTFoNi4zMTNhMS4zNDMsMS4zNDMsMCwwLDAsMS4zNDMtMS4zNDNWMTQuMjU0YTEuMzQzLDEuMzQzLDAsMCwwLTEuMzQzLTEuMzQzSDI2LjM1MWExLjM0NCwxLjM0NCwwLDAsMC0xLjM0NCwxLjM0M3YuOTA4aC0zLjU5YS43NTIuNzUyLDAsMCwwLS43NS43NXY1LjI1MWwtMi4wNzYsMi4wNzZIMTcuNTA3di0uOUExLjM0MSwxLjM0MSwwLDAsMCwxNi4xNjYsMjFoLTYuM2ExLjM0MSwxLjM0MSwwLDAsMC0xLjM0MSwxLjM0MXYzLjMwOGExLjM0MSwxLjM0MSwwLDAsMCwxLjM0MSwxLjM0MWg2LjNhMS4zNDEsMS4zNDEsMCwwLDAsMS4zNDEtMS4zNDF2LS45aDEuMUwyMC42NjcsMjYuOHY0Ljc3NWEuNzUyLjc1MiwwLDAsMCwuNzUuNzVoMy41OXYuOTA4YTEuMzQzLDEuMzQzLDAsMCwwLDEuMzQ0LDEuMzQzaDYuMzEzYTEuMzQzLDEuMzQzLDAsMCwwLDEuMzQzLTEuMzQzVjI5LjkxNWExLjM0MywxLjM0MywwLDAsMC0xLjM0My0xLjM0M0gyNi4zNTFhMS4zNDQsMS4zNDQsMCwwLDAtMS4zNDQsMS4zNDN2LjkwNmgtMi44NFYyNi44OHMuMDEzLS4wMDYuMDE4LS4wMTJMMjQuMzQ5LDI0LjdhMS4wMjEsMS4wMjEsMCwwLDAsMC0xLjQ0NmwtMi4xNjUtMi4xNjZjLS4wMDUsMC0uMDEyLS4wMDYtLjAxNy0uMDExVjE2LjY2MmgyLjg0di45MDZBMS4zNDMsMS4zNDMsMCwwLDAsMjYuMzUxLDE4LjkxMVoiLz48L3N2Zz4=",
+  "inventoryIds": [
+    "SERVICE-316"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/product/VISIBILITY_SERVICE/Cloud/en-US",
+      "title": "Documentation"
+    }
+  ],
+  "name": "processvisibility",
+  "servicePlans": [
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "Canada (Montreal)",
+          "environment": "cloudfoundry",
+          "name": "cf-ca10",
+          "region": "ca10"
+        },
+        {
+          "displayName": "South Korea (Seoul)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap12",
+          "region": "ap12"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Default plan for using process visibility",
+      "displayName": "standard",
+      "free": true,
+      "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
+      "schemas": null,
+      "supportedEnvironments": [
+        "cloudfoundry"
+      ],
+      "supportedPlatforms": [
+        "cloudfoundry"
+      ]
+    },
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu30",
+          "region": "eu30"
+        },
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "Australia (Sydney) Azure",
+          "environment": "cloudfoundry",
+          "name": "cf-ap20",
+          "region": "ap20"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "South Korea (Seoul)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap12",
+          "region": "ap12"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Canada (Montreal)",
+          "environment": "cloudfoundry",
+          "name": "cf-ca10",
+          "region": "ca10"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Plan for usage of process visibility for customers with Workflow Management entitlement to enable Digital Process Automation",
+      "displayName": "workflow",
+      "free": true,
+      "name": "workflow",
+      "provisioningMethod": "SERVICE_BROKER",
+      "schemas": null,
+      "supportedEnvironments": [
+        "cloudfoundry"
+      ],
+      "supportedPlatforms": [
+        "cloudfoundry"
+      ]
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+  ],
+  "supportedPlatforms": [
+    "cloudfoundry"
+  ]
+}

@@ -1,0 +1,565 @@
+{
+  "description": "SAP Service Manager service allows you to consume platform services in any connected runtime environment, track service instances creation, and share services and service instances between different environments.",
+  "displayName": "Service Manager",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMjI5IiBkYXRhLW5hbWU9IkxheWVyIDIyOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMGE2ZWQxO30uY2xzLTJ7ZmlsbDojMDUzYjcwO308L3N0eWxlPjwvZGVmcz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yOCw3YTMsMywwLDEsMS0zLDMsMywzLDAsMCwxLDMtM20wLTNhNiw2LDAsMSwwLDYsNiw2LjAwNyw2LjAwNywwLDAsMC02LTZaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjgsNDNhMywzLDAsMSwxLTMsMywzLDMsMCwwLDEsMy0zbTAtM2E2LDYsMCwxLDAsNiw2LDYuMDA3LDYuMDA3LDAsMCwwLTYtNloiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xMywyNXY2SDdWMjVoNm0zLTNINFYzNEgxNlYyMloiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik00OSwyNXY2SDQzVjI1aDZtMy0zSDQwVjM0SDUyVjIyWiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTM3LDI2LjEyNUE3LjEzMyw3LjEzMywwLDAsMSwyOS44NzUsMTlhMS4xMjUsMS4xMjUsMCwwLDEsMi4yNSwwQTQuODc5LDQuODc5LDAsMCwwLDM3LDIzLjg3NWExLjEyNSwxLjEyNSwwLDAsMSwwLDIuMjVaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTksMjYuMTI1YTEuMTI1LDEuMTI1LDAsMCwxLDAtMi4yNUE0Ljg3OSw0Ljg3OSwwLDAsMCwyMy44NzUsMTlhMS4xMjUsMS4xMjUsMCwwLDEsMi4yNSwwQTcuMTMzLDcuMTMzLDAsMCwxLDE5LDI2LjEyNVoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNSwzOC4xMjVBMS4xMjUsMS4xMjUsMCwwLDEsMjMuODc1LDM3LDQuODgsNC44OCwwLDAsMCwxOSwzMi4xMjVhMS4xMjUsMS4xMjUsMCwwLDEsMC0yLjI1QTcuMTMzLDcuMTMzLDAsMCwxLDI2LjEyNSwzNywxLjEyNSwxLjEyNSwwLDAsMSwyNSwzOC4xMjVaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMzEsMzguMTI1QTEuMTI1LDEuMTI1LDAsMCwxLDI5Ljg3NSwzNyw3LjEzMyw3LjEzMywwLDAsMSwzNywyOS44NzVhMS4xMjUsMS4xMjUsMCwwLDEsMCwyLjI1QTQuODgsNC44OCwwLDAsMCwzMi4xMjUsMzcsMS4xMjUsMS4xMjUsMCwwLDEsMzEsMzguMTI1WiIvPjwvc3ZnPg==",
+  "inventoryIds": [
+    "SERVICE-324"
+  ],
+  "links": [
+    {
+      "linkURL": "https://discovery-center.cloud.sap/#/serviceCatalog/service-manager",
+      "title": "Discovery Center"
+    },
+    {
+      "linkURL": "https://help.sap.com/viewer/09cc82baadc542a688176dce601398de/Cloud/en-US/3a27b85a47fc4dff99184dd5bf181e14.html",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/f13b6c63eef341bc8b7d25b352401c92.html",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://operatorhub.io/operator/sap-btp-operator",
+      "title": "Install SAP BTP service operator"
+    },
+    {
+      "linkURL": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/5dd739823b824b539eee47b7860a00be.html",
+      "title": "Support information"
+    },
+    {
+      "linkURL": "https://help.sap.com/viewer/09cc82baadc542a688176dce601398de/Cloud/en-US/0ccebd7cec24411dacd5ad17799534e0.html",
+      "title": "Working with SAP BTP Service Operator"
+    }
+  ],
+  "name": "service-manager",
+  "servicePlans": [
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "cf-ch20",
+          "environment": "cloudfoundry",
+          "name": "cf-ch20",
+          "region": "ch20"
+        },
+        {
+          "displayName": "India (Mumbai)",
+          "environment": "cloudfoundry",
+          "name": "cf-in30",
+          "region": "in30"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu30",
+          "region": "eu30"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        },
+        {
+          "displayName": "Canada (Montreal)",
+          "environment": "cloudfoundry",
+          "name": "cf-ca10",
+          "region": "ca10"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Australia (Sydney) Azure",
+          "environment": "cloudfoundry",
+          "name": "cf-ap20",
+          "region": "ap20"
+        },
+        {
+          "displayName": "South Korea (Seoul)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap12",
+          "region": "ap12"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        }
+      ],
+      "description": "Allows management of service instances and bindings in a reduced scope. Instances created in a container are not visible when using credentials of other container instances",
+      "displayName": "container",
+      "free": true,
+      "name": "container",
+      "provisioningMethod": "SERVICE_BROKER",
+      "schemas": null,
+      "supportedEnvironments": [
+        "cloudfoundry"
+      ],
+      "supportedPlatforms": null
+    },
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "Australia (Sydney) Azure",
+          "environment": "cloudfoundry",
+          "name": "cf-ap20",
+          "region": "ap20"
+        },
+        {
+          "displayName": "cf-ch20",
+          "environment": "cloudfoundry",
+          "name": "cf-ch20",
+          "region": "ch20"
+        },
+        {
+          "displayName": "India (Mumbai)",
+          "environment": "cloudfoundry",
+          "name": "cf-in30",
+          "region": "in30"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu30",
+          "region": "eu30"
+        },
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        },
+        {
+          "displayName": "Canada (Montreal)",
+          "environment": "cloudfoundry",
+          "name": "cf-ca10",
+          "region": "ca10"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "South Korea (Seoul)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap12",
+          "region": "ap12"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        }
+      ],
+      "description": "Provides credentials for SAP BTP service operator to access SAP BTP from a Kubernetes cluster.",
+      "displayName": "service-operator-access",
+      "free": true,
+      "name": "service-operator-access",
+      "provisioningMethod": "SERVICE_BROKER",
+      "schemas": null,
+      "supportedEnvironments": [
+        "cloudfoundry"
+      ],
+      "supportedPlatforms": [
+        "sapbtp"
+      ]
+    },
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "cf-ch20",
+          "environment": "cloudfoundry",
+          "name": "cf-ch20",
+          "region": "ch20"
+        },
+        {
+          "displayName": "India (Mumbai)",
+          "environment": "cloudfoundry",
+          "name": "cf-in30",
+          "region": "in30"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu30",
+          "region": "eu30"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        },
+        {
+          "displayName": "Canada (Montreal)",
+          "environment": "cloudfoundry",
+          "name": "cf-ca10",
+          "region": "ca10"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Australia (Sydney) Azure",
+          "environment": "cloudfoundry",
+          "name": "cf-ap20",
+          "region": "ap20"
+        },
+        {
+          "displayName": "South Korea (Seoul)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap12",
+          "region": "ap12"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        }
+      ],
+      "description": "Allows management of resources in the subaccount in which the service instance of this plan was created. This includes managing service instances, bindings and subaccount-scoped platforms.",
+      "displayName": "subaccount-admin",
+      "free": true,
+      "name": "subaccount-admin",
+      "provisioningMethod": "SERVICE_BROKER",
+      "schemas": null,
+      "supportedEnvironments": [
+        "cloudfoundry"
+      ],
+      "supportedPlatforms": null
+    },
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "cf-ch20",
+          "environment": "cloudfoundry",
+          "name": "cf-ch20",
+          "region": "ch20"
+        },
+        {
+          "displayName": "India (Mumbai)",
+          "environment": "cloudfoundry",
+          "name": "cf-in30",
+          "region": "in30"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu30",
+          "region": "eu30"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        },
+        {
+          "displayName": "Canada (Montreal)",
+          "environment": "cloudfoundry",
+          "name": "cf-ca10",
+          "region": "ca10"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Australia (Sydney) Azure",
+          "environment": "cloudfoundry",
+          "name": "cf-ap20",
+          "region": "ap20"
+        },
+        {
+          "displayName": "South Korea (Seoul)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap12",
+          "region": "ap12"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        }
+      ],
+      "description": "Allows read-only access to the resources in the subaccount in which the service instance was created. This includes reading service instances, bindings and subaccount-scoped platforms.",
+      "displayName": "subaccount-audit",
+      "free": true,
+      "name": "subaccount-audit",
+      "provisioningMethod": "SERVICE_BROKER",
+      "schemas": null,
+      "supportedEnvironments": [
+        "cloudfoundry"
+      ],
+      "supportedPlatforms": null
+    }
+  ],
+  "supportedEnvironments": [
+    "sapbtp",
+    "cloudfoundry"
+  ],
+  "supportedPlatforms": [
+    "sapbtp",
+    [
+      "cloudfoundry"
+    ]
+  ]
+}

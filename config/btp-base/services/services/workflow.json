@@ -1,0 +1,172 @@
+{
+  "description": "SAP Workflow service allows you to build, run, and manage workflows, from simple approvals to end-to-end processes that span across different organizations and applications. With an inbox application and custom-built user interfaces, you involve end users into business processes for decision making and data entry. The workflow service comes with web-based tools for workflow modeling, APIs for consumption in custom applications, monitoring tools, and a set of Fiori-based applications for end-user access. You can use JavaScript to embed custom business logic.",
+  "displayName": "Workflow",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0id29ya2Zsb3ctc2VydmljZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojNWE3YTk0O30uY2xzLTJ7ZmlsbDojMDA5MmQxO308L3N0eWxlPjwvZGVmcz48dGl0bGU+d29ya2Zsb3ctc2VydmljZTwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMzYuNjg3LDE2SDQ5LjMxM0EyLjY4NywyLjY4NywwLDAsMCw1MiwxMy4zMTNWNi42ODdBMi42ODcsMi42ODcsMCwwLDAsNDkuMzEzLDRIMzYuNjg3QTIuNjg3LDIuNjg3LDAsMCwwLDM0LDYuNjg3VjEwbC01LjA2OCwwVjIzLjU1MWExLjQ0OSwxLjQ0OSwwLDAsMC0uMzEzLjIwOEwyNS40NCwyNi45MzhhMS40NDYsMS40NDYsMCwwLDAtLjIwOC4zMTJIMjJWMjQuNjg3QTIuNjg3LDIuNjg3LDAsMCwwLDE5LjMxMywyMkg2LjY4N0EyLjY4NywyLjY4NywwLDAsMCw0LDI0LjY4N3Y2LjYyN0EyLjY4NywyLjY4NywwLDAsMCw2LjY4NywzNEgxOS4zMTNBMi42ODcsMi42ODcsMCwwLDAsMjIsMzEuMzEzVjI4Ljc1aDMuMjMzYTEuNDQ4LDEuNDQ4LDAsMCwwLC4yMDcuMzExbDMuMTgsMy4xOGExLjQ0NCwxLjQ0NCwwLDAsMCwuMzEyLjIwN1Y0Ni4xMjVsNS4wNjgsMHYzLjE5M0EyLjY4NywyLjY4NywwLDAsMCwzNi42ODcsNTJINDkuMzEzQTIuNjg3LDIuNjg3LDAsMCwwLDUyLDQ5LjMxM1Y0Mi42ODdBMi42ODcsMi42ODcsMCwwLDAsNDkuMzEzLDQwSDM2LjY4N0EyLjY4NywyLjY4NywwLDAsMCwzNCw0Mi42ODdWNDQuNjJIMzAuNDMyVjMyLjQ0OGExLjQ0NiwxLjQ0NiwwLDAsMCwuMzExLS4yMDdsMy4xNzktMy4xNzlhMS41LDEuNSwwLDAsMCwwLTIuMTIzbC0zLjE4LTMuMThhMS40NDYsMS40NDYsMCwwLDAtLjMxLS4yMDZWMTEuNUgzNHYxLjgwOUEyLjY4NywyLjY4NywwLDAsMCwzNi42ODcsMTZaIi8+PHJlY3QgY2xhc3M9ImNscy0yIiB4PSIzNCIgeT0iNCIgd2lkdGg9IjE4IiBoZWlnaHQ9IjEyIiByeD0iMi42ODciIHJ5PSIyLjY4NyIvPjxyZWN0IGNsYXNzPSJjbHMtMiIgeD0iMzQiIHk9IjQwIiB3aWR0aD0iMTgiIGhlaWdodD0iMTIiIHJ4PSIyLjY4NyIgcnk9IjIuNjg3Ii8+PHJlY3QgY2xhc3M9ImNscy0yIiB4PSI0IiB5PSIyMiIgd2lkdGg9IjE4IiBoZWlnaHQ9IjEyIiByeD0iMi42ODciIHJ5PSIyLjY4NyIvPjwvc3ZnPg==",
+  "inventoryIds": [
+    "SERVICE-7"
+  ],
+  "links": [
+    {
+      "linkURL": "https://help.sap.com/viewer/p/WORKFLOW_SERVICE",
+      "title": "Documentation"
+    },
+    {
+      "linkURL": "https://help.sap.com/viewer/e157c391253b4ecd93647bf232d18a83/Cloud/en-US/fab405aa1ec64d6e9880761a31b0cd06.html",
+      "title": "Support information"
+    }
+  ],
+  "name": "workflow",
+  "servicePlans": [
+    {
+      "category": "ELASTIC_SERVICE",
+      "dataCenters": [
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu30",
+          "region": "eu30"
+        },
+        {
+          "displayName": "US Central (IA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us30",
+          "region": "us30"
+        },
+        {
+          "displayName": "Australia (Sydney) Azure",
+          "environment": "cloudfoundry",
+          "name": "cf-ap20",
+          "region": "ap20"
+        },
+        {
+          "displayName": "South Korea (Seoul)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap12",
+          "region": "ap12"
+        },
+        {
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "environment": "cloudfoundry",
+          "name": "cf-eu11",
+          "region": "eu11"
+        },
+        {
+          "displayName": "Canada (Montreal)",
+          "environment": "cloudfoundry",
+          "name": "cf-ca10",
+          "region": "ca10"
+        },
+        {
+          "displayName": "Brazil (Sao Paulo)",
+          "environment": "cloudfoundry",
+          "name": "cf-br10",
+          "region": "br10"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us21",
+          "region": "us21"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap21",
+          "region": "ap21"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp20",
+          "region": "jp20"
+        },
+        {
+          "displayName": "US West (WA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us20",
+          "region": "us20"
+        },
+        {
+          "displayName": "Europe (Netherlands)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu20",
+          "region": "eu20"
+        },
+        {
+          "displayName": "US East (VA)",
+          "environment": "cloudfoundry",
+          "name": "cf-us10",
+          "region": "us10"
+        },
+        {
+          "displayName": "Singapore",
+          "environment": "cloudfoundry",
+          "name": "cf-ap11",
+          "region": "ap11"
+        },
+        {
+          "displayName": "Japan (Tokyo)",
+          "environment": "cloudfoundry",
+          "name": "cf-jp10",
+          "region": "jp10"
+        },
+        {
+          "displayName": "Australia (Sydney)",
+          "environment": "cloudfoundry",
+          "name": "cf-ap10",
+          "region": "ap10"
+        },
+        {
+          "displayName": "Europe (Frankfurt)",
+          "environment": "cloudfoundry",
+          "name": "cf-eu10",
+          "region": "eu10"
+        }
+      ],
+      "description": "Default plan for using workflow",
+      "displayName": "standard",
+      "free": false,
+      "name": "standard",
+      "provisioningMethod": "SERVICE_BROKER",
+      "schemas": {
+        "service_instance": {
+          "create": {
+            "parameters": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "properties": {
+                "authorities": {
+                  "description": "Configures scopes that are available in the client credentials flow.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "defaultCollectionQueryFilter": {
+                  "description": "Configures the default behavior of queries that return a collection of Workflow entities.",
+                  "enum": [
+                    "own",
+                    "shared"
+                  ],
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        }
+      },
+      "supportedEnvironments": [
+        "cloudfoundry"
+      ],
+      "supportedPlatforms": [
+        "cloudfoundry"
+      ]
+    }
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+  ],
+  "supportedPlatforms": [
+    "cloudfoundry"
+  ]
+}
