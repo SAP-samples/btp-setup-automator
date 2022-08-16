@@ -163,7 +163,7 @@
                     },
                     "engine_version": {
                         "default": "12",
-                        "description": "The major version of the PostgreSQL database to use. If not provided, the major version is defaulted to 11",
+                        "description": "The major version of the PostgreSQL database to use. If not provided, the major version is defaulted to 12",
                         "enum": [
                             "10",
                             "11",
@@ -178,7 +178,7 @@
                         "type": "string"
                     },
                     "maintenance_window": {
-                        "description": "Indicates the preferred maintenance window for the PostgreSQL database instance.",
+                        "description": "Indicates the preferred maintenance window for the PostgreSQL database instance. The 30-minute maintenance window is selected at random from the specified block of time.",
                         "properties": {
                             "day_of_week": {
                                 "default": "Sunday",
@@ -193,6 +193,13 @@
                                     "Sunday"
                                 ],
                                 "type": "string"
+                            },
+                            "duration": {
+                                "default": 1,
+                                "description": "Duration of the time block in hours.",
+                                "maximum": 23,
+                                "minimum": 1,
+                                "type": "integer"
                             },
                             "start_hour_utc": {
                                 "default": 4,
@@ -223,9 +230,8 @@
                         "type": "boolean"
                     },
                     "storage": {
-                        "default": 10,
+                        "default": 5,
                         "description": "Amount of storage in GB to be allocated to the instance",
-                        "minimum": 10,
                         "type": "integer"
                     }
                 },
@@ -239,6 +245,69 @@
                 "_show_form_view": true,
                 "additionalProperties": true,
                 "properties": {
+                    "audit_log_level": {
+                        "description": "Defines which classes of statements will be logged by session audit logging",
+                        "items": {
+                            "enum": [
+                                "ALL",
+                                "DDL",
+                                "FUNCTION",
+                                "MISC",
+                                "NONE",
+                                "READ",
+                                "ROLE",
+                                "WRITE"
+                            ],
+                            "type": "string"
+                        },
+                        "minItems": 1,
+                        "type": "array",
+                        "uniqueItems": true
+                    },
+                    "engine_version": {
+                        "description": "The major version of the PostgreSQL database to use. If not provided, the existing engine version is not changed.",
+                        "enum": [
+                            "10",
+                            "11",
+                            "12",
+                            "13"
+                        ],
+                        "type": "string"
+                    },
+                    "maintenance_window": {
+                        "description": "Indicates the preferred maintenance window for the PostgreSQL database instance. The 30-minute maintenance window is selected at random from the specified block of time.",
+                        "properties": {
+                            "day_of_week": {
+                                "default": "Sunday",
+                                "description": "Day of the week when the PostgreSQL database instance can be patched.",
+                                "enum": [
+                                    "Monday",
+                                    "Tuesday",
+                                    "Wednesday",
+                                    "Thursday",
+                                    "Friday",
+                                    "Saturday",
+                                    "Sunday"
+                                ],
+                                "type": "string"
+                            },
+                            "duration": {
+                                "default": 1,
+                                "description": "Duration of the time block in hours.",
+                                "maximum": 23,
+                                "minimum": 1,
+                                "type": "integer"
+                            },
+                            "start_hour_utc": {
+                                "default": 4,
+                                "description": "Start hour of the time block (in UTC).",
+                                "maximum": 23,
+                                "minimum": 0,
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
                     "memory": {
                         "description": "Defines amount of memory (in GB) to be used for the instance. The number of CPU cores is also derived from the value based on the standard plan\u0027s semantics. Note that memory cannot be downscaled",
                         "enum": [
@@ -250,6 +319,10 @@
                             256
                         ],
                         "type": "integer"
+                    },
+                    "multi_az": {
+                        "description": "Indicates whether the instance is a multi-AZ deployment. If not provided, the existing configuration is not changed.",
+                        "type": "boolean"
                     },
                     "storage": {
                         "description": "Amount of storage in GB to be allocated to the instance. Note that storage cannot be downscaled.",
@@ -373,9 +446,32 @@
                 "_show_form_view": true,
                 "additionalProperties": true,
                 "properties": {
+                    "audit_log_level": {
+                        "default": [
+                            "ROLE",
+                            "DDL"
+                        ],
+                        "description": "Defines which classes of statements will be logged by session audit logging",
+                        "items": {
+                            "enum": [
+                                "ALL",
+                                "DDL",
+                                "FUNCTION",
+                                "MISC",
+                                "NONE",
+                                "READ",
+                                "ROLE",
+                                "WRITE"
+                            ],
+                            "type": "string"
+                        },
+                        "minItems": 1,
+                        "type": "array",
+                        "uniqueItems": true
+                    },
                     "engine_version": {
                         "default": "12",
-                        "description": "The major version of the PostgreSQL database to use. If not provided, the major version is defaulted to 11",
+                        "description": "The major version of the PostgreSQL database to use. If not provided, the major version is defaulted to 12",
                         "enum": [
                             "10",
                             "11",
@@ -390,7 +486,7 @@
                         "type": "string"
                     },
                     "maintenance_window": {
-                        "description": "Indicates the preferred maintenance window for the PostgreSQL database instance.",
+                        "description": "Indicates the preferred maintenance window for the PostgreSQL database instance. The 30-minute maintenance window is selected at random from the specified block of time.",
                         "properties": {
                             "day_of_week": {
                                 "default": "Sunday",
@@ -405,6 +501,13 @@
                                     "Sunday"
                                 ],
                                 "type": "string"
+                            },
+                            "duration": {
+                                "default": 1,
+                                "description": "Duration of the time block in hours.",
+                                "maximum": 23,
+                                "minimum": 1,
+                                "type": "integer"
                             },
                             "start_hour_utc": {
                                 "default": 4,
@@ -431,9 +534,8 @@
                         "type": "boolean"
                     },
                     "storage": {
-                        "default": 10,
+                        "default": 5,
                         "description": "Amount of storage in GB to be allocated to the instance",
-                        "minimum": 10,
                         "type": "integer"
                     }
                 },
@@ -447,6 +549,69 @@
                 "_show_form_view": true,
                 "additionalProperties": true,
                 "properties": {
+                    "audit_log_level": {
+                        "description": "Defines which classes of statements will be logged by session audit logging",
+                        "items": {
+                            "enum": [
+                                "ALL",
+                                "DDL",
+                                "FUNCTION",
+                                "MISC",
+                                "NONE",
+                                "READ",
+                                "ROLE",
+                                "WRITE"
+                            ],
+                            "type": "string"
+                        },
+                        "minItems": 1,
+                        "type": "array",
+                        "uniqueItems": true
+                    },
+                    "engine_version": {
+                        "description": "The major version of the PostgreSQL database to use. If not provided, the existing engine version is not changed.",
+                        "enum": [
+                            "10",
+                            "11",
+                            "12",
+                            "13"
+                        ],
+                        "type": "string"
+                    },
+                    "maintenance_window": {
+                        "description": "Indicates the preferred maintenance window for the PostgreSQL database instance. The 30-minute maintenance window is selected at random from the specified block of time.",
+                        "properties": {
+                            "day_of_week": {
+                                "default": "Sunday",
+                                "description": "Day of the week when the PostgreSQL database instance can be patched.",
+                                "enum": [
+                                    "Monday",
+                                    "Tuesday",
+                                    "Wednesday",
+                                    "Thursday",
+                                    "Friday",
+                                    "Saturday",
+                                    "Sunday"
+                                ],
+                                "type": "string"
+                            },
+                            "duration": {
+                                "default": 1,
+                                "description": "Duration of the time block in hours.",
+                                "maximum": 23,
+                                "minimum": 1,
+                                "type": "integer"
+                            },
+                            "start_hour_utc": {
+                                "default": 4,
+                                "description": "Start hour of the time block (in UTC).",
+                                "maximum": 23,
+                                "minimum": 0,
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
                     "memory": {
                         "description": "Defines amount of memory (in GB) to be used for the instance. The number of CPU cores is also derived from the value based on the standard plan\u0027s semantics. Note that memory cannot be downscaled",
                         "enum": [
@@ -454,6 +619,10 @@
                             4
                         ],
                         "type": "integer"
+                    },
+                    "multi_az": {
+                        "description": "Indicates whether the instance is a multi-AZ deployment. If not provided, the existing configuration is not changed.",
+                        "type": "boolean"
                     },
                     "storage": {
                         "description": "Amount of storage in GB to be allocated to the instance",

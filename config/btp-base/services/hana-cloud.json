@@ -514,35 +514,6 @@
             "parameters": {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "additionalProperties": false,
-                "definitions": {
-                    "extensionservice": {
-                        "properties": {
-                            "enabled": {
-                                "type": "boolean"
-                            },
-                            "name": {
-                                "pattern": "^(ConnectivityProxy)$",
-                                "type": "string"
-                            },
-                            "whitelistIPs": {
-                                "$ref": "#/definitions/whitelistIPs"
-                            }
-                        },
-                        "required": [
-                            "name",
-                            "enabled"
-                        ],
-                        "type": "object"
-                    },
-                    "whitelistIPs": {
-                        "items": {
-                            "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\/(30|31|32|[1-2][0-9]|[0-9]))?$",
-                            "type": "string"
-                        },
-                        "maxItems": 100,
-                        "type": "array"
-                    }
-                },
                 "properties": {
                     "data": {
                         "additionalProperties": false,
@@ -558,26 +529,6 @@
                                 "additionalProperties": false,
                                 "description": "Settings that enable the customer to ensure spatial proximity between their applications and the HANA instance",
                                 "properties": {
-                                    "customerInitialReplicaAvailabilityZone": {
-                                        "description": "This customer mapping zone will be used by the initial replica",
-                                        "type": "string"
-                                    },
-                                    "customerInitialSourceAvailabilityZone": {
-                                        "description": "This customer mapping zone of the initial source",
-                                        "type": "string"
-                                    },
-                                    "customerPrimaryAvailabilityZone": {
-                                        "description": "This customer mapping zone of primary instance",
-                                        "type": "string"
-                                    },
-                                    "customerSecondaryAvailabilityZone": {
-                                        "description": "This customer mapping zone will be used by the secondary instance, if defined in .disasterRecoveryMode",
-                                        "type": "string"
-                                    },
-                                    "customerSubscriptionId": {
-                                        "description": "Subscription ID of customer application. The subscription ID will be used to create a mapping of availability zones from customer subscription to HANA Cloud subscription. If not provided, HANA Cloud will use the provided availability zones as-is",
-                                        "type": "string"
-                                    },
                                     "highAvailabilityCrossMultiAZEnabled": {
                                         "description": "A flag to determine if the HA setup will be cross multi-availability zones or not",
                                         "type": "boolean"
@@ -597,10 +548,6 @@
                                     "secondaryAvailabilityZone": {
                                         "description": "This zone will be used by the secondary instance, if defined in .disasterRecoveryMode",
                                         "type": "string"
-                                    },
-                                    "zoneMappingDryrun": {
-                                        "description": "This is a flag to mark a dry-run provision to get zone mapping result",
-                                        "type": "boolean"
                                     }
                                 },
                                 "type": "object"
@@ -637,16 +584,36 @@
                                 "type": "object"
                             },
                             "extensionservices": {
-                                "description": "List of extension services offering additional features to HANA Cloud",
                                 "items": {
-                                    "$ref": "#/definitions/extensionservice"
+                                    "properties": {
+                                        "enabled": {
+                                            "type": "boolean"
+                                        },
+                                        "name": {
+                                            "pattern": "^(DITenant|ConnectivityProxy)$",
+                                            "type": "string"
+                                        },
+                                        "whitelistIPs": {
+                                            "items": {
+                                                "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\/(30|31|32|[1-2][0-9]|[0-9]))?$",
+                                                "type": "string"
+                                            },
+                                            "maxItems": 100,
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "name",
+                                        "enabled"
+                                    ],
+                                    "type": "object"
                                 }
                             },
                             "memory": {
                                 "description": "HANA memory size (RAM) in GB",
                                 "format": "int64",
-                                "maximum": 5872,
-                                "minimum": 32,
+                                "maximum": 5970,
+                                "minimum": 30,
                                 "type": "integer"
                             },
                             "memoryScaleOut": {
@@ -671,7 +638,7 @@
                             "storage": {
                                 "description": "Size of the Storage in GB",
                                 "format": "int64",
-                                "maximum": 2600,
+                                "maximum": 16000,
                                 "minimum": 120,
                                 "type": "integer"
                             },
@@ -697,8 +664,12 @@
                                 "type": "string"
                             },
                             "whitelistIPs": {
-                                "$ref": "#/definitions/whitelistIPs",
-                                "description": "IP address or range for whitelisting"
+                                "items": {
+                                    "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\/(30|31|32|[1-2][0-9]|[0-9]))?$",
+                                    "type": "string"
+                                },
+                                "maxItems": 100,
+                                "type": "array"
                             }
                         },
                         "required": [
@@ -727,35 +698,6 @@
             "parameters": {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "additionalProperties": false,
-                "definitions": {
-                    "extensionservice": {
-                        "properties": {
-                            "enabled": {
-                                "type": "boolean"
-                            },
-                            "name": {
-                                "pattern": "^(ConnectivityProxy)$",
-                                "type": "string"
-                            },
-                            "whitelistIPs": {
-                                "$ref": "#/definitions/whitelistIPs"
-                            }
-                        },
-                        "required": [
-                            "name",
-                            "enabled"
-                        ],
-                        "type": "object"
-                    },
-                    "whitelistIPs": {
-                        "items": {
-                            "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\/(30|31|32|[1-2][0-9]|[0-9]))?$",
-                            "type": "string"
-                        },
-                        "maxItems": 100,
-                        "type": "array"
-                    }
-                },
                 "properties": {
                     "data": {
                         "additionalProperties": false,
@@ -771,26 +713,6 @@
                                 "additionalProperties": false,
                                 "description": "Settings that enable the customer to ensure spatial proximity between their applications and the HANA instance",
                                 "properties": {
-                                    "customerInitialReplicaAvailabilityZone": {
-                                        "description": "This customer mapping zone will be used by the initial replica",
-                                        "type": "string"
-                                    },
-                                    "customerInitialSourceAvailabilityZone": {
-                                        "description": "This customer mapping zone of the initial source",
-                                        "type": "string"
-                                    },
-                                    "customerPrimaryAvailabilityZone": {
-                                        "description": "This customer mapping zone of primary instance",
-                                        "type": "string"
-                                    },
-                                    "customerSecondaryAvailabilityZone": {
-                                        "description": "This customer mapping zone will be used by the secondary instance, if defined in .disasterRecoveryMode",
-                                        "type": "string"
-                                    },
-                                    "customerSubscriptionId": {
-                                        "description": "Subscription ID of customer application. The subscription ID will be used to create a mapping of availability zones from customer subscription to HANA Cloud subscription. If not provided, HANA Cloud will use the provided availability zones as-is",
-                                        "type": "string"
-                                    },
                                     "highAvailabilityCrossMultiAZEnabled": {
                                         "description": "A flag to determine if the HA setup will be cross multi-availability zones or not",
                                         "type": "boolean"
@@ -838,16 +760,36 @@
                                 "type": "object"
                             },
                             "extensionservices": {
-                                "description": "List of extension services offering additional features to HANA Cloud",
                                 "items": {
-                                    "$ref": "#/definitions/extensionservice"
+                                    "properties": {
+                                        "enabled": {
+                                            "type": "boolean"
+                                        },
+                                        "name": {
+                                            "pattern": "^(DITenant|ConnectivityProxy)$",
+                                            "type": "string"
+                                        },
+                                        "whitelistIPs": {
+                                            "items": {
+                                                "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\/(30|31|32|[1-2][0-9]|[0-9]))?$",
+                                                "type": "string"
+                                            },
+                                            "maxItems": 100,
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "name",
+                                        "enabled"
+                                    ],
+                                    "type": "object"
                                 }
                             },
                             "memory": {
                                 "description": "HANA memory size (RAM) in GB",
                                 "format": "int64",
-                                "maximum": 5872,
-                                "minimum": 32,
+                                "maximum": 5970,
+                                "minimum": 30,
                                 "type": "integer"
                             },
                             "requestedOperation": {
@@ -887,6 +829,9 @@
                                             },
                                             "target_timestamp": {
                                                 "type": "string"
+                                            },
+                                            "template_name": {
+                                                "type": "string"
                                             }
                                         },
                                         "type": "object"
@@ -898,6 +843,7 @@
                                             "POINT_IN_TIME_RECOVERY",
                                             "DISASTER_KEEP_AZ_RECOVERY",
                                             "disaster_recovery_takeover",
+                                            "TEMPLATE_BACKUP",
                                             "synchronous_replication_takeover"
                                         ],
                                         "type": "string"
@@ -920,7 +866,7 @@
                             "storage": {
                                 "description": "Size of the Storage in GB",
                                 "format": "int64",
-                                "maximum": 2600,
+                                "maximum": 16000,
                                 "minimum": 120,
                                 "type": "integer"
                             },
@@ -941,8 +887,12 @@
                                 "type": "string"
                             },
                             "whitelistIPs": {
-                                "$ref": "#/definitions/whitelistIPs",
-                                "description": "IP address or range for whitelisting"
+                                "items": {
+                                    "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\/(30|31|32|[1-2][0-9]|[0-9]))?$",
+                                    "type": "string"
+                                },
+                                "maxItems": 100,
+                                "type": "array"
                             }
                         },
                         "type": "object"
@@ -1448,35 +1398,6 @@
             "parameters": {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "additionalProperties": false,
-                "definitions": {
-                    "extensionservice": {
-                        "properties": {
-                            "enabled": {
-                                "type": "boolean"
-                            },
-                            "name": {
-                                "pattern": "^(DITenant|ConnectivityProxy)$",
-                                "type": "string"
-                            },
-                            "whitelistIPs": {
-                                "$ref": "#/definitions/whitelistIPs"
-                            }
-                        },
-                        "required": [
-                            "name",
-                            "enabled"
-                        ],
-                        "type": "object"
-                    },
-                    "whitelistIPs": {
-                        "items": {
-                            "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\/(30|31|32|[1-2][0-9]|[0-9]))?$",
-                            "type": "string"
-                        },
-                        "maxItems": 100,
-                        "type": "array"
-                    }
-                },
                 "properties": {
                     "data": {
                         "additionalProperties": false,
@@ -1492,6 +1413,26 @@
                                 "additionalProperties": false,
                                 "description": "Settings that enable the customer to ensure spatial proximity between their applications and the HANA instance",
                                 "properties": {
+                                    "customerInitialReplicaAvailabilityZone": {
+                                        "description": "This customer mapping zone will be used by the initial replica",
+                                        "type": "string"
+                                    },
+                                    "customerInitialSourceAvailabilityZone": {
+                                        "description": "This customer mapping zone of the initial source",
+                                        "type": "string"
+                                    },
+                                    "customerPrimaryAvailabilityZone": {
+                                        "description": "This customer mapping zone of primary instance",
+                                        "type": "string"
+                                    },
+                                    "customerSecondaryAvailabilityZone": {
+                                        "description": "This customer mapping zone will be used by the secondary instance, if defined in .disasterRecoveryMode",
+                                        "type": "string"
+                                    },
+                                    "customerSubscriptionId": {
+                                        "description": "Subscription ID of customer application. The subscription ID will be used to create a mapping of availability zones from customer subscription to HANA Cloud subscription. If not provided, HANA Cloud will use the provided availability zones as-is",
+                                        "type": "string"
+                                    },
                                     "highAvailabilityCrossMultiAZEnabled": {
                                         "description": "A flag to determine if the HA setup will be cross multi-availability zones or not",
                                         "type": "boolean"
@@ -1511,6 +1452,10 @@
                                     "secondaryAvailabilityZone": {
                                         "description": "This zone will be used by the secondary instance, if defined in .disasterRecoveryMode",
                                         "type": "string"
+                                    },
+                                    "zoneMappingDryrun": {
+                                        "description": "This is a flag to mark a dry-run provision to get zone mapping result",
+                                        "type": "boolean"
                                     }
                                 },
                                 "type": "object"
@@ -1547,16 +1492,36 @@
                                 "type": "object"
                             },
                             "extensionservices": {
-                                "description": "List of extension services offering additional features to HANA Cloud",
                                 "items": {
-                                    "$ref": "#/definitions/extensionservice"
+                                    "properties": {
+                                        "enabled": {
+                                            "type": "boolean"
+                                        },
+                                        "name": {
+                                            "pattern": "^(ConnectivityProxy)$",
+                                            "type": "string"
+                                        },
+                                        "whitelistIPs": {
+                                            "items": {
+                                                "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\/(30|31|32|[1-2][0-9]|[0-9]))?$",
+                                                "type": "string"
+                                            },
+                                            "maxItems": 100,
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "name",
+                                        "enabled"
+                                    ],
+                                    "type": "object"
                                 }
                             },
                             "memory": {
                                 "description": "HANA memory size (RAM) in GB",
                                 "format": "int64",
-                                "maximum": 3600,
-                                "minimum": 30,
+                                "maximum": 5600,
+                                "minimum": 32,
                                 "type": "integer"
                             },
                             "memoryScaleOut": {
@@ -1581,7 +1546,7 @@
                             "storage": {
                                 "description": "Size of the Storage in GB",
                                 "format": "int64",
-                                "maximum": 16384,
+                                "maximum": 14040,
                                 "minimum": 120,
                                 "type": "integer"
                             },
@@ -1607,8 +1572,12 @@
                                 "type": "string"
                             },
                             "whitelistIPs": {
-                                "$ref": "#/definitions/whitelistIPs",
-                                "description": "IP address or range for whitelisting"
+                                "items": {
+                                    "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\/(30|31|32|[1-2][0-9]|[0-9]))?$",
+                                    "type": "string"
+                                },
+                                "maxItems": 100,
+                                "type": "array"
                             }
                         },
                         "required": [
@@ -1637,35 +1606,6 @@
             "parameters": {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "additionalProperties": false,
-                "definitions": {
-                    "extensionservice": {
-                        "properties": {
-                            "enabled": {
-                                "type": "boolean"
-                            },
-                            "name": {
-                                "pattern": "^(DITenant|ConnectivityProxy)$",
-                                "type": "string"
-                            },
-                            "whitelistIPs": {
-                                "$ref": "#/definitions/whitelistIPs"
-                            }
-                        },
-                        "required": [
-                            "name",
-                            "enabled"
-                        ],
-                        "type": "object"
-                    },
-                    "whitelistIPs": {
-                        "items": {
-                            "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\/(30|31|32|[1-2][0-9]|[0-9]))?$",
-                            "type": "string"
-                        },
-                        "maxItems": 100,
-                        "type": "array"
-                    }
-                },
                 "properties": {
                     "data": {
                         "additionalProperties": false,
@@ -1681,6 +1621,26 @@
                                 "additionalProperties": false,
                                 "description": "Settings that enable the customer to ensure spatial proximity between their applications and the HANA instance",
                                 "properties": {
+                                    "customerInitialReplicaAvailabilityZone": {
+                                        "description": "This customer mapping zone will be used by the initial replica",
+                                        "type": "string"
+                                    },
+                                    "customerInitialSourceAvailabilityZone": {
+                                        "description": "This customer mapping zone of the initial source",
+                                        "type": "string"
+                                    },
+                                    "customerPrimaryAvailabilityZone": {
+                                        "description": "This customer mapping zone of primary instance",
+                                        "type": "string"
+                                    },
+                                    "customerSecondaryAvailabilityZone": {
+                                        "description": "This customer mapping zone will be used by the secondary instance, if defined in .disasterRecoveryMode",
+                                        "type": "string"
+                                    },
+                                    "customerSubscriptionId": {
+                                        "description": "Subscription ID of customer application. The subscription ID will be used to create a mapping of availability zones from customer subscription to HANA Cloud subscription. If not provided, HANA Cloud will use the provided availability zones as-is",
+                                        "type": "string"
+                                    },
                                     "highAvailabilityCrossMultiAZEnabled": {
                                         "description": "A flag to determine if the HA setup will be cross multi-availability zones or not",
                                         "type": "boolean"
@@ -1728,16 +1688,36 @@
                                 "type": "object"
                             },
                             "extensionservices": {
-                                "description": "List of extension services offering additional features to HANA Cloud",
                                 "items": {
-                                    "$ref": "#/definitions/extensionservice"
+                                    "properties": {
+                                        "enabled": {
+                                            "type": "boolean"
+                                        },
+                                        "name": {
+                                            "pattern": "^(ConnectivityProxy)$",
+                                            "type": "string"
+                                        },
+                                        "whitelistIPs": {
+                                            "items": {
+                                                "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\/(30|31|32|[1-2][0-9]|[0-9]))?$",
+                                                "type": "string"
+                                            },
+                                            "maxItems": 100,
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "name",
+                                        "enabled"
+                                    ],
+                                    "type": "object"
                                 }
                             },
                             "memory": {
                                 "description": "HANA memory size (RAM) in GB",
                                 "format": "int64",
-                                "maximum": 3600,
-                                "minimum": 30,
+                                "maximum": 5600,
+                                "minimum": 32,
                                 "type": "integer"
                             },
                             "requestedOperation": {
@@ -1814,7 +1794,7 @@
                             "storage": {
                                 "description": "Size of the Storage in GB",
                                 "format": "int64",
-                                "maximum": 16384,
+                                "maximum": 14040,
                                 "minimum": 120,
                                 "type": "integer"
                             },
@@ -1835,8 +1815,12 @@
                                 "type": "string"
                             },
                             "whitelistIPs": {
-                                "$ref": "#/definitions/whitelistIPs",
-                                "description": "IP address or range for whitelisting"
+                                "items": {
+                                    "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\/(30|31|32|[1-2][0-9]|[0-9]))?$",
+                                    "type": "string"
+                                },
+                                "maxItems": 100,
+                                "type": "array"
                             }
                         },
                         "type": "object"
@@ -2422,6 +2406,9 @@
                                 "minimum": 1,
                                 "type": "integer"
                             },
+                            "project_name": {
+                                "type": "string"
+                            },
                             "provisioned_size_gib": {
                                 "description": "Size of IQ persistence in GB",
                                 "maximum": 92160,
@@ -2453,6 +2440,12 @@
                             "systempassword": {
                                 "description": "Password to be set for tenant",
                                 "minLength": 6,
+                                "type": "string"
+                            },
+                            "template_name": {
+                                "type": "string"
+                            },
+                            "template_subaccount": {
                                 "type": "string"
                             },
                             "versionIndicator": {
