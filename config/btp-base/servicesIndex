@@ -1,0 +1,694 @@
+[
+  {
+    "filename": "services/abap.json",
+    "name": "abap"
+  },
+  {
+    "filename": "services/abap-solution.json",
+    "name": "abap-solution"
+  },
+  {
+    "filename": "services/abapcp-web-router.json",
+    "name": "abapcp-web-router"
+  },
+  {
+    "filename": "services/ads.json",
+    "name": "ads"
+  },
+  {
+    "filename": "services/ads-configui.json",
+    "name": "ads-configui"
+  },
+  {
+    "filename": "services/adsrestapi.json",
+    "name": "adsrestapi"
+  },
+  {
+    "filename": "services/ai-launchpad.json",
+    "name": "ai-launchpad"
+  },
+  {
+    "filename": "services/aicore.json",
+    "name": "aicore"
+  },
+  {
+    "filename": "services/alert-notification.json",
+    "name": "alert-notification"
+  },
+  {
+    "filename": "services/alm-ts.json",
+    "name": "alm-ts"
+  },
+  {
+    "filename": "services/api-management.json",
+    "name": "api-management"
+  },
+  {
+    "filename": "services/api-management-apiportal.json",
+    "name": "api-management-apiportal"
+  },
+  {
+    "filename": "services/api-management-devportal.json",
+    "name": "api-management-devportal"
+  },
+  {
+    "filename": "services/apimanagement-apiportal.json",
+    "name": "apimanagement-apiportal"
+  },
+  {
+    "filename": "services/apimanagement-devportal.json",
+    "name": "apimanagement-devportal"
+  },
+  {
+    "filename": "services/application-logs.json",
+    "name": "application-logs"
+  },
+  {
+    "filename": "services/ASE_PROVISIONING.json",
+    "name": "ASE_PROVISIONING"
+  },
+  {
+    "filename": "services/auditlog-api.json",
+    "name": "auditlog-api"
+  },
+  {
+    "filename": "services/auditlog-management.json",
+    "name": "auditlog-management"
+  },
+  {
+    "filename": "services/auditlog-viewer.json",
+    "name": "auditlog-viewer"
+  },
+  {
+    "filename": "services/automationpilot.json",
+    "name": "automationpilot"
+  },
+  {
+    "filename": "services/autoscaler.json",
+    "name": "autoscaler"
+  },
+  {
+    "filename": "services/Backend-service.json",
+    "name": "Backend-service"
+  },
+  {
+    "filename": "services/blockchain-services.json",
+    "name": "blockchain-services"
+  },
+  {
+    "filename": "services/business-entity-recognition.json",
+    "name": "business-entity-recognition"
+  },
+  {
+    "filename": "services/business-rules.json",
+    "name": "business-rules"
+  },
+  {
+    "filename": "services/c4-distributed-order-management.json",
+    "name": "c4-distributed-order-management"
+  },
+  {
+    "filename": "services/c4-distributed-order-management-app.json",
+    "name": "c4-distributed-order-management-app"
+  },
+  {
+    "filename": "services/cias.json",
+    "name": "cias"
+  },
+  {
+    "filename": "services/cicd-app.json",
+    "name": "cicd-app"
+  },
+  {
+    "filename": "services/cicd-service.json",
+    "name": "cicd-service"
+  },
+  {
+    "filename": "services/cis.json",
+    "name": "cis"
+  },
+  {
+    "filename": "services/cloudfoundry.json",
+    "name": "cloudfoundry"
+  },
+  {
+    "filename": "services/COMPUTE_UNIT.json",
+    "name": "COMPUTE_UNIT"
+  },
+  {
+    "filename": "services/connectivity.json",
+    "name": "connectivity"
+  },
+  {
+    "filename": "services/connectivity-central.json",
+    "name": "connectivity-central"
+  },
+  {
+    "filename": "services/content-agent.json",
+    "name": "content-agent"
+  },
+  {
+    "filename": "services/content-agent-ui.json",
+    "name": "content-agent-ui"
+  },
+  {
+    "filename": "services/conversational-ai.json",
+    "name": "conversational-ai"
+  },
+  {
+    "filename": "services/credstore.json",
+    "name": "credstore"
+  },
+  {
+    "filename": "services/custom-domain-manager.json",
+    "name": "custom-domain-manager"
+  },
+  {
+    "filename": "services/data-attribute-recommendation.json",
+    "name": "data-attribute-recommendation"
+  },
+  {
+    "filename": "services/data-intelligence.json",
+    "name": "data-intelligence"
+  },
+  {
+    "filename": "services/data-privacy-integration-application.json",
+    "name": "data-privacy-integration-application"
+  },
+  {
+    "filename": "services/data-privacy-integration-service.json",
+    "name": "data-privacy-integration-service"
+  },
+  {
+    "filename": "services/dataenrichment-business-partner.json",
+    "name": "dataenrichment-business-partner"
+  },
+  {
+    "filename": "services/dateandtime.json",
+    "name": "dateandtime"
+  },
+  {
+    "filename": "services/destination.json",
+    "name": "destination"
+  },
+  {
+    "filename": "services/document-classification.json",
+    "name": "document-classification"
+  },
+  {
+    "filename": "services/document-information-extraction-application.json",
+    "name": "document-information-extraction-application"
+  },
+  {
+    "filename": "services/document-translation.json",
+    "name": "document-translation"
+  },
+  {
+    "filename": "services/dq-services.json",
+    "name": "dq-services"
+  },
+  {
+    "filename": "services/dqmmicroui.json",
+    "name": "dqmmicroui"
+  },
+  {
+    "filename": "services/eadesigner.json",
+    "name": "eadesigner"
+  },
+  {
+    "filename": "services/edge-services.json",
+    "name": "edge-services"
+  },
+  {
+    "filename": "services/enterprise-messaging.json",
+    "name": "enterprise-messaging"
+  },
+  {
+    "filename": "services/enterprise-messaging-hub.json",
+    "name": "enterprise-messaging-hub"
+  },
+  {
+    "filename": "services/extension-center.json",
+    "name": "extension-center"
+  },
+  {
+    "filename": "services/feature-flags.json",
+    "name": "feature-flags"
+  },
+  {
+    "filename": "services/feature-flags-dashboard.json",
+    "name": "feature-flags-dashboard"
+  },
+  {
+    "filename": "services/hana.json",
+    "name": "hana"
+  },
+  {
+    "filename": "services/hana-cloud.json",
+    "name": "hana-cloud"
+  },
+  {
+    "filename": "services/hana-db.json",
+    "name": "hana-db"
+  },
+  {
+    "filename": "services/hana-tenant-db.json",
+    "name": "hana-tenant-db"
+  },
+  {
+    "filename": "services/html5-apps-repo.json",
+    "name": "html5-apps-repo"
+  },
+  {
+    "filename": "services/hyperledger-fabric.json",
+    "name": "hyperledger-fabric"
+  },
+  {
+    "filename": "services/ibanservice.json",
+    "name": "ibanservice"
+  },
+  {
+    "filename": "services/identity.json",
+    "name": "identity"
+  },
+  {
+    "filename": "services/INFRA.json",
+    "name": "INFRA"
+  },
+  {
+    "filename": "services/integration-suite-advanced-event-mesh.json",
+    "name": "integration-suite-advanced-event-mesh"
+  },
+  {
+    "filename": "services/integrationsuite.json",
+    "name": "integrationsuite"
+  },
+  {
+    "filename": "services/intelligent-situation-automation-app.json",
+    "name": "intelligent-situation-automation-app"
+  },
+  {
+    "filename": "services/intercompany-reconciliation.json",
+    "name": "intercompany-reconciliation"
+  },
+  {
+    "filename": "services/invoice-object-recommendation.json",
+    "name": "invoice-object-recommendation"
+  },
+  {
+    "filename": "services/iot.json",
+    "name": "iot"
+  },
+  {
+    "filename": "services/iotae.json",
+    "name": "iotae"
+  },
+  {
+    "filename": "services/iotas.json",
+    "name": "iotas"
+  },
+  {
+    "filename": "services/IRPA.json",
+    "name": "IRPA"
+  },
+  {
+    "filename": "services/irpa-service.json",
+    "name": "irpa-service"
+  },
+  {
+    "filename": "services/it-prod.json",
+    "name": "it-prod"
+  },
+  {
+    "filename": "services/it-rt.json",
+    "name": "it-rt"
+  },
+  {
+    "filename": "services/jobscheduler.json",
+    "name": "jobscheduler"
+  },
+  {
+    "filename": "services/kymaruntime.json",
+    "name": "kymaruntime"
+  },
+  {
+    "filename": "services/LandscapePortal.json",
+    "name": "LandscapePortal"
+  },
+  {
+    "filename": "services/malware-scanner.json",
+    "name": "malware-scanner"
+  },
+  {
+    "filename": "services/market-rates-byor.json",
+    "name": "market-rates-byor"
+  },
+  {
+    "filename": "services/market-rates-thr.json",
+    "name": "market-rates-thr"
+  },
+  {
+    "filename": "services/market-rates-ux.json",
+    "name": "market-rates-ux"
+  },
+  {
+    "filename": "services/MDMBusinessPartnerApplication.json",
+    "name": "MDMBusinessPartnerApplication"
+  },
+  {
+    "filename": "services/MDMBusinessPartnerService.json",
+    "name": "MDMBusinessPartnerService"
+  },
+  {
+    "filename": "services/mdo-one-mds-master.json",
+    "name": "mdo-one-mds-master"
+  },
+  {
+    "filename": "services/MDOrchestrationApplication.json",
+    "name": "MDOrchestrationApplication"
+  },
+  {
+    "filename": "services/ml-foundation.json",
+    "name": "ml-foundation"
+  },
+  {
+    "filename": "services/mobile-app-catalog.json",
+    "name": "mobile-app-catalog"
+  },
+  {
+    "filename": "services/mobile-app-update.json",
+    "name": "mobile-app-update"
+  },
+  {
+    "filename": "services/mobile-c2g.json",
+    "name": "mobile-c2g"
+  },
+  {
+    "filename": "services/mobile-cbms.json",
+    "name": "mobile-cbms"
+  },
+  {
+    "filename": "services/mobile-client-log-upload.json",
+    "name": "mobile-client-log-upload"
+  },
+  {
+    "filename": "services/mobile-client-resource.json",
+    "name": "mobile-client-resource"
+  },
+  {
+    "filename": "services/mobile-client-usage.json",
+    "name": "mobile-client-usage"
+  },
+  {
+    "filename": "services/mobile-discovery.json",
+    "name": "mobile-discovery"
+  },
+  {
+    "filename": "services/mobile-network-trace.json",
+    "name": "mobile-network-trace"
+  },
+  {
+    "filename": "services/mobile-offline.json",
+    "name": "mobile-offline"
+  },
+  {
+    "filename": "services/mobile-proxy.json",
+    "name": "mobile-proxy"
+  },
+  {
+    "filename": "services/mobile-push.json",
+    "name": "mobile-push"
+  },
+  {
+    "filename": "services/mobile-sample-odata-v2-espm.json",
+    "name": "mobile-sample-odata-v2-espm"
+  },
+  {
+    "filename": "services/mobile-services.json",
+    "name": "mobile-services"
+  },
+  {
+    "filename": "services/mobile-services-preview.json",
+    "name": "mobile-services-preview"
+  },
+  {
+    "filename": "services/mobile-settings-exchange.json",
+    "name": "mobile-settings-exchange"
+  },
+  {
+    "filename": "services/multichain.json",
+    "name": "multichain"
+  },
+  {
+    "filename": "services/objectstore.json",
+    "name": "objectstore"
+  },
+  {
+    "filename": "services/ocnselfserviceagent.json",
+    "name": "ocnselfserviceagent"
+  },
+  {
+    "filename": "services/one-inbox-service.json",
+    "name": "one-inbox-service"
+  },
+  {
+    "filename": "services/one-mds.json",
+    "name": "one-mds"
+  },
+  {
+    "filename": "services/personal-data-manager-service.json",
+    "name": "personal-data-manager-service"
+  },
+  {
+    "filename": "services/PersonalDataManagerApp.json",
+    "name": "PersonalDataManagerApp"
+  },
+  {
+    "filename": "services/portal.json",
+    "name": "portal"
+  },
+  {
+    "filename": "services/PortalApplication.json",
+    "name": "PortalApplication"
+  },
+  {
+    "filename": "services/postgresql.json",
+    "name": "postgresql"
+  },
+  {
+    "filename": "services/postgresql-db.json",
+    "name": "postgresql-db"
+  },
+  {
+    "filename": "services/print.json",
+    "name": "print"
+  },
+  {
+    "filename": "services/print-app.json",
+    "name": "print-app"
+  },
+  {
+    "filename": "services/privatelink.json",
+    "name": "privatelink"
+  },
+  {
+    "filename": "services/process-automation.json",
+    "name": "process-automation"
+  },
+  {
+    "filename": "services/process-automation-service.json",
+    "name": "process-automation-service"
+  },
+  {
+    "filename": "services/processvisibility.json",
+    "name": "processvisibility"
+  },
+  {
+    "filename": "services/quorum.json",
+    "name": "quorum"
+  },
+  {
+    "filename": "services/rabbitmq.json",
+    "name": "rabbitmq"
+  },
+  {
+    "filename": "services/recommendation-systems-production.json",
+    "name": "recommendation-systems-production"
+  },
+  {
+    "filename": "services/redis.json",
+    "name": "redis"
+  },
+  {
+    "filename": "services/redis-cache.json",
+    "name": "redis-cache"
+  },
+  {
+    "filename": "services/responsibility-management-application-beta.json",
+    "name": "responsibility-management-application-beta"
+  },
+  {
+    "filename": "services/responsibility-management-service-beta.json",
+    "name": "responsibility-management-service-beta"
+  },
+  {
+    "filename": "services/responsibilitymanagement-application.json",
+    "name": "responsibilitymanagement-application"
+  },
+  {
+    "filename": "services/responsibilitymanagement-service.json",
+    "name": "responsibilitymanagement-service"
+  },
+  {
+    "filename": "services/retention-manager.json",
+    "name": "retention-manager"
+  },
+  {
+    "filename": "services/retention-manager-app.json",
+    "name": "retention-manager-app"
+  },
+  {
+    "filename": "services/saas-registry.json",
+    "name": "saas-registry"
+  },
+  {
+    "filename": "services/sap-analytics-cloud-embedded-edition.json",
+    "name": "sap-analytics-cloud-embedded-edition"
+  },
+  {
+    "filename": "services/sap-ariba-shopping.json",
+    "name": "sap-ariba-shopping"
+  },
+  {
+    "filename": "services/sap-bigdataservices.json",
+    "name": "sap-bigdataservices"
+  },
+  {
+    "filename": "services/sap-cai-onboarding.json",
+    "name": "sap-cai-onboarding"
+  },
+  {
+    "filename": "services/sap-calm.json",
+    "name": "sap-calm"
+  },
+  {
+    "filename": "services/sap-document-information-extraction.json",
+    "name": "sap-document-information-extraction"
+  },
+  {
+    "filename": "services/sap-graph.json",
+    "name": "sap-graph"
+  },
+  {
+    "filename": "services/sap-identity-services-onboarding.json",
+    "name": "sap-identity-services-onboarding"
+  },
+  {
+    "filename": "services/sap-workzone.json",
+    "name": "sap-workzone"
+  },
+  {
+    "filename": "services/sapappgyver.json",
+    "name": "sapappgyver"
+  },
+  {
+    "filename": "services/sapappstudio.json",
+    "name": "sapappstudio"
+  },
+  {
+    "filename": "services/SAPLaunchpad.json",
+    "name": "SAPLaunchpad"
+  },
+  {
+    "filename": "services/SAPWebAnalytics.json",
+    "name": "SAPWebAnalytics"
+  },
+  {
+    "filename": "services/SAPWorkZone.json",
+    "name": "SAPWorkZone"
+  },
+  {
+    "filename": "services/scp-launchpad.json",
+    "name": "scp-launchpad"
+  },
+  {
+    "filename": "services/sdm.json",
+    "name": "sdm"
+  },
+  {
+    "filename": "services/sdm-repository.json",
+    "name": "sdm-repository"
+  },
+  {
+    "filename": "services/sdm-web.json",
+    "name": "sdm-web"
+  },
+  {
+    "filename": "services/service-manager.json",
+    "name": "service-manager"
+  },
+  {
+    "filename": "services/service-ticket-intelligence.json",
+    "name": "service-ticket-intelligence"
+  },
+  {
+    "filename": "services/spatialservices.json",
+    "name": "spatialservices"
+  },
+  {
+    "filename": "services/spatialservices-app.json",
+    "name": "spatialservices-app"
+  },
+  {
+    "filename": "services/theming.json",
+    "name": "theming"
+  },
+  {
+    "filename": "services/tnt-onboard-dataenrichment-dcp.json",
+    "name": "tnt-onboard-dataenrichment-dcp"
+  },
+  {
+    "filename": "services/transport.json",
+    "name": "transport"
+  },
+  {
+    "filename": "services/uas.json",
+    "name": "uas"
+  },
+  {
+    "filename": "services/ui5-flexibility-keyuser.json",
+    "name": "ui5-flexibility-keyuser"
+  },
+  {
+    "filename": "services/workcalendar.json",
+    "name": "workcalendar"
+  },
+  {
+    "filename": "services/workflow.json",
+    "name": "workflow"
+  },
+  {
+    "filename": "services/workflowmanagement.json",
+    "name": "workflowmanagement"
+  },
+  {
+    "filename": "services/WorkflowManagementSaaS.json",
+    "name": "WorkflowManagementSaaS"
+  },
+  {
+    "filename": "services/wums-c4re-beta.json",
+    "name": "wums-c4re-beta"
+  },
+  {
+    "filename": "services/wums-partner-api-beta.json",
+    "name": "wums-partner-api-beta"
+  },
+  {
+    "filename": "services/xfs-runtime.json",
+    "name": "xfs-runtime"
+  },
+  {
+    "filename": "services/xsuaa.json",
+    "name": "xsuaa"
+  }
+]
