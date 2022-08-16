@@ -9,7 +9,7 @@ on:
 env:
   METADATA_SOURCE_REPO: btp-metadata-fetcher
   METADATA_SOURCE_OWNER: btp-setup-automator
-  METADATA_SOURCE_VERSION: v1
+  METADATA_SOURCE_VERSION: v1/sap-external
   METADATA_SOURCE_PATH: metadata
   METADATA_TARGET_PATH: config/btp-base
 jobs:
