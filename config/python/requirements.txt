@@ -11,7 +11,7 @@ MarkupSafe==2.1.1
 mccabe==0.6.1
 ninja2==0.1
 pycodestyle==2.8.0
-pyflakes==2.4.0
+pyflakes==2.5.0
 pyrsistent==0.18.1
 python-dateutil==2.8.2
 python-editor==1.0.4
