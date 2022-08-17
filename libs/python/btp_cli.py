@@ -1,4 +1,5 @@
 import libs.python.helperArgParser as helperArgParser
+from .helperCliVersions import getAllCliVersions
 from libs.python.helperFolders import FOLDER_SCHEMA_LIBS
 from libs.python.helperJson import addKeyValuePair, dictToString, convertStringToJson, getJsonFromFile
 from libs.python.helperBtpTrust import runTrustFlow
@@ -36,6 +37,8 @@ class BTPUSECASE:
         log.header("BTP-SETUP-AUTOMATOR")
         log.info("Git version >" +
                  os.getenv('BTPSA_VERSION_GIT', "not set") + "<")
+
+        self.versionInfoClis = getAllCliVersions()
 
         # If no suffix for service names was provided, create one (with getNamingPatternForServiceSuffix())
         if self.suffixinstancename is None or self.suffixinstancename == "":
