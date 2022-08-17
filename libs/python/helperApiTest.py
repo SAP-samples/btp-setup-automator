@@ -34,7 +34,7 @@ def get_oauth_token(oauthurl, username, password):
     headers = {
         'Content-Type': 'application/x-www-form-urlencoded'
     }
-    if oauthurl.endswith('/oauth/token'):
+    if oauthurl.endswith('/oauth/token') or oauthurl.endswith('/oauth/token?grant_type=client_credentials'):
         url = oauthurl
     elif oauthurl.endswith('auth/request'):
         url = oauthurl
