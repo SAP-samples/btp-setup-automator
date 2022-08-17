@@ -1,376 +1,1620 @@
 {
-
   "aboutThisUseCase": {
-
     "name": "Kyma cross consumption service test",
-
     "description": "This project will test the service for cross consumability",
-
     "author": "n.murkute@sap.com, shivakumar.prabhuswamy@sap.com",
-
     "testStatus": "tested successfully",
-
     "usageStatus": "READY TO BE USED",
-
     "relatedLinks": [
-
-          "https://github.com/I559299/kymatest"
-
-      ]
-
+      "https://github.com/I559299/kymatest"
+    ]
   },
-  "admins": ["n.murkute@sap.com","shivakumar.prabhuswamy@sap.com" ],
-  "services": [
-
-      {
-
-          "category": "ENVIRONMENT",
-
-          "name": "kymaruntime",
-
-          "plan": "azure",
-
-          "amount": 1,
-
-          "parameters": {
-
-            "name": "kymaeu10-n3x822fu_kymaeu10",
-
-            "region": "eastus"
-
-          }
-
-        },
-
-      {
-
-          "name": "destination",
-
-          "plan": "lite",
-
-          "category": "SERVICE",
-
-          "targetenvironment": "kymaruntime",
-
-          "createServiceKeys": [
-
-              "destination-lite"
-
-          ]
-
-      }
-
+  "admins": [
+    "n.murkute@sap.com",
+    "shivakumar.prabhuswamy@sap.com"
   ],
-  "enablecrossconsumptiontest":true,
-  "api_resource_uri" : [
+  "services": [
     {
-      "servicename":"destination",
-      "plan":"lite",
-      "testapi":"/destination-configuration/v1/subaccountDestinations",
-      "apiBaseUrlPathKey":"data.uri",
-      "oauthurlPathkey":"data.url",
-      "clientId_basicUN_PathKey":"data.clientid",
-      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "category": "ENVIRONMENT",
+      "name": "kymaruntime",
+      "plan": "azure",
+      "amount": 1,
+      "parameters": {
+        "name": "kymaeu10-n3x822fu_kymaeu10",
+        "region": "eastus"
+      }
+    },
+    {
+      "name": "business-logging",
+      "plan": "default",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "parameters": {
+        "xs-security": {
+          "xsappname": "demo_app"
+        },
+        "objects": [
+          {
+            "objectName": "com.sap.sd.sales",
+            "objectText": "Sales",
+            "subObjectDetails": [
+              {
+                "subObjectName": "shipment",
+                "subObjectText": "Logs for shipping of order items",
+                "logExpiryInDays": 30
+              },
+              {
+                "subObjectName": "invoicing",
+                "subObjectText": "Logs associated with invoicing of order",
+                "logExpiryInDays": 60
+              }
+            ]
+          }
+        ]
+      },
+      "createServiceKeys": [
+        "business-logging-default"
+      ]
+    },
+    {
+      "name": "cicd-service",
+      "plan": "default",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "cicd-service-default"
+      ]
+    },
+    {
+      "name": "print",
+      "plan": "sender",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "print-sender"
+      ]
+    },
+    {
+      "name": "cis",
+      "plan": "central",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "cis-central"
+      ]
+    },
+    {
+      "name": "generic-line-item-matching",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "generic-line-item-matching-standard"
+      ]
+    },
+    {
+      "name": "connected-products-acceptance",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "connected-products-acceptance-standard"
+      ]
+    },
+    {
+      "name": "uas",
+      "plan": "reporting-ga-admin",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "uas-reporting-ga-admin"
+      ]
+    },
+    {
+      "name": "ui5-flexibility-personalization",
+      "plan": "personalization",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "ui5-flexibility-personalization-personalization"
+      ]
+    },
+    {
+      "name": "personal-data-manager-service",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "parameters": {
+        "fullyQualifiedApplicationName": "com.sap.gdpr.test.application:gdpr-sample-application-kyma",
+        "applicationTitle": "Sales",
+        "applicationTitleKey": "Sales",
+        "applicationURL": "https://gdpr-reference-application-broker-testk.cfapps.sap.hana.ondemand.com",
+        "endPoints": [
+          {
+            "type": "odata",
+            "serviceName": "CustomerSales",
+            "serviceTitle": "Customer Sales",
+            "serviceTitleKey": "CustomerSales",
+            "serviceURI": "/gdprSample/gdprSampleOData.svc",
+            "hasGdprAnnotations": true,
+            "textBundleURI": "/getTextBundle/i18n.properties"
+          },
+          {
+            "type": "odata",
+            "serviceName": "Buyers",
+            "serviceTitleKey": "Buyers",
+            "serviceURI": "/gdprSample/gdprSampleODataWithoutAnnotation.svc",
+            "hasGdprAnnotations": false,
+            "annotationProviderRestEndPoint": "/MetadataServlet",
+            "textBundleURI": "/getTextBundle/i18n.properties"
+          },
+          {
+            "type": "rest",
+            "serviceName": "TotalSales",
+            "serviceTitleKey": "TotalSales",
+            "serviceURI": "/gdprSample",
+            "annotationProviderRestEndPoint": "/MetadataInfoForRestAPI",
+            "textBundleURI": "/getTextBundle/i18n.properties",
+            "entityIdentifier": "parameter"
+          }
+        ]
+      },
+      "createServiceKeys": [
+        "personal-data-manager-service-standard"
+      ]
+    },
+    {
+      "name": "subscription-manager",
+      "plan": "provider",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "parameters": {
+        "applicationType": "application",
+        "supportApplication": true,
+        "iasServiceInstanceId": "62efd84778445f5c5ee9cffa",
+        "appCallbacks": {
+          "dependenciesCallbacks": {
+            "url": "https://ayumwyw5e.accounts400.ondemand.com/v1/callback/zones/{zoneId}/dependencies"
+          },
+          "subscriptionCallbacks": {
+            "url": "https://ayumwyw5e.accounts400.ondemand.com/v1/callback/zones/{zoneId}"
+          }
+        }
+      },
+      "createServiceKeys": [
+        "subscription-manager-provider"
+      ]
+    },
+    {
+      "name": "sap-document-information-extraction",
+      "plan": "default",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "sap-document-information-extraction-default"
+      ]
+    },
+    {
+      "name": "document-classification-internal-production",
+      "plan": "default",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "document-classification-internal-production-default"
+      ]
+    },
+    {
+      "name": "data-attribute-recommendation",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "data-attribute-recommendation-standard"
+      ]
+    },
+    {
+      "name": "data-lifecycle-services",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "parameters": {
+        "xs-security": {
+          "xsappname": "scenario-test-clone-kyma",
+          "authorities": [
+            "$ACCEPT_GRANTED_AUTHORITIES"
+          ]
+        },
+        "ApplicationName": "ScenarioTestKyma",
+        "ApplicationTitle": "Scenario Test",
+        "ApplicationDescription": "Scenario test of Stock Monitoring Application",
+        "Configuration": {
+          "Entities": [
+            {
+              "Name": "PurchasingDocumentHeader",
+              "Type": "business-object",
+              "Keys": [
+                "DocumentNumber"
+              ],
+              "SearchParameters": {
+                "Index1": "DocumentCategory",
+                "Index2": "Status",
+                "Index3": "CompletionDate"
+              },
+              "Properties": [
+                {
+                  "Name": "DocumentNumber",
+                  "Type": "String",
+                  "Nullable": false
+                },
+                {
+                  "Name": "DocumentCategory",
+                  "Type": "String"
+                },
+                {
+                  "Name": "Status",
+                  "Type": "String"
+                },
+                {
+                  "Name": "VendorAccountNumber",
+                  "Type": "Integer"
+                },
+                {
+                  "Name": "PurchasingOrg",
+                  "Type": "String"
+                },
+                {
+                  "Name": "CurrencyKey",
+                  "Type": "String"
+                },
+                {
+                  "Name": "ExchangeRate",
+                  "Type": "Decimal"
+                },
+                {
+                  "Name": "WarrantyDate",
+                  "Type": "Timestamp"
+                },
+                {
+                  "Name": "UserId",
+                  "Type": "String"
+                },
+                {
+                  "Name": "CreationDate",
+                  "Type": "Timestamp"
+                },
+                {
+                  "Name": "CompletionDate",
+                  "Type": "Timestamp",
+                  "RangeEnabled": true
+                }
+              ],
+              "ParentEntity": ""
+            },
+            {
+              "Name": "PurchasingDocumentItem",
+              "Keys": [
+                "DocumentNumber",
+                "ItemNumber"
+              ],
+              "Properties": [
+                {
+                  "Name": "DocumentNumber",
+                  "Type": "String",
+                  "Nullable": false
+                },
+                {
+                  "Name": "ItemNumber",
+                  "Type": "Integer",
+                  "Nullable": false
+                },
+                {
+                  "Name": "MaterialNumber",
+                  "Type": "String",
+                  "Nullable": false
+                },
+                {
+                  "Name": "Plant",
+                  "Type": "String"
+                },
+                {
+                  "Name": "OrderQuantity",
+                  "Type": "Integer",
+                  "Nullable": false
+                },
+                {
+                  "Name": "OrderUnit",
+                  "Type": "String",
+                  "Nullable": false
+                },
+                {
+                  "Name": "OrderPrice",
+                  "Type": "Integer",
+                  "Nullable": false
+                },
+                {
+                  "Name": "GoodReceipt",
+                  "Type": "String"
+                },
+                {
+                  "Name": "CreationDate",
+                  "Type": "TimeStamp"
+                }
+              ],
+              "ParentEntity": {
+                "Name": "PurchasingDocumentHeader",
+                "KeyMapping": [
+                  {
+                    "SourceProperty": "DocumentNumber",
+                    "TargetProperty": "DocumentNumber"
+                  }
+                ]
+              }
+            },
+            {
+              "Name": "PurchaseRequistition",
+              "Keys": [
+                "RequisitionNumber",
+                "ItemNumber"
+              ],
+              "Properties": [
+                {
+                  "Name": "RequisitionNumber",
+                  "Type": "String",
+                  "Nullable": false
+                },
+                {
+                  "Name": "ItemNumber",
+                  "Type": "String",
+                  "Nullable": false
+                },
+                {
+                  "Name": "RequisitionDocumentType",
+                  "Type": "String",
+                  "Nullable": false
+                },
+                {
+                  "Name": "MaterialNumber",
+                  "Type": "Integer",
+                  "Nullable": false
+                },
+                {
+                  "Name": "RequistionerName",
+                  "Type": "String",
+                  "Nullable": false
+                },
+                {
+                  "Name": "RequisitionDate",
+                  "Type": "Timestamp"
+                },
+                {
+                  "Name": "RequistionQuantity",
+                  "Type": "Integer"
+                },
+                {
+                  "Name": "PurchasingOrg",
+                  "Type": "String"
+                }
+              ],
+              "ParentEntity": {
+                "Name": "PurchasingDocumentItem",
+                "KeyMapping": [
+                  {
+                    "SourceProperty": "ItemNumber",
+                    "TargetProperty": "ItemNumber"
+                  }
+                ]
+              }
+            },
+            {
+              "Name": "AccountingDocumentHeader",
+              "Type": "business-object",
+              "Keys": [
+                "AccountingDocumentNumber",
+                "FiscalYear"
+              ],
+              "SearchParameters": {
+                "Index1": "FiscalYear",
+                "Index2": "DocumentType"
+              },
+              "Properties": [
+                {
+                  "Name": "AccountingDocumentNumber",
+                  "Type": "String",
+                  "Nullable": false
+                },
+                {
+                  "Name": "FiscalYear",
+                  "Type": "Integer",
+                  "Nullable": false,
+                  "RangeEnabled": true
+                },
+                {
+                  "Name": "DocumentType",
+                  "Type": "String",
+                  "Nullable": false
+                },
+                {
+                  "Name": "SelfIssuedDocument",
+                  "Type": "Boolean"
+                },
+                {
+                  "Name": "PostingDate",
+                  "Type": "Timestamp"
+                },
+                {
+                  "Name": "CreationDate",
+                  "Type": "Timestamp"
+                },
+                {
+                  "Name": "ReasonForReversal",
+                  "Type": "String"
+                }
+              ],
+              "ParentEntity": ""
+            },
+            {
+              "Name": "AccountingDocumentSegment",
+              "Keys": [
+                "AccountingDocumentNumber",
+                "FiscalYear",
+                "SegmentNumber"
+              ],
+              "Properties": [
+                {
+                  "Name": "AccountingDocumentNumber",
+                  "Type": "String",
+                  "Nullable": false
+                },
+                {
+                  "Name": "FiscalYear",
+                  "Type": "Integer",
+                  "Nullable": false
+                },
+                {
+                  "Name": "SegmentNumber",
+                  "Type": "String",
+                  "Nullable": false
+                },
+                {
+                  "Name": "NumberOfLineItems",
+                  "Type": "Integer",
+                  "Nullable": false
+                },
+                {
+                  "Name": "ClearingDate",
+                  "Type": "Timestamp",
+                  "Nullable": false
+                },
+                {
+                  "Name": "DebitOrCreditIndicator",
+                  "Type": "Boolean",
+                  "Nullable": false
+                },
+                {
+                  "Name": "TaxAmountInLocalCurrency",
+                  "Type": "Float",
+                  "Nullable": false
+                },
+                {
+                  "Name": "SalesDocument",
+                  "Type": "String",
+                  "Nullable": false
+                }
+              ],
+              "ParentEntity": {
+                "Name": "AccountingDocumentHeader",
+                "KeyMapping": [
+                  {
+                    "SourceProperty": "AccountingDocumentNumber",
+                    "TargetProperty": "AccountingDocumentNumber"
+                  },
+                  {
+                    "SourceProperty": "FiscalYear",
+                    "TargetProperty": "FiscalYear"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "createServiceKeys": [
+        "data-lifecycle-services-standard"
+      ]
+    },
+    {
+      "name": "document-translation",
+      "plan": "free",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "document-translation-free"
+      ]
+    },
+    {
+      "name": "sdm",
+      "plan": "free",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "sdm-free"
+      ]
+    },
+    {
+      "name": "ui5-flexibility-keyuser",
+      "plan": "free",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "ui5-flexibility-keyuser-free"
+      ]
+    },
+    {
+      "name": "content-agent",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "content-agent-standard"
+      ]
+    },
+    {
+      "name": "certificate-service",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "certificate-service-standard"
+      ]
+    },
+    {
+      "name": "retention-manager",
+      "plan": "free",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "parameters": {
+        "xs-security": {
+          "xsappname": "order-to-cash-kyma",
+          "authorities": [
+            "$ACCEPT_GRANTED_AUTHORITIES"
+          ]
+        },
+        "retention-configs": {
+          "applicationGroupName": "Order2Cashkyma",
+          "applicationGroupDescription": "Customer Order to Cash",
+          "applicationGroupDescriptionKey": "Order2Cash",
+          "applicationGroupBaseURL": "https://order2cash-service.cf.apps.hana.ondemand.com",
+          "textBundleEndPoint": "/dpp/texts/i18n.properties",
+          "supportedLanguages": [
+            "de",
+            "fr",
+            "ja",
+            "es",
+            "zh_CN"
+          ],
+          "authority": "order-to-cash!t1430.retention.manager",
+          "dataSubjects": [
+            {
+              "dataSubjectRole": "Customer",
+              "dataSubjectDescription": "Customer Data Subject Role",
+              "dataSubjectDescriptionKey": "Customer",
+              "dataSubjectBaseURL": "https://customer-service.cf.apps.hana.ondemand.com",
+              "dataSubjectInformationFilterEnabled": true,
+              "dataSubjectInformationEndPoint": "/dpp/dataSubjectInformation",
+              "dataSubjectDeletionEndPoint": "/dpp/deleteDataSubject",
+              "dataSubjectsDestroyingEndPoint": "/dpp/destroyDataSubjects",
+              "legalEntity": {
+                "legalEntity": "CompanyCode",
+                "legalEntityDescription": "Company Code",
+                "legalEntityDescriptionKey": "CompanyCode",
+                "legalEntityValueHelpEndPoint": "/dpp/companyCode"
+              },
+              "legalGrounds": [
+                {
+                  "legalGround": "SalesOrder",
+                  "legalGroundDescription": "Sales Order Document",
+                  "legalGroundDescriptionKey": "SalesOrder",
+                  "legalGroundBaseURL": "https://order-service.cf.apps.hana.ondemand.com",
+                  "dataSubjectEndofBusinessEndPoint": "/dpp/dataSubjectEndOfBusiness",
+                  "dataSubjectLegalEntitiesEndPoint": "/dpp/dataSubjectLegalEntities",
+                  "dataSubjectLastRetentionStartDatesEndPoint": "/dpp/dataSubjectRetentionStartDate",
+                  "dataSubjectsEndofResidenceEndPoint": "/dpp/endofResidenceDataSubject",
+                  "dataSubjectsEndofResidenceConfirmationEndPoint": "/dpp/endofResidenceDSConfirmation",
+                  "dataSubjectLegalGroundDeletionEndPoint": "/dpp/deleteDSLegalGroundInstances",
+                  "dataSubjectsLegalGroundDestroyingEndPoint": "/dpp/destroyLegalGroundInstances",
+                  "startTimes": [
+                    {
+                      "startTime": "CompletionDate",
+                      "startTimeDescription": "Document Completion Date",
+                      "startTimeDescriptionKey": "CompletionDate"
+                    }
+                  ],
+                  "conditions": [
+                    {
+                      "conditionFieldName": "OrderType",
+                      "conditionFieldType": "String",
+                      "conditionFieldDescription": "Sales Document Order Type",
+                      "conditionFieldDescriptionKey": "OrderType",
+                      "conditionFieldValueHelpEndPoint": "/dpp/orderTypes"
+                    }
+                  ]
+                },
+                {
+                  "legalGround": "Payment",
+                  "legalGroundDescription": "Payment Document",
+                  "legalGroundDescriptionKey": "Payment",
+                  "legalGroundBaseURL": "https://payment-service.cf.apps.hana.ondemand.com",
+                  "dataSubjectEndofBusinessEndPoint": "/dpp/dataSubjectEndOfBusiness",
+                  "dataSubjectLegalEntitiesEndPoint": "/dpp/dataSubjectLegalEntities",
+                  "dataSubjectLastRetentionStartDatesEndPoint": "/dpp/dataSubjectRetentionStartDate",
+                  "dataSubjectsEndofResidenceEndPoint": "/dpp/endofResidenceDataSubject",
+                  "dataSubjectsEndofResidenceConfirmationEndPoint": "/dpp/endofResidenceDSConfirmation",
+                  "dataSubjectLegalGroundDeletionEndPoint": "/dpp/deleteDSLegalGroundInstances",
+                  "dataSubjectsLegalGroundDestroyingEndPoint": "/dpp/destroyLegalGroundInstances",
+                  "startTimes": [
+                    {
+                      "startTime": "DocumentDate",
+                      "startTimeDescription": "Document Issue Date",
+                      "startTimeDescriptionKey": "DocumentDate"
+                    },
+                    {
+                      "startTime": "PostingDate",
+                      "startTimeDescription": "Posting Date",
+                      "startTimeDescriptionKey": "PostingDate"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "createServiceKeys": [
+        "retention-manager-free"
+      ]
+    },
+    {
+      "name": "dynatrace",
+      "plan": "environment",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "dynatrace-environment"
+      ],
+      "parameters": {
+        "environment_name": "BROKERKYMAPRIY",
+        "permission_assignments": [
+          {
+            "name": "test1",
+            "roles": [
+              "admin",
+              "log_analytics"
+            ]
+          },
+          {
+            "name": "test2",
+            "roles": [
+              "user",
+              "log_analytics"
+            ]
+          },
+          {
+            "name": "test3",
+            "roles": [
+              "view_sensitive",
+              "configure_sensitive"
+            ]
+          }
+        ],
+        "quotas": {
+          "dem_units": {
+            "annual_limit": 0,
+            "monthly_limit": 0
+          },
+          "host_units": {
+            "limit": -1
+          },
+          "synthetic_monitors": {
+            "annual_limit": 0,
+            "monthly_limit": 0
+          },
+          "user_sessions": {
+            "annual_limit": 0,
+            "monthly_limit": 0
+          }
+        },
+        "service_parameters": {
+          "skiperrors": "true"
+        }
+      }
+    },
+    {
+      "name": "auditlog",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "auditlog-standard"
+      ]
+    },
+    {
+      "name": "auditlog",
+      "plan": "oauth2",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "auditlog-oauth2"
+      ]
+    },
+    {
+      "name": "sap-graph",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "sap-graph-standard"
+      ]
+    },
+    {
+      "name": "one-mds",
+      "plan": "default",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "one-mds-default"
+      ]
+    },
+    {
+      "name": "enterprise-messaging",
+      "plan": "default",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "enterprise-messaging-default"
+      ],
+      "parameters": {
+        "emname": "kymatest",
+        "namespace": "e2eval/test/123",
+        "version": "1.1.0",
+        "options": {
+          "management": true,
+          "messagingrest": true,
+          "messaging": true
+        },
+        "rules": {
+          "queueRules": {
+            "publishFilter": [
+              "${namespace}/*"
+            ],
+            "subscribeFilter": [
+              "${namespace}/*"
+            ]
+          },
+          "topicRules": {
+            "publishFilter": [
+              "${namespace}/*"
+            ],
+            "subscribeFilter": [
+              "${namespace}/*"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "consent-repository-service",
+      "plan": "default",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "consent-repository-service-default"
+      ]
+    },
+    {
+      "name": "malware-scanner",
+      "plan": "clamav",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "malware-scanner-clamav"
+      ]
+    },
+    {
+      "name": "html5-apps-repo",
+      "plan": "app-host",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "html5-apps-repo-app-host"
+      ]
+    },
+    {
+      "name": "metering-service",
+      "plan": "development",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "metering-service-development"
+      ]
+    },
+    {
+      "name": "connectivity",
+      "plan": "connectivity_proxy",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "connectivity-connectivity-proxy"
+      ]
+    },
+    {
+      "name": "xsuaa",
+      "plan": "application",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "xsuaa-application"
+      ]
+    },
+    {
+      "name": "feature-flags",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "feature-flags-standard"
+      ]
+    },
+    {
+      "name": "destination",
+      "plan": "lite",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "destination-lite"
+      ]
+    },
+    {
+      "name": "data-privacy-integration-service",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "data-privacy-integration-service-standard"
+      ],
+      "parameters": {
+        "applicationHost": "https://dpp-h2r-reference-app-kyma-sandbox.cfapps.sap.hana.ondemand.com",
+        "applicationName": "dpp-h2r-reference-app-test123",
+        "dppConfig": {
+          "applicationHost": "https://dpp-h2r-reference-app-kyma-sandbox.cfapps.sap.hana.ondemand.com",
+          "applicationName": "dpp-h2r-reference-app-test123",
+          "businesscontext": {
+            "applications": [
+              {
+                "applicationBaseURL": "https://dpp-h2r-reference-app-kyma-sandbox.cfapps.sap.hana.ondemand.com",
+                "applicationDescription": "Hire2Retire Reference CF Tutorials App",
+                "applicationGroups": [
+                  {
+                    "applicationGroupDescription": "H2R Reference App Group",
+                    "applicationGroupName": "dpp-h2r-reference-app-kyma-group",
+                    "applicationGroupTitle": "H2R Reference App Group",
+                    "members": [
+                      {
+                        "applicationName": "dpp-h2r-reference-app-test123",
+                        "applicationRole": "TransactionMaster",
+                        "primary": true
+                      }
+                    ]
+                  }
+                ],
+                "applicationTitle": "Hire2Retire Reference CF Tutorials App",
+                "applicationType": "TransactionMaster",
+                "businessObjects": [
+                  {
+                    "businessObjectBaseURL": "https://dpp-h2r-reference-app-kyma-sandbox.cfapps.sap.hana.ondemand.com/dpp/information/employee",
+                    "businessObjectDescription": "Workforce Person",
+                    "businessObjectName": "Employee",
+                    "businessObjectTitle": "Workforce Person",
+                    "businessObjectType": "DataSubject",
+                    "dataCategories": [
+                      {
+                        "dataCategoryName": "basic-information",
+                        "sourceApplicationName": "dpp-h2r-reference-app-test123",
+                        "sourceBusinessObject": "Employee"
+                      },
+                      {
+                        "dataCategoryName": "bank-information",
+                        "sourceApplicationName": "dpp-h2r-reference-app-test123",
+                        "sourceBusinessObject": "Employee"
+                      }
+                    ],
+                    "referenceDates": [
+                      {
+                        "referenceDateDescription": "Employee Termination/Retirement Date",
+                        "referenceDateName": "employeeTerminationDate",
+                        "referenceDateTitle": "Employee Termination/Retirement Date"
+                      }
+                    ]
+                  },
+                  {
+                    "businessObjectBaseURL": "https://dpp-h2r-reference-app-kyma-sandbox.cfapps.sap.hana.ondemand.com/dpp/information/payslip",
+                    "businessObjectDescription": "Payment Statements",
+                    "businessObjectName": "PaySlip",
+                    "businessObjectTitle": "Payment Statements",
+                    "businessObjectType": "Transaction",
+                    "dataCategories": [
+                      {
+                        "dataCategoryName": "basic-information",
+                        "sourceApplicationName": "dpp-h2r-reference-app-test123",
+                        "sourceBusinessObject": "Employee"
+                      },
+                      {
+                        "dataCategoryName": "bank-information",
+                        "sourceApplicationName": "dpp-h2r-reference-app-test123",
+                        "sourceBusinessObject": "Employee"
+                      }
+                    ],
+                    "referenceDates": [
+                      {
+                        "referenceDateDescription": "Salary payment date",
+                        "referenceDateName": "PaymentDate",
+                        "referenceDateTitle": "Salary payment date"
+                      }
+                    ]
+                  },
+                  {
+                    "businessObjectBaseURL": "https://dpp-h2r-reference-app-kyma-sandbox.cfapps.sap.hana.ondemand.com/dpp/information/leaverequest",
+                    "businessObjectDescription": "Leave Requests",
+                    "businessObjectName": "LeaveRequests",
+                    "businessObjectTitle": "Leave Requests",
+                    "businessObjectType": "Transaction",
+                    "dataCategories": [
+                      {
+                        "dataCategoryName": "basic-information",
+                        "sourceApplicationName": "dpp-h2r-reference-app-test123",
+                        "sourceBusinessObject": "Employee"
+                      }
+                    ],
+                    "referenceDates": [
+                      {
+                        "referenceDateDescription": "Leave action date",
+                        "referenceDateName": "leaveactiondate",
+                        "referenceDateTitle": "Leave action date"
+                      }
+                    ]
+                  }
+                ],
+                "dataSubjectRoles": [
+                  {
+                    "dataSubjectRoleDescription": "H2R Reference App Employee",
+                    "dataSubjectRoleName": "employee",
+                    "dataSubjectRoleTitle": "Employee",
+                    "sourceApplicationName": "dpp-h2r-reference-app-test123",
+                    "sourceBusinessObject": "Employee"
+                  }
+                ],
+                "legalEntities": [
+                  {
+                    "legalEntityDescription": "Country Code",
+                    "legalEntityName": "CountryCode",
+                    "legalEntityTitle": "Country Code",
+                    "legalEntityValueHelp": "/legalentity/countrycode"
+                  }
+                ],
+                "legalGrounds": [
+                  {
+                    "legalGroundName": "employment-contract",
+                    "legalGroundType": "Contract",
+                    "sourceApplicationName": "dpp-h2r-reference-app-test123"
+                  },
+                  {
+                    "legalGroundName": "internship-contract",
+                    "legalGroundType": "Contract",
+                    "sourceApplicationName": "dpp-h2r-reference-app-test123"
+                  }
+                ]
+              }
+            ]
+          },
+          "deletion": {
+            "applicationGroupBaseURL": "https://dpp-h2r-reference-app-kyma-sandbox.cfapps.sap.hana.ondemand.com/dpp/retention",
+            "applicationGroupDescription": "Hire2Retire Reference CF Tutorials App",
+            "dataSubjects": [
+              {
+                "dataSubjectBaseURL": "https://dpp-h2r-reference-app-kyma-sandbox.cfapps.sap.hana.ondemand.com/dpp/retention/employee",
+                "dataSubjectDeletionEndPoint": "/dataSubjectDeletion",
+                "dataSubjectDescription": "Employee Role",
+                "dataSubjectRole": "Employee",
+                "legalEntity": {
+                  "legalEntity": "CountryCode",
+                  "legalEntityDescription": "Country Code",
+                  "legalEntityValueHelpEndPoint": "/legalEntities"
+                },
+                "legalGrounds": [
+                  {
+                    "dataSubjectEndofBusinessEndPoint": "/dataSubjectEndOfBusiness",
+                    "dataSubjectLastRetentionStartDatesEndPoint": "/dataSubjectLastRetentionStartDates",
+                    "dataSubjectLegalEntitiesEndPoint": "/dataSubjectLegalEntities",
+                    "dataSubjectLegalGroundDeletionEndPoint": "/dataSubjectLegalGroundDeletion",
+                    "dataSubjectsEndofResidenceConfirmationEndPoint": "/dataSubjectsEndofResidenceConfirmation",
+                    "dataSubjectsEndofResidenceEndPoint": "/dataSubjectsEndofResidence",
+                    "legalGround": "PaySlip",
+                    "legalGroundBaseURL": "https://dpp-h2r-reference-app-kyma-sandbox.cfapps.sap.hana.ondemand.com/dpp/retention/employee/payslip",
+                    "legalGroundDescription": "Payment Statements",
+                    "startTimes": [
+                      {
+                        "startTime": "paymentdate",
+                        "startTimeDescription": "Salary payment date"
+                      }
+                    ]
+                  },
+                  {
+                    "dataSubjectEndofBusinessEndPoint": "/dataSubjectEndOfBusiness",
+                    "dataSubjectLastRetentionStartDatesEndPoint": "/dataSubjectLastRetentionStartDates",
+                    "dataSubjectLegalEntitiesEndPoint": "/dataSubjectLegalEntities",
+                    "dataSubjectLegalGroundDeletionEndPoint": "/dataSubjectLegalGroundDeletion",
+                    "dataSubjectsEndofResidenceConfirmationEndPoint": "/dataSubjectsEndofResidenceConfirmation",
+                    "dataSubjectsEndofResidenceEndPoint": "/dataSubjectsEndofResidence",
+                    "legalGround": "LeaveRequest",
+                    "legalGroundBaseURL": "https://dpp-h2r-reference-app-kyma-sandbox.cfapps.sap.hana.ondemand.com/dpp/retention/employee/leaverequest",
+                    "legalGroundDescription": "Leave Requests",
+                    "startTimes": [
+                      {
+                        "startTime": "leaveactiondate",
+                        "startTimeDescription": "Leave action date"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "information": {
+            "applicationTitle": "Hire2Retire Reference Testing",
+            "modules": [
+              {
+                "applicationURL": "https://dpp-h2r-reference-app-kyma-sandbox.cfapps.sap.hana.ondemand.com",
+                "endPoints": [
+                  {
+                    "annotationProviderRestEndPoint": "/dpp/information/annotation",
+                    "hasGdprAnnotations": false,
+                    "serviceName": "service",
+                    "serviceTitle": "Service",
+                    "serviceURI": "/dpp/information",
+                    "type": "rest"
+                  }
+                ],
+                "fullyQualifiedModuleName": "h2r-app"
+              }
+            ]
+          }
+        },
+        "xs-security": {
+          "authorities": [
+            "$ACCEPT_GRANTED_AUTHORITIES"
+          ],
+          "xsappname": "dpp-h2r-reference-app-test123"
+        }
+      }
+    },
+    {
+      "name": "objectstore",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "objectstore-standard"
+      ]
+    },
+    {
+      "name": "message-queuing",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "parameter": {
+        "sourceIPs": "0.0.0.0/0"
+      },
+      "createServiceKeys": [
+        "message-queuing-standard"
+      ]
+    },
+    {
+      "name": "service-manager",
+      "plan": "container",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "service-manager-container"
+      ]
+    },
+    {
+      "name": "slis",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "slis-standard"
+      ]
+    },
+    {
+      "name": "data-custodian",
+      "plan": "default",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "data-custodian-default"
+      ]
+    },
+    {
+      "name": "spatialservices",
+      "plan": "lite",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "spatialservices-lite"
+      ]
+    },
+    {
+      "name": "credstore",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "credstore-standard"
+      ]
+    },
+    {
+      "name": "business-rules",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "business-rules-standard"
+      ]
+    },
+    {
+      "name": "conversational-ai",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "parameter": {
+        "admin_email": "akanksha.sherrie.kullu@sap.com",
+        "organization_slug": "sap1234"
+      },
+      "createServiceKeys": [
+        "conversational-ai-standard"
+      ]
+    },
+    {
+      "name": "transport",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "transport-standard"
+      ]
+    },
+    {
+      "name": "cloud-logging",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "parameter": {
+        "retentionPeriod": "7"
+      },
+      "createServiceKeys": [
+        "cloud-logging-standard"
+      ]
+    },
+    {
+      "name": "alert-notification",
+      "plan": "standard",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "alert-notification-standard"
+      ]
+    },
+    {
+      "name": "identity",
+      "plan": "application",
+      "category": "SERVICE",
+      "targetenvironment": "kymaruntime",
+      "createServiceKeys": [
+        "identity-application"
+      ]
+    }
+  ],
+  "enablecrossconsumptiontest": false,
+  "api_resource_uri": [
+    {
+      "servicename": "ui5-flexibility-personalization",
+      "plan": "personalization",
+      "testapi": "/sap/bc/lrep/actions/getcsrftoken",
+      "apiBaseUrlPathKey": "data.endpoints.personalization",
+      "oauthurlPathkey": "data.uaa.url",
+      "clientId_basicUN_PathKey": "data.uaa.clientid",
+      "clientSecret_basicPW_PathKey": "data.uaa.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-204"
+    },
+    {
+      "servicename": "cicd-service",
+      "plan": "default",
+      "testapi": "/",
+      "apiBaseUrlPathKey": "data.url",
+      "oauthurlPathkey": "data.uaa.url",
+      "clientId_basicUN_PathKey": "data.uaa.clientid",
+      "clientSecret_basicPW_PathKey": "data.uaa.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-492"
+    },
+    {
+      "servicename": "business-logging",
+      "plan": "default",
+      "testapi": "/odata/v2/com.sap.bs.businesslogging.DisplayMessage",
+      "apiBaseUrlPathKey": "data.readUrl",
+      "oauthurlPathkey": "data.uaa.url",
+      "clientId_basicUN_PathKey": "data.uaa.clientid",
+      "clientSecret_basicPW_PathKey": "data.uaa.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-263"
+    },
+    {
+      "servicename": "uas",
+      "plan": "reporting-ga-admin",
+      "testapi": "/reports/v1/cloudCreditsDetails?viewPhases=CURRENT",
+      "apiBaseUrlPathKey": "data.target_url",
+      "oauthurlPathkey": "data.url",
+      "clientId_basicUN_PathKey": "data.clientid",
+      "clientSecret_basicPW_PathKey": "data.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-444"
+    },
+    {
+      "servicename": "cis",
+      "plan": "central",
+      "testapi": "/accounts/v1/globalAccount",
+      "apiBaseUrlPathKey": "endpoints.accounts_service_url",
+      "oauthurlPathkey": "data.uaa.url",
+      "clientId_basicUN_PathKey": "data.uaa.clientid",
+      "clientSecret_basicPW_PathKey": "data.uaa.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-858"
+    },
+    {
+      "servicename": "print",
+      "plan": "sender",
+      "testapi": "/qm/api/v1/rest/queues",
+      "apiBaseUrlPathKey": "data.service_url",
+      "oauthurlPathkey": "data.uaa.url",
+      "clientId_basicUN_PathKey": "data.uaa.clientid",
+      "clientSecret_basicPW_PathKey": "data.uaa.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-446"
+    },
+    {
+      "servicename": "generic-line-item-matching",
+      "plan": "standard",
+      "testapi": "/api/v1/tenants",
+      "apiBaseUrlPathKey": "data.url",
+      "oauthurlPathkey": "data.uaa.url",
+      "clientId_basicUN_PathKey": "data.uaa.clientid",
+      "clientSecret_basicPW_PathKey": "data.uaa.clientsecret",
+      "authMethod": "oauth",
+      "APITest": "yes",
+      "serviceID": "SERVICE-692"
+    },
+    {
+      "servicename": "destination",
+      "plan": "lite",
+      "testapi": "/destination-configuration/v1/subaccountDestinations",
+      "apiBaseUrlPathKey": "data.uri",
+      "oauthurlPathkey": "data.url",
+      "clientId_basicUN_PathKey": "data.clientid",
+      "clientSecret_basicPW_PathKey": "data.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-171"
     },
     {
-      "servicename":"auditlog",
-      "plan":"standard",
-      "testapi":"/",
-      "apiBaseUrlPathKey":"data.url",
-      "oauthurlPathkey":"",
-      "clientId_basicUN_PathKey":"data.user",
-      "clientSecret_basicPW_PathKey":"data.password",
+      "servicename": "auditlog",
+      "plan": "standard",
+      "testapi": "/",
+      "apiBaseUrlPathKey": "data.url",
+      "oauthurlPathkey": "",
+      "clientId_basicUN_PathKey": "data.user",
+      "clientSecret_basicPW_PathKey": "data.password",
       "authMethod": "basic",
       "APITest": "yes",
       "serviceID": "SERVICE-136"
     },
     {
-      "servicename":"auditlog",
-      "plan":"oauth2",
-      "testapi":"/",
-      "apiBaseUrlPathKey":"data.url",
-      "oauthurlPathkey":"",
-      "clientId_basicUN_PathKey":"data.user",
-      "clientSecret_basicPW_PathKey":"data.password",
+      "servicename": "auditlog",
+      "plan": "oauth2",
+      "testapi": "/",
+      "apiBaseUrlPathKey": "data.url",
+      "oauthurlPathkey": "",
+      "clientId_basicUN_PathKey": "data.user",
+      "clientSecret_basicPW_PathKey": "data.password",
       "authMethod": "basic",
       "APITest": "yes",
       "serviceID": "SERVICE-136"
     },
     {
-      "servicename":"enterprise-messaging",
-      "plan":"default",
-      "testapi":"/messagingrest/v1/subscriptions",
-      "apiBaseUrlPathKey":"data.messaging.2.uri",
-      "oauthurlPathkey":"data.uaa.url",
-      "clientId_basicUN_PathKey":"data.uaa.clientid",
-      "clientSecret_basicPW_PathKey":"data.uaa.clientsecret",
+      "servicename": "enterprise-messaging",
+      "plan": "default",
+      "testapi": "/messagingrest/v1/subscriptions",
+      "apiBaseUrlPathKey": "data.messaging.2.uri",
+      "oauthurlPathkey": "data.uaa.url",
+      "clientId_basicUN_PathKey": "data.uaa.clientid",
+      "clientSecret_basicPW_PathKey": "data.uaa.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-799"
     },
     {
-      "servicename":"data-custodian",
-      "plan":"default",
-      "testapi":"/users",
-      "apiBaseUrlPathKey":"data.apiUrl",
-      "oauthurlPathkey":"data.tokenUrl",
-      "clientId_basicUN_PathKey":"data.clientId",
-      "clientSecret_basicPW_PathKey":"data.clientSecret",
+      "servicename": "data-custodian",
+      "plan": "default",
+      "testapi": "/users",
+      "apiBaseUrlPathKey": "data.apiUrl",
+      "oauthurlPathkey": "data.tokenUrl",
+      "clientId_basicUN_PathKey": "data.clientId",
+      "clientSecret_basicPW_PathKey": "data.clientSecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-528"
     },
     {
-      "servicename":"subscription-manager",
-      "plan":"provider",
-      "testapi":"/subscription-manager/v1/applications",
-      "apiBaseUrlPathKey":"data.subscription_manager_url",
-      "oauthurlPathkey":"data.url",
-      "clientId_basicUN_PathKey":"data.clientid",
-      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "servicename": "subscription-manager",
+      "plan": "provider",
+      "testapi": "/subscription-manager/v1/applications",
+      "apiBaseUrlPathKey": "data.subscription_manager_url",
+      "oauthurlPathkey": "data.url",
+      "clientId_basicUN_PathKey": "data.clientid",
+      "clientSecret_basicPW_PathKey": "data.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-859"
-
     },
     {
-      "servicename":"data-privacy-integration-service",
-      "plan":"standard",
-      "testapi":"/sap/cp-kernel/dpi/ext/consent/v1/consentConfigurationServices/applications",
-      "apiBaseUrlPathKey":"data.url",
-      "oauthurlPathkey":"data.uaa.url",
-      "clientId_basicUN_PathKey":"data.uaa.clientid",
-      "clientSecret_basicPW_PathKey":"data.uaa.clientsecret",
+      "servicename": "data-privacy-integration-service",
+      "plan": "standard",
+      "testapi": "/sap/cp-kernel/dpi/ext/consent/v1/consentConfigurationServices/applications",
+      "apiBaseUrlPathKey": "data.url",
+      "oauthurlPathkey": "data.uaa.url",
+      "clientId_basicUN_PathKey": "data.uaa.clientid",
+      "clientSecret_basicPW_PathKey": "data.uaa.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-462"
-
     },
     {
-      "servicename":"service-manager",
-      "plan":"container",
-      "testapi":"/v1/agents/versions",
-      "apiBaseUrlPathKey":"data.sm_url",
-      "oauthurlPathkey":"data.url",
-      "clientId_basicUN_PathKey":"data.clientid",
-      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "servicename": "service-manager",
+      "plan": "container",
+      "testapi": "/v1/agents/versions",
+      "apiBaseUrlPathKey": "data.sm_url",
+      "oauthurlPathkey": "data.url",
+      "clientId_basicUN_PathKey": "data.clientid",
+      "clientSecret_basicPW_PathKey": "data.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-324"
     },
     {
-      "servicename":"service-manager",
-      "plan":"subaccount-admin",
-      "testapi":"/v1/platforms",
-      "apiBaseUrlPathKey":"data.sm_url",
-      "oauthurlPathkey":"data.url",
-      "clientId_basicUN_PathKey":"data.clientid",
-      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "servicename": "service-manager",
+      "plan": "subaccount-admin",
+      "testapi": "/v1/platforms",
+      "apiBaseUrlPathKey": "data.sm_url",
+      "oauthurlPathkey": "data.url",
+      "clientId_basicUN_PathKey": "data.clientid",
+      "clientSecret_basicPW_PathKey": "data.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-324"
     },
     {
-      "servicename":"slis",
-      "plan":"standard",
-      "testapi":"/",
-      "apiBaseUrlPathKey":"na",
-      "oauthurlPathkey":"na",
-      "clientId_basicUN_PathKey":"ns",
-      "clientSecret_basicPW_PathKey":"ns",
+      "servicename": "slis",
+      "plan": "standard",
+      "testapi": "/",
+      "apiBaseUrlPathKey": "na",
+      "oauthurlPathkey": "na",
+      "clientId_basicUN_PathKey": "ns",
+      "clientSecret_basicPW_PathKey": "ns",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-455"
     },
     {
-      "servicename":"one-inbox-service",
-      "plan":"standard",
-      "testapi":"na",
-      "apiBaseUrlPathKey":"na",
-      "oauthurlPathkey":"na",
-      "clientId_basicUN_PathKey":"na",
-      "clientSecret_basicPW_PathKey":"na",
+      "servicename": "one-inbox-service",
+      "plan": "standard",
+      "testapi": "na",
+      "apiBaseUrlPathKey": "na",
+      "oauthurlPathkey": "na",
+      "clientId_basicUN_PathKey": "na",
+      "clientSecret_basicPW_PathKey": "na",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-457"
-
     },
     {
-      "servicename":"identity",
-      "plan":"application",
-      "testapi":"/oauth2/userinfo",
-      "apiBaseUrlPathKey":"data.url",
-      "oauthurlPathkey":"data.url",
-      "clientId_basicUN_PathKey":"data.clientid",
-      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "servicename": "identity",
+      "plan": "application",
+      "testapi": "/oauth2/userinfo",
+      "apiBaseUrlPathKey": "data.url",
+      "oauthurlPathkey": "data.url",
+      "clientId_basicUN_PathKey": "data.clientid",
+      "clientSecret_basicPW_PathKey": "data.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-111"
     },
     {
-      "servicename":"one-mds",
-      "plan":"sap-integration",
-      "testapi":"/v0/status/log",
-      "apiBaseUrlPathKey":"data.uri",
-      "oauthurlPathkey":"data.uaa.url",
-      "clientId_basicUN_PathKey":"data.uaa.clientid",
-      "clientSecret_basicPW_PathKey":"data.uaa.clientsecret",
+      "servicename": "one-mds",
+      "plan": "sap-integration",
+      "testapi": "/v0/status/log",
+      "apiBaseUrlPathKey": "data.uri",
+      "oauthurlPathkey": "data.uaa.url",
+      "clientId_basicUN_PathKey": "data.uaa.clientid",
+      "clientSecret_basicPW_PathKey": "data.uaa.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-469"
     },
     {
-      "servicename":"connectivity",
-      "plan":"connectivity_proxy",
-      "testapi":"/api/v1/CAs",
-      "apiBaseUrlPathKey":"data.connectivity_service.url",
-      "oauthurlPathkey":"data.token_service_url",
-      "clientId_basicUN_PathKey":"data.clientid",
-      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "servicename": "connectivity",
+      "plan": "connectivity_proxy",
+      "testapi": "/api/v1/CAs",
+      "apiBaseUrlPathKey": "data.connectivity_service.url",
+      "oauthurlPathkey": "data.token_service_url",
+      "clientId_basicUN_PathKey": "data.clientid",
+      "clientSecret_basicPW_PathKey": "data.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-169"
-    }, 
+    },
     {
-      "servicename":"metering-service",
-      "plan":"development",
-      "testapi":"/usage/v3/usage/documents ",
-      "apiBaseUrlPathKey":"data.metering_url",
-      "oauthurlPathkey":"data.token_url",
-      "clientId_basicUN_PathKey":"data.clientid",
-      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "servicename": "metering-service",
+      "plan": "development",
+      "testapi": "/usage/v3/usage/documents ",
+      "apiBaseUrlPathKey": "data.metering_url",
+      "oauthurlPathkey": "data.token_url",
+      "clientId_basicUN_PathKey": "data.clientid",
+      "clientSecret_basicPW_PathKey": "data.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-367"
     },
     {
-      "servicename":"feature-flags",
-      "plan":"standard",
-      "testapi":"/api/v1/CAs",
-      "apiBaseUrlPathKey":"data.connectivity_service.url",
-      "oauthurlPathkey":"data.token_service_url",
-      "clientId_basicUN_PathKey":"data.clientid",
-      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "servicename": "feature-flags",
+      "plan": "standard",
+      "testapi": "/api/v1/CAs",
+      "apiBaseUrlPathKey": "data.connectivity_service.url",
+      "oauthurlPathkey": "data.token_service_url",
+      "clientId_basicUN_PathKey": "data.clientid",
+      "clientSecret_basicPW_PathKey": "data.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-172"
     },
     {
-      "servicename":"cloud-logging",
-      "plan":"standard",
-      "testapi":"/",
-      "apiBaseUrlPathKey":"data.Kibana-endpoint",
-      "oauthurlPathkey":"",
-      "clientId_basicUN_PathKey":"data.Kibana-username",
-      "clientSecret_basicPW_PathKey":"data.Kibana-password",
+      "servicename": "cloud-logging",
+      "plan": "standard",
+      "testapi": "/",
+      "apiBaseUrlPathKey": "data.Kibana-endpoint",
+      "oauthurlPathkey": "",
+      "clientId_basicUN_PathKey": "data.Kibana-username",
+      "clientSecret_basicPW_PathKey": "data.Kibana-password",
       "authMethod": "basic",
       "APITest": "yes",
       "serviceID": "SERVICE-487"
     },
     {
-      "servicename":"message-queuing",
-      "plan":"standard",
-      "testapi":"/v1/management/queues",
-      "apiBaseUrlPathKey":"data.management.url",
-      "oauthurlPathkey":"data.uaa.url",
-      "clientId_basicUN_PathKey":"data.uaa.clientid",
-      "clientSecret_basicPW_PathKey":"data.uaa.clientsecret",
+      "servicename": "message-queuing",
+      "plan": "standard",
+      "testapi": "/v1/management/queues",
+      "apiBaseUrlPathKey": "data.management.url",
+      "oauthurlPathkey": "data.uaa.url",
+      "clientId_basicUN_PathKey": "data.uaa.clientid",
+      "clientSecret_basicPW_PathKey": "data.uaa.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-319"
     },
     {
-      "servicename":"connected-products-acceptance",
-      "plan":"standard",
-      "testapi":"/sap/newton/dts/templates/api/api-docs",
-      "apiBaseUrlPathKey":"data.endpoints.cli",
-      "oauthurlPathkey":"data.uaa.url",
-      "clientId_basicUN_PathKey":"data.uaa.clientid",
-      "clientSecret_basicPW_PathKey":"data.uaa.clientsecret",
+      "servicename": "connected-products-acceptance",
+      "plan": "standard",
+      "testapi": "/sap/newton/dts/templates/api/api-docs",
+      "apiBaseUrlPathKey": "data.endpoints.cli",
+      "oauthurlPathkey": "data.uaa.url",
+      "clientId_basicUN_PathKey": "data.uaa.clientid",
+      "clientSecret_basicPW_PathKey": "data.uaa.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-662"
     },
     {
-      "servicename":"connected-products-stage",
-      "plan":"standard",
-      "testapi":"/sap/newton/dts/templates/api/api-docs",
-      "apiBaseUrlPathKey":"data.endpoints.cli",
-      "oauthurlPathkey":"data.uaa.url",
-      "clientId_basicUN_PathKey":"data.uaa.clientid",
-      "clientSecret_basicPW_PathKey":"data.uaa.clientsecret",
+      "servicename": "connected-products-stage",
+      "plan": "standard",
+      "testapi": "/sap/newton/dts/templates/api/api-docs",
+      "apiBaseUrlPathKey": "data.endpoints.cli",
+      "oauthurlPathkey": "data.uaa.url",
+      "clientId_basicUN_PathKey": "data.uaa.clientid",
+      "clientSecret_basicPW_PathKey": "data.uaa.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-662"
     },
     {
-      "servicename":"sap-graph",
-      "plan":"free",
-      "testapi":"/",
-      "apiBaseUrlPathKey":"data.uri",
-      "oauthurlPathkey":"data.uaa.url",
-      "clientId_basicUN_PathKey":"data.uaa.clientid",
-      "clientSecret_basicPW_PathKey":"data.uaa.clientsecret",
+      "servicename": "sap-graph",
+      "plan": "free",
+      "testapi": "/",
+      "apiBaseUrlPathKey": "data.uri",
+      "oauthurlPathkey": "data.uaa.url",
+      "clientId_basicUN_PathKey": "data.uaa.clientid",
+      "clientSecret_basicPW_PathKey": "data.uaa.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-532"
     },
     {
-      "servicename":"sap-document-information-extraction",
-      "plan":"default",
-      "testapi":"/document-information-extraction/v1/capabilities",
-      "apiBaseUrlPathKey":"data.url",
-      "oauthurlPathkey":"data.uaa.url",
-      "clientId_basicUN_PathKey":"data.uaa.clientid",
-      "clientSecret_basicPW_PathKey":"data.uaa.clientsecret",
+      "servicename": "sap-document-information-extraction",
+      "plan": "default",
+      "testapi": "/document-information-extraction/v1/capabilities",
+      "apiBaseUrlPathKey": "data.url",
+      "oauthurlPathkey": "data.uaa.url",
+      "clientId_basicUN_PathKey": "data.uaa.clientid",
+      "clientSecret_basicPW_PathKey": "data.uaa.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-819"
-    },       
+    },
     {
-      "servicename":"xsuaa",
-      "plan":"application",
-      "testapi":"/sap/rest/authorization/v2/ownapp",
-      "apiBaseUrlPathKey":"data.apiurl",
-      "oauthurlPathkey":"data.url",
-      "clientId_basicUN_PathKey":"data.clientid",
-      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "servicename": "xsuaa",
+      "plan": "application",
+      "testapi": "/sap/rest/authorization/v2/ownapp",
+      "apiBaseUrlPathKey": "data.apiurl",
+      "oauthurlPathkey": "data.url",
+      "clientId_basicUN_PathKey": "data.clientid",
+      "clientSecret_basicPW_PathKey": "data.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-92"
     },
     {
-      "servicename":"cassandra",
-      "plan":"dedicated",
-      "testapi":"/sap/rest/authorization/v2/ownapp",
-      "apiBaseUrlPathKey":"data.apiurl",
-      "oauthurlPathkey":"data.url",
-      "clientId_basicUN_PathKey":"data.clientid",
-      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "servicename": "cassandra",
+      "plan": "dedicated",
+      "testapi": "/sap/rest/authorization/v2/ownapp",
+      "apiBaseUrlPathKey": "data.apiurl",
+      "oauthurlPathkey": "data.url",
+      "clientId_basicUN_PathKey": "data.clientid",
+      "clientSecret_basicPW_PathKey": "data.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-92"
     },
     {
-      "servicename":"workflow",
-      "plan":"standard",
-      "testapi":"/sap/rest/authorization/v2/ownapp",
-      "apiBaseUrlPathKey":"data.apiurl",
-      "oauthurlPathkey":"data.url",
-      "clientId_basicUN_PathKey":"data.clientid",
-      "clientSecret_basicPW_PathKey":"data.clientsecret",
+      "servicename": "workflow",
+      "plan": "standard",
+      "testapi": "/sap/rest/authorization/v2/ownapp",
+      "apiBaseUrlPathKey": "data.apiurl",
+      "oauthurlPathkey": "data.url",
+      "clientId_basicUN_PathKey": "data.clientid",
+      "clientSecret_basicPW_PathKey": "data.clientsecret",
       "authMethod": "oauth",
       "APITest": "yes",
       "serviceID": "SERVICE-92"
-    }                               
+    }
   ],
   "executeAfterAccountSetup": [
-      {
-          "description": "Set the service account kubeconfig",
-          "command": "python3 ./libs/python/helperApiTest.py"
-      }     
+    {
+      "description": "Set the service account kubeconfig",
+      "command": "python3 ./libs/python/helperApiTest.py"
+    }
   ]
 }
