@@ -29,7 +29,6 @@
     {"region": "eu2", "name": "neo-eu2", "displayName": "Europe (Frankfurt)", "domain": "", "environment": "neo"},
     {"region": "eu3", "name": "neo-eu3", "displayName": "Europe (Amsterdam)", "domain": "", "environment": "neo"},
     {"region": "jp1", "name": "neo-jp1", "displayName": "Japan (Tokyo)", "domain": "", "environment": "neo"},
-    {"region": "ru1", "name": "neo-ru1", "displayName": "Russia (Moscow)", "domain": "", "environment": "neo"},
     {"region": "sa1", "name": "neo-sa1", "displayName": "KSA (Riyadh)", "domain": "", "environment": "neo"},
     {"region": "us1", "name": "neo-us1", "displayName": "US East (Ashburn)", "domain": "", "environment": "neo"},
     {"region": "us2", "name": "neo-us2", "displayName": "US West (Chandler)", "domain": "", "environment": "neo"},

@@ -1,89 +1,87 @@
 {
-  "description": "SAP Web Analytics enables the collection and analysis of website data for understanding and optimizing web usage to measure organizational goals, drive strategy and improve the user\u0027s experience.",
+  "name": "SAPWebAnalytics",
+  "description":  "SAP Web Analytics enables the collection and analysis of website data for understanding and optimizing web usage to measure organizational goals, drive strategy and improve the user\u0027s experience.",
   "displayName": "Web Analytics",
   "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0id2ViLWFuYWx5dGljcyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMGE2ZWQxO30uY2xzLTJ7ZmlsbDojMDUzYjcwO308L3N0eWxlPjwvZGVmcz48dGl0bGU+d2ViLWFuYWx5dGljczwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDYuNTMyLDE4Ljk1MWwtMS41NDctMS4yODYtNy41NTgsOC42MWEyLjg3OCwyLjg3OCwwLDAsMC0xLjQ4NS0uNDM4LDIuNTg1LDIuNTg1LDAsMCwwLS44NS4xNTVsLTQuNS01Ljg2NWEyLjY1NCwyLjY1NCwwLDAsMCwuNTM5LTEuNzA5LDIuOTI1LDIuOTI1LDAsMCwwLS44MzgtMi4wOTMsMy4wMTcsMy4wMTcsMCwwLDAtNC4yNjMsMCwyLjk0MSwyLjk0MSwwLDAsMC0uODQsMi4wODMsMi44NTYsMi44NTYsMCwwLDAsMS4wNDUsMi4yMzZsLTMuNDMsNy43NzVhMi40LDIuNCwwLDAsMC0uOTkzLjI5M0wxNy45MjgsMjQuNzVhMy4yMjQsMy4yMjQsMCwwLDAsLjIzOC0xLjEzNSwyLjk2MywyLjk2MywwLDAsMC0uODMyLTIuMDg0LDIuODMsMi44MywwLDAsMC0yLjA0NS0uODkxaC0uMDgyYTIuODIxLDIuODIxLDAsMCwwLTIuMTQ3Ljg4NywyLjkzNiwyLjkzNiwwLDAsMC0uODIzLDIuMDgsMy4wODQsMy4wODQsMCwwLDAsLjIzNywxLjEzNmwtMywzLjE2TDEwLjksMjkuMzJsMy4wNTUtMy4wNTRhMi42MjksMi42MjksMCwwLDAsMS4yNDIuMzA1LDIuOTI5LDIuOTI5LDAsMCwwLDEuMzEzLS4zMTFsMy44MTEsMy44ODNBMi43ODIsMi43ODIsMCwwLDAsMjAsMzEuMzg3YTIuOTY3LDIuOTY3LDAsMCwwLDIuOTY3LDIuOTY3aDBhMi45NzMsMi45NzMsMCwwLDAsMi45NjgtMi45NywyLjU4LDIuNTgsMCwwLDAtLjQyMi0xLjQxOSwzLjk4NCwzLjk4NCwwLDAsMC0uNzg4LS44ODhsMy40MzMtNy42ODZoLjAxNWEzLjE3MywzLjE3MywwLDAsMCwuNjY1LS4xbDQuNjc4LDUuODhhMi45NDcsMi45NDcsMCwxLDAsNS4zOTMsMS42LDUuMDQzLDUuMDQzLDAsMCwwLS4xMjMtLjg1N1oiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik00OSw3YTIuODg3LDIuODg3LDAsMCwxLDMsMi43NjdjMCwuMDc3LDAsLjE1NSwwLC4yMzNWNDBhMi45NywyLjk3LDAsMCwxLS44NDMsMi4xQTIuODQ1LDIuODQ1LDAsMCwxLDQ5LDQzSDdhMi44ODQsMi44ODQsMCwwLDEtMi4xLS45QTIuODgxLDIuODgxLDAsMCwxLDQsNDBWMTBhMi44NDMsMi44NDMsMCwwLDEsLjktMi4xNTdBMi45NywyLjk3LDAsMCwxLDcsN1ptMCwzSDdWNDBINDlaTTM4LjUsNDZBMS4zMjcsMS4zMjcsMCwwLDEsNDAsNDcuMTI0YTEuMzc4LDEuMzc4LDAsMCwxLDAsLjM3NCwxLjUwNSwxLjUwNSwwLDAsMS0uNDIzLDEuMDMyQTEuMzg0LDEuMzg0LDAsMCwxLDM4LjUsNDloLTIxQTEuNjExLDEuNjExLDAsMCwxLDE2LDQ3LjVhMS4zODMsMS4zODMsMCwwLDEsLjQ2OC0xLjA3N0ExLjUsMS41LDAsMCwxLDE3LjUsNDZaIi8+PC9zdmc+",
-  "id": null,
-  "inventoryIds": null,
   "links": [
     {
-      "linkURL": "https://help.sap.com/viewer/product/SAP_WEB_ANALYTICS/1.0/en-US",
-      "title": "Documentation"
+        "linkURL": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english\u0026search=Supplement%20Business%20Technology%20Platform\u0026sort=latest_desc",
+        "title": "Business Technology Platform Supplemental Terms and Conditions"
     },
     {
-      "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/web-analytics",
-      "title": "Discovery Center"
+        "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/web-analytics",
+        "title": "Discovery Center"
     },
     {
-      "linkURL": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english\u0026search=Supplement%20Business%20Technology%20Platform\u0026sort=latest_desc",
-      "title": "Business Technology Platform Supplemental Terms and Conditions"
+        "linkURL": "https://help.sap.com/viewer/product/SAP_WEB_ANALYTICS/1.0/en-US",
+        "title": "Documentation"
     }
-  ],
-  "name": "SAPWebAnalytics",
-  "servicePlans": [
-    {
-      "category": "APPLICATION",
-      "dataCenters": [
-        {
-          "displayName": "Singapore",
-          "environment": "cloudfoundry",
-          "name": "cf-ap21",
-          "region": "ap21"
-        },
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us21",
-          "region": "us21"
-        },
-        {
-          "displayName": "Japan (Tokyo)",
-          "environment": "cloudfoundry",
-          "name": "cf-jp20",
-          "region": "jp20"
-        },
-        {
-          "displayName": "US West (WA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us20",
-          "region": "us20"
-        },
-        {
-          "displayName": "Europe (Netherlands)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu20",
-          "region": "eu20"
-        },
-        {
-          "displayName": "Australia (Sydney)",
-          "environment": "cloudfoundry",
-          "name": "cf-ap10",
-          "region": "ap10"
-        },
-        {
-          "displayName": "Japan (Tokyo)",
-          "environment": "cloudfoundry",
-          "name": "cf-jp10",
-          "region": "jp10"
-        },
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us10",
-          "region": "us10"
-        },
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu10",
-          "region": "eu10"
-        }
-      ],
-      "description": "SAP Web Analytics",
+],
+  "servicePlans": [{
+      "name": "SAP Web Analytics",
       "displayName": "SAP Web Analytics",
-      "name": "standard",
-      "provisioningMethod": "NONE_REQUIRED",
-      "schemas": null
+      "category": "APPLICATION",
+      "description": "SAP Web Analytics",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-ap21",
+          "displayName": "Singapore",
+          "region": "ap21"
+      },
+      
+      {
+          "name": "cf-us21",
+          "displayName": "US East (VA)",
+          "region": "us21"
+      },
+      
+      {
+          "name": "cf-jp20",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp20"
+      },
+      
+      {
+          "name": "cf-us20",
+          "displayName": "US West (WA)",
+          "region": "us20"
+      },
+      
+      {
+          "name": "cf-eu20",
+          "displayName": "Europe (Netherlands)",
+          "region": "eu20"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
     }
+         
   ],
-  "supportedEnvironments": "N/A"
+  "supportedEnvironments": [
+    "cloudfoundry"
+]
 }

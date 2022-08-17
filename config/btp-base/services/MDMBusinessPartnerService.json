@@ -1,44 +1,39 @@
 {
-  "description": "SAP Business Partner Service",
+  "name": "MDMBusinessPartnerService",
+  "description":  "SAP Business Partner Service",
   "displayName": "SAP Business Partner Service",
   "icon": null,
-  "id": "f8ded390-2f02-49b4-a5b6-a046ceade685",
-  "inventoryIds": null,
   "links": [
     {
-      "linkURL": "https://sap.com",
-      "title": "Documentation"
+        "linkURL": "https://sap.com",
+        "title": "Documentation"
     }
-  ],
-  "name": "MDMBusinessPartnerService",
-  "servicePlans": [
-    {
-      "category": "SERVICE",
-      "dataCenters": [
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us10",
-          "region": "us10"
-        },
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu10",
-          "region": "eu10"
-        }
-      ],
-      "description": "SAP Cloud Platform Master Data Management for business partners",
+],
+  "servicePlans": [{
+      "name": "SAP Cloud Platform Master Data Management for business partners",
       "displayName": "SAP Cloud Platform Master Data Management for business partners",
-      "free": true,
-      "name": "default",
-      "provisioningMethod": "SERVICE_BROKER",
-      "schemas": null
+      "category": "SERVICE",
+      "description": "SAP Cloud Platform Master Data Management for business partners",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
     }
+         
   ],
   "supportedEnvironments": [
     "cloudfoundry",
     "kymaruntime",
-    "sapcp"
-  ]
+    "sapbtp"
+]
 }
