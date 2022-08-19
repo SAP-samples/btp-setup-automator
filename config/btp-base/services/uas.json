@@ -21,6 +21,24 @@
       "schemas": null,
       "dataCenters":[
       {
+          "name": "cf-in30",
+          "displayName": "India (Mumbai)",
+          "region": "in30"
+      },
+      
+      {
+          "name": "cf-eu30",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu30"
+      },
+      
+      {
+          "name": "cf-ch20",
+          "displayName": "cf-ch20",
+          "region": "ch20"
+      },
+      
+      {
           "name": "cf-us30",
           "displayName": "US Central (IA)",
           "region": "us30"
@@ -118,6 +136,24 @@
       "description": "Enables the storage of usage data",
       "schemas": null,
       "dataCenters":[
+      {
+          "name": "cf-in30",
+          "displayName": "India (Mumbai)",
+          "region": "in30"
+      },
+      
+      {
+          "name": "cf-eu30",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu30"
+      },
+      
+      {
+          "name": "cf-ch20",
+          "displayName": "cf-ch20",
+          "region": "ch20"
+      },
+      
       {
           "name": "cf-ap20",
           "displayName": "Australia (Sydney) Azure",

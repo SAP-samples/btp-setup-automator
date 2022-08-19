@@ -21,6 +21,12 @@
       "schemas": null,
       "dataCenters":[
       {
+          "name": "cf-ch20",
+          "displayName": "cf-ch20",
+          "region": "ch20"
+      },
+      
+      {
           "name": "cf-in30",
           "displayName": "India (Mumbai)",
           "region": "in30"
@@ -136,6 +142,12 @@
       "description": "Standard Plan",
       "schemas": null,
       "dataCenters":[
+      {
+          "name": "cf-ch20",
+          "displayName": "cf-ch20",
+          "region": "ch20"
+      },
+      
       {
           "name": "cf-in30",
           "displayName": "India (Mumbai)",

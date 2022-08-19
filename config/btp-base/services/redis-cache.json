@@ -208,11 +208,6 @@
                 "_show_form_view": true,
                 "additionalProperties": true,
                 "properties": {
-                    "cluster_mode": {
-                        "default": true,
-                        "description": "Indicates whether the instance is clustered redis deployment. If not provided, it is defaulted to true.",
-                        "type": "boolean"
-                    },
                     "engine_version": {
                         "default": "4.0",
                         "description": "The major version number of the cache engine to be used for the clusters. If not provided, the major version is defaulted to 4.0",
@@ -226,10 +221,10 @@
                         "default": "noeviction",
                         "description": "The eviction policy for keys when maximum memory usage is reached. Default is \u0027noeviction\u0027",
                         "enum": [
-                            "allkeys-lru",
-                            "volatile-lru",
                             "allkeys-lfu",
                             "volatile-lfu",
+                            "allkeys-lru",
+                            "volatile-lru",
                             "allkeys-random",
                             "volatile-random",
                             "volatile-ttl",
@@ -253,13 +248,6 @@
                                     "Sunday"
                                 ],
                                 "type": "string"
-                            },
-                            "duration": {
-                                "default": 5,
-                                "description": "Number of hours required for patching the Redis cache instance.",
-                                "maximum": 23,
-                                "minimum": 5,
-                                "type": "integer"
                             },
                             "start_hour_utc": {
                                 "default": 4,
@@ -287,25 +275,11 @@
                         "description": "Indicates whether the instance is a multi-AZ deployment. If not provided, it is defaulted to true.",
                         "type": "boolean"
                     },
-                    "node_count": {
-                        "default": 3,
-                        "description": "Indicates the number of nodes per shard within the Redis cluster. If not provided, it is defaulted to 3. For instances with multiple shards and nodes per shard, the number of storage SKU units deducted from available entitlements is equal to the total nodes count in the cluster.",
-                        "maximum": 6,
-                        "minimum": 3,
-                        "type": "integer"
-                    },
                     "notify_keyspace_events": {
                         "default": "",
                         "description": "Indicates the keyspace events for which notifications are enabled. If not provided, notifications are disabled.",
                         "pattern": "^[KEg$lshzxeA]*$",
                         "type": "string"
-                    },
-                    "shard_count": {
-                        "default": 1,
-                        "description": "Indicates the number of shards within the Redis cluster. If not provided, it is defaulted to 1. For instances with multiple shards and nodes per shard, the number of storage SKU units deducted from available entitlements is equal to the total nodes count in the cluster.",
-                        "maximum": 90,
-                        "minimum": 1,
-                        "type": "integer"
                     }
                 },
                 "type": "object"
@@ -329,10 +303,10 @@
                     "eviction_policy": {
                         "description": "The eviction policy for keys when maximum memory usage is reached. Default is \u0027noeviction\u0027",
                         "enum": [
-                            "allkeys-lru",
-                            "volatile-lru",
                             "allkeys-lfu",
                             "volatile-lfu",
+                            "allkeys-lru",
+                            "volatile-lru",
                             "allkeys-random",
                             "volatile-random",
                             "volatile-ttl",
@@ -357,13 +331,6 @@
                                 ],
                                 "type": "string"
                             },
-                            "duration": {
-                                "default": 5,
-                                "description": "Number of hours required for patching the Redis cache instance.",
-                                "maximum": 23,
-                                "minimum": 5,
-                                "type": "integer"
-                            },
                             "start_hour_utc": {
                                 "default": 4,
                                 "description": "Start hour after which patching of the Redis cache instance can start.",
@@ -384,26 +351,10 @@
                         ],
                         "type": "integer"
                     },
-                    "multi_az": {
-                        "description": "Indicates whether the instance is a multi-AZ deployment. Only non-multi-AZ to multi-AZ is allowed.",
-                        "type": "boolean"
-                    },
-                    "node_count": {
-                        "description": "Indicates the number of nodes per shard within the Redis cluster. If not provided, it is defaulted to 3. For instances with multiple shards and nodes per shard, the number of storage SKU units deducted from available entitlements is equal to the total nodes count in the cluster.",
-                        "maximum": 6,
-                        "minimum": 3,
-                        "type": "integer"
-                    },
                     "notify_keyspace_events": {
                         "description": "Indicates the keyspace events for which notifications are enabled. If not provided, notifications are disabled.",
                         "pattern": "^[KEg$lshzxeA]*$",
                         "type": "string"
-                    },
-                    "shard_count": {
-                        "description": "Indicates the number of shards within the Redis cluster. If not provided, it is defaulted to 1. For instances with multiple shards and nodes per shard, the number of storage SKU units deducted from available entitlements is equal to the total nodes count in the cluster.",
-                        "maximum": 90,
-                        "minimum": 1,
-                        "type": "integer"
                     }
                 },
                 "type": "object"
@@ -412,6 +363,24 @@
     }
 },
       "dataCenters":[
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      },
+      
+      {
+          "name": "cf-in30",
+          "displayName": "India (Mumbai)",
+          "region": "in30"
+      },
+      
+      {
+          "name": "cf-eu30",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu30"
+      },
+      
       {
           "name": "cf-ch20",
           "displayName": "cf-ch20",
@@ -523,11 +492,6 @@
                 "_show_form_view": true,
                 "additionalProperties": true,
                 "properties": {
-                    "cluster_mode": {
-                        "default": true,
-                        "description": "Indicates whether the instance is clustered redis deployment. If not provided, it is defaulted to true.",
-                        "type": "boolean"
-                    },
                     "engine_version": {
                         "default": "4.0",
                         "description": "The major version number of the cache engine to be used for the clusters. If not provided, the major version is defaulted to 4.0",
@@ -541,10 +505,10 @@
                         "default": "noeviction",
                         "description": "The eviction policy for keys when maximum memory usage is reached. Default is \u0027noeviction\u0027",
                         "enum": [
-                            "allkeys-lru",
-                            "volatile-lru",
                             "allkeys-lfu",
                             "volatile-lfu",
+                            "allkeys-lru",
+                            "volatile-lru",
                             "allkeys-random",
                             "volatile-random",
                             "volatile-ttl",
@@ -568,13 +532,6 @@
                                     "Sunday"
                                 ],
                                 "type": "string"
-                            },
-                            "duration": {
-                                "default": 5,
-                                "description": "Number of hours required for patching the Redis cache instance.",
-                                "maximum": 23,
-                                "minimum": 5,
-                                "type": "integer"
                             },
                             "start_hour_utc": {
                                 "default": 4,
@@ -600,25 +557,11 @@
                         "description": "Indicates whether the instance is a multi-AZ deployment. If not provided, it is defaulted to true.",
                         "type": "boolean"
                     },
-                    "node_count": {
-                        "default": 3,
-                        "description": "Indicates the number of nodes per shard within the Redis cluster. If not provided, it is defaulted to 3. For instances with multiple shards and nodes per shard, the number of storage SKU units deducted from available entitlements is equal to the total nodes count in the cluster.",
-                        "maximum": 6,
-                        "minimum": 3,
-                        "type": "integer"
-                    },
                     "notify_keyspace_events": {
                         "default": "",
                         "description": "Indicates the keyspace events for which notifications are enabled. If not provided, notifications are disabled.",
                         "pattern": "^[KEg$lshzxeA]*$",
                         "type": "string"
-                    },
-                    "shard_count": {
-                        "default": 1,
-                        "description": "Indicates the number of shards within the Redis cluster. If not provided, it is defaulted to 1. For instances with multiple shards and nodes per shard, the number of storage SKU units deducted from available entitlements is equal to the total nodes count in the cluster.",
-                        "maximum": 90,
-                        "minimum": 1,
-                        "type": "integer"
                     }
                 },
                 "type": "object"
@@ -642,10 +585,10 @@
                     "eviction_policy": {
                         "description": "The eviction policy for keys when maximum memory usage is reached. Default is \u0027noeviction\u0027",
                         "enum": [
-                            "allkeys-lru",
-                            "volatile-lru",
                             "allkeys-lfu",
                             "volatile-lfu",
+                            "allkeys-lru",
+                            "volatile-lru",
                             "allkeys-random",
                             "volatile-random",
                             "volatile-ttl",
@@ -670,13 +613,6 @@
                                 ],
                                 "type": "string"
                             },
-                            "duration": {
-                                "default": 5,
-                                "description": "Number of hours required for patching the Redis cache instance.",
-                                "maximum": 23,
-                                "minimum": 5,
-                                "type": "integer"
-                            },
                             "start_hour_utc": {
                                 "default": 4,
                                 "description": "Start hour after which patching of the Redis cache instance can start.",
@@ -695,26 +631,10 @@
                         ],
                         "type": "integer"
                     },
-                    "multi_az": {
-                        "description": "Indicates whether the instance is a multi-AZ deployment. Only non-multi-AZ to multi-AZ is allowed.",
-                        "type": "boolean"
-                    },
-                    "node_count": {
-                        "description": "Indicates the number of nodes per shard within the Redis cluster. If not provided, it is defaulted to 3. For instances with multiple shards and nodes per shard, the number of storage SKU units deducted from available entitlements is equal to the total nodes count in the cluster.",
-                        "maximum": 6,
-                        "minimum": 3,
-                        "type": "integer"
-                    },
                     "notify_keyspace_events": {
                         "description": "Indicates the keyspace events for which notifications are enabled. If not provided, notifications are disabled.",
                         "pattern": "^[KEg$lshzxeA]*$",
                         "type": "string"
-                    },
-                    "shard_count": {
-                        "description": "Indicates the number of shards within the Redis cluster. If not provided, it is defaulted to 1. For instances with multiple shards and nodes per shard, the number of storage SKU units deducted from available entitlements is equal to the total nodes count in the cluster.",
-                        "maximum": 90,
-                        "minimum": 1,
-                        "type": "integer"
                     }
                 },
                 "type": "object"
@@ -723,6 +643,24 @@
     }
 },
       "dataCenters":[
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      },
+      
+      {
+          "name": "cf-in30",
+          "displayName": "India (Mumbai)",
+          "region": "in30"
+      },
+      
+      {
+          "name": "cf-eu30",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu30"
+      },
+      
       {
           "name": "cf-ch20",
           "displayName": "cf-ch20",

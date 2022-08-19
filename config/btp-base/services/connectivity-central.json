@@ -30,6 +30,8 @@
          
   ],
   "supportedEnvironments": [
-    "cloudfoundry"
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
 ]
 }

@@ -21,6 +21,10 @@
         "title": "Mobile Services Consolidated Documentation (Cloud Foundry)"
     },
     {
+        "linkURL": "https://mobile-service-cockpit-web.cfapps.eu30.hana.ondemand.com",
+        "title": "Support information"
+    },
+    {
         "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
         "title": "Support information"
     },
@@ -29,15 +33,11 @@
         "title": "Support information"
     },
     {
-        "linkURL": "https://mobile-service-cockpit-web.cfapps.eu30.hana.ondemand.com",
+        "linkURL": "https://mobile-service-cockpit-web.cfapps.br10.hana.ondemand.com",
         "title": "Support information"
     },
     {
         "linkURL": "https://mobile-service-cockpit-web.cfapps.eu20.hana.ondemand.com",
-        "title": "Support information"
-    },
-    {
-        "linkURL": "https://mobile-service-cockpit-web.cfapps.br10.hana.ondemand.com",
         "title": "Support information"
     }
 ],
