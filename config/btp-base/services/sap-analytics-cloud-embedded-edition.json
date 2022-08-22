@@ -1,102 +1,93 @@
 {
-  "description": "With SAP Analytics Cloud, embedded edition, you can build and embed reports, dashboards, and visuals into your business application to make confident decisions. Explore your business data via live connection between your SAP Analytics Cloud tenant and the remote SAP HANA database on SAP Cloud Platform.",
+  "name": "sap-analytics-cloud-embedded-edition",
+  "description":  "With SAP Analytics Cloud, embedded edition, you can build and embed reports, dashboards, and visuals into your business application to make confident decisions. Explore your business data via live connection between your SAP Analytics Cloud tenant and the remote SAP HANA database on SAP Cloud Platform.",
   "displayName": "SAP Analytics Cloud, embedded edition",
   "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iY2xvdWQtZm9yLWFuYWx5dGljcyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMGE2ZWQxO30uY2xzLTJ7ZmlsbDojMDUzYjcwO308L3N0eWxlPjwvZGVmcz48dGl0bGU+Y2xvdWQtZm9yLWFuYWx5dGljczwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjksMzMuNDcxLDQxLjk0Nyw0Ni40MjJBMjMuMywyMy4zLDAsMCwxLDI5LDUxLjg1N2EyOC4xMDUsMjguMTA1LDAsMCwxLTMuODk0LDBBMjMuMDc4LDIzLjA3OCwwLDAsMSw2LjgwOCwzOS45LDIyLjU0NywyMi41NDcsMCwwLDEsNCwyOC45NDMsMjIuNzQ1LDIyLjc0NSwwLDAsMSw5LjQzNCwxMy45MDlhMzYuNTcsMzYuNTcsMCwwLDEsMi43MTctMi42MjZBMjIuNzYsMjIuNzYsMCwwLDEsMjUuMSw1Ljg0OVYyOS42NjhaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNTAuNjQxLDIwLjUyMSwzMC4zNTUsMjkuNDg3LDQ0LjU3Myw0My44bDEuNDQ5LDEuMjY4QTI0LjAzLDI0LjAzLDAsMCwwLDUyLDI4Ljk0MywyNi40NDgsMjYuNDQ4LDAsMCwwLDUwLjY0MSwyMC41MjFaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDkuMDExLDE2Ljk4OUEyNC44MDksMjQuODA5LDAsMCwwLDI5LDQuMDM4VjI1Ljg2NEw0Ny4yLDE3LjhaIi8+PC9zdmc+",
-  "id": "a53a45e7-c546-49b6-b264-e6f09f83a833",
-  "inventoryIds": [
-    "SERVICE-475"
-  ],
   "links": [
     {
-      "linkURL": "https://help.sap.com/viewer/product/SAC_EMBEDDED_EDITION/1.0/en-US",
-      "title": "Documentation"
+        "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/sap-analytics-cloud-embedded-edition",
+        "title": "Discovery Center"
     },
     {
-      "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/sap-analytics-cloud-embedded-edition",
-      "title": "Discovery Center"
+        "linkURL": "https://help.sap.com/viewer/product/SAC_EMBEDDED_EDITION/1.0/en-US",
+        "title": "Documentation"
     },
     {
-      "linkURL": "https://help.sap.com/viewer/7466893ec68641198fc189757dc5f7a6/1.0/en-US/ce081403aaf14feca286d7d0b4af2b86.html",
-      "title": "Support information"
+        "linkURL": "https://help.sap.com/viewer/7466893ec68641198fc189757dc5f7a6/1.0/en-US/ce081403aaf14feca286d7d0b4af2b86.html",
+        "title": "Support information"
     }
-  ],
-  "name": "sap-analytics-cloud-embedded-edition",
-  "servicePlans": [
-    {
+],
+  "servicePlans": [{
+      "name": "Standard plan with max. 150 concurrent sessions",
+      "displayName": "Standard plan with max. 150 concurrent sessions",
       "category": "SERVICE",
-      "dataCenters": [
-        {
-          "displayName": "Europe (Frankfurt) EU Access - AWS",
-          "environment": "cloudfoundry",
-          "name": "cf-eu11",
-          "region": "eu11"
-        },
-        {
-          "displayName": "Europe (Netherlands)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu20",
-          "region": "eu20"
-        },
-        {
-          "displayName": "South Korea (Seoul)",
-          "environment": "cloudfoundry",
-          "name": "cf-ap12",
-          "region": "ap12"
-        },
-        {
-          "displayName": "Canada (Montreal)",
-          "environment": "cloudfoundry",
-          "name": "cf-ca10",
-          "region": "ca10"
-        },
-        {
-          "displayName": "Japan (Tokyo)",
-          "environment": "cloudfoundry",
-          "name": "cf-jp10",
-          "region": "jp10"
-        },
-        {
-          "displayName": "Singapore",
-          "environment": "cloudfoundry",
-          "name": "cf-ap11",
-          "region": "ap11"
-        },
-        {
-          "displayName": "Australia (Sydney)",
-          "environment": "cloudfoundry",
-          "name": "cf-ap10",
-          "region": "ap10"
-        },
-        {
-          "displayName": "Brazil (Sao Paulo)",
-          "environment": "cloudfoundry",
-          "name": "cf-br10",
-          "region": "br10"
-        },
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us10",
-          "region": "us10"
-        },
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu10",
-          "region": "eu10"
-        }
-      ],
       "description": "Standard plan with max. 150 concurrent sessions",
-      "displayName": "standard",
-      "free": true,
-      "name": "standard",
-      "provisioningMethod": "SERVICE_BROKER",
-      "schemas": null
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-eu20",
+          "displayName": "Europe (Netherlands)",
+          "region": "eu20"
+      },
+      
+      {
+          "name": "cf-ap12",
+          "displayName": "South Korea (Seoul)",
+          "region": "ap12"
+      },
+      
+      {
+          "name": "cf-ca10",
+          "displayName": "Canada (Montreal)",
+          "region": "ca10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-br10",
+          "displayName": "Brazil (Sao Paulo)",
+          "region": "br10"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
     }
+         
   ],
   "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+    "cloudfoundry"
+]
 }

@@ -1,87 +1,77 @@
 {
-  "description": "Personalized Recommendation is a generic reusable service. It uses state-of-the-art machine learning techniques to give visitors to your website highly personalized recommendations based on their browsing history and/or item description. Train and use machine learning models to deliver these recommendations across a wide range of business scenarios. Personalized Recommendation is part of the SAP AI Business Services portfolio.",
+  "name": "recommendation-systems-production",
+  "description":  "Personalized Recommendation is a generic reusable service. It uses state-of-the-art machine learning techniques to give visitors to your website highly personalized recommendations based on their browsing history and/or item description. Train and use machine learning models to deliver these recommendations across a wide range of business scenarios. Personalized Recommendation is part of the SAP AI Business Services portfolio.",
   "displayName": "Personalized Recommendation",
   "icon": "Icon too big. Service owner needs to reduce size.",
-  "id": "c3e5bfa1-8324-4118-9284-395ebdf42d26",
-  "inventoryIds": [
-    "SERVICE-483"
-  ],
   "links": [
     {
-      "linkURL": "https://help.sap.com/pr",
-      "title": "Documentation"
+        "linkURL": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english\u0026search=Supplement%20Business%20Technology%20Platform\u0026sort=latest_desc",
+        "title": "Business Technology Platform Supplemental Terms and Conditions"
     },
     {
-      "linkURL": "https://help.sap.com/docs/Personalized_Recommendation/2c2078b9efa84566ac19d44df9625c65/c9cb13e6510248bdbb60ab0ea799d046.html",
-      "title": "Support"
+        "linkURL": "https://help.sap.com/pr",
+        "title": "Documentation"
     },
     {
-      "linkURL": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english\u0026search=Supplement%20Business%20Technology%20Platform\u0026sort=latest_desc",
-      "title": "Business Technology Platform Supplemental Terms and Conditions"
+        "linkURL": "https://help.sap.com/docs/Personalized_Recommendation/2c2078b9efa84566ac19d44df9625c65/c9cb13e6510248bdbb60ab0ea799d046.html",
+        "title": "Support"
     }
-  ],
-  "name": "recommendation-systems-production",
-  "servicePlans": [
-    {
+],
+  "servicePlans": [{
+      "name": "Free access plan for Personalized Recommendation. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "displayName": "Free access plan for Personalized Recommendation. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
       "category": "ELASTIC_SERVICE",
-      "dataCenters": [
-        {
-          "displayName": "Europe (Frankfurt) EU Access - AWS",
-          "environment": "cloudfoundry",
-          "name": "cf-eu11",
-          "region": "eu11"
-        },
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us10",
-          "region": "us10"
-        },
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu10",
-          "region": "eu10"
-        }
-      ],
-      "description": "Standard access plan for Personalized Recommendation",
-      "displayName": "standard",
-      "name": "standard",
-      "provisioningMethod": "SERVICE_BROKER",
-      "schemas": null
-    },
-    {
-      "category": "ELASTIC_SERVICE",
-      "dataCenters": [
-        {
-          "displayName": "Europe (Frankfurt) EU Access - AWS",
-          "environment": "cloudfoundry",
-          "name": "cf-eu11",
-          "region": "eu11"
-        },
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us10",
-          "region": "us10"
-        },
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu10",
-          "region": "eu10"
-        }
-      ],
       "description": "Free access plan for Personalized Recommendation. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
-      "displayName": "free",
-      "name": "free",
-      "provisioningMethod": "SERVICE_BROKER",
-      "schemas": null
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    },
+    {
+      "name": "Standard access plan for Personalized Recommendation",
+      "displayName": "Standard access plan for Personalized Recommendation",
+      "category": "ELASTIC_SERVICE",
+      "description": "Standard access plan for Personalized Recommendation",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
     }
+         
   ],
   "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+    "cloudfoundry"
+]
 }

@@ -1,72 +1,69 @@
 {
-  "description": "Mobile Connectivity Service",
+  "name": "mobile-proxy",
+  "description":  "Mobile Connectivity Service",
   "displayName": "Mobile Connectivity Service",
-  "icon": "sap-icon://connected",
-  "id": "f6150a0a-a903-4af8-9c15-075353328d25",
-  "inventoryIds": null,
+  "icon": null,
   "links": [
     {
-      "linkURL": "https://help.sap.com/viewer/468990a67780424a9e66eb096d4345bb/Cloud/en-US/21a016f86b0d4fdeb3e6fef802df9b55.html",
-      "title": "Documentation"
+        "linkURL": "https://help.sap.com/viewer/468990a67780424a9e66eb096d4345bb/Cloud/en-US/21a016f86b0d4fdeb3e6fef802df9b55.html",
+        "title": "Documentation"
     },
     {
-      "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
-      "title": "Support information"
-    }
-  ],
-  "name": "mobile-proxy",
-  "servicePlans": [
+        "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
+        "title": "Support information"
+    },
     {
-      "category": "SERVICE",
-      "dataCenters": [
-        {
-          "displayName": "Singapore",
-          "environment": "cloudfoundry",
-          "name": "cf-ap11",
-          "region": "ap11"
-        },
-        {
-          "displayName": "Australia (Sydney)",
-          "environment": "cloudfoundry",
-          "name": "cf-ap10",
-          "region": "ap10"
-        },
-        {
-          "displayName": "Japan (Tokyo)",
-          "environment": "cloudfoundry",
-          "name": "cf-jp10",
-          "region": "jp10"
-        },
-        {
-          "displayName": "Brazil (Sao Paulo)",
-          "environment": "cloudfoundry",
-          "name": "cf-br10",
-          "region": "br10"
-        },
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us10",
-          "region": "us10"
-        },
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu10",
-          "region": "eu10"
-        }
-      ],
-      "description": "Mobile Connectivity Service is used in the context of a Mobile application to connect to back-ends",
-      "displayName": "Mobile Connectivity Service is used in the context of a Mobile application to connect to back-ends",
-      "free": true,
-      "name": "standard",
-      "provisioningMethod": "SERVICE_BROKER",
-      "schemas": null
+        "linkURL": "https://mobile-service-cockpit-web.cfapps.br10.hana.ondemand.com",
+        "title": "Support information"
     }
+],
+  "servicePlans": [{
+      "name": "Mobile Connectivity Service is used in the context of a Mobile application to connect to back-ends",
+      "displayName": "Mobile Connectivity Service is used in the context of a Mobile application to connect to back-ends",
+      "category": "SERVICE",
+      "description": "Mobile Connectivity Service is used in the context of a Mobile application to connect to back-ends",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-br10",
+          "displayName": "Brazil (Sao Paulo)",
+          "region": "br10"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    }
+         
   ],
   "supportedEnvironments": [
-    "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+    "cloudfoundry"
+]
 }

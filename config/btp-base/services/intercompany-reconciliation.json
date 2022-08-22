@@ -1,43 +1,37 @@
 {
-  "description": "Intelligent Intercompany Reconciliation is introduced to speed up your intercompany reconciliation process from company close to corporate close. The service is based on Artificial Intelligence in order to reconcile your financial data with high accuracy.",
+  "name": "intercompany-reconciliation",
+  "description":  "Intelligent Intercompany Reconciliation is introduced to speed up your intercompany reconciliation process from company close to corporate close. The service is based on Artificial Intelligence in order to reconcile your financial data with high accuracy.",
   "displayName": "Intelligent Intercompany Reconciliation",
   "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjMuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9Im1vYmlsaW5rIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgNTYgNTYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDU2IDU2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6IzBBNkVEMTt9Cgkuc3Qxe2ZpbGw6IzA1M0I3MDt9Cgkuc3Qye2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU+CjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMC41LDVoLTcuN0w1LDEyLjd2MTUuNGMtMC4xLDEuNCwxLDIuNSwyLjQsMi42YzAuMSwwLDAuMSwwLDAuMiwwaDEyLjljMS40LDAuMSwyLjUtMSwyLjYtMi40CgljMC0wLjEsMC0wLjEsMC0wLjJWNy42YzAtMC43LTAuMy0xLjQtMC44LTEuOEMyMS44LDUuMywyMS4xLDUsMjAuNSw1eiBNMjAuNSwyOC4xSDcuNlYxNS4zaDUuMWMwLjcsMCwxLjQtMC4yLDEuOS0wLjcKCWMwLjUtMC41LDAuOC0xLjIsMC44LTEuOFY3LjZoNS4xVjI4LjF6Ii8+CjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0xNi44LDQ2LjhjLTEuMy0xLjMtMi0zLTItNC44bDAuMS0xLjFsMi41LDNjMC40LDAuNCwxLDAuNSwxLjUsMC4yYzAuMSwwLDAuMS0wLjEsMC4yLTAuMgoJYzAuNC0wLjMsMC41LTAuOSwwLjItMS40Yy0wLjEtMC4xLTAuMS0wLjEtMC4yLTAuMmwtMy43LTQuMmMtMC45LTAuOC0yLjMtMC44LTMuMiwwbC0zLjcsNC4yYy0wLjQsMC40LTAuNSwxLTAuMSwxLjQKCWMwLDAsMC4xLDAuMSwwLjEsMC4xYzAuNCwwLjQsMS4xLDAuNSwxLjYsMC4xYzAsMCwwLDAsMC4xLTAuMWwyLjYtM0wxMi41LDQyYzAsMS4yLDAuMiwyLjQsMC43LDMuNWMwLjUsMS4xLDEuMSwyLjEsMS45LDIuOQoJYzAuOCwwLjgsMS44LDEuNSwyLjksMS45YzEuMSwwLjUsMi4zLDAuNywzLjUsMC43SDI2di0yLjJoLTQuNUMxOS43LDQ4LjgsMTgsNDguMSwxNi44LDQ2Ljh6Ii8+CjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik00Ni43LDEzLjFjLTAuNC0wLjQtMS4xLTAuNS0xLjYtMC4xYzAsMCwwLDAtMC4xLDAuMWwtMi42LDNsMC4xLTEuMWMwLTEuMi0wLjItMi40LTAuNy0zLjUKCWMtMC41LTEuMS0xLjEtMi4xLTEuOS0yLjljLTAuOC0wLjgtMS44LTEuNS0yLjgtMS45QzM2LDYuMiwzNC44LDYsMzMuNSw2SDI5djIuMmg0LjVjMS44LDAsMy41LDAuNyw0LjgsMmMxLjMsMS4zLDIsMywyLDQuOAoJbC0wLjEsMS4xbC0yLjUtM2MtMC40LTAuNC0xLTAuNS0xLjUtMC4yYy0wLjEsMC0wLjEsMC4xLTAuMiwwLjJjLTAuNCwwLjMtMC41LDAuOS0wLjIsMS40YzAuMSwwLjEsMC4xLDAuMSwwLjIsMC4ybDMuNyw0LjIKCWMwLjksMC44LDIuMywwLjgsMy4yLDBsMy43LTQuMkM0Ny4xLDE0LjMsNDcuMiwxMy42LDQ2LjcsMTMuMUM0Ni44LDEzLjIsNDYuNywxMy4xLDQ2LjcsMTMuMUw0Ni43LDEzLjF6Ii8+CjxyZWN0IHg9IjEzLjciIHk9IjE2LjkiIGNsYXNzPSJzdDIiIHdpZHRoPSIxMSIgaGVpZ2h0PSIxNi44Ii8+CjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yMi44LDI2LjRjLTAuNy0wLjctMS42LTEuMi0yLjUtMS4zdi0zLjNjMC40LDAsMC43LDAuMiwxLDAuNGMwLjMsMC4yLDAuNCwwLjUsMC41LDAuOWwxLjYtMC4zCgljLTAuMi0xLjUtMS41LTIuNy0zLTIuN3YtMC45aC0xLjF2MC45Yy0wLjQsMC0wLjksMC4xLTEuMywwLjRjLTAuNCwwLjItMC43LDAuNS0xLDAuOGMtMC4zLDAuMy0wLjUsMC43LTAuNiwxCgljLTAuMSwwLjMtMC4yLDAuNy0wLjIsMS4xYzAsMC43LDAuMywxLjQsMC44LDEuOWMwLjYsMC42LDEuNCwxLjEsMi4yLDEuNHYzLjFjLTAuMy0wLjEtMC42LTAuNC0wLjgtMC42Yy0wLjMtMC4zLTAuNC0wLjctMC41LTEuMQoJTDE2LDI4LjRjMCwwLjksMC40LDEuOCwxLjEsMi41YzAuNSwwLjUsMS4zLDAuOCwyLDAuOXYxLjRoMS4xdi0xLjRjMC45LDAsMS44LTAuNCwyLjQtMS4xYzAuNi0wLjYsMC45LTEuNSwwLjktMi4zCglDMjMuNSwyNy42LDIzLjIsMjYuOSwyMi44LDI2LjR6IE0xOS4xLDI0LjVjLTAuNi0wLjItMS0wLjctMS4xLTEuNGMwLTAuMywwLjEtMC42LDAuMy0wLjhjMC4yLTAuMywwLjUtMC41LDAuOC0wLjZWMjQuNXoKCSBNMjEuMiwyOS40Yy0wLjMsMC4zLTAuNiwwLjUtMSwwLjZ2LTMuMWMwLjksMC4zLDEuNCwwLjgsMS40LDEuNUMyMS42LDI4LjgsMjEuNSwyOS4xLDIxLjIsMjkuNHoiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTQ2LjgsMjQuNWgtNy43bC03LjcsNy43djE1LjRjLTAuMSwxLjQsMSwyLjUsMi40LDIuNmMwLjEsMCwwLjEsMCwwLjIsMGgxMi45YzEuNCwwLjEsMi41LTEsMi42LTIuNAoJYzAtMC4xLDAtMC4xLDAtMC4yVjI3LjFjMC0wLjctMC4zLTEuNC0wLjgtMS44QzQ4LjIsMjQuOCw0Ny41LDI0LjUsNDYuOCwyNC41eiBNNDYuOCw0Ny43SDM0VjM0LjhIMzljMC43LDAsMS40LTAuMiwxLjktMC43CgljMC41LTAuNSwwLjgtMS4yLDAuOC0xLjh2LTUuMWg1LjFWNDcuN3oiLz4KPHJlY3QgeD0iNDAuMSIgeT0iMzYuNCIgY2xhc3M9InN0MiIgd2lkdGg9IjExIiBoZWlnaHQ9IjE2LjgiLz4KPHBhdGggY2xhc3M9InN0MSIgZD0iTTQ5LjEsNDUuOWMtMC43LTAuNy0xLjYtMS4yLTIuNS0xLjN2LTMuM2MwLjQsMCwwLjcsMC4yLDEsMC40YzAuMywwLjIsMC40LDAuNSwwLjUsMC45bDEuNi0wLjMKCWMtMC4yLTEuNS0xLjUtMi43LTMtMi43di0wLjloLTEuMXYwLjljLTAuNCwwLTAuOSwwLjEtMS4zLDAuNGMtMC40LDAuMi0wLjcsMC41LTEsMC44Yy0wLjMsMC4zLTAuNSwwLjctMC42LDEKCWMtMC4xLDAuMy0wLjIsMC43LTAuMiwxLjFjMCwwLjcsMC4zLDEuNCwwLjgsMS45YzAuNiwwLjYsMS40LDEuMSwyLjIsMS40djMuMWMtMC4zLTAuMS0wLjYtMC40LTAuOC0wLjZjLTAuMy0wLjMtMC40LTAuNy0wLjUtMS4xCglsLTEuOCwwLjJjMCwwLjksMC40LDEuOCwxLjEsMi41YzAuNSwwLjUsMS4zLDAuOCwyLDAuOXYxLjRoMS4xdi0xLjRjMC45LDAsMS44LTAuNCwyLjQtMS4xYzAuNi0wLjYsMC45LTEuNSwwLjktMi4zCglDNDkuOCw0Ny4xLDQ5LjYsNDYuNCw0OS4xLDQ1Ljl6IE00NS41LDQ0Yy0wLjYtMC4yLTEtMC43LTEuMS0xLjRjMC0wLjMsMC4xLTAuNiwwLjMtMC44YzAuMi0wLjMsMC41LTAuNSwwLjgtMC42VjQ0eiBNNDcuNiw0OC45CgljLTAuMywwLjMtMC42LDAuNS0xLDAuNnYtMy4xYzAuOSwwLjMsMS40LDAuOCwxLjQsMS41QzQ4LDQ4LjMsNDcuOSw0OC43LDQ3LjYsNDguOXoiLz4KPC9zdmc+Cg==",
-  "id": "19ab313e-6960-462c-a4cc-e7c6a5de6f01",
-  "inventoryIds": [
-    "SERVICE-727"
-  ],
   "links": [
     {
-      "linkURL": "https://help.sap.com/viewer/0fa84c9d9c634132b7c4abb9ffdd8f06/2108.501/en-US/b0b3b968f7c943c88ebc6e94d114564e.html",
-      "title": "Documentation"
+        "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/",
+        "title": "Discovery Center"
     },
     {
-      "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/",
-      "title": "Discovery Center"
+        "linkURL": "https://help.sap.com/viewer/0fa84c9d9c634132b7c4abb9ffdd8f06/2108.501/en-US/b0b3b968f7c943c88ebc6e94d114564e.html",
+        "title": "Documentation"
     }
-  ],
-  "name": "intercompany-reconciliation",
-  "servicePlans": [
-    {
+],
+  "servicePlans": [{
+      "name": "Default standard plan for Intelligent Intercompany Reconciliation.",
+      "displayName": "Default standard plan for Intelligent Intercompany Reconciliation.",
       "category": "ELASTIC_SERVICE",
-      "dataCenters": [
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu10",
-          "region": "eu10"
-        }
-      ],
       "description": "Default standard plan for Intelligent Intercompany Reconciliation.",
-      "displayName": "standard",
-      "name": "standard",
-      "provisioningMethod": "SERVICE_BROKER",
-      "schemas": null
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
     }
+         
   ],
   "supportedEnvironments": [
     "cloudfoundry",
     "kymaruntime",
     "sapbtp"
-  ]
+]
 }

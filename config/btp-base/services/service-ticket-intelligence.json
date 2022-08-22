@@ -1,139 +1,126 @@
 {
-  "description": "With Service Ticket Intelligence, incoming customers service tickets are automatically classified into their categories, and routed to the right agent. The agent is then provided with recommended solutions to improve operational efficiency. Service Ticket Intelligence leverages deep learning neural networks trained on large amounts of historical data. The model understands the semantics of unstructured ticket messages, classifies the ticket into their most likely categories and recommends solutions or knowledge base articles from similar previously answered tickets for the agent. With more processed service tickets and users feedback, the model improves over time.",
+  "name": "service-ticket-intelligence",
+  "description":  "With Service Ticket Intelligence, incoming customers service tickets are automatically classified into their categories, and routed to the right agent. The agent is then provided with recommended solutions to improve operational efficiency. Service Ticket Intelligence leverages deep learning neural networks trained on large amounts of historical data. The model understands the semantics of unstructured ticket messages, classifies the ticket into their most likely categories and recommends solutions or knowledge base articles from similar previously answered tickets for the agent. With more processed service tickets and users feedback, the model improves over time.",
   "displayName": "Service Ticket Intelligence",
   "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0ic2VydmljZS10aWNrZXQtaW50ZWxsaWdlbmNlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwNTNiNzA7fS5jbHMtMntmaWxsOiMwYTZlZDE7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5zZXJ2aWNlLXRpY2tldC1pbnRlbGxpZ2VuY2U8L3RpdGxlPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEzLjAwOCwyMmExLjUsMS41LDAsMCwwLTEuNS0xLjVoLTZhMS41LDEuNSwwLDAsMCwwLDNoNi4wMDVBMS41LDEuNSwwLDAsMCwxMy4wMDgsMjJaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTQuNTA5LDE0LjUwOUg4LjVhMS41LDEuNSwwLDAsMCwwLDNoNi4wMDVhMS41LDEuNSwwLDAsMCwwLTNaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTQuNTA5LDI2LjVIMTEuNDU1YTEuNSwxLjUsMCwxLDAsMCwzaDMuMDU0YTEuNSwxLjUsMCwwLDAsMC0zWiIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSIzOS4zMjggMzkuNCAzNi44OCAzNi42MTQgMzUuMTkxIDM4LjMwMyAzOS4zMjggNDIuODYxIDQ3LjE3OCAzMy43NDQgNDUuNDkgMzIuMDU2IDM5LjMyOCAzOS40Ii8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDEuNTExLDI2LjVBMTAuNDg5LDEwLjQ4OSwwLDEsMCw1MiwzNi45OSwxMC40ODgsMTAuNDg4LDAsMCwwLDQxLjUxMSwyNi41Wm0wLDE4LjcyOWE4LjI0MSw4LjI0MSwwLDEsMSw4LjI0MS04LjI0MUE4LjI1LDguMjUsMCwwLDEsNDEuNTExLDQ1LjIzMVoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik00OS4wMDgsOC41MjFIMjIuMDI4YTIuOTkzLDIuOTkzLDAsMCwwLTIuOTkyLDIuOTkyVjI5LjUwNkEyLjk5MywyLjk5MywwLDAsMCwyMi4wMjgsMzIuNWg2Ljg3OUExMy40NjEsMTMuNDYxLDAsMCwxLDMwLjM1OSwyOS41aC02LjNsNS42NS0zLjc2N2ExLjEyMywxLjEyMywwLDEsMC0xLjI0Ny0xLjg2N2wtNi40Myw0LjI4NywwLTE0LjgzOCwxMS4zMzgsNy41NTdhMy44NjksMy44NjksMCwwLDAsNC4zLDBMNDksMTMuMzE5bDAsMTIuNDVBMTMuNDkxLDEzLjQ5MSwwLDAsMSw1MiwyOC41NTlWMTEuNTEzQTIuOTkzLDIuOTkzLDAsMCwwLDQ5LjAwOCw4LjUyMVptLTEzLDkuODYzYS44NzYuODc2LDAsMCwxLS45NzgsMGwtMTAuMy02Ljg2Nkg0Ni4zWiIvPjwvc3ZnPg==",
-  "id": "225b95af-798e-4fa4-af85-bdf5ae2cbdf1",
-  "inventoryIds": [
-    "SERVICE-439"
-  ],
   "links": [
     {
-      "linkURL": "https://help.sap.com/stint",
-      "title": "Documentation"
+        "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/service-ticket-intelligence",
+        "title": "Discovery Center"
     },
     {
-      "linkURL": "https://help.sap.com/viewer/934ccff77ddb4fa2bf268a0085984db0/LATEST/en-US/76a77fbf8d3645978d98711450f0b8bc.html",
-      "title": "Support"
+        "linkURL": "https://help.sap.com/stint",
+        "title": "Documentation"
     },
     {
-      "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/service-ticket-intelligence",
-      "title": "Discovery Center"
+        "linkURL": "https://help.sap.com/viewer/product/SERVICE_TICKET_INTELLIGENCE",
+        "title": "Documentation"
     },
     {
-      "linkURL": "https://help.sap.com/viewer/product/SERVICE_TICKET_INTELLIGENCE",
-      "title": "Documentation"
+        "linkURL": "https://help.sap.com/viewer/934ccff77ddb4fa2bf268a0085984db0/LATEST/en-US/76a77fbf8d3645978d98711450f0b8bc.html",
+        "title": "Support"
     }
-  ],
-  "name": "service-ticket-intelligence",
-  "servicePlans": [
-    {
+],
+  "servicePlans": [{
+      "name": "Blocks of 100 plan for Service Ticket Intelligence",
+      "displayName": "Blocks of 100 plan for Service Ticket Intelligence",
       "category": "ELASTIC_SERVICE",
-      "dataCenters": [
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us10",
-          "region": "us10"
-        },
-        {
-          "displayName": "Europe (Frankfurt) EU Access - AWS",
-          "environment": "cloudfoundry",
-          "name": "cf-eu11",
-          "region": "eu11"
-        },
-        {
-          "displayName": "US Central (IA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us30",
-          "region": "us30"
-        },
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu10",
-          "region": "eu10"
-        }
-      ],
       "description": "Blocks of 100 plan for Service Ticket Intelligence",
-      "displayName": "blocks_of_100",
-      "free": false,
-      "name": "blocks_of_100",
-      "provisioningMethod": "SERVICE_BROKER",
-      "schemas": null
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
     },
     {
+      "name": "Free plan for Service Ticket Intelligence",
+      "displayName": "Free plan for Service Ticket Intelligence",
       "category": "ELASTIC_SERVICE",
-      "dataCenters": [
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us10",
-          "region": "us10"
-        },
-        {
-          "displayName": "US Central (IA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us30",
-          "region": "us30"
-        },
-        {
-          "displayName": "Europe (Frankfurt) EU Access - AWS",
-          "environment": "cloudfoundry",
-          "name": "cf-eu11",
-          "region": "eu11"
-        },
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu10",
-          "region": "eu10"
-        }
-      ],
       "description": "Free plan for Service Ticket Intelligence",
-      "displayName": "Free",
-      "name": "free",
-      "provisioningMethod": "SERVICE_BROKER",
-      "schemas": null
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      },
+      
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
     },
     {
+      "name": "Default Plan for Service Ticket Intelligence",
+      "displayName": "Default Plan for Service Ticket Intelligence",
       "category": "ELASTIC_SERVICE",
-      "dataCenters": [
-        {
-          "displayName": "Europe (Frankfurt) EU Access - AWS",
-          "environment": "cloudfoundry",
-          "name": "cf-eu11",
-          "region": "eu11"
-        },
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us10",
-          "region": "us10"
-        },
-        {
-          "displayName": "US Central (IA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us30",
-          "region": "us30"
-        },
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu10",
-          "region": "eu10"
-        }
-      ],
       "description": "Default Plan for Service Ticket Intelligence",
-      "displayName": "standard",
-      "free": false,
-      "name": "standard",
-      "provisioningMethod": "SERVICE_BROKER",
-      "schemas": null
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
     }
+         
   ],
   "supportedEnvironments": [
     "cloudfoundry",
-    "kymaruntime",
-    "sapbtp"
-  ]
+    "sapcp"
+]
 }

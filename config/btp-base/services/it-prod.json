@@ -1,101 +1,97 @@
 {
-  "description": "The SAP Cloud Integration connects cloud applications with other SAP and non-SAP cloud and on-premise apps.",
+  "name": "it-prod",
+  "description":  "The SAP Cloud Integration connects cloud applications with other SAP and non-SAP cloud and on-premise apps.",
   "displayName": "Process Integration",
   "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iaGNpcHJvY2Vzc2VzIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwYTZlZDE7fS5jbHMtMntmaWxsOiMwNTNiNzA7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5oY2lwcm9jZXNzZXM8L3RpdGxlPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQ5LDMySDQ2YTMsMywwLDAsMC0zLDIuOTkxbC0zLTEuMTY1VjMyYTIuOTE3LDIuOTE3LDAsMCwwLS41NTktMS42NDdsMy4zMzMtNC40Yy4wNzkuMDA2LjE0Ny4wNDYuMjI4LjA0NmgzYTMsMywwLDAsMCwzLTNWMjBhMywzLDAsMCwwLTMtM0g0M2EzLDMsMCwwLDAtMywzdjNhMi45NDUsMi45NDUsMCwwLDAsMS4zMDYsMi40MWwtMi45OCwzLjkzNUEyLjkzOSwyLjkzOSwwLDAsMCwzNywyOUgzNGEyLjkyLDIuOTIsMCwwLDAtMS40ODkuNDUybC0xLjk2NS0xLjk2NUEyLjkyLDIuOTIsMCwwLDAsMzEsMjZWMjNhMywzLDAsMCwwLTMtM0gyNWEzLDMsMCwwLDAtMywzdjNhMywzLDAsMCwwLDMsM2gzYTIuOTIsMi45MiwwLDAsMCwxLjQ4OS0uNDUybDEuOTY1LDEuOTY1QTIuOTIsMi45MiwwLDAsMCwzMSwzMnYyLjg1MWwtMy40NDEsMS42NzZBMi45NjMsMi45NjMsMCwwLDAsMjUsMzVIMjJhMywzLDAsMCwwLTMsM3YzYTMsMywwLDAsMCwzLDNoM2EzLDMsMCwwLDAsMy0zVjM4YzAtLjAwNiwwLS4wMTEsMC0uMDE4bDMuMzYyLTEuNjM3QTIuOTc2LDIuOTc2LDAsMCwwLDM0LDM4SDM1LjhsMS4xOCwzLjAwNUEzLDMsMCwwLDAsMzQsNDR2M2EzLDMsMCwwLDAsMywzaDNhMywzLDAsMCwwLDMtM1Y0NGEzLDMsMCwwLDAtMy0zSDM4LjU4NkwzNy4zOCwzNy45MjhBMi45NSwyLjk1LDAsMCwwLDM5LjkxOCwzNS40TDQzLDM2LjZWMzhhMywzLDAsMCwwLDMsM2gzYTMsMywwLDAsMCwzLTNWMzVBMywzLDAsMCwwLDQ5LDMyWk00MywyMGgzbDAsMCwwLDMtMywwWk0yOCwyNmwtMywwLDAtM2gzbDAsMFpNMjUsNDFsLTMsMCwwLTNoM2wwLDBabTktNiwwLTNoM2wwLDAsMCwzWm02LDksMCwwLDAsMy0zLDAsMC0zWm05LTYtMywwLDAtM2gzbDAsMFoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xOSwyOC45ODZIMTIuNDFhNS4zODcsNS4zODcsMCwwLDEtMS42NzUtMTAuNTE1bDIuMzA4LS43NTlMMTIuNzgxLDE1LjNhOC4xLDguMSwwLDAsMSwxLjUtNS4yODRBNi41LDYuNSwwLDAsMSwxOS4xMDksOGE2LjA1NCw2LjA1NCwwLDAsMSw1Ljg2NCw0LjAzM2wxLjMwNywzLjI5TDI5LjMxLDEzLjVhMy45MjIsMy45MjIsMCwwLDEsMi4wNDMtLjU5MSwzLjk4OCwzLjk4OCwwLDAsMSwzLjkxNCwzLjI0OWwuMTU5Ljg0NWgzYy0uMDQ3LS40MzktLjEwOC0uOTA1LS4yMS0xLjRhNi45NDEsNi45NDEsMCwwLDAtMTAuNDUzLTQuNjcyQTkuNDUyLDkuNDUyLDAsMCwwLDE5LjA1NSw1QzguNyw1LDkuOCwxNS42MjEsOS44LDE1LjYyMUE4LjM4Nyw4LjM4NywwLDAsMCwxMi40MSwzMS45ODZIMTlaIi8+PC9zdmc+",
-  "id": null,
-  "inventoryIds": [
-    "SERVICE-301"
-  ],
   "links": [
     {
-      "linkURL": "https://cloudintegration.hana.ondemand.com/PI/help",
-      "title": "Documentation"
+        "linkURL": "https://cloudintegration.hana.ondemand.com/PI/help",
+        "title": "Documentation"
     }
-  ],
-  "name": "it-prod",
-  "servicePlans": [
-    {
-      "category": "APPLICATION",
-      "dataCenters": [
-        {
-          "displayName": "Brazil (Sao Paulo)",
-          "environment": "cloudfoundry",
-          "name": "cf-br10",
-          "region": "br10"
-        },
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us21",
-          "region": "us21"
-        },
-        {
-          "displayName": "Singapore",
-          "environment": "cloudfoundry",
-          "name": "cf-ap21",
-          "region": "ap21"
-        },
-        {
-          "displayName": "Japan (Tokyo)",
-          "environment": "cloudfoundry",
-          "name": "cf-jp20",
-          "region": "jp20"
-        },
-        {
-          "displayName": "Canada (Montreal)",
-          "environment": "cloudfoundry",
-          "name": "cf-ca10",
-          "region": "ca10"
-        },
-        {
-          "displayName": "US West (WA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us20",
-          "region": "us20"
-        },
-        {
-          "displayName": "Japan (Tokyo)",
-          "environment": "cloudfoundry",
-          "name": "cf-jp10",
-          "region": "jp10"
-        },
-        {
-          "displayName": "Europe (Netherlands)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu20",
-          "region": "eu20"
-        },
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us10",
-          "region": "us10"
-        },
-        {
-          "displayName": "Singapore",
-          "environment": "cloudfoundry",
-          "name": "cf-ap11",
-          "region": "ap11"
-        },
-        {
-          "displayName": "Australia (Sydney)",
-          "environment": "cloudfoundry",
-          "name": "cf-ap10",
-          "region": "ap10"
-        },
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu10",
-          "region": "eu10"
-        }
-      ],
-      "description": "Process Integration",
+],
+  "servicePlans": [{
+      "name": "Process Integration",
       "displayName": "Process Integration",
-      "name": "enterprise",
-      "provisioningMethod": "NONE_REQUIRED",
-      "schemas": null
+      "category": "APPLICATION",
+      "description": "Process Integration",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-br10",
+          "displayName": "Brazil (Sao Paulo)",
+          "region": "br10"
+      },
+      
+      {
+          "name": "cf-us21",
+          "displayName": "US East (VA)",
+          "region": "us21"
+      },
+      
+      {
+          "name": "cf-ap21",
+          "displayName": "Singapore",
+          "region": "ap21"
+      },
+      
+      {
+          "name": "cf-jp20",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp20"
+      },
+      
+      {
+          "name": "cf-ca10",
+          "displayName": "Canada (Montreal)",
+          "region": "ca10"
+      },
+      
+      {
+          "name": "cf-us20",
+          "displayName": "US West (WA)",
+          "region": "us20"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-eu20",
+          "displayName": "Europe (Netherlands)",
+          "region": "eu20"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
     }
+         
   ],
-  "supportedEnvironments": "N/A"
+  "supportedEnvironments": [
+    "cloudfoundry"
+]
 }

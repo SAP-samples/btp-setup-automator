@@ -1,95 +1,89 @@
 {
-  "description": "SAP Automation Pilot provides out-of-the-box high-quality automation such as application restarts and reconfigurations, database restarts and updates, application and database health statuses, RCA, recommended actions, and more. Complex DevOps tasks are made simple without the need of having deep SAP Business Technology Platform knowledge. In addition, recommended actions are automated by using the SAP Alert Notification service for SAP BTP (sophisticated integration to immediately react on incoming alerts) or any other alerting system.",
+  "name": "automationpilot",
+  "description":  "SAP Automation Pilot provides out-of-the-box high-quality automation such as application restarts and reconfigurations, database restarts and updates, application and database health statuses, RCA, recommended actions, and more. Complex DevOps tasks are made simple without the need of having deep SAP Business Technology Platform knowledge. In addition, recommended actions are automated by using the SAP Alert Notification service for SAP BTP (sophisticated integration to immediately react on incoming alerts) or any other alerting system.",
   "displayName": "Automation Pilot",
   "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iYXV0b21hdGlvbi1waWxvdCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMDAzYjc0O30uY2xzLTJ7ZmlsbDojMDA2ZGQ3O308L3N0eWxlPjwvZGVmcz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zMi41MzIsMzkuNjA5bC0xLjM5NS44YTguMzI1LDguMzI1LDAsMCwxLS44MzQuNDE4cS0uNTIxLjIyMi0xLjExLjQ0M0wyNy4yNSw0MnY0aC00LjVWNDJMMjAuOCw0MS4yNjhjLS4zOTEtLjE0Ni0uNzU3LS4yOTItMS4xLS40NDFhNy41ODQsNy41ODQsMCwwLDEtLjgyNi0uNDE0bC0yLjA0NC0xLjE3OUwxNS4yLDQwLjk0M2wtMS4zMjEsMS4zODgtMy4yMTUtMy4yMTYsMS4zNjUtMS4zNjUsMS40MzctMS40MzctLjgtMS44NjhjLS4xODUtLjQzLS4zODYtLjg1OS0uNjEtMS4zMTNhMi44MzYsMi44MzYsMCwwLDEtLjIxOC0uNmwtLjU2MS0yLjI4NUg3di00LjVoNC4yN2wuNTYzLTIuMjgxYTIuOTc4LDIuOTc4LDAsMCwxLC4yMjYtLjYxNWMuMjE2LS40MzQuNDE5LS44NjguNjA2LTEuMzA2bC44LTEuODY0TDEyLjAyOCwxOC4yNWwtMS4zNjUtMS4zNjUsMy4yMjItMy4yMjMsMS4zNjUsMS4zNjYsMS40MzcsMS40MzcsMS44NjgtLjhxLjY1Mi0uMjgsMS4zLS42YTMuMTc2LDMuMTc2LDAsMCwxLC42MjgtLjIyOWwyLjI2OC0uNTdWMTBoNC41djQuMjU3bDIuMjY0LjU3M2EzLjE2MywzLjE2MywwLDAsMSwuNjE4LjIyM2MuNDM5LjIyMS44NzguNDI0LDEuMzIuNjEzbDEuMDguNDYxVjEyLjg2MWMtLjM1Mi0uMTUyLS43LS4zMTItMS4wNTItLjQ4OGE2LjE2Nyw2LjE2NywwLDAsMC0xLjIzLS40NTF2LTIuM0EyLjUyNywyLjUyNywwLDAsMCwyNy42MjUsN2gtNS4yNUEyLjUyNywyLjUyNywwLDAsMCwxOS43NSw5LjYyNXYyLjNhNi4wNTYsNi4wNTYsMCwwLDAtMS4yMy40NTFjLS4zODUuMTkyLS43NjcuMzY5LTEuMTQ5LjUzM2wtMS42NDEtMS42NGEyLjU1MywyLjU1MywwLDAsMC0xLjg4Ni0uNzM5LDIuNDQ5LDIuNDQ5LDAsMCwwLTEuOC43MzlMOC4yNjYsMTUuMDM5YTIuNDU0LDIuNDU0LDAsMCwwLS43MzksMS44MDUsMi43MywyLjczLDAsMCwwLC43MzksMS44ODZsMS42NCwxLjY0MWMtLjE2NC4zODUtLjM0My43NjctLjUzMywxLjE0OWE1LjkzLDUuOTMsMCwwLDAtLjQ1MSwxLjIzaC0yLjNBMi41MjcsMi41MjcsMCwwLDAsNCwyNS4zNzV2NS4yNWEyLjU4OSwyLjU4OSwwLDAsMCwuNzM4LDEuODQ2LDIuNDgzLDIuNDgzLDAsMCwwLDEuODg3Ljc3OWgyLjNhNS44MjYsNS44MjYsMCwwLDAsLjQ1MSwxLjIzYy4xOS4zODUuMzY5Ljc2Ny41MzMsMS4xNDlMOC4yNjYsMzcuMjdhMi42NzQsMi42NzQsMCwwLDAsMCwzLjY5MWwzLjc3MywzLjc3M2EyLjQ0OSwyLjQ0OSwwLDAsMCwxLjguNzM5LDIuNTUzLDIuNTUzLDAsMCwwLDEuODg2LS43MzlsMS42NDEtMS43MjJhMTAuNywxMC43LDAsMCwwLDEuMTQ5LjU3NGMuMzgxLjE2NC43OTIuMzI4LDEuMjMuNDkydjIuM2EyLjYsMi42LDAsMCwwLC43MzgsMS44NDZBMi40OSwyLjQ5LDAsMCwwLDIyLjM3NSw0OWg1LjI1YTIuNDkzLDIuNDkzLDAsMCwwLDEuODg3LS43NzksMi42LDIuNiwwLDAsMCwuNzM4LTEuODQ2di0yLjNxLjY1NC0uMjQ2LDEuMjMtLjQ5MmExMS4yMTMsMTEuMjEzLDAsMCwwLDEuMDUyLS41MjZaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDcuNSwzNS41YTQuNDk0LDQuNDk0LDAsMCwwLTQuMjI0LDNIMzkuMTIxbC02LTZIMzAuOTY2YTcuNDMzLDcuNDMzLDAsMCwwLDEuMzgzLTNoNC45MjdhNC41LDQuNSwwLDEsMCwwLTNIMzIuMzQ5YTcuNDMzLDcuNDMzLDAsMCwwLTEuMzgzLTNoMi4xNTVsNi02aDQuMTU1YTQuNSw0LjUsMCwxLDAsMC0zaC01LjRsLTYsNkgyNWE3LjUsNy41LDAsMCwwLDAsMTVoNi44NzlsNiw2aDUuNGE0LjQ5Miw0LjQ5MiwwLDEsMCw0LjIyNC02Wm0wLTIxQTEuNSwxLjUsMCwxLDEsNDYsMTYsMS41LDEuNSwwLDAsMSw0Ny41LDE0LjVabS02LDEyQTEuNSwxLjUsMCwxLDEsNDAsMjgsMS41LDEuNSwwLDAsMSw0MS41LDI2LjVaTTIwLjUsMjhBNC41LDQuNSwwLDEsMSwyNSwzMi41LDQuNTA1LDQuNTA1LDAsMCwxLDIwLjUsMjhabTI3LDEzLjVBMS41LDEuNSwwLDEsMSw0OSw0MCwxLjUsMS41LDAsMCwxLDQ3LjUsNDEuNVoiLz48L3N2Zz4=",
-  "id": null,
-  "inventoryIds": [
-    "SERVICE-463"
-  ],
   "links": [
     {
-      "linkURL": "https://help.sap.com/viewer/product/AUTOMATION_PILOT",
-      "title": "Documentation"
+        "linkURL": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english\u0026search=Supplement%20Business%20Technology%20Platform\u0026sort=latest_desc",
+        "title": "Business Technology Platform Supplemental Terms and Conditions"
     },
     {
-      "linkURL": "https://discovery-center.cloud.sap/#/serviceCatalog/automation-pilot",
-      "title": "Discovery Center"
+        "linkURL": "https://discovery-center.cloud.sap/#/serviceCatalog/automation-pilot",
+        "title": "Discovery Center"
     },
     {
-      "linkURL": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english\u0026search=Supplement%20Business%20Technology%20Platform\u0026sort=latest_desc",
-      "title": "Business Technology Platform Supplemental Terms and Conditions"
+        "linkURL": "https://help.sap.com/viewer/product/AUTOMATION_PILOT",
+        "title": "Documentation"
     }
-  ],
-  "name": "automationpilot",
-  "servicePlans": [
-    {
+],
+  "servicePlans": [{
+      "name": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "displayName": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
       "category": "APPLICATION",
-      "dataCenters": [
-        {
-          "displayName": "US Central (IA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us30",
-          "region": "us30"
-        },
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu10",
-          "region": "eu10"
-        },
-        {
-          "displayName": "Japan (Tokyo)",
-          "environment": "cloudfoundry",
-          "name": "cf-jp20",
-          "region": "jp20"
-        },
-        {
-          "displayName": "Australia (Sydney)",
-          "environment": "cloudfoundry",
-          "name": "cf-ap10",
-          "region": "ap10"
-        }
-      ],
       "description": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
-      "displayName": "free",
-      "name": "free",
-      "provisioningMethod": "NONE_REQUIRED",
-      "schemas": null
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      },
+      
+      {
+          "name": "cf-jp20",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp20"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      }
+      ]
     },
     {
-      "category": "APPLICATION",
-      "dataCenters": [
-        {
-          "displayName": "Australia (Sydney)",
-          "environment": "cloudfoundry",
-          "name": "cf-ap10",
-          "region": "ap10"
-        },
-        {
-          "displayName": "Japan (Tokyo)",
-          "environment": "cloudfoundry",
-          "name": "cf-jp20",
-          "region": "jp20"
-        },
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu10",
-          "region": "eu10"
-        },
-        {
-          "displayName": "US Central (IA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us30",
-          "region": "us30"
-        }
-      ],
-      "description": "standard",
-      "displayName": "Standard",
       "name": "standard",
-      "provisioningMethod": "NONE_REQUIRED",
-      "schemas": null
+      "displayName": "standard",
+      "category": "APPLICATION",
+      "description": "standard",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-jp20",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp20"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      },
+      
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      }
+      ]
     }
+         
   ],
-  "supportedEnvironments": "N/A"
+  "supportedEnvironments": [
+    "cloudfoundry"
+]
 }

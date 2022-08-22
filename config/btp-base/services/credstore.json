@@ -1,414 +1,401 @@
 {
-  "description": "The Credential Store provides a secure repository for passwords and keys to applications that are running on SAP Cloud Platform. It enables the applications to retrieve credentials and use them for authentication to external services, or to perform cryptographic operations and TLS communication. ",
+  "name": "credstore",
+  "description":  "The Credential Store provides a secure repository for passwords and keys to applications that are running on SAP Cloud Platform. It enables the applications to retrieve credentials and use them for authentication to external services, or to perform cryptographic operations and TLS communication. ",
   "displayName": "Credential Store",
   "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iY3JlZGVudGlhbC1zdG9yZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMGE2ZWQxO30uY2xzLTJ7ZmlsbDojMDUzYjcwO308L3N0eWxlPjwvZGVmcz48dGl0bGU+Y3JlZGVudGlhbC1zdG9yZTwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDkuMDA4LDM0SDE4Ljk5MkEyLjk5MywyLjk5MywwLDAsMCwxNiwzNi45OTJWNDkuMDA4QTIuOTkzLDIuOTkzLDAsMCwwLDE4Ljk5Miw1Mkg0OS4wMDhBMi45OTMsMi45OTMsMCwwLDAsNTIsNDkuMDA4VjM2Ljk5MkEyLjk5MywyLjk5MywwLDAsMCw0OS4wMDgsMzRaTTE5LDQ5LjAwOCwxOC45OTIsMzdINDlsLjAwOCwxMloiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yNy45LDQxLjE3NmEuNzUuNzUsMCwwLDAtMS4wMzEtLjI0N2wtMS4xMTIuNjgzVjQwLjQ0OGEuNzUuNzUsMCwwLDAtMS41LDB2MS4xNjRsLTEuMTEyLS42ODNhLjc1Ljc1LDAsMCwwLS43ODUsMS4yNzhsMS4yMTUuNzQ1LTEuMjE1Ljc0NmEuNzUuNzUsMCwwLDAsLjM5MywxLjM4OS43MzEuNzMxLDAsMCwwLC4zOTItLjExMmwxLjExMi0uNjgydjEuMjU5YS43NS43NSwwLDAsMCwxLjUsMFY0NC4yOTNsMS4xMTIuNjgyYS43MzQuNzM0LDAsMCwwLC4zOTMuMTEyLjc1Ljc1LDAsMCwwLC4zOTItMS4zODlsLTEuMjE0LS43NDYsMS4yMTQtLjc0NUEuNzQ5Ljc0OSwwLDAsMCwyNy45LDQxLjE3NloiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zNi44OTMsNDEuMTc2YS43NS43NSwwLDAsMC0xLjAzMS0uMjQ3bC0xLjExMi42ODNWNDAuNDQ4YS43NS43NSwwLDAsMC0xLjUsMHYxLjE2NGwtMS4xMTItLjY4M2EuNzUuNzUsMCwwLDAtLjc4NSwxLjI3OGwxLjIxNC43NDUtMS4yMTQuNzQ2YS43NS43NSwwLDAsMCwuMzkzLDEuMzg5LjczMy43MzMsMCwwLDAsLjM5Mi0uMTEybDEuMTEyLS42ODJ2MS4yNTlhLjc1Ljc1LDAsMCwwLDEuNSwwVjQ0LjI5M2wxLjExMi42ODJhLjczMy43MzMsMCwwLDAsLjM5Mi4xMTIuNzUuNzUsMCwwLDAsLjM5My0xLjM4OWwtMS4yMTQtLjc0NiwxLjIxNC0uNzQ1QS43NDkuNzQ5LDAsMCwwLDM2Ljg5Myw0MS4xNzZaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDUuOTQsNDEuMTc2YS43NS43NSwwLDAsMC0xLjAzMS0uMjQ3bC0xLjExMi42ODNWNDAuNDQ4YS43NS43NSwwLDAsMC0xLjUsMHYxLjE2NGwtMS4xMTItLjY4M2EuNzUuNzUsMCwwLDAtLjc4NSwxLjI3OGwxLjIxNC43NDVMNDAuNCw0My43YS43NS43NSwwLDAsMCwuMzkzLDEuMzg5LjczMy43MzMsMCwwLDAsLjM5Mi0uMTEybDEuMTEyLS42ODJ2MS4yNTlhLjc1Ljc1LDAsMCwwLDEuNSwwVjQ0LjI5M2wxLjExMi42ODJhLjczMy43MzMsMCwwLDAsLjM5Mi4xMTIuNzUuNzUsMCwwLDAsLjM5My0xLjM4OWwtMS4yMTQtLjc0NiwxLjIxNC0uNzQ1QS43NDkuNzQ5LDAsMCwwLDQ1Ljk0LDQxLjE3NloiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMiIgY3g9IjM1LjA0MyIgY3k9IjE3LjUiIHI9IjMiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik00Ny44NTQsMTIuN2ExNC44ODQsMTQuODg0LDAsMCwwLTcuNTgtNy41NThBMTMuMDM4LDEzLjAzOCwwLDAsMCwzNC45LDRhMTMuMjU0LDEzLjI1NCwwLDAsMC01LjQ2NSwxLjE0MywxNC41NTEsMTQuNTUxLDAsMCwwLTcuNDkyLDcuNDcsMTMuMTU0LDEzLjE1NCwwLDAsMC0xLjE0Niw1LjQ0OSw4LjQzOCw4LjQzOCwwLDAsMCwuNCwyLjY4MWMuMjY1Ljc5MS42MjgsMS41NTEuODYzLDIuMDc4TDUuNTQ1LDM5Ljg1OUE1Ljg2Nyw1Ljg2NywwLDAsMCw0LDQzLjQxYTUuMzEsNS4zMSwwLDAsMCwuMzU1LDIuMzgyLDguNTY0LDguNTY0LDAsMCwwLC45MjUsMS40NSw0LjQ2Myw0LjQ2MywwLDAsMCwyLjQxMiwxLjU0M0E0LjUxNiw0LjUxNiwwLDAsMCw5LjUxMSw0OUgxM1Y0Nkg5LjYxOGwtLjUzMi0uMDIxYTIuMjM1LDIuMjM1LDAsMCwxLTIuMjIyLTIuMjIzLDIuNTMzLDIuNTMzLDAsMCwxLC42NzctMS42NjksNC4wNzQsNC4wNzQsMCwwLDEsLjQ4Ni0uNTQ1TDI0LjE4NSwyNC44OTRsMS42NzUtMS42NXMtLjk4OS0xLjM4OC0xLjMtMS45NzFhOC4zNjksOC4zNjksMCwwLDEtLjc2OC0zLjIxMSw5LjgsOS44LDAsMCwxLC44OC00LjIxNSwxMS41NTUsMTEuNTU1LDAsMCwxLDUuOTgtNS45NjVBMTAuMjE0LDEwLjIxNCwwLDAsMSwzNC45LDdhOS45NjUsOS45NjUsMCwwLDEsNC4xNTEuODgxLDExLjg4MSwxMS44ODEsMCwwLDEsNi4wNzEsNi4wNTIsMTAuMTE3LDEwLjExNywwLDAsMSwwLDguMjYzLDExLjg4LDExLjg4LDAsMCwxLTYuMDcxLDYuMDQ5LDkuOTM0LDkuOTM0LDAsMCwxLTQuMTQ5Ljg4SDI2LjI1NnYzSDM0LjlhMTIuOTksMTIuOTksMCwwLDAsNS4zNzctMS4xNDMsMTQuODg0LDE0Ljg4NCwwLDAsMCw3LjU4LTcuNTU4LDEzLjExNSwxMy4xMTUsMCwwLDAsMC0xMC43MjNaIi8+PC9zdmc+",
-  "id": "a27f0aa1-1df1-4239-8881-157bcca66364",
-  "inventoryIds": [
-    "SERVICE-302"
-  ],
   "links": [
     {
-      "linkURL": "https://help.sap.com/viewer/product/CREDENTIAL_STORE/Cloud/en-US",
-      "title": "Documentation"
+        "linkURL": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english\u0026search=Supplement%20Business%20Technology%20Platform\u0026sort=latest_desc",
+        "title": "Business Technology Platform Supplemental Terms and Conditions"
     },
     {
-      "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/credential-store",
-      "title": "Discovery Center"
+        "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/credential-store",
+        "title": "Discovery Center"
     },
     {
-      "linkURL": "https://help.sap.com/viewer/601525c6e5604e4192451d5e7328fa3c/Cloud/en-US/c6ebd580c0a642e9a99dbb8ae5c6c562.html",
-      "title": "Support"
+        "linkURL": "https://help.sap.com/viewer/product/CREDENTIAL_STORE/Cloud/en-US",
+        "title": "Documentation"
     },
     {
-      "linkURL": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english\u0026search=Supplement%20Business%20Technology%20Platform\u0026sort=latest_desc",
-      "title": "Business Technology Platform Supplemental Terms and Conditions"
+        "linkURL": "https://help.sap.com/viewer/601525c6e5604e4192451d5e7328fa3c/Cloud/en-US/ad63368e8e6f44a1b3ac336e8d1c32b8.html",
+        "title": "Documentation"
     },
     {
-      "linkURL": "https://help.sap.com/viewer/601525c6e5604e4192451d5e7328fa3c/Cloud/en-US/ad63368e8e6f44a1b3ac336e8d1c32b8.html",
-      "title": "Documentation"
+        "linkURL": "https://help.sap.com/viewer/601525c6e5604e4192451d5e7328fa3c/Cloud/en-US/c6ebd580c0a642e9a99dbb8ae5c6c562.html",
+        "title": "Support"
     }
-  ],
-  "name": "credstore",
-  "servicePlans": [
-    {
+],
+  "servicePlans": [{
+      "name": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "displayName": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
       "category": "SERVICE",
-      "dataCenters": [
-        {
-          "displayName": "cf-ch20",
-          "environment": "cloudfoundry",
-          "name": "cf-ch20",
-          "region": "ch20"
-        },
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu30",
-          "region": "eu30"
-        },
-        {
-          "displayName": "India (Mumbai)",
-          "environment": "cloudfoundry",
-          "name": "cf-in30",
-          "region": "in30"
-        },
-        {
-          "displayName": "US West (WA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us20",
-          "region": "us20"
-        },
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us10",
-          "region": "us10"
-        },
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us21",
-          "region": "us21"
-        },
-        {
-          "displayName": "US Central (IA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us30",
-          "region": "us30"
-        },
-        {
-          "displayName": "Singapore",
-          "environment": "cloudfoundry",
-          "name": "cf-ap21",
-          "region": "ap21"
-        },
-        {
-          "displayName": "South Korea (Seoul)",
-          "environment": "cloudfoundry",
-          "name": "cf-ap12",
-          "region": "ap12"
-        },
-        {
-          "displayName": "Singapore",
-          "environment": "cloudfoundry",
-          "name": "cf-ap11",
-          "region": "ap11"
-        },
-        {
-          "displayName": "Japan (Tokyo)",
-          "environment": "cloudfoundry",
-          "name": "cf-jp20",
-          "region": "jp20"
-        },
-        {
-          "displayName": "Japan (Tokyo)",
-          "environment": "cloudfoundry",
-          "name": "cf-jp10",
-          "region": "jp10"
-        },
-        {
-          "displayName": "Europe (Netherlands)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu20",
-          "region": "eu20"
-        },
-        {
-          "displayName": "Europe (Frankfurt) EU Access - AWS",
-          "environment": "cloudfoundry",
-          "name": "cf-eu11",
-          "region": "eu11"
-        },
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu10",
-          "region": "eu10"
-        },
-        {
-          "displayName": "Canada (Montreal)",
-          "environment": "cloudfoundry",
-          "name": "cf-ca10",
-          "region": "ca10"
-        },
-        {
-          "displayName": "Brazil (Sao Paulo)",
-          "environment": "cloudfoundry",
-          "name": "cf-br10",
-          "region": "br10"
-        },
-        {
-          "displayName": "Australia (Sydney) Azure",
-          "environment": "cloudfoundry",
-          "name": "cf-ap20",
-          "region": "ap20"
-        },
-        {
-          "displayName": "Australia (Sydney)",
-          "environment": "cloudfoundry",
-          "name": "cf-ap10",
-          "region": "ap10"
-        }
-      ],
       "description": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
-      "displayName": "free",
-      "free": true,
-      "name": "free",
-      "provisioningMethod": "SERVICE_BROKER",
-      "schemas": null
-    },
-    {
-      "category": "SERVICE",
-      "dataCenters": [
-        {
-          "displayName": "cf-ch20",
-          "environment": "cloudfoundry",
+      "schemas": null,
+      "dataCenters":[
+      {
           "name": "cf-ch20",
+          "displayName": "cf-ch20",
           "region": "ch20"
-        },
-        {
-          "displayName": "India (Mumbai)",
-          "environment": "cloudfoundry",
-          "name": "cf-in30",
-          "region": "in30"
-        },
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
+      },
+      
+      {
           "name": "cf-eu30",
-          "region": "eu30"
-        },
-        {
-          "displayName": "Australia (Sydney) Azure",
-          "environment": "cloudfoundry",
-          "name": "cf-ap20",
-          "region": "ap20"
-        },
-        {
-          "displayName": "South Korea (Seoul)",
-          "environment": "cloudfoundry",
-          "name": "cf-ap12",
-          "region": "ap12"
-        },
-        {
-          "displayName": "Europe (Frankfurt) EU Access - AWS",
-          "environment": "cloudfoundry",
-          "name": "cf-eu11",
-          "region": "eu11"
-        },
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us21",
-          "region": "us21"
-        },
-        {
-          "displayName": "Singapore",
-          "environment": "cloudfoundry",
-          "name": "cf-ap21",
-          "region": "ap21"
-        },
-        {
-          "displayName": "US Central (IA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us30",
-          "region": "us30"
-        },
-        {
-          "displayName": "Japan (Tokyo)",
-          "environment": "cloudfoundry",
-          "name": "cf-jp20",
-          "region": "jp20"
-        },
-        {
-          "displayName": "Canada (Montreal)",
-          "environment": "cloudfoundry",
-          "name": "cf-ca10",
-          "region": "ca10"
-        },
-        {
-          "displayName": "US West (WA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us20",
-          "region": "us20"
-        },
-        {
-          "displayName": "Singapore",
-          "environment": "cloudfoundry",
-          "name": "cf-ap11",
-          "region": "ap11"
-        },
-        {
-          "displayName": "Japan (Tokyo)",
-          "environment": "cloudfoundry",
-          "name": "cf-jp10",
-          "region": "jp10"
-        },
-        {
-          "displayName": "Europe (Netherlands)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu20",
-          "region": "eu20"
-        },
-        {
-          "displayName": "Australia (Sydney)",
-          "environment": "cloudfoundry",
-          "name": "cf-ap10",
-          "region": "ap10"
-        },
-        {
-          "displayName": "Brazil (Sao Paulo)",
-          "environment": "cloudfoundry",
-          "name": "cf-br10",
-          "region": "br10"
-        },
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us10",
-          "region": "us10"
-        },
-        {
           "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
+          "region": "eu30"
+      },
+      
+      {
+          "name": "cf-in30",
+          "displayName": "India (Mumbai)",
+          "region": "in30"
+      },
+      
+      {
+          "name": "cf-us20",
+          "displayName": "US West (WA)",
+          "region": "us20"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-us21",
+          "displayName": "US East (VA)",
+          "region": "us21"
+      },
+      
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      },
+      
+      {
+          "name": "cf-ap21",
+          "displayName": "Singapore",
+          "region": "ap21"
+      },
+      
+      {
+          "name": "cf-ap12",
+          "displayName": "South Korea (Seoul)",
+          "region": "ap12"
+      },
+      
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-jp20",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp20"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-eu20",
+          "displayName": "Europe (Netherlands)",
+          "region": "eu20"
+      },
+      
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
           "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
           "region": "eu10"
-        }
-      ],
-      "description": "Standard plan",
-      "displayName": "standard",
-      "free": false,
-      "name": "standard",
-      "provisioningMethod": "SERVICE_BROKER",
-      "schemas": null
+      },
+      
+      {
+          "name": "cf-ca10",
+          "displayName": "Canada (Montreal)",
+          "region": "ca10"
+      },
+      
+      {
+          "name": "cf-br10",
+          "displayName": "Brazil (Sao Paulo)",
+          "region": "br10"
+      },
+      
+      {
+          "name": "cf-ap20",
+          "displayName": "Australia (Sydney) Azure",
+          "region": "ap20"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      }
+      ]
     },
     {
+      "name": "Proxy plan",
+      "displayName": "Proxy plan",
       "category": "ELASTIC_SERVICE",
-      "dataCenters": [
-        {
-          "displayName": "cf-ch20",
-          "environment": "cloudfoundry",
-          "name": "cf-ch20",
-          "region": "ch20"
-        },
-        {
-          "displayName": "India (Mumbai)",
-          "environment": "cloudfoundry",
-          "name": "cf-in30",
-          "region": "in30"
-        },
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu30",
-          "region": "eu30"
-        },
-        {
-          "displayName": "Australia (Sydney) Azure",
-          "environment": "cloudfoundry",
-          "name": "cf-ap20",
-          "region": "ap20"
-        },
-        {
-          "displayName": "South Korea (Seoul)",
-          "environment": "cloudfoundry",
-          "name": "cf-ap12",
-          "region": "ap12"
-        },
-        {
-          "displayName": "Europe (Frankfurt) EU Access - AWS",
-          "environment": "cloudfoundry",
-          "name": "cf-eu11",
-          "region": "eu11"
-        },
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us21",
-          "region": "us21"
-        },
-        {
-          "displayName": "Singapore",
-          "environment": "cloudfoundry",
-          "name": "cf-ap21",
-          "region": "ap21"
-        },
-        {
-          "displayName": "Japan (Tokyo)",
-          "environment": "cloudfoundry",
-          "name": "cf-jp20",
-          "region": "jp20"
-        },
-        {
-          "displayName": "US West (WA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us20",
-          "region": "us20"
-        },
-        {
-          "displayName": "Canada (Montreal)",
-          "environment": "cloudfoundry",
-          "name": "cf-ca10",
-          "region": "ca10"
-        },
-        {
-          "displayName": "Singapore",
-          "environment": "cloudfoundry",
-          "name": "cf-ap11",
-          "region": "ap11"
-        },
-        {
-          "displayName": "Australia (Sydney)",
-          "environment": "cloudfoundry",
-          "name": "cf-ap10",
-          "region": "ap10"
-        },
-        {
-          "displayName": "Japan (Tokyo)",
-          "environment": "cloudfoundry",
-          "name": "cf-jp10",
-          "region": "jp10"
-        },
-        {
-          "displayName": "Europe (Netherlands)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu20",
-          "region": "eu20"
-        },
-        {
-          "displayName": "Brazil (Sao Paulo)",
-          "environment": "cloudfoundry",
-          "name": "cf-br10",
-          "region": "br10"
-        },
-        {
-          "displayName": "US Central (IA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us30",
-          "region": "us30"
-        },
-        {
-          "displayName": "US East (VA)",
-          "environment": "cloudfoundry",
-          "name": "cf-us10",
-          "region": "us10"
-        },
-        {
-          "displayName": "Europe (Frankfurt)",
-          "environment": "cloudfoundry",
-          "name": "cf-eu10",
-          "region": "eu10"
-        }
-      ],
       "description": "Proxy plan",
-      "displayName": "proxy",
-      "free": true,
-      "name": "proxy",
-      "provisioningMethod": "SERVICE_BROKER",
-      "schemas": null
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-ch20",
+          "displayName": "cf-ch20",
+          "region": "ch20"
+      },
+      
+      {
+          "name": "cf-in30",
+          "displayName": "India (Mumbai)",
+          "region": "in30"
+      },
+      
+      {
+          "name": "cf-eu30",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu30"
+      },
+      
+      {
+          "name": "cf-ap20",
+          "displayName": "Australia (Sydney) Azure",
+          "region": "ap20"
+      },
+      
+      {
+          "name": "cf-ap12",
+          "displayName": "South Korea (Seoul)",
+          "region": "ap12"
+      },
+      
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-us21",
+          "displayName": "US East (VA)",
+          "region": "us21"
+      },
+      
+      {
+          "name": "cf-ap21",
+          "displayName": "Singapore",
+          "region": "ap21"
+      },
+      
+      {
+          "name": "cf-jp20",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp20"
+      },
+      
+      {
+          "name": "cf-us20",
+          "displayName": "US West (WA)",
+          "region": "us20"
+      },
+      
+      {
+          "name": "cf-ca10",
+          "displayName": "Canada (Montreal)",
+          "region": "ca10"
+      },
+      
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-eu20",
+          "displayName": "Europe (Netherlands)",
+          "region": "eu20"
+      },
+      
+      {
+          "name": "cf-br10",
+          "displayName": "Brazil (Sao Paulo)",
+          "region": "br10"
+      },
+      
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    },
+    {
+      "name": "Standard plan",
+      "displayName": "Standard plan",
+      "category": "SERVICE",
+      "description": "Standard plan",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-ch20",
+          "displayName": "cf-ch20",
+          "region": "ch20"
+      },
+      
+      {
+          "name": "cf-in30",
+          "displayName": "India (Mumbai)",
+          "region": "in30"
+      },
+      
+      {
+          "name": "cf-eu30",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu30"
+      },
+      
+      {
+          "name": "cf-ap20",
+          "displayName": "Australia (Sydney) Azure",
+          "region": "ap20"
+      },
+      
+      {
+          "name": "cf-ap12",
+          "displayName": "South Korea (Seoul)",
+          "region": "ap12"
+      },
+      
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-us21",
+          "displayName": "US East (VA)",
+          "region": "us21"
+      },
+      
+      {
+          "name": "cf-ap21",
+          "displayName": "Singapore",
+          "region": "ap21"
+      },
+      
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      },
+      
+      {
+          "name": "cf-jp20",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp20"
+      },
+      
+      {
+          "name": "cf-ca10",
+          "displayName": "Canada (Montreal)",
+          "region": "ca10"
+      },
+      
+      {
+          "name": "cf-us20",
+          "displayName": "US West (WA)",
+          "region": "us20"
+      },
+      
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-eu20",
+          "displayName": "Europe (Netherlands)",
+          "region": "eu20"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-br10",
+          "displayName": "Brazil (Sao Paulo)",
+          "region": "br10"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
     }
+         
   ],
   "supportedEnvironments": [
     "cloudfoundry",
     "kymaruntime",
     "sapbtp"
-  ]
+]
 }
