@@ -1,0 +1,32 @@
+{
+  "name": "MDMBusinessPartnerApplication",
+  "description":  "SAP Business Partner Application",
+  "displayName": "SAP Business Partner Application",
+  "icon": null,
+  "links": null,
+  "servicePlans": [{
+      "name": "SAP Cloud Platform Master Data Management for business partners",
+      "displayName": "SAP Cloud Platform Master Data Management for business partners",
+      "category": "APPLICATION",
+      "description": "SAP Cloud Platform Master Data Management for business partners",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    }
+         
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+]
+}

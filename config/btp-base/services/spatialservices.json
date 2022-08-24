@@ -1,0 +1,61 @@
+{
+  "name": "spatialservices",
+  "description":  "SAP HANA spatial services provides a unified access layer for location-based services, including maps for visualization, geocoding and routing capabilities. It integrates location-based content and services from external providers into SAP products and customer applications.",
+  "displayName": "SAP HANA spatial services",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0ic2FwLWhhbmEtc3BhdGlhbC1zZXJ2aWNlcyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMDUzYjcwO30uY2xzLTJ7ZmlsbDojMGE2ZWQxO308L3N0eWxlPjwvZGVmcz48dGl0bGU+c2FwLWhhbmEtc3BhdGlhbC1zZXJ2aWNlczwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDQuODI0LDE5LjU5Yy4wMTUuMDM1LjAzOS4wNjQuMDU0LjFBMTcuNDE0LDE3LjQxNCwwLDAsMSw0NS45NDEsMjMuNEM0Ny45NTgsMjQuNTI0LDQ5LDI1LjY5MSw0OSwyNi41NTJjMCwxLjk1OC01LjEyMyw1LjQ1NS0xNS4xMzMsNi40NTVhMTUuODYyLDE1Ljg2MiwwLDAsMS0xLjE2MSwzLjEzMUM0My45MTEsMzUuMzE0LDUyLDMxLjM1LDUyLDI2LjU1Miw1MiwyMy44MjUsNDkuMjUsMjEuMzYyLDQ0LjgyNCwxOS41OVoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yNS4zMTMsMjcuOTNhMS41LDEuNSwwLDEsMC0yLjEyMSwyLjEyMWwzLjIzOCwzLjIzOC0uNDYzLS4wMUMxMy42ODEsMzIuODYsNywyOC43MzEsNywyNi41NTJjMC0uODM5LDEtMS45NjgsMi45MTctMy4wNjRBMTcuNTIxLDE3LjUyMSwwLDAsMSwxMSwxOS42OWMuMDA2LS4wMTUuMDE3LS4wMjguMDIzLS4wNDNDNi42ODMsMjEuNDE1LDQsMjMuODU2LDQsMjYuNTUyYzAsNS4xNzMsOS44ODUsOS40LDIyLjM4Miw5LjczNmguNDUzTDIzLjE5MiwzOS45M2ExLjUsMS41LDAsMSwwLDIuMTIxLDIuMTIxbDYtNmExLjUsMS41LDAsMCwwLDAtMi4xMjFaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMzcuMzc1LDQxLjI0OGExNS4zMjEsMTUuMzIxLDAsMCwxLTUuMjMyLDIuNjYxLDE3LjUsMTcuNSwwLDAsMCwzLjExNy01Yy0uNzYyLjA4Ni0xLjUzOC4xNi0yLjMzNC4yMTlsLTEuMTQ5LjA4NGMtLjI1MS40NDMtLjQ4OS45LS43NzEsMS4zYTEwLjIyNiwxMC4yMjYsMCwwLDEtMi45ODMsMy4wNDgsMy42MjYsMy42MjYsMCwwLDEtMi43MDguNzI5LDYuMDUzLDYuMDUzLDAsMCwxLTIuMzU0LS41NjIsMjIuMDg3LDIyLjA4NywwLDAsMS00LjQyNy0yLjQ4NywxNC42LDE0LjYsMCwwLDEtMy0zLjI4NywzOS44NzIsMzkuODcyLDAsMCwxLTQuMjc5LTEuMjE4LDE4LjE4MywxOC4xODMsMCwwLDAsOS41NCw5LjMzLDE4LDE4LDAsMCwwLDcuMTQ1LDEuNDM2LDE4LjI2MywxOC4yNjMsMCwwLDAsMTMuMDI5LTUuMzg1LDE4Ljg3OSwxOC44NzksMCwwLDAsMy41Ni01LjJBMzguMTQyLDM4LjE0MiwwLDAsMSw0MC4yNTUsMzguMSwxNC41NzEsMTQuNTcxLDAsMCwxLDM3LjM3NSw0MS4yNDhaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTIuNTYzLDI2Ljg2N2ExNS4wMjMsMTUuMDIzLDAsMCwxLC4xNy0yLjI2MSwxMy41LDEzLjUsMCwwLDEsLjQzMS0xLjg2NGg1Ljc2OWMtLjA3Ny41NzItLjE1LDEuMTU4LS4yMjYsMS43NThhMTguODMzLDE4LjgzMywwLDAsMC0uMTQ0LDIuMzY3LDI0Ljg1NywyNC44NTcsMCwwLDAsLjE0MywyLjUzcTEuNDg0LjI4NywzLjExNy40ODljLS4wNC0uMjYtLjA4OS0uNTI2LS4xMjItLjc4MmExNy42LDE3LjYsMCwwLDEtLjEzOC0yLjIzNywxOC40NjUsMTguNDY1LDAsMCwxLC4xMzgtMi4yNzNjLjA3OS0uNjMxLjE3Ni0xLjI1My4yOS0xLjg1MkgzMy45NTZhMjIuOTIyLDIyLjkyMiwwLDAsMSwuMzU3LDQuMTI1LDIzLjg2NCwyMy44NjQsMCwwLDEtLjIxLDMuMDA5YzEuMDU4LS4xMzMsMi4wODUtLjMwNiwzLjA3Mi0uNTE2YTI0LjcxMSwyNC43MTEsMCwwLDAsLjEzOC0yLjQ5MywyMy44OTMsMjMuODkzLDAsMCwwLS4zNDUtNC4xMjVoNS44MDZhMTUuNDI0LDE1LjQyNCwwLDAsMSwuNTM5LDQuMTI1YzAsLjIzNi0uMDM0LjQ1OC0uMDQzLjY5YTI1LjIsMjUuMiwwLDAsMCwzLjAxLTEuMzc1LDE4LjEyOCwxOC4xMjgsMCwwLDAtMS40LTYuNDkyLDE4LjMwNiwxOC4zMDYsMCwwLDAtMTYuOTQtMTEuMiwxNy45ODIsMTcuOTgyLDAsMCwwLTcuMTQ1LDEuNDM3LDE4LjkxNiwxOC45MTYsMCwwLDAtNS44NDUsMy45MUExOC4xMzUsMTguMTM1LDAsMCwwLDkuNTg1LDI2LjQyNmExOS42MjcsMTkuNjI3LDAsMCwwLDMuMDQ2LDEuMzQ3QzEyLjYxMywyNy40NjgsMTIuNTYzLDI3LjE3NywxMi41NjMsMjYuODY3Wk0zNy4zNCwxNC43MTZhMTUuNTYyLDE1LjU2MiwwLDAsMSw0LjE5Miw1LjAyNkgzNi4zMDZhMTguMzQ4LDE4LjM0OCwwLDAsMC00LjIxMy03LjY2N0ExNC44MzQsMTQuODM0LDAsMCwxLDM3LjM0LDE0LjcxNlptLTkuNC0yLjE4MWExMC4yMDksMTAuMjA5LDAsMCwxLDMuMDY4LDIuOTEyLDE3LjQzLDE3LjQzLDAsMCwxLDIuMTc0LDQuM0gyMi43NTNhMTUuNDc0LDE1LjQ3NCwwLDAsMSwyLjE0Ny00LjI5QTEwLjkyNCwxMC45MjQsMCwwLDEsMjcuOTQxLDEyLjUzNVptLTkuNCwyLjE4MWExNC44MjIsMTQuODIyLDAsMCwxLDUuMjc0LTIuNjQ4LDE4LjIxMiwxOC4yMTIsMCwwLDAtNC4xNzIsNy42NzRIMTQuMzQ1QTE1LjU2MiwxNS41NjIsMCwwLDEsMTguNTM3LDE0LjcxNloiLz48L3N2Zz4=",
+  "links": [
+    {
+        "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/sap-hana-spatial-services",
+        "title": "Discovery Center"
+    },
+    {
+        "linkURL": "https://help.sap.com/viewer/product/SAP_HANA_SPATIAL_SERVICES/latest/",
+        "title": "Documentation"
+    },
+    {
+        "linkURL": "https://help.sap.com/viewer/product/SAP_HANA_SPATIAL_SERVICES",
+        "title": "Documentation"
+    }
+],
+  "servicePlans": [{
+      "name": "Provides access to HANA spatial services capabilities.",
+      "displayName": "Provides access to HANA spatial services capabilities.",
+      "category": "ELASTIC_SERVICE",
+      "description": "Provides access to HANA spatial services capabilities.",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    },
+    {
+      "name": "Provides full access to HANA spatial services capabilities.",
+      "displayName": "Provides full access to HANA spatial services capabilities.",
+      "category": "ELASTIC_SERVICE",
+      "description": "Provides full access to HANA spatial services capabilities.",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    }
+         
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
+]
+}

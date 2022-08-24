@@ -1,6 +1,16 @@
+{% macro addSchemaIfExists(plan) -%}
+{% if plan.schemas is defined and plan.schemas.service_instance is defined and plan.schemas.service_instance.create is defined and plan.schemas.service_instance.create.parameters is defined -%}
+, "parameters" : {{ plan.schemas.service_instance.create.parameters | tojson }}
+{% endif %}
+{%- endmacro -%}
+{% macro addRequiredFieldIfSchemaExists(plan) -%}
+{% if plan.schemas is defined and plan.schemas.service_instance is defined and plan.schemas.service_instance.create is defined and plan.schemas.service_instance.create.parameters is defined -%}
+, "required" : ["parameters"]
+{% endif %}
+{%- endmacro -%}
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "JSON Schema for BTPSA parameters",
+    "title": "New JSON Schema for BTPSA parameters",
     "description": "Provide BTPSA parameters",
     "type": "object",
     "additionalProperties": false,
@@ -83,7 +93,7 @@
                         "type": "string",
                         "title": "environment in which the service should be created",
                         "default": "cloudfoundry",
-                        "enum": ["cloudfoundry", "kymaruntime", "other"]
+                        "enum": ["cloudfoundry", "kymaruntime", "sapbtp"]
                     },
                     "plan": {
                         "type": "string",
@@ -188,11 +198,8 @@
                                             "if": { "properties": { "name": { "const": "{{ service.name }}"} } },
                                             "then" :{
                                                 "properties": { 
-                                                    "plan": { "enum": [{% for plan in service.servicePlans -%}"{{ plan.name }}"{% if not loop.last %}, {%- endif %}{% endfor -%}] },
-                                                    "name": { "description": "{{ service.displayName }}: {{ service.description | trim }}"} {% if service.refs is defined %},{% endif %}
-                                                    {% for ref in service.refs -%}
-                                                        "{{ ref.attribute }}": { "$ref": "#/$defs/{{ ref.name }}" }
-                                                    {% if not loop.last %}, {%- endif %}{% endfor -%}
+                                                    "plan": { "enum": [{% for plan in service.servicePlans-%}"{{ plan.name }}"{% if not loop.last %}, {%- endif %}{% endfor -%}] },
+                                                    "name": { "description": "{{ service.displayName }}: {{ service.description | trim }}"}
                                                 }, 
                                                 "allOf": [
                                                     {% for plan in service.servicePlans -%}
@@ -200,12 +207,9 @@
                                                         "if": { "properties": { "plan": { "const": "{{ plan.name }}"} } },
                                                         "then" :{
                                                             "properties": { 
-                                                                "plan": { "description": "{{ category.name.lower() }} plan >{{ plan.name }}< for >{{ service.name }}< is available in data centers:{% for datacenter in plan.dataCenters -%}\n- {{ datacenter }}{% if not loop.last %}{% endif %}{% endfor %}" } {% if plan.jsonschemarefs is defined %},{% endif %}
-                                                                {% for ref in plan.jsonschemarefs -%}
-                                                                    "{{ ref.attribute }}": { "$ref": "#/$defs/{{ ref.name }}" }
-                                                                {% if not loop.last %}, {%- endif %}{% endfor -%}
-                                                                }{% if plan.jsonschemarefs is defined -%},
-                                                            "required": [{% for ref in plan.jsonschemarefs -%}"{{ ref.attribute }}"{% if not loop.last %}, {%- endif %}{% endfor -%}] {% endif %}
+                                                                "plan": { "description": "{{ category.name.lower() }} plan >{{ plan.name }}< for >{{ service.name }}< is available in data centers:{% for datacenter in plan.dataCenters -%}\n- {{ datacenter }}{% if not loop.last %}{% endif %}{% endfor %}" } 
+                                                                {{ addSchemaIfExists(plan) }}
+                                                            }{{ addRequiredFieldIfSchemaExists(plan) }}
                                                         }
                                                     }{% if not loop.last %}, {% endif -%}
                                                     {% endfor -%}
@@ -322,10 +326,5 @@
                 }
             }
         }
-    },
-    "$defs": {
-        {% for thisDef in jsonSchemaDefs -%}
-            "{{ thisDef.name }}": {{ thisDef.value | tojson}}{% if not loop.last %}, {% endif %}
-        {% endfor -%}
     }
 }

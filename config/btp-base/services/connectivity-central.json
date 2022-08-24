@@ -1,0 +1,37 @@
+{
+  "name": "connectivity-central",
+  "description":  "Connectivity (for scale-out build-out)",
+  "displayName": "Connectivity (for scale-out build-out)",
+  "icon": null,
+  "links": [
+    {
+        "linkURL": "https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/34010ace6ac84574a4ad02f5055d3597.html",
+        "title": "Documentation"
+    },
+    {
+        "linkURL": "https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/e5580c5dbb5710149e53c6013301a9f2.html",
+        "title": "Support information"
+    }
+],
+  "servicePlans": [{
+      "name": "Pair Connectivity Proxy with SAP CP Connectivity service for establishing secure connections to on-premise systems through SAP Cloud Connector",
+      "displayName": "Pair Connectivity Proxy with SAP CP Connectivity service for establishing secure connections to on-premise systems through SAP Cloud Connector",
+      "category": "ELASTIC_SERVICE",
+      "description": "Pair Connectivity Proxy with SAP CP Connectivity service for establishing secure connections to on-premise systems through SAP Cloud Connector",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    }
+         
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
+]
+}

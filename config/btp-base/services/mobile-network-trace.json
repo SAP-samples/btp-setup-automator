@@ -1,0 +1,69 @@
+{
+  "name": "mobile-network-trace",
+  "description":  "Mobile Network Trace",
+  "displayName": "Mobile Network Trace",
+  "icon": null,
+  "links": [
+    {
+        "linkURL": "https://help.sap.com/viewer/468990a67780424a9e66eb096d4345bb/Cloud/en-US/25b620d388d743b5880113a0fb1938d0.html",
+        "title": "Documentation"
+    },
+    {
+        "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
+        "title": "Support information"
+    },
+    {
+        "linkURL": "https://mobile-service-cockpit-web.cfapps.br10.hana.ondemand.com",
+        "title": "Support information"
+    }
+],
+  "servicePlans": [{
+      "name": "Mobile Network Trace collects network trace information from mobile applications for debugging",
+      "displayName": "Mobile Network Trace collects network trace information from mobile applications for debugging",
+      "category": "SERVICE",
+      "description": "Mobile Network Trace collects network trace information from mobile applications for debugging",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-br10",
+          "displayName": "Brazil (Sao Paulo)",
+          "region": "br10"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    }
+         
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+]
+}

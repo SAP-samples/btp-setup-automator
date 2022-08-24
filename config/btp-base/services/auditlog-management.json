@@ -1,0 +1,149 @@
+{
+  "name": "auditlog-management",
+  "description":  "SAP Audit Log Management service helps to retrieve logs and change retention.",
+  "displayName": "Audit Log Management Service",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iYXVkaXRsb2ctbWFuYWdlbWVudCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojNWE3YTk0O30uY2xzLTJ7ZmlsbDojMDA5MmQxO308L3N0eWxlPjwvZGVmcz48dGl0bGU+YXVkaXRsb2ctbWFuYWdlbWVudDwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDAuNjA4LDEwLjg0M0EyLjk3LDIuOTcsMCwwLDAsMzguNSwxMEgzMi4yMThhNS4yNzYsNS4yNzYsMCwwLDAtMS4zNTktMS45MjEsNC4xLDQuMSwwLDAsMC0yLjItLjk4NSw1Ljg1Miw1Ljg1MiwwLDAsMC0yLjEwOS0yLjI0OUE1LjY2MSw1LjY2MSwwLDAsMCwyMy41LDRhNS45LDUuOSwwLDAsMC0zLjA5My44NDQsNS43MjEsNS43MjEsMCwwLDAtMi4xNTYsMi4yNDksNC4yNzEsNC4yNzEsMCwwLDAtMi4xNTYuOTg1QTQuMjIyLDQuMjIyLDAsMCwwLDE0Ljc4MywxMEg4LjVhMi44ODgsMi44ODgsMCwwLDAtMywzVjQ5YTIuODg4LDIuODg4LDAsMCwwLDMsM2gyN1Y0OUg4LjVWMTNoNi4yODFhNi41MTYsNi41MTYsMCwwLDAsLjkzNywxLjg3NUEzLjAxOCwzLjAxOCwwLDAsMCwxOC4xNTcsMTZIMjguODQ0YTIuOTMsMi45MywwLDAsMCwyLjM0My0xLjEyNUE0LjY0OCw0LjY0OCwwLDAsMCwzMi4yMTgsMTNIMzguNVYyNWgzVjEzQTIuODQ2LDIuODQ2LDAsMCwwLDQwLjYwOCwxMC44NDNaTTI4LDEzSDE5YTEuMzI1LDEuMzI1LDAsMCwxLTEuNS0xLjVBMS4zMjUsMS4zMjUsMCwwLDEsMTksMTBoMS41YTIuODg2LDIuODg2LDAsMCwxLDMtMywyLjk3LDIuOTcsMCwwLDEsMi4xMS44NDNBMi44NTEsMi44NTEsMCwwLDEsMjYuNSwxMEgyOGExLjMyNywxLjMyNywwLDAsMSwxLjUsMS41QTEuMzI2LDEuMzI2LDAsMCwxLDI4LDEzWiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTM3LjkyOCwzMy44NzdjLS4xMDYtLjIzLS4yMzEtLjQ2OS0uMzcyLS43MTdsMS4yNzUtMS4yNzRMMzcuNjEsMzAuNjY1bC0xLjI3NSwxLjI3NEE2LjQ2Myw2LjQ2MywwLDAsMCwzNC44LDMxLjNWMjkuNUgzMy4xdjEuOGE3Ljc0Nyw3Ljc0NywwLDAsMC0xLjQzNC42MzdsLTEuMzI3LTEuMjc0LTEuMTY4LDEuMjIxLDEuMjc0LDEuMjc0YTMuMzc1LDMuMzc1LDAsMCwwLS42MzcsMS40ODdIMjh2MS43aDEuOGEzLjUyLDMuNTIsMCwwLDAsLjYzNywxLjQ4NkwyOS4xNjgsMzkuMTZsMS4xNjgsMS4xNjgsMS4zMjctMS4yNzRhMy41MDksMy41MDksMCwwLDAsMS40MzQuNjM2VjQxLjVoMS43VjM5LjY5YTQuNDU0LDQuNDU0LDAsMCwwLDEuNTM5LS42MzZsMS4yNzUsMS4yNzQsMS4yMjEtMS4xNjgtMS4yNzUtMS4zMjhhNS44NjksNS44NjksMCwwLDAsLjYzOC0xLjQ4Nkg0MHYtMS43aC0xLjhBNC41MDgsNC41MDgsMCwwLDAsMzcuOTI4LDMzLjg3N1pNMzUuOCwzNy4zMjhhMi41LDIuNSwwLDAsMS0zLjYxLDAsMi41NDMsMi41NDMsMCwwLDEtLjc0My0xLjgzMiwyLjM2OSwyLjM2OSwwLDAsMSwuNzQzLTEuNzc4LDIuNjMsMi42MywwLDAsMSwzLjYxLDAsMi4zNzQsMi4zNzQsMCwwLDEsLjc0NCwxLjc3OEEyLjU0OCwyLjU0OCwwLDAsMSwzNS44LDM3LjMyOFoiLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMTUuMDg2IDIyLjU4MiAxMy4yNTQgMjAuNzUgMTEuNTAyIDIyLjU4MiAxNS4wODYgMjYuMTY1IDE2LjkxNyAyNC4zMzQgMjAuNTAxIDIwLjc1IDE4LjY2OSAxOC45OTggMTUuMDg2IDIyLjU4MiIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxNS4wODYgMzQuNTg2IDEzLjI1NCAzMi43NTQgMTEuNTAyIDM0LjU4NiAxNS4wODYgMzguMTcgMTYuOTE3IDM2LjMzOCAyMC41MDEgMzIuNzU0IDE4LjY2OSAzMS4wMDIgMTUuMDg2IDM0LjU4NiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTQ5LjkzNyw0OS4zODRsLTcuNjYtNy42NmExMC4xMTIsMTAuMTEyLDAsMCwwLDEuNTg4LTIuODk1LDEwLjMwOCwxMC4zMDgsMCwwLDAtLjI4LTcuNDI3LDEwLjU0OSwxMC41NDksMCwwLDAtNS41NTgtNS41NTgsMTAuMjQsMTAuMjQsMCwwLDAtOC4xMjgsMEExMC41NDksMTAuNTQ5LDAsMCwwLDI0LjM0MSwzMS40YTEwLjIzNywxMC4yMzcsMCwwLDAsMCw4LjEyN0ExMC41NDksMTAuNTQ5LDAsMCwwLDI5LjksNDUuMDg3YTkuOTg3LDkuOTg3LDAsMCwwLDQuMDY0Ljg0MSwxMC4zMjEsMTAuMzIxLDAsMCwwLDYuMjU5LTIuMDU1bDcuNjYsNy42NmExLjM2NCwxLjM2NCwwLDAsMCwyLjA1NSwwQTEuMzEsMS4zMSwwLDAsMCw0OS45MzcsNDkuMzg0Wm0tMTAuNy04LjY0MWE3LjQ0MSw3LjQ0MSwwLDAsMS0xMC41NTYsMCw3LjQ0Myw3LjQ0MywwLDAsMSwwLTEwLjU1Niw3LjQ0Myw3LjQ0MywwLDAsMSwxMC41NTYsMCw3LjQ0Myw3LjQ0MywwLDAsMSwwLDEwLjU1NloiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNSwyMy41aDlhMS41LDEuNSwwLDEsMCwwLTNIMjVhMS41LDEuNSwwLDEsMCwwLDNaIi8+PC9zdmc+",
+  "links": [
+    {
+        "linkURL": "https://discovery-center.cloud.sap/#/serviceCatalog/audit-log-service",
+        "title": "Discovery Center"
+    },
+    {
+        "linkURL": "https://help.sap.com/products/BTP/65de2977205c403bbc107264b8eccf4b/f92c86ab11f6474ea5579d839051c334.html",
+        "title": "Documentation"
+    },
+    {
+        "linkURL": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/30ece35bac024ca69de8b16bff79c413.html",
+        "title": "Documentation"
+    }
+],
+  "servicePlans": [{
+      "name": "default plan",
+      "displayName": "default plan",
+      "category": "ELASTIC_SERVICE",
+      "description": "default plan",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-ch20",
+          "displayName": "cf-ch20",
+          "region": "ch20"
+      },
+      
+      {
+          "name": "cf-in30",
+          "displayName": "India (Mumbai)",
+          "region": "in30"
+      },
+      
+      {
+          "name": "cf-eu30",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu30"
+      },
+      
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-jp20",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp20"
+      },
+      
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      },
+      
+      {
+          "name": "cf-ca10",
+          "displayName": "Canada (Montreal)",
+          "region": "ca10"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-ap21",
+          "displayName": "Singapore",
+          "region": "ap21"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-br10",
+          "displayName": "Brazil (Sao Paulo)",
+          "region": "br10"
+      },
+      
+      {
+          "name": "cf-eu20",
+          "displayName": "Europe (Netherlands)",
+          "region": "eu20"
+      },
+      
+      {
+          "name": "cf-us20",
+          "displayName": "US West (WA)",
+          "region": "us20"
+      },
+      
+      {
+          "name": "cf-us21",
+          "displayName": "US East (VA)",
+          "region": "us21"
+      },
+      
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-ap12",
+          "displayName": "South Korea (Seoul)",
+          "region": "ap12"
+      },
+      
+      {
+          "name": "cf-ap20",
+          "displayName": "Australia (Sydney) Azure",
+          "region": "ap20"
+      }
+      ]
+    }
+         
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapcp"
+]
+}

@@ -1,0 +1,229 @@
+{
+  "name": "sapappstudio",
+  "description":  "SAP Business Application Studio is the next generation of SAP Web IDE, offering a modular development environment tailored for efficient development of business applications for the SAP Intelligent Enterprise. It provides pre-configured environments where you can develop, build, test and run using pre-installed runtimes and tools tailored for key scenarios such as: S/4HANA extensions, full stack business applications, Fiori applications and more. It supports quick integration with SAP solutions and services to allow building smarter and more intelligent applications.",
+  "displayName": "SAP Business Application Studio",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0ic2FwLWFwcGxpY2F0aW9uLXN0dWRpb19mb3JtZXJfV2ViX0lERV8iIGRhdGEtbmFtZT0ic2FwLWFwcGxpY2F0aW9uLXN0dWRpbyAoZm9ybWVyIFdlYiBJREUpIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwNTNiNzA7fS5jbHMtMntmaWxsOiMwYTZlZDE7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5zYXAtYXBwbGljYXRpb24tc3R1ZGlvPC90aXRsZT48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iMzAuMzA1IDIyLjExNCAyOC42MTggMjEuMDQzIDI2Ljk0MiAxOS45OCAyNi40NjQgMTkuNjc3IDI1LjkwMiAxOS4zMjUgMjUuMzE2IDE5LjYzNSA1LjgwNiAyOS45NjQgNS4yNTEgMzAuMjU5IDUuMTk3IDMwLjg4MyA0Ljk5NSAzMy4yNDcgNC44MTkgMzUuMzI0IDYuNjY2IDM0LjM2NCAyOC41MzQgMjMuMDMyIDMwLjMwNSAyMi4xMTQiLz48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iNy4yNTkgMjYuODI3IDIyLjE3OSAxOC45ODkgMjMuOTQzIDE4LjA2MyAyMi4yNiAxNi45OTkgMjAuMTYzIDE1LjY3NiAxOS42MDkgMTUuMzI0IDE5LjAyMyAxNS42MyA2LjQyMiAyMi4xNiA1Ljg2MyAyMi40NTEgNS44MSAyMy4wODIgNS41OCAyNS43MTQgNS4zOTYgMjcuODAzIDUuNCAyNy44MDMgNy4yNTkgMjYuODI3Ii8+PHBvbHlnb24gY2xhc3M9ImNscy0xIiBwb2ludHM9IjQ5LjQxNCAyMi4yMjkgMjcuNjQ2IDMzLjc0IDI1LjgwNiAzNC43MTQgMjcuNjEyIDM1Ljc0OSAyOS42NyAzNi45MzUgMzAuMjEzIDM3LjI0NSAzMC43NjggMzYuOTU4IDUwLjM3NCAyNi44MDggNTAuOTYzIDI2LjUwMiA1MC45OTQgMjUuODQgNTEuMDE3IDI1LjI3NCA1MS4wOTcgMjMuMjg5IDUxLjE4MSAyMS4yOTYgNDkuNDE0IDIyLjIyOSIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSIyNS44MDIgMzQuNzE2IDI1LjgwNiAzNC43MTQgMjUuODAyIDM0LjcxMiAyNS44MDIgMzQuNzE2Ii8+PHBvbHlnb24gY2xhc3M9ImNscy0xIiBwb2ludHM9IjM0LjE2NSAzNy41NTQgMzIuMzA2IDM4LjUyMiAzNC4xMjcgMzkuNTY3IDM2LjQyMiA0MC44NzkgMzYuOTY5IDQxLjE5MyAzNy41MjggNDAuODk4IDUwLjA3MiAzNC4yNjQgNTAuNjUzIDMzLjk1OCA1MC42OCAzMy4zIDUwLjc4NyAzMC44MjUgNTAuODc1IDI4LjgzNiA0OS4xMTIgMjkuNzU4IDM0LjE2NSAzNy41NTQiLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMTcuMTI2IDMxLjg1NCAxNi41NzkgMzEuNTM3IDE2LjAyIDMxLjgyOCAxMy42NzUgMzMuMDQ0IDExLjgxMiAzNC4wMTIgMTMuNjI5IDM1LjA2IDI4LjIzNSA0My40NTQgMjkuOTYxIDQ0LjQ0OCAyOS45NjEgNDIuNDU5IDI5Ljk2MSAzOS4zMjIgMjkuMzkxIDM4Ljk4OSAxNy4xMjYgMzEuODU0Ii8+PHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjEwLjIwNSAzNS41MTUgOS42NjIgMzUuMjA2IDkuMTA3IDM1LjQ5MiA2Ljk5OSAzNi41OSA1LjE1MiAzNy41NTQgNS4xNDggMzcuNTYyIDYuOTUgMzguNjEgMjguMjM1IDUwLjk5OCAyOS45NjEgNTIgMjkuOTYxIDQ2Ljc4OSAyOS4zODMgNDYuNDYxIDEwLjIwNSAzNS41MTUiLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMjguMTQzIDEyLjcwMyAyNi4zODQgMTEuNTU2IDI2LjM2NSAxMS41NTYgMjYuMzY1IDEzLjY1NiAyNi4zNDIgMTYuMjk5IDI2LjM0MiAxNi45MzEgMjYuODczIDE3LjI3MSAzOC43OTQgMjQuOTggMzkuMzQ1IDI1LjMzNSAzOS45MzQgMjUuMDM3IDQyLjE0NSAyMy45MDkgNDMuOTIgMjMuMDA5IDQyLjI1NiAyMS45MjMgMjguMTQzIDEyLjcwMyIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSI0OC45NjYgMTguNDk5IDI4LjI3IDUuMTQ0IDI2LjUyMSA0LjAxNSAyNi40OTUgNCAyNi40OTUgNi4wODUgMjYuNDcyIDguNDYxIDI2LjQ3MiA5LjA4NCAyNi45OTYgOS40MjkgNDUuNDM5IDIxLjU2IDQ1Ljk5OCAyMS45NDIgNDYuNTkxIDIxLjY0IDQ3LjA5NiAyMS4zODQgNDguODYzIDIwLjQ4NSA1MC42NDIgMTkuNTgyIDQ4Ljk2NiAxOC40OTkiLz48L3N2Zz4=",
+  "links": [
+    {
+        "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/business-application-studio",
+        "title": "Discovery Center"
+    },
+    {
+        "linkURL": "https://help.sap.com/viewer/product/SAP%20Business%20Application%20Studio/Cloud/en-US",
+        "title": "Documentation"
+    }
+],
+  "servicePlans": [{
+      "name": "Use the free offering for evaluation purposes. Restrictions apply to the development environments.",
+      "displayName": "Use the free offering for evaluation purposes. Restrictions apply to the development environments.",
+      "category": "QUOTA_BASED_APPLICATION",
+      "description": "Use the free offering for evaluation purposes. Restrictions apply to the development environments.",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      },
+      
+      {
+          "name": "cf-us20",
+          "displayName": "US West (WA)",
+          "region": "us20"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-us21",
+          "displayName": "US East (VA)",
+          "region": "us21"
+      },
+      
+      {
+          "name": "cf-ap12",
+          "displayName": "South Korea (Seoul)",
+          "region": "ap12"
+      },
+      
+      {
+          "name": "cf-ap21",
+          "displayName": "Singapore",
+          "region": "ap21"
+      },
+      
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-jp20",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp20"
+      },
+      
+      {
+          "name": "cf-eu20",
+          "displayName": "Europe (Netherlands)",
+          "region": "eu20"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      },
+      
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-ca10",
+          "displayName": "Canada (Montreal)",
+          "region": "ca10"
+      },
+      
+      {
+          "name": "cf-br10",
+          "displayName": "Brazil (Sao Paulo)",
+          "region": "br10"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-ap20",
+          "displayName": "Australia (Sydney) Azure",
+          "region": "ap20"
+      }
+      ]
+    },
+    {
+      "name": "Use the plan for productive development in pre-configured dev spaces.",
+      "displayName": "Use the plan for productive development in pre-configured dev spaces.",
+      "category": "APPLICATION",
+      "description": "Use the plan for productive development in pre-configured dev spaces.",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      },
+      
+      {
+          "name": "cf-ap20",
+          "displayName": "Australia (Sydney) Azure",
+          "region": "ap20"
+      },
+      
+      {
+          "name": "cf-ap12",
+          "displayName": "South Korea (Seoul)",
+          "region": "ap12"
+      },
+      
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-br10",
+          "displayName": "Brazil (Sao Paulo)",
+          "region": "br10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-ca10",
+          "displayName": "Canada (Montreal)",
+          "region": "ca10"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-us21",
+          "displayName": "US East (VA)",
+          "region": "us21"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      },
+      
+      {
+          "name": "cf-jp20",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp20"
+      },
+      
+      {
+          "name": "cf-us20",
+          "displayName": "US West (WA)",
+          "region": "us20"
+      },
+      
+      {
+          "name": "cf-eu20",
+          "displayName": "Europe (Netherlands)",
+          "region": "eu20"
+      },
+      
+      {
+          "name": "cf-ap21",
+          "displayName": "Singapore",
+          "region": "ap21"
+      }
+      ]
+    }
+         
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+]
+}

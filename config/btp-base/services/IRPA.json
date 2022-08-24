@@ -1,0 +1,205 @@
+{
+  "name": "IRPA",
+  "description":  "SAP Intelligent Robotic Process Automation lets you automate enterprise business processes. Design process automations with the Desktop Studio by creating end-to-end scenarios. Import these scenarios into the cloud Factory to configure and execute them with Agents. An Agent can work as a Digital Assistant (attended automation) or as a Digital Worker (unattended automation).",
+  "displayName": "SAP Intelligent Robotic Process Automation",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0ic2FwLWludGVsbGlnZW50LXJvYm90aWMtcHJvY2Vzcy1hdXRvbWF0aW9uIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwNTNiNzA7fS5jbHMtMntmaWxsOiMwYTZlZDE7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5zYXAtaW50ZWxsaWdlbnQtcm9ib3RpYy1wcm9jZXNzLWF1dG9tYXRpb248L3RpdGxlPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTI4LDE1Ljk2MWM5LjkyNSwwLDE4LDcuNDEsMTgsMTYuNTE4UzM3LjkyNSw0OSwyOCw0OXMtMTgtNy40MS0xOC0xNi41MTgsOC4wNzUtMTYuNTE4LDE4LTE2LjUxOG0wLTNjLTExLjYsMC0yMSw4Ljc0LTIxLDE5LjUyMlMxNi40LDUyLDI4LDUyczIxLTguNzQsMjEtMTkuNTIxUzM5LjYsMTIuOTU3LDI4LDEyLjk1N1oiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0zNC44MSwyMy4zOTJIMjEuMTM3YTguMTcyLDguMTcyLDAsMCwwLDAsMTYuMzQ0SDM0LjgxYTguMTcyLDguMTcyLDAsMCwwLDAtMTYuMzQ0Wm0wLDEzLjM0MUgyMS4xMzdhNS4xNjksNS4xNjksMCwwLDEsMC0xMC4zMzhIMzQuODFhNS4xNjksNS4xNjksMCwwLDEsMCwxMC4zMzhaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMjIuMTk0LDI4Ljc5MWEyLjU0NywyLjU0NywwLDEsMCwyLjU1LDIuNTQ3QTIuNTQ4LDIuNTQ4LDAsMCwwLDIyLjE5NCwyOC43OTFaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMzMuODQxLDI4Ljc5MWEyLjU0NywyLjU0NywwLDEsMCwyLjU1LDIuNTQ3QTIuNTQ4LDIuNTQ4LDAsMCwwLDMzLjg0MSwyOC43OTFaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMjcuMjE4LDkuODQ4djMuMTQ2Yy4yNjEtLjAwOS41MTgtLjAzNy43ODItLjAzNy4yNDIsMCwuNDc3LjAyNy43MTguMDM0VjkuODYxQTIuOTYsMi45NiwwLDAsMCwzMSw3YTMsMywwLDEsMC02LDBBMi45NjEsMi45NjEsMCwwLDAsMjcuMjE4LDkuODQ4WiIvPjwvc3ZnPg==",
+  "links": [
+    {
+        "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/sap-intelligent-rpa",
+        "title": "Discovery Center"
+    },
+    {
+        "linkURL": "https://help.sap.com/viewer/p/IRPA",
+        "title": "Documentation"
+    }
+],
+  "servicePlans": [{
+      "name": "SAP Intelligent Robotic Process Automation Concurrent Model",
+      "displayName": "SAP Intelligent Robotic Process Automation Concurrent Model",
+      "category": "APPLICATION",
+      "description": "SAP Intelligent Robotic Process Automation Concurrent Model",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      }
+      ]
+    },
+    {
+      "name": "Number of concurrent attended runs (in blocks of 10)",
+      "displayName": "Number of concurrent attended runs (in blocks of 10)",
+      "category": "SERVICE",
+      "description": "Number of concurrent attended runs (in blocks of 10)",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      }
+      ]
+    },
+    {
+      "name": "Number of concurrent unattended runs (in blocks of 1)",
+      "displayName": "Number of concurrent unattended runs (in blocks of 1)",
+      "category": "SERVICE",
+      "description": "Number of concurrent unattended runs (in blocks of 1)",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    },
+    {
+      "name": "SAP Intelligent Robotic Process Automation",
+      "displayName": "SAP Intelligent Robotic Process Automation",
+      "category": "APPLICATION",
+      "description": "SAP Intelligent Robotic Process Automation",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    },
+    {
+      "name": "SAP Intelligent Robotic Process Automation Free Model",
+      "displayName": "SAP Intelligent Robotic Process Automation Free Model",
+      "category": "APPLICATION",
+      "description": "SAP Intelligent Robotic Process Automation Free Model",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      }
+      ]
+    }
+         
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+]
+}

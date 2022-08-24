@@ -18,7 +18,7 @@ jobs:
       BTPSA_PARAM_GLOBALACCOUNT: ${{ secrets.BTPSA_PARAM_GLOBALACCOUNT }}
       BTPSA_PARAM_MYPASSWORD: ${{ secrets.BTPSA_PARAM_MYPASSWORD }}
     steps:
-      - name: 'Integration test 01: Default use case"'
+      - name: 'Integration test 01: Default use case'
         if: ${{ always() }}
         working-directory: /home/user
         shell: bash
@@ -43,7 +43,7 @@ jobs:
         working-directory: /home/user
         shell: bash
         run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/tests/integrationtests/parameterfiles/integrationtest06.json'
-      - name: 'Integration test 07: Setup SAP Task Center"'
+      - name: 'Integration test 07: Setup SAP Task Center'
         if: ${{ always() }}
         working-directory: /home/user
         shell: bash

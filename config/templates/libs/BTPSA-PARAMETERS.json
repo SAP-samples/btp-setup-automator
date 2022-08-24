@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "JSON Schema for service parameters used in BTPSA",
+    "title": "New JSON Schema for service parameters used in BTPSA",
     "description": "Provide service parameters in usecase.json files of BTPSA",
     "type": "object",
     "additionalProperties": false,
@@ -43,7 +43,7 @@
             "description": "region for the SAP BTP sub account that should be used for the use case",
             "title": "region for SAP BTP subaccount",
             "default": "us10",
-            "enum": {{ regions | tojson }}
+            "enum": [{% for datacenter in datacenterslist %}"{{ datacenter.region }}"{% if not loop.last %}, {%- endif %}{% endfor -%}]
         },
         "clusterregion": {
             "type": "string",

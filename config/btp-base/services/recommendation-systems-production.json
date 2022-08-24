@@ -1,0 +1,77 @@
+{
+  "name": "recommendation-systems-production",
+  "description":  "Personalized Recommendation is a generic reusable service. It uses state-of-the-art machine learning techniques to give visitors to your website highly personalized recommendations based on their browsing history and/or item description. Train and use machine learning models to deliver these recommendations across a wide range of business scenarios. Personalized Recommendation is part of the SAP AI Business Services portfolio.",
+  "displayName": "Personalized Recommendation",
+  "icon": "Icon too big. Service owner needs to reduce size.",
+  "links": [
+    {
+        "linkURL": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english\u0026search=Supplement%20Business%20Technology%20Platform\u0026sort=latest_desc",
+        "title": "Business Technology Platform Supplemental Terms and Conditions"
+    },
+    {
+        "linkURL": "https://help.sap.com/pr",
+        "title": "Documentation"
+    },
+    {
+        "linkURL": "https://help.sap.com/docs/Personalized_Recommendation/2c2078b9efa84566ac19d44df9625c65/c9cb13e6510248bdbb60ab0ea799d046.html",
+        "title": "Support"
+    }
+],
+  "servicePlans": [{
+      "name": "Free access plan for Personalized Recommendation. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "displayName": "Free access plan for Personalized Recommendation. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "category": "ELASTIC_SERVICE",
+      "description": "Free access plan for Personalized Recommendation. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    },
+    {
+      "name": "Standard access plan for Personalized Recommendation",
+      "displayName": "Standard access plan for Personalized Recommendation",
+      "category": "ELASTIC_SERVICE",
+      "description": "Standard access plan for Personalized Recommendation",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    }
+         
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+]
+}

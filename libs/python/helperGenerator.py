@@ -1,294 +1,118 @@
-from libs.python.helperGeneric import getEnvVariableValue
-from libs.python.helperLog import initLogger
-from libs.python.helperCommandExecution import login_btp, runCommandAndGetJsonResult
-from libs.python.helperJinja2 import renderTemplateWithJson
-from libs.python.helperJson import getJsonFromFile
-from libs.python.helperJsonSchemas import getJsonSchemaDefsContent
-import logging
 import sys
 import os
+import requests
+import logging
+import json
+import jinja2
+import glob
+from pathlib import Path
 
 log = logging.getLogger(__name__)
 
-CATEGORIES = {}
-CATEGORIES["SERVICE"] = ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"]
-CATEGORIES["APPLICATION"] = ["APPLICATION"]
-CATEGORIES["ENVIRONMENT"] = ["ENVIRONMENT"]
 
+def fetchEntitledServiceList(mainDataJsonFile, datacenterFile):
+    resultServices = getJsonFromFile(mainDataJsonFile)
+    resultDCs = getJsonFromFile(datacenterFile)
+    btpservicelist = resultServices["services"]
+    addManuallyMaintainedServiceSchema(btpservicelist)
 
-class BTPUSECASE_GEN:
-    def __init__(self):
-        self.myemail = getEnvVariableValue("BTPSA_PARAM_MYEMAIL")
-        self.mypassword = getEnvVariableValue("BTPSA_PARAM_MYPASSWORD")
-        self.globalaccount = getEnvVariableValue("BTPSA_PARAM_GLOBALACCOUNT")
-        self.templatefoler = "./"
-        self.btpcliapihostregion = "eu10"
-        self.loginmethod = "basicAuthentication"
-        self.logcommands = True
-        self.region = "us10"
-        self.envvariables = None
-        self.logfile = "./log/generator.log"
-        self.metadatafile = "./log/generator_metadata.json"
+    resultDCs = sorted(resultDCs, key=lambda d: (d['region'].lower()), reverse=False)
 
-        initLogger(self)
-
-        if self.myemail is None:
-            log.error("missing email address")
-            sys.exit(os.EX_DATAERR)
-
-        if self.mypassword is None:
-            log.error("missing your BTP password")
-            sys.exit(os.EX_DATAERR)
-
-        if self.globalaccount is None:
-            log.error("missing your BTP globalaccount subdomain id")
-            sys.exit(os.EX_DATAERR)
-
-    def fetchEntitledServiceList(self, updateServiceData, mainDataJsonFile):
-
-        if updateServiceData:
-            result = fetchDataFromBtpAccount(self, updateServiceData, mainDataJsonFile)
-            self.entitledServices = {"btpservicelist": result}
-            addSchemaInfoToServiceList(self)
-            addNumSection(self)
-        else:
-            result = fetchDataFromConfigFile(self, updateServiceData, mainDataJsonFile)
-            self.entitledServices = result
-
-    def applyServiceListOnTemplate(self, templateFile, targetFilename):
-
-        serviceList = self.entitledServices
-        renderTemplateWithJson(templateFile, targetFilename, serviceList)
-        log.success("applied SAP BTP service list on template file >" + templateFile + "< and created the target file >" + targetFilename + "<")
-
-
-def fetchDataFromConfigFile(btpusecase_gen, updateServiceData, mainDataJsonFile):
-
-    result = getJsonFromFile(mainDataJsonFile)
-    btpservicelist = result["btpservicelist"]
-    btpenums = result["btpenums"]
-
-    thisResult = {"btpservicelist": btpservicelist, "btpenums": btpenums}
+    thisResult = {"btpservicelist": btpservicelist, "datacenterslist": resultDCs}
     return thisResult
 
 
-def fetchDataFromBtpAccount(btpusecase_gen, updateServiceData, mainDataJsonFile):
+# This function will add schema information to service plans
+# in case they are not provided in the fetched metadata
+# and manually maintained in the folder config/services-jsonschemas
+def addManuallyMaintainedServiceSchema(btpservicelist):
+    FOLDER_WITH_MANUAL_SCHEMAS = Path(__file__, "..", "..", "..", "config", "services-jsonschemas").resolve()
 
-    login_btp(btpusecase_gen)
+    # first get the manually maintained json schemas
+    manuallyMaintainedSchemaFiles = []
+    for root, dirs, files in os.walk(FOLDER_WITH_MANUAL_SCHEMAS):
+        for file in files:
+            if file.endswith(".json"):
+                manuallyMaintainedSchemaFiles.append(os.path.join(root, file))
 
-    globalaccount = btpusecase_gen.globalaccount
-    usecaseRegion = btpusecase_gen.region
-    command = "btp --format json list accounts/entitlement --global-account '" + globalaccount + "'"
-    message = "Get list of available services and app subsciptions for defined region >" + usecaseRegion + "<"
-    temp = runCommandAndGetJsonResult(btpusecase_gen, command, "INFO", message)
+    manuallyMaintainedSchemas = []
+    for thisFile in manuallyMaintainedSchemaFiles:
+        schemaInfo = getJsonFromFile(thisFile)
+        for thisSchemaInfo in schemaInfo:
+            manuallyMaintainedSchemas.append(thisSchemaInfo)
 
-    del temp["assignedServices"]
-    temp = temp["entitledServices"]
-    result = convertToServiceListByCategory(temp)
-
-    return result
-
-
-def addNumSection(btpusecase_gen):
-    buildEnums(btpusecase_gen.entitledServices)
-
-
-def addSchemaInfoToServiceList(btpusecase_gen):
-    result = None
-    defsContent = getJsonSchemaDefsContent()
-
-    for defBlock in defsContent:
-        for thisDef in defBlock.get("defs"):
-            item = {"name": thisDef.get("def-name"), "value": thisDef.get("def-structure")}
-            if not result:
-                result = []
-            result.append(item)
-
-    if result:
-        btpusecase_gen.entitledServices["jsonSchemaDefs"] = result
+    for serviceType in btpservicelist:
+        for service in serviceType.get("list"):
+            for plan in service.get("servicePlans"):
+                resultingSchemas = [thisSchema for thisSchema in manuallyMaintainedSchemas if thisSchema.get("name") == service.get("name") and thisSchema.get("plan") == plan.get("name")]
+                if resultingSchemas and len(resultingSchemas) > 0:
+                    if len(resultingSchemas) == 1:
+                        plan["schemas"] = resultingSchemas[0].get("schemas")
+                        resultingSchemas = resultingSchemas
+                    else:
+                        print("ERROR: Can't add multiple schema info to a service plan!")
 
 
-def convertToServiceListByCategory(rawData):
+def renderTemplateWithJson(templateFilename, targetFilename, parameters):
 
-    result = []
-    for category in CATEGORIES:
-        list = {"name": category, "list": getBtpCategory(category, rawData)}
-        result.append(list)
+    templateFolder = os.path.dirname(templateFilename)
+    templateBasename = os.path.basename(templateFilename)
 
-    return result
+    templateLoader = jinja2.FileSystemLoader(searchpath=templateFolder)
+    templateEnv = jinja2.Environment(loader=templateLoader)
+    template = templateEnv.get_template(templateBasename)
 
+    renderedText = template.render(parameters)  # this is where to put args to the template renderer
 
-def getBtpCategory(category, rawData):
-
-    services = None
-
-    if category in CATEGORIES["SERVICE"]:
-        services = getServicesForCategory("SERVICE", rawData)
-    if category in CATEGORIES["APPLICATION"]:
-        services = getServicesForCategory("APPLICATION", rawData)
-    if category in CATEGORIES["ENVIRONMENT"]:
-        services = getServicesForCategory("ENVIRONMENT", rawData)
-    if services is None:
-        log.error("the category >" + category + "< can't be assigned to one of the defined service categories")
-
-    return services
+    with open(targetFilename, 'w') as f:
+        f.write(renderedText)
 
 
-def getServicesForCategory(category, rawData):
-    result = []
+def getJsonFromFile(filename):
+    data = None
+    foundError = False
+    f = None
 
-    for service in rawData:
-        servicePlans = getServicePlansForCategory(service, category)
-        if servicePlans:
-            thisService = getBtpService(service, servicePlans)
-            addAdditionalMetadata(thisService, service)
+    if "http://" in filename or "https://" in filename:
+        data = None
+        try:
+            thisRequest = requests.get(filename)
+            data = json.loads(thisRequest.text)
+        except Exception as e:
+            log.error("please check the json file >" + filename + "<: " + str(e))
+            sys.exit(os.EX_DATAERR)
+        return data
 
-            result.append(thisService)
-    sortedResult = sorted(result, key=lambda d: (d['name'].lower()), reverse=False)
+    try:
+        # Opening JSON file
+        f = open(filename)
+        # returns JSON object as a dictionary
+        data = json.load(f)
+    except IOError:
+        message = "Can't open json file >" + filename + "<"
+        if log is not None:
+            log.error(message)
+        else:
+            print(message)
+        foundError = True
+    except ValueError as err:
+        message = "There is an issue in the json file >" + filename + \
+            "<. Issue starts on character position " + \
+            str(err.pos) + ": " + err.msg
+        if log is not None:
+            log.error(message)
+        else:
+            print(message)
+        foundError = True
+    finally:
+        if f is not None:
+            f.close()
 
-    return sortedResult
-
-
-def getBtpService(rawData, servicePlans):
-    name = rawData["name"]
-    displayName = rawData.get("displayName")
-    description = rawData.get("description")
-    iconBase64 = rawData.get("iconBase64")
-    servicePlans = servicePlans
-    result = {"name": name, "displayName": displayName, "description": description, "servicePlans": servicePlans, "icon": iconBase64}
-    return result
-
-
-def getServicePlansForCategory(service, category):
-    result = []
-
-    for plan in service.get("servicePlans"):
-        thisCategory = plan.get("category")
-        if thisCategory in CATEGORIES.get(category):
-            alreadyExistsInResult = False
-            for temp in result:
-                if temp.get("name") == plan.get("name"):
-                    alreadyExistsInResult = True
-            if not alreadyExistsInResult:
-                schemaInfo = getSchemaInfoForServicePlan(service, plan)
-                if schemaInfo:
-                    plan["refs"] = schemaInfo
-                result.append(getBtpServicePlan(plan))
-
-    return result
-
-
-def getBtpServicePlan(rawData):
-    name = rawData.get("name")
-    displayName = rawData.get("displayName")
-    description = rawData.get("description")
-    uniqueIdentifier = rawData.get("uniqueIdentifier")
-    category = rawData.get("category")
-    jsonschemaRefs = rawData.get("refs")
-    dataCenters = []
-
-    for plan in rawData.get("dataCenters"):
-        dataCenters.append(getBtpDataCenter(plan))
-
-    dataCenters = sorted(dataCenters, key=lambda d: d['region'], reverse=False)
-
-    result = {"name": name, "displayName": displayName, "description": description, "uniqueIdentifier": uniqueIdentifier, "category": category, "dataCenters": dataCenters}
-    if jsonschemaRefs and len(jsonschemaRefs) > 0:
-        result["jsonschemarefs"] = jsonschemaRefs
-
-    return result
-
-
-def getSchemaInfoForServicePlan(service, plan):
-
-    result = None
-
-    defsContent = getJsonSchemaDefsContent()
-
-    for defBlock in defsContent:
-        defBlockServiceName = defBlock.get("name")
-        serviceName = service.get("name")
-        if defBlockServiceName == serviceName:
-            for thisDefBlock in defBlock.get("defs"):
-                if thisDefBlock.get("ref-level") == "plan":
-                    if plan.get("name") == thisDefBlock.get("ref-value"):
-                        if not result:
-                            result = []
-                        ref = {"attribute": thisDefBlock.get("ref-attribute"), "name": thisDefBlock.get("def-name")}
-                        result.append(ref)
-    return result
-
-
-def getBtpDataCenter(rawData):
-    result = {}
-
-    result["name"] = rawData.get("name")
-    result["displayName"] = rawData.get("displayName")
-    result["region"] = rawData.get("region")
-
-    return result
-
-
-def buildEnums(accountEntitlements):
-
-    enumList = []
-
-    for category in accountEntitlements.get("btpservicelist"):
-        for service in category.get("list"):
-            for servicePlan in service.get("servicePlans"):
-                for accountServicePlanDataCenter in servicePlan["dataCenters"]:
-                    accountServicePlanRegion = accountServicePlanDataCenter["region"]
-                    enumList.append(accountServicePlanRegion)
-
-    enumList.sort()
-    enumList = list(dict.fromkeys(enumList))
-    # accountEntitlements["regions"] = {}
-    accountEntitlements["regions"] = enumList
-
-
-def addAdditionalMetadata(serviceResult, serviceDataRaw):
-
-    appCoordinates = serviceDataRaw.get("applicationCoordinates")
-
-    if appCoordinates:
-        # Fetch icon format
-        # serviceResult["iconFormat"] = appCoordinates.get("iconFormat")
-
-        # Fetch icon format
-        if appCoordinates.get("iconFormat"):
-            serviceResult["iconFormat"] = appCoordinates.get("iconFormat")
-
-        # Fetch service ids
-        if appCoordinates.get("inventoryIds"):
-            ids = []
-            for theseIds in appCoordinates.get("inventoryIds"):
-                if theseIds:
-                    if type(theseIds) == str or type(theseIds) == dict:
-                        ids.append(theseIds.get("key"))
-                    if type(theseIds) == list:
-                        for id in theseIds:
-                            ids.append(id.get("key"))
-            if ids and len(ids) > 0:
-                serviceResult["serviceIds"] = ids
-
-        # Fetch links
-        if appCoordinates.get("serviceDescription"):
-            serviceResult["links"] = appCoordinates.get("serviceDescription")
-            if serviceResult.get("links"):
-                for link in serviceResult.get("links"):
-                    if link.get("propagateTheme"):
-                        del link["propagateTheme"]
-                    if link.get("descriptionCategory"):
-                        del link["descriptionCategory"]
-
-        # Fetch service categories
-        if appCoordinates.get("serviceCategories"):
-            serviceResult["serviceCategories"] = []
-            for thisCategory in appCoordinates.get("serviceCategories"):
-                serviceResult["serviceCategories"].append(thisCategory.get("name"))
-
-    # Fetch business categories
-    if serviceDataRaw.get("businessCategories"):
-        serviceResult["businessCategories"] = []
-        for thisCategory in serviceDataRaw.get("businessCategories"):
-            serviceResult["serviceCategories"].append(thisCategory.get("displayName"))
+    if foundError is True:
+        message = "Can't run the use case before the error(s) mentioned above are not fixed"
+        if log is not None:
+            log.error(message)
+        else:
+            print(message)
+        sys.exit(os.EX_DATAERR)
+    return data
