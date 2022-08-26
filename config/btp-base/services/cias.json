@@ -21,6 +21,12 @@
       "schemas": null,
       "dataCenters":[
       {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
           "name": "cf-eu20",
           "displayName": "Europe (Netherlands)",
           "region": "eu20"
