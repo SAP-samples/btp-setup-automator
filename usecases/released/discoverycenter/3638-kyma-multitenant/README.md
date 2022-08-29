@@ -3,8 +3,10 @@
 The [btp-setup-automator](https://github.com/SAP-samples/btp-setup-automator) is an open source project to help developers setting-up their SAP BTP accounts quickly via various command line interfaces.
 The current script was designed to setup the account and spin up the application which is used by the Discovery Center Mission, [Develop a Multitenant Extension Application in SAP BTP, Kyma Runtime](https://discovery-center.cloud.sap/missiondetail/3683/3726/).
 
-The script will create a subaccount with the necessary entitlements and deploy the Easy Franchise application in the SAP BTP Kyma Environment. The following services and subscriptions are created:
+The script will create a subaccount with the necessary entitlements and deploy the Easy Franchise application in the SAP BTP Kyma Environment. Furthermore a consumer subaccount will be created and the EasyFranchise Application will be subscribed. The following services and subscriptions are created:
 
+* Subaccount EasyFranchise
+* Subaccount EasyFranchise-Customer
 * Authorization and Trust Management Service with broker plan
 * Destination Service with lite plan
 * SAP HANA Cloud with hana-free plan
@@ -48,10 +50,18 @@ docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/
 ```
 
 You'll notice that the prompt in your terminal has changed, because you are now working inside the docker container, that you just started.
-Now run the main script `btpsa` with the following command:
+There are two version of the script that you can use to prepare the account, the first one only does the account setup without the deployment of the application which you will be doing throughout the mission. The second option also includes the application in case you don't want to do the deployment on your own: 
+
+Use case without deployment:
 
 ```bash
 ./btpsa -parameterfile 'usecases/released/discoverycenter/3638-kyma-multitenant/parameters.json' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>'
+```
+
+Use case including application deployment:
+
+```bash
+./btpsa -parameterfile 'usecases/released/discoverycenter/3638-kyma-multitenant/parameters.json' -usecasefile 'usecases/released/discoverycenter/3638-kyma-multitenant/usecase-final.json' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>'
 ```
 
 The btp-setup-automator script will now prepare your SAP BTP account to cover the discovery center mission. You can have a look at the [usecase.json](usecase.json) and [parameters.json](parameters.json) for more details about the used services and configuration parameters (e.g. DB Password for SAP HANA Cloud)
