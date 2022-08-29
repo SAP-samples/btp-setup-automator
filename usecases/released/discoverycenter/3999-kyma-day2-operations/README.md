@@ -3,7 +3,7 @@
 # Instructions for running SAP Discovery Center Mission in btp-setup-automator
 
 The [btp-setup-automator](https://github.com/SAP-samples/btp-setup-automator) is an open source project to help developers setting-up their SAP BTP accounts quickly via various command line interfaces.
-The current script was designed to setup the account and spin up the application which is used by the Discovery Center Mission, [Extend a Kyma based multitenant application with day 2 operations](https ://discovery-center.cloud.sap/missiondetail/3999/4206/).
+The current script was designed to setup the account and spin up the application which is used by the Discovery Center Mission, [Extend a Kyma based multitenant application with day 2 operations](https://discovery-center.cloud.sap/missiondetail/3999/4206/).
 
 The script will create a subaccount with the necessary entitlements and deploy the Easy Franchise application in the SAP BTP Kyma Environment. Furthermore a consumer subaccount will be created and the EasyFranchise Application will be subscribed. The following services and subscriptions are created:
 
@@ -15,7 +15,7 @@ The script will create a subaccount with the necessary entitlements and deploy t
 * Kyma Runtime with free plan
 * Continuous Integration and Delivery with free plan
 
-The code and the container images of the application are taken from the GitHub repository [SAP-samples/btp-kyma-day2-operations](https ://github.com/SAP-samples/btp-kyma-day2-operations).
+The code and the container images of the application are taken from the GitHub repository [SAP-samples/btp-kyma-day2-operations](https://github.com/SAP-samples/btp-kyma-day2-operations).
 
 ## Pre-Requisites
 
