@@ -197,6 +197,7 @@ def log_exceptions(type, value, tb):
 def initLogger(btpUsecase):
     createNewEmptyFile(btpUsecase.logfile)
     createNewEmptyFile(btpUsecase.metadatafile)
+    createNewEmptyFile(btpUsecase.apitestlogfile)
 
     set_custom_logging_levels(config)
 

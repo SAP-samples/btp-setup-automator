@@ -136,6 +136,46 @@
                         "title": "list of service keys to be created for the service",
                         "default": []
                     },
+                    "api_resource_uri": {
+                        "type": ["object", "array"],
+                        "title": "parameters for the API Test",
+                        "properties": {
+                            "testapi": {
+                                "type": "string",
+                                "title": "API endpoint to be tested"
+                            },
+                            "apiBaseUrlPathKey": {
+                                "type": "string",
+                                "title": "BaseURL key path from the service key"
+                            },                            
+                            "oauthurlPathkey": {
+                                "type": "string",
+                                "title": "Auth url key path from the service key"
+                            },                            
+                            "clientId_basicUN_PathKey": {
+                                "type": "string",
+                                "title": "Client id/username key path from the service key"
+                            },                            
+                            "clientSecret_basicPW_PathKey": {
+                                "type": "string",
+                                "title": "Client secret/password key path from the service key"
+                            },                            
+                            "authMethod": {
+                                "type": "string",
+                                "title": "Auth method to be used",
+                                "enum": ["oauth","basic"]
+                            },                            
+                            "APITest": {
+                                "type": "string",
+                                "title": "API test to be perform or not for the individual service",
+                                "enum": ["yes","no"]
+                            },                            
+                            "serviceID": {
+                                "type": "string",
+                                "title": "Service Inventory Id of this service"
+                            }
+                        }
+                    },
                     "requiredServices": {
                         "type": "array",
                         "title": "list of services that need to be instantiated before instantiating this service",

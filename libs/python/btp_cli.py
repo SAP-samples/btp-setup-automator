@@ -1,5 +1,4 @@
 import libs.python.helperArgParser as helperArgParser
-from .helperCliVersions import getAllCliVersions
 from libs.python.helperFolders import FOLDER_SCHEMA_LIBS
 from libs.python.helperJson import addKeyValuePair, dictToString, convertStringToJson, getJsonFromFile
 from libs.python.helperBtpTrust import runTrustFlow
@@ -38,8 +37,6 @@ class BTPUSECASE:
         log.info("Git version >" +
                  os.getenv('BTPSA_VERSION_GIT', "not set") + "<")
 
-        self.versionInfoClis = getAllCliVersions()
-
         # If no suffix for service names was provided, create one (with getNamingPatternForServiceSuffix())
         if self.suffixinstancename is None or self.suffixinstancename == "":
             self.suffixinstancename = getNamingPatternForServiceSuffix(self)
@@ -58,7 +55,7 @@ class BTPUSECASE:
         allServices = readAllServicesFromUsecaseFile(self)
         self.availableCategoriesService = ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"]
         self.availableCategoriesApplication = ["APPLICATION", "QUOTA_BASED_APPLICATION"]
-        self.enablecrossconsumptiontest = getenablecrossconsumptiontestUsecaseFile(self)
+        self.enableAPITest  = getServiceTestStatusFromUsecaseFile(self)
         self.definedServices = getServiceCategoryItemsFromUsecaseFile(
             self, allServices, self.availableCategoriesService)
         self.definedEnvironments = getEnvironmentsForUsecase(self, allServices)
@@ -666,9 +663,9 @@ def getAdminsFromUsecaseFile(btpUsecase: BTPUSECASE):
     return items
 
 
-def getenablecrossconsumptiontestUsecaseFile(btpUsecase: BTPUSECASE):
+def getServiceTestStatusFromUsecaseFile(btpUsecase: BTPUSECASE):
     usecase = getJsonFromFile(btpUsecase.usecasefile)
-    return usecase["enablecrossconsumptiontest"]
+    return usecase["enableAPITest"]
 
     
 def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, availableForAccount, availableCustomApps):
@@ -1245,8 +1242,6 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
         # Set the deletion status to "not deleted"
         for service in accountMetadata["createdServiceInstances"]:
             service["deletionStatus"] = "not deleted"
-            service["failedDeletions"] = 0
-        maxRetriesForFailedDeletion = 5
         while usecaseTimeout > current_time and allServicesDeleted is False:
             for service in accountMetadata["createdServiceInstances"]:
                 if "instancename" not in service:
@@ -1257,17 +1252,6 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                     continue
 
                 status = getServiceDeletionStatus(service, btpUsecase)
-
-                if (status == "delete failed"):
-                    log.warning("couldn't delete service instance >" + service["instancename"] + "< for service >" + service["name"] + "<.")
-                    if service["failedDeletions"] <= maxRetriesForFailedDeletion:
-                        log.info("trying again to delete service instance >" + service["instancename"] + "< for service >" + service["name"] + "<.")
-                        deleteServiceInstance(service, btpUsecase)
-                        service["deletionStatus"] = "not deleted"
-                        service["failedDeletions"] = service["failedDeletions"] + 1
-                    else:
-                        log.error("tried " + str(service["failedDeletions"]) + "times, but could not delete service instance >" + service["instancename"] + "< for service >" + service["name"] + "<.")
-                        sys.exit(os.EX_DATAERR)
 
                 if (status == "deleted"):
                     log.success(

@@ -200,6 +200,12 @@
             "title": "file for log information",
             "default": "log/metadata_log.json"
         },
+        "apitestlogfile": {
+            "type": "string",
+            "description": "file for log api test information",
+            "title": "file for log api test information",
+            "default": "log/apitest_log.json"
+        },
         "logcommands": {
             "type": "boolean",
             "description": "if set to True, the script will log all commands sent to the SAP BTP account. If set to False it won't",

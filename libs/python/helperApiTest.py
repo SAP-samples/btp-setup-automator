@@ -5,6 +5,8 @@ import sys
 import os
 from os.path import exists
 
+log = logging.getLogger(__name__)
+
 if not os.path.exists("./log"):
     os.mkdir("./log")
 
@@ -46,7 +48,6 @@ def get_oauth_token(oauthurl, username, password):
         }
     else:
         url = f"{oauthurl}/oauth/token"
-    # payload = f"client_id={client_id}&client_secret={client_secret}&grant_type=client_credentials"
     try:
         response = requests.post(url, headers=headers, data=payload)
         data = response.json()
@@ -72,7 +73,6 @@ def get_api_req(uri, access_token):
     }
     try:
         response = requests.get(uri, headers=headers)
-        # response.json()
         response.raise_for_status()
         if response.status_code in [200, 201, 204]:
             logging.info("GET request API call is successful!")
@@ -88,7 +88,6 @@ def get_api_req_basic(uri, username, password):
     logging.info(f"The API request URL: {uri}")
     try:
         response = requests.get(uri, auth=(username, password))
-    # response.json()
         response.raise_for_status()
         if response.status_code in [200, 201, 204]:
             logging.info("GET request API call is successful!")
@@ -111,11 +110,7 @@ def get_key_values(binding, pathKey):
 
 def main():
     params = read_json_file('/home/user/usecases/inDevelopment/cross_consumption.json')
-    # print(params)
     data = params["api_resource_uri"]
-    # print(params)
-    # listapi = os.environ['api_resource_uri']
-    # data = json.loads(listapi)
     for i, d in enumerate(data):
         flag = True
         if d["authMethod"] == "basic":
