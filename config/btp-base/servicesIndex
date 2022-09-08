@@ -556,10 +556,6 @@
     "name": "sap-analytics-cloud-embedded-edition"
   },
   {
-    "filename": "services/sap-ariba-shopping.json",
-    "name": "sap-ariba-shopping"
-  },
-  {
     "filename": "services/sap-bigdataservices.json",
     "name": "sap-bigdataservices"
   },

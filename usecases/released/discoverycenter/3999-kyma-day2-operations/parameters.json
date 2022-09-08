@@ -13,6 +13,7 @@
     "BTPSA_KYMA_IMAGE_NAME_EF_SERVICE": "ghcr.io/sap-samples/btp-kyma-day2-operations-ef-service",                
     "BTPSA_KYMA_IMAGE_NAME_BROKER": "ghcr.io/sap-samples/btp-kyma-day2-operations-broker",
     "BTPSA_KYMA_IMAGE_NAME_EMAIL_SERVICE": "ghcr.io/sap-samples/btp-kyma-day2-operations-email-service",
+    "BTPSA_KYMA_IMAGE_NAME_BUSINESS_PARTNER_MOCK": "ghcr.io/sap-samples/btp-kyma-multitenant-extension-business-partner-mock",
     "BTPSA_KYMA_IMAGE_NAME_UI": "ghcr.io/sap-samples/btp-kyma-day2-operations-ui",
     "BTPSA_KYMA_IMAGE_NAME_DAY2_UI": "ghcr.io/sap-samples/btp-kyma-day2-operations-day2-ui",  
     "BTPSA_KYMA_IMAGE_NAME_DAY2_APPROUTER": "ghcr.io/sap-samples/btp-kyma-day2-operations-day2-approuter",
