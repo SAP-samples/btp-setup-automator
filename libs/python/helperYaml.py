@@ -1,36 +1,39 @@
 import yaml
+import os
 from libs.python.helperJson import getJsonFromFile
+from libs.python.helperFolders import FOLDER_K8S_YAML_TEMPLATES
 
 
-def build_service_instance_yaml_from_parameters(service):
+def build_and_store_service_instance_yaml_from_parameters(service, yamlFilePath):
 
-    serviceInstanceTemplate = getJsonFromFile('libs/json/templates/K8s-SERVICE-INSTANCE.json')
+    templatePath = FOLDER_K8S_YAML_TEMPLATES + 'K8s-SERVICE-INSTANCE.json'
+    serviceInstanceTemplate = getJsonFromFile(templatePath)
 
-    serviceInstanceTemplate.metadata.name = service.instanceName
-    serviceInstanceTemplate.spec.serviceOfferingName = service.name
-    serviceInstanceTemplate.spec.servicePlanName = service.plan
-    serviceInstanceTemplate.spec.externalName = service.instanceName
+    serviceInstanceTemplate["metadata"]["name"] = service.instancename
+    serviceInstanceTemplate["spec"]["serviceOfferingName"] = service.name
+    serviceInstanceTemplate["spec"]["servicePlanName"] = service.plan
+    serviceInstanceTemplate["spec"]["externalName"] = service.instancename
 
     if service.parameters is not None:
-        serviceInstanceTemplate.spec.parameters = service.parameters
+        serviceInstanceTemplate["spec"]["parameters"] = service.parameters
     elif service.serviceparameterfile is not None:
-        serviceInstanceTemplate.spec.parameters = getJsonFromFile(service.serviceparameterfile)       
+        serviceInstanceTemplate["spec"]["parameters"] = getJsonFromFile(
+            service.serviceparameterfile)
 
-    serviceInstanceYaml = yaml.dump(serviceInstanceTemplate, default_flow_style=False)
-
-    return serviceInstanceYaml
-
-
-def build_service_binding_yaml_from_parameters():
-
-    serviceBindingTemplate = getJsonFromFile('libs/json/templates/K8s-SERVICE-BINDING.json')
-
-    serviceBindingYaml = yaml.dump(serviceBindingTemplate, default_flow_style=False)
-
-    return serviceBindingYaml
+    os.makedirs(os.path.dirname(yamlFilePath), exist_ok=True)
+    with open(yamlFilePath, "w") as outfile:
+        yaml.dump(serviceInstanceTemplate, outfile, default_flow_style=False)
 
 
-def store_yaml_to_disk(yamlFilePath, yamlContent):
-    with open(yamlFilePath, 'w') as outfile:
-        yaml.dump(yamlContent, outfile)
-    return True
+def build_and_store_service_binding_yaml_from_parameters(keyname, service, yamlFilePath):
+
+    templatePath = FOLDER_K8S_YAML_TEMPLATES + 'K8s-SERVICE-BINDING.json'
+    serviceBindingTemplate = getJsonFromFile(templatePath)
+
+    serviceBindingTemplate["metadata"]["name"] = keyname
+    serviceBindingTemplate["spec"]["serviceInstanceName"] = service.instancename
+    serviceBindingTemplate["spec"]["secretName"] = keyname
+
+    os.makedirs(os.path.dirname(yamlFilePath), exist_ok=True)
+    with open(yamlFilePath, "w") as outfile:
+        yaml.dump(serviceBindingTemplate, outfile, default_flow_style=False)

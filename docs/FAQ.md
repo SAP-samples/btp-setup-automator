@@ -160,13 +160,22 @@ At the same time you can add any additional packages inside the `executeBeforeAc
 ..
 ```
 
+### How can I subscribe to a deployed SaaS application?
+
+SaaS applications are deployed in a global account and if registered available in all subaccounts. They have to be handled differently when creating an app subscription. You have to provide the following values in your btpsa files:
+
+* In the `parameters.json` file you must provide a value for the `"customAppProviderSubaccountId"`. This subaccount must be a subaccount where the application is available e. g. the provider subaccount. This is needed to execute the validation of the use case file.
+* In the `usecase.json` file when you specify the values for the `APPLICATION` that you want to subscribe to, make sure that you set the value of `"customerDeveloped"` to `true` as this will distinguish it from a regular application available on SAP BTP.
+
+> 📝 Tip - When deploying the app to SAP BTP into the provider subaccount make sure that the value for the plan is available via the BTP CLI. You can check that via `btp --format json list accounts/subscription --subaccount <YOUR SUBACCOUNT ID>`.
+
 ## Docker Specifics
 
 ### Suddenly I'm getting an "docker: Error response from daemon: Head "../ghcr.io/v2/sap-samples/btp-setup-automator/manifests/main": denied: denied.". What's going on here?
 
 One possibility: your docker login is trying to connect with GitHub via an expired GitHub token (that you have previously connected with docker). To fix this issue run this command in the command line:
 
-```
+```bash
 docker logout ghcr.io
 ```
 
@@ -190,3 +199,73 @@ There are some workarounds that can help you to bypass the limitation:
   3. Define and execute a use case that contains the setup *in* the Kyma cluster using the service account to log on in a **non-interactive** way bypassing kubelogin.
 
 * Execute the non-interactive authentication flow via a "technical" user in the IAS tenant. You must create your own tenant in IAS and define the necessary user, then use a custom OIDC provider when provisioning the Kyma clusters (assigning the user as admin) and and generate the tokens that you can insert in the `kubeconfig` and avoid kubelogin. OIDC provider besides IAS usually have a similar flow for these scenarios. This is probably the procedure with the biggest effort. It comes with the some downside as the scenario mentioned before as you must split your use case file into two parts.
+
+### How can I create a service account?
+
+To make your life easier we provided some scripts to make the creation and fetching of the Kubernetes configuration aka `kubeconfig` easier. You find the following files in the folder **config/kubernetes**:
+
+* `service-account.yaml`: file containing the definition of the service account and the cluster role.
+* `cluster-role-binding.yaml`: file containing the cluster role binding, connecting the service account with the corresponding cluster role
+* `kubeconfig-sa-mac.sh`/`kubeconfig-sa-windows.ps1`: scripts to fetch the relevant data for the `kubeconfig.yaml`
+
+Execute the following steps:
+
+1. Create a namespace for the `ClusterRoleBinding`
+
+2. Set the namespace as a variable:
+
+    * MacOS
+
+        ```shell
+        export ns=<your_namespace>
+        ```
+
+    * Windows
+
+        ```powershell
+         $ns = "<your_namespace>"
+        ```
+
+3. Replace `<YOUR NAMESPACE>` with your value of the namespace in the file `cluster-role-binding.yaml`.
+
+4. Apply the file `service-account.yaml` via `kubectl`:
+
+    ```shell
+    kubectl apply -f config/kubernetes/service-account.yaml -n $ns
+    ```
+
+5. Apply the file `cluster-role-binding.yaml` via `kubectl`:
+
+    ```shell
+    kubectl apply -f config/kubernetes/cluster-role-binding.yaml -n $ns
+    ```
+
+You can now download the `kubeconfig`file either via the Kyma dashboard or via the scripts provided in this repository:
+
+* From the Kyma Dashboard:
+
+  * Navigate to your namespace.
+  * Access **Configurations** --> **Service Accounts**
+  * Open the Service Account created by you in the previous step.
+  * Download kubeconfig and store it
+  
+* Via the script 
+
+  * If using Mac set the execute permission on the file `templates/kubeconfig-sa-mac.sh` and run it:
+  
+    ```shell
+    chmod +x templates/kubeconfig-sa-mac.sh
+    ./config/kubernetes/kubeconfig-sa-mac.sh
+    ```
+
+  * If using Windows set `Set-ExecutionPolicy Unrestricted` to change the execution policy if needed and run it:
+  
+    ```shell
+    .\config\kubernetes\kubeconfig-sa-windows.ps1
+    ```
+
+> 📝 Tip - Do not execute the script multiple times. It will append the config data over and over, which will end up in an invalid config file.
+
+You can then use this file to create services in the Kyma runtime via `kubectl` specifying the path using the paramter `"kubeconfigpath"` in your `parameters.json` file.
+
+> 📝 Tip -  When you copy your configuration into the container, be aware that the btp-setup-automator will store the OIDC-based kubeconfig of Kyma as `.kube/config`. Make sure that you either copy your service account configuration at a different place or name it differently e.g. `config-sa`

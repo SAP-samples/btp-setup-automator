@@ -1,0 +1,66 @@
+[
+    {
+        "name": "hana-cloud",
+        "plan": "hana-free",
+        "schemas": {
+            "service_instance": {
+                "create": {
+                    "type": "object",
+                    "properties": {
+                        "data": {
+                            "type": "object",
+                            "properties": {
+                                "edition": {
+                                    "type": "string",
+                                    "default": "cloud"
+                                },
+                                "memory": {
+                                    "type": "integer",
+                                    "default": 30
+                                },
+                                "serviceStopped": {
+                                    "type": "boolean",
+                                    "default": false
+                                },
+                                "storage": {
+                                    "type": "integer",
+                                    "default": 120
+                                },
+                                "systempassword": {
+                                    "type": "string",
+                                    "default": "enterYour0wnPassw0rd!"
+                                },
+                                "vcpu": {
+                                    "type": "integer",
+                                    "default": 0
+                                },
+                                "versionIndicator": {
+                                    "type": "string",
+                                    "default": "1"
+                                },
+                                "whitelistIPs": {
+                                    "type": "array",
+                                    "items": {},
+                                    "default": []
+                                }
+                            },
+                            "required": [
+                                "edition",
+                                "memory",
+                                "serviceStopped",
+                                "storage",
+                                "systempassword",
+                                "vcpu",
+                                "versionIndicator",
+                                "whitelistIPs"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "data"
+                    ]
+                }
+            }
+        }
+    }
+]

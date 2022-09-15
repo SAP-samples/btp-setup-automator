@@ -1,0 +1,113 @@
+{
+  "name": "mobile-settings-exchange",
+  "description":  "Mobile Settings Exchange Service",
+  "displayName": "Mobile Settings Exchange Service",
+  "icon": null,
+  "links": [
+    {
+        "linkURL": "https://help.sap.com/viewer/468990a67780424a9e66eb096d4345bb/Cloud/en-US/620b0ae379ad476e9046338d16a7645b.html",
+        "title": "Documentation"
+    },
+    {
+        "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
+        "title": "Support information"
+    },
+    {
+        "linkURL": "https://mobile-service-cockpit-web.cfapps.br10.hana.ondemand.com",
+        "title": "Support information"
+    }
+],
+  "servicePlans": [{
+      "name": "Mobile Settings Exchange Service is used for device registrations and general access to JSON data",
+      "displayName": "Mobile Settings Exchange Service is used for device registrations and general access to JSON data",
+      "category": "SERVICE",
+      "description": "Mobile Settings Exchange Service is used for device registrations and general access to JSON data",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-br10",
+          "displayName": "Brazil (Sao Paulo)",
+          "region": "br10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    },
+    {
+      "name": "Mobile Settings Exchange Service is used for device registrations and general access to JSON data",
+      "displayName": "Mobile Settings Exchange Service is used for device registrations and general access to JSON data",
+      "category": "SERVICE",
+      "description": "Mobile Settings Exchange Service is used for device registrations and general access to JSON data",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-br10",
+          "displayName": "Brazil (Sao Paulo)",
+          "region": "br10"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    }
+         
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+]
+}

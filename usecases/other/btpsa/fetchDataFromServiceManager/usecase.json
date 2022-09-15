@@ -1,0 +1,28 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
+  "services": [
+    {
+      "name": "service-manager",
+      "plan": "global-offerings-audit",
+      "category": "SERVICE",
+      "instancename": "btpsa-sm-instance",
+      "createServiceKeys": [
+        "serviceKey"
+      ]
+    }
+  ],
+  "executeAfterAccountSetup": [
+    {
+      "description": "Get the access token for accessing the service manager",
+      "command": "curl -X POST $(jq -r '.createdServiceInstances[].createdServiceKeys[].payload.credentials.url' ./log/metadata_log.json)/oauth/token?grant_type=client_credentials -u $(jq -r '.createdServiceInstances[].createdServiceKeys[].payload.credentials.clientid' ./log/metadata_log.json):$(jq -r '.createdServiceInstances[].createdServiceKeys[].payload.credentials.clientsecret' ./log/metadata_log.json) > ./log/sm_accessToken.json"
+    },
+    {
+      "description": "Get the service data from service manager",
+      "command": "curl -X GET $(jq -r '.createdServiceInstances[].createdServiceKeys[].payload.credentials.sm_url' ./log/metadata_log.json)/v1/service_offerings?max_items=10000 -H \"Authorization: bearer $(jq -r '.access_token' ./log/sm_accessToken.json)\" > ./log/sm_services.json"
+    },
+    {
+      "description": "Get the service plan data from service manager",
+      "command": "curl -X GET $(jq -r '.createdServiceInstances[].createdServiceKeys[].payload.credentials.sm_url' ./log/metadata_log.json)/v1/service_plans?max_items=10000 -H \"Authorization: bearer $(jq -r '.access_token' ./log/sm_accessToken.json)\" > ./log/sm_servicePlans.json"
+    }
+  ]
+}

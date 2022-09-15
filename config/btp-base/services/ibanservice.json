@@ -1,0 +1,41 @@
+{
+  "name": "ibanservice",
+  "description":  "Check validity and get details of given IBAN number.",
+  "displayName": "IBAN Service",
+  "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjMuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9ImFsZXJ0LW5vdGlmaWNhdGlvbiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IgoJIHk9IjBweCIgdmlld0JveD0iMCAwIDU2IDU2IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1NiA1NjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiMwNTNCNzA7fQoJLnN0MXtmaWxsOiMwQTZFRDE7fQoJLnN0Mntmb250LWZhbWlseTonNzItQm9sZCc7fQoJLnN0M3tmb250LXNpemU6OHB4O30KCS5zdDR7ZmlsbDpub25lO30KPC9zdHlsZT4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTMyLjIsMjYuOWwtMS41LDAuOGMwLjgsNC40LTIuMSw4LjctNi41LDkuNXMtOC43LTIuMS05LjUtNi41Yy0wLjgtNC40LDIuMS04LjcsNi41LTkuNWMwLjUtMC4xLDEtMC4xLDEuNS0wLjEKCWwwLDB2LTEuNmwwLDBjLTUuNCwwLTkuOCw0LjMtOS44LDkuN3M0LjMsOS44LDkuNyw5LjhzOS44LTQuMyw5LjgtOS43QzMyLjUsMjguNSwzMi40LDI3LjcsMzIuMiwyNi45TDMyLjIsMjYuOXoiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTIxLjcsMzQuM2wwLjEtMC41bDAuMS0wLjJsMS43LTEuNnYtMS4zTDIyLjksMzBsLTIuMy0wLjJsLTAuNC0wLjNWMjlsLTAuNC0wLjRsMC41LTAuNWwwLjMsMC4xbDAuMS0wLjJoMC44CglsMC4xLDAuNmgwLjNMMjEuNywyOGwwLjktMC41bC0wLjItMC40aDAuNUwyMi43LDI3bDAuMy0wLjNsLTAuMy0wLjV2LTAuM2wtMC42LDAuNGwtMC4yLDAuM2gtMC4zdi0wLjRsMC42LTAuNkwyMiwyNWgtMWwtMC42LDAuNgoJbC0wLjctMC4xbDAuNi0xLjNjLTAuMSwwLTAuMS0wLjEtMC4xLTAuMnYtMC4xYy0wLjIsMC0wLjUtMC4xLTAuNy0wLjJzLTAuNC0wLjItMC43LTAuMmMtMC4yLDAtMC40LDAuMS0wLjYsMC4yCgljLTAuMywwLjItMC41LDAuNC0wLjgsMC42cy0wLjUsMC41LTAuNywwLjdzLTAuMywwLjQtMC4zLDAuNmwwLjEsMC40bDAuNiwwLjRsMC4yLDAuN1YyOGwwLjUsMS4xTDE4LDI5bC0wLjQtMC43bDAuMiwwLjNsMC4yLDAuMgoJYzAuNCwwLjQsMSwwLjcsMS41LDAuNmwwLjQsMC41TDE5LDMxbDEsMC45YzAuMSwwLjQsMC4xLDAuOCwwLjIsMS4yYzAsMC4zLDAuMSwwLjYsMC4yLDAuOWwwLjQsMC45bDAuMywwLjdjMC4xLDAsMC4xLDAsMC4yLDAKCWwwLjEtMC4xYzAsMCwwLDAsMC0wLjFjMCwwLDAsMCwwLTAuMXYtMC40TDIxLjcsMzQuM3oiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTIzLDI0LjRjMC4xLDAsMC4zLDAsMC40LDAuMWMwLjEtMC4xLDAuMy0wLjEsMC40LTAuMWMwLDAsMCwwLjEsMC4xLDAuM3MwLjIsMC4zLDAuMywwLjNsMC4zLTAuMmwwLjMtMC41CglsMC4yLTAuNGMtMC40LTAuMi0wLjctMC41LTAuOC0wLjljLTAuMSwwLjEtMC4yLDAuMS0wLjMsMC4yYy0wLjIsMC4xLTAuNCwwLjMtMC42LDAuNXMtMC40LDAuNC0wLjYsMC43aDAuMQoJQzIzLDI0LjQsMjMsMjQuNCwyMywyNC40eiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjcuOCwzMC4zbDAuNSwwLjhsMC4xLDAuM3YwLjNjMCwwLjQsMCwwLjgtMC4xLDEuMmMtMC4xLDAuMy0wLjEsMC42LTAuMSwwLjljMCwwLjIsMCwwLjIsMC4xLDAuMgoJYzAuMy0wLjcsMC43LTEuNCwxLTIuMmMwLjQtMC44LDAuNS0xLjYsMC41LTIuNGMwLTAuMywwLTAuNy0wLjEtMWMwLTAuMy0wLjItMC42LTAuNS0wLjhjLTAuMSwwLTAuMiwwLTAuNC0wLjFjLTAuMSwwLTAuMiwwLTAuNCwwCgljLTAuMSwwLTAuMiwwLTAuMywwYy0wLjEsMC0wLjIsMC0wLjIsMGMtMC4xLDAtMC4xLDAtMC4yLTAuMWMtMC4zLDAuMS0wLjYsMC4yLTAuOSwwLjNjLTAuMiwwLTAuNCwwLjEtMC42LDAuMUwyNiwyOS4ybDAuNCwwLjgKCUwyNy44LDMwLjN6Ii8+Cjx0ZXh0IHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIDEgMjYuMSAyNS4wNTA1KSIgY2xhc3M9InN0MSBzdDIgc3QzIj5JQkFOPC90ZXh0Pgo8cmVjdCB4PSIxNDcuNSIgeT0iMTcuNiIgY2xhc3M9InN0NCIgd2lkdGg9IjMiIGhlaWdodD0iMS4yIi8+Cjwvc3ZnPgo=",
+  "links": [
+    {
+        "linkURL": " https://discovery-center.cloud.sap/serviceCatalog/iban-service",
+        "title": "Discovery Center"
+    },
+    {
+        "linkURL": "https://help.sap.com/docs/IBAN_SERVICE",
+        "title": "Documentation"
+    }
+],
+  "servicePlans": [{
+      "name": "Default Plan",
+      "displayName": "Default Plan",
+      "category": "SERVICE",
+      "description": "Default Plan",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    }
+         
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+]
+}

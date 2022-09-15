@@ -1,0 +1,403 @@
+{
+  "name": "abap",
+  "description":  "Access an instance to build custom ABAP cloud apps, leveraging newest innovations powered by SAP HANA.",
+  "displayName": "ABAP environment",
+  "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj48c3ZnIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAyMjU3IDEwMTUiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxLjQxNDIxOyI+PHRleHQgeD0iMzMwLjcwNnB4IiB5PSIxMDE0LjYxcHgiIHN0eWxlPSJmb250LWZhbWlseTonQmVudG9uU2Fucy1NZWRpdW0nLCAnQmVudG9uU2Fucyc7Zm9udC13ZWlnaHQ6NTAwO2ZvbnQtc2l6ZTo3MTMuNnB4O2ZpbGw6IzMyOGZjZDsiPkFCPHRzcGFuIHg9IjEzMTEuMjFweCAiIHk9IjEwMTQuNjFweCAiPkE8L3RzcGFuPlA8L3RleHQ+PHBhdGggZD0iTTE2MDEuMSw0MDAuMzY2Yy0xOS4yODEsLTIxMS45NTQgLTE4Ny44MTEsLTM3OS44MDkgLTQwMC4yNDMsLTM5OC42MzdjLTE0Ny4xMTUsLTEzLjA0IC0yOTAuOTczLDQ4LjI5MSAtMzgzLjIsMTYzLjM2OWw3MS4yODEsNTYuOWM3My4xMzcsLTkxLjI1NyAxODcuMjE2LC0xMzkuODkyIDMwMy44NzgsLTEyOS41NTJjMTY4LjQ1OSwxNC45MzIgMzAyLjEwNCwxNDguMDQgMzE3LjM5MywzMTYuMTJsOTAuODkxLC04LjJaIiBzdHlsZT0iZmlsbDojNWI3YjkzOyIvPjxwYXRoIGQ9Ik04OTUuOTc0LDIxMy4zMmMtMTUyLjg3MiwtMTMxLjY1NiAtMzgxLjIxNywtMTE3LjEzOSAtNTEwLjAyMywzMi40MjRjLTU2Ljc1Niw2NS45MDIgLTg3LjAwMSwxNTAuNjk3IC04NS4wNjcsMjM4LjQ5NWw5MC40NjcsLTAuMDI4Yy0xLjQ1LC02NS44NDggMjEuMjMzLC0xMjkuNDQ0IDYzLjgsLTE3OC44NzFjOTYuNjA0LC0xMTIuMTcyIDI2Ny44NjMsLTEyMy4wNiAzODIuNTE3LC0yNC4zMThsNTguMzA2LC02Ny43MDJaIiBzdHlsZT0iZmlsbDojNWI3YjkzOyIvPjxwYXRoIGQ9Ik0zMDEuNTMsMTAxNC45Yy0xNjMuMDQsLTAuNjc3IC0yOTcuMjM0LC0xMzEuMTEyIC0zMDEuNDI5LC0yOTUuMTkyYy00LjI3NCwtMTY3LjE0IDEyNy45NTQsLTMwNi4zMDYgMjk1LjA5NCwtMzEwLjU3OWM0Ljk1MywtMC4xMjcgOS45MDgsLTAuMTMyIDE0Ljg2MSwtMC4wMTVsLTEuNzgsNzUuNzEzYy0zLjcxNCwtMC4wODggLTcuNDMxLC0wLjA4NCAtMTEuMTQ2LDAuMDExYy0xMjUuMzU1LDMuMjA1IC0yMjQuNTI1LDEwNy41NzkgLTIyMS4zMiwyMzIuOTM0YzMuMjA1LDEyNS4zNTUgMTA3LjU3OSwyMjQuNTI2IDIzMi45MzQsMjIxLjMyMWM4LjQ0MiwtMC4yMTYgMTYuODY1LC0wLjkwMiAyNS4yMywtMi4wNTZsLTMyLjQ0NCw3Ny44NjNabTMyLjgyMywtNzcuNTk4bC0wLjA1NywtMC4zMDlsMC4wMTMsLTAuMDAybDAuMDQ0LDAuMzExWiIgc3R5bGU9ImZpbGw6IzViN2I5MzsiLz48L3N2Zz4=",
+  "links": [
+    {
+        "linkURL": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english\u0026search=Supplement%20Business%20Technology%20Platform\u0026sort=latest_desc",
+        "title": "Business Technology Platform Supplemental Terms and Conditions"
+    },
+    {
+        "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/abap-environment",
+        "title": "Discovery Center"
+    },
+    {
+        "linkURL": "https://help.sap.com/viewer/3504ec5ef16548778610c7e89cc0eac3/Cloud/en-US/11d62652aa2b4600a0fa136de0789648.html",
+        "title": "Documentation"
+    },
+    {
+        "linkURL": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/e34a329acc804c0e874496548183682f.html",
+        "title": "Documentation"
+    },
+    {
+        "linkURL": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/5dd739823b824b539eee47b7860a00be.html",
+        "title": "Support information"
+    }
+],
+  "servicePlans": [{
+      "name": "16 GB ABAP Runtime",
+      "displayName": "16 GB ABAP Runtime",
+      "category": "SERVICE",
+      "description": "16 GB ABAP Runtime",
+      "schemas": {
+    "service_instance": {
+        "create": {
+            "parameters": {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "_controlsOrder": [
+                    "admin_email",
+                    "description",
+                    "is_development_allowed",
+                    "sapsystemname"
+                ],
+                "_show_form_view": true,
+                "additionalProperties": false,
+                "properties": {
+                    "admin_email": {
+                        "description": "Enter the administrator\u0027s email address",
+                        "pattern": "^[^\u003c\u003e()\\[\\]\\\\,;:\\s@\"`]+@([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}$",
+                        "title": "Admin Email Address",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Enter a description for the ABAP system",
+                        "pattern": "^[^\u0027]{0,256}$",
+                        "title": "ABAP System Description",
+                        "type": "string"
+                    },
+                    "is_development_allowed": {
+                        "default": true,
+                        "description": "Specify, if development shall be allowed on this ABAP system",
+                        "title": "Development System",
+                        "type": "boolean"
+                    },
+                    "sapsystemname": {
+                        "default": "H01",
+                        "description": "Enter a valid system ID (SID) for the ABAP system. The ID must consist of exactly three alphanumeric characters. Only uppercase letters are allowed. The first character must be a letter (not a digit). The ID does not have to be technically unique. The following IDs are reserved and cannot be used: ADD ALL AMD AND ANY ARE ASC AUX AVG BIT CDC COM CON DBA END EPS FOR GET GID IBM INT KEY LOG LPT MAP MAX MIN MON NIX NOT NUL OFF OLD OMS OUT PAD PRN RAW REF ROW SAP SET SGA SHG SID SQL SUM SYS TMP TOP UID USE USR VAR.",
+                        "pattern": "^(?!ADD|ALL|AMD|AND|ANY|ARE|ASC|AUX|AVG|BIT|CDC|COM|CON|DBA|END|EPS|FOR|GET|GID|IBM|INT|KEY|LOG|LPT|MAP|MAX|MIN|MON|NIX|NOT|NUL|OFF|OLD|OMS|OUT|PAD|PRN|RAW|REF|ROW|SAP|SET|SGA|SHG|SID|SQL|SUM|SYS|TMP|TOP|UID|USE|USR|VAR)[A-Z][A-Z0-9]{2}$",
+                        "title": "ABAP System ID",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "admin_email"
+                ],
+                "type": "object"
+            }
+        },
+        "update": {
+            "parameters": {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "_controlsOrder": [
+                    "description"
+                ],
+                "_show_form_view": true,
+                "additionalProperties": true,
+                "properties": {
+                    "description": {
+                        "description": "Enter a description for the ABAP system",
+                        "pattern": "^[^\u0027]{0,256}$",
+                        "title": "ABAP System Description",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+},
+      "dataCenters":[
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    },
+    {
+      "name": "16 GB ABAP Compute Unit",
+      "displayName": "16 GB ABAP Compute Unit",
+      "category": "SERVICE",
+      "description": "16 GB ABAP Compute Unit",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    },
+    {
+      "name": "Free plan. For small proof-of-concept projects with limited number of repository objects (max. 500). The instance will be only available during regular office hours. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "displayName": "Free plan. For small proof-of-concept projects with limited number of repository objects (max. 500). The instance will be only available during regular office hours. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "category": "SERVICE",
+      "description": "Free plan. For small proof-of-concept projects with limited number of repository objects (max. 500). The instance will be only available during regular office hours. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "schemas": {
+    "service_instance": {
+        "create": {
+            "parameters": {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "_controlsOrder": [
+                    "admin_email",
+                    "description",
+                    "sapsystemname"
+                ],
+                "_show_form_view": true,
+                "additionalProperties": false,
+                "properties": {
+                    "admin_email": {
+                        "description": "Enter the administrator\u0027s email address",
+                        "maxLength": 256,
+                        "minLength": 6,
+                        "pattern": "^[^\u003c\u003e()\\[\\]\\\\,;:\\s@\"`]+@([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}$",
+                        "title": "Admin Email Address",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Enter a description for the ABAP system",
+                        "maxLength": 256,
+                        "pattern": "^[^\u0027\\x00-\\x1f]*$",
+                        "title": "ABAP System Description",
+                        "type": "string"
+                    },
+                    "sapsystemname": {
+                        "default": "H01",
+                        "description": "Enter a valid system ID (SID) for the ABAP system. The ID must consist of exactly three alphanumeric characters. Only uppercase letters are allowed. The first character must be a letter (not a digit). The ID does not have to be technically unique. The following IDs are reserved and cannot be used: ADD ALL AMD AND ANY ARE ASC AUX AVG BIT CDC COM CON DBA END EPS FOR GET GID IBM INT KEY LOG LPT MAP MAX MIN MON NIX NOT NUL OFF OLD OMS OUT PAD PRN RAW REF ROW SAP SET SGA SHG SID SQL SUM SYS TMP TOP UID USE USR VAR.",
+                        "maxLength": 3,
+                        "minLength": 3,
+                        "pattern": "^(?!ADD|ALL|AMD|AND|ANY|ARE|ASC|AUX|AVG|BIT|CDC|COM|CON|DBA|END|EPS|FOR|GET|GID|IBM|INT|KEY|LOG|LPT|MAP|MAX|MIN|MON|NIX|NOT|NUL|OFF|OLD|OMS|OUT|PAD|PRN|RAW|REF|ROW|SAP|SET|SGA|SHG|SID|SQL|SUM|SYS|TMP|TOP|UID|USE|USR|VAR)[A-Z][A-Z0-9]{2}$",
+                        "title": "ABAP System ID",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "admin_email"
+                ],
+                "type": "object"
+            }
+        },
+        "update": {
+            "parameters": {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "_controlsOrder": [
+                    "description"
+                ],
+                "_show_form_view": true,
+                "additionalProperties": false,
+                "properties": {
+                    "description": {
+                        "description": "Enter a description for the ABAP system",
+                        "maxLength": 256,
+                        "pattern": "^[^\u0027\\x00-\\x1f]*$",
+                        "title": "ABAP System Description",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+},
+      "dataCenters":[
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    },
+    {
+      "name": "16 GB HANA Compute Unit",
+      "displayName": "16 GB HANA Compute Unit",
+      "category": "SERVICE",
+      "description": "16 GB HANA Compute Unit",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    },
+    {
+      "name": "Configurable ABAP Runtime and HANA Memory",
+      "displayName": "Configurable ABAP Runtime and HANA Memory",
+      "category": "ELASTIC_SERVICE",
+      "description": "Configurable ABAP Runtime and HANA Memory",
+      "schemas": {
+    "service_instance": {
+        "create": {
+            "parameters": {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "_controlsOrder": [
+                    "admin_email",
+                    "description",
+                    "is_development_allowed",
+                    "sapsystemname",
+                    "size_of_runtime",
+                    "size_of_persistence"
+                ],
+                "_show_form_view": true,
+                "additionalProperties": false,
+                "properties": {
+                    "admin_email": {
+                        "description": "Enter the administrator\u0027s email address",
+                        "pattern": "^[^\u003c\u003e()\\[\\]\\\\,;:\\s@\"`]+@([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}$",
+                        "title": "Admin Email Address",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Enter a description for the ABAP system",
+                        "pattern": "^[^\u0027]{0,256}$",
+                        "title": "ABAP System Description",
+                        "type": "string"
+                    },
+                    "is_development_allowed": {
+                        "default": true,
+                        "description": "Specify, if development shall be allowed on this ABAP system",
+                        "title": "Development System",
+                        "type": "boolean"
+                    },
+                    "sapsystemname": {
+                        "default": "H01",
+                        "description": "Enter a valid system ID (SID) for the ABAP system. The ID must consist of exactly three alphanumeric characters. Only uppercase letters are allowed. The first character must be a letter (not a digit). The ID does not have to be technically unique. The following IDs are reserved and cannot be used: ADD ALL AMD AND ANY ARE ASC AUX AVG BIT CDC COM CON DBA END EPS FOR GET GID IBM INT KEY LOG LPT MAP MAX MIN MON NIX NOT NUL OFF OLD OMS OUT PAD PRN RAW REF ROW SAP SET SGA SHG SID SQL SUM SYS TMP TOP UID USE USR VAR.",
+                        "pattern": "^(?!ADD|ALL|AMD|AND|ANY|ARE|ASC|AUX|AVG|BIT|CDC|COM|CON|DBA|END|EPS|FOR|GET|GID|IBM|INT|KEY|LOG|LPT|MAP|MAX|MIN|MON|NIX|NOT|NUL|OFF|OLD|OMS|OUT|PAD|PRN|RAW|REF|ROW|SAP|SET|SGA|SHG|SID|SQL|SUM|SYS|TMP|TOP|UID|USE|USR|VAR)[A-Z][A-Z0-9]{2}$",
+                        "title": "ABAP System ID",
+                        "type": "string"
+                    },
+                    "size_of_persistence": {
+                        "default": 4,
+                        "description": "Enter the size of the HANA memory in blocks of 15 GB on AWS",
+                        "enum": [
+                            2,
+                            4,
+                            8,
+                            16,
+                            32
+                        ],
+                        "title": "HANA Memory Size",
+                        "type": "integer"
+                    },
+                    "size_of_runtime": {
+                        "default": 1,
+                        "description": "Enter the size of the ABAP runtime in blocks of 16 GB",
+                        "enum": [
+                            1,
+                            2,
+                            4,
+                            6,
+                            8
+                        ],
+                        "title": "ABAP Runtime Size",
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "admin_email",
+                    "size_of_runtime",
+                    "size_of_persistence"
+                ],
+                "type": "object"
+            }
+        },
+        "update": {
+            "parameters": {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "_controlsOrder": [
+                    "description",
+                    "size_of_runtime"
+                ],
+                "_show_form_view": true,
+                "properties": {
+                    "description": {
+                        "description": "Enter a description for the ABAP system",
+                        "pattern": "^[^\u0027]{0,256}$",
+                        "title": "ABAP System Description",
+                        "type": "string"
+                    },
+                    "size_of_runtime": {
+                        "default": 1,
+                        "description": "Enter the size of the ABAP runtime in blocks of 16 GB",
+                        "enum": [
+                            1,
+                            2,
+                            4,
+                            6,
+                            8
+                        ],
+                        "title": "ABAP Runtime Size",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+},
+      "dataCenters":[
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    }
+         
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+]
+}

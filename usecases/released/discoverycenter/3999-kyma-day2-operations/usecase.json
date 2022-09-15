@@ -39,14 +39,14 @@
             "category": "SERVICE",
             "repeatstatusrequest": 60,
             "repeatstatustimeout": 3600,
-            "instancename": "hana-cloud",
+            "instancename": "EasyFranchiseHANADB",
             "parameters": {
                 "data": {
                     "edition": "cloud",
                     "memory": 30,
                     "serviceStopped": false,
                     "storage": 120,
-                    "systempassword": "mYy8QJ9gQsghfaHjrkeP",
+                    "systempassword": "mySAP123",
                     "vcpu": 0,
                     "versionIndicator": "",
                     "whitelistIPs": [
@@ -87,6 +87,14 @@
         {
             "description": "Run deployment script",
             "command": "/home/user/tutorial/btpsa-deployment.sh"            
+        },
+        {
+            "description": "Create the customer usecasefile",
+            "command": "rm /home/user/usecases/released/discoverycenter/3999-kyma-day2-operations/usecase-customer.json -f && SUBDOMAIN=$(jq -r '.\"subdomain\"' /home/user/log/metadata_log.json) && sed \"s~<provider-subdomain>~$SUBDOMAIN~g\" \"/home/user/usecases/released/discoverycenter/3999-kyma-day2-operations/usecase-customer-template.json\" >> \"/home/user/usecases/released/discoverycenter/3999-kyma-day2-operations/usecase-customer.json\""            
+        },
+        {
+            "description": "Execute customer usercase",
+            "command": "GLOBALACCOUNT=$(jq -r '.\"globalaccount\"' /home/user/log/metadata_log.json) && MYEMAIL=$(jq -r '.\"myemail\"' /home/user/log/metadata_log.json) && SUBACCOUNT=$(jq -r '.\"subaccount\"' /home/user/log/metadata_log.json) && SUBACCOUNTID=$(jq -r '.\"subaccountid\"' /home/user/log/metadata_log.json) && ./btpsa -parameterfile 'usecases/released/discoverycenter/3999-kyma-day2-operations/parameters.json' -usecasefile 'usecases/released/discoverycenter/3999-kyma-day2-operations/usecase-customer.json' -globalaccount $GLOBALACCOUNT -myemail $MYEMAIL -subaccountname CityScooter -customAppProviderSubaccountId $SUBACCOUNTID"            
         }
     ]
 }

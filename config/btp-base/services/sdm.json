@@ -1,0 +1,247 @@
+{
+  "name": "sdm",
+  "description":  "Leverage the APIs of SAP Document Management service and build your own document management layer to enable document management capabilities for your business applications. You can also embed the easy-to-use, UI5-based, reusable UI component of Document Management into your application for document management scenarios.",
+  "displayName": "Document Management Service, Integration Option",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iZG9jdW1lbnQtc2VydmljZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMGE2ZWQxO30uY2xzLTJ7ZmlsbDojMDUzYjcwO30uY2xzLTN7ZmlsbDojMDA5MmQxO308L3N0eWxlPjwvZGVmcz48dGl0bGU+ZG9jdW1lbnQtc2VydmljZTwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDksMjBoLS4yTDQzLDhIMTNMNy4yLDIwSDdhMi45NDYsMi45NDYsMCwwLDAtMywzVjQ0YTIuOTQ2LDIuOTQ2LDAsMCwwLDMsM0g0OWEyLjk0NiwyLjk0NiwwLDAsMCwzLTNWMjNBMi45NDYsMi45NDYsMCwwLDAsNDksMjBabS0zLjItLjFIMTAuMWw0LjYtOS42SDQxLjNNNyw0NFYyM0g0OVY0NFoiLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMzQgMzggMjIgMzggMjIgMzYuNSAxOSAzNi41IDE5IDM4IDE5IDQxIDM3IDQxIDM3IDM4IDM3IDM2LjUgMzQgMzYuNSAzNCAzOCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjQxLjMiIHkxPSIxMC4zIiB4Mj0iNDUuOCIgeTI9IjE5LjkiLz48cmVjdCBjbGFzcz0iY2xzLTIiIHg9IjE0LjEiIHk9IjE2LjEiIHdpZHRoPSIyNy44IiBoZWlnaHQ9IjEuNSIvPjxyZWN0IGNsYXNzPSJjbHMtMiIgeD0iMTYiIHk9IjEyLjQiIHdpZHRoPSIyNCIgaGVpZ2h0PSIxLjUiLz48L3N2Zz4=",
+  "links": [
+    {
+        "linkURL": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english\u0026search=Supplement%20Business%20Technology%20Platform\u0026sort=latest_desc",
+        "title": "Business Technology Platform Supplemental Terms and Conditions"
+    },
+    {
+        "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/document-management-service-integration-option",
+        "title": "Discovery Center"
+    },
+    {
+        "linkURL": "https://help.sap.com/viewer/p/DOCUMENT_MANAGEMENT",
+        "title": "Documentation"
+    }
+],
+  "servicePlans": [{
+      "name": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "displayName": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "category": "ELASTIC_SERVICE",
+      "description": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-ap20",
+          "displayName": "Australia (Sydney) Azure",
+          "region": "ap20"
+      },
+      
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      },
+      
+      {
+          "name": "cf-eu30",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu30"
+      },
+      
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-us20",
+          "displayName": "US West (WA)",
+          "region": "us20"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-us21",
+          "displayName": "US East (VA)",
+          "region": "us21"
+      },
+      
+      {
+          "name": "cf-ap12",
+          "displayName": "South Korea (Seoul)",
+          "region": "ap12"
+      },
+      
+      {
+          "name": "cf-ap21",
+          "displayName": "Singapore",
+          "region": "ap21"
+      },
+      
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-jp20",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp20"
+      },
+      
+      {
+          "name": "cf-eu20",
+          "displayName": "Europe (Netherlands)",
+          "region": "eu20"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      },
+      
+      {
+          "name": "cf-ca10",
+          "displayName": "Canada (Montreal)",
+          "region": "ca10"
+      },
+      
+      {
+          "name": "cf-br10",
+          "displayName": "Brazil (Sao Paulo)",
+          "region": "br10"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      }
+      ]
+    },
+    {
+      "name": "Standard Document Management Capabilities.",
+      "displayName": "Standard Document Management Capabilities.",
+      "category": "ELASTIC_SERVICE",
+      "description": "Standard Document Management Capabilities.",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-ap20",
+          "displayName": "Australia (Sydney) Azure",
+          "region": "ap20"
+      },
+      
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      },
+      
+      {
+          "name": "cf-eu30",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu30"
+      },
+      
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-ap12",
+          "displayName": "South Korea (Seoul)",
+          "region": "ap12"
+      },
+      
+      {
+          "name": "cf-ap21",
+          "displayName": "Singapore",
+          "region": "ap21"
+      },
+      
+      {
+          "name": "cf-ca10",
+          "displayName": "Canada (Montreal)",
+          "region": "ca10"
+      },
+      
+      {
+          "name": "cf-us21",
+          "displayName": "US East (VA)",
+          "region": "us21"
+      },
+      
+      {
+          "name": "cf-jp20",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp20"
+      },
+      
+      {
+          "name": "cf-br10",
+          "displayName": "Brazil (Sao Paulo)",
+          "region": "br10"
+      },
+      
+      {
+          "name": "cf-us20",
+          "displayName": "US West (WA)",
+          "region": "us20"
+      },
+      
+      {
+          "name": "cf-eu20",
+          "displayName": "Europe (Netherlands)",
+          "region": "eu20"
+      },
+      
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      }
+      ]
+    }
+         
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapbtp"
+]
+}

@@ -1,0 +1,69 @@
+{
+  "name": "mobile-client-resource",
+  "description":  "Mobile Client Resource Service",
+  "displayName": "Mobile Client Resource Service",
+  "icon": null,
+  "links": [
+    {
+        "linkURL": "https://help.sap.com/viewer/468990a67780424a9e66eb096d4345bb/Cloud/en-US/f54ce45999d143ea8357210d580f0268.html",
+        "title": "Documentation"
+    },
+    {
+        "linkURL": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
+        "title": "Support information"
+    },
+    {
+        "linkURL": "https://mobile-service-cockpit-web.cfapps.br10.hana.ondemand.com",
+        "title": "Support information"
+    }
+],
+  "servicePlans": [{
+      "name": "Mobile Client Resource Service allows to manage resources that can be accessed from mobile applications",
+      "displayName": "Mobile Client Resource Service allows to manage resources that can be accessed from mobile applications",
+      "category": "SERVICE",
+      "description": "Mobile Client Resource Service allows to manage resources that can be accessed from mobile applications",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-br10",
+          "displayName": "Brazil (Sao Paulo)",
+          "region": "br10"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    }
+         
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+]
+}

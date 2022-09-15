@@ -1,0 +1,143 @@
+{
+  "name": "content-agent-ui",
+  "description":  "SAP Content Agent service is a tool for SAP BTP applications offering generic content management operations such as view, export and import content with inter-dependencies and integration with SAP Cloud Transport Management service. It offers a view to track all activities along with logs, status and other information.",
+  "displayName": "Content Agent Service",
+  "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjQuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1MCA1MCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTAgNTA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDojMDUzQjcwO30KCS5zdDF7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9Cgkuc3Qye2ZpbGw6IzBBNkVEMTt9Cjwvc3R5bGU+CjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zNy40LDE1LjdjLTAuNi0zLTMuNC01LTYuNS00LjVjLTAuNywwLjEtMS4zLDAuNC0xLjksMC43QzI4LDksMjUuMiw3LDIyLDcuMmMtOC4xLDAtNy40LDguNS03LjQsOC41CgljLTIuOCwwLjktNC42LDMuNS00LjYsNi40YzAsMi42LDEuNSw1LDMuOSw2LjF2LTIuM2MtMi4xLTEuNS0yLjYtNC41LTEuMS02LjZjMC42LTAuOCwxLjQtMS40LDIuNC0xLjdsMS41LTAuNWwtMC4yLTEKCWMtMC4xLTAuNC0wLjEtMC45LTAuMS0xLjRjMC4xLTEuNCwwLjYtMi43LDEuNC0zLjhjMS0xLjMsMi42LTIsNC4yLTEuOGMyLjEsMCw0LjgsMS45LDUuNCwzLjdsMC42LDEuOGwxLjYtMC45CgljMC43LTAuNCwxLjQtMC42LDIuMi0wLjZjMS43LDAsMy4yLDEuMiwzLjYsM2wwLjIsMWwwLjcsMC4zYzEuNSwwLjcsMi43LDIsMywzLjdjMC4zLDEuOC0wLjQsMy42LTEuOSw0Ljh2Mi4zCgljMi40LTEuMiwzLjktMy42LDMuOS02LjJDNDEuNCwxOS4yLDM5LjksMTYuOCwzNy40LDE1Ljd6Ii8+CjxnIGNsYXNzPSJzdDEiPgoJPHBhdGggY2xhc3M9InN0MiIgZD0iTTMzLjUsMjZ2MTAuMkwyNS44LDQwbC03LjctMy45VjI2TDIyLDI0bDcuNywzLjh2My44bC0xLjMsMC42di0zLjdMMjIsMjUuNWwtMi42LDEuMnY4LjdsNi40LDMuMmw2LjQtMy4yCgkJdi04LjdsLTYuNC0zLjJsLTEsMC41bC0xLjQtMC43bDIuNC0xLjJMMzMuNSwyNnogTTIwLjcsMzNsMy44LDEuOXYxLjZsLTMuOC0xLjlWMzN6Ii8+CjwvZz4KPC9zdmc+Cg==",
+  "links": [
+    {
+        "linkURL": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english\u0026search=Supplement%20Business%20Technology%20Platform\u0026sort=latest_desc",
+        "title": "Business Technology Platform Supplemental Terms and Conditions"
+    },
+    {
+        "linkURL": "https://help.sap.com/viewer/p/CONTENT_AGENT_SERVICE",
+        "title": "Documentation"
+    }
+],
+  "servicePlans": [{
+      "name": "Standard User Interface for managing content operations for SAP BTP applications such as view, export as download and push to Cloud Transport Management service, import content into respective SAP BTP tenant and view historic data of activities performed. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "displayName": "Standard User Interface for managing content operations for SAP BTP applications such as view, export as download and push to Cloud Transport Management service, import content into respective SAP BTP tenant and view historic data of activities performed. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "category": "APPLICATION",
+      "description": "Standard User Interface for managing content operations for SAP BTP applications such as view, export as download and push to Cloud Transport Management service, import content into respective SAP BTP tenant and view historic data of activities performed. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-us20",
+          "displayName": "US West (WA)",
+          "region": "us20"
+      },
+      
+      {
+          "name": "cf-us21",
+          "displayName": "US East (VA)",
+          "region": "us21"
+      },
+      
+      {
+          "name": "cf-ap21",
+          "displayName": "Singapore",
+          "region": "ap21"
+      },
+      
+      {
+          "name": "cf-jp20",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp20"
+      },
+      
+      {
+          "name": "cf-ch20",
+          "displayName": "cf-ch20",
+          "region": "ch20"
+      },
+      
+      {
+          "name": "cf-ap20",
+          "displayName": "Australia (Sydney) Azure",
+          "region": "ap20"
+      },
+      
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      },
+      
+      {
+          "name": "cf-in30",
+          "displayName": "India (Mumbai)",
+          "region": "in30"
+      },
+      
+      {
+          "name": "cf-ap12",
+          "displayName": "South Korea (Seoul)",
+          "region": "ap12"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-jp10",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp10"
+      },
+      
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-ca10",
+          "displayName": "Canada (Montreal)",
+          "region": "ca10"
+      },
+      
+      {
+          "name": "cf-br10",
+          "displayName": "Brazil (Sao Paulo)",
+          "region": "br10"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-eu30",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu30"
+      },
+      
+      {
+          "name": "cf-eu20",
+          "displayName": "Europe (Netherlands)",
+          "region": "eu20"
+      },
+      
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    }
+         
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+]
+}

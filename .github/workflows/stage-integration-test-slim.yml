@@ -45,7 +45,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.IMAGE_NAME }}
       - name: Build Docker image
         id: dockerbuild
-        uses: docker/build-push-action@v3.0.0
+        uses: docker/build-push-action@v3.1.1
         with:
           context: .
           file: ./config/Dockerfile
@@ -71,12 +71,12 @@ jobs:
       BTPSA_PARAM_GLOBALACCOUNT: ${{ secrets.BTPSA_PARAM_GLOBALACCOUNT }}
       BTPSA_PARAM_MYPASSWORD: ${{ secrets.BTPSA_PARAM_MYPASSWORD }}
     steps:
-      - name: 'Integration test 01: Default use case"'
+      - name: 'Integration test 01: Default use case'
         if: ${{ always() }}
         working-directory: /home/user
         shell: bash
         run: ./btpsa -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/tests/integrationtests/parameterfiles/integrationtest01.json'
-      - name: 'Integration test 07: Setup SAP Task Center"'
+      - name: 'Integration test 07: Setup SAP Task Center'
         if: ${{ always() }}
         working-directory: /home/user
         shell: bash
@@ -108,10 +108,10 @@ jobs:
         with:
           github-token: ${{ secrets.DELETE_IMAGE_TOKEN }}
           script: |
-            const imageName = process.env.IMAGE; 
+            const imageName = process.env.IMAGE_NAME;
             const {owner, repo} = context.repo; 
-            const imageName = `${imageName}`;
-            const imageNameLowerCase = imageName.toLowerCase();
+            const imageNameString = `${imageName}`;
+            const imageNameLowerCase = imageNameString.toLowerCase();
             const packageName = `${repo}/${imageNameLowerCase}`;
 
             const result = await github.rest.packages.getPackageForOrganization({

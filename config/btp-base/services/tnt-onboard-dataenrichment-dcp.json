@@ -1,0 +1,43 @@
+{
+  "name": "tnt-onboard-dataenrichment-dcp",
+  "description":  "Provides Business Partner data from third-party data providers",
+  "displayName": "Data Enrichment",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iZGF0YS1lbnJpY2htZW50IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwNTNiNzA7fS5jbHMtMntmaWxsOiMwYTZlZDE7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5kYXRhLWVucmljaG1lbnQ8L3RpdGxlPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQ1Ljg0LDE4LjQ2MmE4LjQ4OSw4LjQ4OSwwLDAsMC0xMi43ODMtNS43MTNBMTAuNzQ3LDEwLjc0NywwLDAsMCwyMi40MSw1LjVDMTAsNS41LDExLjA5LDE4LjQ4OCwxMS4wOSwxOC40ODhBMTAuMjQ5LDEwLjI0OSwwLDAsMCw0LDI4LjIxNSwxMC4zOCwxMC4zOCwwLDAsMCwxMywzOC41aDBWMzUuNDVhNy4zNDEsNy4zNDEsMCwwLDEtNi03LjIzNSw3LjI0OSw3LjI0OSwwLDAsMSw1LjAyNy02Ljg3N2wyLjI1MS0uNzQtLjItMi4zNjFjMC0uMDQ3LS4zMTgtNC43MjcsMi4yNTQtNy41MjVDMTcuNyw5LjIyMywxOS42OTEsOC41LDIyLjQxLDguNWE3Ljc1NSw3Ljc1NSwwLDAsMSw3Ljg1OSw1LjM1NmwxLjMwNiwzLjI5LDMuMDMxLTEuODI4YTUuNDUsNS40NSwwLDAsMSwyLjg0My0uODE4LDUuNTQ2LDUuNTQ2LDAsMCwxLDUuNDQzLDQuNTE3bC4yODgsMS41MjksMS40MTUuNjQ1QTcuNTE1LDcuNTE1LDAsMCwxLDQ5LDI4YTcuNiw3LjYsMCwwLDEtNiw3LjQzN1YzOC41aDBBMTAuNjI1LDEwLjYyNSwwLDAsMCw1MiwyOCwxMC40ODMsMTAuNDgzLDAsMCwwLDQ1Ljg0LDE4LjQ2MloiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik00MCwyMS45NTFhNC41LDQuNSwwLDAsMC0yLjQ0NCw4LjI3MUEzLjgxMywzLjgxMywwLDAsMSwzNCwzMi40NWE2LjU4MSw2LjU4MSwwLDAsMC00LjUsMS42MzhWMjcuNjc2YTQuNSw0LjUsMCwxLDAtMywwdjYuNDEyQTYuNTgxLDYuNTgxLDAsMCwwLDIyLDMyLjQ1YTMuODUxLDMuODUxLDAsMCwxLTMuNTc2LTIuMjE3LDQuNTEzLDQuNTEzLDAsMSwwLTMsLjY2QTYuODA3LDYuODA3LDAsMCwwLDIyLDM1LjQ1YzQuNDE1LDAsNC41LDUuNzYsNC41LDZ2LjMyM2E0LjUsNC41LDAsMSwwLDMsMFY0MS40NWMwLS4yNDYuMDUtNiw0LjUtNmE2LjgwNSw2LjgwNSwwLDAsMCw2LjU2OS00LjU1NkE0LjQ4OSw0LjQ4OSwwLDAsMCw0MCwyMS45NTFabS0yNCw2YTEuNSwxLjUsMCwxLDEsMS41LTEuNUExLjUsMS41LDAsMCwxLDE2LDI3Ljk1MVptMTItM2ExLjUsMS41LDAsMSwxLDEuNS0xLjVBMS41LDEuNSwwLDAsMSwyOCwyNC45NTFabTEyLDNhMS41LDEuNSwwLDEsMSwxLjUtMS41QTEuNSwxLjUsMCwwLDEsNDAsMjcuOTUxWiIvPjwvc3ZnPg==",
+  "links": [
+    {
+        "linkURL": "https://help.sap.com/viewer/product/Cloud_Platform_Data_Enrichment/latest/en-US",
+        "title": "Documentation"
+    }
+],
+  "servicePlans": [{
+      "name": "Data Enrichment",
+      "displayName": "Data Enrichment",
+      "category": "APPLICATION",
+      "description": "Data Enrichment",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    }
+         
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+]
+}

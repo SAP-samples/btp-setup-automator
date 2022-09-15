@@ -68,7 +68,7 @@ def getSubaccountAdmins(btpUsecase):
 
 
 def getRoleCollectionsOfServices(btpUsecase):
-    usecase = getJsonFromFile(btpUsecase, btpUsecase.usecasefile)
+    usecase = getJsonFromFile(btpUsecase.usecasefile)
     items = []
     if usecase.get("services") is not None:
         for service in usecase.get("services"):
@@ -85,24 +85,15 @@ def getMembersOfUserGroup(btpUsecase, usergroup):
     usergroupExists = False
 
     if btpUsecase.myusergroups and usergroup:
-        usergroupIsString = isinstance(btpUsecase.myusergroups, str)
-        usergroupIsList = isinstance(btpUsecase.myusergroups, dict)
-        myusergroups = None
-        # If the usergroup is defined as a string it might be
-        if usergroupIsString:
-            usergroupsFromHttp = getJsonFromFile(None, btpUsecase.myusergroups)
-            if usergroupsFromHttp:
-                myusergroups = usergroupsFromHttp
-        if usergroupIsList:
-            myusergroups = btpUsecase.myusergroups
 
-        if myusergroups:
-            for thisUserGroup in myusergroups:
+        if btpUsecase.myusergroups:
+            for thisUserGroup in btpUsecase.myusergroups:
                 if thisUserGroup.get("name") == usergroup:
                     usergroupExists = True
                     theseMembers = thisUserGroup.get("members")
                     if theseMembers:
-                        members.append(theseMembers)
+                        for thisMember in theseMembers:
+                            members.append(thisMember)
                         members = list(dict.fromkeys(members))
 
             if usergroupExists is False:

@@ -1,0 +1,12 @@
+{
+    "apiVersion": "services.cloud.sap.com/v1",
+    "kind": "ServiceBinding",
+    "metadata": {
+        "name": "my-service-binding"
+    },
+    "spec": {
+        "serviceInstanceName": "my-service-instance",
+        "secretName": "mySecret",
+        "parameters": {}
+    }
+}

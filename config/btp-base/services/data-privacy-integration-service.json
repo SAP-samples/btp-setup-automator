@@ -1,0 +1,183 @@
+{
+  "name": "data-privacy-integration-service",
+  "description":  "Data Privacy Integration (DPI) is a service that supports applications realize their data privacy functions i.e Business Purpose Management ( Ensure Data is processed in a compliant manner based on valid Business Purpose ), Data Deletion and Retrieval of personal data. Applications that are part of an end to end business process can integrate with DPI to provide a centralized management of data privacy.",
+  "displayName": "Data Privacy Integration",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iZGF0YS1wcml2YWN5LWludGVncmF0aW9uIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwNTNiNzA7fS5jbHMtMntmaWxsOiMwYTZlZDE7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIzLjI2LDMyLjgzYTEzLjQ3OCwxMy40NzgsMCwwLDEtLjg3LTIuODhBNS42ODcsNS42ODcsMCwwLDEsMTksMzFhNi4xLDYuMSwwLDAsMS02LTYsNi4xLDYuMSwwLDAsMSw2LTYsNS42LDUuNiwwLDAsMSwzLC43OFYxNi41MUE4Ljg2OCw4Ljg2OCwwLDAsMCwxOSwxNmE4LjU4Myw4LjU4MywwLDAsMC02LjM2LDIuNjQsOC45ODEsOC45ODEsMCwwLDAsMCwxMi43MkE4LjU4Myw4LjU4MywwLDAsMCwxOSwzNGE4LjYsOC42LDAsMCwwLDQuMjktMS4wOEMyMy4yOSwzMi44OSwyMy4yNiwzMi44NiwyMy4yNiwzMi44M1pNMzMuODUsNDQuMTFjLS4xOC0uMDktLjM2LS4yMS0uNTctLjMzYTI2LjE0NSwyNi4xNDUsMCwwLDEtMy41NC0yLjQzQTguNjQyLDguNjQyLDAsMCwxLDMxLDQ2djNIN1Y0NmE4LjcsOC43LDAsMCwxLDIuNjQtNi4zNkE4LjU4Myw4LjU4MywwLDAsMSwxNiwzN2g2YTguNjc3LDguNjc3LDAsMCwxLDQuNSwxLjE3LDE4LjU1NiwxOC41NTYsMCwwLDEtMi40LTMuNTFjLS4wOS0uMTUtLjE4LS4zMy0uMjctLjUxQTkuMDQ2LDkuMDQ2LDAsMCwwLDIyLDM0SDE2YTExLjU2LDExLjU2LDAsMCwwLTQuNjIuOTMsMTIuMTgsMTIuMTgsMCwwLDAtMy44NCwyLjU4LDEyLjAxOCwxMi4wMTgsMCwwLDAtMi41OCwzLjg0QTExLjczLDExLjczLDAsMCwwLDQsNDZ2NkgzNFY0NkExMi43LDEyLjcsMCwwLDAsMzMuODUsNDQuMTFaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMzguNSw3LjcwOWwuOTQuNjcyYTE1LjE4NywxNS4xODcsMCwwLDAsNy44MTMsMi41NDZMNDksMTAuOTM0LDQ5LDI2LjJjMCw4Ljg1LTkuNDY4LDEzLjA2NC05Ljg2OCwxMy4yNDFsLS42MzIuMjcyLS42MzItLjI3MkMzNy40NjgsMzkuMjYxLDI4LDM1LjA0NywyOCwyNi4yVjEwLjkzNGwxLjc0Ny0uMDA3QTE1LjE4NywxNS4xODcsMCwwLDAsMzcuNTYsOC4zODFsLjk0LS42NzJNMzguNSw0LDM2Ljc2Myw1LjI0M2wtLjk0LjY3M0ExMi4yODIsMTIuMjgyLDAsMCwxLDI5LjcwOSw3LjlsLTEuNzIyLjAwN0wyNSw3LjkyNFYyNi4yYzAsMTAuNTQ4LDEwLjQ2OSwxNS40ODIsMTEuNjYzLDE2LjAxbC42NTYuMjgzTDM4LjUsNDNsMS4xODEtLjUxLjYzMi0uMjczQzQxLjUzMSw0MS42NzksNTIsMzYuNzQ1LDUyLDI2LjJsMC0xNS4yNjNWNy45MjRMNDkuMDEsNy45MSw0Ny4yNjcsNy45YTEyLjI4OCwxMi4yODgsMCwwLDEtNi4wODgtMS45ODVsLS45NDItLjY3NUwzOC41LDRaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMzkuNDQ3LDI2LjQ0bDEuMDUsMi4xOWgtNC4wMmwxLjA1LTIuMTlhMi43NTcsMi43NTcsMCwwLDEtLjY2LS42NiwxLjYxNSwxLjYxNSwwLDAsMS0uMjctLjkzLDEuNjQ0LDEuNjQ0LDAsMCwxLC41Ny0xLjMyLDEuODgzLDEuODgzLDAsMCwxLDIuNjQsMCwxLjY0NCwxLjY0NCwwLDAsMSwuNTcsMS4zMiwxLjYxNSwxLjYxNSwwLDAsMS0uMjcuOTNBMi43NTcsMi43NTcsMCwwLDEsMzkuNDQ3LDI2LjQ0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQxLjI0NywxNi45M2EyLjg1MiwyLjg1MiwwLDAsMSwuMDMuNDJ2My43OEgzNS43VjE3LjM1YTIuODUyLDIuODUyLDAsMCwxLC4wMy0uNDIsMS4xMSwxLjExLDAsMCwxLC4yNy0uNjYsMi4wMzQsMi4wMzQsMCwwLDEsLjg0LS41NCw0LjMxMyw0LjMxMywwLDAsMSwxLjU5LS4yNGguMTJhNC4zMTMsNC4zMTMsMCwwLDEsMS41OS4yNCwyLjAzNCwyLjAzNCwwLDAsMSwuODQuNTRBMS4xMSwxLjExLDAsMCwxLDQxLjI0NywxNi45M1oiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik00Ny4yNDcsMTAuOTNhMTUuMjc4LDE1LjI3OCwwLDAsMS03LjgtMi41NWwtLjk2LS42Ni0uOTMuNjZhMTUuMjc4LDE1LjI3OCwwLDAsMS03LjgsMi41NWgtMS43N1YyNi4yYzAsOC44NSw5LjQ4LDEzLjA1LDkuODcsMTMuMjNsLjYzLjI3LjY2LS4yN2MuMzktLjE4LDkuODQtNC4zOCw5Ljg0LTEzLjIzVjEwLjkzWm0tMi4xOSwxNy43YTEuNzA5LDEuNzA5LDAsMCwxLS4zLDEuMDgsMS43ODYsMS43ODYsMCwwLDEtLjYzLjU0LDEuOTQ5LDEuOTQ5LDAsMCwxLS45My4yNGgtOS40MmExLjk0OSwxLjk0OSwwLDAsMS0uOTMtLjI0LDEuNzg2LDEuNzg2LDAsMCwxLS42My0uNTQsMS43MDksMS43MDksMCwwLDEtLjMtMS4wOFYyMi45OWExLjY3NSwxLjY3NSwwLDAsMSwuMy0xLjA1LDEuNzA2LDEuNzA2LDAsMCwxLC42My0uNiwxLjkyOCwxLjkyOCwwLDAsMSwuOTMtLjIxaC4wM1YxNy4zNWE0LDQsMCwwLDEsLjIxLTEuMjksMi43NDUsMi43NDUsMCwwLDEsLjcyLTEuMiw0LjM4NSw0LjM4NSwwLDAsMSwxLjQxLS45LDYuMjEsNi4yMSwwLDAsMSwyLjI4LS4zM2guMTJhNi4yMSw2LjIxLDAsMCwxLDIuMjguMzMsNC4zODUsNC4zODUsMCwwLDEsMS40MS45LDIuNzQ1LDIuNzQ1LDAsMCwxLC43MiwxLjIsNCw0LDAsMCwxLC4yMSwxLjI5djMuNzhoLjAzYTEuOTI4LDEuOTI4LDAsMCwxLC45My4yMSwxLjcwNiwxLjcwNiwwLDAsMSwuNjMuNiwxLjY3NSwxLjY3NSwwLDAsMSwuMywxLjA1WiIvPjwvc3ZnPg==",
+  "links": [
+    {
+        "linkURL": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english\u0026search=Supplement%20Business%20Technology%20Platform\u0026sort=latest_desc",
+        "title": "Business Technology Platform Supplemental Terms and Conditions"
+    },
+    {
+        "linkURL": "https://discovery-center.cloud.sap/serviceCatalog/data-privacy-integration",
+        "title": "Discovery Center"
+    },
+    {
+        "linkURL": "https://help.sap.com/viewer/product/DATA_PRIVACY_INTEGRATION/SHIP/en-US",
+        "title": "Documentation"
+    },
+    {
+        "linkURL": "https://help.sap.com/viewer/product/DATA_PRIV_INTEGRATION_OD/SHIP/en-US",
+        "title": "Documentation"
+    },
+    {
+        "linkURL": "https://help.sap.com/viewer/313a456d8f6c47289945699fbf5ab0c6/DEV/en-US",
+        "title": "Support"
+    }
+],
+  "servicePlans": [{
+      "name": "Application Plan",
+      "displayName": "Application Plan",
+      "category": "SERVICE",
+      "description": "Application Plan",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      },
+      
+      {
+          "name": "cf-ap21",
+          "displayName": "Singapore",
+          "region": "ap21"
+      },
+      
+      {
+          "name": "cf-jp20",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp20"
+      },
+      
+      {
+          "name": "cf-us20",
+          "displayName": "US West (WA)",
+          "region": "us20"
+      },
+      
+      {
+          "name": "cf-us21",
+          "displayName": "US East (VA)",
+          "region": "us21"
+      },
+      
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-eu20",
+          "displayName": "Europe (Netherlands)",
+          "region": "eu20"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    },
+    {
+      "name": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "displayName": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "category": "SERVICE",
+      "description": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked below.",
+      "schemas": null,
+      "dataCenters":[
+      {
+          "name": "cf-us30",
+          "displayName": "US Central (IA)",
+          "region": "us30"
+      },
+      
+      {
+          "name": "cf-ap21",
+          "displayName": "Singapore",
+          "region": "ap21"
+      },
+      
+      {
+          "name": "cf-jp20",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp20"
+      },
+      
+      {
+          "name": "cf-us20",
+          "displayName": "US West (WA)",
+          "region": "us20"
+      },
+      
+      {
+          "name": "cf-us21",
+          "displayName": "US East (VA)",
+          "region": "us21"
+      },
+      
+      {
+          "name": "cf-eu11",
+          "displayName": "Europe (Frankfurt) EU Access - AWS",
+          "region": "eu11"
+      },
+      
+      {
+          "name": "cf-ap11",
+          "displayName": "Singapore",
+          "region": "ap11"
+      },
+      
+      {
+          "name": "cf-ap10",
+          "displayName": "Australia (Sydney)",
+          "region": "ap10"
+      },
+      
+      {
+          "name": "cf-eu20",
+          "displayName": "Europe (Netherlands)",
+          "region": "eu20"
+      },
+      
+      {
+          "name": "cf-us10",
+          "displayName": "US East (VA)",
+          "region": "us10"
+      },
+      
+      {
+          "name": "cf-eu10",
+          "displayName": "Europe (Frankfurt)",
+          "region": "eu10"
+      }
+      ]
+    }
+         
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry",
+    "kymaruntime",
+    "sapcp"
+]
+}

@@ -1,9 +1,9 @@
-from libs.python.helperCommandExecution import runShellCommand, runCommandAndGetJsonResult, login_cf, runShellCommandFlex
-from libs.python.helperGeneric import getServiceByServiceName, createInstanceName, getTimingsForStatusRequest
-from libs.python.helperJson import convertCloudFoundryCommandForSingleServiceToJson, convertStringToJson, convertCloudFoundryCommandOutputToJson, dictToString
-import time
 import os
 import sys
+from libs.python.helperCommandExecution import runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex
+from libs.python.helperGeneric import getTimingsForStatusRequest
+from libs.python.helperJson import convertCloudFoundryCommandForSingleServiceToJson, convertStringToJson, dictToString
+import time
 import logging
 
 log = logging.getLogger(__name__)
@@ -20,6 +20,60 @@ def getKeyFromCFOutput(cfoutput, key):
             firstCol = firstCol.strip()
         if len(thisLineSplit) == 2 and firstCol == key:
             result = thisLineSplit[1].strip()
+    return result
+
+
+def get_cf_service_key(btpUsecase, instanceName, keyName):
+    result = None
+
+    command = "cf create-service-key '" + instanceName + "' '" + keyName + "'"
+    message = "create service key from XSUAA instance >" + instanceName + "< for keyname >" + keyName + "<"
+    p = runShellCommand(btpUsecase, command, "INFO", message)
+    returnCode = p.returncode
+
+    if returnCode == 0:
+        command = "cf service-key '" + instanceName + "' '" + keyName + "'"
+        message = "get service key for instance >" + instanceName + "< and keyname >" + keyName + "<"
+        response = runShellCommand(btpUsecase, command, "CHECK", message)
+        # Delete the first 2 lines of the CF result string as they don't contain json data
+        result = response.stdout.decode()
+        result = result.split('\n', 2)[-1]
+        result = convertStringToJson(result)
+    else:
+        log.error("can't create service key!")
+        sys.exit(os.EX_DATAERR)
+    return result
+
+
+def deleteCFServiceKeysAndWait(key, service, btpUsecase):
+    delete_cf_service_key(btpUsecase, service["instancename"], key["keyname"])
+    
+    search_every_x_seconds, usecaseTimeout = getTimingsForStatusRequest(btpUsecase, service)
+    current_time = 0
+    while usecaseTimeout > current_time:
+        command = "cf service-key '" + service["instancename"] + "' " + key["keyname"]
+        # Calling the command with the goal to get back the "FAILED" status, as this means that the service key was not found (because deletion was successfull)
+        # If the status is not "FAILED", this means that the deletion hasn't been finished so far
+        message = "check if service key >" + key["keyname"] + "< for service instance >" + service["instancename"] + "< is deleted"
+        p = runShellCommandFlex(btpUsecase, command, "CHECK", message, False, False)
+        result = p.stdout.decode()
+        if "FAILED" in result:
+            usecaseTimeout = current_time - 1
+        time.sleep(search_every_x_seconds)
+        current_time += search_every_x_seconds 
+
+
+def delete_cf_service_key(btpUsecase, instanceName, keyName):
+    command = "cf delete-service-key '" + instanceName + "' '" + keyName + "' -f"
+    message = "delete service key from instance >" + instanceName + "< for key >" + keyName + "<"
+    runShellCommand(btpUsecase, command, "INFO", message)
+
+
+def deleteCFServiceInstance(service, btpUsecase):
+    command = "cf delete-service '" + service["instancename"] + "' -f"
+    message = "Delete CF service instance >" + service["instancename"] + "< from subaccount"
+    result = runShellCommand(btpUsecase, command, "INFO", message)
+
     return result
 
 
@@ -66,37 +120,6 @@ def getStatusResponseFromCreatedInstance(btpUsecase, instancename):
     result = p.stdout.decode()
     jsonResults = convertCloudFoundryCommandForSingleServiceToJson(result)
     return jsonResults
-
-
-def checkIfAllServiceInstancesCreated(btpUsecase):
-    command = "cf services"
-    p = runShellCommand(btpUsecase, command, "INFO", None)
-    result = p.stdout.decode()
-    jsonResults = convertCloudFoundryCommandOutputToJson(result)
-
-    allServicesCreated = True
-    for thisJson in jsonResults:
-        name = thisJson.get("service")
-        if name is None:
-            name = thisJson.get("offering")
-
-        plan = thisJson.get("plan")
-        instancename = thisJson.get("name")
-        status = thisJson.get("last operation")
-        servicebroker = thisJson.get("broker")
-        for service in btpUsecase.definedServices:
-            if service.name == name and service.plan == plan and service.instancename == instancename and service.successInfoShown is False:
-                if status != "create succeeded" and status != "update succeeded":
-                    allServicesCreated = False
-                    service.status = "NOT READY"
-                    service.successInfoShown = False
-                else:
-                    log.success("Service instance for service >" + service.name + "< (plan " + service.plan + ") is now available")
-                    service.servicebroker = servicebroker
-                    service.successInfoShown = True
-                    service.status = "create succeeded"
-                    service.statusResponse = getStatusResponseFromCreatedInstance(btpUsecase, instancename)
-    return allServicesCreated
 
 
 def try_until_cf_space_done(btpUsecase, command, message, spacename, search_every_x_seconds, timeout_after_x_seconds):
@@ -174,80 +197,6 @@ def create_cf_cup_service(btpUsecase, service):
     return service
 
 
-def initiateCreationOfServiceInstances(btpUsecase):
-    createServiceInstances = btpUsecase.definedServices is not None and len(btpUsecase.definedServices) > 0
-
-    if createServiceInstances is True:
-        login_cf(btpUsecase)
-        log.header("Initiate creation of service instances")
-
-        # First add all instance names to the services
-        for service in btpUsecase.definedServices:
-            instancename = createInstanceName(btpUsecase, service)
-            service.instancename = instancename
-
-        # Check whether there are services with the same instance name
-        # If there are, it's not safe to create the service instances
-        for service in btpUsecase.definedServices:
-            instanceName = service.instancename
-            counter = 0
-            for thisService in btpUsecase.definedServices:
-                thisInstanceName = thisService.instancename
-                if thisInstanceName == instanceName:
-                    counter += 1
-            if counter > 1:
-                log.error("there is more than one service with the instance name >" + instanceName + "<. Please fix that before moving on.")
-                sys.exit(os.EX_DATAERR)
-
-        serviceInstancesToBeCreated = []
-        # Restrict the creation of service instances to those
-        # that have been set to entitleOnly to False (default)
-        for service in btpUsecase.definedServices:
-            if service.entitleonly is False:
-                serviceInstancesToBeCreated.append(service)
-
-        # Now create all the service instances
-        for service in serviceInstancesToBeCreated:
-            serviceName = service.name
-            # servicePlan = service.plan
-            # Quickly initiate the creation of all service instances (without waiting until they are all created)
-            if service.requiredServices is not None and len(service.requiredServices) > 0:
-                for requiredService in service.requiredServices:
-                    thisService = getServiceByServiceName(btpUsecase, requiredService)
-                    if thisService is not None:
-                        current_time = 0
-                        search_every_x_seconds, usecaseTimeout = getTimingsForStatusRequest(btpUsecase, thisService)
-                        # Wait until thisService has been created and is available
-                        while usecaseTimeout > current_time:
-                            [servicebroker, status] = get_cf_service_status(btpUsecase, thisService)
-                            if (status == "create succeeded" or status == "update succeeded"):
-                                log.success("service >" + requiredService + "< now ready as pre-requisite for service >" + serviceName + "<")
-                                if service.category == "SERVICE" or service.category == "ELASTIC_SERVICE":
-                                    service = create_cf_service(btpUsecase, service)
-                                else:
-                                    log.info("this service >" + serviceName + "< is not of type SERVICE or ELASTIC_SERVICE and a service instance won't be created")
-                                    service.status = "create succeeded"
-                                break
-                            else:
-                                log.check("waiting for service >" + requiredService + "< (status >" + status +
-                                          "<) to finish as pre-requisite for service >" + serviceName + "< (trying again in " + str(search_every_x_seconds) + "s)")
-
-                            time.sleep(search_every_x_seconds)
-                            current_time += search_every_x_seconds
-                    else:
-                        log.error("did not find the defined required service >" + requiredService +
-                                  "<, which is a pre-requisite for the service >" + serviceName + "<. Please check your configuration file!")
-            else:
-                if service.category == "SERVICE" or service.category == "ELASTIC_SERVICE":
-                    service = create_cf_service(btpUsecase, service)
-                else:
-                    if service.category == "CF_CUP_SERVICE":
-                        service = create_cf_cup_service(btpUsecase, service)
-                    else:
-                        log.info("this service >" + serviceName + "< is not of type SERVICE or ELASTIC_SERVICE and a service instance won't be created")
-                        service.status = "create succeeded"
-
-
 def get_cf_service_status(btpUsecase, service):
     instance_name = service.instancename
 
@@ -265,6 +214,8 @@ def get_cf_service_deletion_status(btpUsecase, service):
     command = "cf service '" + instance_name + "'"
     p = runShellCommandFlex(btpUsecase, command, "CHECK", None, False, False)
     result = p.stdout.decode()
+    if "delete failed" in result:
+        return "delete failed"
     if "FAILED" in result:
         return "deleted"
     else:

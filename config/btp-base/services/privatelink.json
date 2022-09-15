@@ -1,0 +1,112 @@
+{
+  "name": "privatelink",
+  "description":  "SAP Private Link service establishes a private connection between selected SAP BTP services and selected services in your own IaaS provider accounts.",
+  "displayName": "Private Link Service",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0icHJpdmF0ZS1saW5rLXNlcnZpY2UiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDU2IDU2Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6IzA1M2I3MDt9LmNscy0ye2ZpbGw6IzBhNmVkMTt9PC9zdHlsZT48L2RlZnM+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjQuNTE4LDM4LjI5NGEzLDMsMCwwLDAtLjk5LS45NiwzLjE0NiwzLjE0NiwwLDAsMC0xLjUtLjMzaC0uMDZWMzIuMzI2bC0xLjgsMS4wMTlhNC41NjYsNC41NjYsMCwwLDEtMS4yLjQ4VjM3SDEwLjA1OVYzMC45NDZjMC0uMDksMC0uMzMuMDMtLjY2YTEuNzU2LDEuNzU2LDAsMCwxLC40NS0xLjA4LDMuMDI4LDMuMDI4LDAsMCwxLDEuMzItLjgzOSw2Ljg3Myw2Ljg3MywwLDAsMSwyLjU1LS4zOWguMThhNi44NzMsNi44NzMsMCwwLDEsMi41NS4zOSwzLjM1NywzLjM1NywwLDAsMSwxLjM1LjgzOSwxLjg5MiwxLjg5MiwwLDAsMSwuNDIsMS4wOCwzLjYyMywzLjYyMywwLDAsMSwuMDU5LjY2di4xNWwyLjc5LTEuNjJhMi4zNjEsMi4zNjEsMCwwLDAtLjEyLS42LDQuMjE3LDQuMjE3LDAsMCwwLTEuMTQtMS45MTksNy4yNjksNy4yNjksMCwwLDAtMi4yNDktMS40NCw5LjksOS45LDAsMCwwLTMuNjYtLjUwOWgtLjE4YTkuNjI4LDkuNjI4LDAsMCwwLTMuNjMuNTA5QTcuNDE4LDcuNDE4LDAsMCwwLDguNSwyNi45NTdhNC41LDQuNSwwLDAsMC0xLjE0LDEuOTE5LDYuNDcxLDYuNDcxLDAsMCwwLS4zMywyLjA3VjM3SDYuOTdhMy4wMjcsMy4wMjcsMCwwLDAtMS40Ny4zMywzLjA4MiwzLjA4MiwwLDAsMC0xLjAyLjk2QTIuNzc1LDIuNzc1LDAsMCwwLDQsMzkuOTczVjQ5YTIuODQyLDIuODQyLDAsMCwwLC40OCwxLjczOSwzLjEsMy4xLDAsMCwwLDEuMDIuODdBMy4wNywzLjA3LDAsMCwwLDYuOTcsNTJIMjIuMDI4YTMuMTg4LDMuMTg4LDAsMCwwLDEuNS0uMzksMy4wMDksMy4wMDksMCwwLDAsLjk5LS44N0EyLjg0MiwyLjg0MiwwLDAsMCwyNSw0OVYzOS45NzNBMi43NzUsMi43NzUsMCwwLDAsMjQuNTE4LDM4LjI5NFpNMTEuMjg5LDQ5bDEuNjgtMy41MDlhMy44ODUsMy44ODUsMCwwLDEtMS4wNS0xLjA1LDIuNDcsMi40NywwLDAsMS0uNDUtMS41LDIuNjUxLDIuNjUxLDAsMCwxLC45My0yLjEsMi45NjksMi45NjksMCwwLDEsNC4yLDAsMi42NTEsMi42NTEsMCwwLDEsLjkzLDIuMSwyLjQ3LDIuNDcsMCwwLDEtLjQ1LDEuNSwzLjUsMy41LDAsMCwxLTEuMDUsMS4wNUwxNy43MDksNDlaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNTEuMjM1LDkuMTU0LDQ5Ljg3Niw2LjhhNS4yOSw1LjI5LDAsMCwwLTcuMTMxLTIuMTZsLTguODI3LDUuMWE1LjE4OCw1LjE4OCwwLDAsMC0yLjE4Nyw2LjEwN2wtMy4xMTQsMS44YTUuMjQxLDUuMjQxLDAsMCwwLTYuNDA5LTEuMTgxbC04LjgxOSw1LjFhNC44Nyw0Ljg3LDAsMCwwLTEuNDcsMS4zNDksMTUuNjQzLDE1LjY0MywwLDAsMSwyLjQ5LS4xOCwxOC4zNDQsMTguMzQ0LDAsMCwxLDEuOTIuMDlMMjMuNSwxOC42NzlhMi41NDgsMi41NDgsMCwwLDEsMi43ODYuMzA5bC0uNTQzLjMxNGE1LjI4OSw1LjI4OSwwLDAsMC0xLjcsNy4yNTRsLjY5MiwxLjItLjkwOS41MjQtMi4wNywxLjItMi43OSwxLjYyLS4wNTkuMDNhMi4zNTMsMi4zNTMsMCwwLDEtMi4xOS4wNiwyLjYzMSwyLjYzMSwwLDAsMS0xLjE3LS45LDcuMjE2LDcuMjE2LDAsMCwwLS45My0uMDZoLS4yMWE0LjE3LDQuMTcsMCwwLDAtMS42OC4yMWMtLjAzLDAtLjA2LjAzLS4wOS4wM2wuNDIuNzJhNS41MzUsNS41MzUsMCwwLDAsMy42NiwyLjY2OSw1LjE3Miw1LjE3MiwwLDAsMCwyLjI0OS0uMDMsNC41NjYsNC41NjYsMCwwLDAsMS4yLS40OGwxLjgtMS4wMTksMi4yOC0xLjMyLDEuOS0xLjFhNS4xOSw1LjE5LDAsMCwwLDYuMzg2LDEuMTYybDguODI3LTUuMWE1LjE4OCw1LjE4OCwwLDAsMCwyLjE4Ny02LjEwN2w1Ljk5LTMuNDU4QTUuMjg4LDUuMjg4LDAsMCwwLDUxLjIzNSw5LjE1NFpNMjYuMjUyLDI1LjI4MmEyLjc3LDIuNzcsMCwwLDEsLjc2My0zLjc3NGwuNzg4LS40NTUuNywxLjJhMi43NzQsMi43NzQsMCwwLDEtLjc4LDMuNzc5bC0uNzg0LjQ1M1ptMTMuODM2LTEuNTE1LTguODI3LDUuMDk1YTIuNTY5LDIuNTY5LDAsMCwxLTIuNzkzLS4zbC41NS0uMzE4QTUuMjg3LDUuMjg3LDAsMCwwLDMwLjcsMjAuOTg5bC0uNjg4LTEuMjA5LDIuODY4LTEuNjU2LjcsMS4yMkE1LjI5LDUuMjksMCwwLDAsNDAuNzEzLDIxLjVsLjUxNC0uM0EyLjU2OSwyLjU2OSwwLDAsMSw0MC4wODgsMjMuNzY3Wm0tNS02LjkxNy43NTctLjQzN2EyLjc3MiwyLjc3MiwwLDAsMSwzLjY1MSwxLjIyN2wuNywxLjIyLS43NTcuNDM3YTIuNzczLDIuNzczLDAsMCwxLTMuNjUxLTEuMjI3Wk00OC4yNjUsMTQuMiw0Mi40LDE3LjU4NmwtLjctMS4yMmE1LjI5LDUuMjksMCwwLDAtNy4xMzEtMi4xNTlsLS41MTQuM2EyLjU2OSwyLjU2OSwwLDAsMSwxLjEzOS0yLjU2MWw4LjgyNy01LjA5NWEyLjc3LDIuNzcsMCwwLDEsMy42NSwxLjIyNmwxLjM1OSwyLjM1NEEyLjc3LDIuNzcsMCwwLDEsNDguMjY1LDE0LjJaIi8+PC9zdmc+",
+  "links": [
+    {
+        "linkURL": "https://help.sap.com/viewer/product/PRIVATE_LINK/CLOUD/en-US",
+        "title": "Documentation"
+    },
+    {
+        "linkURL": "https://support.sap.com/en/index.html",
+        "title": "Support information"
+    }
+],
+  "servicePlans": [{
+      "name": "Establish a private connection between your CF application and selected services in your own IaaS provider accounts.",
+      "displayName": "Establish a private connection between your CF application and selected services in your own IaaS provider accounts.",
+      "category": "SERVICE",
+      "description": "Establish a private connection between your CF application and selected services in your own IaaS provider accounts.",
+      "schemas": {
+    "service_binding": {
+        "create": {
+            "parameters": null
+        }
+    },
+    "service_instance": {
+        "create": {
+            "parameters": {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "_controlsOrder": [
+                    "resourceId",
+                    "subResource",
+                    "requestMessage"
+                ],
+                "_show_form_view": true,
+                "additionalProperties": false,
+                "properties": {
+                    "requestMessage": {
+                        "description": "Specifies the request message which is displayed to the approver.",
+                        "maxLength": 60,
+                        "title": "Request Message",
+                        "type": "string"
+                    },
+                    "resourceId": {
+                        "description": "Specifies the Azure Resource ID of the service for which the private endpoint should be created.\n\nExample: /subscriptions/\u003csubscription\u003e/resourceGroups/\u003crg\u003e/providers/Microsoft.Network/privateLinkServices/\u003cmyPrivateLinkService\u003e",
+                        "minLength": 1,
+                        "pattern": "/subscriptions/.+/resourceGroups/.+/providers/.+?/.+?/[^/#?]+",
+                        "title": "Resource ID",
+                        "type": "string"
+                    },
+                    "subResource": {
+                        "description": "Specifies the subresource for a specific Resource ID. Note that subresource is not required for Azure Private Link resources.\n\nExample: mysqlServer\n\nAll supported native Azure services including subresources can be found here: https://help.sap.com/viewer/product/PRIVATE_LINK/CLOUD/en-US",
+                        "title": "Subresource",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "resourceId"
+                ],
+                "type": "object"
+            }
+        },
+        "update": {
+            "parameters": null
+        }
+    }
+},
+      "dataCenters":[
+      {
+          "name": "cf-ap21",
+          "displayName": "Singapore",
+          "region": "ap21"
+      },
+      
+      {
+          "name": "cf-ap20",
+          "displayName": "Australia (Sydney) Azure",
+          "region": "ap20"
+      },
+      
+      {
+          "name": "cf-jp20",
+          "displayName": "Japan (Tokyo)",
+          "region": "jp20"
+      },
+      
+      {
+          "name": "cf-us21",
+          "displayName": "US East (VA)",
+          "region": "us21"
+      },
+      
+      {
+          "name": "cf-us20",
+          "displayName": "US West (WA)",
+          "region": "us20"
+      },
+      
+      {
+          "name": "cf-eu20",
+          "displayName": "Europe (Netherlands)",
+          "region": "eu20"
+      }
+      ]
+    }
+         
+  ],
+  "supportedEnvironments": [
+    "cloudfoundry"
+]
+}

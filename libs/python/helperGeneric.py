@@ -85,16 +85,17 @@ def createInstanceName(btpUsecase, service):
         if service.instancename is not None:
             return service.instancename
         else:
-            result = service.name + "_" + service.plan + "_" + btpUsecase.suffixinstancename
+            result = service.name + "-" + service.plan + "-" + btpUsecase.suffixinstancename
 
-        result = re.sub(r"[^\w\s]", '_', result)
-        result = result.replace("__", "_")
-        if result[len(result) - 1] == "_":
+        result = re.sub(r"[^\w\s]", '-', result)
+        result = result.replace("--", "-")
+        result = result.replace("_", "-")
+        if result[len(result) - 1] == "-":
             result = result[:-1]
 
         result = result[:40]
     else:
-        result += "_" + service.name
+        result += "-" + service.name
 
     return result
 
