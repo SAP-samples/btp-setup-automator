@@ -1,6 +1,6 @@
 attrs==22.1.0
 blessed==1.19.1
-certifi==2022.6.15.1
+certifi==2022.9.14
 charset-normalizer==2.1.1
 flake8==4.0.1
 idna==3.4
