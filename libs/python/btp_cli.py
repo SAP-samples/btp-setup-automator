@@ -4,7 +4,7 @@ from libs.python.helperFolders import FOLDER_SCHEMA_LIBS
 from libs.python.helperJson import addKeyValuePair, dictToString, convertStringToJson, getJsonFromFile
 from libs.python.helperBtpTrust import runTrustFlow
 from libs.python.helperCommandExecution import executeCommandsFromUsecaseFile, runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex, login_btp, login_cf
-from libs.python.helperEnvCF import checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, try_until_cf_space_done
+from libs.python.helperEnvCF import checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, try_until_cf_space_done, try_until_space_quota_created
 from libs.python.helperServiceInstances import createServiceKey, deleteServiceInstance, deleteServiceKeysAndWait, getServiceDeletionStatus, initiateCreationOfServiceInstances, checkIfAllServiceInstancesCreated
 from libs.python.helperGeneric import buildUrltoSubaccount, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, createOrgName, save_collected_metadata
 from libs.python.helperFileAccess import writeKubeConfigFileToDefaultDir
@@ -56,8 +56,10 @@ class BTPUSECASE:
         self.accountMetadata = None
 
         allServices = readAllServicesFromUsecaseFile(self)
-        self.availableCategoriesService = ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"]
-        self.availableCategoriesApplication = ["APPLICATION", "QUOTA_BASED_APPLICATION"]
+        self.availableCategoriesService = [
+            "SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"]
+        self.availableCategoriesApplication = [
+            "APPLICATION", "QUOTA_BASED_APPLICATION"]
 
         self.definedServices = getServiceCategoryItemsFromUsecaseFile(
             self, allServices, self.availableCategoriesService)
@@ -74,7 +76,8 @@ class BTPUSECASE:
 
         login_btp(self)
         self.accountMetadata = get_globalaccount_details(self)
-        self.accountMetadata = addKeyValuePair(self.accountMetadata, "myemail", self.myemail)
+        self.accountMetadata = addKeyValuePair(
+            self.accountMetadata, "myemail", self.myemail)
         save_collected_metadata(self)
         checkConfigurationInfo(self)
 
@@ -366,6 +369,7 @@ class BTPUSECASE:
 
                         save_collected_metadata(self)
                         self.create_new_cf_space(environment)
+                        self.create_and_assign_quota_plan(environment)
 
                     else:
                         log.success("CF environment >" + org +
@@ -378,6 +382,7 @@ class BTPUSECASE:
                             accountMetadata, "org", org)
                         save_collected_metadata(self)
                         self.create_new_cf_space(environment)
+                        self.create_and_assign_quota_plan(self, environment)
 
                 elif environment.name == "kymaruntime":
                     kymaClusterName = environment.parameters["name"]
@@ -536,6 +541,61 @@ class BTPUSECASE:
             runShellCommand(self, command, "INFO", message)
 
             save_collected_metadata(self)
+
+    def create_and_assign_quota_plan(self, environment):
+        if environment.name == "cloudfoundry" and self.cfspacequota is not None:
+
+            if self.cfspacequota.get("createQuotaPlan") is True:
+                command = "cf create-space-quota " + \
+                    self.cfspacequota.get("spaceQuotaName")
+
+                if self.cfspacequota.get("spaceQuotaInstanceMemory") and self.cfspacequota.get("spaceQuotaInstanceMemory") is not None and self.cfspacequota.get("spaceQuotaInstanceMemory") != "":
+                    command = command + " -i " + \
+                        self.cfspacequota.get("spaceQuotaInstanceMemory")
+
+                if self.cfspacequota.get("spaceQuotaTotalMemory") and self.cfspacequota.get("spaceQuotaTotalMemory") is not None and self.cfspacequota.get("spaceQuotaTotalMemory") != "":
+                    command = command + " -m " + \
+                        self.cfspacequota.get("spaceQuotaTotalMemory")
+
+                if self.cfspacequota.get("self.spaceQuotaRoutes") and self.cfspacequota.get("self.spaceQuotaRoutes") is not None:
+                    command = command + " -r " + \
+                        str(self.cfspacequota.get("self.spaceQuotaRoutes"))
+
+                if self.cfspacequota.get("spaceQuotaServiceInstances") and self.cfspacequota.get("spaceQuotaServiceInstances") is not None:
+                    command = command + " -s " + \
+                        str(self.cfspacequota.get("spaceQuotaServiceInstances"))
+
+                if self.cfspacequota.get("spaceQuotaAppInstances") and self.cfspacequota.get("spaceQuotaAppInstances") is not None:
+                    command = command + " -a " + \
+                        str(self.cfspacequota.get("spaceQuotaAppInstances"))
+
+                if self.cfspacequota.get("spaceQuotaReservedRoutePorts") and self.cfspacequota.get("spaceQuotaReservedRoutePorts") is not None:
+                    command = command + " --reserved-route-ports " + \
+                        str(self.cfspacequota.get("spaceQuotaReservedRoutePorts"))
+
+                if self.cfspacequota.get("spaceQuotaAllowPaidServicePlans") and self.cfspacequota.get("spaceQuotaAllowPaidServicePlans") is True:
+                    command = command + " --allow-paid-service-plans"
+
+                runShellCommand(self, command, "INFO", "assign cf space quota")
+
+                command = 'cf space-quotas'
+                message = "Check when CF space >" + \
+                    self.cfspacequota.get("spaceQuotaName") + "< is ready"
+
+                result = try_until_space_quota_created(self, command, message, self.cfspacequota.get(
+                    "spaceQuotaName"), self.repeatstatusrequest, 120)
+
+                if result == "ERROR":
+                    log.error(
+                        "Something went wrong while waiting for creation of CF space quota >" + self.cfspacequota.get("spaceQuotaName") + "<")
+
+                log.success("created CF space quota >" +
+                            self.cfspacequota.get("spaceQuotaName") + "<")
+
+                command = "cf set-space-quota " + \
+                    self.accountMetadata["cfspacename"] + " " + \
+                    self.cfspacequota.get("spaceQuotaName")
+                runShellCommand(self, command, "INFO", "assign cf space quota")
 
     def createRoleCollections(self):
         assignUsersToRoleCollectionsForServices(self)
@@ -783,9 +843,12 @@ def getListOfAvailableCustomApps(btpUsecase: BTPUSECASE):
     customAppProviderSubaccountId = btpUsecase.customAppProviderSubaccountId
     result = []
     if btpUsecase.customAppProviderSubaccountId is not None:
-        command = "btp --format json list accounts/subscription --subaccount '" + customAppProviderSubaccountId + "'"
-        message = "Get list of available apps subsciptions for provider subaccount id >" + customAppProviderSubaccountId + "<"
-        resultSubaccount = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
+        command = "btp --format json list accounts/subscription --subaccount '" + \
+            customAppProviderSubaccountId + "'"
+        message = "Get list of available apps subsciptions for provider subaccount id >" + \
+            customAppProviderSubaccountId + "<"
+        resultSubaccount = runCommandAndGetJsonResult(
+            btpUsecase, command, "INFO", message)
 
         for appSubaccount in resultSubaccount["applications"]:
             if appSubaccount["customerDeveloped"] is True:
@@ -1254,14 +1317,17 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                 status = getServiceDeletionStatus(service, btpUsecase)
 
                 if (status == "delete failed"):
-                    log.warning("couldn't delete service instance >" + service["instancename"] + "< for service >" + service["name"] + "<.")
+                    log.warning("couldn't delete service instance >" +
+                                service["instancename"] + "< for service >" + service["name"] + "<.")
                     if service["failedDeletions"] <= maxRetriesForFailedDeletion:
-                        log.info("trying again to delete service instance >" + service["instancename"] + "< for service >" + service["name"] + "<.")
+                        log.info("trying again to delete service instance >" +
+                                 service["instancename"] + "< for service >" + service["name"] + "<.")
                         deleteServiceInstance(service, btpUsecase)
                         service["deletionStatus"] = "not deleted"
                         service["failedDeletions"] = service["failedDeletions"] + 1
                     else:
-                        log.error("tried " + str(service["failedDeletions"]) + "times, but could not delete service instance >" + service["instancename"] + "< for service >" + service["name"] + "<.")
+                        log.error("tried " + str(service["failedDeletions"]) + "times, but could not delete service instance >" +
+                                  service["instancename"] + "< for service >" + service["name"] + "<.")
                         sys.exit(os.EX_DATAERR)
 
                 if (status == "deleted"):
