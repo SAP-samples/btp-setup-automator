@@ -145,6 +145,29 @@ def try_until_cf_space_done(btpUsecase, command, message, spacename, search_ever
     return result
 
 
+def try_until_space_quota_created(btpUsecase, command, message, quotaname, search_every_x_seconds, timeout_after_x_seconds):
+    result = "ERROR"
+
+    current_time = 0
+    number_of_tries = 0
+
+    while timeout_after_x_seconds > current_time:
+        number_of_tries += 1
+        p = runShellCommand(btpUsecase, command, "INFO", message)
+        result = p.stdout.decode()
+        lines = result.splitlines()
+
+        for line in lines:
+            content = line.split()
+            for entry in content:
+                if quotaname == entry:
+                    return "DONE"
+
+        time.sleep(search_every_x_seconds)
+        current_time += search_every_x_seconds
+    return result
+
+
 def create_cf_service(btpUsecase, service):
     instancename = service.instancename
 
