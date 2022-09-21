@@ -579,7 +579,7 @@ class BTPUSECASE:
                 runShellCommand(self, command, "INFO", "assign cf space quota")
 
                 command = 'cf space-quotas'
-                message = "Check when CF space >" + \
+                message = "Check when CF space quota >" + \
                     self.cfspacequota.get("spaceQuotaName") + "< is ready"
 
                 result = try_until_space_quota_created(self, command, message, self.cfspacequota.get(
@@ -595,7 +595,7 @@ class BTPUSECASE:
                 command = "cf set-space-quota " + \
                     self.accountMetadata["cfspacename"] + " " + \
                     self.cfspacequota.get("spaceQuotaName")
-                runShellCommand(self, command, "INFO", "assign cf space quota")
+                runShellCommand(self, command, "INFO", "assign cf space quota to space")
 
     def createRoleCollections(self):
         assignUsersToRoleCollectionsForServices(self)
