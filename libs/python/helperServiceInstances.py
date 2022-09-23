@@ -234,7 +234,7 @@ def createServiceInstance(btpUsecase, service, targetEnvironment, serviceCategor
             service = create_cf_cup_service(btpUsecase, service)
     elif targetEnvironment == "kymaruntime":
         service = create_kyma_service(btpUsecase, service)
-    elif targetEnvironment == "^sapbtp":
+    elif targetEnvironment == "sapbtp":
         service = create_btp_service(btpUsecase, service)
     else:
         log.error(
