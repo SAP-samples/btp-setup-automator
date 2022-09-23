@@ -4,7 +4,6 @@ import requests
 import logging
 import json
 import jinja2
-import glob
 from pathlib import Path
 
 log = logging.getLogger(__name__)
