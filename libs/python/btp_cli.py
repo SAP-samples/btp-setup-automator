@@ -955,6 +955,36 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service):
         p = runShellCommand(btpUsecase, command, "INFO", message)
         returnCode = p.returncode
 
+    # Wait untile the service and service plan is entitled in the subaccount
+    if returnCode == 0:
+        command = "btp --format json list accounts/entitlement \
+        --subaccount '" + subaccountid + "'"
+        message = "Check if entitlement for >" + \
+            serviceName + "< and plan >" + servicePlan + "< is available"
+
+        # Tun through this loop
+        current_time = 0
+        number_of_tries = 0
+        timeout_after_x_seconds = 60
+        search_every_x_seconds = 2
+        serviceEntitled = False
+        # Repeat checking whether the entitlement was successfull
+        while timeout_after_x_seconds > current_time and serviceEntitled is False:
+            number_of_tries += 1
+            checkMessage = message + " (try " + str(number_of_tries) + \
+                " - trying again in " + str(search_every_x_seconds) + "s)"
+            result = runCommandAndGetJsonResult(
+                btpUsecase, command, "CHECK", checkMessage)
+            for entry in result.get("quotas"):
+                if entry.get("plan") == servicePlan and entry.get("service") == serviceName:
+                    serviceEntitled = True
+                    returnCode = 0
+                    break
+            if serviceEntitled == False:
+                time.sleep(search_every_x_seconds)
+                current_time += search_every_x_seconds
+                returnCode = 1
+
     return returnCode
 
 
