@@ -56,8 +56,10 @@ class BTPUSECASE:
         self.accountMetadata = None
 
         allServices = readAllServicesFromUsecaseFile(self)
-        self.availableCategoriesService = ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"]
-        self.availableCategoriesApplication = ["APPLICATION", "QUOTA_BASED_APPLICATION"]
+        self.availableCategoriesService = [
+            "SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"]
+        self.availableCategoriesApplication = [
+            "APPLICATION", "QUOTA_BASED_APPLICATION"]
 
         self.definedServices = getServiceCategoryItemsFromUsecaseFile(
             self, allServices, self.availableCategoriesService)
@@ -74,7 +76,8 @@ class BTPUSECASE:
 
         login_btp(self)
         self.accountMetadata = get_globalaccount_details(self)
-        self.accountMetadata = addKeyValuePair(self.accountMetadata, "myemail", self.myemail)
+        self.accountMetadata = addKeyValuePair(
+            self.accountMetadata, "myemail", self.myemail)
         save_collected_metadata(self)
         checkConfigurationInfo(self)
 
@@ -191,7 +194,7 @@ class BTPUSECASE:
         log.header("Entitle sub account to use services and/or app subscriptions")
         envsToEntitle = []
         for myEnv in self.definedEnvironments:
-            if myEnv.name != "cloudfoundry":
+            if myEnv.name != "cloudfoundry" and myEnv.name != "sapbtp":
                 envsToEntitle.append(myEnv)
         doAllEntitlements(self, envsToEntitle)
 
@@ -451,6 +454,11 @@ class BTPUSECASE:
 
                     result = runCommandAndGetJsonResult(
                         self, command, "INFO", message)
+
+                elif environment.name == "sapbtp":
+                    log.info("the BTP environment >" + environment.name +
+                             "< is automatically supported.")
+
                 else:
                     log.error("the BTP environment >" + environment.name +
                               "< is currently not supported in this script.")
@@ -783,9 +791,12 @@ def getListOfAvailableCustomApps(btpUsecase: BTPUSECASE):
     customAppProviderSubaccountId = btpUsecase.customAppProviderSubaccountId
     result = []
     if btpUsecase.customAppProviderSubaccountId is not None:
-        command = "btp --format json list accounts/subscription --subaccount '" + customAppProviderSubaccountId + "'"
-        message = "Get list of available apps subsciptions for provider subaccount id >" + customAppProviderSubaccountId + "<"
-        resultSubaccount = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
+        command = "btp --format json list accounts/subscription --subaccount '" + \
+            customAppProviderSubaccountId + "'"
+        message = "Get list of available apps subsciptions for provider subaccount id >" + \
+            customAppProviderSubaccountId + "<"
+        resultSubaccount = runCommandAndGetJsonResult(
+            btpUsecase, command, "INFO", message)
 
         for appSubaccount in resultSubaccount["applications"]:
             if appSubaccount["customerDeveloped"] is True:
@@ -1254,14 +1265,17 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                 status = getServiceDeletionStatus(service, btpUsecase)
 
                 if (status == "delete failed"):
-                    log.warning("couldn't delete service instance >" + service["instancename"] + "< for service >" + service["name"] + "<.")
+                    log.warning("couldn't delete service instance >" +
+                                service["instancename"] + "< for service >" + service["name"] + "<.")
                     if service["failedDeletions"] <= maxRetriesForFailedDeletion:
-                        log.info("trying again to delete service instance >" + service["instancename"] + "< for service >" + service["name"] + "<.")
+                        log.info("trying again to delete service instance >" +
+                                 service["instancename"] + "< for service >" + service["name"] + "<.")
                         deleteServiceInstance(service, btpUsecase)
                         service["deletionStatus"] = "not deleted"
                         service["failedDeletions"] = service["failedDeletions"] + 1
                     else:
-                        log.error("tried " + str(service["failedDeletions"]) + "times, but could not delete service instance >" + service["instancename"] + "< for service >" + service["name"] + "<.")
+                        log.error("tried " + str(service["failedDeletions"]) + "times, but could not delete service instance >" +
+                                  service["instancename"] + "< for service >" + service["name"] + "<.")
                         sys.exit(os.EX_DATAERR)
 
                 if (status == "deleted"):
