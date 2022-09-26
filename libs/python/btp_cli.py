@@ -1349,6 +1349,8 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
         # Set the deletion status to "not deleted"
         for service in accountMetadata["createdServiceInstances"]:
             service["deletionStatus"] = "not deleted"
+            service["failedDeletions"] = 0
+        maxRetriesForFailedDeletion = 5    
         while usecaseTimeout > current_time and allServicesDeleted is False:
             for service in accountMetadata["createdServiceInstances"]:
                 if "instancename" not in service:
@@ -1360,8 +1362,6 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
 
                 status = getServiceDeletionStatus(service, btpUsecase)
 
-<<<<<<< HEAD
-=======
                 if (status == "delete failed"):
                     log.warning("couldn't delete service instance >" +
                                 service["instancename"] + "< for service >" + service["name"] + "<.")
@@ -1376,7 +1376,6 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                                   service["instancename"] + "< for service >" + service["name"] + "<.")
                         sys.exit(os.EX_DATAERR)
 
->>>>>>> ae328560f679d6060dc312d4c78a1849c53999ff
                 if (status == "deleted"):
                     log.success(
                         "service instance >" + service["instancename"] + "< for service >" + service["name"] + "< now deleted.")
