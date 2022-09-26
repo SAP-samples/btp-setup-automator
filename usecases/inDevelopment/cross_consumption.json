@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
   "aboutThisUseCase": {
     "name": "Kyma cross consumption service test",
     "description": "This project will test the service for cross consumability",
@@ -13,7 +14,7 @@
           "plan": "azure",
           "amount": 1,
           "parameters": {
-            "name": "kyma-crossconsumption",
+            "name": "kyma-dummy",
             "region": "eastus"
           }
         },
@@ -37,11 +38,5 @@
           }
       }
   ],
-  "enableAPITest":true,
-  "executeAfterAccountSetup": [
-      {
-          "description": "Executing API test",
-          "command": "python3 ./libs/python/helperApiTest.py"
-      }     
-  ]
+  "enableAPITest":false
 }

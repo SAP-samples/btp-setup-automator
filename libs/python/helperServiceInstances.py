@@ -216,7 +216,7 @@ def get_service_status(btpUsecase, service, targetEnvironment):
         [servicebroker, status] = get_cf_service_status(btpUsecase, service)
     elif targetEnvironment == "kymaruntime":
         status = get_kyma_service_status(btpUsecase, service)
-    elif targetEnvironment == "other":
+    elif targetEnvironment == "sapbtp":
         status = get_btp_service_status(btpUsecase, service)
     else:
         log.error(
@@ -234,7 +234,7 @@ def createServiceInstance(btpUsecase, service, targetEnvironment, serviceCategor
             service = create_cf_cup_service(btpUsecase, service)
     elif targetEnvironment == "kymaruntime":
         service = create_kyma_service(btpUsecase, service)
-    elif targetEnvironment == "other":
+    elif targetEnvironment == "sapbtp":
         service = create_btp_service(btpUsecase, service)
     else:
         log.error(
@@ -253,7 +253,7 @@ def getStatusResponseFromCreatedInstanceGen(btpUsecase, instancename, service):
     elif service.targetenvironment == "kymaruntime":
         statusResponse = getStatusResponseFromCreatedKymaInstance(
             btpUsecase, instancename)
-    elif service.targetenvironment == "other":
+    elif service.targetenvironment == "sapbtp":
         statusResponse = getStatusResponseFromCreatedBTPInstance(
             btpUsecase, instancename, service)
     else:
@@ -269,7 +269,7 @@ def deleteServiceKeysAndWait(key, service, btpUsecase):
         deleteCFServiceKeysAndWait(key, service, btpUsecase)
     elif targetenvironment == "kymaruntime":
         deleteKymaServiceBindingAndWait(key, service, btpUsecase)
-    elif targetenvironment == "other":
+    elif targetenvironment == "sapbtp":
         deleteBtpServiceBindingAndWait(key, service, btpUsecase)
     else:
         log.error("The targetenvironment is not supported ")
@@ -284,7 +284,7 @@ def deleteServiceInstance(service, btpUsecase):
         statusResponse = deleteCFServiceInstance(service, btpUsecase)
     elif targetenvironment == "kymaruntime":
         statusResponse = deleteKymaServiceInstance(service, btpUsecase)
-    elif targetenvironment == "other":
+    elif targetenvironment == "sapbtp":
         deleteBtpServiceInstance(service, btpUsecase)
     else:
         log.error("The targetenvironment is not supported ")
@@ -301,7 +301,7 @@ def getServiceDeletionStatus(service, btpUsecase):
         statusResponse = get_cf_service_deletion_status(btpUsecase, service)
     elif targetenvironment == "kymaruntime":
         statusResponse = getKymaServiceDeletionStatus(service, btpUsecase)
-    elif targetenvironment == "other":
+    elif targetenvironment == "sapbtp":
         statusResponse = getBtpServiceDeletionStatus(service, btpUsecase)
     else:
         log.error("The targetenvironment is not supported ")
@@ -320,7 +320,7 @@ def createServiceKey(serviceKey, service, btpUsecase):
     elif targetenvironment == "kymaruntime":
         statusResponse = createKymaServiceBinding(
             btpUsecase, service, serviceKey)
-    elif targetenvironment == "other":
+    elif targetenvironment == "sapbtp":
         statusResponse = createBtpServiceBinding(btpUsecase, service.id, service.instancename, serviceKey)
     else:
         log.error("The targetenvironment is not supported ")

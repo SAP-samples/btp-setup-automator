@@ -3,12 +3,12 @@ from libs.python.helperFolders import FOLDER_SCHEMA_LIBS
 from libs.python.helperJson import addKeyValuePair, dictToString, convertStringToJson, getJsonFromFile
 from libs.python.helperBtpTrust import runTrustFlow
 from libs.python.helperCommandExecution import executeCommandsFromUsecaseFile, runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex, login_btp, login_cf
-from libs.python.helperEnvCF import checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, try_until_cf_space_done
+from libs.python.helperEnvCF import checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, try_until_cf_space_done, try_until_space_quota_created
 from libs.python.helperServiceInstances import createServiceKey, deleteServiceInstance, deleteServiceKeysAndWait, getServiceDeletionStatus, initiateCreationOfServiceInstances, checkIfAllServiceInstancesCreated
 from libs.python.helperGeneric import buildUrltoSubaccount, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, createOrgName, save_collected_metadata
 from libs.python.helperFileAccess import writeKubeConfigFileToDefaultDir
 from libs.python.helperEnvKyma import extractKymaDashboardUrlFromEnvironmentDataEntry, getKymaEnvironmentInfoByClusterName, getKymaEnvironmentStatusFromEnvironmentDataEntry, extractKymaKubeConfigUrlFromEnvironmentDataEntry, getKymaEnvironmentIdByClusterName
-
+from libs.python.helperApiTest import APITest
 import os
 import sys
 import time
@@ -55,7 +55,7 @@ class BTPUSECASE:
         allServices = readAllServicesFromUsecaseFile(self)
         self.availableCategoriesService = ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"]
         self.availableCategoriesApplication = ["APPLICATION", "QUOTA_BASED_APPLICATION"]
-        self.enableAPITest  = getServiceTestStatusFromUsecaseFile(self)
+        self.enableAPITest = getServiceTestStatusFromUsecaseFile(self.usecasefile)
         self.definedServices = getServiceCategoryItemsFromUsecaseFile(
             self, allServices, self.availableCategoriesService)
         self.definedEnvironments = getEnvironmentsForUsecase(self, allServices)
@@ -71,9 +71,11 @@ class BTPUSECASE:
 
         login_btp(self)
         self.accountMetadata = get_globalaccount_details(self)
-        self.accountMetadata = addKeyValuePair(self.accountMetadata, "myemail", self.myemail)
+        self.accountMetadata = addKeyValuePair(
+            self.accountMetadata, "myemail", self.myemail)
         save_collected_metadata(self)
         checkConfigurationInfo(self)
+        self.__api_test = APITest()
 
     def outputCurrentBtpUsecaseVariables(self):
         # First detect the maximum string length of the parameter and values
@@ -188,7 +190,7 @@ class BTPUSECASE:
         log.header("Entitle sub account to use services and/or app subscriptions")
         envsToEntitle = []
         for myEnv in self.definedEnvironments:
-            if myEnv.name != "cloudfoundry":
+            if myEnv.name != "cloudfoundry" and myEnv.name != "sapbtp":
                 envsToEntitle.append(myEnv)
         doAllEntitlements(self, envsToEntitle)
 
@@ -363,6 +365,7 @@ class BTPUSECASE:
 
                         save_collected_metadata(self)
                         self.create_new_cf_space(environment)
+                        self.create_and_assign_quota_plan(environment)
 
                     else:
                         log.success("CF environment >" + org +
@@ -375,6 +378,7 @@ class BTPUSECASE:
                             accountMetadata, "org", org)
                         save_collected_metadata(self)
                         self.create_new_cf_space(environment)
+                        self.create_and_assign_quota_plan(self, environment)
 
                 elif environment.name == "kymaruntime":
                     kymaClusterName = environment.parameters["name"]
@@ -448,6 +452,11 @@ class BTPUSECASE:
 
                     result = runCommandAndGetJsonResult(
                         self, command, "INFO", message)
+
+                elif environment.name == "sapbtp":
+                    log.info("the BTP environment >" + environment.name +
+                             "< is automatically supported.")
+
                 else:
                     log.error("the BTP environment >" + environment.name +
                               "< is currently not supported in this script.")
@@ -534,6 +543,61 @@ class BTPUSECASE:
 
             save_collected_metadata(self)
 
+    def create_and_assign_quota_plan(self, environment):
+        if environment.name == "cloudfoundry" and self.cfspacequota is not None:
+
+            if self.cfspacequota.get("createQuotaPlan") is True:
+                command = "cf create-space-quota " + \
+                    self.cfspacequota.get("spaceQuotaName")
+
+                if self.cfspacequota.get("spaceQuotaInstanceMemory") and self.cfspacequota.get("spaceQuotaInstanceMemory") is not None and self.cfspacequota.get("spaceQuotaInstanceMemory") != "":
+                    command = command + " -i " + \
+                        self.cfspacequota.get("spaceQuotaInstanceMemory")
+
+                if self.cfspacequota.get("spaceQuotaTotalMemory") and self.cfspacequota.get("spaceQuotaTotalMemory") is not None and self.cfspacequota.get("spaceQuotaTotalMemory") != "":
+                    command = command + " -m " + \
+                        self.cfspacequota.get("spaceQuotaTotalMemory")
+
+                if self.cfspacequota.get("self.spaceQuotaRoutes") and self.cfspacequota.get("self.spaceQuotaRoutes") is not None:
+                    command = command + " -r " + \
+                        str(self.cfspacequota.get("self.spaceQuotaRoutes"))
+
+                if self.cfspacequota.get("spaceQuotaServiceInstances") and self.cfspacequota.get("spaceQuotaServiceInstances") is not None:
+                    command = command + " -s " + \
+                        str(self.cfspacequota.get("spaceQuotaServiceInstances"))
+
+                if self.cfspacequota.get("spaceQuotaAppInstances") and self.cfspacequota.get("spaceQuotaAppInstances") is not None:
+                    command = command + " -a " + \
+                        str(self.cfspacequota.get("spaceQuotaAppInstances"))
+
+                if self.cfspacequota.get("spaceQuotaReservedRoutePorts") and self.cfspacequota.get("spaceQuotaReservedRoutePorts") is not None:
+                    command = command + " --reserved-route-ports " + \
+                        str(self.cfspacequota.get("spaceQuotaReservedRoutePorts"))
+
+                if self.cfspacequota.get("spaceQuotaAllowPaidServicePlans") and self.cfspacequota.get("spaceQuotaAllowPaidServicePlans") is True:
+                    command = command + " --allow-paid-service-plans"
+
+                runShellCommand(self, command, "INFO", "assign cf space quota")
+
+                command = 'cf space-quotas'
+                message = "Check when CF space quota >" + \
+                    self.cfspacequota.get("spaceQuotaName") + "< is ready"
+
+                result = try_until_space_quota_created(self, command, message, self.cfspacequota.get(
+                    "spaceQuotaName"), self.repeatstatusrequest, 120)
+
+                if result == "ERROR":
+                    log.error(
+                        "Something went wrong while waiting for creation of CF space quota >" + self.cfspacequota.get("spaceQuotaName") + "<")
+
+                log.success("created CF space quota >" +
+                            self.cfspacequota.get("spaceQuotaName") + "<")
+
+                command = "cf set-space-quota " + \
+                    self.accountMetadata["cfspacename"] + " " + \
+                    self.cfspacequota.get("spaceQuotaName")
+                runShellCommand(self, command, "INFO", "assign cf space quota to space")
+
     def createRoleCollections(self):
         assignUsersToRoleCollectionsForServices(self)
         assignUsersToCustomRoleCollections(self)
@@ -588,6 +652,14 @@ class BTPUSECASE:
 
         return accountMetadata
 
+    def execute_api_test(self):
+        if hasattr(self, "enableAPITest"):
+            apiCheckStatus = self.enableAPITest
+            if apiCheckStatus:
+                log.info("\n###########---Beginning of API Testing---############\n")
+                _ = self.__api_test(self)
+                log.info("\n###########---API Testing Completed---############\n")
+
     def finish(self):
         runTrustFlow(self)
 
@@ -624,7 +696,7 @@ def getEnvironmentsForUsecase(btpUsecase: BTPUSECASE, allServices):
 
     for usecaseService in allServices:
         environmentServices = usecaseService.targetenvironment
-        if environmentServices not in items and usecaseService.category != "ENVIRONMENT" and usecaseService.targetenvironment != "other":
+        if environmentServices not in items and usecaseService.category != "ENVIRONMENT" and usecaseService.targetenvironment != "sapbtp":
             items.append(environmentServices)
             paramDefinitionServices = getServiceParameterDefinition(
                 paramDefinition)
@@ -663,11 +735,13 @@ def getAdminsFromUsecaseFile(btpUsecase: BTPUSECASE):
     return items
 
 
-def getServiceTestStatusFromUsecaseFile(btpUsecase: BTPUSECASE):
-    usecase = getJsonFromFile(btpUsecase.usecasefile)
-    return usecase["enableAPITest"]
+def getServiceTestStatusFromUsecaseFile(btpUsecase: str):
+    usecase = getJsonFromFile(btpUsecase)
+    if not usecase.get("enableAPITest", False):
+        return False
+    return True
 
-    
+
 def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, availableForAccount, availableCustomApps):
 
     usecaseRegion = btpUsecase.region
@@ -785,9 +859,12 @@ def getListOfAvailableCustomApps(btpUsecase: BTPUSECASE):
     customAppProviderSubaccountId = btpUsecase.customAppProviderSubaccountId
     result = []
     if btpUsecase.customAppProviderSubaccountId is not None:
-        command = "btp --format json list accounts/subscription --subaccount '" + customAppProviderSubaccountId + "'"
-        message = "Get list of available apps subsciptions for provider subaccount id >" + customAppProviderSubaccountId + "<"
-        resultSubaccount = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
+        command = "btp --format json list accounts/subscription --subaccount '" + \
+            customAppProviderSubaccountId + "'"
+        message = "Get list of available apps subsciptions for provider subaccount id >" + \
+            customAppProviderSubaccountId + "<"
+        resultSubaccount = runCommandAndGetJsonResult(
+            btpUsecase, command, "INFO", message)
 
         for appSubaccount in resultSubaccount["applications"]:
             if appSubaccount["customerDeveloped"] is True:
@@ -888,6 +965,36 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service):
             "< and plan >" + servicePlan + "< with amount parameter set to 1."
         p = runShellCommand(btpUsecase, command, "INFO", message)
         returnCode = p.returncode
+
+    # Wait untile the service and service plan is entitled in the subaccount
+    if returnCode == 0:
+        command = "btp --format json list accounts/entitlement \
+        --subaccount '" + subaccountid + "'"
+        message = "Check if entitlement for >" + \
+            serviceName + "< and plan >" + servicePlan + "< is available"
+
+        # Tun through this loop
+        current_time = 0
+        number_of_tries = 0
+        timeout_after_x_seconds = 60
+        search_every_x_seconds = 2
+        serviceEntitled = False
+        # Repeat checking whether the entitlement was successfull
+        while timeout_after_x_seconds > current_time and serviceEntitled is False:
+            number_of_tries += 1
+            checkMessage = message + " (try " + str(number_of_tries) + \
+                " - trying again in " + str(search_every_x_seconds) + "s)"
+            result = runCommandAndGetJsonResult(
+                btpUsecase, command, "CHECK", checkMessage)
+            for entry in result.get("quotas"):
+                if entry.get("plan") == servicePlan and entry.get("service") == serviceName:
+                    serviceEntitled = True
+                    returnCode = 0
+                    break
+            if serviceEntitled == False:
+                time.sleep(search_every_x_seconds)
+                current_time += search_every_x_seconds
+                returnCode = 1
 
     return returnCode
 
@@ -1253,6 +1360,23 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
 
                 status = getServiceDeletionStatus(service, btpUsecase)
 
+<<<<<<< HEAD
+=======
+                if (status == "delete failed"):
+                    log.warning("couldn't delete service instance >" +
+                                service["instancename"] + "< for service >" + service["name"] + "<.")
+                    if service["failedDeletions"] <= maxRetriesForFailedDeletion:
+                        log.info("trying again to delete service instance >" +
+                                 service["instancename"] + "< for service >" + service["name"] + "<.")
+                        deleteServiceInstance(service, btpUsecase)
+                        service["deletionStatus"] = "not deleted"
+                        service["failedDeletions"] = service["failedDeletions"] + 1
+                    else:
+                        log.error("tried " + str(service["failedDeletions"]) + "times, but could not delete service instance >" +
+                                  service["instancename"] + "< for service >" + service["name"] + "<.")
+                        sys.exit(os.EX_DATAERR)
+
+>>>>>>> ae328560f679d6060dc312d4c78a1849c53999ff
                 if (status == "deleted"):
                     log.success(
                         "service instance >" + service["instancename"] + "< for service >" + service["name"] + "< now deleted.")

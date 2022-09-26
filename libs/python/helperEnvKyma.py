@@ -1,5 +1,5 @@
 from libs.python.helperGeneric import getTimingsForStatusRequest
-from libs.python.helperJson import convertStringToJson, saveJsonToFile
+from libs.python.helperJson import convertStringToJson, saveJsonToFile, isValidJson
 from libs.python.helperYaml import build_and_store_service_binding_yaml_from_parameters, build_and_store_service_instance_yaml_from_parameters
 from libs.python.helperCommandExecution import runShellCommand, runShellCommandFlex
 import os
@@ -7,7 +7,6 @@ import sys
 import logging
 import time
 import base64
-import json
 
 log = logging.getLogger(__name__)
 
@@ -60,14 +59,6 @@ def createKymaServiceBinding(btpUsecase, service, keyName):
     return result
 
 
-def is_json(myjson):
-    try:
-        json.loads(myjson)
-    except ValueError as e:
-        return False
-    return True
-
-
 def getBindingSecret(btpUsecase, keyName):
     if not os.path.exists("logs/k8s/bindings"):
         os.mkdir("logs/k8s/bindings")
@@ -75,15 +66,16 @@ def getBindingSecret(btpUsecase, keyName):
     command = "kubectl get secrets " + keyName + " -n " + \
         btpUsecase.k8snamespace + " --kubeconfig " + \
         btpUsecase.kubeconfigpath + " -o json"
-    p = runShellCommand(btpUsecase, command, "INFO", None)
+    message = "Get secret details of service key"    
+    p = runShellCommand(btpUsecase, command, "INFO", message)
     data = convertStringToJson(p.stdout.decode())
-    for k, v in data['data'].items():
-        d = base64.b64decode(v)
-        data['data'][k] = d.decode('utf-8')
-        isJson = is_json(data['data'][k])
+    for servicekey, servicevalue in data['data'].items():
+        d = base64.b64decode(servicevalue)
+        data['data'][servicekey] = d.decode('utf-8')
+        isJson = isValidJson(data['data'][servicekey])
         if isJson:
-            data['data'][k] = json.loads(data['data'][k])
-    saveJsonToFile(bindingfilepath, data)  
+            data['data'][servicekey] = convertStringToJson(data['data'][servicekey])
+    saveJsonToFile(bindingfilepath, data) 
 
 
 def deleteKymaServiceBindingAndWait(key, service, btpUsecase):

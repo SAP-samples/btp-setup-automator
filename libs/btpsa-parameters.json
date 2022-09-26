@@ -101,6 +101,68 @@
             "title": "name for the CF space",
             "default": "development"
         },
+        "cfspacequota": {
+            "type": "object",
+            "description": "space quota definition for the cf space",
+            "title": "CF space quota",
+            "additionalProperties": false,
+            "properties": {
+                "createQuotaPlan":{
+                    "type": "boolean",
+                    "description": "if set to true, a new quota plan will be created",
+                    "title": "create new quota plan",
+                    "default": false
+                },
+                "spaceQuotaName": {
+                    "type": "string",
+                    "description": "name of the quota plan to be created",
+                    "title": "name of the quota plan",
+                    "default": "development-quota"
+                },
+                "spaceQuotaInstanceMemory": {
+                    "type": "string",
+                    "description": "instance memory limit for the quota plan",
+                    "title": "instance memory limit for quota plan",
+                    "default": "1024M"
+                },
+                "spaceQuotaTotalMemory": {
+                    "type": "string",
+                    "description": "total memory limit for the quota plan",
+                    "title": "total memory limit for quota plan",
+                    "default": "2048M"
+                },
+                "spaceQuotaRoutes": {
+                    "type": "integer",
+                    "description": "total number of routes for the quota plan",
+                    "title": "total number of routes for quota plan",
+                    "default": 5
+                },
+                "spaceQuotaServiceInstances": {
+                    "type": "integer",
+                    "description": "total number of service instances for the quota plan",
+                    "title": "total number of service instances for quota plan",
+                    "default": 5
+                },
+                "spaceQuotaAppInstances": {
+                    "type": "integer",
+                    "description": "total number of application instances. -1 represents an unlimited amount.",
+                    "title": "total number of application instances",
+                    "default": -1
+                },
+                "spaceQuotaReservedRoutePorts": {
+                    "type": "integer",
+                    "description": "maximum number of routes that may be created with reserved ports",
+                    "title": "maximum number of reserved routes",
+                    "default": 0
+                },
+                "spaceQuotaAllowPaidServicePlans":{
+                    "type": "boolean",
+                    "description": "if set to true, paid service plans are allowed",
+                    "title": "allow paid service plans",
+                    "default": true   
+                }
+            }
+        },
         "iashost": {
             "type": [
                 "string",
@@ -199,12 +261,6 @@
             "description": "file for log information",
             "title": "file for log information",
             "default": "log/metadata_log.json"
-        },
-        "apitestlogfile": {
-            "type": "string",
-            "description": "file for log api test information",
-            "title": "file for log api test information",
-            "default": "log/apitest_log.json"
         },
         "logcommands": {
             "type": "boolean",

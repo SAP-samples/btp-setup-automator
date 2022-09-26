@@ -1,173 +1,189 @@
 import requests
 import json
 import logging
-import sys
 import os
-from os.path import exists
+from typing import Dict, Optional
+from libs.python.helperJson import getJsonFromFile
 
 log = logging.getLogger(__name__)
 
-if not os.path.exists("./log"):
-    os.mkdir("./log")
 
-file_handler = logging.FileHandler(filename='./log/crossconsumption.log', mode='w')
-stdout_handler = logging.StreamHandler(sys.stdout)
-handlers = [file_handler, stdout_handler]
+class Constant:
+    content_type = 'Content-Type'
+    content_type_value = 'application/x-www-form-urlencoded'
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s:%(levelname)s:%(message)s',
-    handlers=handlers
-)
+    http_success_codes = [200, 201, 204]
 
-def read_json_file(filepath):
-    try:
-        with open(filepath) as f:
-            return json.load(f)
-    except Exception as e:
-        logging.exception(e)
 
-def get_oauth_token(oauthurl, username, password):
-    client_id = username
-    client_secret = password
-    payload = {
-        "client_id": client_id, "client_secret": client_secret, "grant_type": "client_credentials"
-    }
-    headers = {
-        'Content-Type': 'application/x-www-form-urlencoded'
-    }
-    if oauthurl.endswith('/oauth/token') or oauthurl.endswith('/oauth/token?grant_type=client_credentials'):
-        url = oauthurl
-    elif oauthurl.endswith('auth/request'):
-        url = oauthurl
-        payload = json.dumps({
-            "apiKey": client_id, "secret": client_secret
-        })
-        headers = {
-            'Content-Type': 'application/json'
+class APITest:
+    @staticmethod
+    def get_oauth_token(self, oauthurl: str, username: str, password: str) -> str:
+        """Returns oauth token for given details
+
+        Args:
+            oauthurl (str): Authentication URL
+            username (str): Username or Client id for the oauth URL
+            password (str): Password or Client secret
+
+        Returns:
+            str: OAuth Token
+        """
+        client_id = username
+        client_secret = password
+        payload = {
+            "client_id": client_id,
+            "client_secret": client_secret,
+            "grant_type": "client_credentials"
         }
-    else:
-        url = f"{oauthurl}/oauth/token"
-    try:
-        response = requests.post(url, headers=headers, data=payload)
-        data = response.json()
-        response.raise_for_status()
-        if(response.status_code == 200):
-            if data.get("access_token", False):
-                access_token = data['access_token']
-                return access_token
-            else:
-                access_token = data['accessToken']
-                return access_token
-    except requests.exceptions.HTTPError as errh:
-        logging.exception(errh)
-    except requests.exceptions.RequestException as err:
-        logging.exception(err)
 
-def get_api_req(uri, access_token):
-    if not uri.startswith('https://'):
-        uri = 'https://' + uri
-    logging.info(f"The API request URL: {uri}")
-    headers = {
-        'Authorization': 'Bearer ' + access_token,
-    }
-    try:
-        response = requests.get(uri, headers=headers)
-        response.raise_for_status()
-        if response.status_code in [200, 201, 204]:
-            logging.info("GET request API call is successful!")
-    except requests.exceptions.HTTPError as errh:
-        logging.error("Failed the API request call")
-        logging.exception(errh)
-    except requests.exceptions.RequestException as err:
-        logging.exception(err)
+        headers = {Constant.content_type: Constant.content_type_value}
 
-def get_api_req_basic(uri, username, password):
-    if not uri.startswith('https://'):
-        uri = 'https://' + uri
-    logging.info(f"The API request URL: {uri}")
-    try:
-        response = requests.get(uri, auth=(username, password))
-        response.raise_for_status()
-        if response.status_code in [200, 201, 204]:
-            logging.info("GET request API call is successful!")
-    except requests.exceptions.HTTPError as errh:
-        logging.exception(errh)
-        logging.error("Failed the API request call")
-    except requests.exceptions.RequestException as err:
-        logging.exception(err)
-
-def get_key_values(binding, pathKey):
-    for key in pathKey.split("."):
-        if key.isnumeric():
-            key = int(key)
-            binding = binding[key]
-            continue
-        binding = binding.get(key, False)
-        if not binding:
-            break
-    return binding
-
-def main():
-    params = read_json_file('/home/user/usecases/inDevelopment/cross_consumption.json')
-    data = params["api_resource_uri"]
-    for i, d in enumerate(data):
-        flag = True
-        if d["authMethod"] == "basic":
-            del d["oauthurlPathkey"]
-        for k, v in d.items():
-            if d[k] in [None, '', ' ']:
-                logging.error(f"Please provide the value for '{k}' for '{d['servicename']}' service")
-                flag = False
-                break
-        if flag:
-            continue
+        if oauthurl.endswith('/oauth/token') or oauthurl.endswith(
+                '/oauth/token?grant_type=client_credentials'):
+            url = oauthurl
+        elif oauthurl.endswith('auth/request'):
+            url = oauthurl
+            payload = json.dumps({"apiKey": client_id, "secret": client_secret})
+            headers = {'Content-Type': 'application/json'}
         else:
-            break
-    if flag:
-        for i, d in enumerate(data):
-            logging.info("###### API TEST " + str(i) + " #######")
-            logging.info(f"API test for {d['servicename']} service of plan {d['plan']}. Service ID: {d['serviceID']}")
-            if d["APITest"] == "no":
+            url = f"{oauthurl}/oauth/token"
+
+        try:
+            response = requests.post(url, headers=headers, data=payload)
+            data = response.json()
+            response.raise_for_status()
+
+            if response.status_code == 200:
+                if data.get("access_token", False):
+                    access_token = data['access_token']
+                    return access_token
+                else:
+                    access_token = data['accessToken']
+                    return access_token
+
+        except requests.exceptions.HTTPError as errh:
+            log.exception(errh)
+        except requests.exceptions.RequestException as err:
+            log.exception(err)
+
+    @staticmethod
+    def get_api_req(self, uri: str, username: Optional[str],
+                    password: Optional[str], access_token: Optional[str], **kwargs: Dict) -> None:
+        """Validate successful API test
+
+        Args:
+            uri (str): Base URL
+            username (Optional[str]): username for basic authentication
+            password (Optional[str]): password for basic authentication
+            access_token (Optional[str]): access token for OAuth
+        """
+
+        if not uri.startswith('https://'):
+            uri = 'https://' + uri
+        log.info(f"The API request URL: {uri}")
+
+        if "access_token" in kwargs:
+            params = {
+                "headers": {
+                    'Authorization': 'Bearer ' + kwargs["access_token"],
+                }
+            }
+        else:
+            params = {
+                "auth": (kwargs["username"], kwargs["password"])
+            }
+
+        try:
+            response = requests.get(uri, **params)
+            response.raise_for_status()
+
+            if response.status_code in Constant.http_success_codes:
+                log.info("GET request API call is successful!")
+
+        except requests.exceptions.HTTPError as errh:
+            log.error("Failed the API request call")
+            log.exception(errh)
+        except requests.exceptions.RequestException as err:
+            log.exception(err)
+
+    @staticmethod
+    def get_key_items(binding: Dict, pathKey: str) -> str:
+        """
+        Get key items for passed dict
+        :param binding: Service key object
+        :param pathKey: Key to be looking for
+        :return: Value for the key in binding
+        """
+        for key in pathKey.split("."):
+            if key.isnumeric():
+                key = int(key)
+                binding = binding[key]
                 continue
-            servicename = d['servicename']
-            plan = d['plan']
-            testapi = d['testapi']
+
+            binding = binding.get(key, False)
+
+            if not binding:
+                break
+        return binding
+
+    def __call__(self, btp_usecase):
+        self.btp_usecase = btp_usecase
+
+        params = getJsonFromFile(self.btp_usecase.usecasefile)
+
+        for _index, _service in enumerate(params["services"]):
+            if "api_resource_uri" not in list(_service.keys()):
+                continue
+
+            api_resource_data = _service["api_resource_uri"]
+
+            if api_resource_data["authMethod"] == "basic":
+                del api_resource_data["oauthurlPathkey"]
+
+            for _key, _value in api_resource_data.items():
+                if api_resource_data[_key] in [None, '', ' ']:
+                    log.error(
+                        f"Please provide the value for '{_key}' for '{_service['name']}' service"
+                    )
+                    raise ValueError(f"Please provide the value for '{_key}' for '{_service['name']}' service")
+
+            log.info(f"###### API TEST {_index} #######")
+            log.info(
+                f"API test for {_service['name']} service of plan {_service['plan']}. Service ID: {api_resource_data['serviceID']}"
+            )
+
+            if api_resource_data["APITest"] == "no":
+                continue
+
+            servicename = _service['name']
+            plan = _service['plan']
+            testapi = api_resource_data['testapi']
+
             if testapi == '/':
                 testapi = ''
-            apiBaseUrlPathKey = d['apiBaseUrlPathKey']
-            clientId_basicUN_PathKey = d['clientId_basicUN_PathKey']
-            clientSecret_basicPW_PathKey = d['clientSecret_basicPW_PathKey']
+
+            api_base_url_path_key = api_resource_data['apiBaseUrlPathKey']
+            client_id_basic_un_path_key = api_resource_data['clientId_basicUN_PathKey']
+            client_secret_basic_pw_path_key = api_resource_data['clientSecret_basicPW_PathKey']
+
             path = f"/home/user/logs/k8s/bindings/{servicename}-{plan}.json"
-            file_exists = exists(path)
+            file_exists = os.path.exists(path)
             if not file_exists:
                 continue
-            binding = read_json_file(path)
-            if d['authMethod'] == "oauth":
-                oauthurlPathkey = d['oauthurlPathkey']
-                oauthurl = get_key_values(binding, oauthurlPathkey)
-                uri = get_key_values(binding, apiBaseUrlPathKey)
-                username = get_key_values(binding, clientId_basicUN_PathKey)
-                password = get_key_values(binding, clientSecret_basicPW_PathKey)
+            binding = getJsonFromFile(path)
+
+            if api_resource_data['authMethod'] == "oauth":
+                oauthurlPathkey = api_resource_data['oauthurlPathkey']
+                oauthurl = self.get_key_items(binding, oauthurlPathkey)
+                uri = self.get_key_items(binding, api_base_url_path_key)
+                username = self.get_key_items(binding, client_id_basic_un_path_key)
+                password = self.get_key_items(binding, client_secret_basic_pw_path_key)
                 uri = f"{uri}{testapi}"
-                access_token = get_oauth_token(oauthurl, username, password)
-                get_api_req(uri, access_token)
+                access_token = self.get_oauth_token(oauthurl, username, password)
+                self.get_api_req(uri, access_token)
             else:
-                uri = get_key_values(binding, apiBaseUrlPathKey)
-                username = get_key_values(binding, clientId_basicUN_PathKey)
-                password = get_key_values(binding, clientSecret_basicPW_PathKey)
+                uri = self.get_key_items(binding, api_base_url_path_key)
+                username = self.get_key_items(binding, client_id_basic_un_path_key)
+                password = self.get_key_items(binding, client_secret_basic_pw_path_key)
                 uri = f"{uri}{testapi}"
-                get_api_req_basic(uri, username, password)
-    file_exists = exists("failedService.txt")
-    if file_exists:
-        file1 = open('failedService.txt', 'r')
-        Lines = file1.readlines()
-        for line in Lines:
-            val = line.split(":")
-            for d in data:
-                if val[0] == d['servicename']:
-                    serviceID = d['serviceID']
-                    logging.error(f"{str(val[0])} service is not crossconsumable. Status : {str(val[1])} ServiceId : {serviceID}")
-
-
-main()
+                self.get_api_req(uri, username, password)

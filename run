@@ -17,7 +17,7 @@ if [ "$1" != "RunFromRegistry" ]; then
     docker image build -t ${thisname}:latest -f "config/Dockerfile"  .
 
     echo -e "${GREEN}Start the container as '${thisname}' - Access possible e.g. via VSCode${NOCOLOR}"
-    docker container run -e BTPSA_VERSION_GIT="$(git describe --long --tags  --always)" --rm  -it -d --name "${thisname}" "${thisname}" 
+    docker container run -e BTPSA_VERSION_GIT="$(git describe --long --tags  --always)" --rm -it -d --name "${thisname}" "${thisname}" 
 
 else
 
