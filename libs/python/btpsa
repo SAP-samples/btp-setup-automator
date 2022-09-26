@@ -56,4 +56,9 @@ myBtpUseCase.executeAfterEnvironmentAvailability()
 #######################################################################################
 myBtpUseCase.executeAfterAccountSetup()
 
+#######################################################################################
+# Run the API test after the service insatnce/binding is available
+#######################################################################################
+myBtpUseCase.execute_api_test()
+
 myBtpUseCase.finish()
