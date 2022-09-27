@@ -84,9 +84,9 @@ def convertJsonToString(json):
     return string
 
 
-def isValidJson(json):
+def isValidJson(jsondata):
     try:
-        json.loads(json)
+        json.loads(jsondata)
     except ValueError:
         return False
     return True    
