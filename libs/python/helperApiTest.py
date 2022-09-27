@@ -11,13 +11,12 @@ log = logging.getLogger(__name__)
 class Constant:
     content_type = 'Content-Type'
     content_type_value = 'application/x-www-form-urlencoded'
-
     http_success_codes = [200, 201, 204]
 
 
 class APITest:
     @staticmethod
-    def get_oauth_token(self, oauthurl: str, username: str, password: str) -> str:
+    def get_oauth_token(oauthurl: str, username: str, password: str) -> str:
         """Returns oauth token for given details
 
         Args:
@@ -67,15 +66,15 @@ class APITest:
             log.exception(err)
 
     @staticmethod
-    def get_api_req(self, uri: str, username: Optional[str],
-                    password: Optional[str], access_token: Optional[str], **kwargs: Dict) -> None:
+    def get_api_req(uri: str, **kwargs: Dict) -> None:
         """Validate successful API test
 
         Args:
             uri (str): Base URL
-            username (Optional[str]): username for basic authentication
-            password (Optional[str]): password for basic authentication
-            access_token (Optional[str]): access token for OAuth
+            kwargs: username, password, access_token
+            username (str) : username for basic authentication
+            password (str): password for basic authentication
+            access_token (str): access token for OAuth
         """
 
         if not uri.startswith('https://'):
@@ -180,10 +179,10 @@ class APITest:
                 password = self.get_key_items(binding, client_secret_basic_pw_path_key)
                 uri = f"{uri}{testapi}"
                 access_token = self.get_oauth_token(oauthurl, username, password)
-                self.get_api_req(uri, access_token)
+                self.get_api_req(uri, access_token=access_token)
             else:
                 uri = self.get_key_items(binding, api_base_url_path_key)
                 username = self.get_key_items(binding, client_id_basic_un_path_key)
                 password = self.get_key_items(binding, client_secret_basic_pw_path_key)
                 uri = f"{uri}{testapi}"
-                self.get_api_req(uri, username, password)
+                self.get_api_req(uri, username=username, password=password)
