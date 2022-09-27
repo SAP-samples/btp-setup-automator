@@ -51,7 +51,7 @@ def createKymaServiceBinding(btpUsecase, service, keyName):
         p = runShellCommand(btpUsecase, command, "INFO", None)
 
         result = convertStringToJson(p.stdout.decode())
-        if (btpUsecase.enablecrossconsumptiontest):
+        if (btpUsecase.enableAPITest):
             getBindingSecret(btpUsecase, keyName)
     else:
         log.error("can't create service key!")
