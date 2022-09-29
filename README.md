@@ -4,7 +4,7 @@
 
 ## Description
 
-This repository provides the user with a script to **automate the setup** of an [SAP Business Technology Platform (SAP BTP) account](https://account.hana.ondemand.com/) and to **learn** how this is done with the various command line interfaces and tools that to run inside a [docker](https://www.docker.com/) container.
+This repository provides the user with a script to **automate the setup** of an [SAP Business Technology Platform (SAP BTP) account](https://account.hana.ondemand.com/) and to **learn** how this is done with the various command line interfaces and tools that to run inside a [Docker](https://www.docker.com/) container.
 
 ![architectural overview](docs/pics/overview.png)
 
@@ -12,7 +12,7 @@ This includes:
 
 - Setup of your SAP BTP account
 - Entitlement of services
-- Subscription of applications and creation of service instances with api keys
+- Subscriptions to applications and creation of service instances with service keys
 - Addition of administrator users to global account and subaccounts
 - Setup of roles and role collections, assignment of roles collections to users
 - Deployment of complete applications
@@ -20,47 +20,59 @@ This includes:
 
 ## Configuration
 
-As a developer you configure your use case inside a usecase.json file with all services or subscriptions that you need (find some sample [use cases here](./usecases/released) incl. [their detailed descriptions](./docs/USECASES.md)). The [json schema **btpsa-usecase.json**](./libs/btpsa-usecase.json) makes it's fairly simple to create your own use case file as you can see in this video:
+As a developer you configure your use case inside a `usecase.json` file with all services and subscriptions that you need (find some sample [use cases here](./usecases/released) including [their detailed descriptions](./docs/USECASES.md)). The [JSON schema **btpsa-usecase.json**](./libs/btpsa-usecase.json) makes it fairly simple to create your own use case file as you can see in this video:
 
 ![json schema for creating use case files](docs/pics/btpsa-json-schema.gif)
 
-You find more information on the sample use cases in the [usecases document](./docs/USECASES.md).
+You find more information on the sample use cases in the [use cases document](./docs/USECASES.md).
 
 ## Pre-requisites
 
 To use the scripts, this is what you need to do first:
 
-- Get an [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/trial/#/home/trial) or a [productive SAP BTP account](https://account.hana.ondemand.com/#/home/welcome) (recommended) where you can make use of the free tier service plans
+- Get an [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/trial/#/home/trial), or a [productive SAP BTP account](https://account.hana.ondemand.com/#/home/welcome) (recommended) where you can make use of the free tier service plans
 - [Install a Docker engine](https://docs.docker.com/desktop/)
 
-> ⚠ NOTE: Be aware of the terms of Docker for usage in enterprises. For details see this [link](https://www.docker.com/blog/updating-product-subscriptions/).
+> ⚠ NOTE: Be aware of the terms of Docker for usage in enterprises. For details read [Docker is Updating and Extending Our Product Descriptions](https://www.docker.com/blog/updating-product-subscriptions/).
 
-In case you are new to the containers topic, it is **highly recommended** to install and setup **MS Visual Studio Code**, too:
+In case you are new to the containers topic, we **strongly recommended** that you install and setup **MS Visual Studio Code** (VS Code), too:
 
 - [Install VS Code](https://code.visualstudio.com/download) - this will be your development environment.
-- Install the VS Code plugin for [Remote containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+- Install the VS Code [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension for connecting to and using Docker containers.
 
 ## Download and Run
 
-Once the pre-requisites above are all met, you can either use the pre-built docker image for the `btp-setup-automator`, or build the docker image yourself.
+Once the pre-requisites above are all met, you can either use the pre-built Docker image for the `btp-setup-automator`, or build it yourself.
 
 ### Option 1: Start Docker Container via Pre-Built Image (recommended)
 
-The fastest way to use the `btp-setup-automator` it, to open a terminal windows on your machine and to enter the following command to pull the docker image from the GitHub repository and run it in a container:
+This is the fastest way to use the `btp-setup-automator`. Open a terminal window on your machine and run the following command to pull the Docker image from the GitHub repository and start a container based upon it:
 
 ```bash
 docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
 ```
 
-You'll notice that the prompt in your terminal has changed, because you are now working inside the docker container, that you just started.
+Here's a brief explanation of the options used:
 
-You can now run the main script `btpsa` with the following command and you'll be deploying a CAP application on your SAP BTP Trial account (the default [usecase](docs/USECASES.md)):
+- `--rm` causes the container to be automatically cleaned up (removed) when you're done with it (when it stops)
+- `-it` is short for `-i` `-t` and together make the container accessible and interactive (for you to work within)
+- `--name` specifies a name for the container (rather than have Docker generate a random one)
+
+> You may need to authenticate with GitHub's container registry at `ghcr.io` (you'll know you need to do this if you get a "denied" error when you run the above command). If this is the case, you'll need to [create a Personal Access Token (PAT)](https://github.com/settings/tokens) with the `read:packages` scope, and then run this command to log in, using the PAT as the password, when prompted:
+>
+> ```bash
+> docker login ghcr.io --username <your GitHub username>
+> ```
+
+You'll notice that the prompt in your terminal has changed, because you are now working inside the Docker container that you just started.
+
+You can now run the main script `btpsa` with the following command and you'll be deploying a CAP application on your SAP BTP Trial account (the [default use case](usecases/released/default.json)).
 
 ```bash
 ./btpsa
 ```
 
-The tool starts to execute and the only thing you need to type-in is your password for your SAP BTP account.
+The tool starts to execute and the only thing you need to type in is your password for your SAP BTP account.
 
 > 📝 Tip - If you are already using VS Code, you should execute this command instead, so that the container runs "detached" (`-d`) from your command line session:
 >
@@ -68,7 +80,7 @@ The tool starts to execute and the only thing you need to type-in is your passwo
 > docker container run --rm -it -d --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
 > ```
 
-You can also use the provided `run` files to pull the image from the registry and start the container via one command. To do so execute the following command:
+You can also use the provided `run` files to pull the image from the registry and start the container via one command. To do so execute the following command (clone this repo to make the commands available to you):
 
 - bash (macOS/Linux)
 
@@ -85,7 +97,7 @@ You can also use the provided `run` files to pull the image from the registry an
 - PowerShell Core (Cross Platform):
 
   ```powershell
-  .\run.ps1 -RunFromRegistry $True 
+  .\run.ps1 -RunFromRegistry $True
   ```
 
 ### Option 2: Start Docker Container With Self-Built Image
@@ -93,8 +105,8 @@ You can also use the provided `run` files to pull the image from the registry an
 To create the Docker image yourself you need to execute these steps:
 
 - Clone this GitHub repository to a local folder on your machine.
-- Open the local folder in a command terminal on your machine (or in VS Code).
-- Build the container with the following command:
+- Open the local folder in a terminal window on your machine (or in VS Code).
+- Build the image with the following command:
 
   - bash (macOS/Linux)
 
@@ -114,24 +126,24 @@ To create the Docker image yourself you need to execute these steps:
     .\run.ps1
     ```
 
-The script  will build a docker image and create a docker container on your machine.
+The script will build a Docker image and create a running container from it, on your machine.
 
 ## Get the Docker Container up-and-running
 
-Independently whether you've created the docker image yourself, or used the pre-built image, you should now see the Docker container up-and-running. In case you are using VS Code, open the command palette (Windows: `Ctrl+Shift+P` ; Mac: `Cmd+Shift+P`) and select the `Remote Containers: Attach to running Container ...` command:
+Regardless of which option you chose, you should now see the Docker container up and running. In case you are using VS Code, open the command palette (Windows: `Ctrl+Shift+P` ; Mac: `Cmd+Shift+P`) and select the `Remote Containers: Attach to Running Container...` command:
 
 ![command in VS Code to attach it to a running container](docs/pics/quick-guide-step00.png)
 
-> 📝 Tip - Don't forget to install the "Remote-Containers" extension in VS Code
+> 📝 Tip - Don't forget to install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in VS Code
 
-The select the `btp-setup-automator` container looks like this:
+Then look for the container by name (`btp-setup-automator`) and selecting it:
 
 ![select running container in VS Code](docs/pics/quick-guide-step01.png)
 
 ## Use BTP-SETUP-AUTOMATOR
 
 You can run the container directly via the terminal or within VS Code, modify use case file and parameter file or supply externally available use case and parameter file.
-  
+
 [Read the detailed instructions](docs/README.md) on how to setup your SAP BTP account for a use case with the `btp-setup-automator`.
 
 If you want a more detailed walk-through guiding you through the first steps with the btp-setup-automator, then this video on YouTube is worth a look:
