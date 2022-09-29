@@ -66,7 +66,7 @@ Here's a brief explanation of the options used:
 
 You'll notice that the prompt in your terminal has changed, because you are now working inside the Docker container that you just started.
 
-You can now run the main script `btpsa` with the following command and you'll be deploying a CAP application on your SAP BTP Trial account (the default [usecase](docs/USECASES.md)):
+You can now run the main script `btpsa` with the following command and you'll be deploying a CAP application on your SAP BTP Trial account (the [default use case](usecases/released/default.json)).
 
 ```bash
 ./btpsa
