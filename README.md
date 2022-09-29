@@ -58,6 +58,12 @@ Here's a brief explanation of the options used:
 - `-it` is short for `-i` `-t` and together make the container accessible and interactive (for you to work within)
 - `--name` specifies a name for the container (rather than have Docker generate a random one)
 
+> You may need to authenticate with GitHub's container registry at `ghcr.io` (you'll know you need to do this if you get a "denied" error when you run the above command). If this is the case, you'll need to [create a Personal Access Token (PAT)](https://github.com/settings/tokens) with the `read:packages` scope, and then run this command to log in, using the PAT as the password, when prompted:
+>
+> ```bash
+> docker login ghcr.io --username <your GitHub username>
+> ```
+
 You'll notice that the prompt in your terminal has changed, because you are now working inside the Docker container that you just started.
 
 You can now run the main script `btpsa` with the following command and you'll be deploying a CAP application on your SAP BTP Trial account (the default [usecase](docs/USECASES.md)):
