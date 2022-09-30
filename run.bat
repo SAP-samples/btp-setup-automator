@@ -5,7 +5,7 @@ call :setESC
 echo %ESC%[32mCleaning up containers and images (if existing)%ESC%[0m
 docker container stop   "btp-setup-automator"
 docker container rm  -f "btp-setup-automator"
-docker image     rmi -f "btp-setup-automator"
+docker image     rm  -f "btp-setup-automator"
 
 
 if not "%1" == "RunFromRegistry" (

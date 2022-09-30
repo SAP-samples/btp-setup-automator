@@ -8,7 +8,7 @@ thisname="btp-setup-automator"
 echo -e "${GREEN}Cleaning up containers and images (if existing)${NOCOLOR}"
 docker container stop   "${thisname}"
 docker container rm  -f "${thisname}"
-docker image     rmi -f "${thisname}"
+docker image     rm  -f "${thisname}"
 
 
 if [ "$1" != "RunFromRegistry" ]; then
