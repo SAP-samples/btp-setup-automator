@@ -140,6 +140,8 @@ Then look for the container by name (`btp-setup-automator`) and selecting it:
 
 ![select running container in VS Code](docs/pics/quick-guide-step01.png)
 
+> You may see a message in VS Code informing you about the installation of some VS Code mechanisms into the container (to support the attachment to the remote container) and may have to wait a minute or two for this to complete.
+
 ## Use BTP-SETUP-AUTOMATOR
 
 You can run the container directly via the terminal or within VS Code, modify use case file and parameter file or supply externally available use case and parameter file.
