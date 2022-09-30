@@ -382,7 +382,7 @@ class BTPUSECASE:
                             accountMetadata, "org", org)
                         save_collected_metadata(self)
                         self.create_new_cf_space(environment)
-                        self.create_and_assign_quota_plan(self, environment)
+                        self.create_and_assign_quota_plan(environment)
 
                 elif environment.name == "kymaruntime":
                     kymaClusterName = environment.parameters["name"]
