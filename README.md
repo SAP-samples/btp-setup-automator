@@ -140,15 +140,51 @@ Then look for the container by name (`btp-setup-automator`) and selecting it:
 
 ![select running container in VS Code](docs/pics/quick-guide-step01.png)
 
-## Use BTP-SETUP-AUTOMATOR
+> You may see a message in VS Code informing you about the installation of some VS Code mechanisms into the container (to support the attachment to the remote container) and may have to wait a minute or two for this to complete.
+
+## Using the Setup Automator
 
 You can run the container directly via the terminal or within VS Code, modify use case file and parameter file or supply externally available use case and parameter file.
 
 [Read the detailed instructions](docs/README.md) on how to setup your SAP BTP account for a use case with the `btp-setup-automator`.
 
-If you want a more detailed walk-through guiding you through the first steps with the btp-setup-automator, then this video on YouTube is worth a look:
+### With VS Code
+
+If you want a more detailed walk-through guiding you through the first steps with the btp-setup-automator and VS Code, then this video on YouTube is worth a look:
 
 [![Watch the intro video on the btp-setup-automator](docs/pics/btp-setup-automator-intro-video.png)](https://youtu.be/BHBgQ45fgIk)
+
+### From a terminal
+
+You can also attach to the running container and execute a shell in there:
+
+```bash
+docker exec -it btp-setup-automator bash
+```
+
+You'll be placed in a new Bash shell inside the container, with access to all the tools:
+
+```text
+; docker exec -it btp-setup-automator bash
+bash-5.1$ ls
+LICENSE  LICENSES  README.md  btpsa  config  docs  generator  libs  parameters.json  tests  usecases
+bash-5.1$ btp
+Welcome to the SAP BTP command line interface (client v2.24.0)
+
+Usage: btp [OPTIONS] ACTION GROUP/OBJECT PARAMS
+
+CLI server URL:                    not set
+User:                              not set
+Configuration:                     /home/user/.config/btp/config.json
+
+You are currently not logged in.
+
+Tips:
+    To log in to a global account of SAP BTP, use 'btp login'. For help on login, use 'btp help login'.
+    To display general help, use 'btp help'.
+
+bash-5.1$
+```
 
 ## Known Issues
 
