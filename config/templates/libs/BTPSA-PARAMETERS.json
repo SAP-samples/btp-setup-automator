@@ -291,7 +291,7 @@
                 "string",
                 "null"
             ],
-            "description": "host region for the Cloud Foundry CLI (nornally the same like 'region'). In case of errors you might have to set this to e.g. 'eu10-004' (check CF API in your SAP BTP cockpit in the sub account and CF environment).",
+            "description": "host region for the Cloud Foundry CLI (normally the same as 'region'). In case of errors you might have to set this to e.g. 'eu10-004' (check CF API in your SAP BTP cockpit in the sub account and CF environment).",
             "title": "host region for the Cloud Foundry CLI calls",
             "default": null
         },
