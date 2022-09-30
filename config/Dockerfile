@@ -81,7 +81,7 @@ COPY --from=helm_cli               /usr/local/bin/helm .
 ARG BTPSA_VERSION_GIT_ARG=default
 
 ##################################################################################################################################################
-# Now putting all pieces together 
+# Now putting all pieces together
 ##################################################################################################################################################
 FROM python:3.9-alpine3.16 AS final_build
 ENV USERNAME=user
@@ -124,7 +124,7 @@ RUN adduser \
     ## Set the right timezone in the container image
     && cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime \
 ##########################################################################################
-# Install CAP CDS 
+# Install CAP CDS
 # - currently (Jun 7th, 2022) it's no longer possible to install CDS
 # - to be determined what the root cause is (seems related to deprecation of v1.x Cloud SDK)
 ##########################################################################################
@@ -151,11 +151,11 @@ COPY --chown=root:root --from=tools /usr/local/bin/kubectl /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/helm /usr/local/bin
 
 ## Install the CF plugin for deploying MTAs on Cloudfoundry
-RUN cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/latest/download/multiapps-plugin.linux32 
+RUN cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/latest/download/multiapps-plugin.linux32
 
 ## Install krew and the oidc-login plugin
 RUN    OS="$(uname | tr '[:upper:]' '[:lower:]')" \
-    && ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" \ 
+    && ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" \
     && KREW="krew-${OS}_${ARCH}" \
     && curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" \
     && tar zxvf "${KREW}.tar.gz" \
@@ -166,6 +166,10 @@ RUN    OS="$(uname | tr '[:upper:]' '[:lower:]')" \
     && rm -rf ./"${KREW}"
 # Set the path to the krew binary
 ENV PATH "$PATH:$HOME_FOLDER/.krew/bin"
+
+# Customize the prompt
+ENV PS1 "\[\e]0;\w\a\]\[\033[33;1m\]btp-setup-automator: \[\033[36m\]\$(basename \w) \$\[\033[m\] "
+
 
 ## Copy over the all necessary resources
 COPY --chown=$USERNAME:$USERNAME usecases/              $HOME_FOLDER/usecases/
