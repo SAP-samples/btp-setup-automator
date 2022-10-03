@@ -1,0 +1,375 @@
+{
+  "name": "hana",
+  "displayName": "SAP HANA Schemas & HDI Containers",
+  "description": "Use the SAP HANA schemas & HDI containers service to create service instances on SAP HANA databases and bind them to cloud applications. To create schemas and HDI containers, an SAP HANA database must be available in your space. The SAP HANA schemas & HDI containers service is part of the SAP HANA service.",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iaGFuYSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMGE2ZWQxO30uY2xzLTJ7ZmlsbDojMDUzYjcwO308L3N0eWxlPjwvZGVmcz48dGl0bGU+aGFuYTwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNTEsMjIuMzMyYTcuMjM2LDcuMjM2LDAsMCwwLTIuNjEzLTEuODJBMjIuNDA4LDIyLjQwOCwwLDAsMCwzOS41NjksMTlhMjIuNCwyMi40LDAsMCwwLTguODE3LDEuNTEyLDcuMjM2LDcuMjM2LDAsMCwwLTIuNjEzLDEuODIsMy43NzIsMy43NzIsMCwwLDAtMSwyLjUyMVY0Ni4wODFhMy42MzIsMy42MzIsMCwwLDAsMSwyLjUxNCw3LjEwNyw3LjEwNywwLDAsMCwyLjYwNywxLjgyMUEyMS4xNTQsMjEuMTU0LDAsMCwwLDM5LjU2OSw1MmEyMi40MDgsMjIuNDA4LDAsMCwwLDguODE4LTEuNTEyQTcuMjM2LDcuMjM2LDAsMCwwLDUxLDQ4LjY2OGEzLjkyNywzLjkyNywwLDAsMCwxLTIuNTIxVjI0Ljg1M0EzLjc3MiwzLjc3MiwwLDAsMCw1MSwyMi4zMzJaTTQyLjM2NSw0OS4xNzRjLS44OTMuMDg1LTEuODE4LjE0NC0yLjguMTQ0YTI4LjUzOCwyOC41MzgsMCwwLDEtMy40MDYtLjIxMVYzMC41NzJhMzMuMjYsMzMuMjYsMCwwLDAsMy40MDYuMTY1Yy45NzksMCwxLjktLjA1LDIuOC0uMTI2Wm03LjE2Ny0zLjAyN2MwLC43LS45MTYsMS40Ni0yLjQ1NCwyLjAzNWExNC4yOCwxNC4yOCwwLDAsMS0yLjIyOS42MjJWMzAuMjY3YTEzLjYyOCwxMy42MjgsMCwwLDAsNC42ODMtMS42NDNaTTQ3LjA3OCwyNi45ODVhMjEuNTcsMjEuNTcsMCwwLDEtNy41MDksMS4xMzYsMjEuNTA4LDIxLjUwOCwwLDAsMS03LjUtMS4xMzZjLTEuNTI0LS42NS0yLjQtMS40MTYtMi40LTIuMXYtLjAzMWMwLTEuMywzLjUyNi0zLjE3MSw5LjktMy4xNzEsNi40MTcsMCw5Ljk2MywxLjg3Niw5Ljk2MywzLjIwNUM0OS41MzIsMjUuNTc4LDQ4LjYzNiwyNi4zNDQsNDcuMDc4LDI2Ljk4NVoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNC4zLDI3Ljk4NkgxMi40MWE1LjM4Nyw1LjM4NywwLDAsMS0xLjY3NS0xMC41MTVsMi4zMDgtLjc1OUwxMi43ODEsMTQuM2E4LjEsOC4xLDAsMCwxLDEuNS01LjI4NEE2LjUsNi41LDAsMCwxLDE5LjEwOSw3YTYuMDU0LDYuMDU0LDAsMCwxLDUuODY0LDQuMDMzbDEuMzA3LDMuMjlMMjkuMzEsMTIuNWEzLjkyMiwzLjkyMiwwLDAsMSwyLjA0My0uNTkxLDMuOTg4LDMuOTg4LDAsMCwxLDMuOTE0LDMuMjQ5bC4xNTkuODQ1aDNjLS4wNDctLjQzOS0uMTA4LS45LS4yMS0xLjRBNi45NDEsNi45NDEsMCwwLDAsMjcuNzYyLDkuOTI4LDkuNDUyLDkuNDUyLDAsMCwwLDE5LjA1NSw0QzguODYzLDQuMjQyLDkuOCwxNC42MjEsOS44LDE0LjYyMUE4LjM4Nyw4LjM4NywwLDAsMCwxMi40MSwzMC45ODZIMjQuM1oiLz48L3N2Zz4=",
+  "links": [
+    {
+      "value": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/5dd739823b824b539eee47b7860a00be.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/a36ee1aa073e4e8e840573fb30a72d95/Cloud/en-US/1e9a6cb47e1b44f990a917b4bf8c2e19.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/product/HANA_CLOUD/cloud/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "hdi-shared",
+      "displayName": "hdi-shared",
+      "category": "SERVICE",
+      "description": "HDI container on a HANA database",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "ch20",
+          "name": "cf-ch20"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "eu30",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "in30",
+          "name": "India (Mumbai)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "sbss",
+      "displayName": "sbss",
+      "category": "SERVICE",
+      "description": "User with permissions to use SBSS",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "ch20",
+          "name": "cf-ch20"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "eu30",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "in30",
+          "name": "India (Mumbai)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "schema",
+      "displayName": "schema",
+      "category": "SERVICE",
+      "description": "Schema on a HANA database",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "ch20",
+          "name": "cf-ch20"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "eu30",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "in30",
+          "name": "India (Mumbai)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "securestore",
+      "displayName": "securestore",
+      "category": "SERVICE",
+      "description": "Schema on a HANA database",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "ch20",
+          "name": "cf-ch20"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "eu30",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "in30",
+          "name": "India (Mumbai)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

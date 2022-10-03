@@ -1,0 +1,186 @@
+{
+  "name": "objectstore",
+  "displayName": "Object Store on SAP BTP",
+  "description": "Object Store on SAP BTP provisions an object storage space that can be used by applications to store and manage objects.",
+  "icon": "https://digitalmarketplace-sapcpprd.s3.eu-central-1.amazonaws.com/a4OooLtN_eA6YFJtJUgx4_CYvcuWIS2_5rRXY_2-QpLqC15nVTGmmAJOYXznoxre.svg",
+  "links": [
+    {
+      "value": "https://cloudplatform.sap.com/capabilities/data-storage/objectstore.html",
+      "classification": "marketing",
+      "type": "Link",
+      "text": "Learn more about this service and how to purchase it.",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=blog&q=Object%20Store%20on%20SAP%20BTP",
+      "classification": "SAP Community Blog Posts",
+      "type": "Link",
+      "text": "SAP Community Blog Posts",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=qa&q=Object%20Store%20on%20SAP%20BTP",
+      "classification": "SAP Community Questions and Answers",
+      "type": "Link",
+      "text": "SAP Community Questions and Answers",
+      "altText": ""
+    },
+    {
+      "value": "https://discovery-center.cloud.sap/serviceCatalog/object-store",
+      "classification": "Discovery Center",
+      "type": "Link",
+      "text": "Discovery Center",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/doc/1aab7a8ce65e4c53a65adfe5c18ca6a3/Cloud/en-US/FSD_ObjectStore.pdf",
+      "classification": "Documentation",
+      "type": "PDF",
+      "text": "Feature Scope Description",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/2ee77ef7ea4648f9ab2c54ee3aef0a29/Cloud/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/2ee77ef7ea4648f9ab2c54ee3aef0a29/Cloud/en-US/6882672b5bc24c40b8d987a30e6c59e7.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "What's New",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/2ee77ef7ea4648f9ab2c54ee3aef0a29/Cloud/en-US/84eb69a421294ba0a407579490413dfa.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "What is Object Store on SAP BTP",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/5dd739823b824b539eee47b7860a00be.html",
+      "classification": "Support",
+      "type": "Link",
+      "text": "Support",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/product/ObjectStore/Cloud/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "azure-standard",
+      "displayName": "azure-standard",
+      "category": "SERVICE",
+      "description": "Provides an objectstore on Azure Storage account that applications can use to store & manage objects",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "ch20",
+          "name": "cf-ch20"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "gcs-standard",
+      "displayName": "gcs-standard",
+      "category": "SERVICE",
+      "description": "Provides an objectstore on Google Cloud Storage that applications can use to store & manage objects",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "eu30",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "in30",
+          "name": "India (Mumbai)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "s3-standard",
+      "displayName": "s3-standard",
+      "category": "SERVICE",
+      "description": "Provides an objectstore on AWS S3 that applications can use to store & manage objects",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "mobile-network-trace",
+  "displayName": "Mobile Network Trace",
+  "description": "Mobile Network Trace",
+  "icon": "sap-icon://physical-activity",
+  "links": [
+    {
+      "value": "https://help.sap.com/viewer/468990a67780424a9e66eb096d4345bb/Cloud/en-US/25b620d388d743b5880113a0fb1938d0.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://mobile-service-cockpit-web.cfapps.br10.hana.ondemand.com",
+      "classification": "external",
+      "type": "Link",
+      "text": "external",
+      "altText": ""
+    },
+    {
+      "value": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
+      "classification": "external",
+      "type": "Link",
+      "text": "external",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "standard",
+      "displayName": "Mobile Network Trace collects network trace information from mobile applications for debugging",
+      "category": "SERVICE",
+      "description": "Mobile Network Trace collects network trace information from mobile applications for debugging",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

@@ -1,0 +1,376 @@
+{
+  "name": "data-intelligence",
+  "displayName": "SAP Data Intelligence Cloud",
+  "description": "SAP Data Intelligence is the all-in-one data orchestration solution to discover, refine, enriche and govern any type, variety, and volume of data across your entire distributed data landscape. Deliver on the promise of AI with enterprise scale, trust, and transparency driving significant new business value and insights.",
+  "icon": "https://digitalmarketplace-sapcpprd.s3.eu-central-1.amazonaws.com/_qKL4U-BqcB1Hs5ojIx3UnI46EM3MX6yuUbBxGqgzl1PfD2N1MDE6C5nMC1uBwcP.svg",
+  "links": [
+    {
+      "value": "https://community.sap.com/search/?ct=blog&q=SAP%20Data%20Intelligence%20Cloud",
+      "classification": "SAP Community Blog Posts",
+      "type": "Link",
+      "text": "SAP Community Blog Posts",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=qa&q=SAP%20Data%20Intelligence%20Cloud",
+      "classification": "SAP Community Questions and Answers",
+      "type": "Link",
+      "text": "SAP Community Questions and Answers",
+      "altText": ""
+    },
+    {
+      "value": "https://discovery-center.cloud.sap/serviceCatalog/sap-data-intelligence",
+      "classification": "Discovery Center",
+      "type": "Link",
+      "text": "Discovery Center",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/ca509b7635484070a655738be408da63/Cloud/en-US/1fd349c9b7a34bc58b55e5c7b871e92e.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/ca509b7635484070a655738be408da63/Cloud/en-US/f0d7525dcea04c70b262521f2965ab1e.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/product/SAP_DATA_HUB/latest/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "SAP Data Hub Product Page on SAP Help Portal",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/product/SAP_DATA_INTELLIGENCE/Cloud/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/product/SAP_LEONARDO_MACHINE_LEARNING_FOUNDATION/latest/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "SAP Leonardo Machine Learning Foundation",
+      "altText": ""
+    },
+    {
+      "value": "https://launchpad.support.sap.com/#/notes/2820555",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "dedicated",
+      "displayName": "Dedicated",
+      "category": "SERVICE",
+      "description": "SAP Data Intelligence - Dedicated plan",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        }
+      ],
+      "schemas": {
+        "service_instance": {
+          "create": {
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "adminUsername": {
+                  "type": "string",
+                  "description": "Admin username of the new cluster"
+                },
+                "adminPassword": {
+                  "type": "string",
+                  "description": "Admin password of the new cluster"
+                },
+                "minNodes": {
+                  "type": "string",
+                  "description": "The minimum number of nodes"
+                },
+                "maxNodes": {
+                  "type": "string",
+                  "description": "The maximum number of nodes"
+                },
+                "vpcCIDR": {
+                  "type": "string",
+                  "description": "VPC cidr of the new cluster, defaults to 10.0.0.0/16 if not specified"
+                },
+                "hibernationSchedules": {
+                  "type": "string",
+                  "description": "schedules for hibernation start and wake up"
+                }
+              },
+              "$schema": "http://json-schema.org/draft-04/schema#"
+            }
+          },
+          "update": {
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "minNodes": {
+                  "type": "string",
+                  "description": "The minimum number of nodes"
+                },
+                "maxNodes": {
+                  "type": "string",
+                  "description": "The maximum number of nodes"
+                },
+                "enableHibernation": {
+                  "type": "string",
+                  "description": "enable Hibernation, true to enable, false to disable"
+                },
+                "hibernationSchedules": {
+                  "type": "string",
+                  "description": "schedules for hibernation start and wake up"
+                }
+              },
+              "$schema": "http://json-schema.org/draft-04/schema#"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "enterprise",
+      "displayName": "enterprise",
+      "category": "SERVICE",
+      "description": "SAP Data Intelligence - Enterprise plan",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        }
+      ],
+      "schemas": {
+        "service_instance": {
+          "create": {
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "adminUsername": {
+                  "type": "string",
+                  "description": "Admin username of the new cluster"
+                },
+                "adminPassword": {
+                  "type": "string",
+                  "description": "Admin password of the new cluster"
+                },
+                "minNodes": {
+                  "type": "string",
+                  "description": "The minimum number of nodes"
+                },
+                "maxNodes": {
+                  "type": "string",
+                  "description": "The maximum number of nodes"
+                },
+                "vpcCIDR": {
+                  "type": "string",
+                  "description": "VPC cidr of the new cluster, defaults to 10.0.0.0/16 if not specified"
+                },
+                "hibernationSchedules": {
+                  "type": "string",
+                  "description": "schedules for hibernation start and wake up"
+                }
+              },
+              "$schema": "http://json-schema.org/draft-04/schema#"
+            }
+          },
+          "update": {
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "minNodes": {
+                  "type": "string",
+                  "description": "The minimum number of nodes"
+                },
+                "maxNodes": {
+                  "type": "string",
+                  "description": "The maximum number of nodes"
+                },
+                "enableHibernation": {
+                  "type": "string",
+                  "description": "enable Hibernation, true to enable, false to disable"
+                },
+                "hibernationSchedules": {
+                  "type": "string",
+                  "description": "schedules for hibernation start and wake up"
+                }
+              },
+              "$schema": "http://json-schema.org/draft-04/schema#"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "tenant",
+      "displayName": "Tenant",
+      "category": "SERVICE",
+      "description": "SAP Data Intelligence - Tenant plan",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        }
+      ],
+      "schemas": {
+        "service_instance": {
+          "create": {
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "clusterName": {
+                  "type": "string",
+                  "description": "Name of the existing cluster where the new tenant will be created"
+                },
+                "tenantName": {
+                  "type": "string",
+                  "description": "Name of the new tenant"
+                },
+                "adminUsername": {
+                  "type": "string",
+                  "description": "Admin username of the new tenant"
+                },
+                "adminPassword": {
+                  "type": "string",
+                  "description": "Admin password of the new tenant"
+                },
+                "resourceQuotas": {
+                  "type": "array",
+                  "description": "resource quotas for the new tenant",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "limit": {
+                        "type": "string"
+                      },
+                      "resource": {
+                        "type": "string"
+                      },
+                      "target": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "$schema": "http://json-schema.org/draft-04/schema#"
+            }
+          },
+          "update": {
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "resourceQuotas": {
+                  "type": "array",
+                  "description": "resource quotas for the new tenant",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "limit": {
+                        "type": "string"
+                      },
+                      "resource": {
+                        "type": "string"
+                      },
+                      "target": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "$schema": "http://json-schema.org/draft-04/schema#"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

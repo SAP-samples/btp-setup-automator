@@ -708,7 +708,7 @@ def getEnvironmentsForUsecase(btpUsecase: BTPUSECASE, allServices):
 def getServiceCategoryItemsFromUsecaseFile(btpUsecase: BTPUSECASE, allServices, categories):
     items = []
     for usecaseService in allServices:
-        thisCategory = usecaseService.category
+        thisCategory = usecaseService.get("category")
         if thisCategory in categories:
             usecaseService.status = "NOT READY"
             usecaseService.servicebroker = None

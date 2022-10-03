@@ -1,0 +1,217 @@
+{
+  "name": "html5-apps-repo",
+  "displayName": "SAP HTML5 Application Repository service for SAP BTP",
+  "description": "The HTML5 Application Repository service enables central storage of HTML5 applications in SAP BTP. In runtime, the service enables the consuming application, typically the application router, to access HTML5 application static content in a secure and efficient manner.",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iaHRtbDUtYXBwbGljYXRpb25zIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwNTNiNzA7fS5jbHMtMntmaWxsOiMwYTZlZDE7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQyLjMsMTlhOC4wMDgsOC4wMDgsMCwwLDAtNC4wNzgtNC40QTYuOTQ0LDYuOTQ0LDAsMCwwLDI3Ljc2OSw5LjkyOCw5LjQ1Myw5LjQ1MywwLDAsMCwxOS4wNiw0QzkuMDc4LDQsOS44LDE0LjYyMSw5LjgsMTQuNjIxYTguMzg3LDguMzg3LDAsMCwwLDIuNjEzLDE2LjM2NUgyOC4wMDd2LTNIMTIuNDEzYTUuMzg3LDUuMzg3LDAsMCwxLTEuNjc2LTEwLjUxNWwyLjMwOS0uNzU5TDEyLjc4MywxNC4zYTguMTE0LDguMTE0LDAsMCwxLDEuNS01LjI4NCw2LjQ4NCw2LjQ4NCwwLDAsMSwxMC43LDIuMDIybDEuMzA3LDMuMjlMMjkuMzE4LDEyLjVhMy45MjMsMy45MjMsMCwwLDEsMi4wNDQtLjU5MSwzLjk4OCwzLjk4OCwwLDAsMSwzLjkxNCwzLjI0OWwuMjg5LDEuNTI5LDEuNDE1LjY0NkE0LjgsNC44LDAsMCwxLDM4LjkzMywxOVoiLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMzQuMDcgMjQuNjkxIDM1LjMwOCAyNC42OTEgMzUuMzA4IDI2LjA0NiAzNi42NiAyNi4wNDYgMzYuNjYgMjIgMzUuMzA4IDIyIDM1LjMwOCAyMy4zMzYgMzQuMDcgMjMuMzM2IDM0LjA3IDIyIDMyLjcxOCAyMiAzMi43MTggMjYuMDQ2IDM0LjA3IDI2LjA0NiAzNC4wNyAyNC42OTEiLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMzguNDM5IDI2LjA0NiAzOS43OTIgMjYuMDQ2IDM5Ljc5MiAyMy4zNDIgNDAuOTgzIDIzLjM0MiA0MC45ODMgMjIgMzcuMjQ4IDIyIDM3LjI0OCAyMy4zNDIgMzguNDM5IDIzLjM0MiAzOC40MzkgMjYuMDQ2Ii8+PHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjQyLjg5OSAyNC4wNCA0My44MyAyNS40NzkgNDMuODU0IDI1LjQ3OSA0NC43ODQgMjQuMDQgNDQuNzg0IDI2LjA0NiA0Ni4xMzEgMjYuMDQ2IDQ2LjEzMSAyMiA0NC43MiAyMiA0My44NTQgMjMuNDIxIDQyLjk4NiAyMiA0MS41NzYgMjIgNDEuNTc2IDI2LjA0NiA0Mi44OTkgMjYuMDQ2IDQyLjg5OSAyNC4wNCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSI1MC4wNTkgMjQuNzA4IDQ4LjE1NyAyNC43MDggNDguMTU3IDIyIDQ2LjgwNCAyMiA0Ni44MDQgMjYuMDQ2IDUwLjA1OSAyNi4wNDYgNTAuMDU5IDI0LjcwOCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIzNi4xNyAzNC40OTEgMzYuNjg1IDQwLjI2OCA0MS4zNjMgNDAuMjY4IDQxLjM3NyA0MC4yNjggNDMuOTQ1IDQwLjI2OCA0My43MDIgNDIuOTg2IDQxLjM2MyA0My42MTcgNDEuMzYzIDQzLjYxOCA0MS4zNjEgNDMuNjE4IDM5LjAyNiA0Mi45ODggMzguODc2IDQxLjMxNiAzNy43NDIgNDEuMzE2IDM2Ljc3MSA0MS4zMTYgMzcuMDY1IDQ0LjYwNyA0MS4zNjEgNDUuNzk5IDQxLjM3IDQ1Ljc5NiA0MS4zNyA0NS43OTYgNDUuNjYyIDQ0LjYwNyA0NS42OTMgNDQuMjUzIDQ2LjE4NiAzOC43MzUgNDYuMjM3IDM4LjE3MiA0NS42NzIgMzguMTcyIDQxLjM3NyAzOC4xNzIgNDEuMzYzIDM4LjE3MiAzOC42MDMgMzguMTcyIDM4LjQxMSAzNi4wMjUgNDEuMzcgMzYuMDI1IDQxLjM3NyAzNi4wMjUgNDYuNDI4IDM2LjAyNSA0Ni40MzUgMzYuMDI1IDQ2LjQ3NyAzNS41NTQgNDYuNTczIDM0LjQ5MSA0Ni42MjMgMzMuOTI5IDQxLjM3NyAzMy45MjkgNDEuMzcgMzMuOTI5IDM2LjEyIDMzLjkyOSAzNi4xNyAzNC40OTEiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0zMC43NCwyNy45LDMyLjY3NCw0OS41OSw0MS4zNTcsNTJsOC43MDYtMi40MTNMNTIsMjcuOVpNNDcuNjg2LDQ3LjM1OCw0MS4zNyw0OS4xMDlsLTYuMzE2LTEuNzUxTDMzLjU2NywzMC43MTZoMTUuNloiLz48L3N2Zz4=",
+  "links": [
+    {
+      "value": "https://community.sap.com/search/?ct=blog&q=SAP%20HTML5%20Application%20Repository%20service%20for%20SAP%20BTP",
+      "classification": "SAP Community Blog Posts",
+      "type": "Link",
+      "text": "SAP Community Blog Posts",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=qa&q=SAP%20HTML5%20Application%20Repository%20service%20for%20SAP%20BTP",
+      "classification": "SAP Community Questions and Answers",
+      "type": "Link",
+      "text": "SAP Community Questions and Answers",
+      "altText": ""
+    },
+    {
+      "value": "https://discovery-center.cloud.sap/serviceCatalog/html5-application-repository-service",
+      "classification": "Discovery Center",
+      "type": "Link",
+      "text": "Discovery Center",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/11d77aa154f64c2e83cc9652a78bb985.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/9220a2fd35d84c888c0ae870ca62bfb7.html",
+      "classification": "Support",
+      "type": "Link",
+      "text": "Support",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "app-host",
+      "displayName": "app-host",
+      "category": "SERVICE",
+      "description": "Use this service plan to deploy HTML5 applications to the repository.",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "ch20",
+          "name": "cf-ch20"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "eu30",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "in30",
+          "name": "India (Mumbai)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "app-runtime",
+      "displayName": "app-runtime",
+      "category": "SERVICE",
+      "description": "Use this service plan to consume HTML5 applications stored in the repository.",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "ch20",
+          "name": "cf-ch20"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "eu30",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "in30",
+          "name": "India (Mumbai)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

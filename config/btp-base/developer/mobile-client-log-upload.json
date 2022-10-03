@@ -1,0 +1,65 @@
+{
+  "name": "mobile-client-log-upload",
+  "displayName": "Mobile Client Log Upload Service",
+  "description": "Mobile Client Log Upload Service",
+  "icon": "sap-icon://document-text",
+  "links": [
+    {
+      "value": "https://help.sap.com/viewer/468990a67780424a9e66eb096d4345bb/Cloud/en-US/ee280404f7ea4bb1ac12d2271815e3e0.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://mobile-service-cockpit-web.cfapps.br10.hana.ondemand.com",
+      "classification": "external",
+      "type": "Link",
+      "text": "external",
+      "altText": ""
+    },
+    {
+      "value": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
+      "classification": "external",
+      "type": "Link",
+      "text": "external",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "standard",
+      "displayName": "Mobile Client Log Upload Service is used by mobile applications to upload technical log files",
+      "category": "SERVICE",
+      "description": "Mobile Client Log Upload Service is used by mobile applications to upload technical log files",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

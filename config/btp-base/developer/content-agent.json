@@ -1,0 +1,252 @@
+{
+  "name": "content-agent",
+  "displayName": "SAP Content Agent service",
+  "description": "SAP Content Agent service is a tool for SAP BTP applications offering generic content management operations such as view, export and import content with inter-dependencies and integration with SAP Cloud Transport Management service. It offers a view to track all activities along with logs, status and other information.",
+  "icon": "https://digitalmarketplace-sapcpprd.s3.eu-central-1.amazonaws.com/T6WCAhOxXRGPLqRZKoxi1tvBxB8JIQwUYpL9uKLpnZYgKvSYYeVhAQfZ7uqRfseP.svg",
+  "links": [
+    {
+      "value": "http://help.sap.com/disclaimer?site=https://blogs.sap.com/2020/08/30/introducing-sap-cloud-platform-content-agent-enhanced-transport-capabilities-for-sap-cloud-platform-integration-suite-content/",
+      "classification": "blog",
+      "type": "Link",
+      "text": "Blog: SAP Content Agent Service",
+      "altText": ""
+    },
+    {
+      "value": "http://help.sap.com/disclaimer?site=https://blogs.sap.com/2022/09/05/how-to-use-sap-content-agent-service-video/",
+      "classification": "blog",
+      "type": "Link",
+      "text": "How to use SAP Content Agent Service",
+      "altText": ""
+    },
+    {
+      "value": "http://help.sap.com/disclaimer?site=https://roadmaps.sap.com/board?range=CURRENT-LAST&PRODUCT=73555000100800002111#Q3%202022",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Roadmap",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=blog&q=SAP%20Content%20Agent%20service",
+      "classification": "SAP Community Blog Posts",
+      "type": "Link",
+      "text": "SAP Community Blog Posts",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=qa&q=SAP%20Content%20Agent%20service",
+      "classification": "SAP Community Questions and Answers",
+      "type": "Link",
+      "text": "SAP Community Questions and Answers",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/ae1a4f2d150d468d9ff56e13f9898e07/Latest/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "SAP Content Agent Service",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/ae1a4f2d150d468d9ff56e13f9898e07/Latest/en-US/15406a06dfac4c1fabd7845c703773ba.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Initial Setup",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/afbc0365ec0d41adaefc74714119149e/Latest/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "What's New",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/p/CONTENT_AGENT_SERVICE",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/product/CONTENT_AGENT_SERVICE/Latest/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Help Portal Product Page",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "application",
+      "displayName": "application",
+      "category": "SERVICE",
+      "description": "Provides programmatic access to generic content management APIs to view, export as download and push to Cloud Transport Management service, import content into respective SAP BTP tenant and view historic data of activities performed",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "ch20",
+          "name": "cf-ch20"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "eu30",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "in30",
+          "name": "India (Mumbai)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "standard",
+      "displayName": "standard",
+      "category": "SERVICE",
+      "description": "Standard plan for content assembly and export for SAP Cloud Integration and SAP API Management content types using transport queues like Change Management System and SAP Transport Management Service",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "ch20",
+          "name": "cf-ch20"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "eu30",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "in30",
+          "name": "India (Mumbai)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "spatialservices-app",
+  "displayName": "SAP HANA spatial services",
+  "description": "HANA Spatial Services",
+  "icon": null,
+  "links": [
+    {
+      "value": "https://community.sap.com/search/?ct=blog&q=SAP%20HANA%20spatial%20services",
+      "classification": "SAP Community Blog Posts",
+      "type": "Link",
+      "text": "SAP Community Blog Posts",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=qa&q=SAP%20HANA%20spatial%20services",
+      "classification": "SAP Community Questions and Answers",
+      "type": "Link",
+      "text": "SAP Community Questions and Answers",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "professional",
+      "displayName": "HANA Spatial Services",
+      "category": "APPLICATION",
+      "description": "HANA Spatial Services",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "starter",
+      "displayName": "HANA Spatial Services",
+      "category": "APPLICATION",
+      "description": "HANA Spatial Services",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

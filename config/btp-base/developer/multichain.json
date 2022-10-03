@@ -1,0 +1,180 @@
+{
+  "name": "multichain",
+  "displayName": "MultiChain on SAP BTP",
+  "description": "The MultiChain service lets you create, delete, monitor and maintain individual MultiChain nodes and connect them to a blockchain network.",
+  "icon": "https://digitalmarketplace-sapcpprd.s3.eu-central-1.amazonaws.com/0hui_y_k0NmOiioPAuKmmBXpr9g44g1Pt_T1Ecckkz_hE7PiZ_zgsKVyBo4FVj8k.svg",
+  "links": [
+    {
+      "value": "http://help.sap.com/disclaimer?site=https://open.sap.com/courses/leo4",
+      "classification": "learning",
+      "type": "Link",
+      "text": "openSAP: An Introduction to Blockchain",
+      "altText": ""
+    },
+    {
+      "value": "https://cloudplatform.sap.com/dmp/capabilities/us/product/MultiChain-on-SAP-Cloud-Platform/c091cbd8-bb96-447a-81ca-5f5555996b02",
+      "classification": "marketing",
+      "type": "Link",
+      "text": "Learn more about this service and how to purchase it.",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=blog&q=MultiChain%20on%20SAP%20BTP",
+      "classification": "SAP Community Blog Posts",
+      "type": "Link",
+      "text": "SAP Community Blog Posts",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=qa&q=MultiChain%20on%20SAP%20BTP",
+      "classification": "SAP Community Questions and Answers",
+      "type": "Link",
+      "text": "SAP Community Questions and Answers",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/doc/43b304f99a8145809c78f292bfc0bc58/Cloud/en-US/98bf747111574187a7c76f8ced51cfeb.html?sel1=MultiChain",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "What's New",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/15cb4580694c4d119793f0d3e9b8a32b/BLOCKCHAIN/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Initial Setup",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/191c314034324f75b9e783fbb4fe9858/BLOCKCHAIN/en-US",
+      "classification": "Tutorial",
+      "type": "Link",
+      "text": "Hands on Example: Asset Transfer Scenario Using Multiple Adddresses on your Node",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/215f45a9aee1419095188f35ab7aaf38/BLOCKCHAIN/en-US/0183c6479c47427ab6257bd37ab8bee3.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Creating a MultiChain Service Instance",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/215f45a9aee1419095188f35ab7aaf38/BLOCKCHAIN/en-US/23819474549a4257975d482ed24c7e04.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Creating MultiChain Service Keys and Accessing APIs",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/215f45a9aee1419095188f35ab7aaf38/BLOCKCHAIN/en-US/2c0cc96ae73346d190581dad4e1c0e0e.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Building a MultiChain Network",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/5dd739823b824b539eee47b7860a00be.html",
+      "classification": "Support",
+      "type": "Link",
+      "text": "Support",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/a420aed7df4343c29ce7587bbed77f11/BLOCKCHAIN/en-US",
+      "classification": "Tutorial",
+      "type": "Link",
+      "text": "Hands on Example: Data Storage and Retrieval Scenario Using MultiChain Streams",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/p/MULTICHAIN",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Help Portal Product Page",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/p/MULTICHAIN/",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "cyon",
+      "displayName": "cyon",
+      "category": "SERVICE",
+      "description": "Connect Your Own Network",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "large",
+      "displayName": "large",
+      "category": "SERVICE",
+      "description": "Large MultiChain Node",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "medium",
+      "displayName": "medium",
+      "category": "SERVICE",
+      "description": "Medium MultiChain Node",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "small",
+      "displayName": "small",
+      "category": "SERVICE",
+      "description": "Small MultiChain Node",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

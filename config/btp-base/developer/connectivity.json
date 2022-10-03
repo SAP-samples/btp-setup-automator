@@ -1,0 +1,329 @@
+{
+  "name": "connectivity",
+  "displayName": "SAP Connectivity service",
+  "description": "SAP BTP Connectivity service allows you to establish secure and reliable connectivity between your cloud applications and on-premise systems running in isolated networks.",
+  "icon": "https://digitalmarketplace-sapcpprd.s3.eu-central-1.amazonaws.com/4KElzJRR2HNjRM4iIRMuPHDJa0AZ91Vcvd_CdHqB64WwCwjVPSogxfJ-xJncRSSv.svg",
+  "links": [
+    {
+      "value": "http://help.sap.com/disclaimer?site=https://blogs.sap.com/2017/07/09/how-to-use-the-sap-cloud-platform-connectivity-and-the-cloud-connector-in-the-cloud-foundry-environment-part-1/",
+      "classification": "blog",
+      "type": "Link",
+      "text": "Blog: How to use SAP Connectivity and Cloud Connector in the Cloud Foundry environment",
+      "altText": ""
+    },
+    {
+      "value": "http://help.sap.com/disclaimer?site=https://blogs.sap.com/2018/10/08/using-the-destination-service-in-the-cloud-foundry-environment/",
+      "classification": "blog",
+      "type": "Link",
+      "text": "Blog: Using the Destination service in the Cloud Foundry Environment",
+      "altText": ""
+    },
+    {
+      "value": "http://help.sap.com/disclaimer?site=https://developers.sap.com/tutorial-navigator.html?tag=products:technology-platform/sap-cloud-platform/sap-cloud-platform-connectivity",
+      "classification": "Tutorial",
+      "type": "Link",
+      "text": "Tutorials: SAP Connectivity Service",
+      "altText": ""
+    },
+    {
+      "value": "http://help.sap.com/disclaimer?site=https://ga.support.sap.com/dtp/viewer/#/tree/2065/actions/26547:26556",
+      "classification": "Support",
+      "type": "Link",
+      "text": "Connectivity: Guided Answers",
+      "altText": ""
+    },
+    {
+      "value": "https://cloudplatform.sap.com/capabilities/integration/cloud-connector.html",
+      "classification": "marketing",
+      "type": "Link",
+      "text": "Learn more about this service and how to purchase it.",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=blog&q=SAP%20Connectivity%20service",
+      "classification": "SAP Community Blog Posts",
+      "type": "Link",
+      "text": "SAP Community Blog Posts",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=qa&q=SAP%20Connectivity%20service",
+      "classification": "SAP Community Questions and Answers",
+      "type": "Link",
+      "text": "SAP Community Questions and Answers",
+      "altText": ""
+    },
+    {
+      "value": "https://discovery-center.cloud.sap/#/serviceCatalog/connectivity-service",
+      "classification": "Discovery Center",
+      "type": "Link",
+      "text": "Discovery Center",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/doc/5e8107bf49684962b897217040398007/Cloud/en-US/SAP_BTP_FSD.pdf",
+      "classification": "Documentation",
+      "type": "PDF",
+      "text": "Feature Scope Description",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/e54cc8fbbb571014beb5caaf6aa31280.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/e6c7616abb5710148cfcf3e75d96d596.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/b865ed651e414196b39f8922db2122c7/Cloud/en-US/e69bc863bb571014b358e2947e36d475.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "API Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/34010ace6ac84574a4ad02f5055d3597.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Connectivity in the Cloud Foundry Environment",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/78198e8b58f949af977e579b5de42299.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Initial Setup",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/7882854691ec46f98fa012c46f3fc3a1.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "What's New",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/cb50b6191615478aa11d2050dada467d.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Cloud Connector: Security",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/e54cc8fbbb571014beb5caaf6aa31280.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "What is SAP Connectivity Service",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/e5580c5dbb5710149e53c6013301a9f2.html",
+      "classification": "Support",
+      "type": "Link",
+      "text": "Connectivity: Support",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/e6c7616abb5710148cfcf3e75d96d596.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Cloud Connector",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/f8d6f9ab43c14e52a9e8036515a472e9.html",
+      "classification": "Support",
+      "type": "Link",
+      "text": "Cloud Connector: FAQ",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/product/CP_CONNECTIVITY/Cloud/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Help Portal Product Page",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "connectivity_proxy",
+      "displayName": "connectivity_proxy",
+      "category": "SERVICE",
+      "description": "Pair Connectivity Proxy with SAP CP Connectivity service for establishing secure connections to on-premise systems through SAP Cloud Connector",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "ch20",
+          "name": "cf-ch20"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "eu30",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "in30",
+          "name": "India (Mumbai)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "lite",
+      "displayName": "lite",
+      "category": "SERVICE",
+      "description": "Allow cloud applications to establish secure connections to on-premise systems through SAP Cloud Connector",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "ch20",
+          "name": "cf-ch20"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "eu30",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "in30",
+          "name": "India (Mumbai)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

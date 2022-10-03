@@ -1,0 +1,186 @@
+{
+  "name": "quorum",
+  "displayName": "Quorum on SAP BTP",
+  "description": "The Quorum service lets you create, delete, monitor and maintain individual Quorum nodes and connect them to a blockchain network.",
+  "icon": "https://digitalmarketplace-sapcpprd.s3.eu-central-1.amazonaws.com/Ol1uhfqFqKgQhafn1_1EZ2kHzSYQYb4PhJlsxwT-uG46LHEMZQADTpVCMfo_ltOR.png",
+  "links": [
+    {
+      "value": "",
+      "classification": "marketing",
+      "type": "Link",
+      "text": "Learn more about this service and how to purchase it.",
+      "altText": ""
+    },
+    {
+      "value": "http://help.sap.com/disclaimer?site=https://open.sap.com/courses/leo4",
+      "classification": "learning",
+      "type": "Link",
+      "text": "OpenSAP: An Introduction to Blockchain",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=blog&q=Quorum%20on%20SAP%20BTP",
+      "classification": "SAP Community Blog Posts",
+      "type": "Link",
+      "text": "SAP Community Blog Posts",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=qa&q=Quorum%20on%20SAP%20BTP",
+      "classification": "SAP Community Questions and Answers",
+      "type": "Link",
+      "text": "SAP Community Questions and Answers",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/3b2854f7840e420ab5a121e2a4d420c3/BLOCKCHAIN/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Initial Setup",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/5dd739823b824b539eee47b7860a00be.html",
+      "classification": "Support",
+      "type": "Link",
+      "text": "Support",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/p/QUORUM",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "cyon",
+      "displayName": "cyon",
+      "category": "SERVICE",
+      "description": "Connect Your Own Network (CYON) into SAP BTP.",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        }
+      ],
+      "schemas": {
+        "service_instance": {
+          "create": {
+            "parameters": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "dashboard": {
+                  "default": "",
+                  "description": "",
+                  "type": "string"
+                },
+                "enode": {
+                  "default": "",
+                  "description": "",
+                  "type": "string"
+                },
+                "rpc": {
+                  "default": "< RPC URL (required, https only)>",
+                  "description": "",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "dev",
+      "displayName": "dev",
+      "category": "SERVICE",
+      "description": "Environment with all relevant APIs for developing and testing of Solidity Smart Contracts on a fixed network with shared nodes.",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        }
+      ],
+      "schemas": {
+        "service_binding": {
+          "create": {
+            "parameters": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "password": {
+                  "default": "",
+                  "description": "Account password for locking the account",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "testnet",
+      "displayName": "testnet",
+      "category": "SERVICE",
+      "description": "Quorum node which is part of a cross organizational test network available for developing and testing distributed applications. It may not be used productively.",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        }
+      ],
+      "schemas": {
+        "service_instance": {
+          "create": {
+            "parameters": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "nodeSecret": {
+                  "default": "",
+                  "description": "Secret that is used for encrypting resources of the instance",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "service_binding": {
+          "create": {
+            "parameters": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "password": {
+                  "default": "",
+                  "description": "Account password for locking the account",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

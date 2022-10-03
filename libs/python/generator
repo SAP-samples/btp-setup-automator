@@ -1,14 +1,17 @@
 #! /usr/bin/env python
 from helperGenerator import fetchEntitledServiceList, renderTemplateWithJson
 
+from pathlib import Path
+ROOT = Path(__file__, "..", "..", "..").resolve()
+BTP_BASE = Path(ROOT, "config", "btp-base").resolve()
 
-servicesListJsonFile = "./config/btp-base/serviceCategories.json"
-datacenterFile = "./config/btp-base/datacenters.json"
+SERVICE_METADATA_FOLDER = Path(BTP_BASE, "developer").resolve()
+DATACENTER_METADATA_FILE = Path(BTP_BASE, "datacenters.json").resolve()
 
 #######################################################################################
 # Fetch the BTP service list (including datacenter information)
 #######################################################################################
-allMetadata = fetchEntitledServiceList(servicesListJsonFile, datacenterFile)
+allMetadata = fetchEntitledServiceList(SERVICE_METADATA_FOLDER, DATACENTER_METADATA_FILE)
 
 #######################################################################################
 # Generate all files

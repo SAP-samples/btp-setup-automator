@@ -1,0 +1,60 @@
+{
+  "name": "edge-services",
+  "displayName": "SAP Edge Services",
+  "description": "SAP Edge Services",
+  "icon": null,
+  "links": [
+    {
+      "value": "https://community.sap.com/search/?ct=blog&q=SAP%20Edge%20Services",
+      "classification": "SAP Community Blog Posts",
+      "type": "Link",
+      "text": "SAP Community Blog Posts",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=qa&q=SAP%20Edge%20Services",
+      "classification": "SAP Community Questions and Answers",
+      "type": "Link",
+      "text": "SAP Community Questions and Answers",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "Enterprise",
+      "displayName": "SAP Edge Services",
+      "category": "APPLICATION",
+      "description": "SAP Edge Services",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "Standard",
+      "displayName": "SAP Edge Services Cloud Standard Edition",
+      "category": "APPLICATION",
+      "description": "SAP Edge Services Cloud Standard Edition",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

@@ -1,0 +1,317 @@
+{
+  "name": "credstore",
+  "displayName": "SAP Credential Store",
+  "description": "The Credential Store provides a secure repository for passwords and keys to applications that are running on SAP Cloud Platform. It enables the applications to retrieve credentials and use them for authentication to external services, or to perform cryptographic operations and TLS communication. ",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iY3JlZGVudGlhbC1zdG9yZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMGE2ZWQxO30uY2xzLTJ7ZmlsbDojMDUzYjcwO308L3N0eWxlPjwvZGVmcz48dGl0bGU+Y3JlZGVudGlhbC1zdG9yZTwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDkuMDA4LDM0SDE4Ljk5MkEyLjk5MywyLjk5MywwLDAsMCwxNiwzNi45OTJWNDkuMDA4QTIuOTkzLDIuOTkzLDAsMCwwLDE4Ljk5Miw1Mkg0OS4wMDhBMi45OTMsMi45OTMsMCwwLDAsNTIsNDkuMDA4VjM2Ljk5MkEyLjk5MywyLjk5MywwLDAsMCw0OS4wMDgsMzRaTTE5LDQ5LjAwOCwxOC45OTIsMzdINDlsLjAwOCwxMloiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yNy45LDQxLjE3NmEuNzUuNzUsMCwwLDAtMS4wMzEtLjI0N2wtMS4xMTIuNjgzVjQwLjQ0OGEuNzUuNzUsMCwwLDAtMS41LDB2MS4xNjRsLTEuMTEyLS42ODNhLjc1Ljc1LDAsMCwwLS43ODUsMS4yNzhsMS4yMTUuNzQ1LTEuMjE1Ljc0NmEuNzUuNzUsMCwwLDAsLjM5MywxLjM4OS43MzEuNzMxLDAsMCwwLC4zOTItLjExMmwxLjExMi0uNjgydjEuMjU5YS43NS43NSwwLDAsMCwxLjUsMFY0NC4yOTNsMS4xMTIuNjgyYS43MzQuNzM0LDAsMCwwLC4zOTMuMTEyLjc1Ljc1LDAsMCwwLC4zOTItMS4zODlsLTEuMjE0LS43NDYsMS4yMTQtLjc0NUEuNzQ5Ljc0OSwwLDAsMCwyNy45LDQxLjE3NloiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zNi44OTMsNDEuMTc2YS43NS43NSwwLDAsMC0xLjAzMS0uMjQ3bC0xLjExMi42ODNWNDAuNDQ4YS43NS43NSwwLDAsMC0xLjUsMHYxLjE2NGwtMS4xMTItLjY4M2EuNzUuNzUsMCwwLDAtLjc4NSwxLjI3OGwxLjIxNC43NDUtMS4yMTQuNzQ2YS43NS43NSwwLDAsMCwuMzkzLDEuMzg5LjczMy43MzMsMCwwLDAsLjM5Mi0uMTEybDEuMTEyLS42ODJ2MS4yNTlhLjc1Ljc1LDAsMCwwLDEuNSwwVjQ0LjI5M2wxLjExMi42ODJhLjczMy43MzMsMCwwLDAsLjM5Mi4xMTIuNzUuNzUsMCwwLDAsLjM5My0xLjM4OWwtMS4yMTQtLjc0NiwxLjIxNC0uNzQ1QS43NDkuNzQ5LDAsMCwwLDM2Ljg5Myw0MS4xNzZaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDUuOTQsNDEuMTc2YS43NS43NSwwLDAsMC0xLjAzMS0uMjQ3bC0xLjExMi42ODNWNDAuNDQ4YS43NS43NSwwLDAsMC0xLjUsMHYxLjE2NGwtMS4xMTItLjY4M2EuNzUuNzUsMCwwLDAtLjc4NSwxLjI3OGwxLjIxNC43NDVMNDAuNCw0My43YS43NS43NSwwLDAsMCwuMzkzLDEuMzg5LjczMy43MzMsMCwwLDAsLjM5Mi0uMTEybDEuMTEyLS42ODJ2MS4yNTlhLjc1Ljc1LDAsMCwwLDEuNSwwVjQ0LjI5M2wxLjExMi42ODJhLjczMy43MzMsMCwwLDAsLjM5Mi4xMTIuNzUuNzUsMCwwLDAsLjM5My0xLjM4OWwtMS4yMTQtLjc0NiwxLjIxNC0uNzQ1QS43NDkuNzQ5LDAsMCwwLDQ1Ljk0LDQxLjE3NloiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMiIgY3g9IjM1LjA0MyIgY3k9IjE3LjUiIHI9IjMiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik00Ny44NTQsMTIuN2ExNC44ODQsMTQuODg0LDAsMCwwLTcuNTgtNy41NThBMTMuMDM4LDEzLjAzOCwwLDAsMCwzNC45LDRhMTMuMjU0LDEzLjI1NCwwLDAsMC01LjQ2NSwxLjE0MywxNC41NTEsMTQuNTUxLDAsMCwwLTcuNDkyLDcuNDcsMTMuMTU0LDEzLjE1NCwwLDAsMC0xLjE0Niw1LjQ0OSw4LjQzOCw4LjQzOCwwLDAsMCwuNCwyLjY4MWMuMjY1Ljc5MS42MjgsMS41NTEuODYzLDIuMDc4TDUuNTQ1LDM5Ljg1OUE1Ljg2Nyw1Ljg2NywwLDAsMCw0LDQzLjQxYTUuMzEsNS4zMSwwLDAsMCwuMzU1LDIuMzgyLDguNTY0LDguNTY0LDAsMCwwLC45MjUsMS40NSw0LjQ2Myw0LjQ2MywwLDAsMCwyLjQxMiwxLjU0M0E0LjUxNiw0LjUxNiwwLDAsMCw5LjUxMSw0OUgxM1Y0Nkg5LjYxOGwtLjUzMi0uMDIxYTIuMjM1LDIuMjM1LDAsMCwxLTIuMjIyLTIuMjIzLDIuNTMzLDIuNTMzLDAsMCwxLC42NzctMS42NjksNC4wNzQsNC4wNzQsMCwwLDEsLjQ4Ni0uNTQ1TDI0LjE4NSwyNC44OTRsMS42NzUtMS42NXMtLjk4OS0xLjM4OC0xLjMtMS45NzFhOC4zNjksOC4zNjksMCwwLDEtLjc2OC0zLjIxMSw5LjgsOS44LDAsMCwxLC44OC00LjIxNSwxMS41NTUsMTEuNTU1LDAsMCwxLDUuOTgtNS45NjVBMTAuMjE0LDEwLjIxNCwwLDAsMSwzNC45LDdhOS45NjUsOS45NjUsMCwwLDEsNC4xNTEuODgxLDExLjg4MSwxMS44ODEsMCwwLDEsNi4wNzEsNi4wNTIsMTAuMTE3LDEwLjExNywwLDAsMSwwLDguMjYzLDExLjg4LDExLjg4LDAsMCwxLTYuMDcxLDYuMDQ5LDkuOTM0LDkuOTM0LDAsMCwxLTQuMTQ5Ljg4SDI2LjI1NnYzSDM0LjlhMTIuOTksMTIuOTksMCwwLDAsNS4zNzctMS4xNDMsMTQuODg0LDE0Ljg4NCwwLDAsMCw3LjU4LTcuNTU4LDEzLjExNSwxMy4xMTUsMCwwLDAsMC0xMC43MjNaIi8+PC9zdmc+",
+  "links": [
+    {
+      "value": "https://community.sap.com/search/?ct=blog&q=SAP%20Credential%20Store",
+      "classification": "SAP Community Blog Posts",
+      "type": "Link",
+      "text": "SAP Community Blog Posts",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=qa&q=SAP%20Credential%20Store",
+      "classification": "SAP Community Questions and Answers",
+      "type": "Link",
+      "text": "SAP Community Questions and Answers",
+      "altText": ""
+    },
+    {
+      "value": "https://discovery-center.cloud.sap/serviceCatalog/credential-store",
+      "classification": "Discovery Center",
+      "type": "Link",
+      "text": "Discovery Center",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/601525c6e5604e4192451d5e7328fa3c/Cloud/en-US/ad63368e8e6f44a1b3ac336e8d1c32b8.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/601525c6e5604e4192451d5e7328fa3c/Cloud/en-US/c6ebd580c0a642e9a99dbb8ae5c6c562.html",
+      "classification": "Support",
+      "type": "Link",
+      "text": "Support",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/product/CREDENTIAL_STORE/Cloud/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english&search=Supplement%20Business%20Technology%20Platform&sort=latest_desc",
+      "classification": "ToS",
+      "type": "Link",
+      "text": "ToS",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "free",
+      "displayName": "free",
+      "category": "SERVICE",
+      "description": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked in the Additional Links tab displayed in the Service tile.",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "ch20",
+          "name": "cf-ch20"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "eu30",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "in30",
+          "name": "India (Mumbai)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "proxy",
+      "displayName": "proxy",
+      "category": "SERVICE",
+      "description": "Proxy plan",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "ch20",
+          "name": "cf-ch20"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "eu30",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "in30",
+          "name": "India (Mumbai)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "standard",
+      "displayName": "standard",
+      "category": "SERVICE",
+      "description": "Standard plan",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "ch20",
+          "name": "cf-ch20"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "eu30",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "in30",
+          "name": "India (Mumbai)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

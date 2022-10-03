@@ -1,0 +1,101 @@
+{
+  "name": "eadesigner",
+  "displayName": "SAP Enterprise Architecture Designer, cloud edition",
+  "description": "SAP Enterprise Architecture Designer, Cloud Edition (SAP EA Designer) lets you capture, analyze, and present your organization's landscapes, strategies, requirements, processes, data, and other artifacts in a shared environment. Using industry-standard notations and techniques, organizations can leverage rich metadata and use models and diagrams to drive understanding and promote shared outcomes in creating innovative systems, information sets, and processes to support goals and capabilities.",
+  "icon": "https://digitalmarketplace-sapcpprd.s3.eu-central-1.amazonaws.com/UYMpqAAs3ypZsBR9uEvPS-mRygZqIf1hWylQ2G56bypvGW3vdchQPgjsGb2289DX.svg",
+  "links": [
+    {
+      "value": "http://help.sap.com/disclaimer?site=https://open.sap.com/courses/hsead1",
+      "classification": "learning",
+      "type": "Link",
+      "text": "openSAP Introduction to SAP Enterprise Architecture Designer",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=blog&q=SAP%20Enterprise%20Architecture%20Designer%2C%20cloud%20edition",
+      "classification": "SAP Community Blog Posts",
+      "type": "Link",
+      "text": "SAP Community Blog Posts",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=qa&q=SAP%20Enterprise%20Architecture%20Designer%2C%20cloud%20edition",
+      "classification": "SAP Community Questions and Answers",
+      "type": "Link",
+      "text": "SAP Community Questions and Answers",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/http.svc/rc/cb79879167bd42008e388e8c56155ea9/Cloud/en-US/fsd_ead_ce_en.pdf",
+      "classification": "Documentation",
+      "type": "PDF",
+      "text": "Feature Scope Description",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/6e09b4f06bc94553995ecdcc84f245ef/Cloud/en-US/b4f2236afd49409fa0d24c95fa2a974d.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Onboarding",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/6e09b4f06bc94553995ecdcc84f245ef/Cloud/en-US/e00e548b8f4347f6bb70651710b27717.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Initial Setup",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/c50a2057f35a4731838910588f247f4a/Internal/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "What is SAP Enterprise Architecture Designer, cloud edition",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/f34e7843098846e0b912841a378b426e/Cloud/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "What's New",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/p/EAD_CLOUD",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Help Portal Product Page",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/product/EAD_CLOUD/Cloud/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://www.youtube.com/embed/Y9Z-BuDc5Fo",
+      "classification": "external",
+      "type": "Link",
+      "text": "SAP Enterprise Architecture Designer",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "eadesigner",
+      "displayName": "SAP Enterprise Architecture Designer, cloud edition",
+      "category": "APPLICATION",
+      "description": "SAP Enterprise Architecture Designer, cloud edition",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

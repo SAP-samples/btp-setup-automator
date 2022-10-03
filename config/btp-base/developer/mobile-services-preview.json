@@ -1,0 +1,52 @@
+{
+  "name": "mobile-services-preview",
+  "displayName": "Mobile Services, preview",
+  "description": "Mobile Services Preview gives you an opportunity to test new features a couple of weeks before their production release of Mobile Services. Mobile Services Preview is not intended as a production environment. Use Mobile Services Preview to provide mobile access to enterprise information. Key features include app content lifecycle management, push notifications and support for offline apps, app security, app monitoring and usage reporting. Mobile Services Preview can be used for native built apps, Mobile Development Kit apps and SAP Mobile Cards. Get started by clicking on the Support link below.",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0ibW9iaWxlc2VydmljZXMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDU2IDU2Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6IzA1M2I3MDt9LmNscy0ye2ZpbGw6IzBhNmVkMTt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPm1vYmlsZXNlcnZpY2VzPC90aXRsZT48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zNyw0YTUuNzgsNS43OCwwLDAsMSw0LjIxOSwxLjc4MUE1Ljc4LDUuNzgsMCwwLDEsNDMsMTBWNDZhNS43MjksNS43MjksMCwwLDEtMS43ODEsNC4yNjZBNS44Niw1Ljg2LDAsMCwxLDM3LDUySDE5YTUuODUxLDUuODUxLDAsMCwxLTQuMjE5LTEuNzM0QTUuNzE4LDUuNzE4LDAsMCwxLDEzLDQ2VjEwYTUuNzY4LDUuNzY4LDAsMCwxLDEuNzgxLTQuMjE5QTUuNzcsNS43NywwLDAsMSwxOSw0Wm0zLDZIMTZWNDNINDBaTTI4LDQ5YTIuMjYsMi4yNiwwLDAsMCwxLjU5NC0uNjA5LDIuMTM0LDIuMTM0LDAsMCwwLC42NTYtMS42NDEsMi4yNSwyLjI1LDAsMSwwLTQuNSwwLDIuMTIzLDIuMTIzLDAsMCwwLC42NTYsMS42NDFBMi4yNSwyLjI1LDAsMCwwLDI4LDQ5WiIvPjxyZWN0IGNsYXNzPSJjbHMtMiIgeD0iMjAuNSIgeT0iMjEuMDYzIiB3aWR0aD0iMyIgaGVpZ2h0PSI2LjkzOCIvPjxyZWN0IGNsYXNzPSJjbHMtMiIgeD0iMTkiIHk9IjMxIiB3aWR0aD0iMTgiIGhlaWdodD0iMS41Ii8+PHJlY3QgY2xhc3M9ImNscy0yIiB4PSIxOSIgeT0iMzguNSIgd2lkdGg9IjE4IiBoZWlnaHQ9IjEuNSIvPjxyZWN0IGNsYXNzPSJjbHMtMiIgeD0iMTkiIHk9IjM0Ljc1IiB3aWR0aD0iMTgiIGhlaWdodD0iMS41Ii8+PHJlY3QgY2xhc3M9ImNscy0yIiB4PSIzMi41IiB5PSIxMy45MzgiIHdpZHRoPSIzIiBoZWlnaHQ9IjE0LjA2MyIvPjxyZWN0IGNsYXNzPSJjbHMtMiIgeD0iMjYuNSIgeT0iMTcuNDA2IiB3aWR0aD0iMyIgaGVpZ2h0PSIxMC41OTQiLz48L3N2Zz4=",
+  "links": [
+    {
+      "value": "https://developers.sap.com/mobile",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://discovery-center.cloud.sap/serviceCatalog/mobile-services",
+      "classification": "Discovery Center",
+      "type": "Link",
+      "text": "Discovery Center",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/product/SAP_MOBILE_SERVICES/Cloud/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://mobile-service-cockpit-web-preview.cfapps.eu10.hana.ondemand.com",
+      "classification": "external",
+      "type": "Link",
+      "text": "external",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "standard",
+      "displayName": "standard",
+      "category": "SERVICE",
+      "description": "Build and run mobile apps.",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

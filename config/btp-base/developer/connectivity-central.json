@@ -1,0 +1,38 @@
+{
+  "name": "connectivity-central",
+  "displayName": "Connectivity (for scale-out build-out)",
+  "description": "Connectivity (for scale-out build-out)",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0ic2FwLWhhbmEtY2xvdWQtY29ubmVjdG9yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwMDkyZDE7fS5jbHMtMntmaWxsOiM1YTdhOTQ7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5zYXAtaGFuYS1jbG91ZC1jb25uZWN0b3I8L3RpdGxlPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQxLjUsNDloLTlhMS41LDEuNSwwLDAsMCwwLDNoOWExLjUsMS41LDAsMCwwLDAtM1oiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik00OC45OTEsMjVIMjUuMDA5QTMuMDA5LDMuMDA5LDAsMCwwLDIyLDI4LjAwOVY0Mi45OTFBMy4wMDksMy4wMDksMCwwLDAsMjUuMDA5LDQ2SDQ4Ljk5MUEzLjAwOSwzLjAwOSwwLDAsMCw1Miw0Mi45OTFWMjguMDA5QTMuMDA5LDMuMDA5LDAsMCwwLDQ4Ljk5MSwyNVptMCwxOEwyNSw0Mi45OTEsMjUuMDA5LDI4SDQ4Ljk5MWwuMDA5LjAwOVoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xOS4xMDksN2E2LjQ1Nyw2LjQ1NywwLDAsMSw1Ljg2NSw0LjAzNGwxLjMwNiwzLjI4OUwyOS4zMSwxMi41YTMuOTE5LDMuOTE5LDAsMCwxLDIuMDQzLS41OTEsMy45ODcsMy45ODcsMCwwLDEsMy45MTQsMy4yNDlsLjI4OCwxLjUyOSwxLjQxNS42NDVhNS4zNTEsNS4zNTEsMCwwLDEsMyw0LjY3SDQzYTguMzU2LDguMzU2LDAsMCwwLTQuNzg1LTcuNEE2Ljk0MSw2Ljk0MSwwLDAsMCwyNy43NjIsOS45MjgsOS40NDksOS40NDksMCwwLDAsMTkuMDU1LDRDOC43LDQuNTQ4LDkuOCwxNC42MjEsOS44LDE0LjYyMUE4LjM4Nyw4LjM4NywwLDAsMCwxMi40MSwzMC45ODZIMTl2LTNIMTIuNDFhNS4zODcsNS4zODcsMCwwLDEtMS42NzUtMTAuNTE1bDIuMzA4LS43NTlMMTIuNzgxLDE0LjNhOC4xMSw4LjExLDAsMCwxLDEuNS01LjI4NEE2LjUsNi41LDAsMCwxLDE5LjEwOSw3WiIvPjwvc3ZnPg==",
+  "links": [
+    {
+      "value": "https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/34010ace6ac84574a4ad02f5055d3597.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/e5580c5dbb5710149e53c6013301a9f2.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "connectivity_proxy",
+      "displayName": "Pair Connectivity Proxy with SAP CP Connectivity service for establishing secure connections to on-premise systems through SAP Cloud Connector",
+      "category": "SERVICE",
+      "description": "Pair Connectivity Proxy with SAP CP Connectivity service for establishing secure connections to on-premise systems through SAP Cloud Connector",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

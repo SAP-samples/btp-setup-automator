@@ -1,0 +1,194 @@
+{
+  "name": "saplaunchpad",
+  "displayName": "SAP Launchpad service",
+  "description": "SAP Launchpad service provides users with a central point of access to applications from different sources.",
+  "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0ic2NwLWxhdW5jaHBhZCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYgNTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMDAzYjc0O30uY2xzLTJ7ZmlsbDojMDA2ZGQ3O308L3N0eWxlPjwvZGVmcz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik00OSw3YTIuODg5LDIuODg5LDAsMCwxLDMsM1Y0MGEyLjk1OSwyLjk1OSwwLDAsMS0uODQ0LDIuMTA5QTIuODM3LDIuODM3LDAsMCwxLDQ5LDQzSDdhMi44NzEsMi44NzEsMCwwLDEtMi4xMDktLjg5MUEyLjg3NiwyLjg3NiwwLDAsMSw0LDQwVjEwYTIuODM0LDIuODM0LDAsMCwxLC44OTEtMi4xNTZBMi45NTQsMi45NTQsMCwwLDEsNyw3Wm0wLDNIN1Y0MEg0OVpNMzguNSw0NkExLjMyNywxLjMyNywwLDAsMSw0MCw0Ny41YTEuNTA5LDEuNTA5LDAsMCwxLS40MjIsMS4wMzFBMS4zODEsMS4zODEsMCwwLDEsMzguNSw0OWgtMjFBMS42MTQsMS42MTQsMCwwLDEsMTYsNDcuNWExLjM4MSwxLjM4MSwwLDAsMSwuNDY5LTEuMDc4QTEuNTA1LDEuNTA1LDAsMCwxLDE3LjUsNDZaIi8+PHJlY3QgY2xhc3M9ImNscy0yIiB4PSIxMCIgeT0iMTMiIHdpZHRoPSIxNi41MTUiIGhlaWdodD0iMTUiIHJ4PSIxLjI1Ii8+PHJlY3QgY2xhc3M9ImNscy0yIiB4PSIyOS41IiB5PSIxMyIgd2lkdGg9IjE2LjUiIGhlaWdodD0iNiIgcng9IjEuMjUiLz48cmVjdCBjbGFzcz0iY2xzLTIiIHg9IjEwIiB5PSIzMSIgd2lkdGg9IjYuNzMiIGhlaWdodD0iNiIgcng9IjAuNSIvPjxyZWN0IGNsYXNzPSJjbHMtMiIgeD0iMTkuNzY1IiB5PSIzMSIgd2lkdGg9IjYuNzM1IiBoZWlnaHQ9IjYiIHJ4PSIwLjUiLz48cmVjdCBjbGFzcz0iY2xzLTIiIHg9IjI5LjUiIHk9IjMxIiB3aWR0aD0iNi43MzUiIGhlaWdodD0iNiIgcng9IjAuNSIvPjxyZWN0IGNsYXNzPSJjbHMtMiIgeD0iMzkuMjY1IiB5PSIzMSIgd2lkdGg9IjYuNzM1IiBoZWlnaHQ9IjYiIHJ4PSIwLjUiLz48cmVjdCBjbGFzcz0iY2xzLTIiIHg9IjI5LjUiIHk9IjIyIiB3aWR0aD0iNi43MzUiIGhlaWdodD0iNiIgcng9IjAuNSIvPjxyZWN0IGNsYXNzPSJjbHMtMiIgeD0iMzkuMjY1IiB5PSIyMiIgd2lkdGg9IjYuNzM1IiBoZWlnaHQ9IjYiIHJ4PSIwLjUiLz48L3N2Zz4=",
+  "links": [
+    {
+      "value": "https://community.sap.com/search/?ct=blog&q=SAP%20Launchpad%20service",
+      "classification": "SAP Community Blog Posts",
+      "type": "Link",
+      "text": "SAP Community Blog Posts",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=qa&q=SAP%20Launchpad%20service",
+      "classification": "SAP Community Questions and Answers",
+      "type": "Link",
+      "text": "SAP Community Questions and Answers",
+      "altText": ""
+    },
+    {
+      "value": "https://discovery-center.cloud.sap/serviceCatalog/launchpad-service",
+      "classification": "Discovery Center",
+      "type": "Link",
+      "text": "Discovery Center",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/8c8e1958338140699bd4811b37b82ece/Cloud/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "free",
+      "displayName": "Free",
+      "category": "APPLICATION",
+      "description": "Free",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "eu30",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "standard",
+      "displayName": "standard",
+      "category": "APPLICATION",
+      "description": "Access your applications from a central launchpad.",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "eu30",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

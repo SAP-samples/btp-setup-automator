@@ -1,0 +1,409 @@
+{
+  "name": "integrationsuite",
+  "displayName": "SAP Integration Suite",
+  "description": "SAP Integration Suite helps you to quickly develop and manage reliable communication between applications, services, and systems across heterogeneous landscapes.",
+  "icon": "https://digitalmarketplace-sapcpprd.s3.eu-central-1.amazonaws.com/rj8ejc0hmzBA7vzDSXcsGN0Smfrmiq8rsaIj2uIbir7V51_cDvcOxqQJoCTi5g8c.svg",
+  "links": [
+    {
+      "value": "http://help.sap.com/disclaimer?site=https://community.sap.com/topics/cloud-platform-integration-suite",
+      "classification": "SAP Community",
+      "type": "Link",
+      "text": "SAP Integration Suite",
+      "altText": ""
+    },
+    {
+      "value": "http://help.sap.com/disclaimer?site=https://developers.sap.com/tutorials/cp-starter-isuite-onboard-subscribe.html",
+      "classification": "Onboarding",
+      "type": "Link",
+      "text": "Tutorial: Setting Up Integration Suite Trial",
+      "altText": ""
+    },
+    {
+      "value": "http://help.sap.com/disclaimer?site=https://open.sap.com/courses/cp9",
+      "classification": "learning",
+      "type": "Link",
+      "text": "Online Course: Simplify Integration with SAP Integration Suite",
+      "altText": ""
+    },
+    {
+      "value": "http://help.sap.com/disclaimer?site=https://www.sap.com/dmc/exp/2020-05-68434/en-us/index.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Integration Maturity Assessment",
+      "altText": ""
+    },
+    {
+      "value": "https://api.sap.com/discoverintegrations",
+      "classification": "API Hub",
+      "type": "Link",
+      "text": "Discover Integration Packages ",
+      "altText": ""
+    },
+    {
+      "value": "https://api.sap.com/search?searchterm=%22integration%20flow%20design%20guidelines%22&refinedBy=true&tab=All&top=12",
+      "classification": "API Hub",
+      "type": "Link",
+      "text": "Discover Integration Flow Design Guidelines",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=blog&q=SAP%20Integration%20Suite",
+      "classification": "SAP Community Blog Posts",
+      "type": "Link",
+      "text": "SAP Community Blog Posts",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=qa&q=SAP%20Integration%20Suite",
+      "classification": "SAP Community Questions and Answers",
+      "type": "Link",
+      "text": "SAP Community Questions and Answers",
+      "altText": ""
+    },
+    {
+      "value": "https://developers.sap.com/mission.cp-starter-integration-cpi.html",
+      "classification": "learning",
+      "type": "Link",
+      "text": "Tutorial:  Request Product Details with an Integration Scenario",
+      "altText": ""
+    },
+    {
+      "value": "https://digitalmarketplace-sapcpprd.s3.eu-central-1.amazonaws.com/ya2vu1aFPyjpJzFv_eH78CODnHtURA7JCe_LQKbB-jNhgHfFyC-HlkfPrxBm7EyH.pdf",
+      "classification": "Documentation",
+      "type": "PDF",
+      "text": "Service Plans",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/doc/221f8f84afef43d29ad37ef2af0c4adf/HP_2.0/en-US/f4a390d6ee7147aa89ba587102702677.html",
+      "classification": "learning",
+      "type": "Link",
+      "text": "Learning Journey: SAP Integration Suite",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/doc/43b304f99a8145809c78f292bfc0bc58/Cloud/en-US/98bf747111574187a7c76f8ced51cfeb.html?sel1=API%20Management;Cloud%20Integration;Integration%20Advisor",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "What's New",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/doc/e50e61e7b66c4b60ae5e88c00c01486a/sap.cp.integration.suite/en-US/FSD_IntegrationSuite.pdf",
+      "classification": "Documentation",
+      "type": "PDF",
+      "text": "Feature Scope Description",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/368c481cd6954bdfa5d0435479fd4eaf/Cloud/en-US/3fd9fc923dee4d5db0696cfdce187154.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "API Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/368c481cd6954bdfa5d0435479fd4eaf/Cloud/en-US/6803389050a0487ca16d534583414d2b.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Integration Flow Design Guidelines",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/51ab953548be4459bfe8539ecaeee98d/sap.cp.integration.suite/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "What is SAP Integration Suite",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/51ab953548be4459bfe8539ecaeee98d/sap.cp.integration.suite/en-US/3dcf507f92f54597bc203600bf8f94c5.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Initial Setup",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/51ab953548be4459bfe8539ecaeee98d/sap.cp.integration.suite/en-US/6abc8746df294fe4ac5877e39683dee6.html",
+      "classification": "Support",
+      "type": "Link",
+      "text": "Support",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/product/SAP_CLOUD_PLATFORM_INTEGRATION_SUITE",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/product/SAP_CLOUD_PLATFORM_INTEGRATION_SUITE/sap.cp.integration.suite/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Help Portal Product Page",
+      "altText": ""
+    },
+    {
+      "value": "https://influence.sap.com/sap/ino/#/campaign/2282",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Customer Influence Program",
+      "altText": ""
+    },
+    {
+      "value": "https://open.sap.com/courses/cp10",
+      "classification": "learning",
+      "type": "Link",
+      "text": "Online Course: Accelerate Enterprise Integrations with SAP Integration Suite",
+      "altText": ""
+    },
+    {
+      "value": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english&search=Supplement%20Business%20Technology%20Platform&sort=latest_desc",
+      "classification": "ToS",
+      "type": "Link",
+      "text": "ToS",
+      "altText": ""
+    },
+    {
+      "value": "https://www.sap.com/cmp/nl/sap-cloud-platform-integration-suite/index.html?sap-outbound-id=329A475081EA65CA80961D8B7E7A87C18E69B2DD&utm_source=SAPHybris&utm_medium=email&utm_campaign=SEND_TEST&utm_term=NEWS_GL_ALL_192827_1_SAP_Cloud_Platform___Sign%20up%20now%21&utm_content=EN",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Subscription to Monthly What\u2019s New Newsletter",
+      "altText": ""
+    },
+    {
+      "value": "https://www.sap.com/products/business-technology-platform/price-list/estimator-tool.html?blueprintId=11c342e8-861d-4b06-8efd-fe3e22778ed8",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Integration Suite Digital Edition Estimator",
+      "altText": ""
+    },
+    {
+      "value": "https://www.youtube.com/embed/videoseries?list=PLkzo92owKnVzjnJJZMrL0nyVU7kMPBSTy",
+      "classification": "external",
+      "type": "Link",
+      "text": "SAP Integration Suite: Demo Mini-series",
+      "altText": ""
+    },
+    {
+      "value": "https://www.youtube.com/embed/xHNFY1m9SjE",
+      "classification": "external",
+      "type": "Link",
+      "text": "About SAP Integration Suite",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "enterprise_agreement",
+      "displayName": "Enterprise Agreement",
+      "category": "APPLICATION",
+      "description": "CPEA, Capabilities: Cloud Integration, API Management,Open Connectors and Integration Advisor",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "ch20",
+          "name": "cf-ch20"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "free",
+      "displayName": "Free",
+      "category": "APPLICATION",
+      "description": "Explore Integration Suite capabilities Cloud Integration, API Management,Open Connectors and Integration Advisor. Once the free tier service plan has been activated, it will be available for the following 90 days. After 90 days, the Integration Suite tenant will be decommissioned automatically if you don't upgrade to a paid service plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked in the Additional Links tab displayed in the Service tile.",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "ap20",
+          "name": "Australia (Sydney) Azure"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "messages",
+      "displayName": "Integration Suite Messages",
+      "category": "SERVICE",
+      "description": "Integration Suite Messages",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

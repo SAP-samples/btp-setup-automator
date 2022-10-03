@@ -1,0 +1,27 @@
+{
+  "name": "mdmbusinesspartnerservice",
+  "displayName": "SAP Business Partner Service",
+  "description": "SAP Business Partner Service",
+  "icon": null,
+  "links": [],
+  "servicePlans": [
+    {
+      "name": "default",
+      "displayName": "SAP Cloud Platform Master Data Management for business partners",
+      "category": "SERVICE",
+      "description": "SAP Cloud Platform Master Data Management for business partners",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "name": "retention-manager",
+  "displayName": "SAP Data Retention Manager",
+  "description": "The SAP Cloud Platform Data Retention Manager lets you block or delete personal data based on the residence and retention rules maintained.",
+  "icon": "https://digitalmarketplace-sapcpprd.s3.eu-central-1.amazonaws.com/doiY5wud4Cy_nlOaLmdVCmWZZvNx8uAtJ3pv0KxvlmqUiF4xmTStMtoIPUq7SF3y.jpg",
+  "links": [
+    {
+      "value": "http://help.sap.com/disclaimer?site=https://api.sap.com/package/SAPDataRetentionManager?section=Artifacts",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "API Documentation",
+      "altText": ""
+    },
+    {
+      "value": "http://help.sap.com/disclaimer?site=https://blogs.sap.com/2020/05/04/orchestrate-your-data-deletion-using-sap-cloud-platform-data-retention-manager/?preview_id=1093744&amp;update=pending",
+      "classification": "blog",
+      "type": "Link",
+      "text": "Data Retention Manager Blog",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=blog&q=SAP%20Data%20Retention%20Manager",
+      "classification": "SAP Community Blog Posts",
+      "type": "Link",
+      "text": "SAP Community Blog Posts",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=qa&q=SAP%20Data%20Retention%20Manager",
+      "classification": "SAP Community Questions and Answers",
+      "type": "Link",
+      "text": "SAP Community Questions and Answers",
+      "altText": ""
+    },
+    {
+      "value": "https://discovery-center.cloud.sap/serviceCatalog/sap-data-retention-manager",
+      "classification": "Discovery Center",
+      "type": "Link",
+      "text": "Discovery Center",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/http.svc/rc/17df490294c24f89ab2338037f6ad6b5/SHIP/en-US/loioe93bad59a2ec47448390257bb9d5deab.pdf",
+      "classification": "Documentation",
+      "type": "PDF",
+      "text": "Feature Scope Description",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/7b96239812444caf9dc36faa15292a2f/SHIP/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Initial Setup",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/7b96239812444caf9dc36faa15292a2f/SHIP/en-US/08ad7d7ecfc740518d060d57e3f3e7a1.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "What is Data Retention Manager Service",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/d5e4ff1a64cc481185f23d16daa22110/SHIP/en-US/7dc2912c4ca44573a5a15368313a800a.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "User Guide for Data Retention Manager",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/p/DATA_RETENTION_MANAGER",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/product/DATA_RETENTION_MANAGER/SHIP/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Help Portal Product Page",
+      "altText": ""
+    },
+    {
+      "value": "https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html?tag=language:english&search=Supplement%20Business%20Technology%20Platform&sort=latest_desc",
+      "classification": "ToS",
+      "type": "Link",
+      "text": "ToS",
+      "altText": ""
+    },
+    {
+      "value": "https://www.youtube.com/embed/B_IzKf_GVXg",
+      "classification": "external",
+      "type": "Link",
+      "text": "DRM no restrictions Delete Data Subject Information Demo Video",
+      "altText": ""
+    },
+    {
+      "value": "https://www.youtube.com/embed/HcGFFKg_k7s",
+      "classification": "external",
+      "type": "Link",
+      "text": "DRM no restrictions Manage Business Purpose Demo Video",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "free",
+      "displayName": "free",
+      "category": "SERVICE",
+      "description": "Free plan. Please note, only community support is available for free service plans and these are not subject to SLAs. Use of free tier service plans are subject to additional terms and conditions as provided in the Business Technology Platform Supplemental Terms and Conditions linked in the Additional Links tab displayed in the Service tile.",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    },
+    {
+      "name": "standard",
+      "displayName": "standard",
+      "category": "SERVICE",
+      "description": "Standard Plan",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap21",
+          "name": "Singapore"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "jp20",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us20",
+          "name": "US West (WA)"
+        },
+        {
+          "region": "us21",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

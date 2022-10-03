@@ -1,0 +1,84 @@
+{
+  "name": "dateandtime",
+  "displayName": "Date and Time",
+  "description": "Get default date format for a given country, timezone details and time difference between two provided time values.",
+  "icon": "https://digitalmarketplace-sapcpprd.s3.eu-central-1.amazonaws.com/qvsenpZtmGjXj0jdKDOvDijJo_ATP0WxIH7PPGvOHFbNaWEftGTZvOsPmYBDljwg.svg",
+  "links": [
+    {
+      "value": "https://community.sap.com/search/?ct=blog&q=Date%20and%20Time",
+      "classification": "SAP Community Blog Posts",
+      "type": "Link",
+      "text": "SAP Community Blog Posts",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=qa&q=Date%20and%20Time",
+      "classification": "SAP Community Questions and Answers",
+      "type": "Link",
+      "text": "SAP Community Questions and Answers",
+      "altText": ""
+    },
+    {
+      "value": "https://discovery-center.cloud.sap/serviceCatalog/date-and-time",
+      "classification": "Discovery Center",
+      "type": "Link",
+      "text": "Discovery Center",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/docs/DATE_AND_TIME",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/docs/DATE_AND_TIME/17d7e70611c64e1182ebe7f0079c9e63/272475ef4c1b49d0af55ab452db9e53e.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "What's New",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/docs/DATE_AND_TIME/17d7e70611c64e1182ebe7f0079c9e63/6df6e8f7b6a3458ab131b05cb267eea4.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "What is Date and Time?",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/docs/DATE_AND_TIME/17d7e70611c64e1182ebe7f0079c9e63/9c2f6f839cf94c88881e59e24b4ea82a.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Initial Setup",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/docs/DATE_AND_TIME/17d7e70611c64e1182ebe7f0079c9e63/f90a76b22b83444b94e10538a5c3eecf.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "API Documentation",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "default",
+      "displayName": "default",
+      "category": "SERVICE",
+      "description": "Default Plan",
+      "isFree": false,
+      "dataCenters": [
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

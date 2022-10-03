@@ -1,0 +1,65 @@
+{
+  "name": "mobile-client-usage",
+  "displayName": "Mobile Client Usage Service",
+  "description": "Mobile Client Usage Service",
+  "icon": "sap-icon://line-chart",
+  "links": [
+    {
+      "value": "https://help.sap.com/viewer/468990a67780424a9e66eb096d4345bb/Cloud/en-US/065046f829c54f06b379d6f68137feaf.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://mobile-service-cockpit-web.cfapps.br10.hana.ondemand.com",
+      "classification": "external",
+      "type": "Link",
+      "text": "external",
+      "altText": ""
+    },
+    {
+      "value": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
+      "classification": "external",
+      "type": "Link",
+      "text": "external",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "standard",
+      "displayName": "Mobile Client Usage Service allows mobile application to upload client usage information and to analyze them on the server",
+      "category": "SERVICE",
+      "description": "Mobile Client Usage Service allows mobile application to upload client usage information and to analyze them on the server",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

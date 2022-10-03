@@ -1,0 +1,134 @@
+{
+  "name": "sap-analytics-cloud-embedded-edition",
+  "displayName": "SAP Analytics Cloud, embedded edition",
+  "description": "With SAP Analytics Cloud, embedded edition, you can build and embed reports, dashboards, and visuals into your business application to make confident decisions. Explore your business data via live connection between your SAP Analytics Cloud tenant and the remote SAP HANA database on SAP Cloud Platform.",
+  "icon": "https://digitalmarketplace-sapcpprd.s3.eu-central-1.amazonaws.com/2eQcXCIsRj1Dxc3cYJ0cCXiJtdHmcMMlAeduQvfzMcaMl3j-b4XWxQcL4w3Hug7I.svg",
+  "links": [
+    {
+      "value": "https://community.sap.com/search/?ct=blog&q=SAP%20Analytics%20Cloud%2C%20embedded%20edition",
+      "classification": "SAP Community Blog Posts",
+      "type": "Link",
+      "text": "SAP Community Blog Posts",
+      "altText": ""
+    },
+    {
+      "value": "https://community.sap.com/search/?ct=qa&q=SAP%20Analytics%20Cloud%2C%20embedded%20edition",
+      "classification": "SAP Community Questions and Answers",
+      "type": "Link",
+      "text": "SAP Community Questions and Answers",
+      "altText": ""
+    },
+    {
+      "value": "https://discovery-center.cloud.sap/serviceCatalog/sap-analytics-cloud-embedded-edition",
+      "classification": "Discovery Center",
+      "type": "Link",
+      "text": "Discovery Center",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/7466893ec68641198fc189757dc5f7a6/1.0/en-US/842009c3f599432a8f6c6e248267380d.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "SAP Analytics Cloud, Embedded Edition Service on SAP BTP: Getting Started Guide",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/7466893ec68641198fc189757dc5f7a6/1.0/en-US/ce081403aaf14feca286d7d0b4af2b86.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/777b4c63a7da46d3ad92b123a83c0673/1.0/en-US/3c0960ff0516426c8ffca7d18c7b060d.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Feature Scope Description SAP Analytics Cloud, Embedded Edition on SAP BTP",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/8c9fe042688a4354876cc536267d442f/1.0/en-US/738ee174a5244573a3f52848cba0e926.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "SAP Analytics Cloud, Embedded Service on SAP BTP: Development",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/product/SAC_EMBEDDED_EDITION/1.0/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://help.sap.com/viewer/product/SAC_EMBEDDED_EDITION/1.1/en-US",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Help Portal Product Page",
+      "altText": ""
+    },
+    {
+      "value": "https://www.youtube.com/embed/QXK4qRh7qTc",
+      "classification": "external",
+      "type": "Link",
+      "text": "SAP Analytics Cloud, Embedded Edition",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "standard",
+      "displayName": "standard",
+      "category": "SERVICE",
+      "description": "Standard plan with max. 150 concurrent sessions",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "ap12",
+          "name": "South Korea (Seoul)"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "ca10",
+          "name": "Canada (Montreal)"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "eu11",
+          "name": "Europe (Frankfurt) EU Access - AWS"
+        },
+        {
+          "region": "eu20",
+          "name": "Europe (Netherlands)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        },
+        {
+          "region": "us30",
+          "name": "US Central (IA)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}

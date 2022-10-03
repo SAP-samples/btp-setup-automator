@@ -1,0 +1,65 @@
+{
+  "name": "mobile-c2g",
+  "displayName": "Mobile Content",
+  "description": "Mobile Content",
+  "icon": null,
+  "links": [
+    {
+      "value": "https://help.sap.com/viewer/468990a67780424a9e66eb096d4345bb/Cloud/en-US/6c3834f4af454a21babc4e0600defe06.html",
+      "classification": "Documentation",
+      "type": "Link",
+      "text": "Documentation",
+      "altText": ""
+    },
+    {
+      "value": "https://mobile-service-cockpit-web.cfapps.br10.hana.ondemand.com",
+      "classification": "external",
+      "type": "Link",
+      "text": "external",
+      "altText": ""
+    },
+    {
+      "value": "https://mobile-service-cockpit-web.cfapps.eu10.hana.ondemand.com",
+      "classification": "external",
+      "type": "Link",
+      "text": "external",
+      "altText": ""
+    }
+  ],
+  "servicePlans": [
+    {
+      "name": "standard",
+      "displayName": "Mobile Content to Go Service, the back-end for the corresponding iPhone application",
+      "category": "SERVICE",
+      "description": "Mobile Content to Go Service, the back-end for the corresponding iPhone application",
+      "isFree": true,
+      "dataCenters": [
+        {
+          "region": "ap10",
+          "name": "Australia (Sydney)"
+        },
+        {
+          "region": "ap11",
+          "name": "Singapore"
+        },
+        {
+          "region": "br10",
+          "name": "Brazil (Sao Paulo)"
+        },
+        {
+          "region": "eu10",
+          "name": "Europe (Frankfurt)"
+        },
+        {
+          "region": "jp10",
+          "name": "Japan (Tokyo)"
+        },
+        {
+          "region": "us10",
+          "name": "US East (VA)"
+        }
+      ],
+      "schemas": null
+    }
+  ]
+}
