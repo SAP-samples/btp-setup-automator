@@ -1,5 +1,7 @@
 # Instructions for running SAP Discovery Center Mission in btp-setup-automator
 
+The setup of this [mission](https://discovery-center.cloud.sap/protected/index.html#/missiondetail/3774/)** can be executed by the [btp-setup-automator](https://github.com/SAP-samples/btp-setup-automator).
+
 The [btp-setup-automator](https://github.com/SAP-samples/btp-setup-automator) is an open source project to help developers setting-up their SAP BTP accounts quickly via various command line interfaces.
 
 ## Pre-Requisites

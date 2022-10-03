@@ -1,5 +1,7 @@
 # Instructions for running SAP Discovery Center Mission in btp-setup-automator
 
+The setup of this [mission](https://discovery-center.cloud.sap/protected/index.html#/missiondetail/3638/)** can be executed by the [btp-setup-automator](https://github.com/SAP-samples/btp-setup-automator).
+
 The [btp-setup-automator](https://github.com/SAP-samples/btp-setup-automator) is an open source project to help developers setting-up their SAP BTP accounts quickly via various command line interfaces.
 The current script was designed to setup the account and spin up the application which is used by the Discovery Center Mission, [Develop a Multitenant Extension Application in SAP BTP, Kyma Runtime](https://discovery-center.cloud.sap/missiondetail/3683/3726/).
 
