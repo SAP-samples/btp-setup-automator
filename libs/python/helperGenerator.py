@@ -6,8 +6,14 @@ import json
 import jinja2
 from pathlib import Path
 import glob
+from copy import deepcopy
 
 log = logging.getLogger(__name__)
+
+CATEGORIES = {}
+CATEGORIES["SERVICE"] = ["SERVICE", "ELASTIC_SERVICE", "PLATFORM"]
+CATEGORIES["APPLICATION"] = ["APPLICATION", "QUOTA_BASED_APPLICATION"]
+CATEGORIES["ENVIRONMENT"] = ["ENVIRONMENT"]
 
 
 def loadJSONFiles(folder, pattern):
@@ -21,14 +27,9 @@ def loadJSONFiles(folder, pattern):
 
 def fetchEntitledServiceList(mainDataJsonFilesFolder, datacenterFile):
 
-    btpServiceList = loadJSONFiles(mainDataJsonFilesFolder, "*.json")
+    serviceListRaw = loadJSONFiles(mainDataJsonFilesFolder, "*.json")
+    btpServiceList = convertToServiceListByCategory(serviceListRaw)
 
-    availableCategoriesService = ["SERVICE", "ELASTIC_SERVICE", "PLATFORM", "CF_CUP_SERVICE"]
-    availableCategoriesApplication = ["APPLICATION", "QUOTA_BASED_APPLICATION"]
-
-    definedServices = getServiceCategoryItemsFromUseCaseFile(btpServiceList, availableCategoriesService)
-    # definedEnvironments = getEnvironmentsForUsecase(None, btpServiceList)
-    # definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(None, btpServiceList, availableCategoriesApplication)
 
     resultDCs = getJsonFromFile(str(datacenterFile))
     addManuallyMaintainedServiceSchema(btpServiceList)
@@ -133,3 +134,81 @@ def getJsonFromFile(filename):
             print(message)
         sys.exit(os.EX_DATAERR)
     return data
+
+
+def convertToServiceListByCategory(rawData):
+
+    result = []
+    for category in CATEGORIES:
+        list = {"name": category, "list": getBtpCategory(category, rawData)}
+        result.append(list)
+
+    return result
+
+
+def getBtpCategory(category, rawData):
+
+    services = None
+
+    if category in CATEGORIES["SERVICE"]:
+        services = getServicesForCategory("SERVICE", rawData)
+    if category in CATEGORIES["APPLICATION"]:
+        services = getServicesForCategory("APPLICATION", rawData)
+    if category in CATEGORIES["ENVIRONMENT"]:
+        services = getServicesForCategory("ENVIRONMENT", rawData)
+    if services is None:
+        print("ERROR: the category >" + category +
+              "< can't be assigned to one of the defined service categories")
+
+    return services
+
+
+def getServicesForCategory(category, rawData):
+    result = []
+
+    for service in rawData:
+        servicePlans = getServicePlansForCategory(service, category)
+        thisService = None
+        if servicePlans:
+            thisService = deepcopy(service)
+            thisService["servicePlans"] = servicePlans
+            result.append(thisService)
+    sortedResult = sorted(result, key=lambda d: (
+        d['name'].lower()), reverse=False)
+
+    return sortedResult
+
+
+def getServicePlansForCategory(service, category):
+    result = []
+
+    for plan in service.get("servicePlans"):
+        thisCategory = plan.get("category")
+        if thisCategory in CATEGORIES.get(category):
+            alreadyExistsInResult = False
+            for temp in result:
+                if temp.get("name") == plan.get("name"):
+                    alreadyExistsInResult = True
+            if not alreadyExistsInResult:
+                result.append(getBtpServicePlan(plan))
+
+    return result
+
+
+def getBtpServicePlan(rawData):
+    name = rawData.get("name")
+    displayName = rawData.get("displayName")
+    description = rawData.get("description")
+    uniqueIdentifier = rawData.get("uniqueIdentifier")
+    category = rawData.get("category")
+    schemas = rawData.get("schemas")
+    dataCenters = rawData.get("dataCenters")
+
+    # for plan in rawData.get("dataCenters"):
+    #    dataCenters.append(getBtpDataCenter(plan))
+
+    dataCenters = sorted(dataCenters, key=lambda d: d['region'], reverse=False)
+    result = {"name": name, "displayName": displayName, "description": description, "uniqueIdentifier": uniqueIdentifier,
+              "category": category, "dataCenters": dataCenters, "provisioningMethod": rawData.get("provisioningMethod"), "schemas": schemas}
+
+    return result
