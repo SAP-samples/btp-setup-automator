@@ -171,7 +171,7 @@
                                 "properties": { 
                                     "parameters": { "default": "-p '{\"username\":\"admin1\",\"password\":\"pa55woRD1\"}'"}, 
                                     "name": { "default": "nameForYourCfUserProvidedInstance"},
-                                    "category": "CF_CUP_SERVICE"
+                                    "category": { "default": "CF_CUP_SERVICE"}
                                 }, "required": ["parameters", "name", "category"], "additionalProperties": false
                         }
                     },
