@@ -3,6 +3,8 @@ cred.txt
 integrationtestExecute.sh
 kubeconfig.yaml
 
+config/btp-base
+
 #Node.js
 # Logs
 logs
