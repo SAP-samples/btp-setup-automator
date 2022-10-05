@@ -10,8 +10,8 @@
 {%- endmacro -%}
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "New JSON Schema for BTPSA parameters",
-    "description": "Provide BTPSA parameters",
+    "title": "JSON Schema for BTPSA use case definitions",
+    "description": "Use case definitions are described using properties and values defined in this schema",
     "type": "object",
     "additionalProperties": false,
     "properties": {
@@ -40,17 +40,17 @@
                     "type": "string",
                     "title": "email of the author of this use case",
                     "format": "email"
-                },          
+                },
                 "testStatus": {
                     "type": "string",
                     "title": "test status of the use case",
                     "enum": ["tested successfully", "not tested"]
-                },          
+                },
                 "usageStatus": {
                     "type": "string",
                     "title": "usage status of the use case",
                     "enum": ["READY TO BE USED", "NOT READY TO BE USED"]
-                },          
+                },
                 "relatedLinks": {
                     "type": "array",
                     "title": "links related to this use case"
@@ -179,41 +179,41 @@
                     }
                 },
                 "allOf": [
-                    { 
+                    {
                         "if": { "properties": { "category": { "const": "CF_CUP_SERVICE"} } },
                         "then" :{
-                                "properties": { 
+                                "properties": {
                                     "parameters": { "default": "-p '{\"username\":\"admin1\",\"password\":\"pa55woRD1\"}'"}, "name": { "default": "nameForYourCfUserProvidedInstance"}, "category": { "const": "CF_CUP_SERVICE"}
                                 }, "required": ["parameters", "name", "category"], "additionalProperties": false
                         }
                     },
                     {% for category in btpservicelist -%}
-                    { 
+                    {
                         "if": { "properties": { "category": { "const": "{{ category.name }}"} } },
                         "then" :{
                                     "properties": { "name": { "enum": [{% for service in category.list -%}"{{ service.name }}"{% if not loop.last %}, {% endif %}{% endfor -%}] } },
                                     "allOf": [
                                         {% for service in category.list -%}
-                                        { 
+                                        {
                                             "if": { "properties": { "name": { "const": "{{ service.name }}"} } },
                                             "then" :{
-                                                "properties": { 
+                                                "properties": {
                                                     "plan": { "enum": [{% for plan in service.servicePlans-%}"{{ plan.name }}"{% if not loop.last %}, {%- endif %}{% endfor -%}] },
                                                     "name": { "description": "{{ service.displayName }}: {{ service.description | trim }}"}
-                                                }, 
+                                                },
                                                 "allOf": [
                                                     {% for plan in service.servicePlans -%}
-                                                    { 
+                                                    {
                                                         "if": { "properties": { "plan": { "const": "{{ plan.name }}"} } },
                                                         "then" :{
-                                                            "properties": { 
-                                                                "plan": { "description": "{{ category.name.lower() }} plan >{{ plan.name }}< for >{{ service.name }}< is available in data centers:{% for datacenter in plan.dataCenters -%}\n- {{ datacenter }}{% if not loop.last %}{% endif %}{% endfor %}" } 
+                                                            "properties": {
+                                                                "plan": { "description": "{{ category.name.lower() }} plan >{{ plan.name }}< for >{{ service.name }}< is available in data centers:{% for datacenter in plan.dataCenters -%}\n- {{ datacenter }}{% if not loop.last %}{% endif %}{% endfor %}" }
                                                                 {{ addSchemaIfExists(plan) }}
                                                             }{{ addRequiredFieldIfSchemaExists(plan) }}
                                                         }
                                                     }{% if not loop.last %}, {% endif -%}
                                                     {% endfor -%}
-                                                ]            
+                                                ]
                                             }
                                         }{% if not loop.last %}, {% endif -%}
                                         {% endfor -%}
