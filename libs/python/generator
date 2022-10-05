@@ -6,12 +6,10 @@ ROOT = Path(__file__, "..", "..", "..").resolve()
 BTP_BASE = Path(ROOT, "config", "btp-base").resolve()
 
 SERVICE_METADATA_FOLDER = Path(BTP_BASE, "developer").resolve()
-DATACENTER_METADATA_FILE = Path(BTP_BASE, "datacenters.json").resolve()
-
 #######################################################################################
-# Fetch the BTP service list (including datacenter information)
+# Fetch the BTP service list
 #######################################################################################
-allMetadata = fetchEntitledServiceList(SERVICE_METADATA_FOLDER, DATACENTER_METADATA_FILE)
+allMetadata = fetchEntitledServiceList(SERVICE_METADATA_FOLDER)
 
 #######################################################################################
 # Generate all files

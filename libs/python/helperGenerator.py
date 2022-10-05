@@ -25,18 +25,26 @@ def loadJSONFiles(folder, pattern):
     return result
 
 
-def fetchEntitledServiceList(mainDataJsonFilesFolder, datacenterFile):
+def fetchEntitledServiceList(mainDataJsonFilesFolder):
 
     serviceListRaw = loadJSONFiles(mainDataJsonFilesFolder, "*.json")
     btpServiceList = convertToServiceListByCategory(serviceListRaw)
 
+    # determine all data centers
+    regions = set()
+    allDataCenters = []
+    for service in serviceListRaw:
+        for plan in service.get("servicePlans"):
+            for dataCenter in plan.get("dataCenters"):
+                region = dataCenter.get("region")
+                if region and region not in regions:
+                    regions.add(region)
+                    allDataCenters.append(dataCenter)
+    allDataCenters = sorted(allDataCenters, key=lambda d: (d['region'].lower()), reverse=False)
 
-    resultDCs = getJsonFromFile(str(datacenterFile))
     addManuallyMaintainedServiceSchema(btpServiceList)
 
-    resultDCs = sorted(resultDCs, key=lambda d: (d['region'].lower()), reverse=False)
-
-    thisResult = {"btpservicelist": btpServiceList, "datacenterslist": resultDCs}
+    thisResult = {"btpservicelist": btpServiceList, "datacenterslist": allDataCenters}
     return thisResult
 
 
