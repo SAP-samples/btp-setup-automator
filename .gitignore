@@ -139,3 +139,6 @@ dist
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Editor swap files
+*.swp
