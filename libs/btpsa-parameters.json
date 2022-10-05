@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "New JSON Schema for service parameters used in BTPSA",
-    "description": "Provide service parameters in usecase.json files of BTPSA",
+    "title": "JSON Schema for service parameters used in BTPSA",
+    "description": "User and landscape specific parameters to be used when executing use cases",
     "type": "object",
     "additionalProperties": false,
     "properties": {
@@ -159,7 +159,7 @@
                     "type": "boolean",
                     "description": "if set to true, paid service plans are allowed",
                     "title": "allow paid service plans",
-                    "default": true   
+                    "default": true
                 }
             }
         },
@@ -176,7 +176,7 @@
             "type": "string",
             "description": "id of provider sub account of custom app",
             "title": "provider subaccount id of custom app on SAP BTP",
-            "default": null    
+            "default": null
         },
         "suffixinstancename": {
             "type": [

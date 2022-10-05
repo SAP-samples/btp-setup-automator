@@ -179,8 +179,10 @@
                         "if": { "properties": { "category": { "const": "CF_CUP_SERVICE"} } },
                         "then" :{
                                 "properties": { 
-                                    "parameters": { "default": "-p '{\"username\":\"admin1\",\"password\":\"pa55woRD1\"}'"}, "name": { "default": "nameForYourCfUserProvidedInstance"}
-                                }, "required": ["parameters", "name"], "additionalProperties": false
+                                    "parameters": { "default": "-p '{\"username\":\"admin1\",\"password\":\"pa55woRD1\"}'"}, 
+                                    "name": { "default": "nameForYourCfUserProvidedInstance"},
+                                    "category": "CF_CUP_SERVICE"
+                                }, "required": ["parameters", "name", "category"], "additionalProperties": false
                         }
                     },
                     {% for category in btpservicelist -%}
