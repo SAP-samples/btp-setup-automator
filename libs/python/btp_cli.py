@@ -562,9 +562,9 @@ class BTPUSECASE:
                     command = command + " -m " + \
                         self.cfspacequota.get("spaceQuotaTotalMemory")
 
-                if self.cfspacequota.get("self.spaceQuotaRoutes") and self.cfspacequota.get("self.spaceQuotaRoutes") is not None:
+                if self.cfspacequota.get("spaceQuotaRoutes") and self.cfspacequota.get("spaceQuotaRoutes") is not None:
                     command = command + " -r " + \
-                        str(self.cfspacequota.get("self.spaceQuotaRoutes"))
+                        str(self.cfspacequota.get("spaceQuotaRoutes"))
 
                 if self.cfspacequota.get("spaceQuotaServiceInstances") and self.cfspacequota.get("spaceQuotaServiceInstances") is not None:
                     command = command + " -s " + \
