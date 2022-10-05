@@ -980,7 +980,7 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service):
                     serviceEntitled = True
                     returnCode = 0
                     break
-            if serviceEntitled == False:
+            if serviceEntitled is False:
                 time.sleep(search_every_x_seconds)
                 current_time += search_every_x_seconds
                 returnCode = 1
