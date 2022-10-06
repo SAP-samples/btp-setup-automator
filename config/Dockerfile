@@ -105,7 +105,6 @@ RUN adduser \
     --disabled-password \
     --gecos "" \
     --home "$HOME_FOLDER" \
-    --no-create-home \
     "$USERNAME" \
     && apk update \
     && apk upgrade \
