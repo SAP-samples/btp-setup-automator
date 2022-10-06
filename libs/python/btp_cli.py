@@ -1,5 +1,5 @@
 import libs.python.helperArgParser as helperArgParser
-from .helperCliVersions import getAllCliVersions
+from libs.python.helperCliVersions import getAllCliVersions
 from libs.python.helperFolders import FOLDER_SCHEMA_LIBS
 from libs.python.helperJson import addKeyValuePair, dictToString, convertStringToJson, getJsonFromFile
 from libs.python.helperBtpTrust import runTrustFlow
@@ -708,7 +708,7 @@ def getEnvironmentsForUsecase(btpUsecase: BTPUSECASE, allServices):
 def getServiceCategoryItemsFromUsecaseFile(btpUsecase: BTPUSECASE, allServices, categories):
     items = []
     for usecaseService in allServices:
-        thisCategory = usecaseService.get("category")
+        thisCategory = usecaseService.category
         if thisCategory in categories:
             usecaseService.status = "NOT READY"
             usecaseService.servicebroker = None
