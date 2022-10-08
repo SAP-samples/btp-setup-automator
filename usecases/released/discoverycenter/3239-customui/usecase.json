@@ -1,5 +1,4 @@
 {
-    "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
     "aboutThisUseCase": {
         "name": "Setup Side-by-Side UI Extensions for SAP S/4HANA on SAP BTP",
         "description": "Create a custom UI application on SAP BTP which consumes data from SAP S/4HANA",

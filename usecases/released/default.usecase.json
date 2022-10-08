@@ -1,5 +1,4 @@
 {
-    "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
     "aboutThisUseCase": {
         "name": "Default use case on how to show how btp-setup-automator works",
         "description": "This usecase sets up various services and app subscriptions on SAP BTP",
