@@ -69,15 +69,29 @@ RUN apk update upgrade \
 && ./get_helm.sh
 
 ########################################################################################
+# Add some utilities
+########################################################################################
+FROM base as utilities
+SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+WORKDIR /tmp/tools
+ENV VER_FX=24.0.0
+ENV VER_IJQ=0.4.1
+RUN curl -fsSL -o fx --url "https://github.com/antonmedv/fx/releases/download/${VER_FX}/fx_${ARCH//-/_}" \
+  && chmod +x fx
+RUN curl -fsSL --url "https://git.sr.ht/~gpanders/ijq/refs/download/v${VER_IJQ}/ijq-${VER_IJQ}-${ARCH}.tar.gz" \
+  | tar --extract -z --file - --strip-components 1 "ijq-${VER_IJQ}/ijq"
+
+########################################################################################
 # Bring the tools together into the final base stage
 ########################################################################################
 FROM alpine:3 as tools
 WORKDIR /usr/local/bin
-COPY --from=cf_cli                 /usr/local/bin/cf8 .
-COPY --from=btp_cli                /tmp/tools/ .
-COPY --from=mta_build_tool         /tmp/tools/ .
-COPY --from=kubectl_cli            /tmp/tools/ .
+COPY --from=cf_cli                 /usr/local/bin/cf8  .
+COPY --from=btp_cli                /tmp/tools/         .
+COPY --from=mta_build_tool         /tmp/tools/         .
+COPY --from=kubectl_cli            /tmp/tools/         .
 COPY --from=helm_cli               /usr/local/bin/helm .
+COPY --from=utilities              /tmp/tools/         .
 ARG BTPSA_VERSION_GIT_ARG=default
 
 ##################################################################################################################################################
@@ -143,11 +157,13 @@ WORKDIR $HOME_FOLDER
 
 ## Copy all necessary executables from the tools stage
 #COPY --chown=root:root --from=tools /usr/local/bin/cf  /usr/local/bin
-COPY --chown=root:root --from=tools /usr/local/bin/cf8  /usr/local/bin/cf
-COPY --chown=root:root --from=tools /usr/local/bin/btp /usr/local/bin
-COPY --chown=root:root --from=tools /usr/local/bin/mbt /usr/local/bin
+COPY --chown=root:root --from=tools /usr/local/bin/cf8     /usr/local/bin/cf
+COPY --chown=root:root --from=tools /usr/local/bin/btp     /usr/local/bin
+COPY --chown=root:root --from=tools /usr/local/bin/mbt     /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/kubectl /usr/local/bin
-COPY --chown=root:root --from=tools /usr/local/bin/helm /usr/local/bin
+COPY --chown=root:root --from=tools /usr/local/bin/helm    /usr/local/bin
+COPY --chown=root:root --from=tools /usr/local/bin/fx      /usr/local/bin
+COPY --chown=root:root --from=tools /usr/local/bin/ijq     /usr/local/bin
 
 ## Install the CF plugin for deploying MTAs on Cloudfoundry
 RUN cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/latest/download/multiapps-plugin.linux32
