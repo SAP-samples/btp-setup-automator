@@ -7,7 +7,7 @@ services:
     stdin_open: true
     tty: true
     environment:
-      - BTPSA_VERSION_GIT=${BTPSA_VERSION_GIT}
+      - BTPSA_VERSION_GIT=${BTPSA_VERSION_GIT:-unknown}
     volumes:
       - vscode-server-extensions:/home/user/.vscode-server/extensions
 
