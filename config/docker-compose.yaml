@@ -4,8 +4,10 @@ services:
   btpsa:
     container_name: btp-setup-automator
     image: btp-setup-automator
+    stdin_open: true
+    tty: true
     volumes:
       - vscode-server-extensions:/home/user/.vscode-server/extensions
 
 volumes:
-  vscode-server-extensions
+  vscode-server-extensions:

@@ -210,7 +210,8 @@ COPY --chown=$USERNAME:$USERNAME .vscode                    $HOME_FOLDER/.vscode
 
 # Setup dirs for named-volume mounting of extensions for VS Code server
 # See https://code.visualstudio.com/remote/advancedcontainers/avoid-extension-reinstalls
-RUN mkdir -p /home/$USERNAME/.vscode-server/extensions && chown -R $USERNAME $_
+RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
+  && chown -R $USERNAME /home/$USERNAME/.vscode-server/extensions 
 
 # For using outside of VS Code context:
 CMD ["bash"]
