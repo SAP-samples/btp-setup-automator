@@ -1,5 +1,4 @@
 {
-  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
   "usecasefile": "usecases/released/default.json",
   "region": "us10",
   "globalaccount": null,

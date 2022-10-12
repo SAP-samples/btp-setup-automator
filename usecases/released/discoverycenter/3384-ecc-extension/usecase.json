@@ -1,5 +1,4 @@
 {
-  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
   "aboutThisUseCase": {
     "name": "Extend SAP ERP 6.0 (ECC) business processes on SAP BTP",
     "description": "This project contains a reference application (including mock server), showcasing an end-to-end development scenario for an SAP ECC extension on SAP BTP",

@@ -1,5 +1,4 @@
 {
-  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
   "usecasefile": "usecases/released/discoverycenter/3999-kyma-day2-operations/usecase.json",
   "region": "us10",
   "subaccountname": "EasyFranchise",
