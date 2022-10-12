@@ -761,19 +761,19 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
 
         for accountService in availableForAccount["entitledServices"]:
             accountServiceName = accountService["name"]
-            if (accountServiceName == usecaseServiceName):
+            if (accountServiceName.lower() == usecaseServiceName.lower()):
                 for accountServicePlan in accountService["servicePlans"]:
                     accountServicePlanName = accountServicePlan["name"]
                     accountServicePlanCategory = accountServicePlan["category"]
-                    if fallbackServicePlan is not None and accountServicePlanName == fallbackServicePlan:
+                    if fallbackServicePlan is not None and accountServicePlanName.lower() == fallbackServicePlan.lower():
                         for accountServicePlanDataCenter in accountServicePlan["dataCenters"]:
                             accountServicePlanRegion = accountServicePlanDataCenter["region"]
-                            if (accountServicePlanRegion == usecaseRegion) and (isService(btpUsecase, accountServicePlanCategory, usecaseService.category)):
+                            if (accountServicePlanRegion.lower() == usecaseRegion.lower()) and (isService(btpUsecase, accountServicePlanCategory, usecaseService.category)):
                                 supportedFallbackServicePlan = True
-                    if (accountServicePlanName == usecaseServicePlan) and (isService(btpUsecase, accountServicePlanCategory, usecaseService.category)):
+                    if (accountServicePlanName.lower() == usecaseServicePlan.lower()) and (isService(btpUsecase, accountServicePlanCategory, usecaseService.category)):
                         for accountServicePlanDataCenter in accountServicePlan["dataCenters"]:
                             accountServicePlanRegion = accountServicePlanDataCenter["region"]
-                            if (accountServicePlanRegion == usecaseRegion):
+                            if (accountServicePlanRegion.lower() == usecaseRegion.lower()):
                                 supported = True
 
         # Special Case for custom apps (exist only in subaccount)
