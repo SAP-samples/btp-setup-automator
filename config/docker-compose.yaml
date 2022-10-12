@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  btpsa:
+    container_name: btp-setup-automator
+    image: btp-setup-automator
+    volumes:
+      - vscode-server-extensions:/home/user/.vscode-server/extensions
+
+volumes:
+  vscode-server-extensions
