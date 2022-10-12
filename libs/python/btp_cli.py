@@ -770,7 +770,7 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
                             accountServicePlanRegion = accountServicePlanDataCenter["region"]
                             if (accountServicePlanRegion == usecaseRegion) and (isService(btpUsecase, accountServicePlanCategory, usecaseService.category)):
                                 supportedFallbackServicePlan = True
-                    if (accountServicePlanName.lower() == usecaseServicePlan.lower()) and (isService(btpUsecase, accountServicePlanCategory, usecaseService.category)):
+                    if (accountServicePlanName == usecaseServicePlan) and (isService(btpUsecase, accountServicePlanCategory, usecaseService.category)):
                         for accountServicePlanDataCenter in accountServicePlan["dataCenters"]:
                             accountServicePlanRegion = accountServicePlanDataCenter["region"]
                             if (accountServicePlanRegion == usecaseRegion):
