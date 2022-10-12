@@ -761,19 +761,19 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
 
         for accountService in availableForAccount["entitledServices"]:
             accountServiceName = accountService["name"]
-            if (accountServiceName.lower() == usecaseServiceName.lower()):
+            if (accountServiceName == usecaseServiceName):
                 for accountServicePlan in accountService["servicePlans"]:
                     accountServicePlanName = accountServicePlan["name"]
                     accountServicePlanCategory = accountServicePlan["category"]
-                    if fallbackServicePlan is not None and accountServicePlanName.lower() == fallbackServicePlan.lower():
+                    if fallbackServicePlan is not None and accountServicePlanName == fallbackServicePlan:
                         for accountServicePlanDataCenter in accountServicePlan["dataCenters"]:
                             accountServicePlanRegion = accountServicePlanDataCenter["region"]
-                            if (accountServicePlanRegion.lower() == usecaseRegion.lower()) and (isService(btpUsecase, accountServicePlanCategory, usecaseService.category)):
+                            if (accountServicePlanRegion == usecaseRegion) and (isService(btpUsecase, accountServicePlanCategory, usecaseService.category)):
                                 supportedFallbackServicePlan = True
                     if (accountServicePlanName.lower() == usecaseServicePlan.lower()) and (isService(btpUsecase, accountServicePlanCategory, usecaseService.category)):
                         for accountServicePlanDataCenter in accountServicePlan["dataCenters"]:
                             accountServicePlanRegion = accountServicePlanDataCenter["region"]
-                            if (accountServicePlanRegion.lower() == usecaseRegion.lower()):
+                            if (accountServicePlanRegion == usecaseRegion):
                                 supported = True
 
         # Special Case for custom apps (exist only in subaccount)
