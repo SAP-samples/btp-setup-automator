@@ -6,6 +6,8 @@ services:
     image: btp-setup-automator
     stdin_open: true
     tty: true
+    environment:
+      - BTPSA_VERSION_GIT=${BTPSA_VERSION_GIT}
     volumes:
       - vscode-server-extensions:/home/user/.vscode-server/extensions
 
