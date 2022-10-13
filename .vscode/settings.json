@@ -3,19 +3,5 @@
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Args": ["--ignore=E501,F405,W504"],
-    "python.linting.pylintEnabled": false,
-    "json.schemas": [
-        {
-            "fileMatch": [
-                "*usecase.json"
-            ],
-            "url": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json"
-        },
-        {
-            "fileMatch": [
-                "*parameters.json"
-            ],
-            "url": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json"
-        }
-    ]
+    "python.linting.pylintEnabled": false
 }
