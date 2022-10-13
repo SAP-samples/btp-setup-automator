@@ -942,7 +942,7 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service):
 
     if returnCode != 0:
         log.warning(
-            "this entitlement wasn't sucesssfull. Trying to entitle with amount parameter instead.")
+            "this entitlement wasn't successful. Trying to entitle with amount parameter instead.")
 
         if service.amount is not None and service.amount > 0:
             command = baseCommand + " --auto-distribute-amount " + \
