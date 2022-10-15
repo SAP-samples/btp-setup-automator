@@ -1123,30 +1123,32 @@ def checkIfAllSubscriptionsAreAvailable(btpUsecase: BTPUSECASE):
 
     allSubscriptionsAvailable = True
     for app in btpUsecase.definedAppSubscriptions:
-        for thisJson in resultCommand["applications"]:
-            name = thisJson.get("appName")
-            plan = thisJson.get("planName")
-            status = thisJson.get("state")
-            tenantId = thisJson.get("tenantId")
 
-            if app.name == name and app.plan == plan and app.successInfoShown is False:
-                if status == "SUBSCRIBE_FAILED":
-                    log.error(
-                        "BTP account reported that subscription on >" + app.name + "< has failed.")
-                    sys.exit(os.EX_DATAERR)
+        if app.entitleonly is False:
+            for thisJson in resultCommand["applications"]:
+                name = thisJson.get("appName")
+                plan = thisJson.get("planName")
+                status = thisJson.get("state")
+                tenantId = thisJson.get("tenantId")
 
-                if status != "SUBSCRIBED":
-                    allSubscriptionsAvailable = False
-                    app.status = status
-                    app.successInfoShown = False
-                    app.statusResponse = thisJson
-                else:
-                    log.success("subscription to app >" + app.name +
-                                "< (plan " + app.plan + ") is now available")
-                    app.tenantId = tenantId
-                    app.successInfoShown = True
-                    app.statusResponse = thisJson
-                    app.status = "SUBSCRIBED"
+                if app.name == name and app.plan == plan and app.successInfoShown is False:
+                    if status == "SUBSCRIBE_FAILED":
+                        log.error(
+                            "BTP account reported that subscription on >" + app.name + "< has failed.")
+                        sys.exit(os.EX_DATAERR)
+
+                    if status != "SUBSCRIBED":
+                        allSubscriptionsAvailable = False
+                        app.status = status
+                        app.successInfoShown = False
+                        app.statusResponse = thisJson
+                    else:
+                        log.success("subscription to app >" + app.name +
+                                    "< (plan " + app.plan + ") is now available")
+                        app.tenantId = tenantId
+                        app.successInfoShown = True
+                        app.statusResponse = thisJson
+                        app.status = "SUBSCRIBED"
 
     return allSubscriptionsAvailable
 
