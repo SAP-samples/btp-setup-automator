@@ -125,7 +125,7 @@
     },
     {
       "description": ">> STEP 7/8: Create destination to the mock server",
-      "command": "cd /home/user/repos/mock && bash create-destination.sh bupa-ecc BusinessPartnerValidation-dest"
+      "command": "cd /home/user/repos/mock && bash create-destination.sh bupa BusinessPartnerValidation-dest"
     },
     {
       "description": ">> STEP 8/8: Bind the mock server to the Event Mesh instance",
