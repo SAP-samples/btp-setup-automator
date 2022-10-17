@@ -4,7 +4,7 @@ from libs.python.helperFolders import FOLDER_SCHEMA_LIBS
 from libs.python.helperJson import addKeyValuePair, dictToString, convertStringToJson, getJsonFromFile
 from libs.python.helperBtpTrust import runTrustFlow
 from libs.python.helperCommandExecution import executeCommandsFromUsecaseFile, runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex, login_btp, login_cf
-from libs.python.helperEnvCF import checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, try_until_cf_space_done, try_until_space_quota_created
+from libs.python.helperEnvCF import checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, getCfApiEndpointByUseCase, getCfApiEndpointFromLabels, try_until_cf_space_done, try_until_space_quota_created
 from libs.python.helperServiceInstances import createServiceKey, deleteServiceInstance, deleteServiceKeysAndWait, getServiceDeletionStatus, initiateCreationOfServiceInstances, checkIfAllServiceInstancesCreated
 from libs.python.helperGeneric import buildUrltoSubaccount, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, createOrgName, save_collected_metadata
 from libs.python.helperFileAccess import writeKubeConfigFileToDefaultDir
@@ -346,6 +346,8 @@ class BTPUSECASE:
                         if labels.get("Org ID"):
                             orgid = labels.get("Org ID")
 
+                        cfApiEndpoint = getCfApiEndpointFromLabels(labels)
+
                         # Wait until the org has been created
                         message = "is CF environment >" + org + "< created"
                         command = "btp --format json get accounts/environment-instance '" + \
@@ -367,6 +369,9 @@ class BTPUSECASE:
                         self.accountMetadata = addKeyValuePair(
                             accountMetadata, "org", org)
 
+                        self.accountMetadata = addKeyValuePair(
+                            accountMetadata, "cfapiendpoint", cfApiEndpoint)
+
                         save_collected_metadata(self)
                         self.create_new_cf_space(environment)
                         self.create_and_assign_quota_plan(environment)
@@ -374,12 +379,16 @@ class BTPUSECASE:
                     else:
                         log.success("CF environment >" + org +
                                     "< already available with id >" + orgid + "<")
+
+                        cfApiEndpoint = getCfApiEndpointByUseCase(self)
                         self.orgid = orgid
                         self.org = org
                         self.accountMetadata = addKeyValuePair(
                             accountMetadata, "orgid", orgid)
                         self.accountMetadata = addKeyValuePair(
                             accountMetadata, "org", org)
+                        self.accountMetadata = addKeyValuePair(
+                            accountMetadata, "cfapiendpoint", cfApiEndpoint)
                         save_collected_metadata(self)
                         self.create_new_cf_space(environment)
                         self.create_and_assign_quota_plan(environment)
@@ -600,7 +609,8 @@ class BTPUSECASE:
                 command = "cf set-space-quota " + \
                     self.accountMetadata["cfspacename"] + " " + \
                     self.cfspacequota.get("spaceQuotaName")
-                runShellCommand(self, command, "INFO", "assign cf space quota to space")
+                runShellCommand(self, command, "INFO",
+                                "assign cf space quota to space")
 
     def createRoleCollections(self):
         assignUsersToRoleCollectionsForServices(self)

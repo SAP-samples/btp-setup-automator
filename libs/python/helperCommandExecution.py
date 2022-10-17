@@ -22,24 +22,21 @@ def login_cf(btpUsecase):
         # TBD: check, if we should switch from accountMetadata["org"] to btpUsecase.org
         org = accountMetadata["org"]
 
-        cfCLIRegion = btpUsecase.region
         myemail = btpUsecase.myemail
         password = btpUsecase.mypassword
 
-        if btpUsecase.cfcliapihostregion is not None and btpUsecase.cfcliapihostregion != "":
-            cfCLIRegion = btpUsecase.cfcliapihostregion
+        cfApiEndpoint = accountMetadata["cfapiendpoint"]
 
         command = None
         pipe = False
         if btpUsecase.loginmethod == "sso":
-            command = "cf login -a 'https://api.cf." + cfCLIRegion + \
-                ".hana.ondemand.com' -o '" + org + "' --sso"
+            command = "cf login -a '" + cfApiEndpoint + "' -o '" + org + "' --sso"
             pipe = True
         else:
-            command = "cf login -a 'https://api.cf." + cfCLIRegion + \
-                ".hana.ondemand.com' -o '" + org + "' -u '" + \
+            command = "cf login -a '" + cfApiEndpoint + "' -o '" + org + "' -u '" + \
                 myemail + "' -p '" + password + "'"
-        runShellCommandFlex(btpUsecase, command, "INFO", "Logging-in to your CF environment in the org >" + org + "< for your user >" + myemail + "<", True, pipe)
+        runShellCommandFlex(btpUsecase, command, "INFO", "Logging-in to your CF environment in the org >" +
+                            org + "< for your user >" + myemail + "<", True, pipe)
 
 
 def login_btp(btpUsecase):
@@ -48,15 +45,18 @@ def login_btp(btpUsecase):
     globalaccount = btpUsecase.globalaccount
     btpCliRegion = btpUsecase.btpcliapihostregion
 
-    command = "btp login --url 'https://cpcli.cf." + btpCliRegion + ".hana.ondemand.com' --subdomain '" + globalaccount + "'"
+    command = "btp login --url 'https://cpcli.cf." + btpCliRegion + \
+        ".hana.ondemand.com' --subdomain '" + globalaccount + "'"
     if btpUsecase.loginmethod == "sso":
         message = "Logging-in to your global account with subdomain ID >" + globalaccount + "<"
         command = command + " --sso"
         runShellCommandFlex(btpUsecase, command, "INFO", message, True, True)
         fetchEmailAddressFromBtpConfigFile(btpUsecase)
     else:
-        message = "Logging-in to your global account with subdomain ID >" + str(globalaccount) + "< for your user >" + str(myemail) + "<"
-        command = command + " --user '" + str(myemail) + "' --password '" + str(password) + "'"
+        message = "Logging-in to your global account with subdomain ID >" + \
+            str(globalaccount) + "< for your user >" + str(myemail) + "<"
+        command = command + " --user '" + \
+            str(myemail) + "' --password '" + str(password) + "'"
         runShellCommandFlex(btpUsecase, command, "INFO", message, True, False)
 
 
@@ -97,7 +97,8 @@ def runShellCommandFlex(btpUsecase, command, format, info, exitIfError, noPipe):
     if noPipe is True:
         p = run(command, shell=True, env=getDictWithEnvVariables(btpUsecase))
     else:
-        p = run(command, shell=True, stdout=PIPE, stderr=PIPE, env=getDictWithEnvVariables(btpUsecase))
+        p = run(command, shell=True, stdout=PIPE, stderr=PIPE,
+                env=getDictWithEnvVariables(btpUsecase))
         output = p.stdout.decode()
         error = p.stderr.decode()
     returnCode = p.returncode
@@ -111,7 +112,8 @@ def runShellCommandFlex(btpUsecase, command, format, info, exitIfError, noPipe):
             log.error(output)
             log.error(error)
         else:
-            log.error("Something went wrong, but the script can not fetch the error message. Please check the log messages before.")
+            log.error(
+                "Something went wrong, but the script can not fetch the error message. Please check the log messages before.")
         sys.exit(returnCode)
 
 
@@ -143,7 +145,8 @@ def checkIfReLoginNecessary(btpUsecase, command):
 
     if command[0:4] == "btp " and command[0:9] != "btp login" and reLogin is True:
         minutesPassed = "{:.2f}".format(elapsedTime / 60)
-        log.warning("executing a re-login in SAP btp CLI and CF CLI as the last login happened more than >" + minutesPassed + "< minutes ago")
+        log.warning("executing a re-login in SAP btp CLI and CF CLI as the last login happened more than >" +
+                    minutesPassed + "< minutes ago")
         login_btp(btpUsecase)
         cfDefined = checkIfCfEnvironmentIsDefined(btpUsecase)
         if cfDefined is True:
@@ -152,7 +155,8 @@ def checkIfReLoginNecessary(btpUsecase, command):
 
     if command[0:3] == "cf " and command[0:8] != "cf login" and reLogin is True:
         minutesPassed = "{:.2f}".format(elapsedTime / 60)
-        log.warning("executing a re-login in SAP btp CLI and CF CLI as the last login happened more than >" + minutesPassed + "< minutes ago")
+        log.warning("executing a re-login in SAP btp CLI and CF CLI as the last login happened more than >" +
+                    minutesPassed + "< minutes ago")
         login_btp(btpUsecase)
         cfDefined = checkIfCfEnvironmentIsDefined(btpUsecase)
         if cfDefined is True:
@@ -190,7 +194,8 @@ def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):
                 thisCommand = command["command"]
                 log.header("COMMAND EXECUTION: " + message)
 
-                p = runShellCommandFlex(btpUsecase, thisCommand, "INFO", "Executing the following commands:\n" + thisCommand + "\n", True, True)
+                p = runShellCommandFlex(
+                    btpUsecase, thisCommand, "INFO", "Executing the following commands:\n" + thisCommand + "\n", True, True)
                 if p is not None and p.stdout is not None:
                     result = p.stdout.decode()
                     log.success(result)
