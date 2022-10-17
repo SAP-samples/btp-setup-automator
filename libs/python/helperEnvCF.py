@@ -106,9 +106,7 @@ def checkIfCFEnvironmentAlreadyExists(btpUsecase):
             if org is None:
                 org = labels.get("Org Name")
 
-            cf_api_endpoint = labels.get("API Endpoint")
-
-            return instance["platformId"], org, cf_api_endpoint
+            return instance["platformId"], org
 
     return orgid, org
 
