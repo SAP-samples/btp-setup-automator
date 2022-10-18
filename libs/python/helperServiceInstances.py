@@ -36,6 +36,7 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
 
         command = "cf services"
         message = "Checking creation status of services instances in Cloud Foundry"
+        
         p = runShellCommand(btpUsecase, command, "INFO", message)
         result = p.stdout.decode()
         jsonResultsCF = convertCloudFoundryCommandOutputToJson(result)
