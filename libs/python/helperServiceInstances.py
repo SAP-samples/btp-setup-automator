@@ -35,7 +35,8 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
     if cloudfoundryServices:
 
         command = "cf services"
-        p = runShellCommand(btpUsecase, command, "INFO", None)
+        message = "Checking creation status of services instances in Cloud Foundry"
+        p = runShellCommand(btpUsecase, command, "INFO", message)
         result = p.stdout.decode()
         jsonResultsCF = convertCloudFoundryCommandOutputToJson(result)
 
@@ -67,7 +68,9 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
 
         command = "kubectl get ServiceInstance -n " + btpUsecase.k8snamespace + \
             " --kubeconfig " + btpUsecase.kubeconfigpath + " --output json"
-        p = runShellCommand(btpUsecase, command, "INFO", None)
+        message = "Checking creation status of services instances in Kyma"
+
+        p = runShellCommand(btpUsecase, command, "INFO", message)
 
         jsonResultsK8s = convertStringToJson(p.stdout.decode())
 
@@ -96,7 +99,9 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
     if otherServices:
         command = "btp --format json list services/instance --subaccount " + \
             btpUsecase.accountMetadata.get("subaccountid")
-        p = runShellCommand(btpUsecase, command, "INFO", None)
+        message = "Checking creation status of services instances in BTP"
+
+        p = runShellCommand(btpUsecase, command, "INFO", message)
 
         jsonResultsBTP = convertStringToJson(p.stdout.decode())
 
