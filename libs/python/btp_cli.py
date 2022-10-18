@@ -1386,7 +1386,9 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                         "service instance >" + service["instancename"] + "< for service >" + service["name"] + "< now deleted.")
                     service["deletionStatus"] = "deleted"
                 else:
+                    log.info("service instance >" + service["instancename"] + "< for service >" + service["name"] + "< not yet deleted.")
                     service["deletionStatus"] = status
+                    
             time.sleep(search_every_x_seconds)
             current_time += search_every_x_seconds
             allServicesDeleted = True

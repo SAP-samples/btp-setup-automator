@@ -35,9 +35,9 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
     if cloudfoundryServices:
 
         command = "cf services"
-        message = "Checking creation status of services instances in Cloud Foundry"
+        message = "Checking creation status of service instances in Cloud Foundry"
         
-        p = runShellCommand(btpUsecase, command, "INFO", message)
+        p = runShellCommand(btpUsecase, command, "CHECK", message)
         result = p.stdout.decode()
         jsonResultsCF = convertCloudFoundryCommandOutputToJson(result)
 
@@ -69,9 +69,9 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
 
         command = "kubectl get ServiceInstance -n " + btpUsecase.k8snamespace + \
             " --kubeconfig " + btpUsecase.kubeconfigpath + " --output json"
-        message = "Checking creation status of services instances in Kyma"
+        message = "Checking creation status of service instances in Kyma"
 
-        p = runShellCommand(btpUsecase, command, "INFO", message)
+        p = runShellCommand(btpUsecase, command, "CHECK", message)
 
         jsonResultsK8s = convertStringToJson(p.stdout.decode())
 
@@ -100,9 +100,9 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
     if otherServices:
         command = "btp --format json list services/instance --subaccount " + \
             btpUsecase.accountMetadata.get("subaccountid")
-        message = "Checking creation status of services instances in BTP"
+        message = "Checking creation status of service instances in BTP"
 
-        p = runShellCommand(btpUsecase, command, "INFO", message)
+        p = runShellCommand(btpUsecase, command, "CHECK", message)
 
         jsonResultsBTP = convertStringToJson(p.stdout.decode())
 
@@ -137,7 +137,9 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
                             service.status = "create succeeded"
                             service.statusResponse = getStatusResponseFromCreatedInstanceGen(
                                 btpUsecase, instancename, service)
-
+    if allServicesCreated is False:
+        log.info("Not all service instances are available yet")
+        
     return allServicesCreated
 
 
