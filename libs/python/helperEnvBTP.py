@@ -13,11 +13,12 @@ def get_btp_service_status(btpUsecase, service):
     instanceName = service.instancename
     instanceId = service.id
 
+    message = "Get creation status for service instance >" + instanceName + "<"
     command = "btp --format json get services/instance --id " + instanceId + " --name " + \
         instanceName + + " --subaccount " + \
         btpUsecase.accountMetadata.get("subaccountid")
 
-    p = runShellCommand(btpUsecase, command, "CHECK", None)
+    p = runShellCommand(btpUsecase, command, "CHECK", message)
     result = p.stdout.decode()
 
     return result
@@ -108,7 +109,8 @@ def deleteBtpServiceBindingAndWait(key, service, btpUsecase):
 
 def deleteBtpServiceBinding(keyName, instanceName, btpUsecase):
     command = "btp --format JSON delete services/binding -n " + \
-        keyName + " -sa " + btpUsecase.accountMetadata.get("subaccountid") + " --confirm"
+        keyName + " -sa " + \
+        btpUsecase.accountMetadata.get("subaccountid") + " --confirm"
     message = "Delete BTP service binding >" + keyName + \
         "< for service instance >" + instanceName + "< from subaccount"
     result = runShellCommand(btpUsecase, command, "INFO", message)
@@ -118,7 +120,8 @@ def deleteBtpServiceBinding(keyName, instanceName, btpUsecase):
 
 def deleteBtpServiceInstance(service, btpUsecase):
     command = "btp --format JSON delete services/instance " + \
-        service["id"] + " -sa " + btpUsecase.accountMetadata.get("subaccountid") + " --confirm"
+        service["id"] + " -sa " + \
+        btpUsecase.accountMetadata.get("subaccountid") + " --confirm"
     message = "Delete BTP service instance >" + \
         service["instancename"] + "< from subaccount"
     result = runShellCommand(btpUsecase, command, "INFO", message)
@@ -128,8 +131,14 @@ def deleteBtpServiceInstance(service, btpUsecase):
 
 def getBtpServiceDeletionStatus(service, btpUsecase):
     command = "btp --format JSON get services/instance " + \
-        service["id"] + " -sa " + btpUsecase.accountMetadata.get("subaccountid")
-    p = runShellCommandFlex(btpUsecase, command, "CHECK", None, False, False)
+        service["id"] + " -sa " + \
+        btpUsecase.accountMetadata.get("subaccountid")
+
+    message = "Get deletion status for service instance >" + \
+        service["instancename"] + "<"
+
+    p = runShellCommandFlex(btpUsecase, command,
+                            "CHECK", message, False, False)
     output = p.stdout.decode()
     err = p.stderr.decode()
     if output == "" and "FAILED" in err:

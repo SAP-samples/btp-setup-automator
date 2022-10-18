@@ -1361,6 +1361,10 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                              service["name"] + "<. Deletion not needed.")
                     continue
 
+                if service["deletionStatus"] == "deleted":
+                    # Avoid multiple checks for the same service when already deleted
+                    continue
+
                 status = getServiceDeletionStatus(service, btpUsecase)
 
                 if (status == "delete failed"):

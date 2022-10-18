@@ -268,8 +268,9 @@ def create_cf_cup_service(btpUsecase, service):
 def get_cf_service_status(btpUsecase, service):
     instance_name = service.instancename
 
+    message = "Get creation status for service instance >" + instance_name + "<"
     command = "cf service '" + instance_name + "'"
-    p = runShellCommand(btpUsecase, command, "CHECK", None)
+    p = runShellCommand(btpUsecase, command, "CHECK", message)
     result = p.stdout.decode()
 
     service_broker = getKeyFromCFOutput(result, "broker")
@@ -280,7 +281,10 @@ def get_cf_service_status(btpUsecase, service):
 def get_cf_service_deletion_status(btpUsecase, service):
     instance_name = service["instancename"]
     command = "cf service '" + instance_name + "'"
-    p = runShellCommandFlex(btpUsecase, command, "CHECK", None, False, False)
+    message = "Get deletion status for service instance >" + instance_name + "<"
+
+    p = runShellCommandFlex(btpUsecase, command,
+                            "CHECK", message, False, False)
     result = p.stdout.decode()
     if "delete failed" in result:
         return "delete failed"
