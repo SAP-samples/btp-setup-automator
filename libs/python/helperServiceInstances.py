@@ -12,7 +12,7 @@ import logging
 log = logging.getLogger(__name__)
 
 
-def checkIfAllServiceInstancesCreated(btpUsecase):
+def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
 
     cloudfoundryServices = []
     kubernetesServices = []
@@ -138,7 +138,7 @@ def checkIfAllServiceInstancesCreated(btpUsecase):
                             service.statusResponse = getStatusResponseFromCreatedInstanceGen(
                                 btpUsecase, instancename, service)
     if allServicesCreated is False:
-        log.info("Not all service instances are available yet")
+        log.info("Not all service instances are available yet. Checking again in " + str(checkIntervalInSeconds) + " seconds")
         
     return allServicesCreated
 

@@ -1186,9 +1186,11 @@ def track_creation_of_subscriptions_and_services(btpUsecase: BTPUSECASE):
         areAllInstancesCreated = True
         areAllSubscriptionsCreated = True
 
+        search_every_x_seconds = determineTimeToFetchStatusUpdates(btpUsecase)
+
         if len(btpUsecase.definedServices) > 0:
             areAllInstancesCreated = checkIfAllServiceInstancesCreated(
-                btpUsecase)
+                btpUsecase, search_every_x_seconds)
 
         if len(btpUsecase.definedAppSubscriptions) > 0:
             areAllSubscriptionsCreated = checkIfAllSubscriptionsAreAvailable(
@@ -1200,7 +1202,6 @@ def track_creation_of_subscriptions_and_services(btpUsecase: BTPUSECASE):
             accountMetadata = addCreatedServicesToMetadata(btpUsecase)
             return accountMetadata
 
-        search_every_x_seconds = determineTimeToFetchStatusUpdates(btpUsecase)
         time.sleep(search_every_x_seconds)
         current_time += search_every_x_seconds
 
@@ -1386,7 +1387,7 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                         "service instance >" + service["instancename"] + "< for service >" + service["name"] + "< now deleted.")
                     service["deletionStatus"] = "deleted"
                 else:
-                    log.info("service instance >" + service["instancename"] + "< for service >" + service["name"] + "< not yet deleted.")
+                    log.info("service instance >" + service["instancename"] + "< for service >" + service["name"] + "< not yet deleted. Trying it again in " + str(search_every_x_seconds) + " seconds.")
                     service["deletionStatus"] = status
                     
             time.sleep(search_every_x_seconds)
