@@ -27,7 +27,7 @@ def create_kyma_service(btpUsecase, service):
 
     return service
 
-    
+
 def createKymaServiceBinding(btpUsecase, service, keyName):
     filepath = "logs/k8s/service-binding/service-binding-" + \
         btpUsecase.accountMetadata.get("subaccountid") + ".yaml"
@@ -130,11 +130,13 @@ def getKymaEnvironmentIdByClusterName(environmentData, kymaClusterName):
 
 
 def get_kyma_service_status(btpUsecase, service):
+
     command = "kubectl get ServiceInstance " + service.instanceName + " -n " + \
         btpUsecase.k8snamespace + " --kubeconfig " + \
         btpUsecase.kubeconfigpath + " | jq .status.ready"
-
-    p = runShellCommand(btpUsecase, command, "INFO", None)
+    message = "Get creation status for service instance >" + service.instanceName + "<"
+   
+    p = runShellCommand(btpUsecase, command, "INFO", message)
 
     if p.stdout.decode() == "TRUE":
         return "create succeeded"
@@ -158,7 +160,9 @@ def getKymaServiceDeletionStatus(service, btpUsecase):
     command = "kubectl get ServiceInstance " + \
         service["instancename"] + " -n " + btpUsecase.k8snamespace + \
         " --kubeconfig " + btpUsecase.kubeconfigpath
-    p = runShellCommandFlex(btpUsecase, command, "CHECK", None, False, False)
+    message = "Get deletion status for service instance >" + service["instancename"] + "<"
+
+    p = runShellCommandFlex(btpUsecase, command, "CHECK", message, False, False)
     output = p.stdout.decode()
     err = p.stderr.decode()
     if output == "" and "NotFound" in err:
