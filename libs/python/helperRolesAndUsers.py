@@ -218,10 +218,27 @@ def assignUsersToCustomRoleCollections(btpUsecase):
                     message = "Assign role collection >" + rolecollectioname
                     command = "btp create security/role-collection '" + rolecollectioname + "' --description  '" + rolecollectioname + "' --subaccount '" + subaccountid + "'"
                     runShellCommand(btpUsecase, command, "INFO", message)
+
+                    if rolecollection["roles"]:
+                        # Get role data from btp for subaccount
+                        command = "list security/role --subaccount '" + subaccountid + "'"
+                        roleSecDataJson = runCommandAndGetJsonResult(btpUsecase, command, "INFO", "Get roles for subaccount")
+
                     for role in rolecollection["roles"]:
                         message = "Assign role " + role["name"] + " to role collection " + rolecollectioname
+
+                        roleAppId = None
+                        roleTemplate = None
+
+                        # Fetch additional role data from roleSecDataJson
+                        for roleSecData in roleSecDataJson:
+                            if roleSecData["name"] == role["name"]:
+                                roleAppId = roleSecData["id"]
+                                roleTemplate = roleSecData["templaate"]
+                                break
+
                         command = "btp add security/role '" + role["name"] + "' --to-role-collection  '" + rolecollectioname + \
-                            "' --of-role-template '" + role["roletemplate"] + "' --of-app '" + role["app"] + "' --subaccount '" + subaccountid + "'"
+                            "' --of-role-template '" + roleTemplate + "' --of-app '" + roleAppId + "' --subaccount '" + subaccountid + "'"
                         p = runShellCommandFlex(btpUsecase, command, "INFO", message, False, False)
                         resultErr = p.stderr.decode()
                         resultSuc = p.stdout.decode()
