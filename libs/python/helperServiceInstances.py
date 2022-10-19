@@ -138,7 +138,7 @@ def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
                             service.statusResponse = getStatusResponseFromCreatedInstanceGen(
                                 btpUsecase, instancename, service)
     if allServicesCreated is False:
-        log.info("Not all service instances are available yet. Checking again in " + str(checkIntervalInSeconds) + " seconds")
+        log.info("Not all service instances are available yet. Checking again in " + str(checkIntervalInSeconds) + " seconds.")
         
     return allServicesCreated
 
