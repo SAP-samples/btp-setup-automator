@@ -232,12 +232,16 @@ def assignUsersToCustomRoleCollections(btpUsecase):
 
                         # Fetch additional role data from roleSecDataJson
                         for roleSecData in roleSecDataJson:
-                            if roleSecData["name"] == role["name"]:
+                            if roleSecData["name"] == role:
                                 roleAppId = roleSecData["id"]
                                 roleTemplate = roleSecData["templaate"]
                                 break
 
-                        command = "btp add security/role '" + role["name"] + "' --to-role-collection  '" + rolecollectioname + \
+                        if roleAppId is None or roleTemplate is None:
+                            log.error("Could not find role data for role " + role)
+                            break
+
+                        command = "btp add security/role '" + role + "' --to-role-collection  '" + rolecollectioname + \
                             "' --of-role-template '" + roleTemplate + "' --of-app '" + roleAppId + "' --subaccount '" + subaccountid + "'"
                         p = runShellCommandFlex(btpUsecase, command, "INFO", message, False, False)
                         resultErr = p.stderr.decode()
