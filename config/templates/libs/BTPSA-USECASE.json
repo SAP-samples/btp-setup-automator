@@ -320,7 +320,16 @@
                     },
                     "assignedUserGroupsFromParameterFile": {
                         "type": "array"
-                    }
+                    },
+                    "assignedRoles":{
+                        "type": "array",
+                        "description": "roles to be assigned to a custom role collection",
+                        "title": "roles for custom role collection",
+                        "additionalProperties": false,
+                        "items": {
+                            "type": "string"
+                        }
+                    } 
                 }
             }
         }

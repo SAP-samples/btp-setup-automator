@@ -218,15 +218,39 @@ def assignUsersToCustomRoleCollections(btpUsecase):
                     message = "Assign role collection >" + rolecollectioname
                     command = "btp create security/role-collection '" + rolecollectioname + "' --description  '" + rolecollectioname + "' --subaccount '" + subaccountid + "'"
                     runShellCommand(btpUsecase, command, "INFO", message)
-                    for role in rolecollection["roles"]:
-                        message = "Assign role " + role["name"] + " to role collection " + rolecollectioname
-                        command = "btp add security/role '" + role["name"] + "' --to-role-collection  '" + rolecollectioname + \
-                            "' --of-role-template '" + role["roletemplate"] + "' --of-app '" + role["app"] + "' --subaccount '" + subaccountid + "'"
+
+                    if rolecollection["assignedRoles"]:
+                        # Get role data from btp for subaccount
+                        command = "btp --format json list security/role --subaccount '" + subaccountid + "'"
+                        roleSecDataJson = runCommandAndGetJsonResult(btpUsecase, command, "INFO", "Get roles for subaccount")
+
+                    for role in rolecollection["assignedRoles"]:
+                        message = "Assign role " + role + " to role collection " + rolecollectioname
+
+                        roleAppId = None
+                        roleTemplate = None
+
+                        # Fetch additional role data from roleSecDataJson
+                        for roleSecData in roleSecDataJson:
+                            if roleSecData["name"] == role:
+                                roleAppId = roleSecData["roleTemplateAppId"]
+                                roleTemplate = roleSecData["roleTemplateName"]
+                                break
+
+                        if roleAppId is None or roleTemplate is None:
+                            log.error("Could not find role data for role " + role)
+                            break
+
+                        command = "btp add security/role '" + role + "' --to-role-collection  '" + rolecollectioname + \
+                            "' --of-role-template '" + roleTemplate + "' --of-app '" + roleAppId + "' --subaccount '" + subaccountid + "'"
                         p = runShellCommandFlex(btpUsecase, command, "INFO", message, False, False)
                         resultErr = p.stderr.decode()
                         resultSuc = p.stdout.decode()
-                        if resultErr:
-                            log.warning(resultErr)
+                        if resultErr and "OK" in resultErr:
+                            # An OK code is returned via STDERR???
+                            log.info(resultErr.strip())
+                        else:
+                            log.warn(resultErr)  
                         if resultSuc:
                             log.info(resultSuc)
 
