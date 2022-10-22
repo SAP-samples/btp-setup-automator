@@ -163,6 +163,15 @@
                 }
             }
         },
+        "cfLandscape":{
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "landscape of the Cloud Foundry environment to be used for your use case (e.g. cf-eu10-004)",
+            "title": "landscape of the CF environment for use case",
+            "default": null
+        },
         "iashost": {
             "type": [
                 "string",
