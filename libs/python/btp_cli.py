@@ -1387,9 +1387,10 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
                         "service instance >" + service["instancename"] + "< for service >" + service["name"] + "< now deleted.")
                     service["deletionStatus"] = "deleted"
                 else:
-                    log.info("service instance >" + service["instancename"] + "< for service >" + service["name"] + "< not yet deleted. Checking again in " + str(search_every_x_seconds) + " seconds.")
+                    log.info("service instance >" + service["instancename"] + "< for service >" + service["name"] +
+                             "< not yet deleted. Checking again in " + str(search_every_x_seconds) + " seconds.")
                     service["deletionStatus"] = status
-                    
+
             time.sleep(search_every_x_seconds)
             current_time += search_every_x_seconds
             allServicesDeleted = True
@@ -1497,9 +1498,14 @@ def selectEnvironmentLandscape(btpUsecase: BTPUSECASE, environment):
                 environmentType = item["environmentType"]
                 if "landscapeLabel" not in item:
                     return None
-                # Simply take the first landscape that is found, matching the environment and the plan
                 if environment.plan == servicePlan and environment.name == environmentType:
-                    return item["landscapeLabel"]
+                    if btpUsecase.cfLandscape is None:
+                        # if no landscape was defined in parameters.json, take the first landscape that is found, matching the environment and the plan
+                        return item["landscapeLabel"]
+                    elif btpUsecase.cfLandscape is not None and btpUsecase.cfLandscape == item["landscapeLabel"]:
+                        # if landscape was defined in parameters.json, take the entry matching the environment, plan and landsacpe
+                        return item["landscapeLabel"]
+
         time.sleep(search_every_x_seconds)
         current_time += search_every_x_seconds
 
