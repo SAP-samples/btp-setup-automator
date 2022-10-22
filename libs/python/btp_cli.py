@@ -1499,10 +1499,10 @@ def selectEnvironmentLandscape(btpUsecase: BTPUSECASE, environment):
                 if "landscapeLabel" not in item:
                     return None
                 if environment.plan == servicePlan and environment.name == environmentType:
-                    if btpUsecase.landscape is None:
+                    if btpUsecase.cfLandscape is None:
                         # if no landscape was defined in parameters.json, take the first landscape that is found, matching the environment and the plan
                         return item["landscapeLabel"]
-                    elif btpUsecase.landscape is not None and btpUsecase.landscape == item["landscapeLabel"]:
+                    elif btpUsecase.cfLandscape is not None and btpUsecase.cfLandscape == item["landscapeLabel"]:
                         # if landscape was defined in parameters.json, take the entry matching the environment, plan and landsacpe
                         return item["landscapeLabel"]
 
