@@ -54,8 +54,6 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-      #HACKHACKHACK: The image path in the next step cannot be dynamically fetched due to context visibility (env not visible)
-      # We therefore use the output parameters which can be referenced via needs
       - id: set-image-path
         name: Set image path to output
         run: echo "image_path=${{ fromJSON(steps.dockerbuild.outputs.metadata)['image.name'] }}" >> $GITHUB_OUTPUT
