@@ -115,7 +115,7 @@ class BTPUSECASE:
 
     def create_directory(self):
        
-        if self.createdirectory is False:
+        if self.usedirectory is False:
             # Do not create a directory for the use case
             return
 
@@ -290,7 +290,8 @@ class BTPUSECASE:
         self.accountMetadata = addKeyValuePair(
             accountMetadata, "subaccountid", subaccountid)
 
-        directoryid = accountMetadata["directoryid"]    
+        if self.usedirectory is True:
+            directoryid = accountMetadata["directoryid"]    
 
         if "subaccountid" not in accountMetadata or accountMetadata["subaccountid"] == "" or accountMetadata["subaccountid"] is None:
 
