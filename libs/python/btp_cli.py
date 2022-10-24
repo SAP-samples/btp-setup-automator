@@ -114,7 +114,7 @@ class BTPUSECASE:
                 log.success("Use case supported in your global account!")
 
     def create_directory(self):
-       
+
         if self.usedirectory is False:
             # Do not create a directory for the use case
             return
@@ -128,11 +128,11 @@ class BTPUSECASE:
 
             log.warning(
                 "no directory id provided and tool will make up one for you")
-            
+
             directory = createDirectoryName(self)
-            
+
             log.success("using directory name >" + directory + "<")
-            
+
             globalAccount = self.globalaccount
 
             log.header("Create directory >" + directory +
@@ -188,7 +188,7 @@ class BTPUSECASE:
                     self.accountMetadata = addKeyValuePair(
                         accountMetadata, "directory", result["displayName"])
 
-        save_collected_metadata(self)        
+        save_collected_metadata(self)
 
     def assignUsersToSubaccountAndRoles(self):
         assignUsersToGlobalAndSubaccount(self)
@@ -292,7 +292,7 @@ class BTPUSECASE:
 
         directoryid = None
         if self.usedirectory is True:
-            directoryid = accountMetadata["directoryid"]    
+            directoryid = accountMetadata["directoryid"]
 
         if "subaccountid" not in accountMetadata or accountMetadata["subaccountid"] == "" or accountMetadata["subaccountid"] is None:
 
@@ -941,7 +941,7 @@ def checkIfDirectoryAlreadyExists(btpUsecase: BTPUSECASE):
             for entry in result["children"]:
                 if entry["displayName"] == directoryName:
                     return entry["guid"]
-            
+
     # We did not find anything, so return None
     return None
 
