@@ -72,7 +72,7 @@ def createDirectoryName(btpUsecase):
     if btpUsecase.directoryname is not None and btpUsecase.directoryname != "":
         result = btpUsecase.directoryname.strip()
     else:
-        result = "BTP setup automator (" + btpUsecase.directoryname + ")"
+        result = "BTP setup automator (Directory)"
 
     btpUsecase.accountMetadata = addKeyValuePair(
         btpUsecase.accountMetadata, "directory", result)

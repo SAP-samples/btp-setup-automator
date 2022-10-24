@@ -158,7 +158,7 @@ class BTPUSECASE:
                 command = "btp --format json get accounts/directory '" + \
                     directoryid + "' --global-account '" + globalAccount + "'"
                 result = try_until_done(
-                    self, command, message, "state", "OK", self.repeatstatusrequest, 100)
+                    self, command, message, "entityState", "OK", self.repeatstatusrequest, 100)
                 if result == "ERROR":
                     log.error("Something went wrong while waiting for the directory >" +
                               directory + "< with id >" + directoryid + "<")
@@ -176,17 +176,17 @@ class BTPUSECASE:
         else:
             log.header("USING CONFIGURED DIRECTORY WITH ID >" +
                        self.directoryid + "<")
-            if self.directory and self.rundefaulttests is False:
+            if self.directoryname and self.rundefaulttests is False:
                 self.accountMetadata = addKeyValuePair(
-                    accountMetadata, "directory", self.directory)
+                    accountMetadata, "directory", self.directoryname)
             else:
-                if self.directory:
+                if self.directoryname:
                     self.accountMetadata = addKeyValuePair(
-                        accountMetadata, "directory", self.directory)
+                        accountMetadata, "directory", self.directoryname)
                 else:
                     result = getDetailsAboutDirectory(self, self.directoryid)
                     self.accountMetadata = addKeyValuePair(
-                        accountMetadata, "directory", result["directory"])
+                        accountMetadata, "directory", result["displayName"])
 
         save_collected_metadata(self)        
 
@@ -935,13 +935,13 @@ def checkIfDirectoryAlreadyExists(btpUsecase: BTPUSECASE):
     if "directory" in accountMetadata:
         directoryName = accountMetadata["directory"]
 
-        for entry in result["value"]:
-            if entry["displayName"] == directoryName:
-                return entry["guid"]
-        # If the for loop didn't return any value, the directory wasn't found
-        return None
-    else:
-        return None
+        if result["children"]:
+            for entry in result["children"]:
+                if entry["displayName"] == directoryName:
+                    return entry["guid"]
+            
+    # We did not find anything, so return None
+    return None
 
 
 def getListOfAvailableServicesAndApps(btpUsecase: BTPUSECASE):
