@@ -290,6 +290,7 @@ class BTPUSECASE:
         self.accountMetadata = addKeyValuePair(
             accountMetadata, "subaccountid", subaccountid)
 
+        directoryid = None
         if self.usedirectory is True:
             directoryid = accountMetadata["directoryid"]    
 
