@@ -1,0 +1,34 @@
+name: Generate Parameter Documentation
+# Based on the JSON schemas available for the parameter.json and usecase.json we generate the documentation as markdown
+
+on:
+  workflow_dispatch:
+
+jobs:
+    generate-param-docu:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout repository
+            uses: actions/checkout@v3
+          
+          - name: Setup Node.js
+            uses: actions/setup-node@v3
+            with:
+              node-version: '18'
+
+          - name: Install jsonschema2md
+            run: npm install -g jsonschema2md
+
+          - name: Clear output folder
+            run: rm -rf docs/generated/*
+
+          - name: Generate documentation
+            run: jsonschema2md -d "docs/" -o "docs/generated/" -e json -v 07 -h false  -x -
+
+          - name: Commit and push changes
+            run: |
+              git add -A
+              git config user.email "btpsabot@users.noreply.github.com"
+              git config user.name "[btpsa bot] docu generation"
+              git diff --quiet && git diff --staged --quiet || git commit -m "[bot] Add dev.to link to metadata"
+              git push origin main           
