@@ -23,7 +23,7 @@ jobs:
             run: rm -rf docs/generated/*
 
           - name: Generate documentation
-            run: jsonschema2md -d "docs/" -o "docs/generated/" -e json -v 07 -h false  -x -
+            run: jsonschema2md -d "libs/" -o "docs/generated/" -e json -v 07 -h false  -x -
 
           - name: Commit and push changes
             run: |
