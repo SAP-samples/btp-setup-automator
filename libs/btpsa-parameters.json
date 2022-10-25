@@ -50,6 +50,30 @@
             "description": "region for the SAP BTP Kyma runtime cluster. This parameter is used as default for Kyma cluster creation. Override via usecase.json possible",
             "title": "region for SAP BTP Kyma runtime cluster"
         },
+        "usedirectory": {
+            "type": "boolean",
+            "description": "Should the tool create/use a directory for the subaccount?",
+            "title": "Trigger creation/usage of a directory for the subaccount?",
+            "default": false
+        },
+        "directoryid": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "id of the directory that should be used",
+            "title": "directory id in SAP BTP global account",
+            "default": null
+        },
+        "directoryname": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "name of your directory in case you want to define a specific name for it",
+            "title": "directory name for use case",
+            "default": null
+        },
         "subaccountid": {
             "type": "string",
             "description": "id of your sub account that should be used",

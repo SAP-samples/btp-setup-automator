@@ -6,7 +6,7 @@ from libs.python.helperBtpTrust import runTrustFlow
 from libs.python.helperCommandExecution import executeCommandsFromUsecaseFile, runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex, login_btp, login_cf
 from libs.python.helperEnvCF import checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, getCfApiEndpointByUseCase, getCfApiEndpointFromLabels, try_until_cf_space_done, try_until_space_quota_created
 from libs.python.helperServiceInstances import createServiceKey, deleteServiceInstance, deleteServiceKeysAndWait, getServiceDeletionStatus, initiateCreationOfServiceInstances, checkIfAllServiceInstancesCreated
-from libs.python.helperGeneric import buildUrltoSubaccount, getNamingPatternForServiceSuffix, createSubaccountName, createSubdomainID, createOrgName, save_collected_metadata
+from libs.python.helperGeneric import buildUrltoSubaccount, getNamingPatternForServiceSuffix, createDirectoryName, createSubaccountName, createSubdomainID, createOrgName, save_collected_metadata
 from libs.python.helperFileAccess import writeKubeConfigFileToDefaultDir
 from libs.python.helperEnvKyma import extractKymaDashboardUrlFromEnvironmentDataEntry, getKymaEnvironmentInfoByClusterName, getKymaEnvironmentStatusFromEnvironmentDataEntry, extractKymaKubeConfigUrlFromEnvironmentDataEntry, getKymaEnvironmentIdByClusterName
 
@@ -113,6 +113,83 @@ class BTPUSECASE:
             else:
                 log.success("Use case supported in your global account!")
 
+    def create_directory(self):
+
+        if self.usedirectory is False:
+            # Do not create a directory for the use case
+            return
+
+        accountMetadata = self.accountMetadata
+        directoryid = self.directoryid
+        self.accountMetadata = addKeyValuePair(
+            accountMetadata, "directoryid", directoryid)
+
+        if "directoryid" not in accountMetadata or accountMetadata["directoryid"] == "" or accountMetadata["directoryid"] is None:
+
+            log.warning(
+                "no directory id provided and tool will make up one for you")
+
+            directory = createDirectoryName(self)
+
+            log.success("using directory name >" + directory + "<")
+
+            globalAccount = self.globalaccount
+
+            log.header("Create directory >" + directory +
+                       "< (if not already existing)")
+
+            directoryid = checkIfDirectoryAlreadyExists(self)
+
+            globalAccount = self.globalaccount
+
+            if directoryid is None:
+                command = "btp --format json create accounts/directory  \
+                    --display-name '" + directory + "' \
+                    --global-account '" + globalAccount + "'"
+
+                message = "Create directory >" + directory + "<"
+
+                result = runCommandAndGetJsonResult(
+                    self, command, "INFO", message)
+
+                directoryid = result["guid"]
+
+                # Wait until the directory has been created
+                command = "btp --format json get accounts/directory '" + \
+                    directoryid + "' --global-account '" + globalAccount + "'"
+                result = try_until_done(
+                    self, command, message, "entityState", "OK", self.repeatstatusrequest, 100)
+                if result == "ERROR":
+                    log.error("Something went wrong while waiting for the directory >" +
+                              directory + "< with id >" + directoryid + "<")
+
+                log.success("created directory >" + directory +
+                            "< with id >" + directoryid + "<")
+            else:
+                log.success("directory >" + directory +
+                            "< already exists with id >" + directoryid + "<")
+                self.directoryid = directoryid
+
+            self.accountMetadata = addKeyValuePair(
+                accountMetadata, "directoryid", directoryid)
+            self.directoryid = directoryid
+        else:
+            log.header("USING CONFIGURED DIRECTORY WITH ID >" +
+                       self.directoryid + "<")
+            if self.directoryname and self.rundefaulttests is False:
+                self.accountMetadata = addKeyValuePair(
+                    accountMetadata, "directory", self.directoryname)
+            else:
+                if self.directoryname:
+                    self.accountMetadata = addKeyValuePair(
+                        accountMetadata, "directory", self.directoryname)
+                else:
+                    result = getDetailsAboutDirectory(self, self.directoryid)
+                    self.accountMetadata = addKeyValuePair(
+                        accountMetadata, "directory", result["displayName"])
+
+        save_collected_metadata(self)
+
     def assignUsersToSubaccountAndRoles(self):
         assignUsersToGlobalAndSubaccount(self)
         assignUsersToEnvironments(self)
@@ -213,6 +290,10 @@ class BTPUSECASE:
         self.accountMetadata = addKeyValuePair(
             accountMetadata, "subaccountid", subaccountid)
 
+        directoryid = None
+        if self.usedirectory is True:
+            directoryid = accountMetadata["directoryid"]
+
         if "subaccountid" not in accountMetadata or accountMetadata["subaccountid"] == "" or accountMetadata["subaccountid"] is None:
 
             log.warning(
@@ -241,6 +322,11 @@ class BTPUSECASE:
                     --subaccount-admins '" + subaccountadmins + "'"
 
                 message = "Create sub account >" + subaccount + "<"
+
+                if directoryid is not None and directoryid != "":
+                    command = command + " --directory '" + directoryid + "'"
+                    message = message + " in directory >" + directoryid + "<"
+
                 result = runCommandAndGetJsonResult(
                     self, command, "INFO", message)
 
@@ -841,6 +927,25 @@ def checkIfSubaccountAlreadyExists(btpUsecase: BTPUSECASE):
         return None
 
 
+def checkIfDirectoryAlreadyExists(btpUsecase: BTPUSECASE):
+    accountMetadata = btpUsecase.accountMetadata
+
+    command = "btp --format json get accounts/global-account --global-account '" + \
+        btpUsecase.globalaccount + "' --show-hierarchy"
+    result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", None)
+
+    if "directory" in accountMetadata:
+        directoryName = accountMetadata["directory"]
+
+        if result["children"]:
+            for entry in result["children"]:
+                if entry["displayName"] == directoryName:
+                    return entry["guid"]
+
+    # We did not find anything, so return None
+    return None
+
+
 def getListOfAvailableServicesAndApps(btpUsecase: BTPUSECASE):
     globalaccount = btpUsecase.globalaccount
     usecaseRegion = btpUsecase.region
@@ -900,6 +1005,13 @@ def get_globalaccount_details(btpUsecase: BTPUSECASE):
     metadata = addKeyValuePair(metadata, "commercialModel", commercial_model)
 
     return metadata
+
+
+def getDetailsAboutDirectory(btpUsecase: BTPUSECASE, directoryid):
+    command = "btp --format json get accounts/directory '" + \
+        directoryid + "' --global-account '" + btpUsecase.globalaccount + "'"
+    result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", None)
+    return result
 
 
 def getDetailsAboutSubaccount(btpUsecase: BTPUSECASE, subaccountid):

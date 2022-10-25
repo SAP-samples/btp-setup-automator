@@ -67,6 +67,19 @@ def getNamingPatternForIdsNEW(btpUsecase):
     return result
 
 
+def createDirectoryName(btpUsecase):
+    result = None
+    if btpUsecase.directoryname is not None and btpUsecase.directoryname != "":
+        result = btpUsecase.directoryname.strip()
+    else:
+        result = "BTP setup automator (Directory)"
+
+    btpUsecase.accountMetadata = addKeyValuePair(
+        btpUsecase.accountMetadata, "directory", result)
+
+    return result
+
+
 def createSubaccountName(btpUsecase):
     result = None
     if btpUsecase.subaccountname is not None and btpUsecase.subaccountname != "":
