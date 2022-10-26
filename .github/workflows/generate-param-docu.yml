@@ -17,7 +17,7 @@ jobs:
               node-version: '18'
 
           - name: Install jsonschema2md
-            run: npm install -g jsonschema2md
+            run: npm install -g  @adobe/jsonschema2md
 
           - name: Create/Clear output folder
             run: |
