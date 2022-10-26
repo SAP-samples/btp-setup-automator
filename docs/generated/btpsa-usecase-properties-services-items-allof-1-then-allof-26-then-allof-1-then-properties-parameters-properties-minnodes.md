@@ -1,0 +1,3 @@
+## minNodes Type
+
+`string`

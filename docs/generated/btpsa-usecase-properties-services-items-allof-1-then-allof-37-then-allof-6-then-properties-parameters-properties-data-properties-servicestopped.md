@@ -1,0 +1,3 @@
+## serviceStopped Type
+
+`boolean`

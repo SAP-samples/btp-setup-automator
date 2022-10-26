@@ -1,0 +1,3 @@
+## vpcCIDR Type
+
+`string`

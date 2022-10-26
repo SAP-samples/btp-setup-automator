@@ -1,0 +1,3 @@
+## hibernationSchedules Type
+
+`string`

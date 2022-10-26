@@ -1,0 +1,3 @@
+## tenantName Type
+
+`string`

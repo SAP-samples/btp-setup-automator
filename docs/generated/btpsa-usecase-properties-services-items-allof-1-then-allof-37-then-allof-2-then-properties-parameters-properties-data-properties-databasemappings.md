@@ -1,0 +1,3 @@
+## databaseMappings Type
+
+unknown
