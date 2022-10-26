@@ -11,38 +11,43 @@ jobs:
           - name: Checkout repository
             uses: actions/checkout@v3
           
-          - name: Setup Node.js
-            uses: actions/setup-node@v3
-            with:
-              node-version: '18'
+         # - name: Setup Node.js
+         #   uses: actions/setup-node@v3
+         #   with:
+         #     node-version: '18'
 
-          - name: Install jsonschema2md
-            run: npm install -g  @adobe/jsonschema2md
+         # - name: Install jsonschema2md
+         #   run: npm install -g @adobe/jsonschema2md
 
-          - name: Create/Clear output folder
-            run: |
-              mkdir -p docs/generated/
-              rm -rf docs/generated/*
+         # - name: Create/Clear output folder
+         #   run: |
+         #     mkdir -p docs/generated/
+         #     rm -rf docs/generated/*
 
           - name: Copy base files to output folder
             run: |
-              cp libs/btpsa-parameters.json docs/generated/
-              cp libs/btpsa-usecases.json docs/generated/
+              ls -la
 
-          - name: Generate documentation
-            run: jsonschema2md -d "docs/generated/" -o "docs/generated/" -e json -v 07 -h false  -x -
+#          - name: Copy base files to output folder
+#            run: |
+#              ls -la
+#              cp libs/btpsa-parameters.json docs/generated/
+#              cp libs/btpsa-usecases.json docs/generated/
 
-          - name: Remove base files from output folder
-            # remove the source files as well as the generated main README.md
-            run: |
-              rm docs/generated/btpsa-parameters.json
-              rm docs/generated/btpsa-usecases.json
-              rm docs/generated/README.md
-          
-          - name: Commit and push changes
-            run: |
-              git add -A
-              git config user.email "btpsabot@users.noreply.github.com"
-              git config user.name "[btpsa bot] docu generation"
-              git diff --quiet && git diff --staged --quiet || git commit -m "[btpsabot] Generate parameter documentation"
-              git push           
+          #- name: Generate documentation
+          #  run: jsonschema2md -d "docs/generated/" -o "docs/generated/" -e json -v 07 -h false  -x -
+#
+          #- name: Remove base files from output folder
+          #  # remove the source files as well as the generated main README.md
+          #  run: |
+          #    rm docs/generated/btpsa-parameters.json
+          #    rm docs/generated/btpsa-usecases.json
+          #    rm docs/generated/README.md
+          #
+          #- name: Commit and push changes
+          #  run: |
+          #    git add -A
+          #    git config user.email "btpsabot@users.noreply.github.com"
+          #    git config user.name "[btpsa bot] docu generation"
+          #    git diff --quiet && git diff --staged --quiet || git commit -m "[btpsabot] Generate parameter documentation"
+          #    git push           
