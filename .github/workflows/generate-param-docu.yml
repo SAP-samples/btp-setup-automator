@@ -37,7 +37,7 @@ jobs:
             # remove the source files as well as the generated main README.md
             run: |
               rm docs/generated/btpsa-parameters.json
-              rm docs/generated/btpsa-usecases.json
+              rm docs/generated/btpsa-usecase.json
               rm docs/generated/README.md
           
           - name: Commit and push changes
