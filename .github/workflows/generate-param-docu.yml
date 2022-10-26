@@ -1,5 +1,5 @@
 name: Generate Parameter Documentation
-# Based on the JSON schemas available for the parameter.json and usecase.json we generate the documentation as markdown
+# Based on the JSON schemas available for the parameters.json and usecase.json we generate the documentation as markdown
 
 on:
   workflow_dispatch:
