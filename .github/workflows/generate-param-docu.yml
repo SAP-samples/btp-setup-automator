@@ -33,9 +33,11 @@ jobs:
             run: jsonschema2md -d "docs/generated/" -o "docs/generated/" -e json -v 07 -h false  -x -
 
           - name: Remove base files from output folder
+            # remove the source files as well as the generated main README.md
             run: |
               rm docs/generated/btpsa-parameters.json
               rm docs/generated/btpsa-usecases.json
+              rm docs/generated/README.md
           
           - name: Commit and push changes
             run: |

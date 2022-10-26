@@ -8,53 +8,114 @@
         "$schema": {
             "type": "string"
         },
-        "myemail": {
+        "btpcliapihostregion": {
             "type": [
                 "string",
                 "null"
             ],
-            "description": "Email address you use to access your SAP BTP account",
-            "title": "Your email address",
-            "default": null,
-            "format": "email"
+            "description": "host region for the BTP CLI calls",
+            "title": "host region for the BTP CLI calls",
+            "default": "eu10"
         },
-        "globalaccount": {
+        "cfcliapihostregion": {
             "type": [
                 "string",
                 "null"
             ],
-            "description": "the 'subdomain id' of your SAP BTP global account (please check it in the SAP BTP cockpit)",
-            "title": "your SAP BTP global account",
+            "description": "host region for the Cloud Foundry CLI (normally the same as 'region'). In case of errors you might have to set this to e.g. 'eu10-004' (check CF API in your SAP BTP cockpit in the sub account and CF environment).",
+            "title": "host region for the Cloud Foundry CLI calls",
             "default": null
         },
-        "loginmethod": {
-            "type": "string",
-            "title": "login method to SAP BTP",
-            "description": "if set to sso, you'll need to open a link provided in a browser to login. Set to basicAuthentication (default) the script will ask if you want to provide username and password. If set to **envVariables** you need to provide the email address and password by setting the environment variable **BTPSA_PARAM_MYEMAIL** and **BTPSA_PARAM_MYPASSWORD**. In addition you can as well provide the global account through the environment variable **BTPSA_PARAM_GLOBALACCOUNT**. Like this: export BTPSA_PARAM_MYEMAIL=youremail@x.com",
-            "default": "basicAuthentication",
-            "enum": [
-                "basicAuthentication",
-                "sso",
-                "envVariables"
-            ]
+        "cfLandscape":{
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "landscape of the Cloud Foundry environment to be used for your use case (e.g. cf-eu10-004)",
+            "title": "landscape of the CF environment for use case",
+            "default": null
         },
-        "region": {
-            "type": "string",
-            "description": "region for the SAP BTP sub account that should be used for the use case",
-            "title": "region for SAP BTP subaccount",
-            "default": "us10",
-            "enum": ["ae1","ap1","ap10","ap11","ap12","ap2","ap20","ap21","br1","br10","ca1","ca10","ca2","ch20","cn1","eu1","eu10","eu11","eu2","eu20","eu3","eu30","in30","jp1","jp10","jp20","sa1","us1","us10","us2","us20","us21","us3","us30","us4"]
+        "cfspacename": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "name for the Cloudfoundry space to be used for your use case",
+            "title": "name for the CF space",
+            "default": "development"
+        },
+        "cfspacequota": {
+            "type": "object",
+            "description": "space quota definition for the cf space",
+            "title": "CF space quota",
+            "additionalProperties": false,
+            "properties": {
+                "createQuotaPlan":{
+                    "type": "boolean",
+                    "description": "if set to true, a new quota plan will be created",
+                    "title": "create new quota plan",
+                    "default": false
+                },
+                "spaceQuotaAllowPaidServicePlans":{
+                    "type": "boolean",
+                    "description": "if set to true, paid service plans are allowed",
+                    "title": "allow paid service plans",
+                    "default": true
+                },
+                "spaceQuotaAppInstances": {
+                    "type": "integer",
+                    "description": "total number of application instances. -1 represents an unlimited amount.",
+                    "title": "total number of application instances",
+                    "default": -1
+                },
+                "spaceQuotaInstanceMemory": {
+                    "type": "string",
+                    "description": "instance memory limit for the quota plan",
+                    "title": "instance memory limit for quota plan",
+                    "default": "1024M"
+                },
+                "spaceQuotaName": {
+                    "type": "string",
+                    "description": "name of the quota plan to be created",
+                    "title": "name of the quota plan",
+                    "default": "development-quota"
+                },
+                "spaceQuotaReservedRoutePorts": {
+                    "type": "integer",
+                    "description": "maximum number of routes that may be created with reserved ports",
+                    "title": "maximum number of reserved routes",
+                    "default": 0
+                },
+                "spaceQuotaRoutes": {
+                    "type": "integer",
+                    "description": "total number of routes for the quota plan",
+                    "title": "total number of routes for quota plan",
+                    "default": 5
+                },
+                "spaceQuotaServiceInstances": {
+                    "type": "integer",
+                    "description": "total number of service instances for the quota plan",
+                    "title": "total number of service instances for quota plan",
+                    "default": 5
+                },
+                "spaceQuotaTotalMemory": {
+                    "type": "string",
+                    "description": "total memory limit for the quota plan",
+                    "title": "total memory limit for quota plan",
+                    "default": "2048M"
+                }
+            }
         },
         "clusterregion": {
             "type": "string",
             "description": "region for the SAP BTP Kyma runtime cluster. This parameter is used as default for Kyma cluster creation. Override via usecase.json possible",
             "title": "region for SAP BTP Kyma runtime cluster"
         },
-        "usedirectory": {
-            "type": "boolean",
-            "description": "Should the tool create/use a directory for the subaccount?",
-            "title": "Trigger creation/usage of a directory for the subaccount?",
-            "default": false
+        "customAppProviderSubaccountId": {
+            "type": "string",
+            "description": "id of provider sub account of custom app",
+            "title": "provider subaccount id of custom app on SAP BTP",
+            "default": null
         },
         "directoryid": {
             "type": [
@@ -73,6 +134,195 @@
             "description": "name of your directory in case you want to define a specific name for it",
             "title": "directory name for use case",
             "default": null
+        },
+        "envvariables": {
+            "type": "object",
+            "description": "list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`.",
+            "title": "list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`.",
+            "default": null
+        },
+        "fallbackserviceplan": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "if defined, the tool will use the defined name as fallback service plan, if the plan defined in the use case is not supported",
+            "title": "fallback service plan, if the plan defined in the use case is not supported",
+            "default": null
+        },
+        "globalaccount": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "the 'subdomain id' of your SAP BTP global account (please check it in the SAP BTP cockpit)",
+            "title": "your SAP BTP global account",
+            "default": null
+        },
+        "iashost": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "IAS host for your SAP BTP sub account in case you want to make use of it in your use case (create a service instance for service 'xsuaa' and plan 'apiaccess')",
+            "title": "IAS host for your SAP BTP sub account",
+            "default": null
+        },
+        "k8snamespace": {
+            "type": "string",
+            "description": "name for the Kubernetes namespace to be used for your use case",
+            "title": "name for the Kubernetes namespace",
+            "default": "default"
+        },
+        "kubeconfigpath": {
+            "type": "string",
+            "description": "path to kubeconfig file to be used for your use case",
+            "title": "path to kubeconfig file",
+            "default": ".kube/configsa"
+        },
+        "logcommands": {
+            "type": "boolean",
+            "description": "if set to True, the script will log all commands sent to the SAP BTP account. If set to False it won't",
+            "title": "log all commands sent to your SAP BTP account",
+            "default": true
+        },
+        "logfile": {
+            "type": "string",
+            "description": "file including all logged information",
+            "title": "log file",
+            "default": "log/script.log"
+        },
+        "loginmethod": {
+            "type": "string",
+            "title": "login method to SAP BTP",
+            "description": "if set to sso, you'll need to open a link provided in a browser to login. Set to basicAuthentication (default) the script will ask if you want to provide username and password. If set to **envVariables** you need to provide the email address and password by setting the environment variable **BTPSA_PARAM_MYEMAIL** and **BTPSA_PARAM_MYPASSWORD**. In addition you can as well provide the global account through the environment variable **BTPSA_PARAM_GLOBALACCOUNT**. Like this: export BTPSA_PARAM_MYEMAIL=youremail@x.com",
+            "default": "basicAuthentication",
+            "enum": [
+                "basicAuthentication",
+                "sso",
+                "envVariables"
+            ]
+        },
+        "metadatafile": {
+            "type": "string",
+            "description": "file for log information",
+            "title": "file for log information",
+            "default": "log/metadata_log.json"
+        },
+        "myemail": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "Email address you use to access your SAP BTP account",
+            "title": "Your email address",
+            "default": null,
+            "format": "email"
+        },
+        "mypassword": {
+            "type": "string",
+            "description": "password for the user of your SAP BTP account (USE WITH CARE!)",
+            "title": "password for the user of your SAP BTP account (USE WITH CARE!)",
+            "default": null
+        },
+        "myusergroups": {
+            "type": "array",
+            "description": "list of user groups to be used in btpsa",
+            "title": "list of user groups to be used in btpsa",
+            "default": null,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "name of this usergroup (not BTP specific)",
+                        "title": "name of this usergroup"
+                    },
+                    "members": {
+                        "type": "array",
+                        "description": "member of usergroup specified via email",
+                        "title": "member of usergroup",
+                        "items": {
+                            "type": "string",
+                            "format": "email"
+                        }
+                    }
+                }
+            }
+        },
+        "org": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "org name of the Cloud Foundry environment to be used for your use case",
+            "title": "org name of the CF environment for use case",
+            "default": null
+        },
+        "orgid": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "org id of the Cloudfoundry environment to be used for your use case",
+            "title": "org id of the CF environment for use case",
+            "default": null
+        },
+        "parameterfile": {
+            "type": "string",
+            "description": "file to deliver all parameters within a single json file",
+            "title": "parameters file for btp-setup-automator",
+            "default": "parameters.json"
+        },
+        "pollingIntervalForKymaCreationInMinutes": {
+            "type": "integer",
+            "description": "Polling interval in minutes when tool is waiting for the Kyma instance to be created",
+            "title": "Polling interval in minutes when tool is waiting for the Kyma instance to be created",
+            "default": 5
+        },
+        "pollingIntervalForKymaDeprovisioningInMinutes": {
+            "type": "integer",
+            "description": "Polling interval in minutes when tool is waiting for the Kyma instance to be deprovisioned/deleted",
+            "title": "Polling interval in minutes when tool is waiting for the Kyma instance to be deprovisioned/deleted",
+            "default": 5
+        },
+        "prunesubaccount": {
+            "type": "boolean",
+            "description": "if set to True: same like -pruneusecase, but on-top deletes the subaccount. USE WITH CARE!!!",
+            "title": "same like parameter 'pruneusecase', but on-top deletes the subaccount",
+            "default": false
+        },
+        "pruneusecase": {
+            "type": "boolean",
+            "description": "if set to True: deletes all assets of a usecase based on the collected info in the metadatafile. No confirmation message. USE WITH CARE!!!",
+            "title": "delete all assets of a usecase based on the collected info in the metadatafile",
+            "default": false
+        },        
+        "region": {
+            "type": "string",
+            "description": "region for the SAP BTP sub account that should be used for the use case",
+            "title": "region for SAP BTP subaccount",
+            "default": "us10",
+            "enum": ["ae1","ap1","ap10","ap11","ap12","ap2","ap20","ap21","br1","br10","ca1","ca10","ca2","ch20","cn1","eu1","eu10","eu11","eu2","eu20","eu3","eu30","in30","jp1","jp10","jp20","sa1","us1","us10","us2","us20","us21","us3","us30","us4"]
+        },
+        "repeatstatusrequest": {
+            "type": "integer",
+            "description": "time in seconds to wait after requesting status info (pulling)",
+            "title": "time in seconds to wait after requesting status info (pulling)",
+            "default": 4
+        },
+        "repeatstatustimeout": {
+            "type": "integer",
+            "description": "timeout in seconds after which requests should be stopped",
+            "title": "timeout in seconds after which requests should be stopped",
+            "default": 4200
+        },
+        "rundefaulttests": {
+            "type": "boolean",
+            "description": "switch to run default tests at the beginning of the script (INTERNAL USAGE)",
+            "title": "switch to run default tests at the beginning of the script",
+            "default": true
         },
         "subaccountid": {
             "type": "string",
@@ -98,119 +348,6 @@
             "title": "subdomain of sub account",
             "default": null
         },
-        "org": {
-            "type": [
-                "string",
-                "null"
-            ],
-            "description": "org name of the Cloudfroundy environment to be used for your use case",
-            "title": "org name of the CF environment for use case",
-            "default": null
-        },
-        "orgid": {
-            "type": [
-                "string",
-                "null"
-            ],
-            "description": "org id of the Cloudfoundry environment to be used for your use case",
-            "title": "org id of the CF environment for use case",
-            "default": null
-        },
-        "cfspacename": {
-            "type": [
-                "string",
-                "null"
-            ],
-            "description": "name for the Cloudfoundry space to be used for your use case",
-            "title": "name for the CF space",
-            "default": "development"
-        },
-        "cfspacequota": {
-            "type": "object",
-            "description": "space quota definition for the cf space",
-            "title": "CF space quota",
-            "additionalProperties": false,
-            "properties": {
-                "createQuotaPlan":{
-                    "type": "boolean",
-                    "description": "if set to true, a new quota plan will be created",
-                    "title": "create new quota plan",
-                    "default": false
-                },
-                "spaceQuotaName": {
-                    "type": "string",
-                    "description": "name of the quota plan to be created",
-                    "title": "name of the quota plan",
-                    "default": "development-quota"
-                },
-                "spaceQuotaInstanceMemory": {
-                    "type": "string",
-                    "description": "instance memory limit for the quota plan",
-                    "title": "instance memory limit for quota plan",
-                    "default": "1024M"
-                },
-                "spaceQuotaTotalMemory": {
-                    "type": "string",
-                    "description": "total memory limit for the quota plan",
-                    "title": "total memory limit for quota plan",
-                    "default": "2048M"
-                },
-                "spaceQuotaRoutes": {
-                    "type": "integer",
-                    "description": "total number of routes for the quota plan",
-                    "title": "total number of routes for quota plan",
-                    "default": 5
-                },
-                "spaceQuotaServiceInstances": {
-                    "type": "integer",
-                    "description": "total number of service instances for the quota plan",
-                    "title": "total number of service instances for quota plan",
-                    "default": 5
-                },
-                "spaceQuotaAppInstances": {
-                    "type": "integer",
-                    "description": "total number of application instances. -1 represents an unlimited amount.",
-                    "title": "total number of application instances",
-                    "default": -1
-                },
-                "spaceQuotaReservedRoutePorts": {
-                    "type": "integer",
-                    "description": "maximum number of routes that may be created with reserved ports",
-                    "title": "maximum number of reserved routes",
-                    "default": 0
-                },
-                "spaceQuotaAllowPaidServicePlans":{
-                    "type": "boolean",
-                    "description": "if set to true, paid service plans are allowed",
-                    "title": "allow paid service plans",
-                    "default": true
-                }
-            }
-        },
-        "cfLandscape":{
-            "type": [
-                "string",
-                "null"
-            ],
-            "description": "landscape of the Cloud Foundry environment to be used for your use case (e.g. cf-eu10-004)",
-            "title": "landscape of the CF environment for use case",
-            "default": null
-        },
-        "iashost": {
-            "type": [
-                "string",
-                "null"
-            ],
-            "description": "IAS host for your SAP BTP sub account in case you want to make use of it in your use case (create a service instance for service 'xsuaa' and plan 'apiaccess')",
-            "title": "IAS host for your SAP BTP sub account",
-            "default": null
-        },
-        "customAppProviderSubaccountId": {
-            "type": "string",
-            "description": "id of provider sub account of custom app",
-            "title": "provider subaccount id of custom app on SAP BTP",
-            "default": null
-        },
         "suffixinstancename": {
             "type": [
                 "string",
@@ -220,44 +357,11 @@
             "title": "suffix attached to each service instance created",
             "default": null
         },
-        "fallbackserviceplan": {
-            "type": [
-                "string",
-                "null"
-            ],
-            "description": "if defined, the tool will use the defined name as fallback service plan, if the plan defined in the use case is not supported",
-            "title": "fallback service plan, if the plan defined in the use case is not supported",
-            "default": null
-        },
-        "repeatstatusrequest": {
-            "type": "integer",
-            "description": "time in seconds to wait after requesting status info (pulling)",
-            "title": "time in seconds to wait after requesting status info (pulling)",
-            "default": 4
-        },
-        "repeatstatustimeout": {
-            "type": "integer",
-            "description": "timeout in seconds after which requests should be stopped",
-            "title": "timeout in seconds after which requests should be stopped",
-            "default": 4200
-        },
-        "waitForKymaEnvironmentCreation": {
-            "type": "boolean",
-            "description": "Should the tool wait for the creation of the Kyma environment",
-            "title": "Should the tool wait for the creation of the Kyma environment",
-            "default": true
-        },
         "timeoutLimitForKymaCreationInMinutes": {
             "type": "integer",
             "description": "Limit in minutes until the tool should wait for the Kyma instance to be created",
             "title": "Limit in minutes until the tool should wait for the Kyma instance to be created",
             "default": 40
-        },
-        "pollingIntervalForKymaCreationInMinutes": {
-            "type": "integer",
-            "description": "Polling interval in minutes when tool is waiting for the Kyma instance to be created",
-            "title": "Polling interval in minutes when tool is waiting for the Kyma instance to be created",
-            "default": 5
         },
         "timeoutLimitForKymaDeprovisioningInMinutes": {
             "type": "integer",
@@ -265,124 +369,23 @@
             "title": "Limit in minutes until the tool should wait for the Kyma instance to be deprovisioned/deleted",
             "default": 40
         },
-        "pollingIntervalForKymaDeprovisioningInMinutes": {
-            "type": "integer",
-            "description": "Polling interval in minutes when tool is waiting for the Kyma instance to be deprovisioned/deleted",
-            "title": "Polling interval in minutes when tool is waiting for the Kyma instance to be deprovisioned/deleted",
-            "default": 5
-        },
         "usecasefile": {
             "type": "string",
             "description": "file with usecase config",
             "title": "file with usecase config",
             "default": null
         },
-        "parameterfile": {
-            "type": "string",
-            "description": "file to deliver all parameters within a single json file",
-            "title": "parameters file for btp-setup-automator",
-            "default": "parameters.json"
-        },
-        "logfile": {
-            "type": "string",
-            "description": "file including all logged information",
-            "title": "log file",
-            "default": "log/script.log"
-        },
-        "metadatafile": {
-            "type": "string",
-            "description": "file for log information",
-            "title": "file for log information",
-            "default": "log/metadata_log.json"
-        },
-        "logcommands": {
+        "usedirectory": {
             "type": "boolean",
-            "description": "if set to True, the script will log all commands sent to the SAP BTP account. If set to False it won't",
-            "title": "log all commands sent to your SAP BTP account",
-            "default": true
-        },
-        "pruneusecase": {
-            "type": "boolean",
-            "description": "if set to True: deletes all assets of a usecase based on the collected info in the metadatafile. No confirmation message. USE WITH CARE!!!",
-            "title": "delete all assets of a usecase based on the collected info in the metadatafile",
+            "description": "Should the tool create/use a directory for the subaccount?",
+            "title": "Trigger creation/usage of a directory for the subaccount?",
             "default": false
         },
-        "prunesubaccount": {
+        "waitForKymaEnvironmentCreation": {
             "type": "boolean",
-            "description": "if set to True: same like -pruneusecase, but on-top deletes the subaccount. USE WITH CARE!!!",
-            "title": "same like parameter 'pruneusecase', but on-top deletes the subaccount",
-            "default": false
-        },
-        "mypassword": {
-            "type": "string",
-            "description": "password for the user of your SAP BTP account (USE WITH CARE!)",
-            "title": "password for the user of your SAP BTP account (USE WITH CARE!)",
-            "default": null
-        },
-        "cfcliapihostregion": {
-            "type": [
-                "string",
-                "null"
-            ],
-            "description": "host region for the Cloud Foundry CLI (normally the same as 'region'). In case of errors you might have to set this to e.g. 'eu10-004' (check CF API in your SAP BTP cockpit in the sub account and CF environment).",
-            "title": "host region for the Cloud Foundry CLI calls",
-            "default": null
-        },
-        "btpcliapihostregion": {
-            "type": [
-                "string",
-                "null"
-            ],
-            "description": "host region for the BTP CLI calls",
-            "title": "host region for the BTP CLI calls",
-            "default": "eu10"
-        },
-        "envvariables": {
-            "type": "object",
-            "description": "list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`.",
-            "title": "list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`.",
-            "default": null
-        },
-        "rundefaulttests": {
-            "type": "boolean",
-            "title": "switch to run default tests at the beginning of the script",
+            "description": "Should the tool wait for the creation of the Kyma environment",
+            "title": "Should the tool wait for the creation of the Kyma environment",
             "default": true
-        },
-        "myusergroups": {
-            "type": "array",
-            "description": "list of user groups to be used in btpsa",
-            "title": "list of user groups to be used in btpsa",
-            "default": null,
-            "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "description": "name of this usergroup (not BTP specific)",
-                        "title": "name of this usergroup "
-                    },
-                    "members": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "email"
-                        }
-                    }
-                }
-            }
-        },
-        "k8snamespace": {
-            "type": "string",
-            "description": "name for the Kubernetes namespace to be used for your use case",
-            "title": "name for the Kubernetes namespace",
-            "default": "default"
-        },
-        "kubeconfigpath": {
-            "type": "string",
-            "description": "path to kubeconfig file to be used for your use case",
-            "title": "path to kubeconfig file",
-            "default": ".kube/configsa"
         }
     },
     "required": ["loginmethod","usecasefile"],
