@@ -1,5 +1,5 @@
 name: Generate Parameter Documentation
-# Based on the JSON schemas available for the parameter.json and usecase.json we generate the documentation as markdown
+# Based on the JSON schemas available for the parameters.json and usecase.json we generate the documentation as markdown
 
 on:
   workflow_dispatch:
@@ -15,19 +15,20 @@ jobs:
             uses: actions/setup-node@v3
             with:
               node-version: '18'
-
+         
           - name: Install jsonschema2md
-            run: npm install -g jsonschema2md
-
+            run: npm install -g @adobe/jsonschema2md
+         
           - name: Create/Clear output folder
             run: |
               mkdir -p docs/generated/
               rm -rf docs/generated/*
 
+
           - name: Copy base files to output folder
             run: |
               cp libs/btpsa-parameters.json docs/generated/
-              cp libs/btpsa-usecases.json docs/generated/
+              cp libs/btpsa-usecase.json docs/generated/
 
           - name: Generate documentation
             run: jsonschema2md -d "docs/generated/" -o "docs/generated/" -e json -v 07 -h false  -x -
@@ -36,7 +37,7 @@ jobs:
             # remove the source files as well as the generated main README.md
             run: |
               rm docs/generated/btpsa-parameters.json
-              rm docs/generated/btpsa-usecases.json
+              rm docs/generated/btpsa-usecase.json
               rm docs/generated/README.md
           
           - name: Commit and push changes
@@ -44,5 +45,5 @@ jobs:
               git add -A
               git config user.email "btpsabot@users.noreply.github.com"
               git config user.name "[btpsa bot] docu generation"
-              git diff --quiet && git diff --staged --quiet || git commit -m "[bot] Add dev.to link to metadata"
-              git push origin main           
+              git diff --quiet && git diff --staged --quiet || git commit -m "[btpsa bot] Generate parameter documentation"
+              git push           

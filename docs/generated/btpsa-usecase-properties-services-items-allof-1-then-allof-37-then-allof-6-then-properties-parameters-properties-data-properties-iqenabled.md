@@ -1,0 +1,3 @@
+## iqEnabled Type
+
+`boolean`

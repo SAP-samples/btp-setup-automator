@@ -1,0 +1,3 @@
+## enableBackups Type
+
+`boolean`

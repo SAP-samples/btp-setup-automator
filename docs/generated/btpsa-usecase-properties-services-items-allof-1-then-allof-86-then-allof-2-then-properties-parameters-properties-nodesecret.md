@@ -1,0 +1,3 @@
+## nodeSecret Type
+
+`string`

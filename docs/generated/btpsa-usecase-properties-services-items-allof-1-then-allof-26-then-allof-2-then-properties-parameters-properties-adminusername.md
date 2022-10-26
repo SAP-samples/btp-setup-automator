@@ -1,0 +1,3 @@
+## adminUsername Type
+
+`string`

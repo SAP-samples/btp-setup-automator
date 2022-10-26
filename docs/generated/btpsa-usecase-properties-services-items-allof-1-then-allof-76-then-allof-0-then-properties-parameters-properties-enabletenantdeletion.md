@@ -1,0 +1,3 @@
+## enableTenantDeletion Type
+
+`boolean`

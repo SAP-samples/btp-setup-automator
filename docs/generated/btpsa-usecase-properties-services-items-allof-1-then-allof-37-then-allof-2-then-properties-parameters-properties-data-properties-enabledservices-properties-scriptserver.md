@@ -1,0 +1,3 @@
+## scriptserver Type
+
+`boolean`

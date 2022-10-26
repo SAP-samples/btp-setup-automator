@@ -1,0 +1,3 @@
+## initialReplicaAvailabilityZone Type
+
+`string`

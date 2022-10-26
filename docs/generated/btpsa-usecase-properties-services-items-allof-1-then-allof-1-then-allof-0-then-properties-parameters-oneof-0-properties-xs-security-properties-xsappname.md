@@ -1,0 +1,3 @@
+## xsappname Type
+
+`string`

@@ -1,0 +1,3 @@
+## 96 Type
+
+unknown

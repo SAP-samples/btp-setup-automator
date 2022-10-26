@@ -1,0 +1,3 @@
+## enode Type
+
+`string`
