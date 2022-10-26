@@ -25,38 +25,160 @@
             "properties": {
                 "id": {
                     "type": "string",
+                    "description": "ID of the service (internal use only)",
                     "title": "ID of the service (internal use only)",
                     "default": "1234"
                 },
                 "name": {
                     "type": "string",
+                    "description": "name of the use case",
                     "title": "name of the use case"
                 },
                 "description": {
                     "type": "string",
+                    "description": "description of the use case",
                     "title": "description of the use case"
                 },
                 "author": {
                     "type": "string",
+                    "description": "email of the author of this use case",
                     "title": "email of the author of this use case",
                     "format": "email"
                 },
                 "testStatus": {
                     "type": "string",
+                    "description": "test status of the use case",
                     "title": "test status of the use case",
                     "enum": ["tested successfully", "not tested"]
                 },
                 "usageStatus": {
                     "type": "string",
+                    "description": "usage status of the use case",
                     "title": "usage status of the use case",
                     "enum": ["READY TO BE USED", "NOT READY TO BE USED"]
                 },
                 "relatedLinks": {
                     "type": "array",
+                    "description": "links related to this use case",
                     "title": "links related to this use case"
                 }
             },
             "required": ["name", "author", "testStatus", "usageStatus"]
+        },
+        "assignrolecollections": {
+            "type": "array",
+            "description": "role collections to be assigned to a service",
+            "title": "role collections to be assigned to a service",
+            "additionalProperties": false,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["name", "type", "assignedUserGroupsFromParameterFile"],
+                "properties": {
+                    "assignedRoles":{
+                        "type": "array",
+                        "description": "roles to be assigned to a custom role collection",
+                        "title": "roles for custom role collection",
+                        "additionalProperties": false,
+                        "items": {
+                            "type": "string",
+                            "description": "roles name",
+                            "title": "roles name"
+                        }
+                    },
+                    "assignedUserGroupsFromParameterFile": {
+                        "type": "array",
+                        "description": "user groups to be assigned from the parameter file",
+                        "title": "user groups from parameter file"
+                    },
+                    "level": {
+                        "type": "string",
+                        "description": "level of the role collection",
+                        "title": "level of the role collection",
+                        "enum": ["global account","sub account", "org", "space"]
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "name of the role collection",
+                        "title": "name of the role collection"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "type of the role collection",
+                        "title": "type of the role collection",
+                        "enum": ["account", "cloudfoundry", "custom"]
+                    }
+                }
+            }
+        },
+        "executeAfterAccountSetup": {
+            "type": "array",
+            "description": "create a list of commands, that should be executed after the SAP BTP account is setup",
+            "title": "commands to run after setup of SAP BTP account",
+            "additionalProperties": false,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["command", "description"],
+                "properties": {
+                    "command": {
+                        "type": "string",
+                        "description": "the command that should be executed within the btpsa container image",
+                        "title": "command to execute"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "description of what the command will do",
+                        "title": "description of the command"
+                    }
+                }
+            }
+        },
+        "executeBeforeAccountSetup": {
+            "type": "array",
+            "description": "create a list of commands, that should be executed before the SAP BTP account is setup",
+            "title": "commands to run before setup of SAP BTP account",
+            "additionalProperties": false,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["command", "description"],
+                "properties": {
+                    "command": {
+                        "type": "string",
+                        "description": "the command that should be executed within the btpsa container image",
+                        "title": "command to execute"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "description of what the command will do",
+                        "title": "description of the command"
+                    }
+                }
+            }
+        },
+        "executeToPruneUseCase": {
+            "type": "array",
+            "description": "create a list of commands, that should be executed to prune the use case from your SAP BTP account",
+            "title": "commands to run to prune use case from your SAP BTP account",
+            "additionalProperties": false,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["command", "description"],
+                "properties": {
+                    "command": {
+                        "type": "string",
+                        "description": "the command that should be executed within the btpsa container image",
+                        "title": "command to execute"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "description of what the command will do",
+                        "title": "description of the command"
+                    }
+                }
+            }
         },
         "services": {
             "type": "array",
@@ -66,89 +188,89 @@
                 "additionalProperties": false,
                 "required": ["name", "category"],
                 "properties": {
-                    "name": {
-                        "type": "string",
-                        "title": "name of the service"
+                    "amount": {
+                        "type": "integer",
+                        "description": "amount to be used for the service",
+                        "title": "amount to be used for the service",
+                        "default": 1
                     },
-                    "entitleonly": {
-                        "type": "boolean",
-                        "title": "if set to true, no service instances will be created by the tool",
-                        "default": false,
-                        "enum": [true, false]
+                    "assignrolecollections": {
+                        "type": "array",
+                        "description": "list of role collections to be created within the btp account",
+                        "title": "list of role collections to be created within the btp account",
+                        "default": []
                     },
                     "category": {
                         "type": "string",
+                        "description": "category of the service",
                         "title": "category of the service",
                         "enum": ["SERVICE", "APPLICATION", "CF_CUP_SERVICE", "ENVIRONMENT"]
                     },
-                    "relatedLinks": {
+                    "createServiceKeys": {
                         "type": "array",
-                        "title": "links related to this service"
+                        "description": "list of service keys to be created for the service",
+                        "title": "list of service keys to be created for the service",
+                        "default": []
                     },
-                    "targetenvironment": {
+                    "customerDeveloped": {
+                        "type": "boolean",
+                        "description": "custom developed application",
+                        "title": "custom developed application",
+                        "default": false
+                    },
+                    "entitleonly": {
+                        "type": "boolean",
+                        "description": "only entitlement -  if true, the service will only be entitled, but not assigned to a role collection",
+                        "title": "only entitlement (no service instances will be created by the tool)",
+                        "default": false,
+                        "enum": [true, false]
+                    },
+                    "instancename": {
                         "type": "string",
-                        "title": "environment in which the service should be created",
-                        "default": "cloudfoundry",
-                        "enum": ["cloudfoundry", "kymaruntime", "sapbtp"]
+                        "description": "name of the service instance",
+                        "title": "name of the service instance"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "name of the service",
+                        "title": "name of the service"
+                    },
+                    "parameters": {
+                        "type": ["object", "string"],
+                        "description": "parameters for the service",
+                        "title": "parameters for the service"
                     },
                     "plan": {
                         "type": "string",
+                        "description": "plan name of the service",
                         "title": "plan name of the service"
                     },
                     "planCatalogName": {
                         "type": "string",
+                        "description": "catalog name of the service plan",
                         "title": "catalog name of the service plan"
                     },
-                    "customerDeveloped": {
-                        "type": "boolean",
-                        "title": "custom developed application",
-                        "default": false
-                    },
-                    "statusResponse": {
-                        "type": "object",
-                        "description": "information that is available only durng the execution of the script (should not be set in the usecase.json file)",
-                        "title": "creation info"
-                    },
-                    "instancename": {
-                        "type": "string",
-                        "title": "name of the service instance"
-                    },
-                    "parameters": {
-                        "type": ["object", "string"],
-                        "title": "parameters for the service"
-                    },
-                    "serviceparameterfile": {
-                        "type": "string",
-                        "description": "parameter file for the service in case you want to provide the parameters via a file",
-                        "title": "parameter file for the service"
-                    },
-                    "amount": {
-                        "type": "integer",
-                        "title": "amount to be used for the service",
-                        "default": 1
+                    
+                    "relatedLinks": {
+                        "type": "array",
+                        "description": "links related to this service",
+                        "title": "links related to this service"
                     },
                     "repeatstatusrequest": {
                         "type": "integer",
+                        "description": "number of seconds when status should be checked",
                         "title": "number of seconds when status should be checked",
                         "default": 5
                     },
                     "repeatstatustimeout": {
                         "type": "integer",
+                        "description": "timeout in seconds after which the script will stop checking the status",
                         "title": "timeout in seconds after which the script will stop checking the status",
                         "default": 3600
                     },
-                    "createServiceKeys": {
-                        "type": "array",
-                        "title": "list of service keys to be created for the service",
-                        "default": []
-                    },
-                    "requiredServices": {
-                        "type": "array",
-                        "title": "list of services that need to be instantiated before instantiating this service",
-                        "default": []
-                    },
                     "requiredrolecollections": {
                         "type": "array",
+                        "description": "list of role collections to assign users to",
                         "title": "list of role collections to assign users to",
                         "default": null,
                         "additionalProperties": false,
@@ -158,20 +280,40 @@
                             "properties": {
                                 "name": {
                                     "type": "string",
+                                    "description": "name of the role collection",
                                     "title": "name of the role collection"
                                 },
                                 "assignedUserGroupsFromParameterFile": {
                                     "type": "array",
                                     "description": "use the name defined for the user group in the parameters.json file",
+                                    "description": "list of user groups to assign the role collection",
                                     "title": "list of user groups to assign the role collection"
                                 }
                             }
                         }
                     },
-                    "assignrolecollections": {
+                    "requiredServices": {
                         "type": "array",
-                        "title": "list of role collections to be created within the btp account",
+                        "description": "list of services that need to be instantiated before instantiating this service",
+                        "title": "list of services that need to be instantiated before instantiating this service",
                         "default": []
+                    },
+                    "serviceparameterfile": {
+                        "type": "string",
+                        "description": "parameter file for the service in case you want to provide the parameters via a file",
+                        "title": "parameter file for the service"
+                    },
+                    "statusResponse": {
+                        "type": "object",
+                        "description": "information that is available only durng the execution of the script (should not be set in the usecase.json file)",
+                        "title": "creation info"
+                    },
+                    "targetenvironment": {
+                        "type": "string",
+                        "description": "environment in which the service should be created",
+                        "title": "environment in which the service should be created",
+                        "default": "cloudfoundry",
+                        "enum": ["cloudfoundry", "kymaruntime", "sapbtp"]
                     }
                 },
                 "allOf": [
@@ -221,117 +363,6 @@
                     {% endfor -%}
                 ]
             }
-        },
-        "executeAfterAccountSetup": {
-            "type": "array",
-            "description": "create a list of commands, that should be executed after the SAP BTP account is setup",
-            "title": "commands to run after setup of SAP BTP account",
-            "additionalProperties": false,
-            "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "required": ["command", "description"],
-                "properties": {
-                    "description": {
-                        "type": "string",
-                        "description": "description of what the command will do",
-                        "title": "description of the command"
-                    },
-                    "command": {
-                        "type": "string",
-                        "description": "the command that should be executed within the btpsa container image",
-                        "title": "command to execute"
-                    }
-                }
-            }
-        },
-        "executeBeforeAccountSetup": {
-            "type": "array",
-            "description": "create a list of commands, that should be executed before the SAP BTP account is setup",
-            "title": "commands to run before setup of SAP BTP account",
-            "additionalProperties": false,
-            "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "required": ["command", "description"],
-                "properties": {
-                    "description": {
-                        "type": "string",
-                        "description": "description of what the command will do",
-                        "title": "description of the command"
-                    },
-                    "command": {
-                        "type": "string",
-                        "description": "the command that should be executed within the btpsa container image",
-                        "title": "command to execute"
-                    }
-                }
-            }
-        },
-        "executeToPruneUseCase": {
-            "type": "array",
-            "description": "create a list of commands, that should be executed to prune the use case from your SAP BTP account",
-            "title": "commands to run to prune use case from your SAP BTP account",
-            "additionalProperties": false,
-            "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "required": ["command", "description"],
-                "properties": {
-                    "description": {
-                        "type": "string",
-                        "description": "description of what the command will do",
-                        "title": "description of the command"
-                    },
-                    "command": {
-                        "type": "string",
-                        "description": "the command that should be executed within the btpsa container image",
-                        "title": "command to execute"
-                    }
-                }
-            }
-        },
-        "assignrolecollections": {
-            "type": "array",
-            "description": "role collections to be assigned to a service",
-            "title": "role collections to be assigned to a service",
-            "additionalProperties": false,
-            "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "required": ["name", "type", "assignedUserGroupsFromParameterFile"],
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "description": "",
-                        "title": ""
-                    },
-                    "type": {
-                        "type": "string",
-                        "description": "",
-                        "title": "",
-                        "enum": ["account", "cloudfoundry", "custom"]
-                    },
-                    "level": {
-                        "type": "string",
-                        "description": "",
-                        "title": "",
-                        "enum": ["global account","sub account", "org", "space"]
-                    },
-                    "assignedUserGroupsFromParameterFile": {
-                        "type": "array"
-                    },
-                    "assignedRoles":{
-                        "type": "array",
-                        "description": "roles to be assigned to a custom role collection",
-                        "title": "roles for custom role collection",
-                        "additionalProperties": false,
-                        "items": {
-                            "type": "string"
-                        }
-                    } 
-                }
-            }
-        }
+        } 
     }
 }
