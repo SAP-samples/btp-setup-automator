@@ -27,6 +27,8 @@ jobs:
           - name: Copy base files to output folder
             run: |
               ls -la
+              ls -la libs/
+              ls -la docs/
 
 #          - name: Copy base files to output folder
 #            run: |
