@@ -1164,8 +1164,11 @@ def subscribe_app_to_subaccount(btpUsecase: BTPUSECASE, app, plan):
 
     command = "btp subscribe accounts/subaccount \
     --subaccount '" + subaccountid + "' \
-    --to-app '" + app + "' \
-    --plan '" + plan + "'"
+    --to-app '" + app + "'"
+
+    if plan is not None:
+        # For custom apps a plan can be none - this is safeguarded when checking if account is capable of usecase
+        command = command + " --plan '" + plan + "'"
 
     isAlreadySubscribed = checkIfAppIsSubscribed(btpUsecase, app, plan)
     if isAlreadySubscribed is False:
