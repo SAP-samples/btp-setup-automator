@@ -105,9 +105,12 @@ class BTPUSECASE:
             availableForAccount = getListOfAvailableServicesAndApps(self)
             availableCustomApps = getListOfAvailableCustomApps(self)
             usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(
-                self, availableForAccount, availableCustomApps)
+                self, availableForAccount)
 
-            if usecaseSupportsServices is False:
+            usecaseSupportsCustomApps = check_if_account_can_cover_use_case_for_customapps(
+                self, availableCustomApps)
+
+            if usecaseSupportsServices is False or usecaseSupportsCustomApps is False:
                 log.error("USE CASE NOT SUPPORTED IN YOUR GLOBAL ACCOUNT!")
                 sys.exit(os.EX_PROTOCOL)
             else:
@@ -832,7 +835,7 @@ def getAdminsFromUsecaseFile(btpUsecase: BTPUSECASE):
     return items
 
 
-def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, availableForAccount, availableCustomApps):
+def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, availableForAccount):
 
     usecaseRegion = btpUsecase.region
     fallbackServicePlan = None
@@ -848,6 +851,10 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
         if service.category != "CF_CUP_SERVICE":
             allServices.append(service)
     for app in btpUsecase.definedAppSubscriptions:
+
+        if app.customerDeveloped is True:
+            continue
+
         allServices.append(app)
 
     for usecaseService in allServices:
@@ -877,13 +884,6 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
                             if (accountServicePlanRegion == usecaseRegion):
                                 supported = True
 
-        # Special Case for custom apps (exist only in subaccount)
-        if supported is False and usecaseService.category == "APPLICATION" and usecaseService.customerDeveloped is True and len(availableCustomApps) != 0:
-            # Custom apps are only available in subaccount as app => check "availableCustomApps"
-            for customApp in availableCustomApps:
-                if customApp["appName"] == usecaseService.name:
-                    supported = True
-
         if (supported is True):
             log.success("service  >" + usecaseServiceName + "< with plan >" +
                         usecaseServicePlan + "< in region >" + usecaseRegion + "< IS AVAILABLE")
@@ -897,6 +897,49 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
             else:
                 log.error("service >" + usecaseServiceName + "< with plan >" +
                           usecaseServicePlan + "< in region >" + usecaseRegion + "< IS NOT AVAILABLE")
+                usecaseSupported = False
+
+    return usecaseSupported
+
+
+def check_if_account_can_cover_use_case_for_customapps(btpUsecase: BTPUSECASE, availableCustomApps):
+
+    usecaseSupported = True
+
+    customApps = []
+    # Only check custom apps as they need special handling
+    for app in btpUsecase.definedAppSubscriptions:
+
+        if app.customerDeveloped is True and app.category == "APPLICATION":
+            customApps.append(app)
+
+    if len(customApps) != 0 and len(availableCustomApps) != 0:
+
+        for customApp in customApps:
+            supported = False
+
+            for availableCustomApp in availableCustomApps:
+                if customApp.name == availableCustomApp["appName"]:
+                    if customApp.plan is None:
+                        if availableCustomApp["planName"] is None:
+                            # custom can have no plan assigned - if this is consistent with system data, we are fine
+                            supported = True
+                        else:
+                            continue
+                    else:
+                        if customApp.plan == availableCustomApp["planName"]:
+                            # if custom can has plan assigned - check the aviablility of this plan
+                            supported = True
+                        else:
+                            continue
+
+            if supported is True:
+                log.success("custom app  >" +
+                            customApp.name + "< IS AVAILABLE")
+
+            else:
+                log.error("custom app  >" + customApp.name +
+                          "< IS NOT AVAILABLE")
                 usecaseSupported = False
 
     return usecaseSupported
