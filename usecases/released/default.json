@@ -1,8 +1,8 @@
 {
     "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
     "aboutThisUseCase": {
-        "name": "Default use case on how to show how btp-setup-automator works",
-        "description": "This usecase sets up various services and app subscriptions on SAP BTP",
+        "name": "Default use case on how to show how btp-setup-automator works.",
+        "description": "This usecase sets up services instances of (free) service plans on SAP BTP.",
         "author": "rui.nogueira@sap.com",
         "testStatus": "tested successfully",
         "usageStatus": "READY TO BE USED"
@@ -12,6 +12,11 @@
             "name": "cloudfoundry",
             "plan": "free",
             "category": "ENVIRONMENT"
+        },
+        {
+            "name": "alert-notification",
+            "plan": "free",
+            "category": "SERVICE"
         },
         {
             "name": "alert-notification",
