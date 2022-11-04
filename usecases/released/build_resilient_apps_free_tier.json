@@ -12,6 +12,11 @@
     },
     "services": [
         {
+            "name": "cloudfoundry",
+            "plan": "free",
+            "category": "ENVIRONMENT"
+        },
+        {
             "name": "connectivity",
             "plan": "lite",
             "category": "SERVICE"

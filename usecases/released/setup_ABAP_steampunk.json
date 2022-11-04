@@ -10,6 +10,11 @@
     },
     "services": [
         {
+            "name": "cloudfoundry",
+            "plan": "free",
+            "category": "ENVIRONMENT"
+        },
+        {
             "name": "abap",
             "plan": "free",
             "category": "SERVICE",

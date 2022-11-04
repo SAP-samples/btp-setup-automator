@@ -9,6 +9,11 @@
   },
   "services": [
     {
+      "name": "cloudfoundry",
+      "plan": "free",
+      "category": "ENVIRONMENT"
+    },
+    {
       "name": "xsuaa",
       "plan": "apiaccess",
       "instancename": "xsuaa_api",
