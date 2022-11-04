@@ -1,0 +1,141 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
+  "aboutThisUseCase": {
+    "name": "Extend SAP S/4HANA Business Processes Using SAP Netweaver Add-On for Event Enablement",
+    "description": "This project contains a reference application (including mock server), showcasing an end-to-end development scenario for an SAP S/4HANA extension on SAP BTP",
+    "author": "i.belozerov@sap.com",
+    "testStatus": "tested successfully",
+    "usageStatus": "READY TO BE USED",
+    "relatedLinks": [
+      "https://github.com/SAP-samples/cloud-extension-ecc-business-process/tree/s4h-addon",
+      "https://github.com/SAP-samples/cloud-extension-ecc-business-process/tree/mock",
+      "https://discovery-center.cloud.sap/missiondetail/3730/3769/"
+    ]
+  },
+  "services": [
+    {
+      "name": "SAPLaunchpad",
+      "plan": "free",
+      "category": "APPLICATION",
+      "requiredrolecollections": [
+          {
+            "name": "Launchpad_Admin",
+            "assignedUserGroupsFromParameterFile": ["admins"]
+          }
+      ]
+    },
+    {
+      "name": "sapappstudio",
+      "plan": "free",
+      "category": "APPLICATION",
+      "requiredrolecollections": [
+          {
+            "name": "Business_Application_Studio_Administrator",
+            "assignedUserGroupsFromParameterFile": ["admins"]
+          },
+          {
+            "name": "Business_Application_Studio_Developer",
+            "assignedUserGroupsFromParameterFile": ["admins"]
+          }
+      ]
+    },      
+    {
+      "name": "enterprise-messaging",
+      "plan": "default",
+      "category": "SERVICE",
+      "entitleonly": true,
+      "targetenvironment": "cloudfoundry"
+    },
+    {
+      "name": "enterprise-messaging-hub",
+      "plan": "standard",
+      "category": "APPLICATION",
+      "requiredrolecollections": [
+        {
+          "name": "Enterprise Messaging Administrator",
+          "assignedUserGroupsFromParameterFile": ["admins"]
+        },
+        {
+          "name": "Enterprise Messaging Developer",
+          "assignedUserGroupsFromParameterFile": ["admins"]
+        },
+        {
+          "name": "Enterprise Messaging Subscription Administrator",
+          "assignedUserGroupsFromParameterFile": ["admins"]
+        }
+      ]
+    },
+    {
+      "category": "SERVICE",
+      "name": "hana-cloud",
+      "plan": "hana-free",
+      "repeatstatusrequest": 60,
+      "repeatstatustimeout": 3600,
+      "instancename": "my-hana-cloud-free-instance",
+      "parameters": {
+        "data": {
+          "edition": "cloud",
+          "memory": 30,
+          "serviceStopped": false,
+          "storage": 120,
+          "systempassword": "PleaseChangeBeforeRunningScript12345",
+          "vcpu": 0,
+          "versionIndicator": "",
+          "whitelistIPs": []
+        }
+      }
+    },
+    {
+        "name": "hana",
+        "plan": "hdi-shared",
+        "category": "SERVICE",
+        "entitleonly": true
+    }  
+  ],
+  "executeBeforeAccountSetup": [
+    {
+      "description": "Delete created directories with the code base if any",
+      "command": "rm -rf repos/cap && rm -rf repos/mock"
+    }
+  ],
+  "executeAfterAccountSetup": [
+    {
+      "description": ">> STEP 1/8: Get the Business Partner Validation app code",
+      "command": "git clone -b s4h-addon https://github.com/SAP-samples/cloud-extension-ecc-business-process.git /home/user/repos/cap && cd /home/user/repos/cap && rm package-lock.json && npm i --silent"
+    },
+    {
+      "description": ">> STEP 2/8: Building multi target application assets for Business Partner Validation app",
+      "command": "cd /home/user/repos/cap && mbt build -t ./ "
+    },
+    {
+      "description": ">> STEP 3/8: Deploying the built multi target application for Business Partner Validation app",
+      "command": "cd /home/user/repos/cap && cf deploy BusinessPartnerValidation_1.0.0.mtar"
+    },
+    {
+      "description": ">> STEP 4/8: Get the mock server code",
+      "command": "git clone -b mock https://github.com/SAP-samples/cloud-extension-ecc-business-process.git /home/user/repos/mock && cd /home/user/repos/mock && rm package-lock.json && npm i --silent"
+    },
+    {
+      "description": ">> STEP 5/8: Building multi target application assets for the mock server",
+      "command": "cd /home/user/repos/mock && mbt build -t ./ "
+    },
+    {
+      "description": ">> STEP 6/8: Deploying the built multi target application for the mock server",
+      "command": "cd /home/user/repos/mock && cf deploy Mockserver_1.0.0.mtar --no-start"
+    },
+    {
+      "description": ">> STEP 7/8: Create destination to the mock server",
+      "command": "cd /home/user/repos/mock && bash create-destination.sh bupa BusinessPartnerValidation-dest"
+    },
+    {
+      "description": ">> STEP 8/8: Bind the mock server to the Event Mesh instance",
+      "command": "cf bs mock-srv BusinessPartnerValidation-ems && cf start mock-srv"
+    }
+  ],
+  "executeToPruneUseCase": [
+    {
+      "description": "undeploy the CAP app",
+      "command": "cf undeploy mock-srv --delete-service-brokers --delete-service-keys --delete-services -f"
+    }
+  ]
+}

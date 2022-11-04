@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
+  "usecasefile": "usecases/released/discoverycenter/3769-s4hana-addon-extension/usecase.json",
+  "region": "us10",
+  "globalaccount": "my-global-account",
+  "myemail": "my@email.com",
+  "loginmethod": "basicAuthentication",
+  "subaccountname": "S4HANAExtension",
+  "cfspacename": "dev",
+  "myusergroups": [
+    {
+      "name": "admins",
+      "members": []
+    }
+  ]
+}
