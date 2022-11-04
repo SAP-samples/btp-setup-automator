@@ -271,8 +271,10 @@ class BTPUSECASE:
         log.header("Entitle sub account to use services and/or app subscriptions")
         envsToEntitle = []
         for myEnv in self.definedEnvironments:
-            if myEnv.name != "cloudfoundry" and myEnv.name != "sapbtp":
+            # if myEnv.name != "cloudfoundry" and myEnv.name != "sapbtp":
+            if myEnv.name != "sapbtp":
                 envsToEntitle.append(myEnv)
+
         doAllEntitlements(self, envsToEntitle)
 
         allNonCfCupServices = []
