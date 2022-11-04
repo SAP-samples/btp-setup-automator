@@ -9,32 +9,14 @@
     },
     "services": [
         {
-            "name": "application-logs",
-            "plan": "lite",
+            "name": "cloudfoundry",
+            "plan": "free",
+            "category": "ENVIRONMENT"
+        },
+        {
+            "name": "alert-notification",
+            "plan": "free",
             "category": "SERVICE"
-        },
-        {
-            "name": "xsuaa",
-            "plan": "apiaccess",
-            "category": "SERVICE"
-        },
-        {
-            "name": "sapappstudio",
-            "plan": "standard-edition",
-            "category": "APPLICATION"
-        },
-        {
-            "name": "cicd-app",
-            "plan": "default",
-            "category": "APPLICATION",
-            "requiredrolecollections": [
-                {
-                    "name": "CICD Service Administrator",
-                    "assignedUserGroupsFromParameterFile": [
-                        "developers"
-                    ]
-                }
-            ]
         }
     ],
     "assignrolecollections": [
