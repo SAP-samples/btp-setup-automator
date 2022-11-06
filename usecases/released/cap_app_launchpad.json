@@ -12,6 +12,11 @@
   },
   "services": [
     {
+      "name": "cloudfoundry",
+      "plan": "free",
+      "category": "ENVIRONMENT"
+    },
+    {
       "name": "xsuaa",
       "plan": "application",
       "category": "SERVICE"
@@ -167,5 +172,5 @@
         "auditors"
       ]
     }
-  ]  
+  ]
 }

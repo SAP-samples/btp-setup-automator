@@ -1,40 +1,27 @@
 {
     "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
     "aboutThisUseCase": {
-        "name": "Default use case on how to show how btp-setup-automator works",
-        "description": "This usecase sets up various services and app subscriptions on SAP BTP",
+        "name": "Default use case on how to show how btp-setup-automator works.",
+        "description": "This usecase sets up services instances of (free) service plans on SAP BTP.",
         "author": "rui.nogueira@sap.com",
         "testStatus": "tested successfully",
         "usageStatus": "READY TO BE USED"
     },
     "services": [
         {
-            "name": "application-logs",
-            "plan": "lite",
+            "name": "cloudfoundry",
+            "plan": "free",
+            "category": "ENVIRONMENT"
+        },
+        {
+            "name": "alert-notification",
+            "plan": "free",
             "category": "SERVICE"
         },
         {
-            "name": "xsuaa",
-            "plan": "apiaccess",
+            "name": "alert-notification",
+            "plan": "free",
             "category": "SERVICE"
-        },
-        {
-            "name": "sapappstudio",
-            "plan": "standard-edition",
-            "category": "APPLICATION"
-        },
-        {
-            "name": "cicd-app",
-            "plan": "default",
-            "category": "APPLICATION",
-            "requiredrolecollections": [
-                {
-                    "name": "CICD Service Administrator",
-                    "assignedUserGroupsFromParameterFile": [
-                        "developers"
-                    ]
-                }
-            ]
         }
     ],
     "assignrolecollections": [
