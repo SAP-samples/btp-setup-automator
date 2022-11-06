@@ -17,11 +17,6 @@
             "name": "alert-notification",
             "plan": "free",
             "category": "SERVICE"
-        },
-        {
-            "name": "alert-notification",
-            "plan": "free",
-            "category": "SERVICE"
         }
     ],
     "assignrolecollections": [
