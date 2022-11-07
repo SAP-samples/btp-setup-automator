@@ -149,17 +149,11 @@
         },
         {
             "description": "Create the consumer usecase file",
-            "command": "rm /home/user/usecases/released/discoverycenter/4064-saas-cap-cf/usecase_consumer.json -f && SPACE=$(jq -r '.\"cfspacename\"' /home/user/log/metadata_log.json) && ORG=$(jq -r '.\"org\"' /home/user/log/metadata_log.json) && sed -e \"s~<provider-space>~$SPACE~g\" -e \"s~<provider-org>~$ORG~g\" \"/home/user/usecases/released/discoverycenter/4064-saas-cap-cf/usecase_consumer_tmpl.json\" >> \"/home/user/usecases/released/discoverycenter/4064-saas-cap-cf/usecase_consumer.json\""
+            "command": "rm /home/user/usecases/released/discoverycenter/4064-cap-saas-cf/usecase_consumer.json -f && SPACE=$(jq -r '.\"cfspacename\"' /home/user/log/metadata_log.json) && ORG=$(jq -r '.\"org\"' /home/user/log/metadata_log.json) && sed -e \"s~<provider-space>~$SPACE~g\" -e \"s~<provider-org>~$ORG~g\" \"/home/user/usecases/released/discoverycenter/4064-cap-saas-cf/usecase_consumer_tmpl.json\" >> \"/home/user/usecases/released/discoverycenter/4064-cap-saas-cf/usecase_consumer.json\""
         },
         {
             "description": "Execute customer usercase",
-            "command": "GLOBALACCOUNT=$(jq -r '.\"globalaccount\"' /home/user/log/metadata_log.json) && MYEMAIL=$(jq -r '.\"myemail\"' /home/user/log/metadata_log.json) && SUBACCOUNT=$(jq -r '.\"subaccount\"' /home/user/log/metadata_log.json) && SUBACCOUNTID=$(jq -r '.\"subaccountid\"' /home/user/log/metadata_log.json)  && ./btpsa -parameterfile 'usecases/released/discoverycenter/4064-saas-cap-cf/parameters.json' -usecasefile 'usecases/released/discoverycenter/4064-saas-cap-cf/usecase_consumer.json' -globalaccount $GLOBALACCOUNT -myemail $MYEMAIL -subaccountname $CONSUMER_SUBACCOUNT_NAME -customAppProviderSubaccountId $SUBACCOUNTID"
-        }
-    ],
-    "executeToPruneUseCase": [
-        {
-            "description": "Undeploy the SaaS application",
-            "command": "cf undeploy susaas --delete-service-brokers --delete-service-keys --delete-services -f"
+            "command": "GLOBALACCOUNT=$(jq -r '.\"globalaccount\"' /home/user/log/metadata_log.json) && MYEMAIL=$(jq -r '.\"myemail\"' /home/user/log/metadata_log.json) && SUBACCOUNT=$(jq -r '.\"subaccount\"' /home/user/log/metadata_log.json) && SUBACCOUNTID=$(jq -r '.\"subaccountid\"' /home/user/log/metadata_log.json)  && ./btpsa -parameterfile 'usecases/released/discoverycenter/4064-cap-saas-cf/parameters.json' -usecasefile 'usecases/released/discoverycenter/4064-cap-saas-cf/usecase_consumer.json' -globalaccount $GLOBALACCOUNT -myemail $MYEMAIL -subaccountname $CONSUMER_SUBACCOUNT_NAME -customAppProviderSubaccountId $SUBACCOUNTID"
         }
     ],
     "assignrolecollections": [
