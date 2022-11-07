@@ -18,6 +18,9 @@ This includes:
 - Deployment of complete applications
 - Unrolling created setup
 
+> Get a quick overview & demo of the btp-setup-automator through this video:
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/3pLNXsn-cLM/0.jpg)](https://www.youtube.com/watch?v=3pLNXsn-cLM)
+
 ## Configuration
 
 As a developer you configure your use case inside a `usecase.json` file with all services and subscriptions that you need (find some sample [use cases here](./usecases/released) including [their detailed descriptions](./docs/USECASES.md)). The [JSON schema **btpsa-usecase.json**](./libs/btpsa-usecase.json) makes it fairly simple to create your own use case file as you can see in this video:
