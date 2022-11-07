@@ -921,7 +921,7 @@ def check_if_account_can_cover_use_case_for_customapps(btpUsecase: BTPUSECASE, a
             for availableCustomApp in availableCustomApps:
                 if customApp.name == availableCustomApp["appName"]:
                     if customApp.plan is None:
-                        if availableCustomApp["planName"] is None:
+                        if not availableCustomApp.get("planName") or (availableCustomApp.get("planName") and availableCustomApp.get("planName") is None):
                             # custom can have no plan assigned - if this is consistent with system data, we are fine
                             supported = True
                         else:
@@ -1172,11 +1172,21 @@ def subscribe_app_to_subaccount(btpUsecase: BTPUSECASE, app, plan):
 
     isAlreadySubscribed = checkIfAppIsSubscribed(btpUsecase, app, plan)
     if isAlreadySubscribed is False:
-        message = "subscribe sub account to >" + app + "< and plan >" + plan + "<"
+        message = "subscribe sub account to >" + app + "<"
+
+        if plan is not None:
+            # (Optional) The subscription plan of the multitenant application. You can omit this parameter if the multitenant application is in the current global account.
+            message = message + " and plan >" + plan + "<"
+
         runShellCommand(btpUsecase, command, "INFO", message)
     else:
-        log.info("subscription already there for >" +
-                 app + "< and plan >" + plan + "<")
+
+        message = "subscription already there for >" + app + "<"
+        if plan is not None:
+            # (Optional) The subscription plan of the multitenant application. You can omit this parameter if the multitenant application is in the current global account.
+            message = message + " and plan >" + plan + "<"
+
+        log.info(message)
 
 
 def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, appName, appPlan):
@@ -1185,7 +1195,12 @@ def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, appName, appPlan):
     subaccountid = accountMetadata["subaccountid"]
 
     command = "btp --format json get accounts/subscription --subaccount '" + \
-        subaccountid + "' --of-app '" + appName + "' --plan '" + appPlan + "'"
+        subaccountid + "' --of-app '" + appName + "'"
+
+    if appPlan is not None:
+        # (Optional) The subscription plan of the multitenant application. You can omit this parameter if the multitenant application is in the current global account.
+        command = command + " --plan '" + appPlan + "'"
+
     resultCommand = runCommandAndGetJsonResult(
         btpUsecase, command, "INFO", "check if app already subscribed")
 
@@ -1316,8 +1331,10 @@ def checkIfAllSubscriptionsAreAvailable(btpUsecase: BTPUSECASE):
                         app.successInfoShown = False
                         app.statusResponse = thisJson
                     else:
-                        log.success("subscription to app >" + app.name +
-                                    "< (plan " + app.plan + ") is now available")
+                        message = "subscription to app >" + app.name + "<"
+                        if plan is not None:
+                            message = message + " (plan " + app.plan + ") is now available"
+                        log.success(message)
                         app.tenantId = tenantId
                         app.successInfoShown = True
                         app.statusResponse = thisJson
