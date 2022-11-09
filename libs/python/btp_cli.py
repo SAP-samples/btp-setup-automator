@@ -105,9 +105,12 @@ class BTPUSECASE:
             availableForAccount = getListOfAvailableServicesAndApps(self)
             availableCustomApps = getListOfAvailableCustomApps(self)
             usecaseSupportsServices = check_if_account_can_cover_use_case_for_serviceType(
-                self, availableForAccount, availableCustomApps)
+                self, availableForAccount)
 
-            if usecaseSupportsServices is False:
+            usecaseSupportsCustomApps = check_if_account_can_cover_use_case_for_customapps(
+                self, availableCustomApps)
+
+            if usecaseSupportsServices is False or usecaseSupportsCustomApps is False:
                 log.error("USE CASE NOT SUPPORTED IN YOUR GLOBAL ACCOUNT!")
                 sys.exit(os.EX_PROTOCOL)
             else:
@@ -832,7 +835,7 @@ def getAdminsFromUsecaseFile(btpUsecase: BTPUSECASE):
     return items
 
 
-def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, availableForAccount, availableCustomApps):
+def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, availableForAccount):
 
     usecaseRegion = btpUsecase.region
     fallbackServicePlan = None
@@ -848,6 +851,10 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
         if service.category != "CF_CUP_SERVICE":
             allServices.append(service)
     for app in btpUsecase.definedAppSubscriptions:
+
+        if app.customerDeveloped is True:
+            continue
+
         allServices.append(app)
 
     for usecaseService in allServices:
@@ -877,13 +884,6 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
                             if (accountServicePlanRegion == usecaseRegion):
                                 supported = True
 
-        # Special Case for custom apps (exist only in subaccount)
-        if supported is False and usecaseService.category == "APPLICATION" and usecaseService.customerDeveloped is True and len(availableCustomApps) != 0:
-            # Custom apps are only available in subaccount as app => check "availableCustomApps"
-            for customApp in availableCustomApps:
-                if customApp["appName"] == usecaseService.name:
-                    supported = True
-
         if (supported is True):
             log.success("service  >" + usecaseServiceName + "< with plan >" +
                         usecaseServicePlan + "< in region >" + usecaseRegion + "< IS AVAILABLE")
@@ -897,6 +897,49 @@ def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, 
             else:
                 log.error("service >" + usecaseServiceName + "< with plan >" +
                           usecaseServicePlan + "< in region >" + usecaseRegion + "< IS NOT AVAILABLE")
+                usecaseSupported = False
+
+    return usecaseSupported
+
+
+def check_if_account_can_cover_use_case_for_customapps(btpUsecase: BTPUSECASE, availableCustomApps):
+
+    usecaseSupported = True
+
+    customApps = []
+    # Only check custom apps as they need special handling
+    for app in btpUsecase.definedAppSubscriptions:
+
+        if app.customerDeveloped is True and app.category == "APPLICATION":
+            customApps.append(app)
+
+    if len(customApps) != 0 and len(availableCustomApps) != 0:
+
+        for customApp in customApps:
+            supported = False
+
+            for availableCustomApp in availableCustomApps:
+                if customApp.name == availableCustomApp["appName"]:
+                    if customApp.plan is None:
+                        if not availableCustomApp.get("planName") or (availableCustomApp.get("planName") and availableCustomApp.get("planName") is None):
+                            # custom can have no plan assigned - if this is consistent with system data, we are fine
+                            supported = True
+                        else:
+                            continue
+                    else:
+                        if customApp.plan == availableCustomApp["planName"]:
+                            # if custom can has plan assigned - check the aviablility of this plan
+                            supported = True
+                        else:
+                            continue
+
+            if supported is True:
+                log.success("custom app  >" +
+                            customApp.name + "< IS AVAILABLE")
+
+            else:
+                log.error("custom app  >" + customApp.name +
+                          "< IS NOT AVAILABLE")
                 usecaseSupported = False
 
     return usecaseSupported
@@ -1121,16 +1164,29 @@ def subscribe_app_to_subaccount(btpUsecase: BTPUSECASE, app, plan):
 
     command = "btp subscribe accounts/subaccount \
     --subaccount '" + subaccountid + "' \
-    --to-app '" + app + "' \
-    --plan '" + plan + "'"
+    --to-app '" + app + "'"
+
+    if plan is not None:
+        # For custom apps a plan can be none - this is safeguarded when checking if account is capable of usecase
+        command = command + " --plan '" + plan + "'"
 
     isAlreadySubscribed = checkIfAppIsSubscribed(btpUsecase, app, plan)
     if isAlreadySubscribed is False:
-        message = "subscribe sub account to >" + app + "< and plan >" + plan + "<"
+        message = "subscribe sub account to >" + app + "<"
+
+        if plan is not None:
+            # (Optional) The subscription plan of the multitenant application. You can omit this parameter if the multitenant application is in the current global account.
+            message = message + " and plan >" + plan + "<"
+
         runShellCommand(btpUsecase, command, "INFO", message)
     else:
-        log.info("subscription already there for >" +
-                 app + "< and plan >" + plan + "<")
+
+        message = "subscription already there for >" + app + "<"
+        if plan is not None:
+            # (Optional) The subscription plan of the multitenant application. You can omit this parameter if the multitenant application is in the current global account.
+            message = message + " and plan >" + plan + "<"
+
+        log.info(message)
 
 
 def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, appName, appPlan):
@@ -1139,7 +1195,12 @@ def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, appName, appPlan):
     subaccountid = accountMetadata["subaccountid"]
 
     command = "btp --format json get accounts/subscription --subaccount '" + \
-        subaccountid + "' --of-app '" + appName + "' --plan '" + appPlan + "'"
+        subaccountid + "' --of-app '" + appName + "'"
+
+    if appPlan is not None:
+        # (Optional) The subscription plan of the multitenant application. You can omit this parameter if the multitenant application is in the current global account.
+        command = command + " --plan '" + appPlan + "'"
+
     resultCommand = runCommandAndGetJsonResult(
         btpUsecase, command, "INFO", "check if app already subscribed")
 
@@ -1270,8 +1331,10 @@ def checkIfAllSubscriptionsAreAvailable(btpUsecase: BTPUSECASE):
                         app.successInfoShown = False
                         app.statusResponse = thisJson
                     else:
-                        log.success("subscription to app >" + app.name +
-                                    "< (plan " + app.plan + ") is now available")
+                        message = "subscription to app >" + app.name + "<"
+                        if plan is not None:
+                            message = message + " (plan " + app.plan + ") is now available"
+                        log.success(message)
                         app.tenantId = tenantId
                         app.successInfoShown = True
                         app.statusResponse = thisJson
