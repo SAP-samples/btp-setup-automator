@@ -942,7 +942,7 @@ def checkIfDirectoryAlreadyExists(btpUsecase: BTPUSECASE):
     if "directory" in accountMetadata:
         directoryName = accountMetadata["directory"]
 
-        if result["children"]:
+        if result.get("children"):
             for entry in result["children"]:
                 if entry["displayName"] == directoryName:
                     return entry["guid"]
