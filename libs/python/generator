@@ -4,8 +4,9 @@ from pathlib import Path
 
 ROOT = Path(__file__, "..", "..", "..").resolve()
 BTP_BASE = Path(ROOT, "config", "btp-base").resolve()
+BTP_BASE_VERSION = "v0"
 
-SERVICE_METADATA_FOLDER = Path(BTP_BASE, "developer").resolve()
+SERVICE_METADATA_FOLDER = Path(BTP_BASE, BTP_BASE_VERSION, "developer").resolve()
 #######################################################################################
 # Fetch the BTP service list
 #######################################################################################
