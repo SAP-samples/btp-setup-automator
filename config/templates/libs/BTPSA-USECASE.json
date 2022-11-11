@@ -1,5 +1,5 @@
 {% macro addSchemaIfExists(plan) -%}
-{% if plan.schemas is defined and plan.schemas.service_instance is defined and plan.schemas.service_instance.create is defined and plan.schemas.service_instance.create.parameters is defined -%}
+{% if plan.schemas is defined and plan.schemas.service_instance is defined and plan.schemas.service_instance.create is defined and plan.schemas.service_instance.create.parameters is defined and plan.schemas.service_instance.create.parameters -%}
 , "parameters" : {{ plan.schemas.service_instance.create.parameters | tojson }}
 {% endif %}
 {%- endmacro -%}
@@ -285,7 +285,6 @@
                                 },
                                 "assignedUserGroupsFromParameterFile": {
                                     "type": "array",
-                                    "description": "use the name defined for the user group in the parameters.json file",
                                     "description": "list of user groups to assign the role collection",
                                     "title": "list of user groups to assign the role collection"
                                 }
