@@ -31,17 +31,35 @@ SERVICE_METADATA_FOLDER = Path(BTP_BASE, BTP_BASE_VERSION, METADATA_SOURCE_FOLDE
 #######################################################################################
 # Fetch the BTP service list
 #######################################################################################
+print("Fetching service information from " + str(SERVICE_METADATA_FOLDER))
 allMetadata = fetchEntitledServiceList(SERVICE_METADATA_FOLDER)
 
 #######################################################################################
 # Generate all files
 #######################################################################################
-targetFilename = "./libs/btpsa-parameters.json"
-templateFile = "./config/templates/libs/BTPSA-PARAMETERS.json"
+
+if os.environ.get("IS_EXECUTED_BY_GHACTION") == "active":
+    print("INFO: Execution via GitHub Action")
+    targetFilename = Path(__file__, "..", "..", "btpsa-parameters.json").resolve()
+    templateFile = Path(__file__, "..", "..", "..", "config", "templates", "libs", "BTPSA-PARAMETERS.json").resolve()
+else:
+    targetFilename = Path(__file__, "libs", "btpsa-parameters.json").resolve()
+    templateFile =   Path(__file__, "config", "templates", "libs", "BTPSA-PARAMETERS.json").resolve()
+    
+print("INFO: start generation on template file >" + str(templateFile) + "< and created the target file >" + str(targetFilename) + "<")
 renderTemplateWithJson(templateFile, targetFilename, allMetadata)
-print("INFO: applied SAP BTP service list on template file >" + templateFile + "< and created the target file >" + targetFilename + "<")
+print("INFO: applied SAP BTP service list on template file >" + str(templateFile) + "< and created the target file >" + str(targetFilename) + "<")
 
 targetFilename = "./libs/btpsa-usecase.json"
 templateFile = "./config/templates/libs/BTPSA-USECASE.json"
+
+if os.environ.get("IS_EXECUTED_BY_GHACTION")  == "active":
+    targetFilename = Path(__file__, "..", "..", "btpsa-usecase.json").resolve()
+    templateFile = Path(__file__, "..", "..", "..", "config", "templates", "libs", "BTPSA-USECASE.json").resolve()
+else:
+    targetFilename = Path(__file__, "libs", "btpsa-usecase.json").resolve()
+    templateFile = Path(__file__, "config", "templates", "libs", "BTPSA-USECASE.json").resolve()
+
+print("INFO: start generation on template file >" + str(templateFile) + "< and created the target file >" + str(targetFilename) + "<")
 renderTemplateWithJson(templateFile, targetFilename, allMetadata)
-print("INFO: applied SAP BTP service list on template file >" + templateFile + "< and created the target file >" + targetFilename + "<")
+print("INFO: applied SAP BTP service list on template file >" + str(templateFile) + "< and created the target file >" + str(targetFilename) + "<")
