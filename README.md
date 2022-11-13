@@ -108,6 +108,9 @@ You can also use the provided `run` files to pull the image from the registry an
 To create the Docker image yourself you need to execute these steps:
 
 - Clone this GitHub repository to a local folder on your machine.
+
+  > 📝 Tip If you are on Windows you you get an error when cloning the repository stating `Filename too long`, you need to adjust your git settings: `git config --system core.longpaths true`
+
 - Open the local folder in a terminal window on your machine (or in VS Code).
 - Build the image with the following command:
 
