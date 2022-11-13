@@ -1,0 +1,102 @@
+name: Update metadata artifacts
+# This action executes the following up actions needed after an update of the metadata happened
+# 1. Generate the JSON schema for the usecase.json and the parameters.json file
+# 2. Based on the JSON schemas available for the parameters.json and usecase.json generate the documentation as markdown
+
+on:
+  workflow_dispatch:
+
+env:
+  TARGET_BRANCH: main
+  METADATA_SOURCE_OWNER: SAP-samples
+  METADATA_SOURCE_REPO: btp-service-metadata
+  METADATA_SOURCE_VERSION: v0
+  METADATA_SOURCE_FOLDER: developer
+  METADATA_TARGET_CONFIG_FOLDER: config
+  METADATA_TARGET_BASE_FOLDER: btp_base
+
+jobs:
+  update-metadata-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ env.TARGET_BRANCH }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      # Fetch curated metadata from SAP-samples/btp-service-metadata
+      - name: Clean up temporary metadata folder
+        run: |
+          mkdir -p ${{ env.METADATA_TARGET_BASE_FOLDER }}/${{ env.METADATA_VERSION }}/${{ env.METADATA_FOLDER }}
+          rm -rf ${{ env.METADATA_TARGET_BASE_FOLDER }}/${{ env.METADATA_VERSION }}/${{ env.METADATA_FOLDER }}/*
+
+      - name: Install dependencies for metadata fetching
+        run: |
+          cd .github/scripts
+          npm ci
+
+      - name: Fetch metadata
+        run: |
+          cd .github/scripts
+          export METADATA_READ_TOKEN=${{ secrets.METADATA_READ_TOKEN }} }} 
+          export METADATA_SOURCE_OWNER=${{ env.METADATA_SOURCE_OWNER }}
+          export METADATA_SOURCE_REPO=${{ env.METADATA_SOURCE_REPO }}
+          export METADATA_VERSION=${{ env.METADATA_VERSION }}
+          export METADATA_FOLDER=${{ env.METADATA_FOLDER }}
+          export METADATA_TARGET_CONIFIG_FOLDER=${{ env.METADATA_TARGET_CONFIG_FOLDER }}
+          export METADATA_TARGET_BASE_FOLDER=${{ env.METADATA_TARGET_BASE_FOLDER }}
+          npm run fetch:metadata
+
+      # Generate JSON schema for usecase.json and parameters.json
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies for JSON schema generation
+        run: |
+          cd config/python
+          pip install -r requirements.txt
+
+      - name: Execute generation of JSON schemas
+        run: python3 lib/python/generator
+
+      - name: Clean up temporary metadata folder
+        run: rm -rf config/btp-base/*
+
+      # Generate documentation for parameters of usecase.json and parameters.json
+      - name: Install jsonschema2md
+        run: npm install -g @adobe/jsonschema2md
+
+      - name: Create/Clear output folder
+        run: |
+          mkdir -p docs/generated/
+          rm -rf docs/generated/*
+
+      - name: Copy base files to output folder
+        run: |
+          cp libs/btpsa-parameters.json docs/generated/
+          cp libs/btpsa-usecase.json docs/generated/
+
+      - name: Generate documentation
+        run: jsonschema2md -d "docs/generated/" -o "docs/generated/" -e json -v 07 -h false  -x -
+
+      - name: Remove base files from output folder
+        # remove the source files as well as the generated main README.md
+        run: |
+          rm docs/generated/btpsa-parameters.json
+          rm docs/generated/btpsa-usecase.json
+          rm docs/generated/README.md
+
+      - name: Commit and push changes
+        run: |
+          git add -A
+          git config user.email "btpsabot@users.noreply.github.com"
+          git config user.name "[btpsa bot] docu generation"
+          git diff --quiet && git diff --staged --quiet || git commit -m "[btpsa bot] Generate parameter documentation"
+          git push
