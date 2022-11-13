@@ -1,0 +1,16 @@
+{
+  "name": "fetch-repo-files",
+  "version": "1.0.0",
+  "description": "Script to fetch metadata files from ",
+  "main": "metadatafetcher.js",
+  "scripts": {
+    "fetch:metadata": "node metadatafetcher.js"
+  },
+  "author": "Christian Lechner",
+  "license": "APACHE-2.0",
+  "dependencies": {
+    "@octokit/auth-token": "3.0.2",
+    "@octokit/request": "6.2.2",
+    "node-fetch": "2.6.7"
+  }
+}
