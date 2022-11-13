@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Offline: Mobile Offline
+Mobile Client Log Upload Service: Mobile Client Log Upload Service
 
 `name`
 

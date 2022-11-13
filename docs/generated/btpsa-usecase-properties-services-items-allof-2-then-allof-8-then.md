@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Backend Service: With SAP Business Technology Platform Backed service you can build robust, scalable and enterprise-ready APIs/services to serve your applications and extensions in a serverless environment. It is a fully managed API service that helps you build, run, and manage APIs in a serverless environment \[BETA]
+SAP Backend service: With SAP Business Technology Platform Backed service you can build robust, scalable and enterprise-ready APIs/services to serve your applications and extensions in a serverless environment. It is a fully managed API service that helps you build, run, and manage APIs in a serverless environment \[BETA]
 
 `name`
 

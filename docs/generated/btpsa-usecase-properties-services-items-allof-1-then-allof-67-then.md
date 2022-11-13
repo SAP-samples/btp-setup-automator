@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Connectivity Service: Mobile Connectivity Service
+Mobile Client Resource Service: Mobile Client Resource Service
 
 `name`
 

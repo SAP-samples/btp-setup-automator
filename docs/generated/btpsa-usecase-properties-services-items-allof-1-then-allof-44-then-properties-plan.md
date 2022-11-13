@@ -8,4 +8,9 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"messages"` |             |
+| `"backbone"` |             |
+| `"channel"`  |             |
+| `"cyon"`     |             |
+| `"dev"`      |             |
+| `"node"`     |             |
+| `"testnet"`  |             |

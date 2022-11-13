@@ -6,8 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-47-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-47-then-allof-1.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -37,14 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value            | Explanation |
-| :--------------- | :---------- |
-| `"professional"` |             |
-| `"starter"`      |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"standard"` |             |
 
 ## name
 
-SAP HANA spatial services: HANA Spatial Services
+SAP Web Analytics: SAP Web Analytics enables the collection and analysis of website data for understanding and optimizing web usage to measure organizational goals, drive strategy and improve the user's experience.
 
 `name`
 

@@ -6,13 +6,8 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value                                      | Explanation |
-| :----------------------------------------- | :---------- |
-| `"adaptive-server-enterprise"`             |             |
-| `"adaptive-server-enterprise-replication"` |             |
-| `"hana"`                                   |             |
-| `"hana-cloud-connection"`                  |             |
-| `"hana-cloud-connection-free"`             |             |
-| `"hana-free"`                              |             |
-| `"relational-data-lake"`                   |             |
-| `"relational-data-lake-free"`              |             |
+| Value                            | Explanation |
+| :------------------------------- | :---------- |
+| `"default"`                      |             |
+| `"event-mesh-connectivity"`      |             |
+| `"event-mesh-connectivity-beta"` |             |

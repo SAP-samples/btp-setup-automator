@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-application plan >standard< for >sdm-web< is available in data centers:
+application plan >free< for >SAPLaunchpad< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}

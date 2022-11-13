@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-application plan >saas-application< for >MDMBusinessPartnerApplication< is available in data centers:
+application plan >mror< for >market-rates-ux< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}

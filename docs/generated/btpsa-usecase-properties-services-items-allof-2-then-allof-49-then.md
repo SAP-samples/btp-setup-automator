@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value       | Explanation |
-| :---------- | :---------- |
-| `"default"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"standard"` |             |
 
 ## name
 
-Workspace Utilization: The Workspace Utilization Management application lets you assign sensors to workplaces and spaces. These sensors measure how your workspaces are used. The Workspace Utilization Management application integrates with SAP Cloud for Real Estate and SAP Analytics Cloud to analyze, manage, and optimize your workspaces.
+Document Management Service, Application Option: Benefit from the standalone, ready-to-use web application of SAP Document Management service that provides document management capabilities.
 
 `name`
 

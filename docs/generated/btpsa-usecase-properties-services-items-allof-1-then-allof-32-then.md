@@ -6,8 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-32-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-32-then-allof-1.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -40,11 +38,10 @@ unknown
 | Value       | Explanation |
 | :---------- | :---------- |
 | `"default"` |             |
-| `"free"`    |             |
 
 ## name
 
-Document Translation: Provides an API that allows you to translate documents of various formats into multiple languages.
+Date and Time: Get default date format for a given country, timezone details and time difference between two provided time values.
 
 `name`
 

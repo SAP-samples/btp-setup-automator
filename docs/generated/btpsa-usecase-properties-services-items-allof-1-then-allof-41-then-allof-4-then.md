@@ -10,10 +10,14 @@ unknown
 
 ## plan
 
-service plan >node< for >hyperledger-fabric< is available in data centers:
+service plan >2048premium< for >hana-db< is available in data centers:
 
-*   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'us10', 'name': 'US East (VA)'}
+*   {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}
+*   {'region': 'ap21', 'name': 'Singapore'}
+*   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
+*   {'region': 'jp20', 'name': 'Japan (Tokyo)'}
+*   {'region': 'us20', 'name': 'US West (WA)'}
+*   {'region': 'us21', 'name': 'US East (VA)'}
 
 `plan`
 

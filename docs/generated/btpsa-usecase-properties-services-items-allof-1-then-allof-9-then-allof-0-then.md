@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >default< for >auditlog-api< is available in data centers:
+service plan >large< for >application-logs< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}

@@ -10,9 +10,11 @@ unknown
 
 ## plan
 
-service plan >blocks\_of\_100< for >document-classification< is available in data centers:
+service plan >default< for >dataenrichment-business-partner< is available in data centers:
 
+*   {'region': 'ap11', 'name': 'Singapore'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
 

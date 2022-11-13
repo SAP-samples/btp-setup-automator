@@ -8,8 +8,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-2.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -41,13 +39,12 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"free"`     |             |
-| `"premium"`  |             |
 | `"standard"` |             |
+| `"workflow"` |             |
 
 ## name
 
-Redis on SAP BTP, hyperscaler option: The Redis service on SAP BTP provides a way to directly consume the Redis cache service provided by the Infrastructure providers such as AWS and Azure.
+Process Visibility: Provides end-to-end visibility into processes that run in cloud, on-premise & in hybrid environments
 
 `name`
 

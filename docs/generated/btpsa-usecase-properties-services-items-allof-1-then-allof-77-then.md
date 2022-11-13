@@ -39,12 +39,12 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"free"`     |             |
+| `"b2c"`      |             |
 | `"standard"` |             |
 
 ## name
 
-SAP Personal Data Manager: SAP Personal Data Manager provides the capability to generate reports showing the personal data stored in an application point of view with the help of a CSR. The reports can be generated and exported either in machine readable form (JSON) or human readable form (PDF). Data subjects can request the correction and deletion of personal data that is stored in an application point of view.
+Mobile Settings Exchange Service: Mobile Settings Exchange Service
 
 `name`
 

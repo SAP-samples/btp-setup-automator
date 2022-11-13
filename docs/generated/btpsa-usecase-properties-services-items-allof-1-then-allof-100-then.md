@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Work Zone, data storage add-on: SAP Work Zone centralizes access to relevant business applications, processes, information, and communication in a unified entry point that users can access from any device.
+SAP Analytics Cloud, embedded edition: With SAP Analytics Cloud, embedded edition, you can build and embed reports, dashboards, and visuals into your business application to make confident decisions. Explore your business data via live connection between your SAP Analytics Cloud tenant and the remote SAP HANA database on SAP Business Technology Platform.
 
 `name`
 

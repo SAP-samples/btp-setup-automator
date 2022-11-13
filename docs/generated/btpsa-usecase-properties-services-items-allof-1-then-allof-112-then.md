@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Workflow Management: SAP Workflow service allows you to build, run, and manage workflows, from simple approvals to end-to-end processes that span across different organizations and applications. With an inbox application and custom-built user interfaces, you involve end users into business processes for decision making and data entry. The workflow service comes with web-based tools for workflow modeling, APIs for consumption in custom applications, monitoring tools, and a set of Fiori-based applications for end-user access. You can use JavaScript to embed custom business logic.
+UI theme designer: The UI theme designer lets you apply your corporate branding to applications built with SAP UI technologies. You can make changes to theme templates supplied by SAP to create custom themes that use your own color scheme, background images, and company logo. You can apply a custom theme to various SAP UI clients and technologies. Additionally, you can include your own custom CSS files without having to modify any of your applications.
 
 `name`
 

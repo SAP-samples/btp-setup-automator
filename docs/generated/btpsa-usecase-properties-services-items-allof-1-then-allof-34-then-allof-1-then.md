@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >event-mesh-connectivity< for >enterprise-messaging< is available in data centers:
+service plan >default< for >document-classification< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 

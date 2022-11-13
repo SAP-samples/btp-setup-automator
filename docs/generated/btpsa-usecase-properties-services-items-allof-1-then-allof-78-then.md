@@ -6,6 +6,12 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-78-then-allof-0.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-78-then-allof-1.md "check type definition")
+
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-78-then-allof-2.md "check type definition")
+
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-78-then-allof-3.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -35,13 +41,16 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"standard"` |             |
+| Value      | Explanation |
+| :--------- | :---------- |
+| `"cyon"`   |             |
+| `"large"`  |             |
+| `"medium"` |             |
+| `"small"`  |             |
 
 ## name
 
-SAP Cloud Portal service: SAP Business Technology Platform Portal lets you build digital experience portals for employees, customers, and partners. You can streamline access to business data so that your employees can execute their daily business tasks securely, from any device.
+MultiChain on SAP BTP: The MultiChain service lets you create, delete, monitor and maintain individual MultiChain nodes and connect them to a blockchain network.
 
 `name`
 

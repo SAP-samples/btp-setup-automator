@@ -729,14 +729,12 @@ region for the SAP BTP sub account that should be used for the use case
 | `"ap10"` |             |
 | `"ap11"` |             |
 | `"ap12"` |             |
-| `"ap2"`  |             |
 | `"ap20"` |             |
 | `"ap21"` |             |
 | `"br1"`  |             |
 | `"br10"` |             |
 | `"ca1"`  |             |
 | `"ca10"` |             |
-| `"ca2"`  |             |
 | `"ch20"` |             |
 | `"cn1"`  |             |
 | `"eu1"`  |             |

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Launchpad service: SAP Launchpad service provides users with a central point of access to applications from different sources.
+SAP Big Data Services: Big Data Services
 
 `name`
 

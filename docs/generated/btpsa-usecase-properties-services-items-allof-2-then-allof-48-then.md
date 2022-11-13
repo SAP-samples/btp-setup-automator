@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value                | Explanation |
-| :------------------- | :---------- |
-| `"saas-application"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"standard"` |             |
 
 ## name
 
-SAP Data Enrichment service: Provides Business Partner data from third-party data providers
+SAP Work Zone: SAP Work Zone centralizes access to relevant business applications, processes, information, and communication in a unified entry point that users can access from any device.
 
 `name`
 

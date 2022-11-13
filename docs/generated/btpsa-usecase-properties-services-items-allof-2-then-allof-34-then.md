@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Cloud Portal Service: SAP Cloud Portal service lets you build digital experience portals for employees, customers, and partners. You can streamline access to business data so that your employees can execute their daily business tasks securely, from any device.
+Open Connectors: Open Connectors provides pre-built and feature-rich connectors to simplify the connectivity and seamless integration with over 150 non-SAP cloud applications. Customers benefit from connectivity to third-party APIs via harmonized RESTful APIs and can develop and map canonical data models to extend pre-built connectors. Furthermore customers can easily build API compositions across the different connectors.
 
 `name`
 

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Job Scheduling service: The Job Scheduling Service allows you to define and manage jobs that run once or on recurring schedules. Use this runtime-agnostic service to schedule REST endpoint actions in your application or to schedule long-running processes using Cloud Foundry tasks. Use REST APIs to schedule your jobs, including long-running jobs asynchronously, and create multiple schedule formats for both simple and complex recurring schedules. The service dashboard is a web interface that lets you manage jobs and schedules.
+IoT Services: The SAP Business Technology Platform Internet of Things service for the Cloud Foundry environment connects devices to SAP Business Technology Platform to provide scalable ingestion of IoT data and device management. The respective services provide a secure connection to remote devices using a broad variety of IoT protocols and manage the device lifecycle from onboarding to decommissioning.
 
 `name`
 

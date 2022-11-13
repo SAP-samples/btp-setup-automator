@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value                | Explanation |
-| :------------------- | :---------- |
-| `"saas-application"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"standard"` |             |
 
 ## name
 
-Master Data Orchestration: Master data application for existing customers of SAP Master Data service for business partners and SAP Master Data service for products. New customers should use the Master Data Integration (Orchestration) tile. SAP Master Data Orchestration should only be used in combination with the SAP Master Data Integration service.
+Master Data Integration (Orchestration): Master data application that allows master data replication according to predetermined master data distribution models. SAP Master Data Orchestration can only be used in combination with the SAP Master Data Integration service.
 
 `name`
 

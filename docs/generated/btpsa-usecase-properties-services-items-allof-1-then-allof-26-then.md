@@ -39,15 +39,15 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value          | Explanation |
-| :------------- | :---------- |
-| `"dedicated"`  |             |
-| `"enterprise"` |             |
-| `"tenant"`     |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"free"`     |             |
+| `"proxy"`    |             |
+| `"standard"` |             |
 
 ## name
 
-SAP Data Intelligence Cloud: SAP Data Intelligence is the all-in-one data orchestration solution to discover, refine, enriche and govern any type, variety, and volume of data across your entire distributed data landscape. Deliver on the promise of AI with enterprise scale, trust, and transparency driving significant new business value and insights.
+SAP Credential Store: The Credential Store provides a secure repository for passwords and keys to applications that are running on SAP Business Technology Platform. It enables the applications to retrieve credentials and use them for authentication to external services, or to perform cryptographic operations and TLS communication.
 
 `name`
 

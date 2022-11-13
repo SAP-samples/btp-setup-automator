@@ -10,13 +10,19 @@ unknown
 
 ## plan
 
-service plan >blocks\_of\_100< for >sap-document-information-extraction< is available in data centers:
+service plan >free< for >retention-manager< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
+*   {'region': 'ap11', 'name': 'Singapore'}
+*   {'region': 'ap21', 'name': 'Singapore'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
-*   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
+*   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
+*   {'region': 'jp20', 'name': 'Japan (Tokyo)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
+*   {'region': 'us20', 'name': 'US West (WA)'}
+*   {'region': 'us21', 'name': 'US East (VA)'}
+*   {'region': 'us30', 'name': 'US Central (IA)'}
 
 `plan`
 

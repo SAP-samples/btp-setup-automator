@@ -8,8 +8,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-34-then-allof-1.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-34-then-allof-2.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -39,15 +37,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value                            | Explanation |
-| :------------------------------- | :---------- |
-| `"default"`                      |             |
-| `"event-mesh-connectivity"`      |             |
-| `"event-mesh-connectivity-beta"` |             |
+| Value             | Explanation |
+| :---------------- | :---------- |
+| `"blocks_of_100"` |             |
+| `"default"`       |             |
 
 ## name
 
-SAP Event Mesh: The SAP Event Mesh service decouples communication and allows for event-driven business processes.
+Document Classification: Document Classification helps you to automate the management and processing of large amounts of business documents by applying machine learning. Based on customer specific classification models, Document Classification can be utilized in a wide range of business scenarios and adapted to special requirements. Document Classification is targeting organizations and business units struggling with the fast, economic, high quality and efficient processing of documents used in critical business processes like Enterprise Mail-Inbox Processing, Contract Management or Invoice Processing.
 
 `name`
 

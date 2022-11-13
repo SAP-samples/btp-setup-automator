@@ -8,5 +8,5 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"free"`     |             |
+| `"b2c"`      |             |
 | `"standard"` |             |

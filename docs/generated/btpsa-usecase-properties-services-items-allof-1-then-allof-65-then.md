@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Network Trace: Mobile Network Trace
+Mobile Cloud Build: Mobile Cloud Build
 
 `name`
 

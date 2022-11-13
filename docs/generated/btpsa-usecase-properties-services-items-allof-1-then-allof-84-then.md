@@ -6,6 +6,14 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1.md "check type definition")
+
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-2.md "check type definition")
+
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-3.md "check type definition")
+
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-4.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -35,13 +43,17 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"standard"` |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"large"`   |             |
+| `"medium"`  |             |
+| `"small"`   |             |
+| `"xsmall"`  |             |
+| `"xxsmall"` |             |
 
 ## name
 
-SAP Process Automation: SAP Process Automation is a citizen development solution to adapt, improve, and innovate business processes with the low-code/no-code capabilities of SAP Workflow Management and SAP Intelligent RPA.
+PostgreSQL on SAP BTP: PostgreSQL on SAP BTP offers an object-relational database management system with many advanced features, such as user-defined types, table inheritance, foreign key referential integrity, Multiversion Concurrency Control (MVCC), and so on.
 
 `name`
 

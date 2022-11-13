@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"standard"` |             |
+| Value           | Explanation |
+| :-------------- | :---------- |
+| `"application"` |             |
 
 ## name
 
-Invoice Object Recommendation: The Invoice Object Recommendation services provides the functionality to train a machine learning model with customer specific data that can give recommendations on G/L Accounts for incoming invoices without a purchase order reference attached. The service therefore provides a training call as described and an inference call that gives back recommendations based on a trained model to semi-automate the invoice processing in the area of accounts payable.
+SAP Cloud Identity Services: Cloud Identity Services provide basic capabilities for user authentication.
 
 `name`
 

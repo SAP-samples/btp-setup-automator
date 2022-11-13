@@ -6,8 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-25-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-25-then-allof-1.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -39,12 +37,11 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"free"`     |             |
 | `"standard"` |             |
 
 ## name
 
-Data Attribute Recommendation: Data Attribute Recommendation uses free text, numbers and categories as input to classify entities such as products, stores and users into multiple classes and also to predict the value of missing numerical attributes in your data records. You can use Data Attribute Recommendation, for example, to classify incoming product information and predict the price of commodities based on their description.
+SAP Conversational AI: SAP Conversational AI is a collaborative end-to-end platform for creating chatbots. Along with conversational natural language processing (NLP) and dialog management features supported with detailed API documentation, SAP Conversational AI makes it easy to connect your bots to different messaging channels.
 
 `name`
 

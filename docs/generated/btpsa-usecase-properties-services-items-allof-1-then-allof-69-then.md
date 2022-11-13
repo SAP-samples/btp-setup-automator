@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Sample OData: Mobile Sample OData
+Mobile Discovery: Mobile Discovery
 
 `name`
 

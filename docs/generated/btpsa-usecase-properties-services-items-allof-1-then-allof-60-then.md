@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"standard"` |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"default"` |             |
 
 ## name
 
-Mobile Cloud Build: Mobile Cloud Build
+SAP Master Data service for business partners: SAP Business Partner Service
 
 `name`
 

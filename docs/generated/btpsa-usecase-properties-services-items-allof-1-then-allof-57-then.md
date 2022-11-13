@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"standard"` |             |
+| Value      | Explanation |
+| :--------- | :---------- |
+| `"clamav"` |             |
 
 ## name
 
-Mobile App Catalog: Mobile App Catalog
+SAP Malware Scanning service: Scan business documents uploaded by your custom-developed apps for malware
 
 `name`
 

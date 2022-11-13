@@ -15,7 +15,7 @@
 | [sap\_system\_name](#sap_system_name)             | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-1-then-allof-0-then-properties-parameters-oneof-0-properties-sap_system_name.md "undefined#/properties/services/items/allOf/1/then/allOf/1/then/allOf/0/then/properties/parameters/oneOf/0/properties/sap_system_name")             |
 | [size\_of\_persistence](#size_of_persistence)     | `integer` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-1-then-allof-0-then-properties-parameters-oneof-0-properties-size_of_persistence.md "undefined#/properties/services/items/allOf/1/then/allOf/1/then/allOf/0/then/properties/parameters/oneOf/0/properties/size_of_persistence")     |
 | [size\_of\_runtime](#size_of_runtime)             | `integer` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-1-then-allof-0-then-properties-parameters-oneof-0-properties-size_of_runtime.md "undefined#/properties/services/items/allOf/1/then/allOf/1/then/allOf/0/then/properties/parameters/oneOf/0/properties/size_of_runtime")             |
-| [tenant\_mode](#tenant_mode)                      | `string`  | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-1-then-allof-0-then-properties-parameters-oneof-0-properties-tenant_mode.md "undefined#/properties/services/items/allOf/1/then/allOf/1/then/allOf/0/then/properties/parameters/oneOf/0/properties/tenant_mode")                     |
+| [tenant\_mode](#tenant_mode)                      | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-1-then-allof-0-then-properties-parameters-oneof-0-properties-tenant_mode.md "undefined#/properties/services/items/allOf/1/then/allOf/1/then/allOf/0/then/properties/parameters/oneOf/0/properties/tenant_mode")                     |
 | [usage](#usage)                                   | `string`  | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-1-then-allof-0-then-properties-parameters-oneof-0-properties-usage.md "undefined#/properties/services/items/allOf/1/then/allOf/1/then/allOf/0/then/properties/parameters/oneOf/0/properties/usage")                                 |
 | [xs-security](#xs-security)                       | `object`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-1-then-allof-0-then-properties-parameters-oneof-0-properties-xs-security.md "undefined#/properties/services/items/allOf/1/then/allOf/1/then/allOf/0/then/properties/parameters/oneOf/0/properties/xs-security")                     |
 
@@ -255,7 +255,7 @@ Decides whether a customer will have a tenant in a dedicated system (single) or 
 
 `tenant_mode`
 
-*   is required
+*   is optional
 
 *   Type: `string`
 

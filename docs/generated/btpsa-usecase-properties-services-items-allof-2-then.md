@@ -104,6 +104,14 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-49.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-50.md "check type definition")
+
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-51.md "check type definition")
+
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-52.md "check type definition")
+
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-53.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                |
@@ -161,6 +169,7 @@ unknown
 | `"integrationsuite"`                            |             |
 | `"intelligent-situation-automation-app"`        |             |
 | `"iotas"`                                       |             |
+| `"IRPA"`                                        |             |
 | `"it-prod"`                                     |             |
 | `"LandscapePortal"`                             |             |
 | `"market-rates-ux"`                             |             |
@@ -168,6 +177,7 @@ unknown
 | `"mdo-one-mds-master"`                          |             |
 | `"MDOrchestrationApplication"`                  |             |
 | `"ocnselfserviceagent"`                         |             |
+| `"PersonalDataManagerApp"`                      |             |
 | `"PortalApplication"`                           |             |
 | `"print-app"`                                   |             |
 | `"process-automation"`                          |             |
@@ -179,8 +189,10 @@ unknown
 | `"sapappgyver"`                                 |             |
 | `"sapappstudio"`                                |             |
 | `"SAPLaunchpad"`                                |             |
+| `"SAPWebAnalytics"`                             |             |
 | `"SAPWorkZone"`                                 |             |
 | `"sdm-web"`                                     |             |
 | `"spatialservices-app"`                         |             |
 | `"tnt-onboard-dataenrichment-dcp"`              |             |
+| `"WorkflowManagementSaaS"`                      |             |
 | `"wums-c4re-beta"`                              |             |

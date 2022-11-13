@@ -8,6 +8,10 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-14-then-allof-1.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-14-then-allof-2.md "check type definition")
+
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-14-then-allof-3.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -37,14 +41,16 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"basic"`    |             |
-| `"standard"` |             |
+| Value                           | Explanation |
+| :------------------------------ | :---------- |
+| `"blockchain-hana-integration"` |             |
+| `"blockchain-proof-of-history"` |             |
+| `"blockchain-proof-of-state"`   |             |
+| `"blockchain-timestamp"`        |             |
 
 ## name
 
-SAP Business Rules Management: SAP Business Rules service translates business-decision logic into natural language that is configurable directly by line-of-business key users or knowledge experts without IT or developer intervention. It provides web-based tools to solution architects and developers, enabling them to model, author, and simulate business rules independent of the backend system.
+Blockchain Application Enablement: Deliver blockchain-based services on any connected blockchain network.
 
 `name`
 

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Client Resource Service: Mobile Client Resource Service
+Mobile App Catalog: Mobile App Catalog
 
 `name`
 

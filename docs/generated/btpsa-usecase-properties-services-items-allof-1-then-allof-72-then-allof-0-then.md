@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >b2c< for >mobile-settings-exchange< is available in data centers:
+service plan >standard< for >mobile-proxy< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}

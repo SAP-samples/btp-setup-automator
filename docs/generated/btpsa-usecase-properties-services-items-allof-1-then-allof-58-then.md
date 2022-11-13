@@ -6,6 +6,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-58-then-allof-0.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-58-then-allof-1.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -35,13 +37,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"standard"` |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"default"` |             |
+| `"free"`    |             |
 
 ## name
 
-Mobile App Update: Mobile App Update
+SAP Market Rates Management: The Market Rates Management, Bring Your Own Rates data option allows you to upload and download your own market rates licensed from third party data providers
 
 `name`
 

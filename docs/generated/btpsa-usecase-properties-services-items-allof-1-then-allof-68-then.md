@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Push Notification: Mobile Push Notification
+Mobile Client Usage Service: Mobile Client Usage Service
 
 `name`
 

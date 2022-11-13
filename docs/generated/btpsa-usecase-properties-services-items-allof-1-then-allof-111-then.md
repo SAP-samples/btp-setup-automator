@@ -6,6 +6,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-111-then-allof-0.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-111-then-allof-1.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                              |
@@ -35,13 +37,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value       | Explanation |
-| :---------- | :---------- |
-| `"default"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"lite"`     |             |
+| `"standard"` |             |
 
 ## name
 
-Work Calendar: Get details of factory calendar such as weekday, holiday, workday for a country.
+SAP HANA spatial services: SAP HANA spatial services provides a unified access layer for location-based services, including maps for visualization, geocoding and routing capabilities. It integrates location-based content and services from external providers into SAP products and customer applications.
 
 `name`
 

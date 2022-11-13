@@ -10,10 +10,13 @@ unknown
 
 ## plan
 
-service plan >default< for >ibanservice< is available in data centers:
+service plan >standard< for >hana-tenant-db< is available in data centers:
 
-*   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'us10', 'name': 'US East (VA)'}
+*   {'region': 'ap21', 'name': 'Singapore'}
+*   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
+*   {'region': 'jp20', 'name': 'Japan (Tokyo)'}
+*   {'region': 'us20', 'name': 'US West (WA)'}
+*   {'region': 'us21', 'name': 'US East (VA)'}
 
 `plan`
 

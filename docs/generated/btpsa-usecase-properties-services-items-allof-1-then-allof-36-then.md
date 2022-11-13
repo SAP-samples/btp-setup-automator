@@ -8,10 +8,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-36-then-allof-1.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-36-then-allof-2.md "check type definition")
-
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-36-then-allof-3.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -41,16 +37,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value           | Explanation |
-| :-------------- | :---------- |
-| `"hdi-shared"`  |             |
-| `"sbss"`        |             |
-| `"schema"`      |             |
-| `"securestore"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"free"`     |             |
+| `"standard"` |             |
 
 ## name
 
-SAP HANA Schemas & HDI Containers: Use the SAP HANA schemas & HDI containers service to create service instances on SAP HANA databases and bind them to cloud applications. To create schemas and HDI containers, an SAP HANA database must be available in your space. The SAP HANA schemas & HDI containers service is part of the SAP HANA service.
+data quality service: SAP Data Quality Management offers cloud-based services that let you embed address cleansing, geocoding, and reverse geocoding within any business process orapplication,so that you can reap the value of complete and accurate address data.
 
 `name`
 

@@ -6,8 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-18-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-18-then-allof-1.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -37,14 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value       | Explanation |
-| :---------- | :---------- |
-| `"central"` |             |
-| `"local"`   |             |
+| Value      | Explanation |
+| :--------- | :---------- |
+| `"oauth2"` |             |
 
 ## name
 
-SAP Cloud Management service for SAP BTP: Manage the control plane, account model, and product resources in SAP BTP using supported API interfaces provided by the SAP Cloud Management service for SAP BTP.
+Cloud Integration Automation: Cloud Integration Automation service provides you a guided workflow to integrate SAP cloud solutions to On-Premise and other SAP Cloud solutions. The guided workflow contains instructions for manual and automated tasks to enable a simpler and faster integration configuration setup
 
 `name`
 

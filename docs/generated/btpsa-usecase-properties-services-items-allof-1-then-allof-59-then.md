@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"standard"` |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"default"` |             |
 
 ## name
 
-Mobile Content: Mobile Content
+Market Rates, Refinitiv: The Market Rates Management, Refinitiv data option is a reuse service that allows you to import daily and historical Exchange Rates & Interest Rates from Refinitiv.
 
 `name`
 

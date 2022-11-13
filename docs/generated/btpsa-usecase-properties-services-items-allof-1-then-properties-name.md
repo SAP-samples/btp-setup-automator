@@ -10,6 +10,7 @@ unknown
 | :----------------------------------------- | :---------- |
 | `"abap"`                                   |             |
 | `"abap-solution"`                          |             |
+| `"ads"`                                    |             |
 | `"adsrestapi"`                             |             |
 | `"aicore"`                                 |             |
 | `"alert-notification"`                     |             |
@@ -17,6 +18,7 @@ unknown
 | `"apimanagement-apiportal"`                |             |
 | `"apimanagement-devportal"`                |             |
 | `"application-logs"`                       |             |
+| `"ASE_PROVISIONING"`                       |             |
 | `"auditlog-api"`                           |             |
 | `"auditlog-management"`                    |             |
 | `"autoscaler"`                             |             |
@@ -27,6 +29,7 @@ unknown
 | `"cias"`                                   |             |
 | `"cicd-service"`                           |             |
 | `"cis"`                                    |             |
+| `"COMPUTE_UNIT"`                           |             |
 | `"connectivity"`                           |             |
 | `"connectivity-central"`                   |             |
 | `"content-agent"`                          |             |
@@ -52,11 +55,13 @@ unknown
 | `"hyperledger-fabric"`                     |             |
 | `"ibanservice"`                            |             |
 | `"identity"`                               |             |
+| `"INFRA"`                                  |             |
 | `"integrationsuite"`                       |             |
 | `"intercompany-reconciliation"`            |             |
 | `"invoice-object-recommendation"`          |             |
 | `"iot"`                                    |             |
 | `"iotae"`                                  |             |
+| `"IRPA"`                                   |             |
 | `"irpa-service"`                           |             |
 | `"it-rt"`                                  |             |
 | `"jobscheduler"`                           |             |

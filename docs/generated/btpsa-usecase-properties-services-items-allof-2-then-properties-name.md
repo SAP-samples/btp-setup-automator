@@ -35,6 +35,7 @@ unknown
 | `"integrationsuite"`                            |             |
 | `"intelligent-situation-automation-app"`        |             |
 | `"iotas"`                                       |             |
+| `"IRPA"`                                        |             |
 | `"it-prod"`                                     |             |
 | `"LandscapePortal"`                             |             |
 | `"market-rates-ux"`                             |             |
@@ -42,6 +43,7 @@ unknown
 | `"mdo-one-mds-master"`                          |             |
 | `"MDOrchestrationApplication"`                  |             |
 | `"ocnselfserviceagent"`                         |             |
+| `"PersonalDataManagerApp"`                      |             |
 | `"PortalApplication"`                           |             |
 | `"print-app"`                                   |             |
 | `"process-automation"`                          |             |
@@ -53,8 +55,10 @@ unknown
 | `"sapappgyver"`                                 |             |
 | `"sapappstudio"`                                |             |
 | `"SAPLaunchpad"`                                |             |
+| `"SAPWebAnalytics"`                             |             |
 | `"SAPWorkZone"`                                 |             |
 | `"sdm-web"`                                     |             |
 | `"spatialservices-app"`                         |             |
 | `"tnt-onboard-dataenrichment-dcp"`              |             |
+| `"WorkflowManagementSaaS"`                      |             |
 | `"wums-c4re-beta"`                              |             |

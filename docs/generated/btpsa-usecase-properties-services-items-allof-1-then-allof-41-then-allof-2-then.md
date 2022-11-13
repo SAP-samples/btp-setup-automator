@@ -4,17 +4,28 @@ unknown
 
 # then Properties
 
-| Property                  | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                                  |
-| :------------------------ | :------------ | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [plan](#plan)             | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/plan")             |
-| [parameters](#parameters) | `object`      | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters") |
+| Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                      |
+| :------------ | :------------ | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/plan") |
 
 ## plan
 
-service plan >cyon< for >hyperledger-fabric< is available in data centers:
+service plan >128premium< for >hana-db< is available in data centers:
 
-*   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'us10', 'name': 'US East (VA)'}
+*   {'region': 'ae1', 'name': 'UAE (Dubai)'}
+*   {'region': 'ap1', 'name': 'Australia (Sydney)'}
+*   {'region': 'br1', 'name': 'Brazil (Sao Paulo)'}
+*   {'region': 'ca1', 'name': 'Canada (Toronto)'}
+*   {'region': 'cn1', 'name': 'China (Shanghai)'}
+*   {'region': 'eu1', 'name': 'Europe (Rot)'}
+*   {'region': 'eu2', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'eu3', 'name': 'Europe (Amsterdam)'}
+*   {'region': 'jp1', 'name': 'Japan (Tokyo)'}
+*   {'region': 'sa1', 'name': 'KSA (Riyadh)'}
+*   {'region': 'us1', 'name': 'US East (Ashburn)'}
+*   {'region': 'us2', 'name': 'US West (Chandler)'}
+*   {'region': 'us3', 'name': 'US East (Sterling)'}
+*   {'region': 'us4', 'name': 'US West (Colorado Springs)'}
 
 `plan`
 
@@ -29,21 +40,3 @@ service plan >cyon< for >hyperledger-fabric< is available in data centers:
 ### plan Type
 
 unknown
-
-## parameters
-
-
-
-`parameters`
-
-*   is required
-
-*   Type: `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters.md))
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters")
-
-### parameters Type
-
-`object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters.md))

@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-application plan >standard< for >PortalApplication< is available in data centers:
+application plan >standard< for >ocnselfserviceagent< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}
@@ -20,9 +20,9 @@ application plan >standard< for >PortalApplication< is available in data centers
 *   {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}
 *   {'region': 'ca10', 'name': 'Canada (Montreal)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
 *   {'region': 'eu30', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'in30', 'name': 'India (Mumbai)'}
 *   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
 *   {'region': 'jp20', 'name': 'Japan (Tokyo)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}

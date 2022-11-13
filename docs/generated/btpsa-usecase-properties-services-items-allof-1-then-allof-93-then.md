@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Data Retention Manager: The SAP Business Technology Platform Data Retention Manager lets you block or delete personal data based on the residence and retention rules maintained.
+Personalized Recommendation: Personalized Recommendation is a generic reusable service. It uses state-of-the-art machine learning techniques to give visitors to your website highly personalized recommendations based on their browsing history and/or item description. Train and use machine learning models to deliver these recommendations across a wide range of business scenarios. Personalized Recommendation is part of the SAP AI Business Services portfolio.
 
 `name`
 

@@ -6,6 +6,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-5-then-allof-0.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-5-then-allof-1.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                          |
@@ -35,13 +37,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value       | Explanation |
-| :---------- | :---------- |
-| `"preview"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"free"`     |             |
+| `"standard"` |             |
 
 ## name
 
-SAP API Management: API Management
+SAP Alert Notification service for SAP BTP: SAP Business Technology Platform Alert Notification offers a common API for providers to publish alerts and for consumers to subscribe to these alerts. It is designed to send automatically real-time notifications and alerts about SAP Cloud events that may be of interest to the business and operations.<br/><br/>SAP does not support EU Access for this service. By activating the service, you are accepting this limitation.
 
 `name`
 

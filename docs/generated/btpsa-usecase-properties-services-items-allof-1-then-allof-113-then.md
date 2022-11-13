@@ -37,11 +37,11 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"workflow"` |             |
+| `"standard"` |             |
 
 ## name
 
-SAP Workflow Management: Digitize workflows, manage decisions and gain end-to-end process visibility
+SAP Cloud Transport Management: SAP Cloud Transport Management service lets you manage software deliverables between accounts of different environments (such as Neo and Cloud Foundry), by transporting them across various runtimes. This includes application artifacts as well as their respective application-specific content.
 
 `name`
 

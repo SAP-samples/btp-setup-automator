@@ -6,6 +6,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-52-then-allof-0.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-52-then-allof-1.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -35,13 +37,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value      | Explanation |
-| :--------- | :---------- |
-| `"clamav"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"default"`  |             |
+| `"standard"` |             |
 
 ## name
 
-SAP Malware Scanning service: Scan business documents uploaded by your custom-developed apps for malware
+SAP IoT Application Enablement: SAP IoT business services allow you to put raw sensor data into business object context and then use query models, rules, events and actions to leverage the data near real-time in analytical or transactional business applications.
 
 `name`
 

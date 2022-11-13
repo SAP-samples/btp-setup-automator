@@ -6,6 +6,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-107-then-allof-0.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-107-then-allof-1.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                              |
@@ -37,11 +39,12 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
+| `"free"`     |             |
 | `"standard"` |             |
 
 ## name
 
-UI theme designer: The UI theme designer lets you apply your corporate branding to applications built with SAP UI technologies. You can make changes to theme templates supplied by SAP to create custom themes that use your own color scheme, background images, and company logo. You can apply a custom theme to various SAP UI clients and technologies. Additionally, you can include your own custom CSS files without having to modify any of your applications.
+Document Management Service, Integration Option: Leverage the APIs of SAP Document Management service and build your own document management layer to enable document management capabilities for your business applications. You can also embed the easy-to-use, UI5-based, reusable UI component of Document Management into your application for document management scenarios.
 
 `name`
 

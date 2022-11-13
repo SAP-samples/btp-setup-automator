@@ -8,6 +8,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-21-then-allof-1.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-21-then-allof-2.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -37,14 +39,15 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value           | Explanation |
-| :-------------- | :---------- |
-| `"application"` |             |
-| `"standard"`    |             |
+| Value            | Explanation |
+| :--------------- | :---------- |
+| `"PREMIUM"`      |             |
+| `"PREMIUM_PLUS"` |             |
+| `"PRO"`          |             |
 
 ## name
 
-SAP Content Agent service: SAP Content Agent service is a tool for SAP BTP applications offering generic content management operations such as view, export and import content with inter-dependencies and integration with SAP Cloud Transport Management service. It offers a view to track all activities along with logs, status and other information.
+SAP BTP, Java server: Java Quota
 
 `name`
 

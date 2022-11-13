@@ -6,6 +6,10 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-9-then-allof-0.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-9-then-allof-1.md "check type definition")
+
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-9-then-allof-2.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                          |
@@ -35,13 +39,15 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value       | Explanation |
-| :---------- | :---------- |
-| `"default"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"large"`    |             |
+| `"lite"`     |             |
+| `"standard"` |             |
 
 ## name
 
-Audit Log Service API: SAP Audit Log service API
+SAP Application Logging service for SAP BTP: In the Cloud Foundry environment, the SAP Application Logging service for SAP BTP lets you stream logs of bound applications to a central application logging stack. SAP Application Logging service for SAP BTP uses Elastic Stack to store and visualize your application log data. To fully leverage this service, please also consider using one of SAP's open source libraries (for example, cf-java-logging-support or cf-nodejs-logging-support). In the Neo environment, the application logging allows you to configure loggers for Java applications through the cockpit or the console client. Furthermore, you can retrieve default trace logs, HTTP access logs, and garbage collection logs for the last 7 days.
 
 `name`
 

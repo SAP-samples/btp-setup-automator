@@ -10,8 +10,9 @@ unknown
 
 ## plan
 
-service plan >default< for >workcalendar< is available in data centers:
+service plan >lite< for >spatialservices< is available in data centers:
 
+*   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
 

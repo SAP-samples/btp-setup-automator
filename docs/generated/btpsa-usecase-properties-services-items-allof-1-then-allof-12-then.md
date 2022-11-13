@@ -6,12 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-12-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-12-then-allof-1.md "check type definition")
-
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-12-then-allof-2.md "check type definition")
-
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-12-then-allof-3.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -41,16 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value                           | Explanation |
-| :------------------------------ | :---------- |
-| `"blockchain-hana-integration"` |             |
-| `"blockchain-proof-of-history"` |             |
-| `"blockchain-proof-of-state"`   |             |
-| `"blockchain-timestamp"`        |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"default"` |             |
 
 ## name
 
-Blockchain Application Enablement: Deliver blockchain-based services on any connected blockchain network.
+SAP Audit Log Management service: SAP Audit Log Management service helps to retrieve logs and change retention.
 
 `name`
 

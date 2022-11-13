@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >standard< for >adsrestapi< is available in data centers:
+service plan >standard< for >ads< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}

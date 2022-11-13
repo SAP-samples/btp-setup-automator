@@ -10,10 +10,11 @@ unknown
 
 ## plan
 
-service plan >devportal-apiaccess< for >apimanagement-devportal< is available in data centers:
+service plan >apim-as-route-service< for >apimanagement-apiportal< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}
+*   {'region': 'ap12', 'name': 'South Korea (Seoul)'}
 *   {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}
 *   {'region': 'ap21', 'name': 'Singapore'}
 *   {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}
@@ -22,6 +23,8 @@ service plan >devportal-apiaccess< for >apimanagement-devportal< is available in
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
+*   {'region': 'eu30', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'in30', 'name': 'India (Mumbai)'}
 *   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
 *   {'region': 'jp20', 'name': 'Japan (Tokyo)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}

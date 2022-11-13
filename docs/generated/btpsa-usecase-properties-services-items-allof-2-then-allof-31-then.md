@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"standard"` |             |
+| Value                | Explanation |
+| :------------------- | :---------- |
+| `"saas-application"` |             |
 
 ## name
 
-SAP Master Data Integration: Master data application that allows master data replication according to predetermined master data distribution models. SAP Master Data Orchestration can only be used in combination with the SAP Master Data Integration service.
+SAP Business Partner Application: SAP Business Partner Application
 
 `name`
 

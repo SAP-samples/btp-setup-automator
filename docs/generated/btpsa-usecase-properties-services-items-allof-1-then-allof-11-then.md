@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"standard"` |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"default"` |             |
 
 ## name
 
-Application Autoscaler: The Application Autoscaler lets you automatically increase or decrease the number of application instances based on a policy you define.
+Audit Log Service API: SAP Audit Log service API
 
 `name`
 

@@ -6,8 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-106-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-106-then-allof-1.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                              |
@@ -39,12 +37,11 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"lite"`     |             |
 | `"standard"` |             |
 
 ## name
 
-SAP HANA spatial services: SAP HANA spatial services provides a unified access layer for location-based services, including maps for visualization, geocoding and routing capabilities. It integrates location-based content and services from external providers into SAP products and customer applications.
+SAP Launchpad service: SAP Launchpad service provides users with a central point of access to applications from different sources.
 
 `name`
 

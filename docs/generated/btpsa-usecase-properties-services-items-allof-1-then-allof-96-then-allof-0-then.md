@@ -10,10 +10,9 @@ unknown
 
 ## plan
 
-service plan >standard< for >sap-bigdataservices< is available in data centers:
+service plan >beta< for >responsibility-management-service-beta< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
 

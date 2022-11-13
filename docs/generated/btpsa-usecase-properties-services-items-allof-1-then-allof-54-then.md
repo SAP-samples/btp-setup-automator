@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value       | Explanation |
-| :---------- | :---------- |
-| `"default"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"standard"` |             |
 
 ## name
 
-SAP Market Rates Management: The Market Rates Management, Refinitiv data option is a reuse service that allows you to import daily and historical Exchange Rates & Interest Rates from Refinitiv.
+SAP Intelligent Robotic Process Automation: SAP Intelligent Robotic Process Automation (SAP Intelligent RPA) lets you automate enterprise business processes. Design process automations with the Desktop Studio by creating end-to-end scenarios. Import these scenarios into the cloud Factory powered by SAP Business Technology Platform to configure and execute them with Agents. Agents running on workstations can work as a Digital Assistant (attended automation) or as a Digital Worker (unattended automation).
 
 `name`
 

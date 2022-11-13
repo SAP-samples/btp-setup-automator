@@ -6,6 +6,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-82-then-allof-0.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-82-then-allof-1.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -37,11 +39,12 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
+| `"free"`     |             |
 | `"standard"` |             |
 
 ## name
 
-SAP Private Link service: SAP Private Link service establishes a private connection between selected SAP BTP services and selected services in your own IaaS provider accounts.
+SAP Personal Data Manager: SAP Personal Data Manager provides the capability to generate reports showing the personal data stored in an application point of view with the help of a CSR. The reports can be generated and exported either in machine readable form (JSON) or human readable form (PDF). Data subjects can request the correction and deletion of personal data that is stored in an application point of view.
 
 `name`
 

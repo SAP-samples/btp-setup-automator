@@ -31,5 +31,5 @@ unknown
 **constant**: the value of this property must be equal to:
 
 ```json
-"xfs-runtime"
+"ui5-flexibility-keyuser"
 ```

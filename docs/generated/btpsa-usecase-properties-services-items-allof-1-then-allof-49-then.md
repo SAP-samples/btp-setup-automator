@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Intelligent Robotic Process Automation: SAP Intelligent Robotic Process Automation (SAP Intelligent RPA) lets you automate enterprise business processes. Design process automations with the Desktop Studio by creating end-to-end scenarios. Import these scenarios into the cloud Factory powered by SAP Business Technology Platform to configure and execute them with Agents. Agents running on workstations can work as a Digital Assistant (attended automation) or as a Digital Worker (unattended automation).
+SAP S/4HANA Cloud for intelligent intercompany reconciliation: Intelligent Intercompany Reconciliation is introduced to speed up your intercompany reconciliation process from company close to corporate close. The service is based on Artificial Intelligence in order to reconcile your financial data with high accuracy.
 
 `name`
 

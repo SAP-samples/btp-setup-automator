@@ -10,12 +10,10 @@ unknown
 
 ## plan
 
-service plan >default< for >cicd-service< is available in data centers:
+service plan >default< for >c4-distributed-order-management< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
-*   {'region': 'us10', 'name': 'US East (VA)'}
-*   {'region': 'us20', 'name': 'US West (WA)'}
+*   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
 
 `plan`
 

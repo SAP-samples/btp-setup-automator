@@ -6,8 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-48-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-48-then-allof-1.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -39,12 +37,11 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"default"`  |             |
-| `"standard"` |             |
+| `"messages"` |             |
 
 ## name
 
-SAP IoT Simulator: SAP IoT business services allow you to put raw sensor data into business object context and then use query models, rules, events and actions to leverage the data near real-time in analytical or transactional business applications.
+SAP Integration Suite: SAP Integration Suite helps you to quickly develop and manage reliable communication between applications, services, and systems across heterogeneous landscapes.
 
 `name`
 
