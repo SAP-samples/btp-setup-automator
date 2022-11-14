@@ -11,20 +11,28 @@ docker container rm  -f "${thisname}"
 docker image     rm  -f "${thisname}"
 
 
-if [ "$1" != "RunFromRegistry" ]; then
+if [ "$1" == "RunReleaseFromRegistry" ]; then
     
+    echo -e "${GREEN}Pulling container image RELEASE from registry ...${NOCOLOR}"
+    docker pull ghcr.io/sap-samples/btp-setup-automator:latest
+
+    echo -e "${GREEN}Starting the container as '${thisname}' - Access possible e.g. via VS Code${NOCOLOR}"
+    docker container run --rm  -it -d --name "${thisname}" ghcr.io/sap-samples/btp-setup-automator:latest 
+ 
+elif [ "$1" == "RunDevFromRegistry" ]; then
+
+    echo -e "${GREEN}Pulling container image DEV from registry ...${NOCOLOR}"
+    docker pull ghcr.io/sap-samples/btp-setup-automator-dev:dev
+
+    echo -e "${GREEN}Starting the container as '${thisname}' - Access possible e.g. via VS Code${NOCOLOR}"
+    docker container run --rm  -it -d --name "${thisname}" ghcr.io/sap-samples/btp-setup-automator-dev:dev 
+
+else
+
     echo -e "${GREEN}Building the container image ...${NOCOLOR}"
     docker image build -t ${thisname}:latest -f "config/Dockerfile"  .
 
     echo -e "${GREEN}Starting the container as '${thisname}' - Access possible e.g. via VS Code${NOCOLOR}"
-    docker container run -e BTPSA_VERSION_GIT="$(git describe --long --tags  --always)" --rm  -it -d --name "${thisname}" "${thisname}" 
-
-else
-
-    echo -e "${GREEN}Pulling container image from registry ...${NOCOLOR}"
-    docker pull ghcr.io/sap-samples/btp-setup-automator:main
-
-    echo -e "${GREEN}Starting the container as '${thisname}' - Access possible e.g. via VS Code${NOCOLOR}"
-    docker container run --rm  -it -d --name "${thisname}" ghcr.io/sap-samples/btp-setup-automator:main 
+    docker container run -e BTPSA_VERSION_GIT="$(git describe --long --tags  --always)" --rm  -it -d --name "${thisname}" "${thisname}"
 
 fi

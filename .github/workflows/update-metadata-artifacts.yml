@@ -9,7 +9,7 @@ on:
     types: [btp-metadata-update]
 
 env:
-  TARGET_BRANCH: main
+  TARGET_BRANCH: dev
   METADATA_SOURCE_OWNER: SAP-samples
   METADATA_SOURCE_REPO: btp-service-metadata
   METADATA_VERSION: v0
@@ -112,4 +112,4 @@ jobs:
           git config user.email "btpsabot@users.noreply.github.com"
           git config user.name "[btpsa bot] docu generation"
           git diff --quiet && git diff --staged --quiet || git commit -m "[btpsa bot] Generate parameter documentation"
-          git push
+          git push origin ${{ env.TARGET_BRANCH }}

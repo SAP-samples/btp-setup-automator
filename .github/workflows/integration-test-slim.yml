@@ -11,7 +11,7 @@ jobs:
     integration-test:
         runs-on: ubuntu-latest
         container:
-          image: ghcr.io/sap-samples/btp-setup-automator:main
+          image: ghcr.io/sap-samples/btp-setup-automator:latest
           options: --user root
         env: 
             BTPSA_PARAM_MYEMAIL: ${{ secrets.BTPSA_PARAM_MYEMAIL }}

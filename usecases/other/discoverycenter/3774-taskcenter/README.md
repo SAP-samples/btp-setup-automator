@@ -20,7 +20,7 @@ Open a command line terminal on your machine.
 Enter the following command into the terminal and press the `ENTER` key:
 
 ```bash
-docker container run --platform linux/amd64 --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
+docker container run --platform linux/amd64 --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:latest"
 ```
 
 You'll notice that the prompt in your terminal has changed, because you are now working inside the docker container, that you just started.
