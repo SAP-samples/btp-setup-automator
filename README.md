@@ -59,7 +59,7 @@ Open a terminal window on your machine and run the following command to pull the
 - For the **release** image:
 
     ```bash
-    docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator-release:latest"
+    docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:latest"
     ```
 
 - For the **dev** image:
@@ -93,7 +93,7 @@ The tool starts to execute and the only thing you need to type in is your passwo
 > 📝 Tip - If you are already using VS Code, you should execute this command instead, so that the container runs "detached" (`-d`) from your command line session. Here teh command when using the release image
 >
 > ```bash
-> docker container run --rm -it -d --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator-release:latest"
+> docker container run --rm -it -d --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:latest"
 > ```
 
 You can also use the provided `run` files to pull the image from the registry and start the container via one command. To do so execute the following command (clone this repo to make the commands available to you):

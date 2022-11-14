@@ -80,7 +80,7 @@ Open a command line terminal on your machine or directly from within Visual Stud
 Enter the following command into the terminal and press the `ENTER` key. This will spin up a new *btp-setup-automator* docker container in **detached** mode by using the **-d** parameter.
 
 ```bash
-docker container run --rm -it -d --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
+docker container run --rm -it -d --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:latest"
 ```
 
 Attach to the running container in VS Code as described in the SAP BTP Setup Automator documentation ([click here](https://github.com/SAP-samples/btp-setup-automator#get-the-docker-container-up-and-running)). Alternatively, you can also remove the **"-d"** parameter (detached mode) in the above command and execute the next steps (updating the parameters and usecase files) using your command line. 

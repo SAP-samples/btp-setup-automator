@@ -19,9 +19,9 @@ goto end
 
 :release
 echo %ESC%[32mPulling container image RELEASE from registry ...%ESC%[0m
-docker pull ghcr.io/sap-samples/btp-setup-automator-release:latest
+docker pull ghcr.io/sap-samples/btp-setup-automator:latest
 echo %ESC%[32mStarting the container as 'btp-setup-automator' - Access possible e.g. via VS Code%ESC%[0m
-docker container run --rm  -it -d --name btp-setup-automator ghcr.io/sap-samples/btp-setup-automator-release:latest
+docker container run --rm  -it -d --name btp-setup-automator ghcr.io/sap-samples/btp-setup-automator:latest
 goto end
 
 :dev

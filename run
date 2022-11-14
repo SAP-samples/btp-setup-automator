@@ -14,10 +14,10 @@ docker image     rm  -f "${thisname}"
 if [ "$1" == "RunReleaseFromRegistry" ]; then
     
     echo -e "${GREEN}Pulling container image RELEASE from registry ...${NOCOLOR}"
-    docker pull ghcr.io/sap-samples/btp-setup-automator-release:latest
+    docker pull ghcr.io/sap-samples/btp-setup-automator:latest
 
     echo -e "${GREEN}Starting the container as '${thisname}' - Access possible e.g. via VS Code${NOCOLOR}"
-    docker container run --rm  -it -d --name "${thisname}" ghcr.io/sap-samples/btp-setup-automator-release:latest 
+    docker container run --rm  -it -d --name "${thisname}" ghcr.io/sap-samples/btp-setup-automator:latest 
  
 elif [ "$1" == "RunDevFromRegistry" ]; then
 

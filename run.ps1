@@ -13,10 +13,10 @@ docker image     rm  -f "btp-setup-automator"
 if ( $RunReleaseFromRegistry -eq $True )
 {
     Write-Host "Pulling container image RELEASE from registry ..." -ForegroundColor green
-    docker pull ghcr.io/sap-samples/btp-setup-automator-release:latest 
+    docker pull ghcr.io/sap-samples/btp-setup-automator:latest 
 
     Write-Host "Starting the container as 'btp-setup-automator' - Access possible e.g. via VS Code" -ForegroundColor green
-    docker container run --rm  -it -d --name "btp-setup-automator" ghcr.io/sap-samples/btp-setup-automator-release:latest 
+    docker container run --rm  -it -d --name "btp-setup-automator" ghcr.io/sap-samples/btp-setup-automator:latest 
 }
  
 elseif ($RunDevFromRegistry -eq $True) {
