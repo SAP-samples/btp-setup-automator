@@ -13,6 +13,7 @@ unknown
 
 service plan >standard< for >abap-solution< is available in data centers:
 
+*   {'region': 'ap11', 'name': 'Singapore'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
