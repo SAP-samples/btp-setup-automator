@@ -45,15 +45,28 @@ In case you are new to the containers topic, we **strongly recommended** that yo
 
 ## Download and Run
 
-Once the pre-requisites above are all met, you can either use the pre-built Docker image for the `btp-setup-automator`, or build it yourself.
+Once the pre-requisites above are all met, you can either use one of the pre-built Docker images for the `btp-setup-automator`, or build it yourself.
 
 ### Option 1: Start Docker Container via Pre-Built Image (recommended)
 
-This is the fastest way to use the `btp-setup-automator`. Open a terminal window on your machine and run the following command to pull the Docker image from the GitHub repository and start a container based upon it:
+This is the fastest way to use the `btp-setup-automator`. We offer two images for the `btp-setup-automator`:
 
-```bash
-docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
-```
+- The **release** image: This is a stable version of the `btp-setup-automator` and corresponds to the latest release visible on the [release section](https://github.com/SAP-samples/btp-setup-automator/releases) of the repository. The corresponding code is taken from the [`main branch`](https://github.com/SAP-samples/btp-setup-automator/tree/main) of the repository.
+- The **dev** image: This is an up-to-date version of the `btp-setup-automator`. It usually contains newer features and fixes but was not yet officially released. The corresponding code is taken from the [`dev branch`](https://github.com/SAP-samples/btp-setup-automator/tree/dev) of the repository.
+
+Open a terminal window on your machine and run the following command to pull the Docker image from the GitHub repository and start a container based upon it.
+
+- For the **release** image:
+
+    ```bash
+    docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator-release:latest"
+    ```
+
+- For the **dev** image:
+
+    ```bash
+    docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator-dev:dev"
+    ```
 
 Here's a brief explanation of the options used:
 
@@ -77,31 +90,53 @@ You can now run the main script `btpsa` with the following command and you'll be
 
 The tool starts to execute and the only thing you need to type in is your password for your SAP BTP account.
 
-> 📝 Tip - If you are already using VS Code, you should execute this command instead, so that the container runs "detached" (`-d`) from your command line session:
+> 📝 Tip - If you are already using VS Code, you should execute this command instead, so that the container runs "detached" (`-d`) from your command line session. Here teh command when using the release image
 >
 > ```bash
-> docker container run --rm -it -d --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:main"
+> docker container run --rm -it -d --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator-release:latest"
 > ```
 
 You can also use the provided `run` files to pull the image from the registry and start the container via one command. To do so execute the following command (clone this repo to make the commands available to you):
 
 - bash (macOS/Linux)
+  - **release** image:
 
-  ```bash
-  ./run RunFromRegistry
-  ```
+      ```bash
+      ./run RunReleaseFromRegistry
+      ```
+
+  - **dev** image:
+
+      ```bash
+      ./run RunDevFromRegistry
+      ```
 
 - Command Prompt (Windows):
 
-  ```cmd
-  .\run.bat RunFromRegistry
-  ```
+  - **release** image:
+
+      ```cmd
+      .\run.bat RunReleaseFromRegistry
+      ```
+
+  - **dev** image:
+
+      ```cmd
+      .\run.bat RunDevFromRegistry
+      ```
 
 - PowerShell Core (Cross Platform):
+  - **release** image:
 
-  ```powershell
-  .\run.ps1 -RunFromRegistry $True
-  ```
+      ```powershell
+      .\run.ps1 -RunReleaseFromRegistry $True
+      ```
+
+  - **dev** image:
+
+      ```powershell
+      .\run.ps1 -RunDevFromRegistry $True
+      ```
 
 ### Option 2: Start Docker Container With Self-Built Image
 
@@ -207,6 +242,8 @@ Checkout [the issues section in this repo](https://github.com/SAP-samples/btp-se
 ## Contributions
 
 Checkout the [CONTRIBUTING.md file](CONTRIBUTING.md) for more details on how to contribute to this open source project.
+
+> 📝 Tip - If you provide a pull request make sure that the basis of your work as well as the target for your pull request is the `dev` branch of this repository.
 
 ## Code of conduct
 
