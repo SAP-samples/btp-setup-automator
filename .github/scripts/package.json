@@ -9,8 +9,15 @@
   "author": "Christian Lechner",
   "license": "APACHE-2.0",
   "dependencies": {
-    "@octokit/auth-token": "3.0.0",
-    "@octokit/request": "6.2.0",
+    "@octokit/auth-token": "3.0.2",
+    "@octokit/request": "6.2.2",
     "node-fetch": "2.6.7"
+  },
+  "devDependencies": {
+    "eslint": "^8.24.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-promise": "^6.0.1"
   }
 }
