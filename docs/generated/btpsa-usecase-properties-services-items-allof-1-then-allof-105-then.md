@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP SuccessFactors Work Zone: SAP Work Zone centralizes access to relevant business applications, processes, information, and communication in a unified entry point that users can access from any device.
+SAP Build Work Zone, advanced edition: SAP Work Zone centralizes access to relevant business applications, processes, information, and communication in a unified entry point that users can access from any device.
 
 `name`
 
