@@ -50,6 +50,7 @@ unknown
 | `"responsibility-management-application-beta"`  |             |
 | `"responsibilitymanagement-application"`        |             |
 | `"retention-manager-app"`                       |             |
+| `"sap-build-apps"`                              |             |
 | `"sap-cai-onboarding"`                          |             |
 | `"sap-identity-services-onboarding"`            |             |
 | `"sapappgyver"`                                 |             |

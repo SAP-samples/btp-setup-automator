@@ -10,14 +10,9 @@ unknown
 
 ## plan
 
-service plan >b2c< for >mobile-settings-exchange< is available in data centers:
+service plan >standard< for >mobile-services-preview< is available in data centers:
 
-*   {'region': 'ap10', 'name': 'Australia (Sydney)'}
-*   {'region': 'ap11', 'name': 'Singapore'}
-*   {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
-*   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
 

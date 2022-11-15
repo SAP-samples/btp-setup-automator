@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Work Zone: SAP Work Zone centralizes access to relevant business applications, processes, information, and communication in a unified entry point that users can access from any device.
+SAP Web Analytics: SAP Web Analytics enables the collection and analysis of website data for understanding and optimizing web usage to measure organizational goals, drive strategy and improve the user's experience.
 
 `name`
 

@@ -8,4 +8,5 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"standard"` |             |
+| `"receiver"` |             |
+| `"sender"`   |             |
