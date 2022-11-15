@@ -112,6 +112,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-53.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-54.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                |
@@ -184,6 +186,7 @@ unknown
 | `"responsibility-management-application-beta"`  |             |
 | `"responsibilitymanagement-application"`        |             |
 | `"retention-manager-app"`                       |             |
+| `"sap-build-apps"`                              |             |
 | `"sap-cai-onboarding"`                          |             |
 | `"sap-identity-services-onboarding"`            |             |
 | `"sapappgyver"`                                 |             |

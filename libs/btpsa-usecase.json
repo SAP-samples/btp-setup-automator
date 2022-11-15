@@ -319,7 +319,7 @@
                     {
                         "if": { "properties": { "category": { "const": "SERVICE"} } },
                         "then" :{
-                                    "properties": { "name": { "enum": ["abap", "abap-solution", "ads", "adsrestapi", "aicore", "alert-notification", "api-management", "apimanagement-apiportal", "apimanagement-devportal", "application-logs", "ASE_PROVISIONING", "auditlog-api", "auditlog-management", "autoscaler", "blockchain-services", "business-entity-recognition", "business-rules", "c4-distributed-order-management", "cias", "cicd-service", "cis", "COMPUTE_UNIT", "connectivity", "connectivity-central", "content-agent", "conversational-ai", "credstore", "data-analytics-osb", "data-attribute-recommendation", "data-intelligence", "data-privacy-integration-service", "dataenrichment-business-partner", "dateandtime", "destination", "document-classification", "document-translation", "dq-services", "enterprise-messaging", "feature-flags", "hana", "hana-cloud", "hana-db", "hana-tenant-db", "html5-apps-repo", "hyperledger-fabric", "ibanservice", "identity", "INFRA", "integrationsuite", "intercompany-reconciliation", "invoice-object-recommendation", "iot", "iotae", "IRPA", "irpa-service", "it-rt", "jobscheduler", "malware-scanner", "market-rates-byor", "market-rates-thr", "MDMBusinessPartnerService", "ml-foundation", "mobile-app-catalog", "mobile-app-update", "mobile-c2g", "mobile-cbms", "mobile-client-log-upload", "mobile-client-resource", "mobile-client-usage", "mobile-discovery", "mobile-network-trace", "mobile-offline", "mobile-proxy", "mobile-push", "mobile-sample-odata-v2-espm", "mobile-services", "mobile-services-preview", "mobile-settings-exchange", "multichain", "objectstore", "one-inbox-service", "one-mds", "personal-data-manager-service", "portal", "postgresql", "postgresql-db", "print", "privatelink", "process-automation", "process-automation-service", "processvisibility", "quorum", "rabbitmq", "recommendation-systems-production", "redis", "redis-cache", "responsibility-management-service-beta", "responsibilitymanagement-service", "retention-manager", "saas-registry", "sap-analytics-cloud-embedded-edition", "sap-bigdataservices", "sap-calm", "sap-document-information-extraction", "sap-graph", "sap-workzone", "scp-launchpad", "sdm", "sdm-repository", "service-manager", "service-ticket-intelligence", "spatialservices", "theming", "transport", "uas", "ui5-flexibility-keyuser", "workcalendar", "workflow", "workflowmanagement", "wums-partner-api-beta", "xfs-runtime", "xsuaa"] } },
+                                    "properties": { "name": { "enum": ["abap", "abap-solution", "ads", "adsrestapi", "aicore", "alert-notification", "api-management", "apimanagement-apiportal", "apimanagement-devportal", "application-logs", "ASE_PROVISIONING", "auditlog-api", "auditlog-management", "autoscaler", "blockchain-services", "build-workzone-advanced", "business-entity-recognition", "business-rules", "c4-distributed-order-management", "cias", "cicd-service", "cis", "COMPUTE_UNIT", "connectivity", "connectivity-central", "content-agent", "conversational-ai", "credstore", "data-analytics-osb", "data-attribute-recommendation", "data-intelligence", "data-privacy-integration-service", "dataenrichment-business-partner", "dateandtime", "destination", "document-classification", "document-translation", "dq-services", "enterprise-messaging", "feature-flags", "hana", "hana-cloud", "hana-db", "hana-tenant-db", "html5-apps-repo", "hyperledger-fabric", "ibanservice", "identity", "INFRA", "integrationsuite", "intercompany-reconciliation", "invoice-object-recommendation", "iot", "iotae", "IRPA", "irpa-service", "it-rt", "jobscheduler", "malware-scanner", "market-rates-byor", "market-rates-thr", "MDMBusinessPartnerService", "ml-foundation", "mobile-app-catalog", "mobile-app-update", "mobile-c2g", "mobile-cbms", "mobile-client-log-upload", "mobile-client-resource", "mobile-client-usage", "mobile-discovery", "mobile-network-trace", "mobile-offline", "mobile-proxy", "mobile-push", "mobile-sample-odata-v2-espm", "mobile-services", "mobile-services-preview", "mobile-settings-exchange", "multichain", "objectstore", "one-inbox-service", "one-mds", "personal-data-manager-service", "portal", "postgresql", "postgresql-db", "print", "privatelink", "process-automation", "process-automation-service", "processvisibility", "quorum", "rabbitmq", "recommendation-systems-production", "redis", "redis-cache", "responsibility-management-service-beta", "responsibilitymanagement-service", "retention-manager", "saas-registry", "sap-analytics-cloud-embedded-edition", "sap-bigdataservices", "sap-build-apps", "sap-calm", "sap-document-information-extraction", "sap-graph", "scp-launchpad", "sdm", "sdm-repository", "service-manager", "service-ticket-intelligence", "spatialservices", "theming", "transport", "uas", "ui5-flexibility-keyuser", "workcalendar", "workflow", "workflowmanagement", "wums-partner-api-beta", "xfs-runtime", "xsuaa"] } },
                                     "allOf": [
                                         {
                                             "if": { "properties": { "name": { "const": "abap"} } },
@@ -737,6 +737,24 @@
 
                                                             }, "required" : ["parameters"]
 
+                                                        }
+                                                    }]
+                                            }
+                                        }, {
+                                            "if": { "properties": { "name": { "const": "build-workzone-advanced"} } },
+                                            "then" :{
+                                                "properties": {
+                                                    "plan": { "enum": ["standard"] },
+                                                    "name": { "description": "SAP Build Work Zone, advanced edition: Centralizes access to relevant business applications, processes, information, and communication in a unified entry point that users can access from any device. Note: SAP Work Zone was recently renamed to SAP Build Work Zone, advanced edition."}
+                                                },
+                                                "allOf": [
+                                                    {
+                                                        "if": { "properties": { "plan": { "const": "standard"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "service plan >standard< for >build-workzone-advanced< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'eu30', 'name': 'Europe (Frankfurt)'}\n- {'region': 'in30', 'name': 'India (Mumbai)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                
+                                                            }
                                                         }
                                                     }]
                                             }
@@ -2689,7 +2707,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["advanced-user","automation-attended","automation-unattended","standard-user"] },
-                                                    "name": { "description": "SAP Process Automation: SAP Process Automation is a citizen development solution to adapt, improve, and innovate business processes with the low-code/no-code capabilities of SAP Workflow Management and SAP Intelligent RPA."}
+                                                    "name": { "description": "SAP Build Process Automation: SAP Build Process Automation is a citizen development solution to adapt, improve, and innovate business processes with the low-code/no-code capabilities of SAP Workflow Management and SAP Intelligent RPA."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -2731,7 +2749,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP Process Automation: SAP Process Automation is a citizen development solution to adapt, improve, and innovate business processes with the low-code/no-code capabilities of SAP Workflow Management and SAP Intelligent RPA."}
+                                                    "name": { "description": "SAP Build Process Automation: SAP Build Process Automation is a citizen development solution to adapt, improve, and innovate business processes with the low-code/no-code capabilities of SAP Workflow Management and SAP Intelligent RPA."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3083,6 +3101,32 @@
                                                     }]
                                             }
                                         }, {
+                                            "if": { "properties": { "name": { "const": "sap-build-apps"} } },
+                                            "then" :{
+                                                "properties": {
+                                                    "plan": { "enum": ["additional-active-users","additional-capacity-units"] },
+                                                    "name": { "description": "SAP Build Apps: SAP Build Apps is a full stack no-code development platform for creating Web and native mobile applications."}
+                                                },
+                                                "allOf": [
+                                                    {
+                                                        "if": { "properties": { "plan": { "const": "additional-active-users"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "service plan >additional-active-users< for >sap-build-apps< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }, {
+                                                        "if": { "properties": { "plan": { "const": "additional-capacity-units"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "service plan >additional-capacity-units< for >sap-build-apps< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }]
+                                            }
+                                        }, {
                                             "if": { "properties": { "name": { "const": "sap-calm"} } },
                                             "then" :{
                                                 "properties": {
@@ -3153,29 +3197,11 @@
                                                     }]
                                             }
                                         }, {
-                                            "if": { "properties": { "name": { "const": "sap-workzone"} } },
-                                            "then" :{
-                                                "properties": {
-                                                    "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP SuccessFactors Work Zone: SAP Work Zone centralizes access to relevant business applications, processes, information, and communication in a unified entry point that users can access from any device."}
-                                                },
-                                                "allOf": [
-                                                    {
-                                                        "if": { "properties": { "plan": { "const": "standard"} } },
-                                                        "then" :{
-                                                            "properties": {
-                                                                "plan": { "description": "service plan >standard< for >sap-workzone< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'eu30', 'name': 'Europe (Frankfurt)'}\n- {'region': 'in30', 'name': 'India (Mumbai)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
-                                                                
-                                                            }
-                                                        }
-                                                    }]
-                                            }
-                                        }, {
                                             "if": { "properties": { "name": { "const": "scp-launchpad"} } },
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP Launchpad service: SAP Launchpad service provides users with a central point of access to applications from different sources."}
+                                                    "name": { "description": "Launchpad Service: SAP Launchpad service provides users with a central point of access to applications from different sources. Note: this service is being renamed to SAP Build Work Zone, standard edition in January 2023."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3572,7 +3598,7 @@
                     {
                         "if": { "properties": { "category": { "const": "APPLICATION"} } },
                         "then" :{
-                                    "properties": { "name": { "enum": ["abapcp-web-router", "ads-configui", "ai-launchpad", "alm-ts", "api-management-apiportal", "api-management-devportal", "auditlog-viewer", "automationpilot", "Backend-service", "c4-distributed-order-management-app", "cias", "cicd-app", "content-agent-ui", "custom-domain-manager", "data-privacy-integration-application", "document-information-extraction-application", "dqmmicroui", "eadesigner", "edge-services", "enterprise-messaging-hub", "extension-center", "feature-flags-dashboard", "hana-cloud-tools", "integration-suite-advanced-event-mesh", "integrationsuite", "intelligent-situation-automation-app", "iotas", "IRPA", "it-prod", "LandscapePortal", "market-rates-ux", "MDMBusinessPartnerApplication", "mdo-one-mds-master", "MDOrchestrationApplication", "ocnselfserviceagent", "PersonalDataManagerApp", "PortalApplication", "print-app", "process-automation", "responsibility-management-application-beta", "responsibilitymanagement-application", "retention-manager-app", "sap-cai-onboarding", "sap-identity-services-onboarding", "sapappgyver", "sapappstudio", "SAPLaunchpad", "SAPWebAnalytics", "SAPWorkZone", "sdm-web", "spatialservices-app", "tnt-onboard-dataenrichment-dcp", "WorkflowManagementSaaS", "wums-c4re-beta"] } },
+                                    "properties": { "name": { "enum": ["abapcp-web-router", "ads-configui", "ai-launchpad", "alm-ts", "api-management-apiportal", "api-management-devportal", "auditlog-viewer", "automationpilot", "Backend-service", "c4-distributed-order-management-app", "cias", "cicd-app", "content-agent-ui", "custom-domain-manager", "data-privacy-integration-application", "document-information-extraction-application", "dqmmicroui", "eadesigner", "edge-services", "enterprise-messaging-hub", "extension-center", "feature-flags-dashboard", "hana-cloud-tools", "integration-suite-advanced-event-mesh", "integrationsuite", "intelligent-situation-automation-app", "iotas", "IRPA", "it-prod", "LandscapePortal", "market-rates-ux", "MDMBusinessPartnerApplication", "mdo-one-mds-master", "MDOrchestrationApplication", "ocnselfserviceagent", "PersonalDataManagerApp", "PortalApplication", "print-app", "process-automation", "responsibility-management-application-beta", "responsibilitymanagement-application", "retention-manager-app", "sap-build-apps", "sap-cai-onboarding", "sap-identity-services-onboarding", "sapappgyver", "sapappstudio", "SAPLaunchpad", "SAPWebAnalytics", "SAPWorkZone", "sdm-web", "spatialservices-app", "tnt-onboard-dataenrichment-dcp", "WorkflowManagementSaaS", "wums-c4re-beta"] } },
                                     "allOf": [
                                         {
                                             "if": { "properties": { "name": { "const": "abapcp-web-router"} } },
@@ -4359,7 +4385,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","standard"] },
-                                                    "name": { "description": "SAP Process Automation: SAP Process Automation is a citizen development solution to adapt, improve, and innovate business processes with the low-code/no-code capabilities of SAP Workflow Management and SAP Intelligent RPA."}
+                                                    "name": { "description": "SAP Build Process Automation: SAP Build Process Automation is a citizen development solution to adapt, improve, and innovate business processes with the low-code/no-code capabilities of SAP Workflow Management and SAP Intelligent RPA."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4429,6 +4455,32 @@
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "application plan >standard< for >retention-manager-app< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }]
+                                            }
+                                        }, {
+                                            "if": { "properties": { "name": { "const": "sap-build-apps"} } },
+                                            "then" :{
+                                                "properties": {
+                                                    "plan": { "enum": ["free","standard"] },
+                                                    "name": { "description": "SAP Build Apps: SAP Build Apps is a full stack no-code development platform for creating Web and native mobile applications."}
+                                                },
+                                                "allOf": [
+                                                    {
+                                                        "if": { "properties": { "plan": { "const": "free"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "application plan >free< for >sap-build-apps< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }, {
+                                                        "if": { "properties": { "plan": { "const": "standard"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "application plan >standard< for >sap-build-apps< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -4535,7 +4587,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","standard"] },
-                                                    "name": { "description": "SAP Launchpad service: SAP Launchpad service provides users with a central point of access to applications from different sources."}
+                                                    "name": { "description": "Launchpad Service: SAP Launchpad service provides users with a central point of access to applications from different sources. Note: this service is being renamed to SAP Build Work Zone, standard edition in January 2023."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4579,7 +4631,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP Work Zone: SAP Work Zone centralizes access to relevant business applications, processes, information, and communication in a unified entry point that users can access from any device."}
+                                                    "name": { "description": "SAP Build Work Zone, advanced edition: Increase the productivity and engagement for your employees as well as interact with partners and customers in a multi-channel digital experience. Note: SAP Work Zone was recently renamed to SAP Build Work Zone, advanced edition."}
                                                 },
                                                 "allOf": [
                                                     {

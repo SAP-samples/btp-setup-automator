@@ -248,6 +248,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-121.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-122.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                |
@@ -293,6 +295,7 @@ unknown
 | `"auditlog-management"`                    |             |
 | `"autoscaler"`                             |             |
 | `"blockchain-services"`                    |             |
+| `"build-workzone-advanced"`                |             |
 | `"business-entity-recognition"`            |             |
 | `"business-rules"`                         |             |
 | `"c4-distributed-order-management"`        |             |
@@ -380,10 +383,10 @@ unknown
 | `"saas-registry"`                          |             |
 | `"sap-analytics-cloud-embedded-edition"`   |             |
 | `"sap-bigdataservices"`                    |             |
+| `"sap-build-apps"`                         |             |
 | `"sap-calm"`                               |             |
 | `"sap-document-information-extraction"`    |             |
 | `"sap-graph"`                              |             |
-| `"sap-workzone"`                           |             |
 | `"scp-launchpad"`                          |             |
 | `"sdm"`                                    |             |
 | `"sdm-repository"`                         |             |
