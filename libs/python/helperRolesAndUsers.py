@@ -367,9 +367,9 @@ def determineIdpForRoleCollection(btpUsecase, rolecollection):
     # If no IdP is configured we use the default one and do not provide an IdP
     idp = None
 
-    if btpUsecase.get("defaultIdp"):
+    if btpUsecase.defaultIdp:
         # A explicit default IdP is configured
-        idp = btpUsecase.get("defaultIdp")
+        idp = btpUsecase.defaultIdp
     if rolecollection.get("idp"):
         # A role collection specific IdP is configured - overrules the default IdP
         idp = rolecollection.get("idp")
