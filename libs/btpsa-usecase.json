@@ -81,6 +81,12 @@
                         "description": "user groups to be assigned from the parameter file",
                         "title": "user groups from parameter file"
                     },
+                    "idp":{
+                        "type": "string",
+                        "description": "the identity provider that hosts the user",
+                        "title": "IdP name",
+                        "default": null
+                    },
                     "level": {
                         "type": "string",
                         "description": "level of the role collection",
@@ -277,6 +283,12 @@
                                     "type": "array",
                                     "description": "list of user groups to assign the role collection",
                                     "title": "list of user groups to assign the role collection"
+                                },
+                                "idp":{
+                                    "type": "string",
+                                    "description": "the identity provider that hosts the user. ",
+                                    "title": "IdP name",
+                                    "default": null
                                 }
                             }
                         }
