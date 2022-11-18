@@ -15,10 +15,8 @@ service plan >standard< for >privatelink< is available in data centers:
 
 *   {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}
 *   {'region': 'ap21', 'name': 'Singapore'}
-*   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
 *   {'region': 'jp20', 'name': 'Japan (Tokyo)'}
-*   {'region': 'us10', 'name': 'US East (VA)'}
 *   {'region': 'us20', 'name': 'US West (WA)'}
 *   {'region': 'us21', 'name': 'US East (VA)'}
 

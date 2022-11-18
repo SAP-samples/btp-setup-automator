@@ -8,6 +8,7 @@
 | :-------------------------------------------------------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [assignedRoles](#assignedroles)                                             | `array`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-role-collections-to-be-assigned-to-a-service-items-properties-roles-for-custom-role-collection.md "undefined#/properties/assignrolecollections/items/properties/assignedRoles")                      |
 | [assignedUserGroupsFromParameterFile](#assignedusergroupsfromparameterfile) | `array`  | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-role-collections-to-be-assigned-to-a-service-items-properties-user-groups-from-parameter-file.md "undefined#/properties/assignrolecollections/items/properties/assignedUserGroupsFromParameterFile") |
+| [idp](#idp)                                                                 | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-role-collections-to-be-assigned-to-a-service-items-properties-idp-name.md "undefined#/properties/assignrolecollections/items/properties/idp")                                                        |
 | [level](#level)                                                             | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-role-collections-to-be-assigned-to-a-service-items-properties-level-of-the-role-collection.md "undefined#/properties/assignrolecollections/items/properties/level")                                  |
 | [name](#name)                                                               | `string` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-role-collections-to-be-assigned-to-a-service-items-properties-name-of-the-role-collection.md "undefined#/properties/assignrolecollections/items/properties/name")                                    |
 | [type](#type)                                                               | `string` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-role-collections-to-be-assigned-to-a-service-items-properties-type-of-the-role-collection.md "undefined#/properties/assignrolecollections/items/properties/type")                                    |
@@ -47,6 +48,24 @@ user groups to be assigned from the parameter file
 ### assignedUserGroupsFromParameterFile Type
 
 `array` ([user groups from parameter file](btpsa-usecase-properties-role-collections-to-be-assigned-to-a-service-items-properties-user-groups-from-parameter-file.md))
+
+## idp
+
+the identity provider that hosts the user.
+
+`idp`
+
+*   is optional
+
+*   Type: `string` ([IdP name](btpsa-usecase-properties-role-collections-to-be-assigned-to-a-service-items-properties-idp-name.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-role-collections-to-be-assigned-to-a-service-items-properties-idp-name.md "undefined#/properties/assignrolecollections/items/properties/idp")
+
+### idp Type
+
+`string` ([IdP name](btpsa-usecase-properties-role-collections-to-be-assigned-to-a-service-items-properties-idp-name.md))
 
 ## level
 

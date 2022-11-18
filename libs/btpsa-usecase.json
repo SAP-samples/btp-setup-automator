@@ -83,7 +83,7 @@
                     },
                     "idp":{
                         "type": "string",
-                        "description": "the identity provider that hosts the user",
+                        "description": "the identity provider that hosts the user. ",
                         "title": "IdP name",
                         "default": null
                     },
@@ -669,11 +669,19 @@
                                             "if": { "properties": { "name": { "const": "auditlog-management"} } },
                                             "then" :{
                                                 "properties": {
-                                                    "plan": { "enum": ["default"] },
+                                                    "plan": { "enum": ["central","default"] },
                                                     "name": { "description": "SAP Audit Log Management service: SAP Audit Log Management service helps to retrieve logs and change retention."}
                                                 },
                                                 "allOf": [
                                                     {
+                                                        "if": { "properties": { "plan": { "const": "central"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "service plan >central< for >auditlog-management< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }, {
                                                         "if": { "properties": { "plan": { "const": "default"} } },
                                                         "then" :{
                                                             "properties": {
@@ -2706,7 +2714,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >standard< for >privatelink< is available in data centers:\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >standard< for >privatelink< is available in data centers:\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
                                                                 , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_controlsOrder": ["resourceId", "subResource", "requestMessage", "cosmosDb"], "_show_form_view": true, "additionalProperties": false, "properties": {"cosmosDb": {"description": "Specifies CosmosDB-specific creation parameters.", "properties": {"regions:": {"description": "Specifies the regions a CosmosDB instance is geo-replicated in to enable Private Endpoint connections to them.", "items": {"type": "string"}, "title": "CosmosDB geo-replication regions", "type": "array", "uniqueItems": true}}, "title": "CosmosDB-specific creation parameters", "type": "object"}, "requestMessage": {"description": "Specifies the request message which is displayed to the approver.", "maxLength": 60, "title": "Request Message", "type": "string"}, "resourceId": {"description": "Specifies the Azure Resource ID of the service for which the private endpoint should be created.\n\nExample: /subscriptions/\u003csubscription\u003e/resourceGroups/\u003crg\u003e/providers/Microsoft.Network/privateLinkServices/\u003cmyPrivateLinkService\u003e", "minLength": 1, "pattern": "/subscriptions/.+/resourceGroups/.+/providers/.+?/.+?/[^/#?]+", "title": "Resource ID", "type": "string"}, "subResource": {"description": "Specifies the subresource for a specific Resource ID. Note that subresource is not required for Azure Private Link resources.\n\nExample: mysqlServer\n\nAll supported native Azure services including subresources can be found here: https://help.sap.com/viewer/product/PRIVATE_LINK/CLOUD/en-US", "title": "Subresource", "type": "string"}}, "required": ["resourceId"], "type": "object"}
 
                                                             }, "required" : ["parameters"]

@@ -22,6 +22,7 @@ all of
 | [cfspacequota](#cfspacequota)                                                                   | `object`  | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-cf-space-quota.md "undefined#/properties/cfspacequota")                                                                                                                             |
 | [clusterregion](#clusterregion)                                                                 | `string`  | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-region-for-sap-btp-kyma-runtime-cluster.md "undefined#/properties/clusterregion")                                                                                                   |
 | [customAppProviderSubaccountId](#customappprovidersubaccountid)                                 | `string`  | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-provider-subaccount-id-of-custom-app-on-sap-btp.md "undefined#/properties/customAppProviderSubaccountId")                                                                           |
+| [defaultIdp](#defaultidp)                                                                       | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-default-idp.md "undefined#/properties/defaultIdp")                                                                                                                                  |
 | [directoryid](#directoryid)                                                                     | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-directory-id-in-sap-btp-global-account.md "undefined#/properties/directoryid")                                                                                                      |
 | [directoryname](#directoryname)                                                                 | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-directory-name-for-use-case.md "undefined#/properties/directoryname")                                                                                                               |
 | [envvariables](#envvariables)                                                                   | `object`  | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-list-of-environment-variables-on-os-level-to-be-used-within-commands-defined-in-the-executebeforeaccountsetup-and-executeafteraccountsetup.md "undefined#/properties/envvariables") |
@@ -217,6 +218,24 @@ id of provider sub account of custom app
 ### customAppProviderSubaccountId Type
 
 `string` ([provider subaccount id of custom app on SAP BTP](btpsa-parameters-properties-provider-subaccount-id-of-custom-app-on-sap-btp.md))
+
+## defaultIdp
+
+default identity provider for role collections
+
+`defaultIdp`
+
+*   is optional
+
+*   Type: `string` ([default IdP](btpsa-parameters-properties-default-idp.md))
+
+*   can be null
+
+*   defined in: [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-default-idp.md "undefined#/properties/defaultIdp")
+
+### defaultIdp Type
+
+`string` ([default IdP](btpsa-parameters-properties-default-idp.md))
 
 ## directoryid
 
