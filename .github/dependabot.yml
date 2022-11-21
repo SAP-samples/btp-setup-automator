@@ -4,13 +4,19 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      # Check for updates to GitHub Actions every weekday
+      # Check for updates to GitHub Actions once a week on Monday
       interval: "weekly"
       day: "monday"
   - package-ecosystem: "pip"
     directory: "/config/python"
     schedule:
-      # Check for updates to GitHub Actions every weekday
+      # Check for updates to GitHub Actions once a week on Monday
       interval: "weekly"
       day: "monday"
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      # Check for updates to GitHub Actions once a week on Monday
+      interval: "weekly"
+      day: "monday"    
    
