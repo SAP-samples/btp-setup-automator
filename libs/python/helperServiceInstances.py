@@ -330,7 +330,7 @@ def createServiceKey(serviceKey, service, btpUsecase):
             btpUsecase, service.instancename, serviceKey)
     elif targetenvironment == "kymaruntime":
         statusResponse = createKymaServiceBinding(
-            btpUsecase, service, serviceKey)
+            btpUsecase, service, serviceKey, labels)
     elif targetenvironment == "sapbtp":
         statusResponse = createBtpServiceBinding(
             btpUsecase, service.id, service.instancename, serviceKey, labels)

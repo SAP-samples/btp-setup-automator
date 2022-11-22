@@ -2,7 +2,8 @@
     "apiVersion": "services.cloud.sap.com/v1",
     "kind": "ServiceInstance",
     "metadata": {
-        "name": "my-service-instance"
+        "name": "my-service-instance",
+        "labels": {}
     },
     "spec": {
         "serviceOfferingName": "sample-service",

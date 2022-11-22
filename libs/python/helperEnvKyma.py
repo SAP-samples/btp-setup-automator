@@ -28,12 +28,12 @@ def create_kyma_service(btpUsecase, service):
     return service
 
 
-def createKymaServiceBinding(btpUsecase, service, keyName):
+def createKymaServiceBinding(btpUsecase, service, keyName, keyLabels):
     filepath = "logs/k8s/service-binding/service-binding-" + \
         btpUsecase.accountMetadata.get("subaccountid") + ".yaml"
 
     build_and_store_service_binding_yaml_from_parameters(
-        keyName, service, filepath)
+        keyName, service, filepath, keyLabels)
 
     command = "kubectl apply -f " + filepath + " -n " + \
         btpUsecase.k8snamespace + " --kubeconfig " + btpUsecase.kubeconfigpath
