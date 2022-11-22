@@ -36,7 +36,7 @@ def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
 
         command = "cf services"
         message = "Checking creation status of service instances in Cloud Foundry"
-        
+
         p = runShellCommand(btpUsecase, command, "CHECK", message)
         result = p.stdout.decode()
         jsonResultsCF = convertCloudFoundryCommandOutputToJson(result)
@@ -138,8 +138,9 @@ def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
                             service.statusResponse = getStatusResponseFromCreatedInstanceGen(
                                 btpUsecase, instancename, service)
     if allServicesCreated is False:
-        log.info("Not all service instances are available yet. Checking again in " + str(checkIntervalInSeconds) + " seconds.")
-        
+        log.info("Not all service instances are available yet. Checking again in " +
+                 str(checkIntervalInSeconds) + " seconds.")
+
     return allServicesCreated
 
 
@@ -322,6 +323,8 @@ def createServiceKey(serviceKey, service, btpUsecase):
     targetenvironment = service.targetenvironment
     statusResponse = None
 
+    labels = getServiceKeyLabelsByKey(service=service, key=serviceKey)
+
     if targetenvironment == "cloudfoundry":
         statusResponse = get_cf_service_key(
             btpUsecase, service.instancename, serviceKey)
@@ -329,9 +332,19 @@ def createServiceKey(serviceKey, service, btpUsecase):
         statusResponse = createKymaServiceBinding(
             btpUsecase, service, serviceKey)
     elif targetenvironment == "sapbtp":
-        statusResponse = createBtpServiceBinding(btpUsecase, service.id, service.instancename, serviceKey)
+        statusResponse = createBtpServiceBinding(
+            btpUsecase, service.id, service.instancename, serviceKey, labels)
     else:
         log.error("The targetenvironment is not supported ")
         sys.exit(os.EX_DATAERR)
 
     return statusResponse
+
+
+def getServiceKeyLabelsByKey(service, key):
+    labels = None
+    if service.serviceKeyLabels is not None:
+        for entry in service.serviceKeyLabels:
+            if entry.get("name") == key:
+                labels = entry.get("labels")
+    return labels

@@ -226,6 +226,11 @@
                         "description": "name of the service instance",
                         "title": "name of the service instance"
                     },
+                    "labels":{
+                        "type": "object",
+                        "description": "labels for the service",
+                        "title": "labels for the service"
+                    },
                     "name": {
                         "type": "string",
                         "description": "name of the service",
@@ -297,6 +302,16 @@
                         "type": "array",
                         "description": "list of services that need to be instantiated before instantiating this service",
                         "title": "list of services that need to be instantiated before instantiating this service",
+                        "default": []
+                    },
+                    "serviceKeyLabels":{
+                        "type": "array",
+                        "additionalProperties": false,
+                        "description": "labels for service keys as JSON",
+                        "title": "labels for service keys",
+                        "items": {
+                            "type": "object"
+                        },
                         "default": []
                     },
                     "serviceparameterfile": {
