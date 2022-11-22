@@ -150,6 +150,10 @@ class BTPUSECASE:
                     --display-name '" + directory + "' \
                     --global-account '" + globalAccount + "'"
 
+                if self.directorylabels is not None:
+                    labelsAsString = json.dumps(self.subaccountlabels)
+                    command += " --labels '" + labelsAsString + "'"
+
                 message = "Create directory >" + directory + "<"
 
                 result = runCommandAndGetJsonResult(
@@ -323,11 +327,16 @@ class BTPUSECASE:
             subaccountid = checkIfSubaccountAlreadyExists(self)
 
             if subaccountid is None:
+
                 command = "btp --format json create accounts/subaccount \
                     --display-name '" + subaccount + "' \
                     --subdomain '" + subdomain + "' \
                     --region '" + usecaseRegion + "' \
                     --subaccount-admins '" + subaccountadmins + "'"
+
+                if self.subaccountlabels is not None:
+                    labelsAsString = json.dumps(self.subaccountlabels)
+                    command += " --labels '" + labelsAsString + "'"
 
                 message = "Create sub account >" + subaccount + "<"
 
