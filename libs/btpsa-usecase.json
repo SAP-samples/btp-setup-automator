@@ -2706,11 +2706,21 @@
                                             "if": { "properties": { "name": { "const": "privatelink"} } },
                                             "then" :{
                                                 "properties": {
-                                                    "plan": { "enum": ["standard"] },
+                                                    "plan": { "enum": ["beta","standard"] },
                                                     "name": { "description": "SAP Private Link service: SAP Private Link service establishes a private connection between selected SAP BTP services and selected services in your own IaaS provider accounts."}
                                                 },
                                                 "allOf": [
                                                     {
+                                                        "if": { "properties": { "plan": { "const": "beta"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "service plan >beta< for >privatelink< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_controlsOrder": ["serviceName", "desiredAZs"], "_show_form_view": true, "additionalProperties": false, "properties": {"desiredAZs": {"default": 3, "description": "Specifies the desired number of Availability Zones of the endpoint.\n\nExample: 2\n\nBy default, SAP Private Link service only creates the endpoint if the endpoint service is deployed in the same AZs as SAP BTP, to maximize High Availability.\nIn case fewer AZs than SAP BTPs should be allowed (i.e. only one or two AZs), please explicitly allow it by specifying the desired number of AZs via this parameter.", "title": "Desired AZs", "type": "integer"}, "policyDocument": {"description": "Specifies the Endpoint Policy.\\n\\nThe endpoint policy controls which AWS principals (AWS accounts, IAM users, and IAM roles) can use the VPC endpoint to access the endpoint service.", "properties": {}, "title": "Endpoint Policy Document", "type": "object"}, "serviceName": {"description": "Specifies the service name for which the VPC Endpoint should be created.\\n\\nExample: \"com.amazonaws.us-east-1.monitoring\" or \"com.amazonaws.vpce.us-east-1.vpce-svc-09ac27c2a0cd319fa\" for AWS or custom VPC Endpoint Services respectively", "minLength": 1, "pattern": "com\\.amazonaws\\..+", "title": "Service Name", "type": "string"}}, "required": ["serviceName"], "type": "object"}
+
+                                                            }, "required" : ["parameters"]
+
+                                                        }
+                                                    }, {
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
