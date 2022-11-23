@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Cloud Integration: The SAP Cloud Integration connects cloud applications with other SAP and non-SAP cloud and on-premise apps.
+Process Integration: The SAP Cloud Integration connects cloud applications with other SAP and non-SAP cloud and on-premise apps.
 
 `name`
 

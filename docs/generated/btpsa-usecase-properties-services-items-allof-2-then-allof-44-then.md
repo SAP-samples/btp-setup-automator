@@ -47,7 +47,7 @@ unknown
 
 ## name
 
-Identity Provisioning: Cloud Identity Services provide basic capabilities for user authentication.
+Cloud Identity Services: Cloud Identity Services provide basic capabilities for user authentication.
 
 `name`
 

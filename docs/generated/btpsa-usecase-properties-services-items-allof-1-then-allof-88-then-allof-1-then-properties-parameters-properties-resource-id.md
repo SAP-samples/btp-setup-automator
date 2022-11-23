@@ -1,6 +1,6 @@
 ## resourceId Type
 
-`string` ([Resource ID](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-0-then-properties-parameters-properties-resource-id.md))
+`string` ([Resource ID](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-1-then-properties-parameters-properties-resource-id.md))
 
 ## resourceId Constraints
 

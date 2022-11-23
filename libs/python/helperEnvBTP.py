@@ -1,6 +1,6 @@
 from libs.python.helperGeneric import getTimingsForStatusRequest
 from libs.python.helperCommandExecution import runShellCommand, runShellCommandFlex
-from libs.python.helperJson import convertStringToJson
+from libs.python.helperJson import convertStringToJson, dictToString
 import logging
 import os
 import sys
@@ -29,7 +29,7 @@ def create_btp_service(btpUsecase, service):
         "subaccountid") + " --offering-name " + service.name + " --plan-name " + service.plan + " --name " + service.instancename
 
     if service.parameters is not None:
-        command = command + " --parameters '" + service.parameters
+        command = command + " --parameters '" + dictToString(service.parameters) + "'"
 
     message = "Create instance >" + service.instancename + "< for service >" + \
         service.name + "< and plan >" + service.plan + "<" + " via BTP CLI"

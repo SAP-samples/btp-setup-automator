@@ -81,6 +81,12 @@
                         "description": "user groups to be assigned from the parameter file",
                         "title": "user groups from parameter file"
                     },
+                    "idp":{
+                        "type": "string",
+                        "description": "the identity provider that hosts the user. ",
+                        "title": "IdP name",
+                        "default": null
+                    },
                     "level": {
                         "type": "string",
                         "description": "level of the role collection",
@@ -277,6 +283,12 @@
                                     "type": "array",
                                     "description": "list of user groups to assign the role collection",
                                     "title": "list of user groups to assign the role collection"
+                                },
+                                "idp":{
+                                    "type": "string",
+                                    "description": "the identity provider that hosts the user. ",
+                                    "title": "IdP name",
+                                    "default": null
                                 }
                             }
                         }
@@ -504,7 +516,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["apim-as-route-service","apiportal-apiaccess","on-premise-connectivity"] },
-                                                    "name": { "description": "API Management, API Portal: API Management, API portal service drives innovation in modern business models. Based on APIs and digital assets, the service facilitates unified access from new channels and diverse user interfaces. This is possible by enabling developer communities to connect to your enterprise information and processes securely. Here, the access to backend services and complex landscapes are simplified with easy to consume APIs while protecting your systems from threats and overloaded access."}
+                                                    "name": { "description": "API Management, API portal: API Management, API portal service drives innovation in modern business models. Based on APIs and digital assets, the service facilitates unified access from new channels and diverse user interfaces. This is possible by enabling developer communities to connect to your enterprise information and processes securely. Here, the access to backend services and complex landscapes are simplified with easy to consume APIs while protecting your systems from threats and overloaded access."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -657,11 +669,19 @@
                                             "if": { "properties": { "name": { "const": "auditlog-management"} } },
                                             "then" :{
                                                 "properties": {
-                                                    "plan": { "enum": ["default"] },
+                                                    "plan": { "enum": ["central","default"] },
                                                     "name": { "description": "SAP Audit Log Management service: SAP Audit Log Management service helps to retrieve logs and change retention."}
                                                 },
                                                 "allOf": [
                                                     {
+                                                        "if": { "properties": { "plan": { "const": "central"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "service plan >central< for >auditlog-management< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }, {
                                                         "if": { "properties": { "plan": { "const": "default"} } },
                                                         "then" :{
                                                             "properties": {
@@ -1831,7 +1851,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "IoT Services: The SAP Business Technology Platform Internet of Things service for the Cloud Foundry environment connects devices to SAP Business Technology Platform to provide scalable ingestion of IoT data and device management. The respective services provide a secure connection to remote devices using a broad variety of IoT protocols and manage the device lifecycle from onboarding to decommissioning."}
+                                                    "name": { "description": "Internet of Things: The SAP Business Technology Platform Internet of Things service for the Cloud Foundry environment connects devices to SAP Business Technology Platform to provide scalable ingestion of IoT data and device management. The respective services provide a secure connection to remote devices using a broad variety of IoT protocols and manage the device lifecycle from onboarding to decommissioning."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -1849,7 +1869,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default","standard"] },
-                                                    "name": { "description": "SAP IoT Application Enablement: SAP IoT business services allow you to put raw sensor data into business object context and then use query models, rules, events and actions to leverage the data near real-time in analytical or transactional business applications."}
+                                                    "name": { "description": "SAP IoT: SAP IoT business services allow you to put raw sensor data into business object context and then use query models, rules, events and actions to leverage the data near real-time in analytical or transactional business applications."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -2047,7 +2067,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "Machine Learning Foundation: SAP Leonardo Machine Learning Foundation enables you to enhance business processes and software applications with intelligence. Unlock knowledge from structured and unstructured data such as images, text, time series and tabular data. By consuming easy-to-use APIs you can detect the content of pictures, extract keywords from natural language texts or analyze and forecast time-series data. All this can be done without prior investmentintospecial hardware or expertise in machine learning. Besides using pre-trained ML services you can also deploy custom ML models or tune existing models with your own training data. This allows you to easily serve customized ML models for critical business processes in a scalable and secure manner."}
+                                                    "name": { "description": "SAP Leonardo ML Foundation: SAP Leonardo Machine Learning Foundation enables you to enhance business processes and software applications with intelligence. Unlock knowledge from structured and unstructured data such as images, text, time series and tabular data. By consuming easy-to-use APIs you can detect the content of pictures, extract keywords from natural language texts or analyze and forecast time-series data. All this can be done without prior investmentintospecial hardware or expertise in machine learning. Besides using pre-trained ML services you can also deploy custom ML models or tune existing models with your own training data. This allows you to easily serve customized ML models for critical business processes in a scalable and secure manner."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -2686,15 +2706,25 @@
                                             "if": { "properties": { "name": { "const": "privatelink"} } },
                                             "then" :{
                                                 "properties": {
-                                                    "plan": { "enum": ["standard"] },
+                                                    "plan": { "enum": ["beta","standard"] },
                                                     "name": { "description": "SAP Private Link service: SAP Private Link service establishes a private connection between selected SAP BTP services and selected services in your own IaaS provider accounts."}
                                                 },
                                                 "allOf": [
                                                     {
+                                                        "if": { "properties": { "plan": { "const": "beta"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "service plan >beta< for >privatelink< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_controlsOrder": ["serviceName", "desiredAZs"], "_show_form_view": true, "additionalProperties": false, "properties": {"desiredAZs": {"default": 3, "description": "Specifies the desired number of Availability Zones of the endpoint.\n\nExample: 2\n\nBy default, SAP Private Link service only creates the endpoint if the endpoint service is deployed in the same AZs as SAP BTP, to maximize High Availability.\nIn case fewer AZs than SAP BTPs should be allowed (i.e. only one or two AZs), please explicitly allow it by specifying the desired number of AZs via this parameter.", "title": "Desired AZs", "type": "integer"}, "policyDocument": {"description": "Specifies the Endpoint Policy.\\n\\nThe endpoint policy controls which AWS principals (AWS accounts, IAM users, and IAM roles) can use the VPC endpoint to access the endpoint service.", "properties": {}, "title": "Endpoint Policy Document", "type": "object"}, "serviceName": {"description": "Specifies the service name for which the VPC Endpoint should be created.\\n\\nExample: \"com.amazonaws.us-east-1.monitoring\" or \"com.amazonaws.vpce.us-east-1.vpce-svc-09ac27c2a0cd319fa\" for AWS or custom VPC Endpoint Services respectively", "minLength": 1, "pattern": "com\\.amazonaws\\..+", "title": "Service Name", "type": "string"}}, "required": ["serviceName"], "type": "object"}
+
+                                                            }, "required" : ["parameters"]
+
+                                                        }
+                                                    }, {
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >standard< for >privatelink< is available in data centers:\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >standard< for >privatelink< is available in data centers:\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
                                                                 , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_controlsOrder": ["resourceId", "subResource", "requestMessage", "cosmosDb"], "_show_form_view": true, "additionalProperties": false, "properties": {"cosmosDb": {"description": "Specifies CosmosDB-specific creation parameters.", "properties": {"regions:": {"description": "Specifies the regions a CosmosDB instance is geo-replicated in to enable Private Endpoint connections to them.", "items": {"type": "string"}, "title": "CosmosDB geo-replication regions", "type": "array", "uniqueItems": true}}, "title": "CosmosDB-specific creation parameters", "type": "object"}, "requestMessage": {"description": "Specifies the request message which is displayed to the approver.", "maxLength": 60, "title": "Request Message", "type": "string"}, "resourceId": {"description": "Specifies the Azure Resource ID of the service for which the private endpoint should be created.\n\nExample: /subscriptions/\u003csubscription\u003e/resourceGroups/\u003crg\u003e/providers/Microsoft.Network/privateLinkServices/\u003cmyPrivateLinkService\u003e", "minLength": 1, "pattern": "/subscriptions/.+/resourceGroups/.+/providers/.+?/.+?/[^/#?]+", "title": "Resource ID", "type": "string"}, "subResource": {"description": "Specifies the subresource for a specific Resource ID. Note that subresource is not required for Azure Private Link resources.\n\nExample: mysqlServer\n\nAll supported native Azure services including subresources can be found here: https://help.sap.com/viewer/product/PRIVATE_LINK/CLOUD/en-US", "title": "Subresource", "type": "string"}}, "required": ["resourceId"], "type": "object"}
 
                                                             }, "required" : ["parameters"]
@@ -4137,7 +4167,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["oneproduct","standard"] },
-                                                    "name": { "description": "SAP Internet of Things: SAP IoT business services allow you to put raw sensor data into business object context and then use query models, rules, events and actions to leverage the data near real-time in analytical or transactional business applications."}
+                                                    "name": { "description": "SAP IoT: SAP IoT business services allow you to put raw sensor data into business object context and then use query models, rules, events and actions to leverage the data near real-time in analytical or transactional business applications."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4197,7 +4227,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["enterprise"] },
-                                                    "name": { "description": "Cloud Integration: The SAP Cloud Integration connects cloud applications with other SAP and non-SAP cloud and on-premise apps."}
+                                                    "name": { "description": "Process Integration: The SAP Cloud Integration connects cloud applications with other SAP and non-SAP cloud and on-premise apps."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4509,7 +4539,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["additional-tenant","connectivity","default"] },
-                                                    "name": { "description": "Identity Provisioning: Cloud Identity Services provide basic capabilities for user authentication."}
+                                                    "name": { "description": "Cloud Identity Services: Cloud Identity Services provide basic capabilities for user authentication."}
                                                 },
                                                 "allOf": [
                                                     {
