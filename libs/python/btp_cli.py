@@ -1467,21 +1467,27 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
     if "createdAppSubscriptions" in accountMetadata and len(accountMetadata["createdAppSubscriptions"]) > 0:
         log.info("Unsubscribe from apps")
         for service in accountMetadata["createdAppSubscriptions"]:
-            command = "btp --format json unsubscribe accounts/subaccount --subaccount '" + \
-                accountMetadata["subaccountid"] + \
-                "' --from-app '" + service["name"] + "' --confirm"
-            message = "Remove app subscription >" + \
-                service["name"] + "< from subaccount"
-            result = runCommandAndGetJsonResult(
-                btpUsecase, command, "INFO", message)
+            if service.get("entitleonly") is False:
+                command = "btp --format json unsubscribe accounts/subaccount --subaccount '" + \
+                    accountMetadata["subaccountid"] + \
+                    "' --from-app '" + service["name"] + "' --confirm"
+                message = "Remove app subscription >" + \
+                    service["name"] + "< from subaccount"
+                result = runCommandAndGetJsonResult(
+                    btpUsecase, command, "INFO", message)
+
         # check status of deletion
         search_every_x_seconds = btpUsecase.repeatstatusrequest
         usecaseTimeout = btpUsecase.repeatstatustimeout
         current_time = 0
         allServicesDeleted = False
+
         # Set the deletion status to "not deleted"
         for service in accountMetadata["createdAppSubscriptions"]:
-            service["deletionStatus"] = "not deleted"
+            if service.get("entitleonly") == False:
+                service["deletionStatus"] = "not deleted"
+            else:
+                service["deletionStatus"] = "deleted"
 
         while usecaseTimeout > current_time and allServicesDeleted is False:
             for service in accountMetadata["createdAppSubscriptions"]:
