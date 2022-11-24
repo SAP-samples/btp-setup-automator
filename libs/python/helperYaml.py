@@ -14,6 +14,9 @@ def build_and_store_service_instance_yaml_from_parameters(service, yamlFilePath)
     serviceInstanceTemplate["spec"]["servicePlanName"] = service.plan
     serviceInstanceTemplate["spec"]["externalName"] = service.instancename
 
+    if service.labels is not None:
+        serviceInstanceTemplate["metadata"]["labels"] = service.labels
+
     if service.parameters is not None:
         serviceInstanceTemplate["spec"]["parameters"] = service.parameters
     elif service.serviceparameterfile is not None:
@@ -25,12 +28,16 @@ def build_and_store_service_instance_yaml_from_parameters(service, yamlFilePath)
         yaml.dump(serviceInstanceTemplate, outfile, default_flow_style=False)
 
 
-def build_and_store_service_binding_yaml_from_parameters(keyname, service, yamlFilePath):
+def build_and_store_service_binding_yaml_from_parameters(keyname, service, yamlFilePath, keyLabels):
 
     templatePath = FOLDER_K8S_YAML_TEMPLATES + 'K8s-SERVICE-BINDING.json'
     serviceBindingTemplate = getJsonFromFile(templatePath)
 
     serviceBindingTemplate["metadata"]["name"] = keyname
+    
+    if keyLabels is not None:
+        serviceBindingTemplate["metadata"]["labels"] = keyLabels
+
     serviceBindingTemplate["spec"]["serviceInstanceName"] = service.instancename
     serviceBindingTemplate["spec"]["secretName"] = keyname
 

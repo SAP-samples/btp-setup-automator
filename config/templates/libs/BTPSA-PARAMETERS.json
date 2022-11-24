@@ -144,6 +144,12 @@
             "title": "directory name for use case",
             "default": null
         },
+        "directorylabels":{
+            "type": "object",
+            "description": "labels for the directory",
+            "title": "directory labels",
+            "default": null
+        },
         "envvariables": {
             "type": "object",
             "description": "list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`.",
@@ -337,6 +343,12 @@
             "type": "string",
             "description": "id of your sub account that should be used",
             "title": "subaccount id of SAP BTP sub account",
+            "default": null
+        },
+        "subaccountlabels":{
+            "type": "object",
+            "description": "labels for your sub account",
+            "title": "sub account labels",
             "default": null
         },
         "subaccountname": {

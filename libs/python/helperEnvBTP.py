@@ -31,6 +31,9 @@ def create_btp_service(btpUsecase, service):
     if service.parameters is not None:
         command = command + " --parameters '" + dictToString(service.parameters) + "'"
 
+    if service.labels is not None:
+        command = command + " --labels '" + dictToString(service.labels) + "'"     
+
     message = "Create instance >" + service.instancename + "< for service >" + \
         service.name + "< and plan >" + service.plan + "<" + " via BTP CLI"
 
@@ -53,12 +56,16 @@ def getStatusResponseFromCreatedBTPInstance(btpUsecase, instancename, service):
     return jsonResult
 
 
-def createBtpServiceBinding(btpUsecase, instanceId, instanceName, keyName):
+def createBtpServiceBinding(btpUsecase, instanceId, instanceName, keyName, keyLabels):
     result = None
 
     command = "btp --format JSON create services/binding --name " + keyName + " --service-instance " + \
         instanceId + " --subaccount " + \
         btpUsecase.accountMetadata.get("subaccountid")
+    
+    if keyLabels is not None:
+        command = command + " --labels '" + dictToString(keyLabels) + "'"
+
     message = "create service key for service instance >" + \
         instanceName + "< for keyname >" + keyName + "<"
 
