@@ -1,3 +1,0 @@
-## maxNodes Type
-
-`string`

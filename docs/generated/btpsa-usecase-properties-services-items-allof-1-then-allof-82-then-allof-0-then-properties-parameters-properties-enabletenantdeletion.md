@@ -1,3 +1,0 @@
-## enableTenantDeletion Type
-
-`boolean`

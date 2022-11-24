@@ -1,3 +1,0 @@
-## enableBackups Type
-
-`boolean`

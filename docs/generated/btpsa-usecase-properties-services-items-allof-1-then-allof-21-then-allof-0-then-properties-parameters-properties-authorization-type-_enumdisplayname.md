@@ -1,3 +1,0 @@
-## \_enumDisplayName Type
-
-unknown

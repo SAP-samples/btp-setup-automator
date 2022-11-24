@@ -1,3 +1,0 @@
-## adminUsername Type
-
-`string`

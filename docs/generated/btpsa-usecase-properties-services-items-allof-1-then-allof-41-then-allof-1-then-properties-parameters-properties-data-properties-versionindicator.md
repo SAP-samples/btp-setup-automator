@@ -1,3 +1,0 @@
-## versionIndicator Type
-
-`string`

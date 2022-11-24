@@ -1,3 +1,0 @@
-## highAvailabilityCrossMultiAZEnabled Type
-
-`boolean`

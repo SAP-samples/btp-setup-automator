@@ -1,3 +1,0 @@
-## nodeSecret Type
-
-`string`

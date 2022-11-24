@@ -1,3 +1,0 @@
-## vpcCIDR Type
-
-`string`

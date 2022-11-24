@@ -1,3 +1,0 @@
-## serviceStopped Type
-
-`boolean`

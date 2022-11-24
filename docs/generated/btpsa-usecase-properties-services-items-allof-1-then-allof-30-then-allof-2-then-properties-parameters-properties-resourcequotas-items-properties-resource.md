@@ -1,3 +1,0 @@
-## resource Type
-
-`string`

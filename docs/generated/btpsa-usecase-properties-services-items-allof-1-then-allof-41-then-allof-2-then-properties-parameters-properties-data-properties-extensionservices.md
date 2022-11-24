@@ -1,3 +1,0 @@
-## extensionservices Type
-
-unknown

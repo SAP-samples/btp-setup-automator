@@ -1,3 +1,0 @@
-## minNodes Type
-
-`string`

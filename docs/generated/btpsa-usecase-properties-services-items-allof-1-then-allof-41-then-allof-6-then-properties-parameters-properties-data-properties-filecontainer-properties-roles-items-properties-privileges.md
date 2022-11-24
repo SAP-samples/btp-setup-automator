@@ -1,3 +1,0 @@
-## privileges Type
-
-`string[]`

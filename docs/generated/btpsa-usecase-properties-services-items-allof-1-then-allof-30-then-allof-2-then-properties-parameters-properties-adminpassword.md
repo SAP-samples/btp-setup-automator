@@ -1,3 +1,0 @@
-## adminPassword Type
-
-`string`

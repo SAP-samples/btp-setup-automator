@@ -1,3 +1,0 @@
-## docstore Type
-
-`boolean`

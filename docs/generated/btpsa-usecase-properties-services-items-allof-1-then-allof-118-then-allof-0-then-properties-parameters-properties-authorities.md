@@ -1,3 +1,0 @@
-## authorities Type
-
-`string[]`

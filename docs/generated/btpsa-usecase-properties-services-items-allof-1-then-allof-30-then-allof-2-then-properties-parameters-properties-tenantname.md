@@ -1,3 +1,0 @@
-## tenantName Type
-
-`string`

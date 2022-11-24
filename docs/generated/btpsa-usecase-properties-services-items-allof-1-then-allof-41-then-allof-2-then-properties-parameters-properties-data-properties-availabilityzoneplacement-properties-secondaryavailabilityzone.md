@@ -1,3 +1,0 @@
-## secondaryAvailabilityZone Type
-
-`string`

@@ -1,3 +1,0 @@
-## releaseCycle Type
-
-`string`

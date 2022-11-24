@@ -1,3 +1,0 @@
-## track Type
-
-`string`

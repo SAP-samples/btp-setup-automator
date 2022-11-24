@@ -1,3 +1,0 @@
-## clusterName Type
-
-`string`

@@ -1,3 +1,0 @@
-## initialSourceAvailabilityZone Type
-
-`string`

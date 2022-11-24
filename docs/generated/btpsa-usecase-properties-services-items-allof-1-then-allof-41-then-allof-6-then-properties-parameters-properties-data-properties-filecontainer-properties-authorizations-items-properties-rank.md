@@ -1,3 +1,0 @@
-## rank Type
-
-`integer`

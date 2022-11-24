@@ -100,6 +100,7 @@ unknown
 | `"process-automation"`                     |             |
 | `"process-automation-service"`             |             |
 | `"processvisibility"`                      |             |
+| `"procurement-service"`                    |             |
 | `"quorum"`                                 |             |
 | `"rabbitmq"`                               |             |
 | `"recommendation-systems-production"`      |             |
