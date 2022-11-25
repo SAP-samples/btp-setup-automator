@@ -1158,7 +1158,7 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service):
     return returnCode
 
 
-def subscribe_app_to_subaccount(btpUsecase: BTPUSECASE, app, plan):
+def subscribe_app_to_subaccount(btpUsecase: BTPUSECASE, app, plan, parameters):
     accountMetadata = btpUsecase.accountMetadata
     subaccountid = accountMetadata["subaccountid"]
 
@@ -1169,6 +1169,10 @@ def subscribe_app_to_subaccount(btpUsecase: BTPUSECASE, app, plan):
     if plan is not None:
         # For custom apps a plan can be none - this is safeguarded when checking if account is capable of usecase
         command = command + " --plan '" + plan + "'"
+
+    if parameters is not None:
+        # For custom apps a plan can be none - this is safeguarded when checking if account is capable of usecase
+        command = command + " --parameters '[" + dictToString(parameters) + "]'"
 
     isAlreadySubscribed = checkIfAppIsSubscribed(btpUsecase, app, plan)
     if isAlreadySubscribed is False:
@@ -1249,8 +1253,9 @@ def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
         for appSubscription in btpUsecase.definedAppSubscriptions:
             appName = appSubscription.name
             appPlan = appSubscription.plan
+            parameters = appSubscription.parameters
             if appSubscription.entitleonly is False:
-                subscribe_app_to_subaccount(btpUsecase, appName, appPlan)
+                subscribe_app_to_subaccount(btpUsecase, appName, appPlan, parameters)
 
 
 def get_subscription_status(btpUsecase: BTPUSECASE, app):
