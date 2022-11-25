@@ -1,0 +1,3 @@
+## maxNodes Type
+
+`string`

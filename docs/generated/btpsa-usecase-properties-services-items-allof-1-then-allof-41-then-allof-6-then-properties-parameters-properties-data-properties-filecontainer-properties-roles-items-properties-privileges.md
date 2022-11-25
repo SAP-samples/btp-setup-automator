@@ -1,0 +1,3 @@
+## privileges Type
+
+`string[]`

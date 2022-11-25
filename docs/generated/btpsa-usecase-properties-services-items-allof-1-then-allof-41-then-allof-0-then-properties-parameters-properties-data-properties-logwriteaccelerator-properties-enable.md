@@ -1,0 +1,3 @@
+## enable Type
+
+`boolean`

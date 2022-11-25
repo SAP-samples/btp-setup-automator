@@ -1,0 +1,3 @@
+## adminPassword Type
+
+`string`

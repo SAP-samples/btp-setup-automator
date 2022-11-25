@@ -1,0 +1,3 @@
+## versionIndicator Type
+
+`string`

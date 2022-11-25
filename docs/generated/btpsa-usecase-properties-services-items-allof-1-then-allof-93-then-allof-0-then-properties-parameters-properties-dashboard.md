@@ -1,0 +1,3 @@
+## dashboard Type
+
+`string`

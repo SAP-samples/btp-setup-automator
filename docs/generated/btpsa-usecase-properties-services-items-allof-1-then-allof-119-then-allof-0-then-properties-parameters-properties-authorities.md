@@ -1,0 +1,3 @@
+## authorities Type
+
+`string[]`
