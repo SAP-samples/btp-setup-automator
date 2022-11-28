@@ -4,8 +4,8 @@ from libs.python.helperFolders import FOLDER_SCHEMA_LIBS
 from libs.python.helperJson import addKeyValuePair, dictToString, convertStringToJson, getJsonFromFile
 from libs.python.helperBtpTrust import runTrustFlow
 from libs.python.helperCommandExecution import executeCommandsFromUsecaseFile, runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex, login_btp, login_cf
-from libs.python.helperEnvCF import checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, getCfApiEndpointByUseCase, getCfApiEndpointFromLabels, try_until_cf_space_done, try_until_space_quota_created
-from libs.python.helperServiceInstances import createServiceKey, deleteServiceInstance, deleteServiceKeysAndWait, getServiceDeletionStatus, initiateCreationOfServiceInstances, checkIfAllServiceInstancesCreated, handleLabelsForCF
+from libs.python.helperEnvCF import checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, getCfApiEndpointByUseCase, getCfApiEndpointFromLabels, try_until_cf_space_done, try_until_space_quota_created, handleLabelsForCF
+from libs.python.helperServiceInstances import createServiceKey, deleteServiceInstance, deleteServiceKeysAndWait, getServiceDeletionStatus, initiateCreationOfServiceInstances, checkIfAllServiceInstancesCreated
 from libs.python.helperGeneric import buildUrltoSubaccount, getNamingPatternForServiceSuffix, createDirectoryName, createSubaccountName, createSubdomainID, createOrgName, save_collected_metadata
 from libs.python.helperFileAccess import writeKubeConfigFileToDefaultDir
 from libs.python.helperEnvKyma import extractKymaDashboardUrlFromEnvironmentDataEntry, getKymaEnvironmentInfoByClusterName, getKymaEnvironmentStatusFromEnvironmentDataEntry, extractKymaKubeConfigUrlFromEnvironmentDataEntry, getKymaEnvironmentIdByClusterName
@@ -1490,7 +1490,7 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
 
         # Set the deletion status to "not deleted"
         for service in accountMetadata["createdAppSubscriptions"]:
-            if service.get("entitleonly") == False:
+            if service.get("entitleonly") is False:
                 service["deletionStatus"] = "not deleted"
             else:
                 service["deletionStatus"] = "deleted"
