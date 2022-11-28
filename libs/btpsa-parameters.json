@@ -135,6 +135,12 @@
             "title": "directory id in SAP BTP global account",
             "default": null
         },
+        "directorylabels":{
+            "type": "object",
+            "description": "labels for the directory",
+            "title": "directory labels",
+            "default": null
+        },
         "directoryname": {
             "type": [
                 "string",
@@ -346,6 +352,12 @@
             ],
             "description": "name of your sub account in case you want to define a specific name for your sub account",
             "title": "sub account name for use case",
+            "default": null
+        },
+        "subaccountlabels":{
+            "type": "object",
+            "description": "labels for your sub account",
+            "title": "sub account labels",
             "default": null
         },
         "subdomain": {
