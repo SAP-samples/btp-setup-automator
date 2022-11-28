@@ -1,0 +1,42 @@
+{
+    "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
+    "aboutThisUseCase": {
+        "name": "Default use case on how to show how btp-setup-automator works.",
+        "description": "This usecase sets up services instances of (free) service plans on SAP BTP.",
+        "author": "christian.lechner@sap.com",
+        "testStatus": "tested successfully",
+        "usageStatus": "READY TO BE USED"
+    },
+    "services": [
+        {
+            "name": "alert-notification",
+            "plan": "free",
+            "category": "SERVICE",
+            "targetenvironment": "sapbtp",
+            "labels": {
+                "costcenter": [
+                    "orga"
+                ],
+                "appowner": [
+                    "Somebody"
+                ]
+            },
+            "createServiceKeys": [
+                "serviceKeyBTP"
+            ],
+            "serviceKeyLabels": [
+                {
+                    "name": "serviceKeyBTP",
+                    "labels": {
+                        "costcenter": [
+                            "orga"
+                        ],
+                        "appowner": [
+                            "Somebody"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
