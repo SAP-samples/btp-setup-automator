@@ -25,6 +25,7 @@ all of
 | [defaultIdp](#defaultidp)                                                                       | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-default-idp.md "undefined#/properties/defaultIdp")                                                                                                                                  |
 | [directoryid](#directoryid)                                                                     | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-directory-id-in-sap-btp-global-account.md "undefined#/properties/directoryid")                                                                                                      |
 | [directoryname](#directoryname)                                                                 | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-directory-name-for-use-case.md "undefined#/properties/directoryname")                                                                                                               |
+| [directorylabels](#directorylabels)                                                             | `object`  | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-directory-labels.md "undefined#/properties/directorylabels")                                                                                                                        |
 | [envvariables](#envvariables)                                                                   | `object`  | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-list-of-environment-variables-on-os-level-to-be-used-within-commands-defined-in-the-executebeforeaccountsetup-and-executeafteraccountsetup.md "undefined#/properties/envvariables") |
 | [fallbackserviceplan](#fallbackserviceplan)                                                     | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-fallback-service-plan-if-the-plan-defined-in-the-use-case-is-not-supported.md "undefined#/properties/fallbackserviceplan")                                                          |
 | [globalaccount](#globalaccount)                                                                 | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-your-sap-btp-global-account.md "undefined#/properties/globalaccount")                                                                                                               |
@@ -50,6 +51,7 @@ all of
 | [repeatstatustimeout](#repeatstatustimeout)                                                     | `integer` | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-timeout-in-seconds-after-which-requests-should-be-stopped.md "undefined#/properties/repeatstatustimeout")                                                                           |
 | [rundefaulttests](#rundefaulttests)                                                             | `boolean` | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-switch-to-run-default-tests-at-the-beginning-of-the-script.md "undefined#/properties/rundefaulttests")                                                                              |
 | [subaccountid](#subaccountid)                                                                   | `string`  | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-subaccount-id-of-sap-btp-sub-account.md "undefined#/properties/subaccountid")                                                                                                       |
+| [subaccountlabels](#subaccountlabels)                                                           | `object`  | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-sub-account-labels.md "undefined#/properties/subaccountlabels")                                                                                                                     |
 | [subaccountname](#subaccountname)                                                               | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-sub-account-name-for-use-case.md "undefined#/properties/subaccountname")                                                                                                            |
 | [subdomain](#subdomain)                                                                         | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-subdomain-of-sub-account.md "undefined#/properties/subdomain")                                                                                                                      |
 | [suffixinstancename](#suffixinstancename)                                                       | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-suffix-attached-to-each-service-instance-created.md "undefined#/properties/suffixinstancename")                                                                                     |
@@ -272,6 +274,24 @@ name of your directory in case you want to define a specific name for it
 ### directoryname Type
 
 `string` ([directory name for use case](btpsa-parameters-properties-directory-name-for-use-case.md))
+
+## directorylabels
+
+labels for the directory
+
+`directorylabels`
+
+*   is optional
+
+*   Type: `object` ([directory labels](btpsa-parameters-properties-directory-labels.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-directory-labels.md "undefined#/properties/directorylabels")
+
+### directorylabels Type
+
+`object` ([directory labels](btpsa-parameters-properties-directory-labels.md))
 
 ## envvariables
 
@@ -880,6 +900,24 @@ id of your sub account that should be used
 ### subaccountid Type
 
 `string` ([subaccount id of SAP BTP sub account](btpsa-parameters-properties-subaccount-id-of-sap-btp-sub-account.md))
+
+## subaccountlabels
+
+labels for your sub account
+
+`subaccountlabels`
+
+*   is optional
+
+*   Type: `object` ([sub account labels](btpsa-parameters-properties-sub-account-labels.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-sub-account-labels.md "undefined#/properties/subaccountlabels")
+
+### subaccountlabels Type
+
+`object` ([sub account labels](btpsa-parameters-properties-sub-account-labels.md))
 
 ## subaccountname
 

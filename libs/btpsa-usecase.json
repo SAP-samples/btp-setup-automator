@@ -251,6 +251,7 @@
                         "description": "catalog name of the service plan",
                         "title": "catalog name of the service plan"
                     },
+                    
                     "relatedLinks": {
                         "type": "array",
                         "description": "links related to this service",
@@ -3333,7 +3334,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["container","service-operator-access","subaccount-admin","subaccount-audit"] },
-                                                    "name": { "description": "Service Manager: SAP Service Manager service allows you to consume platform services in any connected runtime environment, track service instances creation, and share services and service instances between different environments."}
+                                                    "name": { "description": "SAP Service Manager: SAP Service Manager service allows you to consume platform services in any connected runtime environment, track service instances creation, and share services and service instances between different environments."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4589,7 +4590,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["additional-tenant","connectivity","default"] },
-                                                    "name": { "description": "Cloud Identity Services: Cloud Identity Services provide basic capabilities for user authentication."}
+                                                    "name": { "description": "SAP Cloud Identity Services: Cloud Identity Services provide basic capabilities for user authentication."}
                                                 },
                                                 "allOf": [
                                                     {

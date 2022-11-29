@@ -47,7 +47,7 @@ unknown
 
 ## name
 
-Cloud Identity Services: Cloud Identity Services provide basic capabilities for user authentication.
+SAP Cloud Identity Services: Cloud Identity Services provide basic capabilities for user authentication.
 
 `name`
 
