@@ -141,7 +141,7 @@ def getCfApiEndpointByUseCase(btpUsecase):
                 cf_api_endpoint = labels.get("API Endpoint")
                 break
             elif labels.get("API Endpoint:"):
-                cf_api_endpoint = labels.get("API Endpoint")
+                cf_api_endpoint = labels.get("API Endpoint:")
                 break
 
     return cf_api_endpoint
