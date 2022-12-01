@@ -66,7 +66,8 @@ class BTPUSECASE:
         self.definedEnvironments = getEnvironmentsForUsecase(self, allServices)
         self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(
             self, allServices, self.availableCategoriesApplication)
-        usecaseFileContent = getJsonFromFile(self.usecasefile)
+        # Use case file can be remote, so we need to provide authentication information    
+        usecaseFileContent = getJsonFromFile(self.usecasefile, self.externalConfigAuthMethod, self.externalConfigUserName, self.externalConfigPassword, self.externalConfigToken)
         self.definedRoleCollections = usecaseFileContent.get(
             "assignrolecollections")
 
@@ -791,6 +792,7 @@ def getEnvironmentsForUsecase(btpUsecase: BTPUSECASE, allServices):
     environments = []
 
     paramServicesFile = FOLDER_SCHEMA_LIBS + "btpsa-usecase.json"
+    # Param definition: no remote file access possible, no authentication parameters needed
     paramDefinition = getJsonFromFile(paramServicesFile)
 
     for usecaseService in allServices:
@@ -828,7 +830,8 @@ def getServiceCategoryItemsFromUsecaseFile(btpUsecase: BTPUSECASE, allServices, 
 
 
 def getAdminsFromUsecaseFile(btpUsecase: BTPUSECASE):
-    usecase = getJsonFromFile(btpUsecase.usecasefile)
+    # Use case file can be remote, so we need to provide authentication information
+    usecase = getJsonFromFile(btpUsecase.usecasefile, btpUsecase.externalConfigAuthMethod, btpUsecase.externalConfigUserName, btpUsecase.externalConfigPassword, btpUsecase.externalConfigToken)
 
     items = []
     if "admins" in usecase:
