@@ -219,6 +219,27 @@ Besides this basic setup information we can also specify additional parameters l
 
 > 📝 Tip - In case you struggle with the available parameters and the possible values you can either check the SAP BTP cockpit UI (JSON view when creating a service) and the help.sap.com documentation of the service.
 
+### Environment variables available for custom commands
+
+btpsa will expose account metadata as environment variables to allow you to reference it when using `executeAfterAccountSetup`. The available variables are:
+
+- `$GLOBAL_ACCOUNT_ID`: Global account UUID
+- `$GLOBALACCOUNT`: Global account subdomain
+- `$SUBACCOUNTID`: Subaccount ID
+- `$SUBDOMAIN`: Subaccount subdomain
+- `$SUBACCOUNT`: Subaccount name
+
+
+If the usecase involves Kyma, `$KYMAKUBECONFIGURL` is also available (e.g.: `https://kyma-env-broker.cp.kyma.cloud.sap/kubeconfig/<UUID>`).
+
+And for Cloud Foundry:
+
+- `$CFAPIENDPOINT`: e.g.: `https://api.cf.us10-001.hana.ondemand.com`
+- `$ORG`: Org name
+- `$ORGID`: Org ID 
+
+The only environment variable available for `executeBeforeAccountSetup` is `$GLOBAL_ACCOUNT_ID`.
+
 ### Usecase Examples
 
 You find several examples for parameter files in the folder `usecases/released`.
