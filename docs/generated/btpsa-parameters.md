@@ -27,6 +27,7 @@ all of
 | [directoryname](#directoryname)                                                                 | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-directory-name-for-use-case.md "undefined#/properties/directoryname")                                                                                                               |
 | [directorylabels](#directorylabels)                                                             | `object`  | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-directory-labels.md "undefined#/properties/directorylabels")                                                                                                                        |
 | [envvariables](#envvariables)                                                                   | `object`  | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-list-of-environment-variables-on-os-level-to-be-used-within-commands-defined-in-the-executebeforeaccountsetup-and-executeafteraccountsetup.md "undefined#/properties/envvariables") |
+| [subaccountenablebeta](#subaccountenablebeta)                                                   | `boolean` | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-enable-beta-features-in-new-subaccount.md "undefined#/properties/subaccountenablebeta")                                                                                             |
 | [fallbackserviceplan](#fallbackserviceplan)                                                     | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-fallback-service-plan-if-the-plan-defined-in-the-use-case-is-not-supported.md "undefined#/properties/fallbackserviceplan")                                                          |
 | [globalaccount](#globalaccount)                                                                 | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-your-sap-btp-global-account.md "undefined#/properties/globalaccount")                                                                                                               |
 | [iashost](#iashost)                                                                             | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-ias-host-for-your-sap-btp-sub-account.md "undefined#/properties/iashost")                                                                                                           |
@@ -310,6 +311,24 @@ list of environment variables on OS level to be used within commands defined in 
 ### envvariables Type
 
 `object` ([list of environment variables on OS level to be used within commands defined in the \`executeBeforeAccountSetup\` and \`executeAfterAccountSetup\`.](btpsa-parameters-properties-list-of-environment-variables-on-os-level-to-be-used-within-commands-defined-in-the-executebeforeaccountsetup-and-executeafteraccountsetup.md))
+
+## subaccountenablebeta
+
+if set to true, a newly create subaccount will have beta features enabled
+
+`subaccountenablebeta`
+
+*   is optional
+
+*   Type: `boolean` ([enable beta features in new subaccount](btpsa-parameters-properties-enable-beta-features-in-new-subaccount.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-enable-beta-features-in-new-subaccount.md "undefined#/properties/subaccountenablebeta")
+
+### subaccountenablebeta Type
+
+`boolean` ([enable beta features in new subaccount](btpsa-parameters-properties-enable-beta-features-in-new-subaccount.md))
 
 ## fallbackserviceplan
 
