@@ -156,6 +156,12 @@
             "title": "list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`.",
             "default": null
         },
+        "subaccountenablebeta": {
+            "type": "boolean",
+            "description": "if set to true, a newly create subaccount will have beta features enabled",
+            "title": "enable beta features in new subaccount",
+            "default": true
+        },
         "fallbackserviceplan": {
             "type": [
                 "string",
