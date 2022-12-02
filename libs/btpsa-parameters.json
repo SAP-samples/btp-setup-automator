@@ -160,7 +160,7 @@
             "type": "boolean",
             "description": "if set to true, a newly create subaccount will have beta features enabled",
             "title": "enable beta features in new subaccount",
-            "default": true
+            "default": false
         },
         "fallbackserviceplan": {
             "type": [
