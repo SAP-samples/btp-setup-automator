@@ -153,7 +153,7 @@ class BTPUSECASE:
                 if self.directorylabels is not None:
                     labelsAsString = json.dumps(self.subaccountlabels)
                     command += " --labels '" + labelsAsString + "'"
-                       
+
                 message = "Create directory >" + directory + "<"
 
                 result = runCommandAndGetJsonResult(
@@ -333,10 +333,13 @@ class BTPUSECASE:
                     --region '" + usecaseRegion + "' \
                     --subaccount-admins '" + subaccountadmins + "'"
 
+                if self.subaccountenablebeta is True:
+                    command += " --beta-enabled"
+
                 if self.subaccountlabels is not None:
                     labelsAsString = json.dumps(self.subaccountlabels)
                     command += " --labels '" + labelsAsString + "'"
-                 
+
                 message = "Create sub account >" + subaccount + "<"
 
                 if directoryid is not None and directoryid != "":
