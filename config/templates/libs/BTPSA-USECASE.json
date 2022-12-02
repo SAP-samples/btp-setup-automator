@@ -1,11 +1,14 @@
 {% macro addSchemaIfExists(plan) -%}
-{% if plan.schemas is defined and (plan.schemas.service_instance is defined or plan.schemas.subscription is defined) and (plan.schemas.service_instance.create is defined or plan.schemas.subscription.create is defined) and (plan.schemas.service_instance.create.parameters is defined or plan.schemas.subscription.create.parameters is defined) and (plan.schemas.service_instance.create.parameters or plan.schemas.subscription.create.parameters) -%}
-{% if plan.schemas.service_instance is defined -%}, "parameters" : {{ plan.schemas.service_instance.create.parameters | tojson }}{% endif %}
-{% if plan.schemas.subscription is defined -%}, "parameters" : {{ plan.schemas.subscription.create.parameters | tojson }}{% endif %}
+{% if plan.schemas is defined and plan.schemas.service_instance is defined and plan.schemas.service_instance.create is defined and plan.schemas.service_instance.create.parameters is defined and plan.schemas.service_instance.create.parameters -%}
+, "parameters" : {{ plan.schemas.service_instance.create.parameters | tojson }}
+{% endif %}{% if plan.schemas is defined and plan.schemas.subscription is defined and plan.schemas.subscription.create is defined and plan.schemas.subscription.create.parameters is defined and plan.schemas.subscription.create.parameters -%}
+, "parameters" : {{ plan.schemas.subscription.create.parameters | tojson }}
 {% endif %}
 {%- endmacro -%}
 {% macro addRequiredFieldIfSchemaExists(plan) -%}
 {% if plan.schemas is defined and plan.schemas.service_instance is defined and plan.schemas.service_instance.create is defined and plan.schemas.service_instance.create.parameters is defined -%}
+, "required" : ["parameters"]
+{% endif %}{% if plan.schemas is defined and plan.schemas.subscription is defined and plan.schemas.subscription.create is defined and plan.schemas.subscription.create.parameters is defined -%}
 , "required" : ["parameters"]
 {% endif %}
 {%- endmacro -%}
@@ -237,11 +240,6 @@
                         "description": "name of the service instance",
                         "title": "name of the service instance"
                     },
-                    "labels":{
-                        "type": "object",
-                        "description": "labels for the service",
-                        "title": "labels for the service"
-                    },
                     "name": {
                         "type": "string",
                         "description": "name of the service",
@@ -315,16 +313,6 @@
                         "title": "list of services that need to be instantiated before instantiating this service",
                         "default": []
                     },
-                    "serviceKeyLabels":{
-                        "type": "array",
-                        "additionalProperties": false,
-                        "description": "labels for service keys as JSON",
-                        "title": "labels for service keys",
-                        "items": {
-                            "type": "object"
-                        },
-                        "default": []
-                    },
                     "serviceparameterfile": {
                         "type": "string",
                         "description": "parameter file for the service in case you want to provide the parameters via a file",
@@ -390,6 +378,6 @@
                     {% endfor -%}
                 ]
             }
-        } 
+        }
     }
 }

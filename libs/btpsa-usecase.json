@@ -226,11 +226,6 @@
                         "description": "name of the service instance",
                         "title": "name of the service instance"
                     },
-                    "labels":{
-                        "type": "object",
-                        "description": "labels for the service",
-                        "title": "labels for the service"
-                    },
                     "name": {
                         "type": "string",
                         "description": "name of the service",
@@ -302,16 +297,6 @@
                         "type": "array",
                         "description": "list of services that need to be instantiated before instantiating this service",
                         "title": "list of services that need to be instantiated before instantiating this service",
-                        "default": []
-                    },
-                    "serviceKeyLabels":{
-                        "type": "array",
-                        "additionalProperties": false,
-                        "description": "labels for service keys as JSON",
-                        "title": "labels for service keys",
-                        "items": {
-                            "type": "object"
-                        },
                         "default": []
                     },
                     "serviceparameterfile": {
@@ -4598,24 +4583,30 @@
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "application plan >additional-tenant< for >sap-identity-services-onboarding< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'ch20', 'name': 'cf-ch20'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
-                                                                
-                                                            }
+                                                                , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_show_form_view": true, "additionalProperties": true, "properties": {"cloud_service": {"_enumDisplayName": {"PRODUCTIVE": "PRODUCTIVE", "TEST": "TEST"}, "default": "PRODUCTIVE", "description": "Choose a productive or test service type from the drop down.", "enum": ["PRODUCTIVE", "TEST"], "title": "Service type", "type": "string"}}, "type": "object"}
+
+                                                            }, "required" : ["parameters"]
+
                                                         }
                                                     }, {
                                                         "if": { "properties": { "plan": { "const": "connectivity"} } },
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "application plan >connectivity< for >sap-identity-services-onboarding< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'ch20', 'name': 'cf-ch20'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}" }
-                                                                
-                                                            }
+                                                                , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_show_form_view": true, "additionalProperties": true, "properties": {"cloud_service": {"_enumDisplayName": {"PRODUCTIVE": "PRODUCTIVE", "TEST": "TEST"}, "default": "PRODUCTIVE", "description": "Choose a productive or test service type from the drop down.", "enum": ["PRODUCTIVE", "TEST"], "title": "Service type", "type": "string"}}, "type": "object"}
+
+                                                            }, "required" : ["parameters"]
+
                                                         }
                                                     }, {
                                                         "if": { "properties": { "plan": { "const": "default"} } },
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "application plan >default< for >sap-identity-services-onboarding< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'ch20', 'name': 'cf-ch20'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
-                                                                
-                                                            }
+                                                                , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_show_form_view": true, "additionalProperties": true, "properties": {"cloud_service": {"_enumDisplayName": {"PRODUCTIVE": "PRODUCTIVE", "TEST": "TEST"}, "default": "PRODUCTIVE", "description": "Choose a productive or test service type from the drop down.", "enum": ["PRODUCTIVE", "TEST"], "title": "Service type", "type": "string"}}, "type": "object"}
+
+                                                            }, "required" : ["parameters"]
+
                                                         }
                                                     }]
                                             }
@@ -4896,6 +4887,6 @@
                     }
                     ]
             }
-        } 
+        }
     }
 }
