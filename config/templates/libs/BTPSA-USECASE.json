@@ -1,6 +1,7 @@
 {% macro addSchemaIfExists(plan) -%}
-{% if plan.schemas is defined and plan.schemas.service_instance is defined and plan.schemas.service_instance.create is defined and plan.schemas.service_instance.create.parameters is defined and plan.schemas.service_instance.create.parameters -%}
-, "parameters" : {{ plan.schemas.service_instance.create.parameters | tojson }}
+{% if plan.schemas is defined and (plan.schemas.service_instance is defined or plan.schemas.subscription is defined) and (plan.schemas.service_instance.create is defined or plan.schemas.subscription.create is defined) and (plan.schemas.service_instance.create.parameters is defined or plan.schemas.subscription.create.parameters is defined) and (plan.schemas.service_instance.create.parameters or plan.schemas.subscription.create.parameters) -%}
+{% if plan.schemas.service_instance is defined -%}, "parameters" : {{ plan.schemas.service_instance.create.parameters | tojson }}{% endif %}
+{% if plan.schemas.subscription is defined -%}, "parameters" : {{ plan.schemas.subscription.create.parameters | tojson }}{% endif %}
 {% endif %}
 {%- endmacro -%}
 {% macro addRequiredFieldIfSchemaExists(plan) -%}

@@ -45,7 +45,7 @@ if os.environ.get("IS_EXECUTED_BY_GHACTION") == "active":
 else:
     targetFilename = Path(__file__, "libs", "btpsa-parameters.json").resolve()
     templateFile =   Path(__file__, "config", "templates", "libs", "BTPSA-PARAMETERS.json").resolve()
-    
+
 print("INFO: start generation on template file >" + str(templateFile) + "< and created the target file >" + str(targetFilename) + "<")
 renderTemplateWithJson(templateFile, targetFilename, allMetadata)
 print("INFO: applied SAP BTP service list on template file >" + str(templateFile) + "< and created the target file >" + str(targetFilename) + "<")
