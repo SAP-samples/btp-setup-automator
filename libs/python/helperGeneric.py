@@ -180,7 +180,11 @@ def getDictWithEnvVariables(btpUsecase):
     if btpUsecase.envvariables is not None and len(btpUsecase.envvariables) > 0:
         for variable, value in btpUsecase.envvariables.items():
             os.environ[variable] = value
-        result = dict(os.environ)
+    if btpUsecase.accountMetadata is not None and len(btpUsecase.accountMetadata) > 0:
+        for variable, value in btpUsecase.accountMetadata.items():
+            if isinstance(value, str):
+                os.environ[variable.upper()] = value
+    result = dict(os.environ)
 
     return result
 
