@@ -8,6 +8,7 @@
 | :------------------------------------------------------ | :------------ | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [additionalWorkers](#additionalworkers)                 | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-additionalworkers.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/additionalWorkers")                 |
 | [availabilityZonePlacement](#availabilityzoneplacement) | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-availabilityzoneplacement.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/availabilityZonePlacement") |
+| [databaseMappings](#databasemappings)                   | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-databasemappings.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/databaseMappings")                   |
 | [disasterRecoveryMode](#disasterrecoverymode)           | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-disasterrecoverymode.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/disasterRecoveryMode")           |
 | [edition](#edition)                                     | `string`      | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-edition.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/edition")                                     |
 | [enabledservices](#enabledservices)                     | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-enabledservices.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/enabledservices")                     |
@@ -67,6 +68,24 @@ Settings that enable the customer to ensure spatial proximity between their appl
 ### availabilityZonePlacement Type
 
 `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-availabilityzoneplacement.md))
+
+## databaseMappings
+
+
+
+`databaseMappings`
+
+*   is optional
+
+*   Type: unknown
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-databasemappings.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/databaseMappings")
+
+### databaseMappings Type
+
+unknown
 
 ## disasterRecoveryMode
 
@@ -293,7 +312,7 @@ Size of the Storage in GB
 
 ### storage Constraints
 
-**maximum**: the value of this number must smaller than or equal to: `16384`
+**maximum**: the value of this number must smaller than or equal to: `16000`
 
 **minimum**: the value of this number must greater than or equal to: `120`
 
