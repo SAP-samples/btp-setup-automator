@@ -318,6 +318,16 @@
                         "title": "list of services that need to be instantiated before instantiating this service",
                         "default": []
                     },
+                    "serviceKeyLabels":{
+                        "type": "array",
+                        "additionalProperties": false,
+                        "description": "labels for service keys as JSON",
+                        "title": "labels for service keys",
+                        "items": {
+                            "type": "object"
+                        },
+                        "default": []
+                    },                    
                     "serviceparameterfile": {
                         "type": "string",
                         "description": "parameter file for the service in case you want to provide the parameters via a file",
