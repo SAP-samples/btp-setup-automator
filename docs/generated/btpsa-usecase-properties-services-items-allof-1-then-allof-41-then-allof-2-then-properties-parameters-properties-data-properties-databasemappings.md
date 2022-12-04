@@ -1,3 +1,0 @@
-## databaseMappings Type
-
-unknown
