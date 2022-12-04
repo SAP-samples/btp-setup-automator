@@ -230,7 +230,7 @@
                         "type": "object",
                         "description": "labels for the service",
                         "title": "labels for the service"
-                    },                    
+                    },
                     "name": {
                         "type": "string",
                         "description": "name of the service",
