@@ -11,7 +11,7 @@ log = logging.getLogger(__name__)
 
 def getMembersForRolecollection(btpUsecase, rolecollection):
     users = []
-    users.append(btpUsecase.myemail)
+    # users.append(btpUsecase.myemail)
     if rolecollection:
         for usergroup in rolecollection.get("assignedUserGroupsFromParameterFile"):
             members = getMembersOfUserGroup(btpUsecase, usergroup)
@@ -84,7 +84,7 @@ def getRoleCollectionsOfServices(btpUsecase):
 
 def getMembersOfUserGroup(btpUsecase, usergroup):
     members = []
-    members.append(btpUsecase.myemail)
+    # members.append(btpUsecase.myemail)
     usergroupExists = False
 
     if btpUsecase.myusergroups and usergroup:
