@@ -156,12 +156,6 @@
             "title": "list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`.",
             "default": null
         },
-        "subaccountenablebeta": {
-            "type": "boolean",
-            "description": "if set to true, a newly create subaccount will have beta features enabled",
-            "title": "enable beta features in new subaccount",
-            "default": false
-        },
         "fallbackserviceplan": {
             "type": [
                 "string",
@@ -344,6 +338,12 @@
             "description": "switch to run default tests at the beginning of the script (INTERNAL USAGE)",
             "title": "switch to run default tests at the beginning of the script",
             "default": true
+        },
+        "subaccountenablebeta": {
+            "type": "boolean",
+            "description": "if set to true, a newly create subaccount will have beta features enabled",
+            "title": "enable beta features in new subaccount",
+            "default": false
         },
         "subaccountid": {
             "type": "string",
