@@ -71,7 +71,8 @@ def getSubaccountAdmins(btpUsecase):
 
 
 def getRoleCollectionsOfServices(btpUsecase):
-    usecase = getJsonFromFile(btpUsecase.usecasefile)
+    # Use case file can be remote, so we need to provide authentication information
+    usecase = getJsonFromFile(btpUsecase.usecasefile, btpUsecase.externalConfigAuthMethod, btpUsecase.externalConfigUserName, btpUsecase.externalConfigPassword, btpUsecase.externalConfigToken)
     items = []
     if usecase.get("services") is not None:
         for service in usecase.get("services"):

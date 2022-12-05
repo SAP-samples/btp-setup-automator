@@ -2,6 +2,7 @@ import json
 import os
 import sys
 import re
+from requests.auth import HTTPBasicAuth
 import requests
 import logging
 from libs.python.helperDrawio import getUseCaseDataFromDrawIoFile
@@ -10,8 +11,9 @@ import os.path
 log = logging.getLogger(__name__)
 
 
-def getJsonFromFile(filename):
+def getJsonFromFile(filename, externalConfigAuthMethod=None, externalConfigUserName=None, externalConfigPassword=None, externalConfigToken=None):
     data = None
+    thisRequest = None
     foundError = False
     f = None
 
@@ -22,13 +24,23 @@ def getJsonFromFile(filename):
         return result
 
     if "http://" in filename or "https://" in filename:
+        if "http://" in filename:
+            log.warning("Using http instead of https for url: " + filename + ". This is not recommended. Support will be removed in next major release!")
+
         data = None
         try:
-            thisRequest = requests.get(filename)
-            data = json.loads(thisRequest.text)
+            if externalConfigAuthMethod == "basicAuthentication" and externalConfigUserName is not None and externalConfigPassword is not None:    
+                basic = HTTPBasicAuth(externalConfigUserName, externalConfigPassword)
+                thisRequest = requests.get(filename, auth=basic)
+            elif externalConfigAuthMethod == "token" and externalConfigToken is not None:
+                thisRequest = requests.get(filename, headers={'Authorization': 'Bearer ' + externalConfigToken})
+            else:
+                thisRequest = requests.get(filename)
         except Exception as e:
             log.error("please check the json file >" + filename + "<: " + str(e))
             sys.exit(os.EX_DATAERR)
+
+        data = json.loads(thisRequest.text)
         return data
 
     try:
