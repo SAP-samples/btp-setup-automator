@@ -1,10 +1,14 @@
 {% macro addSchemaIfExists(plan) -%}
 {% if plan.schemas is defined and plan.schemas.service_instance is defined and plan.schemas.service_instance.create is defined and plan.schemas.service_instance.create.parameters is defined and plan.schemas.service_instance.create.parameters -%}
 , "parameters" : {{ plan.schemas.service_instance.create.parameters | tojson }}
+{% endif %}{% if plan.schemas is defined and plan.schemas.subscription is defined and plan.schemas.subscription.create is defined and plan.schemas.subscription.create.parameters is defined and plan.schemas.subscription.create.parameters -%}
+, "parameters" : {{ plan.schemas.subscription.create.parameters | tojson }}
 {% endif %}
 {%- endmacro -%}
 {% macro addRequiredFieldIfSchemaExists(plan) -%}
 {% if plan.schemas is defined and plan.schemas.service_instance is defined and plan.schemas.service_instance.create is defined and plan.schemas.service_instance.create.parameters is defined -%}
+, "required" : ["parameters"]
+{% endif %}{% if plan.schemas is defined and plan.schemas.subscription is defined and plan.schemas.subscription.create is defined and plan.schemas.subscription.create.parameters is defined -%}
 , "required" : ["parameters"]
 {% endif %}
 {%- endmacro -%}
@@ -389,6 +393,6 @@
                     {% endfor -%}
                 ]
             }
-        } 
+        }
     }
 }
