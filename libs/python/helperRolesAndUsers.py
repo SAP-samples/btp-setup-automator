@@ -10,8 +10,9 @@ log = logging.getLogger(__name__)
 
 
 def getMembersForRolecollection(btpUsecase, rolecollection):
+    # the one executing the use case is only added to the role collections defined in the use case if explicitly added
     users = []
-    users.append(btpUsecase.myemail)
+
     if rolecollection:
         for usergroup in rolecollection.get("assignedUserGroupsFromParameterFile"):
             members = getMembersOfUserGroup(btpUsecase, usergroup)
@@ -84,8 +85,8 @@ def getRoleCollectionsOfServices(btpUsecase):
 
 
 def getMembersOfUserGroup(btpUsecase, usergroup):
+    # the one executing the use case is only added to the role collections defined in the use case if explicitly added
     members = []
-    members.append(btpUsecase.myemail)
     usergroupExists = False
 
     if btpUsecase.myusergroups and usergroup:
