@@ -380,6 +380,12 @@
             "title": "switch to run default tests at the beginning of the script",
             "default": true
         },
+        "subaccountenablebeta": {
+            "type": "boolean",
+            "description": "if set to true, a newly create subaccount will have beta features enabled",
+            "title": "enable beta features in new subaccount",
+            "default": false
+        },
         "subaccountid": {
             "type": "string",
             "description": "id of your sub account that should be used",
