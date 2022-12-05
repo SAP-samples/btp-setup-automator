@@ -329,11 +329,15 @@ def assignUsersToEnvironments(btpUsecase):
                     for rolecollection in rolecollectionsCloudFoundryOrg:
                         members = getMembersForRolecollection(
                             btpUsecase, rolecollection)
+                        idp = determineIdpForRoleCollection(
+                            btpUsecase, rolecollection)
                         orgRole = rolecollection.get("name")
                         log.info("assign users to org role >" + orgRole + "<")
                         for admin in members:
                             message = " - user >" + admin + "<"
                             command = "cf set-org-role '" + admin + "' '" + org + "' '" + orgRole + "'"
+                            if idp is not None:
+                                command += " --origin '" + idp + "'"
                             p = runShellCommandFlex(
                                 btpUsecase, command, "INFO", message, False, False)
                             result = p.stdout.decode()
@@ -348,6 +352,8 @@ def assignUsersToEnvironments(btpUsecase):
                     for rolecollection in rolecollectionsCloudFoundrySpace:
                         members = getMembersForRolecollection(
                             btpUsecase, rolecollection)
+                        idp = determineIdpForRoleCollection(
+                            btpUsecase, rolecollection)
                         spaceRole = rolecollection.get("name")
                         log.info("assign users to space role >" +
                                  spaceRole + "<")
@@ -355,6 +361,8 @@ def assignUsersToEnvironments(btpUsecase):
                             message = " - user >" + admin + "<"
                             command = "cf set-space-role '" + admin + "' '" + \
                                 org + "' '" + cfspacename + "' '" + spaceRole + "'"
+                            if idp is not None:
+                                command += " --origin '" + idp + "'"
                             p = runShellCommandFlex(
                                 btpUsecase, command, "INFO", message, False, False)
                             result = p.stdout.decode()
