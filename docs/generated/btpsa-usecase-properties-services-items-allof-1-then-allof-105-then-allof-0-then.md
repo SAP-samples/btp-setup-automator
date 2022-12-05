@@ -14,6 +14,7 @@ service plan >default< for >sap-calm< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
+*   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
 
