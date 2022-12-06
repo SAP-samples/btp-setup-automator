@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value         | Explanation |
-| :------------ | :---------- |
-| `"dashboard"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"standard"` |             |
 
 ## name
 
-SAP Feature Flags service: View and manage Feature Flags Service instances. Get information about flags status, usage and history. Also perform tasks, such as enabling, disabling, adding and removing flags.
+Extension Center: Allows you to create, manage, configure extensions on SAP Business Technology Platform
 
 `name`
 

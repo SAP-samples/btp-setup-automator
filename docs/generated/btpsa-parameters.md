@@ -27,7 +27,10 @@ all of
 | [directoryname](#directoryname)                                                                 | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-directory-name-for-use-case.md "undefined#/properties/directoryname")                                                                                                               |
 | [directorylabels](#directorylabels)                                                             | `object`  | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-directory-labels.md "undefined#/properties/directorylabels")                                                                                                                        |
 | [envvariables](#envvariables)                                                                   | `object`  | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-list-of-environment-variables-on-os-level-to-be-used-within-commands-defined-in-the-executebeforeaccountsetup-and-executeafteraccountsetup.md "undefined#/properties/envvariables") |
-| [subaccountenablebeta](#subaccountenablebeta)                                                   | `boolean` | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-enable-beta-features-in-new-subaccount.md "undefined#/properties/subaccountenablebeta")                                                                                             |
+| [externalConfigAuthMethod](#externalconfigauthmethod)                                           | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-authentication-method-for-external-configuration.md "undefined#/properties/externalConfigAuthMethod")                                                                               |
+| [externalConfigUserName](#externalconfigusername)                                               | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-user-name-for-external-configuration-file-retrieval-.md "undefined#/properties/externalConfigUserName")                                                                             |
+| [externalConfigPassword](#externalconfigpassword)                                               | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-password-for-external-configuration-file-retrieval.md "undefined#/properties/externalConfigPassword")                                                                               |
+| [externalConfigToken](#externalconfigtoken)                                                     | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-token-for-external-configuration-file-retrieval.md "undefined#/properties/externalConfigToken")                                                                                     |
 | [fallbackserviceplan](#fallbackserviceplan)                                                     | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-fallback-service-plan-if-the-plan-defined-in-the-use-case-is-not-supported.md "undefined#/properties/fallbackserviceplan")                                                          |
 | [globalaccount](#globalaccount)                                                                 | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-your-sap-btp-global-account.md "undefined#/properties/globalaccount")                                                                                                               |
 | [iashost](#iashost)                                                                             | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-ias-host-for-your-sap-btp-sub-account.md "undefined#/properties/iashost")                                                                                                           |
@@ -51,6 +54,7 @@ all of
 | [repeatstatusrequest](#repeatstatusrequest)                                                     | `integer` | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-time-in-seconds-to-wait-after-requesting-status-info-pulling.md "undefined#/properties/repeatstatusrequest")                                                                        |
 | [repeatstatustimeout](#repeatstatustimeout)                                                     | `integer` | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-timeout-in-seconds-after-which-requests-should-be-stopped.md "undefined#/properties/repeatstatustimeout")                                                                           |
 | [rundefaulttests](#rundefaulttests)                                                             | `boolean` | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-switch-to-run-default-tests-at-the-beginning-of-the-script.md "undefined#/properties/rundefaulttests")                                                                              |
+| [subaccountenablebeta](#subaccountenablebeta)                                                   | `boolean` | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-enable-beta-features-in-new-subaccount.md "undefined#/properties/subaccountenablebeta")                                                                                             |
 | [subaccountid](#subaccountid)                                                                   | `string`  | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-subaccount-id-of-sap-btp-sub-account.md "undefined#/properties/subaccountid")                                                                                                       |
 | [subaccountlabels](#subaccountlabels)                                                           | `object`  | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-sub-account-labels.md "undefined#/properties/subaccountlabels")                                                                                                                     |
 | [subaccountname](#subaccountname)                                                               | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-sub-account-name-for-use-case.md "undefined#/properties/subaccountname")                                                                                                            |
@@ -312,23 +316,86 @@ list of environment variables on OS level to be used within commands defined in 
 
 `object` ([list of environment variables on OS level to be used within commands defined in the \`executeBeforeAccountSetup\` and \`executeAfterAccountSetup\`.](btpsa-parameters-properties-list-of-environment-variables-on-os-level-to-be-used-within-commands-defined-in-the-executebeforeaccountsetup-and-executeafteraccountsetup.md))
 
-## subaccountenablebeta
+## externalConfigAuthMethod
 
-if set to true, a newly create subaccount will have beta features enabled
+authentication method for external configuration file retrieval
 
-`subaccountenablebeta`
+`externalConfigAuthMethod`
 
 *   is optional
 
-*   Type: `boolean` ([enable beta features in new subaccount](btpsa-parameters-properties-enable-beta-features-in-new-subaccount.md))
+*   Type: `string` ([authentication method for external configuration](btpsa-parameters-properties-authentication-method-for-external-configuration.md))
 
-*   cannot be null
+*   can be null
 
-*   defined in: [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-enable-beta-features-in-new-subaccount.md "undefined#/properties/subaccountenablebeta")
+*   defined in: [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-authentication-method-for-external-configuration.md "undefined#/properties/externalConfigAuthMethod")
 
-### subaccountenablebeta Type
+### externalConfigAuthMethod Type
 
-`boolean` ([enable beta features in new subaccount](btpsa-parameters-properties-enable-beta-features-in-new-subaccount.md))
+`string` ([authentication method for external configuration](btpsa-parameters-properties-authentication-method-for-external-configuration.md))
+
+### externalConfigAuthMethod Constraints
+
+**enum**: the value of this property must be equal to one of the following values:
+
+| Value                   | Explanation |
+| :---------------------- | :---------- |
+| `"basicAuthentication"` |             |
+| `"token"`               |             |
+
+## externalConfigUserName
+
+user name for external configuration file retrieval (basic authentication)
+
+`externalConfigUserName`
+
+*   is optional
+
+*   Type: `string` ([user name for external configuration file retrieval ](btpsa-parameters-properties-user-name-for-external-configuration-file-retrieval-.md))
+
+*   can be null
+
+*   defined in: [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-user-name-for-external-configuration-file-retrieval-.md "undefined#/properties/externalConfigUserName")
+
+### externalConfigUserName Type
+
+`string` ([user name for external configuration file retrieval ](btpsa-parameters-properties-user-name-for-external-configuration-file-retrieval-.md))
+
+## externalConfigPassword
+
+password for external configuration file retrieval (basic authentication)
+
+`externalConfigPassword`
+
+*   is optional
+
+*   Type: `string` ([password for external configuration file retrieval](btpsa-parameters-properties-password-for-external-configuration-file-retrieval.md))
+
+*   can be null
+
+*   defined in: [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-password-for-external-configuration-file-retrieval.md "undefined#/properties/externalConfigPassword")
+
+### externalConfigPassword Type
+
+`string` ([password for external configuration file retrieval](btpsa-parameters-properties-password-for-external-configuration-file-retrieval.md))
+
+## externalConfigToken
+
+token for external configuration file retrieval (token-based authentication)
+
+`externalConfigToken`
+
+*   is optional
+
+*   Type: `string` ([token for external configuration file retrieval](btpsa-parameters-properties-token-for-external-configuration-file-retrieval.md))
+
+*   can be null
+
+*   defined in: [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-token-for-external-configuration-file-retrieval.md "undefined#/properties/externalConfigToken")
+
+### externalConfigToken Type
+
+`string` ([token for external configuration file retrieval](btpsa-parameters-properties-token-for-external-configuration-file-retrieval.md))
 
 ## fallbackserviceplan
 
@@ -901,6 +968,24 @@ The default value is:
 ```json
 true
 ```
+
+## subaccountenablebeta
+
+if set to true, a newly create subaccount will have beta features enabled
+
+`subaccountenablebeta`
+
+*   is optional
+
+*   Type: `boolean` ([enable beta features in new subaccount](btpsa-parameters-properties-enable-beta-features-in-new-subaccount.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-enable-beta-features-in-new-subaccount.md "undefined#/properties/subaccountenablebeta")
+
+### subaccountenablebeta Type
+
+`boolean` ([enable beta features in new subaccount](btpsa-parameters-properties-enable-beta-features-in-new-subaccount.md))
 
 ## subaccountid
 

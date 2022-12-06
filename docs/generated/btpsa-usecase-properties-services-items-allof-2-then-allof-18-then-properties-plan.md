@@ -8,5 +8,4 @@ unknown
 
 | Value          | Explanation |
 | :------------- | :---------- |
-| `"Enterprise"` |             |
-| `"Standard"`   |             |
+| `"eadesigner"` |             |

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Extension Center: Allows you to create, manage, configure extensions on SAP Business Technology Platform
+SAP Event Mesh: The SAP Event Mesh service decouples communication and allows for event-driven business processes.
 
 `name`
 

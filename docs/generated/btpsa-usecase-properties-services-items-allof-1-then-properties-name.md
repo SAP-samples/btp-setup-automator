@@ -27,6 +27,7 @@ unknown
 | `"business-entity-recognition"`            |             |
 | `"business-rules"`                         |             |
 | `"c4-distributed-order-management"`        |             |
+| `"category-management-api"`                |             |
 | `"cias"`                                   |             |
 | `"cicd-service"`                           |             |
 | `"cis"`                                    |             |

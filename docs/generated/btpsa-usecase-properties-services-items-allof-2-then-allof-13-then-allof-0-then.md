@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-application plan >standard< for >custom-domain-manager< is available in data centers:
+application plan >free< for >content-agent-ui< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}
