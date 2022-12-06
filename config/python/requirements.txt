@@ -6,7 +6,7 @@ flake8==6.0.0
 idna==3.4
 inquirer==3.0.0
 Jinja2==3.1.2
-jsonschema==4.17.1
+jsonschema==4.17.3
 MarkupSafe==2.1.1
 mccabe==0.7.0
 ninja2==0.1
