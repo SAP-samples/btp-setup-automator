@@ -4,13 +4,14 @@ unknown
 
 # then Properties
 
-| Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                      |
-| :------------ | :------------ | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-46-then-allof-0-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/46/then/allOf/0/then/properties/plan") |
+| Property                  | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                                  |
+| :------------------------ | :------------ | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [plan](#plan)             | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-46-then-allof-0-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/46/then/allOf/0/then/properties/plan")             |
+| [parameters](#parameters) | `object`      | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-46-then-allof-0-then-properties-parameters.md "undefined#/properties/services/items/allOf/2/then/allOf/46/then/allOf/0/then/properties/parameters") |
 
 ## plan
 
-application plan >free< for >sapappstudio< is available in data centers:
+application plan >additional-tenant< for >sap-identity-services-onboarding< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}
@@ -19,6 +20,7 @@ application plan >free< for >sapappstudio< is available in data centers:
 *   {'region': 'ap21', 'name': 'Singapore'}
 *   {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}
 *   {'region': 'ca10', 'name': 'Canada (Montreal)'}
+*   {'region': 'ch20', 'name': 'cf-ch20'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
@@ -42,3 +44,21 @@ application plan >free< for >sapappstudio< is available in data centers:
 ### plan Type
 
 unknown
+
+## parameters
+
+
+
+`parameters`
+
+*   is required
+
+*   Type: `object` ([Details](btpsa-usecase-properties-services-items-allof-2-then-allof-46-then-allof-0-then-properties-parameters.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-46-then-allof-0-then-properties-parameters.md "undefined#/properties/services/items/allOf/2/then/allOf/46/then/allOf/0/then/properties/parameters")
+
+### parameters Type
+
+`object` ([Details](btpsa-usecase-properties-services-items-allof-2-then-allof-46-then-allof-0-then-properties-parameters.md))

@@ -10,8 +10,9 @@ log = logging.getLogger(__name__)
 
 
 def getMembersForRolecollection(btpUsecase, rolecollection):
+    # the one executing the use case is only added to the role collections defined in the use case if explicitly added
     users = []
-    users.append(btpUsecase.myemail)
+
     if rolecollection:
         for usergroup in rolecollection.get("assignedUserGroupsFromParameterFile"):
             members = getMembersOfUserGroup(btpUsecase, usergroup)
@@ -71,7 +72,8 @@ def getSubaccountAdmins(btpUsecase):
 
 
 def getRoleCollectionsOfServices(btpUsecase):
-    usecase = getJsonFromFile(btpUsecase.usecasefile)
+    # Use case file can be remote, so we need to provide authentication information
+    usecase = getJsonFromFile(btpUsecase.usecasefile, btpUsecase.externalConfigAuthMethod, btpUsecase.externalConfigUserName, btpUsecase.externalConfigPassword, btpUsecase.externalConfigToken)
     items = []
     if usecase.get("services") is not None:
         for service in usecase.get("services"):
@@ -83,8 +85,8 @@ def getRoleCollectionsOfServices(btpUsecase):
 
 
 def getMembersOfUserGroup(btpUsecase, usergroup):
+    # the one executing the use case is only added to the role collections defined in the use case if explicitly added
     members = []
-    members.append(btpUsecase.myemail)
     usergroupExists = False
 
     if btpUsecase.myusergroups and usergroup:
@@ -329,11 +331,15 @@ def assignUsersToEnvironments(btpUsecase):
                     for rolecollection in rolecollectionsCloudFoundryOrg:
                         members = getMembersForRolecollection(
                             btpUsecase, rolecollection)
+                        idp = determineIdpForRoleCollection(
+                            btpUsecase, rolecollection)
                         orgRole = rolecollection.get("name")
                         log.info("assign users to org role >" + orgRole + "<")
                         for admin in members:
                             message = " - user >" + admin + "<"
                             command = "cf set-org-role '" + admin + "' '" + org + "' '" + orgRole + "'"
+                            if idp is not None:
+                                command += " --origin '" + idp + "'"
                             p = runShellCommandFlex(
                                 btpUsecase, command, "INFO", message, False, False)
                             result = p.stdout.decode()
@@ -348,6 +354,8 @@ def assignUsersToEnvironments(btpUsecase):
                     for rolecollection in rolecollectionsCloudFoundrySpace:
                         members = getMembersForRolecollection(
                             btpUsecase, rolecollection)
+                        idp = determineIdpForRoleCollection(
+                            btpUsecase, rolecollection)
                         spaceRole = rolecollection.get("name")
                         log.info("assign users to space role >" +
                                  spaceRole + "<")
@@ -355,6 +363,8 @@ def assignUsersToEnvironments(btpUsecase):
                             message = " - user >" + admin + "<"
                             command = "cf set-space-role '" + admin + "' '" + \
                                 org + "' '" + cfspacename + "' '" + spaceRole + "'"
+                            if idp is not None:
+                                command += " --origin '" + idp + "'"
                             p = runShellCommandFlex(
                                 btpUsecase, command, "INFO", message, False, False)
                             result = p.stdout.decode()

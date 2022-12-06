@@ -6,9 +6,10 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value      | Explanation |
-| :--------- | :---------- |
-| `"large"`  |             |
-| `"medium"` |             |
-| `"small"`  |             |
-| `"xsmall"` |             |
+| Value           | Explanation |
+| :-------------- | :---------- |
+| `"large"`       |             |
+| `"medium"`      |             |
+| `"small"`       |             |
+| `"virtualhost"` |             |
+| `"xsmall"`      |             |

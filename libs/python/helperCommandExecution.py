@@ -62,7 +62,7 @@ def login_btp(btpUsecase):
 
 def fetchEmailAddressFromBtpConfigFile(btpUsecase):
     btpConfigFile = os.environ['BTP_CLIENTCONFIG']
-    jsonResult = getJsonFromFile(btpConfigFile)
+    jsonResult = getJsonFromFile(filename=btpConfigFile, externalConfigAuthMethod=btpUsecase.externalConfigAuthMethod, externalConfigUserName=btpUsecase.externalConfigUserName, externalConfigPassword=btpUsecase.externalConfigPassword, externalConfigToken=btpUsecase.externalConfigToken)
     if "Authentication" in jsonResult and "Mail" in jsonResult["Authentication"]:
         btpUsecase.myemail = jsonResult["Authentication"]["Mail"]
         return btpUsecase.myemail
@@ -179,7 +179,7 @@ def runCommandAndGetJsonResult(btpUsecase, command, format, message):
 
 
 def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):
-    usecaseDefinition = getJsonFromFile(btpUsecase.usecasefile)
+    usecaseDefinition = getJsonFromFile(filename=btpUsecase.usecasefile, externalConfigAuthMethod=btpUsecase.externalConfigAuthMethod, externalConfigUserName=btpUsecase.externalConfigUserName, externalConfigPassword=btpUsecase.externalConfigPassword, externalConfigToken=btpUsecase.externalConfigToken)
 
     if jsonSection in usecaseDefinition and len(usecaseDefinition[jsonSection]) > 0:
         commands = usecaseDefinition[jsonSection]

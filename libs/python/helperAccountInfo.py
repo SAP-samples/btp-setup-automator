@@ -1,4 +1,3 @@
-import json
 import logging
 import os
 from libs.python.helperCommandExecution import runCommandAndGetJsonResult
@@ -25,31 +24,6 @@ def getAllDatacenters(services):
                 if dataCenter["name"] not in resultCF:
                     resultCF.append(dataCenter["name"])
     return resultCF
-
-
-def getJsonFromFile(filename):
-    data = None
-    foundError = False
-
-    try:
-        # Opening JSON file
-        f = open(filename)
-        # returns JSON object as a dictionary
-        data = json.load(f)
-    except IOError:
-        print("Can't open json file >" + filename + "<")
-        foundError = True
-    except ValueError as err:
-        print("There is an issue in the json file >" + filename +
-              "<. Issue starts on character position " + str(err.pos) + ": " + err.msg)
-        foundError = True
-    finally:
-        f.close()
-
-    if foundError is True:
-        print("Can't run the use case before the error(s) mentioned above are not fixed")
-        exit()
-    return data
 
 
 def getDataCenterFromService(service):

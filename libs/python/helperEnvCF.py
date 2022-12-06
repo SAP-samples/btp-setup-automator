@@ -140,6 +140,9 @@ def getCfApiEndpointByUseCase(btpUsecase):
             if labels.get("API Endpoint"):
                 cf_api_endpoint = labels.get("API Endpoint")
                 break
+            elif labels.get("API Endpoint:"):
+                cf_api_endpoint = labels.get("API Endpoint:")
+                break
 
     return cf_api_endpoint
 
@@ -149,6 +152,8 @@ def getCfApiEndpointFromLabels(labelsAsJson):
 
     if labelsAsJson.get("API Endpoint"):
         cf_api_endpoint = labelsAsJson.get("API Endpoint")
+    elif labelsAsJson.get("API Endpoint:"):
+        cf_api_endpoint = labelsAsJson.get("API Endpoint:")    
 
     return cf_api_endpoint
 
@@ -292,3 +297,43 @@ def get_cf_service_deletion_status(btpUsecase, service):
         return "deleted"
     else:
         return "not deleted"
+
+
+def handleLabelsForCF(btpUsecase):
+    # if labels are defined for CF services the need to be attached after service/service key creation
+    # see https://cli.cloudfoundry.org/en-US/v8/set-label.html
+
+    for serviceInstance in btpUsecase.accountMetadata.get("createdServiceInstances"):
+        if serviceInstance.get("entitleonly") is not False or serviceInstance.get("category") != "SERVICE" or serviceInstance.get("targetenvironment") != "cloudfoundry":
+            # Basic check if service is in scope of attaching labels => Only CF services
+            continue
+
+        if serviceInstance.get("labels") is None:
+            # Check for labels to put on service
+            continue
+
+        labelString = transformLabelJsonToCFString(serviceInstance.get("labels"))
+
+        command = "cf set-label service-instance " + serviceInstance.get("instancename") + " " + labelString
+        message = "Set labels for CF service instance >" + serviceInstance.get("instancename") + "<"
+        runShellCommand(btpUsecase, command, "INFO", message)
+
+        # !!! SERVICE KEYS ARE NOT SUPPORTED BY CF API V8!!!
+        #if serviceInstance.get("serviceKeyLabels") is None:
+        #    # Check for label that s should be put on service key
+        #    continue
+
+        #for serviceKeyLabelEntry in serviceInstance.get("serviceKeyLabels"):
+        #    labelString = transformLabelJsonToCFString(serviceKeyLabelEntry.get("labels"))
+
+        #    command = "cf set-label service-key " + serviceKeyLabelEntry.get("name") + " " + labelString
+        #    message = "Set labels for CF service key >" + serviceKeyLabelEntry.get("name") + "<"
+        #    runShellCommand(btpUsecase, command, "INFO", message)
+
+
+def transformLabelJsonToCFString(labelJson):
+    labelString = ""
+    for key in labelJson:
+        value = ' ,'.join(labelJson[key])
+        labelString += key + "='" + value + "' "
+    return labelString.strip()

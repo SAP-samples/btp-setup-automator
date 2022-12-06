@@ -91,9 +91,10 @@ class BTPSERVICEEncoder(JSONEncoder):
 def readAllServicesFromUsecaseFile(btpUsecase):
     # Initiate class with configured parameters
     jsonSchema = FOLDER_SCHEMA_LIBS + "btpsa-usecase.json"
+    # local access no auth needed
     paramDefinitionServices = getJsonFromFile(jsonSchema)
 
-    usecase = getJsonFromFile(btpUsecase.usecasefile)
+    usecase = getJsonFromFile(filename=btpUsecase.usecasefile, externalConfigAuthMethod=btpUsecase.externalConfigAuthMethod, externalConfigUserName=btpUsecase.externalConfigUserName, externalConfigPassword=btpUsecase.externalConfigPassword, externalConfigToken=btpUsecase.externalConfigToken)
     items = []
     if "services" in usecase:
         for usecaseService in usecase.get("services"):

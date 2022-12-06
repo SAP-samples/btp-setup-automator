@@ -10,10 +10,10 @@ unknown
 
 ## plan
 
-application plan >free< for >sap-build-apps< is available in data centers:
+application plan >standard< for >responsibilitymanagement-application< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'us10', 'name': 'US East (VA)'}
+*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 
 `plan`
 

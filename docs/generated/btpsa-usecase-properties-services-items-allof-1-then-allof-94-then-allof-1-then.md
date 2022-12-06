@@ -10,10 +10,9 @@ unknown
 
 ## plan
 
-service plan >standard< for >recommendation-systems-production< is available in data centers:
+service plan >dev< for >quorum< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`

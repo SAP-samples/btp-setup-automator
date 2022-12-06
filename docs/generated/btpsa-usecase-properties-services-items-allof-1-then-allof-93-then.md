@@ -6,14 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-93-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-93-then-allof-1.md "check type definition")
-
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-93-then-allof-2.md "check type definition")
-
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-93-then-allof-3.md "check type definition")
-
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-93-then-allof-4.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -43,17 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value           | Explanation |
-| :-------------- | :---------- |
-| `"large"`       |             |
-| `"medium"`      |             |
-| `"small"`       |             |
-| `"virtualhost"` |             |
-| `"xsmall"`      |             |
+| Value         | Explanation |
+| :------------ | :---------- |
+| `"apiaccess"` |             |
 
 ## name
 
-RabbitMQ: RabbitMQ on SAP BTP includes a message broker that implements message queues for application-to-application messaging. Supports Advanced Message Queuing Protocol (AMQP).
+Guided Buying: Guided Buying allows you to integrate procurement solutions with SAP S/4HANA Cloud.
 
 `name`
 
