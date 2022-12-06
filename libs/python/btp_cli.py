@@ -15,7 +15,7 @@ import sys
 import time
 import requests
 import json
-from libs.python.helperRolesAndUsers import assignUsersToEnvironments, assignUsersToGlobalAndSubaccount, getSubaccountAdmins, assignUsersToRoleCollectionsForServices, assignUsersToCustomRoleCollections
+from libs.python.helperRolesAndUsers import assignUsersToEnvironments, assignUsersToGlobalAndSubaccount, assignUsersToRoleCollectionsForServices, assignUsersToCustomRoleCollections
 
 from libs.python.helperServices import BTPSERVICE, BTPSERVICEEncoder, getServiceParameterDefinition, readAllServicesFromUsecaseFile
 from libs.python.helperLog import initLogger
@@ -319,7 +319,10 @@ class BTPUSECASE:
             log.success("using subaccount name >" + subaccount + "<")
             log.success("using subaccount domain >" + subdomain + "<")
 
-            subaccountadmins = getSubaccountAdmins(self)
+            # We add the owner of the execution as subaccount admin
+            # The remaining list of subaccount admins is added via user groups and role collections
+            subaccountadmins = '["' + self.myemail + '"]'
+
             globalAccount = self.globalaccount
 
             log.header("Create sub account >" + subaccount +
