@@ -380,6 +380,12 @@
             "title": "switch to run default tests at the beginning of the script",
             "default": true
         },
+        "skipcfspacecreation": {
+            "type": "boolean",
+            "description": "if set to True: skips the creation of a CF space",
+            "title": "skip the creation of a CF space",
+            "default": false
+        },
         "subaccountenablebeta": {
             "type": "boolean",
             "description": "if set to true, a newly create subaccount will have beta features enabled",
