@@ -278,17 +278,18 @@ def assignUsersToEnvironments(btpUsecase):
                             btpUsecase, rolecollection)
                         orgRole = rolecollection.get("name")
                         log.info("assign users to org role >" + orgRole + "<")
-                        for admin in members:
-                            message = " - user >" + admin + "<"
-                            command = "cf set-org-role '" + admin + "' '" + org + "' '" + orgRole + "'"
+                        for user in members:
+                            message = " - user >" + user + "<"
+                            command = "cf set-org-role '" + user + "' '" + org + "' '" + orgRole + "'"
                             if idp is not None:
                                 command += " --origin '" + idp + "'"
                             p = runShellCommandFlex(
                                 btpUsecase, command, "INFO", message, False, False)
-                            result = p.stdout.decode()
-                            if "message: The user could not be found" in result:
-                                log.error(
-                                    "the user >" + admin + "< was not found and could not be assigned the role >" + orgRole + "<")
+                            result = ''.join(p.stdout.decode().splitlines())
+                            if "FAILED" in result:
+                                error = ''.join(p.stderr.decode().splitlines())
+                                log.error(result)
+                                log.error(error)
 
                 rolecollectionsCloudFoundrySpace = getRoleCollectionsOfTypeAndLevel(
                     btpUsecase, "cloudfoundry", "space")
@@ -302,18 +303,19 @@ def assignUsersToEnvironments(btpUsecase):
                         spaceRole = rolecollection.get("name")
                         log.info("assign users to space role >" +
                                  spaceRole + "<")
-                        for admin in members:
-                            message = " - user >" + admin + "<"
-                            command = "cf set-space-role '" + admin + "' '" + \
+                        for user in members:
+                            message = " - user >" + user + "<"
+                            command = "cf set-space-role '" + user + "' '" + \
                                 org + "' '" + cfspacename + "' '" + spaceRole + "'"
                             if idp is not None:
                                 command += " --origin '" + idp + "'"
                             p = runShellCommandFlex(
                                 btpUsecase, command, "INFO", message, False, False)
-                            result = p.stdout.decode()
-                            if "message: The user could not be found" in result:
-                                log.error(
-                                    "the user >" + admin + "< was not found and could not be assigned the role >" + spaceRole + "<")
+                            result = ''.join(p.stdout.decode().splitlines())
+                            if "FAILED" in result:
+                                error = ''.join(p.stderr.decode().splitlines())
+                                log.error(result)
+                                log.error(error)
 
 
 def determineIdpForRoleCollection(btpUsecase, rolecollection):
