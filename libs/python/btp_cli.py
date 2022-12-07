@@ -835,21 +835,6 @@ def getServiceCategoryItemsFromUsecaseFile(btpUsecase: BTPUSECASE, allServices, 
     return items
 
 
-def getAdminsFromUsecaseFile(btpUsecase: BTPUSECASE):
-    # Use case file can be remote, so we need to provide authentication information
-    usecase = getJsonFromFile(btpUsecase.usecasefile, btpUsecase.externalConfigAuthMethod, btpUsecase.externalConfigUserName, btpUsecase.externalConfigPassword, btpUsecase.externalConfigToken)
-
-    items = []
-    if "admins" in usecase:
-        for admin in usecase["admins"]:
-            items.append(admin)
-    else:
-        log.warning(
-            "no admins defined in your use case configuration file (other than you)")
-
-    return items
-
-
 def check_if_account_can_cover_use_case_for_serviceType(btpUsecase: BTPUSECASE, availableForAccount):
 
     usecaseRegion = btpUsecase.region
@@ -1271,30 +1256,6 @@ def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
             parameters = appSubscription.parameters
             if appSubscription.entitleonly is False:
                 subscribe_app_to_subaccount(btpUsecase, appName, appPlan, parameters)
-
-
-def get_subscription_status(btpUsecase: BTPUSECASE, app):
-    accountMetadata = btpUsecase.accountMetadata
-
-    app_name = app.name
-    app_plan = app.plan
-    subaccountid = accountMetadata["subaccountid"]
-
-    command = "btp --format json list accounts/subscription --subaccount '" + subaccountid + "'"
-    message = "subscription status of >" + app_name + "<"
-    p = runShellCommand(btpUsecase, command, "CHECK", message)
-    result = p.stdout.decode()
-    result = convertStringToJson(result)
-
-    for application in result["applications"]:
-        thisAppName = application["appName"]
-        thisAppPlan = application["planName"]
-        if (thisAppName == app_name and thisAppPlan == app_plan):
-            return application
-
-    log.error("COULD NOT FIND SUBSCRIPTON TO >" +
-              app_name + "< and plan >" + app_plan + "<")
-    sys.exit(os.EX_DATAERR)
 
 
 def get_subscription_deletion_status(btpUsecase: BTPUSECASE, app):

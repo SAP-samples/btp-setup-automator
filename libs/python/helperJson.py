@@ -91,11 +91,6 @@ def convertStringToJson(string):
     return jsonObject
 
 
-def convertJsonToString(json):
-    string = json.dumps(json)
-    return string
-
-
 def addKeyValuePair(json, key, value):
     json[key] = value
     return json
@@ -117,7 +112,7 @@ def convertCloudFoundryCommandOutputToJson(lines):
     dict = []
     positions = []
     keys = []
-    # Remove the first 2 lines of the output (don't contain neccessary information)
+    # Remove the first 2 lines of the output (don't contain necessary information)
     lines = lines.split('\n', 2)[-1]
 
     # Detect the columns of the text table
