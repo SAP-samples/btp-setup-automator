@@ -36,7 +36,7 @@ def build_and_store_service_binding_yaml_from_parameters(keyname, service, yamlF
     serviceBindingTemplate = getJsonFromFile(templatePath)
 
     serviceBindingTemplate["metadata"]["name"] = keyname
-    
+
     if keyLabels is not None:
         serviceBindingTemplate["metadata"]["labels"] = keyLabels
 

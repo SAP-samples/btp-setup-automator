@@ -120,19 +120,9 @@ def getDefaultValueForParameter(allJsonParameters, myArgument):
     return result
 
 
-def validateJson():
-    None
-
-
 def setupParamsBtpsa():
     jsonSchema = FOLDER_SCHEMA_LIBS + "btpsa-parameters.json"
     args = setupParams(jsonSchema)
-    return args
-
-
-def setupParamsServices():
-    serviceArguments = FOLDER_SCHEMA_LIBS + "btpsa-usecase.json"
-    args = setupParams(serviceArguments)
     return args
 
 

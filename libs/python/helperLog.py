@@ -63,7 +63,6 @@ class MyFormatterStream(logging.Formatter):
 
     format_HEADER = COLOR_RESET_COLORS + "#" * 100 + "\n# %(msg)s\n" + "#" * 100 + COLOR_RESET_COLORS
     format_ERROR = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_ERROR + "ERROR      : %(msg)s" + COLOR_RESET_COLORS
-    # format_ERROR = COLOR_ERROR + "#" * 100 + "\n# ERROR\n" + "#" * 100 + "\n%(msg)s" + COLOR_RESET_COLORS
     format_CHECK = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_CHECK + "CHECK      : %(msg)s" + COLOR_RESET_COLORS
     format_INFO = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_INFO + "INFO       : %(msg)s" + COLOR_RESET_COLORS
     format_DEBUG = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_INFO + "DEBUG       : %(msg)s" + COLOR_RESET_COLORS

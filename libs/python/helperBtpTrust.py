@@ -1,7 +1,6 @@
 from libs.python.helperJson import addKeyValuePair, saveJsonToFile, dictToJson
 
 import requests
-import base64
 import inquirer
 import logging
 
@@ -37,13 +36,6 @@ def runTrustFlow(btpUsecase):
                             log.info("create own IDP")
                             resultOwnIDP = createOwnIDP(
                                 btpUsecase, payload["apiurl"] + "/sap/rest/identity-providers", accessToken, resultIasTenants)
-
-                            # if "usersToCreateOnIDP" in usecase:
-                            #     for user in usecase["usersToCreateOnIDP"]:
-                            #         email = user["email"]
-                            #         log.info("create user >" + email + "< on IDP")
-                            #         password = "initial123456"
-                            #         resultUserCreation = registerUserOnIDP(btpUsecase, payload["url"] + "/oauth/token", authClientId, authClientSecret, email, password)
 
                             item = {"service_key": key["keyname"], "tokenDetails": resultApiAccessToken,
                                     "availableIasTenants": resultIasTenants, "ownIDP": resultOwnIDP}
@@ -121,24 +113,4 @@ def createOwnIDP(btpUsecase, url, accessToken, resultIasTenants):
             result = None
     else:
         log.warning("could not establish trust to IAS")
-    return result
-
-
-def registerUserOnIDP(btpUsecase, url, clientId, clientSecret, idpUserName, password):
-    result = None
-
-    clientIdSecret = clientId + ":" + clientSecret
-
-    clientIdSecretEncoded = base64.b64encode(clientIdSecret.encode('ascii'))
-    clientIdSecretDecoded = clientIdSecretEncoded.decode('ascii')
-
-    myData = "username=" + idpUserName + "&password=" + password + "&grant_type=password&login_hint=%7B%22origin%22%3A%22sap.custom%22%7D"
-    headers = {"Content-Type": "application/x-www-form-urlencoded", "Accept": "application/json", "Authorization": "Basic " + clientIdSecretDecoded}
-    try:
-        log.info("sending a POST request to url >" + url + "< to create a user on the IDP")
-        p1 = requests.post(url, data=myData, headers=headers)
-        log.success("added user >" + idpUserName + "< to your IDP")
-        result = p1.json()
-    except:
-        result = None
     return result

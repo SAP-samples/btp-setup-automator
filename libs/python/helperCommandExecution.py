@@ -186,9 +186,6 @@ def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):
         log.header(message)
 
         for command in commands:
-            # if "parameters" in command:
-            #     parameters = command["parameters"]
-            #     addEnvVariables(parameters)
             if "description" in command and "command" in command:
                 message = command["description"]
                 thisCommand = command["command"]
