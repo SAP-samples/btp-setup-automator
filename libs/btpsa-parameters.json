@@ -144,10 +144,57 @@
             "title": "directory name for use case",
             "default": null
         },
+        "directorylabels":{
+            "type": "object",
+            "description": "labels for the directory",
+            "title": "directory labels",
+            "default": null
+        },
         "envvariables": {
             "type": "object",
             "description": "list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`.",
             "title": "list of environment variables on OS level to be used within commands defined in the `executeBeforeAccountSetup` and `executeAfterAccountSetup`.",
+            "default": null
+        },
+        "externalConfigAuthMethod": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "authentication method for external configuration file retrieval",
+            "title": "authentication method for external configuration",
+            "default": null,
+            "enum": [
+                "basicAuthentication",
+                "token"
+            ]
+        },
+        "externalConfigUserName": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "user name for external configuration file retrieval (basic authentication)",
+            "title": "user name for external configuration file retrieval ",
+            "default": null
+        },
+        "externalConfigPassword": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "password for external configuration file retrieval (basic authentication)",
+            "title": "password for external configuration file retrieval",
+            "default": null
+
+        },
+        "externalConfigToken": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "token for external configuration file retrieval (token-based authentication)",
+            "title": "token for external configuration file retrieval",
             "default": null
         },
         "fallbackserviceplan": {
@@ -333,10 +380,22 @@
             "title": "switch to run default tests at the beginning of the script",
             "default": true
         },
+        "subaccountenablebeta": {
+            "type": "boolean",
+            "description": "if set to true, a newly create subaccount will have beta features enabled",
+            "title": "enable beta features in new subaccount",
+            "default": false
+        },
         "subaccountid": {
             "type": "string",
             "description": "id of your sub account that should be used",
             "title": "subaccount id of SAP BTP sub account",
+            "default": null
+        },
+        "subaccountlabels":{
+            "type": "object",
+            "description": "labels for your sub account",
+            "title": "sub account labels",
             "default": null
         },
         "subaccountname": {

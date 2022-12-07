@@ -12,6 +12,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-95-then-allof-3.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-95-then-allof-4.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -41,16 +43,17 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value      | Explanation |
-| :--------- | :---------- |
-| `"large"`  |             |
-| `"medium"` |             |
-| `"small"`  |             |
-| `"xsmall"` |             |
+| Value           | Explanation |
+| :-------------- | :---------- |
+| `"large"`       |             |
+| `"medium"`      |             |
+| `"small"`       |             |
+| `"virtualhost"` |             |
+| `"xsmall"`      |             |
 
 ## name
 
-Redis on SAP BTP: Redis on SAP BTP offers an in-memory data structure store that you can use as a cache, database, or message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets, and so on.
+RabbitMQ: RabbitMQ on SAP BTP includes a message broker that implements message queues for application-to-application messaging. Supports Advanced Message Queuing Protocol (AMQP).
 
 `name`
 

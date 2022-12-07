@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Master Data service for business partners: SAP Business Partner Service
+Market Rates, Refinitiv: The Market Rates Management, Refinitiv data option is a reuse service that allows you to import daily and historical Exchange Rates & Interest Rates from Refinitiv.
 
 `name`
 

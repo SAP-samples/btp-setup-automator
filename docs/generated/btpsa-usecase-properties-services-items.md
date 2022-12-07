@@ -23,6 +23,7 @@ all of
 | [customerDeveloped](#customerdeveloped)             | `boolean` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-custom-developed-application.md "undefined#/properties/services/items/properties/customerDeveloped")                                                   |
 | [entitleonly](#entitleonly)                         | `boolean` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-only-entitlement-no-service-instances-will-be-created-by-the-tool.md "undefined#/properties/services/items/properties/entitleonly")                    |
 | [instancename](#instancename)                       | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-name-of-the-service-instance.md "undefined#/properties/services/items/properties/instancename")                                                        |
+| [labels](#labels)                                   | `object`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-labels-for-the-service.md "undefined#/properties/services/items/properties/labels")                                                                    |
 | [name](#name)                                       | `string`  | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-name-of-the-service.md "undefined#/properties/services/items/properties/name")                                                                         |
 | [parameters](#parameters)                           | Multiple  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-parameters-for-the-service.md "undefined#/properties/services/items/properties/parameters")                                                            |
 | [plan](#plan)                                       | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-plan-name-of-the-service.md "undefined#/properties/services/items/properties/plan")                                                                    |
@@ -32,6 +33,7 @@ all of
 | [repeatstatustimeout](#repeatstatustimeout)         | `integer` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-timeout-in-seconds-after-which-the-script-will-stop-checking-the-status.md "undefined#/properties/services/items/properties/repeatstatustimeout")      |
 | [requiredrolecollections](#requiredrolecollections) | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-list-of-role-collections-to-assign-users-to.md "undefined#/properties/services/items/properties/requiredrolecollections")                              |
 | [requiredServices](#requiredservices)               | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-list-of-services-that-need-to-be-instantiated-before-instantiating-this-service.md "undefined#/properties/services/items/properties/requiredServices") |
+| [serviceKeyLabels](#servicekeylabels)               | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-labels-for-service-keys.md "undefined#/properties/services/items/properties/serviceKeyLabels")                                                         |
 | [serviceparameterfile](#serviceparameterfile)       | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-parameter-file-for-the-service.md "undefined#/properties/services/items/properties/serviceparameterfile")                                              |
 | [statusResponse](#statusresponse)                   | `object`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-creation-info.md "undefined#/properties/services/items/properties/statusResponse")                                                                     |
 | [targetenvironment](#targetenvironment)             | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-environment-in-which-the-service-should-be-created.md "undefined#/properties/services/items/properties/targetenvironment")                             |
@@ -205,6 +207,24 @@ name of the service instance
 ### instancename Type
 
 `string` ([name of the service instance](btpsa-usecase-properties-services-items-properties-name-of-the-service-instance.md))
+
+## labels
+
+labels for the service
+
+`labels`
+
+*   is optional
+
+*   Type: `object` ([labels for the service](btpsa-usecase-properties-services-items-properties-labels-for-the-service.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-labels-for-the-service.md "undefined#/properties/services/items/properties/labels")
+
+### labels Type
+
+`object` ([labels for the service](btpsa-usecase-properties-services-items-properties-labels-for-the-service.md))
 
 ## name
 
@@ -385,6 +405,32 @@ list of services that need to be instantiated before instantiating this service
 `array` ([list of services that need to be instantiated before instantiating this service](btpsa-usecase-properties-services-items-properties-list-of-services-that-need-to-be-instantiated-before-instantiating-this-service.md))
 
 ### requiredServices Default Value
+
+The default value is:
+
+```json
+[]
+```
+
+## serviceKeyLabels
+
+labels for service keys as JSON
+
+`serviceKeyLabels`
+
+*   is optional
+
+*   Type: `object[]` ([Details](btpsa-usecase-properties-services-items-properties-labels-for-service-keys-items.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-labels-for-service-keys.md "undefined#/properties/services/items/properties/serviceKeyLabels")
+
+### serviceKeyLabels Type
+
+`object[]` ([Details](btpsa-usecase-properties-services-items-properties-labels-for-service-keys-items.md))
+
+### serviceKeyLabels Default Value
 
 The default value is:
 

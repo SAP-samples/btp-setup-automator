@@ -58,15 +58,6 @@ def getNamingPatternForServiceSuffix(btpUsecase):
     return result
 
 
-def getNamingPatternForIdsNEW(btpUsecase):
-    usecaseRegion = btpUsecase.region
-    prefix = "BTP setup automator"
-    suffix = usecaseRegion
-
-    result = getNamingPattern(btpUsecase, prefix, suffix)
-    return result
-
-
 def createDirectoryName(btpUsecase):
     result = None
     if btpUsecase.directoryname is not None and btpUsecase.directoryname != "":
@@ -180,7 +171,11 @@ def getDictWithEnvVariables(btpUsecase):
     if btpUsecase.envvariables is not None and len(btpUsecase.envvariables) > 0:
         for variable, value in btpUsecase.envvariables.items():
             os.environ[variable] = value
-        result = dict(os.environ)
+    if btpUsecase.accountMetadata is not None and len(btpUsecase.accountMetadata) > 0:
+        for variable, value in btpUsecase.accountMetadata.items():
+            if isinstance(value, str):
+                os.environ[variable.upper()] = value
+    result = dict(os.environ)
 
     return result
 
@@ -190,15 +185,6 @@ def getEnvVariableValue(variable):
     if (os.environ.get(variable)):
         result = os.environ[variable]
     return result
-
-
-def showEnvVariables():
-    for k, v in sorted(os.environ.items()):
-        # Avoid to show env variables whose name already contains "password" is been displayed to the user
-        kNormalized = k.capitalize
-        if "password".capitalize in kNormalized:
-            v = "************"
-        log.info(str(k) + ': ' + str(v))
 
 
 def save_collected_metadata(btpUsecase):

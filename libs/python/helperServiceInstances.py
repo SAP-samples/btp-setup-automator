@@ -36,7 +36,7 @@ def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
 
         command = "cf services"
         message = "Checking creation status of service instances in Cloud Foundry"
-        
+       
         p = runShellCommand(btpUsecase, command, "CHECK", message)
         result = p.stdout.decode()
         jsonResultsCF = convertCloudFoundryCommandOutputToJson(result)
@@ -322,16 +322,27 @@ def createServiceKey(serviceKey, service, btpUsecase):
     targetenvironment = service.targetenvironment
     statusResponse = None
 
+    labels = getServiceKeyLabelsByKey(service=service, key=serviceKey)
+
     if targetenvironment == "cloudfoundry":
         statusResponse = get_cf_service_key(
             btpUsecase, service.instancename, serviceKey)
     elif targetenvironment == "kymaruntime":
         statusResponse = createKymaServiceBinding(
-            btpUsecase, service, serviceKey)
+            btpUsecase, service, serviceKey, labels)
     elif targetenvironment == "sapbtp":
-        statusResponse = createBtpServiceBinding(btpUsecase, service.id, service.instancename, serviceKey)
+        statusResponse = createBtpServiceBinding(btpUsecase, service.id, service.instancename, serviceKey, labels)
     else:
         log.error("The targetenvironment is not supported ")
         sys.exit(os.EX_DATAERR)
 
     return statusResponse
+
+
+def getServiceKeyLabelsByKey(service, key):
+    labels = None
+    if service.serviceKeyLabels is not None:
+        for entry in service.serviceKeyLabels:
+            if entry.get("name") == key:
+                labels = entry.get("labels")
+    return labels

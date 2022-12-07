@@ -39,12 +39,12 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"beta"`     |             |
-| `"standard"` |             |
+| `"receiver"` |             |
+| `"sender"`   |             |
 
 ## name
 
-SAP Private Link service: SAP Private Link service establishes a private connection between selected SAP BTP services and selected services in your own IaaS provider accounts.
+SAP Print service: Manage print queues, connect print clients and monitor print status
 
 `name`
 

@@ -31,5 +31,5 @@ unknown
 **constant**: the value of this property must be equal to:
 
 ```json
-"cias"
+"categorymanagement-o2-s2"
 ```

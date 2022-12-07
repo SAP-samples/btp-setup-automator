@@ -10,9 +10,11 @@ unknown
 
 ## plan
 
-application plan >default< for >wums-c4re-beta< is available in data centers:
+application plan >saas-application< for >tnt-onboard-dataenrichment-dcp< is available in data centers:
 
+*   {'region': 'ap11', 'name': 'Singapore'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
 

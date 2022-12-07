@@ -16,6 +16,7 @@ def setupParams(myArguments):
     parser = argparse.ArgumentParser()
     if myArguments is not None and myArguments != "":
 
+        # local arguments: no remote file access possible, no authentication parameters needed
         allJsonParameters = getJsonFromFile(myArguments)
         for key, value in allJsonParameters.get("properties").items():
             argument = key
@@ -59,7 +60,13 @@ def setupParams(myArguments):
             parameterfile = getDefaultValueForParameter(allJsonParameters, "parameterfile")
 
         if parameterfile is not None and parameterfile != "":
-            myParameters = getJsonFromFile(parameterfile)
+            # Distinguish remote access when provisioning of parameters is done via CLI
+            if args.externalConfigAuthMethod == "basicAuthentication" and args.externalConfigUserName is not None and args.externalConfigPassword is not None:
+                myParameters = getJsonFromFile(filename=parameterfile, externalConfigAuthMethod=args.externalConfigAuthMethod, externalConfigUserName=args.externalConfigUserName, externalConfigPassword=args.externalConfigPassword)
+            elif args.externalConfigAuthMethod == "token" and args.externalConfigToken is not None: 
+                myParameters = getJsonFromFile(filename=parameterfile, externalConfigAuthMethod=args.externalConfigAuthMethod, externalConfigToken=args.externalConfigToken)
+            else:   
+                myParameters = getJsonFromFile(filename=parameterfile)
 
             for key in myParameters:
                 # Get the default values for the keys of the args object
@@ -86,6 +93,7 @@ def setupParams(myArguments):
 
             # in case the parameter file does not include all parameter keys, add the missing ones to the args
             btpSetupAutomatorArguments = FOLDER_SCHEMA_LIBS + "btpsa-parameters.json"
+            # Param definition: no remote file access possible, no authentication parameters needed
             allJsonParameters = getJsonFromFile(btpSetupAutomatorArguments)
             for key, value in allJsonParameters.get("properties").items():
                 default = value.get("default")
@@ -112,24 +120,14 @@ def getDefaultValueForParameter(allJsonParameters, myArgument):
     return result
 
 
-def validateJson():
-    None
-
-
 def setupParamsBtpsa():
     jsonSchema = FOLDER_SCHEMA_LIBS + "btpsa-parameters.json"
     args = setupParams(jsonSchema)
     return args
 
 
-def setupParamsServices():
-    serviceArguments = FOLDER_SCHEMA_LIBS + "btpsa-usecase.json"
-    args = setupParams(serviceArguments)
-    return args
-
-
 def checkProvidedArguments(btpUsecase):
-    usecaseInfo = getJsonFromFile(btpUsecase.usecasefile)
+    usecaseInfo = getJsonFromFile(btpUsecase.usecasefile, externalConfigAuthMethod=btpUsecase.externalConfigAuthMethod, externalConfigUserName=btpUsecase.externalConfigUserName, externalConfigPassword=btpUsecase.externalConfigPassword, externalConfigToken=btpUsecase.externalConfigToken)
     if "aboutThisUseCase" in usecaseInfo:
         info = usecaseInfo["aboutThisUseCase"]
         log.header("Info about use case to be executed")

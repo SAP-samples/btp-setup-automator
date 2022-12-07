@@ -50,6 +50,34 @@
             "justMyCode": true
         },
         {
+            "name": "Python: remote config files - no auth",
+            "type": "python",
+            "request": "launch",
+            "program": "btpsa",
+            "args": [
+                "-parameterfile",
+                "https://raw.githubusercontent.com/<USER ID>/test-btpsa-remote-pub/main/parameters.json"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: remote config files - with auth",
+            "type": "python",
+            "request": "launch",
+            "program": "btpsa",
+            "args": [
+                "-parameterfile",
+                "https://raw.githubusercontent.com/<USER ID>/test-btpsa-remote-private/main/parameters.json",
+                "-externalConfigAuthMethod",
+                "token",
+                "-externalConfigToken",
+                "<YOUR TOKEN>"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
             "name": "Python: Integrationtest Generator",
             "type": "python",
             "request": "launch",

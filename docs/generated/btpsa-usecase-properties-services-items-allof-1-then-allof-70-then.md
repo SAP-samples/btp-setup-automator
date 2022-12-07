@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Discovery: Mobile Discovery
+Mobile Client Usage Service: Mobile Client Usage Service
 
 `name`
 

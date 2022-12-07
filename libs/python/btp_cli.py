@@ -4,7 +4,7 @@ from libs.python.helperFolders import FOLDER_SCHEMA_LIBS
 from libs.python.helperJson import addKeyValuePair, dictToString, convertStringToJson, getJsonFromFile
 from libs.python.helperBtpTrust import runTrustFlow
 from libs.python.helperCommandExecution import executeCommandsFromUsecaseFile, runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex, login_btp, login_cf
-from libs.python.helperEnvCF import checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, getCfApiEndpointByUseCase, getCfApiEndpointFromLabels, try_until_cf_space_done, try_until_space_quota_created
+from libs.python.helperEnvCF import checkIfCFEnvironmentAlreadyExists, checkIfCFSpaceAlreadyExists, getCfApiEndpointByUseCase, getCfApiEndpointFromLabels, try_until_cf_space_done, try_until_space_quota_created, handleLabelsForCF
 from libs.python.helperServiceInstances import createServiceKey, deleteServiceInstance, deleteServiceKeysAndWait, getServiceDeletionStatus, initiateCreationOfServiceInstances, checkIfAllServiceInstancesCreated
 from libs.python.helperGeneric import buildUrltoSubaccount, getNamingPatternForServiceSuffix, createDirectoryName, createSubaccountName, createSubdomainID, createOrgName, save_collected_metadata
 from libs.python.helperFileAccess import writeKubeConfigFileToDefaultDir
@@ -15,7 +15,7 @@ import sys
 import time
 import requests
 import json
-from libs.python.helperRolesAndUsers import assignUsersToEnvironments, assignUsersToGlobalAndSubaccount, getSubaccountAdmins, assignUsersToRoleCollectionsForServices, assignUsersToCustomRoleCollections
+from libs.python.helperRolesAndUsers import assignUsersToEnvironments, assignUsersToGlobalAndSubaccount, assignUsersToRoleCollectionsForServices, assignUsersToCustomRoleCollections
 
 from libs.python.helperServices import BTPSERVICE, BTPSERVICEEncoder, getServiceParameterDefinition, readAllServicesFromUsecaseFile
 from libs.python.helperLog import initLogger
@@ -66,7 +66,8 @@ class BTPUSECASE:
         self.definedEnvironments = getEnvironmentsForUsecase(self, allServices)
         self.definedAppSubscriptions = getServiceCategoryItemsFromUsecaseFile(
             self, allServices, self.availableCategoriesApplication)
-        usecaseFileContent = getJsonFromFile(self.usecasefile)
+        # Use case file can be remote, so we need to provide authentication information    
+        usecaseFileContent = getJsonFromFile(self.usecasefile, self.externalConfigAuthMethod, self.externalConfigUserName, self.externalConfigPassword, self.externalConfigToken)
         self.definedRoleCollections = usecaseFileContent.get(
             "assignrolecollections")
 
@@ -149,6 +150,10 @@ class BTPUSECASE:
                 command = "btp --format json create accounts/directory  \
                     --display-name '" + directory + "' \
                     --global-account '" + globalAccount + "'"
+
+                if self.directorylabels is not None:
+                    labelsAsString = json.dumps(self.subaccountlabels)
+                    command += " --labels '" + labelsAsString + "'"
 
                 message = "Create directory >" + directory + "<"
 
@@ -314,7 +319,10 @@ class BTPUSECASE:
             log.success("using subaccount name >" + subaccount + "<")
             log.success("using subaccount domain >" + subdomain + "<")
 
-            subaccountadmins = getSubaccountAdmins(self)
+            # We add the owner of the execution as subaccount admin
+            # The remaining list of subaccount admins is added via user groups and role collections
+            subaccountadmins = '["' + self.myemail + '"]'
+
             globalAccount = self.globalaccount
 
             log.header("Create sub account >" + subaccount +
@@ -328,6 +336,13 @@ class BTPUSECASE:
                     --subdomain '" + subdomain + "' \
                     --region '" + usecaseRegion + "' \
                     --subaccount-admins '" + subaccountadmins + "'"
+
+                if self.subaccountenablebeta is True:
+                    command += " --beta-enabled"
+
+                if self.subaccountlabels is not None:
+                    labelsAsString = json.dumps(self.subaccountlabels)
+                    command += " --labels '" + labelsAsString + "'"
 
                 message = "Create sub account >" + subaccount + "<"
 
@@ -736,9 +751,7 @@ class BTPUSECASE:
         self.accountMetadata = self.createServiceKeys()
         save_collected_metadata(self)
 
-        # btp_assign_role_collection_to_admins(self)
-
-        save_collected_metadata(self)
+        handleLabelsForCF(btpUsecase=self)
 
     def createServiceKeys(self):
         accountMetadata = self.accountMetadata
@@ -785,6 +798,7 @@ def getEnvironmentsForUsecase(btpUsecase: BTPUSECASE, allServices):
     environments = []
 
     paramServicesFile = FOLDER_SCHEMA_LIBS + "btpsa-usecase.json"
+    # Param definition: no remote file access possible, no authentication parameters needed
     paramDefinition = getJsonFromFile(paramServicesFile)
 
     for usecaseService in allServices:
@@ -818,20 +832,6 @@ def getServiceCategoryItemsFromUsecaseFile(btpUsecase: BTPUSECASE, allServices, 
             usecaseService.servicebroker = None
             usecaseService.successInfoShown = False
             items.append(usecaseService)
-    return items
-
-
-def getAdminsFromUsecaseFile(btpUsecase: BTPUSECASE):
-    usecase = getJsonFromFile(btpUsecase.usecasefile)
-
-    items = []
-    if "admins" in usecase:
-        for admin in usecase["admins"]:
-            items.append(admin)
-    else:
-        log.warning(
-            "no admins defined in your use case configuration file (other than you)")
-
     return items
 
 
@@ -1158,7 +1158,7 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service):
     return returnCode
 
 
-def subscribe_app_to_subaccount(btpUsecase: BTPUSECASE, app, plan):
+def subscribe_app_to_subaccount(btpUsecase: BTPUSECASE, app, plan, parameters):
     accountMetadata = btpUsecase.accountMetadata
     subaccountid = accountMetadata["subaccountid"]
 
@@ -1169,6 +1169,10 @@ def subscribe_app_to_subaccount(btpUsecase: BTPUSECASE, app, plan):
     if plan is not None:
         # For custom apps a plan can be none - this is safeguarded when checking if account is capable of usecase
         command = command + " --plan '" + plan + "'"
+
+    if parameters is not None:
+        # For custom apps a plan can be none - this is safeguarded when checking if account is capable of usecase
+        command = command + " --parameters '[" + dictToString(parameters) + "]'"
 
     isAlreadySubscribed = checkIfAppIsSubscribed(btpUsecase, app, plan)
     if isAlreadySubscribed is False:
@@ -1249,32 +1253,9 @@ def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
         for appSubscription in btpUsecase.definedAppSubscriptions:
             appName = appSubscription.name
             appPlan = appSubscription.plan
+            parameters = appSubscription.parameters
             if appSubscription.entitleonly is False:
-                subscribe_app_to_subaccount(btpUsecase, appName, appPlan)
-
-
-def get_subscription_status(btpUsecase: BTPUSECASE, app):
-    accountMetadata = btpUsecase.accountMetadata
-
-    app_name = app.name
-    app_plan = app.plan
-    subaccountid = accountMetadata["subaccountid"]
-
-    command = "btp --format json list accounts/subscription --subaccount '" + subaccountid + "'"
-    message = "subscription status of >" + app_name + "<"
-    p = runShellCommand(btpUsecase, command, "CHECK", message)
-    result = p.stdout.decode()
-    result = convertStringToJson(result)
-
-    for application in result["applications"]:
-        thisAppName = application["appName"]
-        thisAppPlan = application["planName"]
-        if (thisAppName == app_name and thisAppPlan == app_plan):
-            return application
-
-    log.error("COULD NOT FIND SUBSCRIPTON TO >" +
-              app_name + "< and plan >" + app_plan + "<")
-    sys.exit(os.EX_DATAERR)
+                subscribe_app_to_subaccount(btpUsecase, appName, appPlan, parameters)
 
 
 def get_subscription_deletion_status(btpUsecase: BTPUSECASE, app):
@@ -1467,21 +1448,27 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
     if "createdAppSubscriptions" in accountMetadata and len(accountMetadata["createdAppSubscriptions"]) > 0:
         log.info("Unsubscribe from apps")
         for service in accountMetadata["createdAppSubscriptions"]:
-            command = "btp --format json unsubscribe accounts/subaccount --subaccount '" + \
-                accountMetadata["subaccountid"] + \
-                "' --from-app '" + service["name"] + "' --confirm"
-            message = "Remove app subscription >" + \
-                service["name"] + "< from subaccount"
-            result = runCommandAndGetJsonResult(
-                btpUsecase, command, "INFO", message)
+            if service.get("entitleonly") is False:
+                command = "btp --format json unsubscribe accounts/subaccount --subaccount '" + \
+                    accountMetadata["subaccountid"] + \
+                    "' --from-app '" + service["name"] + "' --confirm"
+                message = "Remove app subscription >" + \
+                    service["name"] + "< from subaccount"
+                result = runCommandAndGetJsonResult(
+                    btpUsecase, command, "INFO", message)
+
         # check status of deletion
         search_every_x_seconds = btpUsecase.repeatstatusrequest
         usecaseTimeout = btpUsecase.repeatstatustimeout
         current_time = 0
         allServicesDeleted = False
+
         # Set the deletion status to "not deleted"
         for service in accountMetadata["createdAppSubscriptions"]:
-            service["deletionStatus"] = "not deleted"
+            if service.get("entitleonly") is False:
+                service["deletionStatus"] = "not deleted"
+            else:
+                service["deletionStatus"] = "deleted"
 
         while usecaseTimeout > current_time and allServicesDeleted is False:
             for service in accountMetadata["createdAppSubscriptions"]:

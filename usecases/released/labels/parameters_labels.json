@@ -1,0 +1,15 @@
+{
+    "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
+    "usecasefile": "usecases/released/default.json",
+    "region": "us10",
+    "globalaccount": "<YOUR GLOBAL ACCOUNT>",
+    "myemail": "<YOUR EMAIL>",
+    "loginmethod": "sso",
+    "subaccountname": "test-labels",
+    "subaccountlabels": {
+      "costcenter": ["org-123"],
+      "appowner": ["The App Owner ID"]
+    },
+    "cfspacename": "development"
+  }
+  

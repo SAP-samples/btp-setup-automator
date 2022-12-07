@@ -10,8 +10,9 @@ unknown
 
 ## plan
 
-service plan >default< for >dateandtime< is available in data centers:
+service plan >default< for >dataenrichment-business-partner< is available in data centers:
 
+*   {'region': 'ap11', 'name': 'Singapore'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
 

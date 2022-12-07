@@ -212,9 +212,6 @@ def getBtpServicePlan(rawData):
     schemas = rawData.get("schemas")
     dataCenters = rawData.get("dataCenters")
 
-    # for plan in rawData.get("dataCenters"):
-    #    dataCenters.append(getBtpDataCenter(plan))
-
     dataCenters = sorted(dataCenters, key=lambda d: d['region'], reverse=False)
     result = {"name": name, "displayName": displayName, "description": description, "uniqueIdentifier": uniqueIdentifier,
               "category": category, "dataCenters": dataCenters, "provisioningMethod": rawData.get("provisioningMethod"), "schemas": schemas}
