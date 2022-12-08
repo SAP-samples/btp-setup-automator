@@ -4,7 +4,7 @@
 
 ## Description
 
-This repository provides the user with a script to **automate the setup** of an [SAP Business Technology Platform (SAP BTP) account](https://account.hana.ondemand.com/) and to **learn** how this is done with the various command line interfaces and tools that to run inside a [Docker](https://www.docker.com/) container.
+This repository provides the user with a script to **automate the setup** of an [SAP Business Technology Platform (SAP BTP) account](https://account.hana.ondemand.com/) and to **learn** how this is done with the various command line interfaces and tools that run inside a [Docker](https://www.docker.com/) container.
 
 This includes:
 
@@ -23,10 +23,10 @@ Get a quick overview & demo of the btp-setup-automator through this video:
 
 ## Documentation
 
-Started a small helper for basic SAP BTP setups the tool has grown since its start. This documentation should support you in getting started quickly and then dive into the depths of the btp-setup-automator. The documentation has the following outline:
+Started as a small helper for basic SAP BTP setups the tool has grown since its start. This documentation should support you in getting started quickly and then dive into the depths of the btp-setup-automator. The documentation has the following outline:
 
-- [Basic setup](./docs/BASIC_SETUP.md) incl. the prerequisites
 - [Overview](./docs/OVERVIEW.md)
+- [Basic setup](./docs/BASIC_SETUP.md) incl. the prerequisites
 - [Detailed walk-though](./docs/README.md)
 - [Detailed configuration](./docs/SAMPLECONFIG.md)
 - [Overview of btpsa parameters](./docs/PARAMETERS_OVERVIEW.md)
@@ -38,11 +38,11 @@ Checkout [the issues section in this repo](https://github.com/SAP-samples/btp-se
 
 ## How to get Support?
 
-❓ - If you have *question* you may peruse the [Frequently Asked Questions](docs/FAQ.md) document. If you did not find your questions answered there you can [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
+❓ - If you have *question* you may use the [Frequently Asked Questions](docs/FAQ.md) document. If you did not find your questions answered there you can [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
 
-🐛 - If you find a bug, feel free to [create an bug report](https://github.com/SAP-samples/btp-setup-automator/issues/new?assignees=&labels=bug&template=bug-report.yml&title=%5BBUG%5D+%3Ctitle%3E).
+🐛 - If you find a bug, feel free to [create a bug report](https://github.com/SAP-samples/btp-setup-automator/issues/new?assignees=&labels=bug&template=bug-report.yml&title=%5BBUG%5D+%3Ctitle%3E).
 
-🚀 - If you have an idea for improvement or a feature request, please open [feature-request](https://github.com/SAP-samples/btp-setup-automator/issues/new?assignees=&labels=enhancement&template=feature-request.yml&title=%5BFEATURE+REQUEST%5D+%3Ctitle%3E).
+🚀 - If you have an idea for improvement or a feature request, please open a [feature-request](https://github.com/SAP-samples/btp-setup-automator/issues/new?assignees=&labels=enhancement&template=feature-request.yml&title=%5BFEATURE+REQUEST%5D+%3Ctitle%3E).
 
 ## Contributions
 

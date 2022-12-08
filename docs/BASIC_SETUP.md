@@ -9,7 +9,7 @@ To use the btp-setup-automator, this is what you need to do first:
 
 > ⚠ NOTE: Be aware of the terms of Docker for usage in enterprises. For details read [Docker is Updating and Extending Our Product Descriptions](https://www.docker.com/blog/updating-product-subscriptions/).
 
-In case you are new to the containers topic, we **strongly recommended** that you install and setup **MS Visual Studio Code** (VS Code), too:
+In case you are new to the containers topic, we **strongly recommend** that you install and setup **MS Visual Studio Code** (VS Code), too:
 
 - [Install VS Code](https://code.visualstudio.com/download) - this will be your development environment.
 - Install the VS Code [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension for connecting to and using Docker containers.
