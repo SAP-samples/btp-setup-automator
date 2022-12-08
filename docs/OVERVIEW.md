@@ -1,18 +1,26 @@
 # Overview
 
+## Architecture
+
+The btp-setup-automator enables you to configure the setup of the SAP BTP without the hazel to install and understand several CLIs in order to achieve this. The architectural diagram gives you an overview what is contained in the tool:
+
+![architectural overview](./pics/overview.png)
+
+Let us get an overview how to use the btp-setup-automator in the following sections.
+
 ## Configuration
 
-As a developer you configure your use case inside a `usecase.json` file with all services and subscriptions that you need (find some sample [use cases here](./usecases/released) including [their detailed descriptions](./docs/USECASES.md)). The [JSON schema **btpsa-usecase.json**](./libs/btpsa-usecase.json) makes it fairly simple to create your own use case file as you can see in this video:
+As a developer you configure your use case inside a `usecase.json` file with all services and subscriptions that you need (find some sample [use cases here](./usecases/released) including [their detailed descriptions](./USECASES.md)). The [JSON schema **btpsa-usecase.json**](./libs/btpsa-usecase.json) makes it fairly simple to create your own use case file as you can see in this video:
 
 ![json schema for creating use case files](./pics/btpsa-json-schema.gif)
 
-You find more information on the sample use cases in the [use cases document](./docs/USECASES.md).
+You find more information on the sample use cases in the [use cases document](.USECASES.md).
 
 ## Using the Setup Automator
 
 You can run the container directly via the terminal or within VS Code, modify use case file and parameter file or supply externally available use case and parameter file.
 
-[Read the detailed instructions](docs/README.md) on how to setup your SAP BTP account for a use case with the `btp-setup-automator`.
+[Read the detailed instructions](README.md) on how to setup your SAP BTP account for a use case with the `btp-setup-automator`.
 
 ### With VS Code
 

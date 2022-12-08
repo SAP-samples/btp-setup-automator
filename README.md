@@ -29,7 +29,7 @@ Started a small helper for basic SAP BTP setups the tool has grown since its sta
 - [Basic configuration](./docs/OVERVIEW.md)
 - [Detailed walk-though](./docs/README.md)
 - [Detailed configuration](./docs/SAMPLECONFIG.md)
-- [Overview of btpsa parameters](./docs/PARAMETERS_OVERVIEW)
+- [Overview of btpsa parameters](./docs/PARAMETERS_OVERVIEW.md)
 - [FAQ](./docs/FAQ.md)
 
 ## Known Issues
