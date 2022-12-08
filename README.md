@@ -11,7 +11,7 @@ This includes:
 - Setup of your SAP BTP account
 - Entitlement of services
 - Subscriptions to applications and creation of service instances with service keys
-- Addition of administrator users to global account and subaccounts
+- Addition of administrator users to global account and sub accounts
 - Setup of roles and role collections, assignment of roles collections to users
 - Deployment of complete applications
 - Unrolling created setup
@@ -25,13 +25,12 @@ Get a quick overview & demo of the btp-setup-automator through this video:
 
 Started a small helper for basic SAP BTP setups the tool has grown since its start. This documentation should support you in getting started quickly and then dive into the depths of the btp-setup-automator. The documentation has the following outline:
 
-- [Basic Setup](./docs/BASIC_SETUP.md) incl prerequisites
-- [Basic Configuration](./docs/BASIC_CONFIGURATION.md)
-- [Detailed Walk-Though](./docs/README.md)
-- [Detailed Configuration](./docs/SAMPLECONFIG.md)
-- [Overview of btpsa Parameters](./docs/PARAMETERS-OVERVIEW)
+- [Basic setup](./docs/BASIC_SETUP.md) incl. the prerequisites
+- [Basic configuration](./docs/OVERVIEW.md)
+- [Detailed walk-though](./docs/README.md)
+- [Detailed configuration](./docs/SAMPLECONFIG.md)
+- [Overview of btpsa parameters](./docs/PARAMETERS_OVERVIEW)
 - [FAQ](./docs/FAQ.md)
-
 
 ## Known Issues
 

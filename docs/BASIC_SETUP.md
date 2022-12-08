@@ -2,7 +2,7 @@
 
 ## Pre-requisites
 
-To use the scripts, this is what you need to do first:
+To use the btp-setup-automator, this is what you need to do first:
 
 - Get an [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/trial/#/home/trial), or a [productive SAP BTP account](https://account.hana.ondemand.com/#/home/welcome) (recommended) where you can make use of the free tier service plans
 - [Install a Docker engine](https://docs.docker.com/desktop/)
@@ -39,7 +39,7 @@ Open a terminal window on your machine and run the following command to pull the
     docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator-dev:dev"
     ```
 
-Here's a brief explanation of the options used:
+Here is a brief explanation of the options used:
 
 - `--rm` causes the container to be automatically cleaned up (removed) when you're done with it (when it stops)
 - `-it` is short for `-i` `-t` and together make the container accessible and interactive (for you to work within)
@@ -153,3 +153,7 @@ Then look for the container by name (`btp-setup-automator`) and selecting it:
 ![select running container in VS Code](./pics/quick-guide-step01.png)
 
 > You may see a message in VS Code informing you about the installation of some VS Code mechanisms into the container (to support the attachment to the remote container) and may have to wait a minute or two for this to complete.
+
+## What's next?
+
+You have now successfully setup your environment and are good to go and start with executing a sample setup of an SAP BTP account. Now let us get an overview what we can do [here](OVERVIEW.md).

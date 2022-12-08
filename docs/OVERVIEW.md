@@ -1,10 +1,10 @@
-# First Steps
+# Overview
 
 ## Configuration
 
 As a developer you configure your use case inside a `usecase.json` file with all services and subscriptions that you need (find some sample [use cases here](./usecases/released) including [their detailed descriptions](./docs/USECASES.md)). The [JSON schema **btpsa-usecase.json**](./libs/btpsa-usecase.json) makes it fairly simple to create your own use case file as you can see in this video:
 
-![json schema for creating use case files](docs/pics/btpsa-json-schema.gif)
+![json schema for creating use case files](./pics/btpsa-json-schema.gif)
 
 You find more information on the sample use cases in the [use cases document](./docs/USECASES.md).
 
@@ -51,3 +51,7 @@ Tips:
 
 bash-5.1$
 ```
+
+## What's next?
+
+Now you have a basic overview over the moving parts of the btp-setup-automator. Now it is time to make your hands dirty with it. You find more information on how that [here](README.md).
