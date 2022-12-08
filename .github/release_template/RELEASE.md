@@ -19,6 +19,6 @@
 
 - [[#xxx](https://github.com/SAP-samples/btp-setup-automator/pull/xxx)] Feature
 
-### Contributors
+### Community Contributions
 
 @xyz

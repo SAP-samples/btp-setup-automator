@@ -482,8 +482,10 @@ class BTPUSECASE:
                             accountMetadata, "cfapiendpoint", cfApiEndpoint)
 
                         save_collected_metadata(self)
-                        self.create_new_cf_space(environment)
-                        self.create_and_assign_quota_plan(environment)
+                        
+                        if self.skipcfspacecreation is False:
+                            self.create_new_cf_space(environment)
+                            self.create_and_assign_quota_plan(environment)
 
                     else:
                         log.success("CF environment >" + org +

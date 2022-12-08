@@ -1,4 +1,4 @@
-# Configuration of the BTP-SETUP-AUTOMATOR
+# Detailed configuration
 
 This page provides you a detailed description of the `btp-setup-automator` to facilitate own setups and configurations.
 
@@ -63,8 +63,8 @@ Think about the basics of this file as the very basic information needed to setu
 
 The parameter to specify how the login is executed is the `loginmethod` needed to access the SAP BTP. You have two options:
 
-* `basicAuthentication`
-* `sso`
+- `basicAuthentication`
+- `sso`
 
 If you choose `basicAuthentication` you need to provide username and password. You can do that interactively when executing the CLI.
 
@@ -247,3 +247,11 @@ You find several examples for parameter files in the folder `usecases/released`.
 ## Further Information
 
 As the `btp-setup-automator` is leveraging the capabilities of the SAP btp CLI we recommend to have a look into the documentation of the CLI when it comes to the detailed parameters for single services. You find the information in [help.sap.com](https://help.sap.com/products/BTP/65de2977205c403bbc107264b8eccf4b/7c6df2db6332419ea7a862191525377c.html).
+
+You find a detailed overview and description of the parameters [here](PARAMETERS_OVERVIEW.md).
+
+## What's next?
+
+In case you want to learn more about the available parameters and the corresponding options of your SAP BTP setup via the btp-setup-automator, then this [page](PARAMETERS_OVERVIEW.md) got you covered.
+
+In case you want to dive into the preconfigured use cases, then this [page](USECASES.md) is what you are looking for.

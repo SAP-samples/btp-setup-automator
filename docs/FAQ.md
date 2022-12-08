@@ -1,6 +1,6 @@
 # Frequently Asked Questions (FAQ)
 
-This is a set of questions and answers relating to the SAP Business Technology Platform (BTP) Setup Automator.
+This is a set of questions and answers relating to the btp-setup-automator.
 
 If you have other questions you can [ask a question in SAP Community](https://answers.sap.com/questions/ask.html) or [raise an issue](https://github.com/SAP-samples/btp-setup-automator/issues/new) as a feature request.
 
@@ -142,6 +142,9 @@ As an alternative you can also use the CLI directly and key in:
 ```bash
 ./btpsa -h
 ```
+
+A detailed description of the parameters for the `parameters.json` is available here: [link](./generated/btpsa-parameters.md)
+A detailed description of the parameters for the `usecase.json` is available here: [link](./generated/btpsa-usecase.md)
 
 ### I'm missing the tool XYZ in the container image. Can you please add it?
 
