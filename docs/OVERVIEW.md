@@ -10,11 +10,11 @@ Let us get an overview how to use the btp-setup-automator in the following secti
 
 ## Configuration
 
-As a developer you configure your use case inside a `usecase.json` file with all services and subscriptions that you need (find some sample [use cases here](./usecases/released) including [their detailed descriptions](./USECASES.md)). The [JSON schema **btpsa-usecase.json**](./libs/btpsa-usecase.json) makes it fairly simple to create your own use case file as you can see in this video:
+As a developer you configure your use case inside a `usecase.json` file with all services and subscriptions that you need (find some sample [use cases here](../usecases/released) including [their detailed descriptions](./USECASES.md)). The [JSON schema **btpsa-usecase.json**](../libs/btpsa-usecase.json) makes it fairly simple to create your own use case file as you can see in this video:
 
 ![json schema for creating use case files](./pics/btpsa-json-schema.gif)
 
-You find more information on the sample use cases in the [use cases document](.USECASES.md).
+You find more information on the sample use cases in the [use cases document](./USECASES.md).
 
 ## Using the Setup Automator
 
