@@ -26,7 +26,7 @@ Get a quick overview & demo of the btp-setup-automator through this video:
 Started a small helper for basic SAP BTP setups the tool has grown since its start. This documentation should support you in getting started quickly and then dive into the depths of the btp-setup-automator. The documentation has the following outline:
 
 - [Basic setup](./docs/BASIC_SETUP.md) incl. the prerequisites
-- [Basic configuration](./docs/OVERVIEW.md)
+- [Overview](./docs/OVERVIEW.md)
 - [Detailed walk-though](./docs/README.md)
 - [Detailed configuration](./docs/SAMPLECONFIG.md)
 - [Overview of btpsa parameters](./docs/PARAMETERS_OVERVIEW.md)

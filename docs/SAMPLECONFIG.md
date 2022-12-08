@@ -1,4 +1,4 @@
-# Configuration of the BTP-SETUP-AUTOMATOR
+# Detailed configuration
 
 This page provides you a detailed description of the `btp-setup-automator` to facilitate own setups and configurations.
 
