@@ -10,6 +10,8 @@
 | [description](#description)                         | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-abap-system-description.md "undefined#/properties/services/items/allOf/1/then/allOf/0/then/allOf/0/then/properties/parameters/properties/description")       |
 | [is\_development\_allowed](#is_development_allowed) | `boolean` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-development-system.md "undefined#/properties/services/items/allOf/1/then/allOf/0/then/allOf/0/then/properties/parameters/properties/is_development_allowed") |
 | [sapsystemname](#sapsystemname)                     | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-abap-system-id.md "undefined#/properties/services/items/allOf/1/then/allOf/0/then/allOf/0/then/properties/parameters/properties/sapsystemname")              |
+| [size\_of\_persistence](#size_of_persistence)       | `integer` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-hana-memory-size.md "undefined#/properties/services/items/allOf/1/then/allOf/0/then/allOf/0/then/properties/parameters/properties/size_of_persistence")      |
+| [size\_of\_runtime](#size_of_runtime)               | `integer` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-abap-runtime-size.md "undefined#/properties/services/items/allOf/1/then/allOf/0/then/allOf/0/then/properties/parameters/properties/size_of_runtime")         |
 
 ## admin\_email
 
@@ -30,6 +32,10 @@ Enter the administrator's email address
 `string` ([Admin Email Address](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-admin-email-address.md))
 
 ### admin\_email Constraints
+
+**maximum length**: the maximum number of characters for this string is: `256`
+
+**minimum length**: the minimum number of characters for this string is: `6`
 
 **pattern**: the string must match the following regular expression:&#x20;
 
@@ -59,13 +65,15 @@ Enter a description for the ABAP system
 
 ### description Constraints
 
+**maximum length**: the maximum number of characters for this string is: `256`
+
 **pattern**: the string must match the following regular expression:&#x20;
 
 ```regexp
-^[^']{0,256}$
+^[^'\x00-\x1f]*$
 ```
 
-[try pattern](https://regexr.com/?expression=%5E%5B%5E'%5D%7B0%2C256%7D%24 "try regular expression with regexr.com")
+[try pattern](https://regexr.com/?expression=%5E%5B%5E'%5Cx00-%5Cx1f%5D*%24 "try regular expression with regexr.com")
 
 ## is\_development\_allowed
 
@@ -113,6 +121,10 @@ Enter a valid system ID (SID) for the ABAP system. The ID must consist of exactl
 
 ### sapsystemname Constraints
 
+**maximum length**: the maximum number of characters for this string is: `3`
+
+**minimum length**: the minimum number of characters for this string is: `3`
+
 **pattern**: the string must match the following regular expression:&#x20;
 
 ```regexp
@@ -127,4 +139,72 @@ The default value is:
 
 ```json
 "H01"
+```
+
+## size\_of\_persistence
+
+Enter the size of the HANA memory in blocks of 15 GB on AWS
+
+`size_of_persistence`
+
+*   is required
+
+*   Type: `integer` ([HANA Memory Size](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-hana-memory-size.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-hana-memory-size.md "undefined#/properties/services/items/allOf/1/then/allOf/0/then/allOf/0/then/properties/parameters/properties/size_of_persistence")
+
+### size\_of\_persistence Type
+
+`integer` ([HANA Memory Size](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-hana-memory-size.md))
+
+### size\_of\_persistence Constraints
+
+**constant**: the value of this property must be equal to:
+
+```json
+4
+```
+
+### size\_of\_persistence Default Value
+
+The default value is:
+
+```json
+4
+```
+
+## size\_of\_runtime
+
+Enter the size of the ABAP runtime in blocks of 16 GB
+
+`size_of_runtime`
+
+*   is required
+
+*   Type: `integer` ([ABAP Runtime Size](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-abap-runtime-size.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-abap-runtime-size.md "undefined#/properties/services/items/allOf/1/then/allOf/0/then/allOf/0/then/properties/parameters/properties/size_of_runtime")
+
+### size\_of\_runtime Type
+
+`integer` ([ABAP Runtime Size](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-abap-runtime-size.md))
+
+### size\_of\_runtime Constraints
+
+**constant**: the value of this property must be equal to:
+
+```json
+1
+```
+
+### size\_of\_runtime Default Value
+
+The default value is:
+
+```json
+1
 ```

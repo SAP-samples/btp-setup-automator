@@ -4,10 +4,12 @@
 
 ## description Constraints
 
+**maximum length**: the maximum number of characters for this string is: `256`
+
 **pattern**: the string must match the following regular expression:&#x20;
 
 ```regexp
-^[^']{0,256}$
+^[^'\x00-\x1f]*$
 ```
 
-[try pattern](https://regexr.com/?expression=%5E%5B%5E'%5D%7B0%2C256%7D%24 "try regular expression with regexr.com")
+[try pattern](https://regexr.com/?expression=%5E%5B%5E'%5Cx00-%5Cx1f%5D*%24 "try regular expression with regexr.com")
