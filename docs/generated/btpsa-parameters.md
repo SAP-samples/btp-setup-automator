@@ -54,6 +54,7 @@ all of
 | [repeatstatusrequest](#repeatstatusrequest)                                                     | `integer` | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-time-in-seconds-to-wait-after-requesting-status-info-pulling.md "undefined#/properties/repeatstatusrequest")                                                                        |
 | [repeatstatustimeout](#repeatstatustimeout)                                                     | `integer` | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-timeout-in-seconds-after-which-requests-should-be-stopped.md "undefined#/properties/repeatstatustimeout")                                                                           |
 | [rundefaulttests](#rundefaulttests)                                                             | `boolean` | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-switch-to-run-default-tests-at-the-beginning-of-the-script.md "undefined#/properties/rundefaulttests")                                                                              |
+| [skipcfspacecreation](#skipcfspacecreation)                                                     | `boolean` | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-skip-the-creation-of-a-cf-space.md "undefined#/properties/skipcfspacecreation")                                                                                                     |
 | [subaccountenablebeta](#subaccountenablebeta)                                                   | `boolean` | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-enable-beta-features-in-new-subaccount.md "undefined#/properties/subaccountenablebeta")                                                                                             |
 | [subaccountid](#subaccountid)                                                                   | `string`  | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-subaccount-id-of-sap-btp-sub-account.md "undefined#/properties/subaccountid")                                                                                                       |
 | [subaccountlabels](#subaccountlabels)                                                           | `object`  | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-sub-account-labels.md "undefined#/properties/subaccountlabels")                                                                                                                     |
@@ -968,6 +969,24 @@ The default value is:
 ```json
 true
 ```
+
+## skipcfspacecreation
+
+if set to True: skips the creation of a CF space
+
+`skipcfspacecreation`
+
+*   is optional
+
+*   Type: `boolean` ([skip the creation of a CF space](btpsa-parameters-properties-skip-the-creation-of-a-cf-space.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-skip-the-creation-of-a-cf-space.md "undefined#/properties/skipcfspacecreation")
+
+### skipcfspacecreation Type
+
+`boolean` ([skip the creation of a CF space](btpsa-parameters-properties-skip-the-creation-of-a-cf-space.md))
 
 ## subaccountenablebeta
 

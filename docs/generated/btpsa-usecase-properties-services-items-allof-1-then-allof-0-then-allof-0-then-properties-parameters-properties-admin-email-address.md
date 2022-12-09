@@ -4,6 +4,10 @@
 
 ## admin\_email Constraints
 
+**maximum length**: the maximum number of characters for this string is: `256`
+
+**minimum length**: the minimum number of characters for this string is: `6`
+
 **pattern**: the string must match the following regular expression:&#x20;
 
 ```regexp

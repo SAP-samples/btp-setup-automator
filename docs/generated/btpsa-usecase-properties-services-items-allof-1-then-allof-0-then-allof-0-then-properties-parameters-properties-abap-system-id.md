@@ -4,6 +4,10 @@
 
 ## sapsystemname Constraints
 
+**maximum length**: the maximum number of characters for this string is: `3`
+
+**minimum length**: the minimum number of characters for this string is: `3`
+
 **pattern**: the string must match the following regular expression:&#x20;
 
 ```regexp
