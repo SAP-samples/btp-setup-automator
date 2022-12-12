@@ -45,6 +45,8 @@ def login_btp(btpUsecase):
     globalaccount = btpUsecase.globalaccount
     btpCliRegion = btpUsecase.btpcliapihostregion
 
+    password = escapePassword(password)
+
     command = "btp login --url 'https://cpcli.cf." + btpCliRegion + \
         ".hana.ondemand.com' --subdomain '" + globalaccount + "'"
     if btpUsecase.loginmethod == "sso":
@@ -196,3 +198,13 @@ def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):
                 if p is not None and p.stdout is not None:
                     result = p.stdout.decode()
                     log.success(result)
+
+
+def escapePassword(password) -> str:
+
+    if '"' in password or "'" in password:
+        log.info("escaping special characters in password")
+        password = password.replace('"', '\"')
+        password = password.replace("'", "\'")
+
+    return password
