@@ -252,7 +252,7 @@ parameters for the service
 
 *   is optional
 
-*   Type: any of the folllowing: `object` or `string` ([parameters for the service](btpsa-usecase-properties-services-items-properties-parameters-for-the-service.md))
+*   Type: any of the following: `object` or `string` ([parameters for the service](btpsa-usecase-properties-services-items-properties-parameters-for-the-service.md))
 
 *   cannot be null
 
@@ -260,7 +260,7 @@ parameters for the service
 
 ### parameters Type
 
-any of the folllowing: `object` or `string` ([parameters for the service](btpsa-usecase-properties-services-items-properties-parameters-for-the-service.md))
+any of the following: `object` or `string` ([parameters for the service](btpsa-usecase-properties-services-items-properties-parameters-for-the-service.md))
 
 ## plan
 
