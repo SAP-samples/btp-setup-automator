@@ -6,11 +6,11 @@ unknown
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                        |
 | :------------ | :------------ | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-112-then-allof-2-then-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/112/then/allOf/2/then/properties/plan") |
+| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-125-then-allof-3-then-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/125/then/allOf/3/then/properties/plan") |
 
 ## plan
 
-service plan >subaccount-admin< for >service-manager< is available in data centers:
+service plan >space< for >xsuaa< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}
@@ -40,7 +40,7 @@ service plan >subaccount-admin< for >service-manager< is available in data cente
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-112-then-allof-2-then-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/112/then/allOf/2/then/properties/plan")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-125-then-allof-3-then-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/125/then/allOf/3/then/properties/plan")
 
 ### plan Type
 

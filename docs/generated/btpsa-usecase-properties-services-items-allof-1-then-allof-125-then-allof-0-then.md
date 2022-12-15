@@ -6,11 +6,11 @@ unknown
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                        |
 | :------------ | :------------ | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-124-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/124/then/allOf/1/then/properties/plan") |
+| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-125-then-allof-0-then-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/125/then/allOf/0/then/properties/plan") |
 
 ## plan
 
-service plan >application< for >xsuaa< is available in data centers:
+service plan >apiaccess< for >xsuaa< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}
@@ -40,7 +40,7 @@ service plan >application< for >xsuaa< is available in data centers:
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-124-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/124/then/allOf/1/then/properties/plan")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-125-then-allof-0-then-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/125/then/allOf/0/then/properties/plan")
 
 ### plan Type
 

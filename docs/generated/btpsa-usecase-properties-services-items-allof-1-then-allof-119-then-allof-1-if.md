@@ -6,7 +6,7 @@ unknown
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                    |
 | :------------ | :------------ | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-117-then-allof-1-if-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/117/then/allOf/1/if/properties/plan") |
+| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-119-then-allof-1-if-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/119/then/allOf/1/if/properties/plan") |
 
 ## plan
 
@@ -20,7 +20,7 @@ unknown
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-117-then-allof-1-if-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/117/then/allOf/1/if/properties/plan")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-119-then-allof-1-if-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/119/then/allOf/1/if/properties/plan")
 
 ### plan Type
 
@@ -31,5 +31,5 @@ unknown
 **constant**: the value of this property must be equal to:
 
 ```json
-"reporting-ga-admin"
+"keyuser"
 ```

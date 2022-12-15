@@ -114,6 +114,7 @@ unknown
 | `"sap-analytics-cloud-embedded-edition"`   |             |
 | `"sap-bigdataservices"`                    |             |
 | `"sap-build-apps"`                         |             |
+| `"sap-build-apps-runtime"`                 |             |
 | `"sap-calm"`                               |             |
 | `"sap-document-information-extraction"`    |             |
 | `"sap-graph"`                              |             |

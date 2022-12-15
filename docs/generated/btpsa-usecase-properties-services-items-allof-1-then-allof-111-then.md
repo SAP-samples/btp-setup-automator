@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Document Management service: Use a CMIS complaint repository provided internally with all SAP Document Management service capabilities.
+Document Management Service, Integration Option: Leverage the APIs of SAP Document Management service and build your own document management layer to enable document management capabilities for your business applications. You can also embed the easy-to-use, UI5-based, reusable UI component of Document Management into your application for document management scenarios.
 
 `name`
 

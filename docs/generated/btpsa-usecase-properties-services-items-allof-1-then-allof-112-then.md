@@ -8,10 +8,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-112-then-allof-1.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-112-then-allof-2.md "check type definition")
-
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-112-then-allof-3.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                              |
@@ -41,16 +37,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value                       | Explanation |
-| :-------------------------- | :---------- |
-| `"container"`               |             |
-| `"service-operator-access"` |             |
-| `"subaccount-admin"`        |             |
-| `"subaccount-audit"`        |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"free"`     |             |
+| `"standard"` |             |
 
 ## name
 
-SAP Service Manager: SAP Service Manager service allows you to consume platform services in any connected runtime environment, track service instances creation, and share services and service instances between different environments.
+SAP Document Management service: Use a CMIS complaint repository provided internally with all SAP Document Management service capabilities.
 
 `name`
 
