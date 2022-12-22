@@ -20,6 +20,7 @@ application plan >connectivity< for >sap-identity-services-onboarding< is availa
 *   {'region': 'ca10', 'name': 'Canada (Montreal)'}
 *   {'region': 'ch20', 'name': 'cf-ch20'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'in30', 'name': 'India (Mumbai)'}
 *   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
 *   {'region': 'us20', 'name': 'US West (WA)'}
