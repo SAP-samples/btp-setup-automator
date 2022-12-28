@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP BTP, serverless runtime: Allows you to create, manage, configure extensions on SAP Business Technology Platform
+Workspace Utilization: The Workspace Utilization Management service lets you write sensor measurements to the Workspace Utilization Management API. Sensor platform providers use this API to integrate with the Workspace Utilization Management solution of SAP Cloud for Real Estate.
 
 `name`
 

@@ -10,10 +10,11 @@ unknown
 
 ## plan
 
-service plan >reporting-directory< for >uas< is available in data centers:
+service plan >standard< for >transport< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}
+*   {'region': 'ap12', 'name': 'South Korea (Seoul)'}
 *   {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}
 *   {'region': 'ap21', 'name': 'Singapore'}
 *   {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}

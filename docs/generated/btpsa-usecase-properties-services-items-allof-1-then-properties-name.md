@@ -97,6 +97,7 @@ unknown
 | `"postgresql"`                             |             |
 | `"postgresql-db"`                          |             |
 | `"print"`                                  |             |
+| `"prism-api-service"`                      |             |
 | `"privatelink"`                            |             |
 | `"process-automation"`                     |             |
 | `"process-automation-service"`             |             |

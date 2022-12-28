@@ -10,10 +10,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-95-then-allof-2.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-95-then-allof-3.md "check type definition")
-
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-95-then-allof-4.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -43,17 +39,15 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value           | Explanation |
-| :-------------- | :---------- |
-| `"large"`       |             |
-| `"medium"`      |             |
-| `"small"`       |             |
-| `"virtualhost"` |             |
-| `"xsmall"`      |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"cyon"`    |             |
+| `"dev"`     |             |
+| `"testnet"` |             |
 
 ## name
 
-RabbitMQ: RabbitMQ on SAP BTP includes a message broker that implements message queues for application-to-application messaging. Supports Advanced Message Queuing Protocol (AMQP).
+Quorum on SAP BTP: The Quorum service lets you create, delete, monitor and maintain individual Quorum nodes and connect them to a blockchain network.
 
 `name`
 
