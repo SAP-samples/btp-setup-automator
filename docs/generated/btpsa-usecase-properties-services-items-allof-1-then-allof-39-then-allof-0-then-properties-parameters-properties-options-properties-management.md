@@ -1,0 +1,3 @@
+## management Type
+
+`boolean`

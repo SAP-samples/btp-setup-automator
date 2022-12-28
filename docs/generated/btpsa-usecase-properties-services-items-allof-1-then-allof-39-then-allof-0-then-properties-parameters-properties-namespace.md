@@ -1,0 +1,3 @@
+## namespace Type
+
+`string`
