@@ -1,0 +1,108 @@
+{
+    "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
+    "aboutThisUseCase": {
+        "name": "SAP S/4HANA Extend Business Process Scenario in SAP BTP, Kyma Runtime",
+        "description": "Create a custom extension application on SAP BTP Kyma Runtime which consumes data from SAP S/4HANA",
+        "author": "shankari.g.r@sap.com",
+        "testStatus": "tested successfully",
+        "usageStatus": "RELEASED",
+        "relatedLinks": [
+            "https://discovery-center.cloud.sap/missiondetail/3586"
+        ]
+    },
+    "services": [
+        {
+            "category": "ENVIRONMENT",
+            "name": "kymaruntime",
+            "plan": "aws",
+            "amount": 1,
+            "parameters": {
+                "name": "btp-auto-setup",
+                "region": "us-east-1"
+            }
+        },
+        {
+            "name": "SAPLaunchpad",
+            "plan": "free",
+            "category": "APPLICATION",
+            "requiredrolecollections": [
+                "Launchpad_Admin"
+            ],
+            "targetenvironment": "sapbtp"
+        },
+        {
+            "name": "hana-cloud-tools",
+            "plan": "tools",
+            "category": "APPLICATION",
+            "targetenvironment": "sapbtp"
+        },
+        {
+            "name": "hana-cloud",
+            "plan": "hana",
+            "category": "SERVICE",
+            "entitleonly": true,
+            "targetenvironment": "sapbtp"
+        },
+        {
+            "name": "enterprise-messaging",
+            "plan": "default",
+            "category": "SERVICE",
+            "entitleonly": true,
+            "targetenvironment": "sapbtp"
+        },
+        {
+            "name": "connectivity",
+            "plan": "connectivity_proxy",
+            "category": "SERVICE",
+            "entitleonly": true,
+            "targetenvironment": "sapbtp"
+        },
+        {
+            "name": "hana",
+            "plan": "hdi-shared",
+            "category": "SERVICE",
+            "entitleonly": true,
+            "targetenvironment": "sapbtp"
+        }
+    ],
+    "executeAfterAccountSetup": [
+        {
+            "description": "We have now created a subaccount in SAP BTP. Continue manual steps according to Github documentation or from mission",
+            "command": "echo 'Continue next steps as shown in the Github: https://github.com/SAP-samples/btp-s4hana-kyma-business-process-extension/blob/main/documentation/README.md'"
+        }
+    ],
+    "assignrolecollections": [
+        {
+            "name": "Global Account Administrator",
+            "type": "account",
+            "level": "global account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "Subaccount Administrator",
+            "type": "account",
+            "level": "sub account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "Subaccount Service Administrator",
+            "type": "account",
+            "level": "sub account",
+            "assignedUserGroupsFromParameterFile": [
+                "admins"
+            ]
+        },
+        {
+            "name": "SAP HANA Cloud Administrator",
+            "type": "account",
+            "level": "sub account",
+            "assignedUserGroupsFromParameterFile": [
+              "admins"
+            ]
+          }
+    ]
+}

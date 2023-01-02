@@ -1,0 +1,7 @@
+{
+   "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
+    "usecasefile": "usecases/released/discoverycenter/3586-s4hana-kyma/usecase.json",
+    "region": "us10",
+    "subaccountname": "s4hanakyma",
+    "loginmethod": "sso"
+  }
