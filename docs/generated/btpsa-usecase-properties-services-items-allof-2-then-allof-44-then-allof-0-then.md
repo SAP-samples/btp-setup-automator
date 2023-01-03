@@ -21,7 +21,6 @@ application plan >standard< for >retention-manager-app< is available in data cen
 *   {'region': 'us10', 'name': 'US East (VA)'}
 *   {'region': 'us20', 'name': 'US West (WA)'}
 *   {'region': 'us21', 'name': 'US East (VA)'}
-*   {'region': 'us30', 'name': 'US Central (IA)'}
 
 `plan`
 
