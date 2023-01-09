@@ -33,6 +33,8 @@ def login_cf(btpUsecase):
             command = "cf login -a '" + cfApiEndpoint + "' -o '" + org + "' --sso"
             pipe = True
         else:
+            password = escapePassword(password)
+            
             command = "cf login -a '" + cfApiEndpoint + "' -o '" + org + "' -u '" + \
                 myemail + "' -p '" + password + "'"
         runShellCommandFlex(btpUsecase, command, "INFO", "Logging-in to your CF environment in the org >" +
@@ -45,8 +47,6 @@ def login_btp(btpUsecase):
     globalaccount = btpUsecase.globalaccount
     btpCliRegion = btpUsecase.btpcliapihostregion
 
-    password = escapePassword(password)
-
     command = "btp login --url 'https://cpcli.cf." + btpCliRegion + \
         ".hana.ondemand.com' --subdomain '" + globalaccount + "'"
     if btpUsecase.loginmethod == "sso":
@@ -55,6 +55,9 @@ def login_btp(btpUsecase):
         runShellCommandFlex(btpUsecase, command, "INFO", message, True, True)
         fetchEmailAddressFromBtpConfigFile(btpUsecase)
     else:
+
+        password = escapePassword(password)
+        
         message = "Logging-in to your global account with subdomain ID >" + \
             str(globalaccount) + "< for your user >" + str(myemail) + "<"
         command = command + " --user '" + \
