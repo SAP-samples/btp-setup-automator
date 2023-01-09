@@ -47,6 +47,7 @@ unknown
 | `"PersonalDataManagerApp"`                      |             |
 | `"PortalApplication"`                           |             |
 | `"print-app"`                                   |             |
+| `"prism-api"`                                   |             |
 | `"process-automation"`                          |             |
 | `"procurement"`                                 |             |
 | `"responsibility-management-application-beta"`  |             |

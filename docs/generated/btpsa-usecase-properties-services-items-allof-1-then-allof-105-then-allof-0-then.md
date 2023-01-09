@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >additional-active-users< for >sap-build-apps< is available in data centers:
+service plan >standard< for >sap-bigdataservices< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}

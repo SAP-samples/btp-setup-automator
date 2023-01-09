@@ -1,0 +1,3 @@
+## messagingrest Type
+
+`boolean`

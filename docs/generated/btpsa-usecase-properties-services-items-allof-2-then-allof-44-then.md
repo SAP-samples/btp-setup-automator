@@ -6,8 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-44-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-44-then-allof-1.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -39,12 +37,11 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"free"`     |             |
 | `"standard"` |             |
 
 ## name
 
-SAP Build Apps: SAP Build Apps is a full stack no-code development platform for creating Web and native mobile applications.
+SAP Data Retention Manager: The SAP Business Technology Platform Data Retention Manager lets you block or delete personal data based on the residence and retention rules maintained.
 
 `name`
 

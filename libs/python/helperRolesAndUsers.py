@@ -1,4 +1,5 @@
 from libs.python.helperCommandExecution import runCommandAndGetJsonResult, runShellCommandFlex, runShellCommand
+from libs.python.helperCommandExecution import login_cf
 from libs.python.helperJson import getJsonFromFile
 import logging
 
@@ -264,6 +265,10 @@ def assignUsersToEnvironments(btpUsecase):
     if environments:
         for environment in environments:
             if environment.name == "cloudfoundry":
+                # Make sure that you are logged in to the CF API
+                if btpUsecase.skipcfspacecreation is True:
+                    login_cf(btpUsecase)
+
                 org = btpUsecase.org
                 cfspacename = btpUsecase.cfspacename
 

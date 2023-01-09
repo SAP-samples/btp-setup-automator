@@ -15,7 +15,6 @@ application plan >free< for >automationpilot< is available in data centers:
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap21', 'name': 'Singapore'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'jp20', 'name': 'Japan (Tokyo)'}
 *   {'region': 'us30', 'name': 'US Central (IA)'}
 
 `plan`

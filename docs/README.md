@@ -123,7 +123,7 @@ docker container run --rm  -it -d --name "test01" \
     --mount type=bind,source="${folderLogFile}/",target="/home/user/log/" \
     "test01"
 
-docker exec --workdir "/home/user/" "test01" btpsa \
+docker exec -i --workdir "/home/user/" "test01" ./btpsa \
     -parameterfile 'integrationtests/parameterfiles/integrationtest01.json' \
     -logfile       '/home/user/log/test01.log' \
     -metadatafile  '/home/user/log/test01_metadata.json' \
@@ -174,7 +174,7 @@ docker container run --rm  -it -d --name "test01" \
 The only thing missing now is to start the script for the `btp-setup-automator` that is inside the Docker container. Provide all the necessary parameters within a **docker exec** command.
 
 ```bash
-docker exec --workdir "/home/user/" "test01" ./btpsa \
+docker exec -i --workdir "/home/user/" "test01" ./btpsa \
     -parameterfile 'integrationtests/parameterfiles/integrationtest01.json' \
     -logfile       '/home/user/log/test01.log' \
     -metadatafile  '/home/user/log/test01_metadata.json' \
@@ -189,7 +189,7 @@ Once the script is ready, you can check your BTP global account, if all services
 > 📝 Tip - In case you want to provide the parameter file as a link, you can do it like this:
 
   ```bash
-  docker exec --workdir "/home/user/" "test01" ./btpsa \
+  docker exec -i --workdir "/home/user/" "test01" ./btpsa \
       -parameterfile 'https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/parameters.json' 
   ```
 
@@ -210,4 +210,3 @@ You have several options now:
 
 - Do you want to dive deeper into the topic of configuration? Then we got you covered [here](SAMPLECONFIG.md).
 - Do you want to see what preconfigured use cases are available? Then take a look at this [page](USECASES.md).
- 

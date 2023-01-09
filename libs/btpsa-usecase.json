@@ -346,7 +346,7 @@
                     {
                         "if": { "properties": { "category": { "const": "SERVICE"} } },
                         "then" :{
-                                    "properties": { "name": { "enum": ["abap", "abap-solution", "ads", "adsrestapi", "aicore", "alert-notification", "api-management", "apimanagement-apiportal", "apimanagement-devportal", "application-logs", "ASE_PROVISIONING", "auditlog-api", "auditlog-management", "autoscaler", "blockchain-services", "build-workzone-advanced", "business-entity-recognition", "business-rules", "c4-distributed-order-management", "category-management-api", "cias", "cicd-service", "cis", "COMPUTE_UNIT", "connectivity", "connectivity-central", "content-agent", "conversational-ai", "credstore", "data-analytics-osb", "data-attribute-recommendation", "data-intelligence", "data-privacy-integration-service", "dataenrichment-business-partner", "dateandtime", "destination", "document-classification", "document-translation", "dq-services", "enterprise-messaging", "feature-flags", "hana", "hana-cloud", "hana-db", "hana-tenant-db", "html5-apps-repo", "hyperledger-fabric", "ibanservice", "identity", "INFRA", "integrationsuite", "intercompany-reconciliation", "invoice-object-recommendation", "iot", "iotae", "IRPA", "irpa-service", "it-rt", "jobscheduler", "malware-scanner", "market-rates-byor", "market-rates-thr", "MDMBusinessPartnerService", "ml-foundation", "mobile-app-catalog", "mobile-app-update", "mobile-c2g", "mobile-cbms", "mobile-client-log-upload", "mobile-client-resource", "mobile-client-usage", "mobile-discovery", "mobile-network-trace", "mobile-offline", "mobile-proxy", "mobile-push", "mobile-sample-odata-v2-espm", "mobile-services", "mobile-services-preview", "mobile-settings-exchange", "multichain", "objectstore", "one-inbox-service", "one-mds", "personal-data-manager-service", "portal", "postgresql", "postgresql-db", "print", "privatelink", "process-automation", "process-automation-service", "processvisibility", "procurement-service", "quorum", "rabbitmq", "recommendation-systems-production", "redis", "redis-cache", "responsibility-management-service-beta", "responsibilitymanagement-service", "retention-manager", "saas-registry", "sap-analytics-cloud-embedded-edition", "sap-bigdataservices", "sap-build-apps", "sap-calm", "sap-document-information-extraction", "sap-graph", "scp-launchpad", "sdm", "sdm-repository", "service-manager", "service-ticket-intelligence", "spatialservices", "theming", "transport", "uas", "ui5-flexibility-keyuser", "workcalendar", "workflow", "workflowmanagement", "wums-partner-api-beta", "xfs-runtime", "xsuaa"] } },
+                                    "properties": { "name": { "enum": ["abap", "abap-solution", "ads", "adsrestapi", "aicore", "alert-notification", "api-management", "apimanagement-apiportal", "apimanagement-devportal", "application-logs", "ASE_PROVISIONING", "auditlog-api", "auditlog-management", "autoscaler", "blockchain-services", "build-workzone-advanced", "business-entity-recognition", "business-rules", "c4-distributed-order-management", "category-management-api", "cias", "cicd-service", "cis", "COMPUTE_UNIT", "connectivity", "connectivity-central", "content-agent", "conversational-ai", "credstore", "data-analytics-osb", "data-attribute-recommendation", "data-intelligence", "data-privacy-integration-service", "dataenrichment-business-partner", "dateandtime", "destination", "document-classification", "document-translation", "dq-services", "enterprise-messaging", "feature-flags", "hana", "hana-cloud", "hana-db", "hana-tenant-db", "html5-apps-repo", "hyperledger-fabric", "ibanservice", "identity", "INFRA", "integrationsuite", "intercompany-reconciliation", "invoice-object-recommendation", "iot", "iotae", "IRPA", "irpa-service", "it-rt", "jobscheduler", "malware-scanner", "market-rates-byor", "market-rates-thr", "MDMBusinessPartnerService", "ml-foundation", "mobile-app-catalog", "mobile-app-update", "mobile-c2g", "mobile-cbms", "mobile-client-log-upload", "mobile-client-resource", "mobile-client-usage", "mobile-discovery", "mobile-network-trace", "mobile-offline", "mobile-proxy", "mobile-push", "mobile-sample-odata-v2-espm", "mobile-services", "mobile-services-preview", "mobile-settings-exchange", "multichain", "objectstore", "one-inbox-service", "one-mds", "personal-data-manager-service", "portal", "postgresql", "postgresql-db", "print", "prism-api-service", "privatelink", "process-automation", "process-automation-service", "processvisibility", "procurement-service", "quorum", "rabbitmq", "recommendation-systems-production", "redis", "redis-cache", "responsibility-management-service-beta", "responsibilitymanagement-service", "retention-manager", "saas-registry", "sap-analytics-cloud-embedded-edition", "sap-bigdataservices", "sap-build-apps", "sap-build-apps-runtime", "sap-calm", "sap-document-information-extraction", "sap-graph", "scp-launchpad", "sdm", "sdm-repository", "service-manager", "service-ticket-intelligence", "spatialservices", "theming", "transport", "uas", "ui5-flexibility-keyuser", "workcalendar", "workflow", "workflowmanagement", "wums-partner-api-beta", "xfs-runtime", "xsuaa"] } },
                                     "allOf": [
                                         {
                                             "if": { "properties": { "name": { "const": "abap"} } },
@@ -432,7 +432,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >standard< for >ads< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >standard< for >ads< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -450,7 +450,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >standard< for >adsrestapi< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >standard< for >adsrestapi< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -1115,7 +1115,7 @@
                                                         "if": { "properties": { "plan": { "const": "free"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >free< for >data-analytics-osb< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >free< for >data-analytics-osb< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -1123,7 +1123,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >standard< for >data-analytics-osb< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >standard< for >data-analytics-osb< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -1207,7 +1207,7 @@
                                                         "if": { "properties": { "plan": { "const": "application"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >application< for >data-privacy-integration-service< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "service plan >application< for >data-privacy-integration-service< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -1215,7 +1215,7 @@
                                                         "if": { "properties": { "plan": { "const": "free"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >free< for >data-privacy-integration-service< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "service plan >free< for >data-privacy-integration-service< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
                                                                 
                                                             }
                                                         }
@@ -1366,8 +1366,10 @@
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "service plan >default< for >enterprise-messaging< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'ch20', 'name': 'cf-ch20'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'eu30', 'name': 'Europe (Frankfurt)'}\n- {'region': 'in30', 'name': 'India (Mumbai)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
-                                                                
-                                                            }
+                                                                , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "properties": {"authorities": {"items": [{"pattern": "[a-zA-Z0-9.,_()$|\\-!]+$", "type": "string"}], "type": "array"}, "emname": {"description": "It specifies the name of the message client. emname is used in the Event Mesh business application to identify message clients with ease.", "pattern": "^[a-zA-Z0-9_-]{1,100}$", "type": "string"}, "namespace": {"description": "It ensures that every message client within a subaccount is unique. The queues managed by the message client and topics used to publish by the message client have the namespace as prefix. Exactly three (firstSegment/secondSegment/thirdSegment)", "example": ["default/sap.myapp/1"], "type": "string"}, "options": {"description": "It\u2019s used to define the privileges and access channels for a message client.", "properties": {"management": {"default": false, "type": "boolean"}, "messaging": {"default": true, "type": "boolean"}, "messagingrest": {"default": false, "type": "boolean"}}, "required": ["management", "messagingrest", "messaging"], "type": "object"}, "resources": {"description": "Resource Units is a collection of messaging resources such as queues, connections, and so on, required for a message client. You can specify this value in the service descriptor to allocate messaging resources based a specific business scenario.", "properties": {"units": {"default": "10", "pattern": "^([1-9][0-9]?[0-9]?[0-9])$", "type": "string"}}, "required": ["units"], "type": "object"}, "rules": {"description": "It defines the publish or consume privileges for a message client.", "properties": {"queueRules": {"properties": {"publishFilter": {"items": [{"example": ["${namespace}/foo/bar/*", "${namespace}/*", "${namespace}/+"], "pattern": "[a-zA-Z*+/]", "type": "string"}], "type": "array"}, "subscribeFilter": {"items": [{"example": ["${namespace}/foo/bar/*", "${namespace}/*", "${namespace}/+"], "pattern": "[a-zA-Z*+/]", "type": "string"}], "type": "array"}}, "required": ["publishFilter", "subscribeFilter"], "type": "object"}, "topicRules": {"properties": {"publishFilter": {"items": [{"example": ["${namespace}/foo/bar/*", "${namespace}/*", "${namespace}/?", "${namespace}/+"], "pattern": "[a-zA-Z*+/]", "type": "string"}], "type": "array"}, "subscribeFilter": {"items": [{"example": ["${namespace}/foo/bar/*", "${namespace}/*", "${namespace}/+", "+/+/+/foo/bar/*"], "pattern": "[a-zA-Z*+/]", "type": "string"}], "type": "array"}}, "required": ["publishFilter", "subscribeFilter"], "type": "object"}}, "required": ["topicRules", "queueRules"], "type": "object"}, "version": {"description": "It specifies the version of the service descriptor.", "pattern": "^1.0.0|1.1.0$", "type": "string"}, "xs-security": {"description": "The xs-security object is used to configure XSUAA-related properties, for example, the supported credential-types for an instance. The first credential-type in the array is set as default. ", "properties": {"oauth2-configuration": {"properties": {"credential-types": {"items": [{"example": "x509", "type": "string"}, {"example": "binding-secret", "type": "string"}], "type": "array"}}, "required": ["credential-types"], "type": "object"}}, "required": ["oauth2-configuration"], "type": "object"}}, "required": ["emname", "namespace"], "type": "object"}
+
+                                                            }, "required" : ["parameters"]
+
                                                         }
                                                     }, {
                                                         "if": { "properties": { "plan": { "const": "event-mesh-connectivity"} } },
@@ -2571,7 +2573,7 @@
                                                         "if": { "properties": { "plan": { "const": "free"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >free< for >personal-data-manager-service< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "service plan >free< for >personal-data-manager-service< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
                                                                 
                                                             }
                                                         }
@@ -2579,7 +2581,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >standard< for >personal-data-manager-service< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "service plan >standard< for >personal-data-manager-service< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -2730,6 +2732,24 @@
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "service plan >sender< for >print< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }]
+                                            }
+                                        }, {
+                                            "if": { "properties": { "name": { "const": "prism-api-service"} } },
+                                            "then" :{
+                                                "properties": {
+                                                    "plan": { "enum": ["default"] },
+                                                    "name": { "description": "procurement data warehouse service: Provides access to procurement data warehouse service."}
+                                                },
+                                                "allOf": [
+                                                    {
+                                                        "if": { "properties": { "plan": { "const": "default"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "service plan >default< for >prism-api-service< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}" }
                                                                 
                                                             }
                                                         }
@@ -3113,7 +3133,7 @@
                                                         "if": { "properties": { "plan": { "const": "free"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >free< for >retention-manager< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "service plan >free< for >retention-manager< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -3121,7 +3141,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >standard< for >retention-manager< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "service plan >standard< for >retention-manager< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -3208,6 +3228,24 @@
                                                     }]
                                             }
                                         }, {
+                                            "if": { "properties": { "name": { "const": "sap-build-apps-runtime"} } },
+                                            "then" :{
+                                                "properties": {
+                                                    "plan": { "enum": ["standard"] },
+                                                    "name": { "description": "SAP Build Apps runtime: The runtime service for SAP Build Apps. Allows connectivity to visual cloud functions applications developed and deployed on the SAP Build Apps runtime. A subscription to SAP Build Apps is required to use this service."}
+                                                },
+                                                "allOf": [
+                                                    {
+                                                        "if": { "properties": { "plan": { "const": "standard"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "service plan >standard< for >sap-build-apps-runtime< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }]
+                                            }
+                                        }, {
                                             "if": { "properties": { "name": { "const": "sap-calm"} } },
                                             "then" :{
                                                 "properties": {
@@ -3263,11 +3301,19 @@
                                             "if": { "properties": { "name": { "const": "sap-graph"} } },
                                             "then" :{
                                                 "properties": {
-                                                    "plan": { "enum": ["free"] },
+                                                    "plan": { "enum": ["api","free"] },
                                                     "name": { "description": "SAP Graph: SAP Graph is a new unified API for SAP, using modern open standards like OData v4. With SAP Graph, developers access SAP-managed business data as a single semantically connected data graph, spanning the suite of SAP products. Targeting SAP's ecosystem of developers and customers, SAP Graph's one API and Business Data Graph reduce the cost and complexity of creating and deploying reusable extension applications. The unified API exposes a unified graph-like model of business objects (entities) and relationships. As a BTP service, SAP Graph is compatible with SAP Cloud Application Programming (CAP) extension solutions, events managed via SAP Event Mesh, and No-Code/Low-Code applications like SAP AppGyver. SAP Graph uses open standards, such as OData v.4 and OAuth, thus allowing you to easily build applications and extensions for the SAP Intelligent Enterprise."}
                                                 },
                                                 "allOf": [
                                                     {
+                                                        "if": { "properties": { "plan": { "const": "api"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "service plan >api< for >sap-graph< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }, {
                                                         "if": { "properties": { "plan": { "const": "free"} } },
                                                         "then" :{
                                                             "properties": {
@@ -3679,7 +3725,7 @@
                     {
                         "if": { "properties": { "category": { "const": "APPLICATION"} } },
                         "then" :{
-                                    "properties": { "name": { "enum": ["abapcp-web-router", "ads-configui", "ai-launchpad", "alm-ts", "api-management-apiportal", "api-management-devportal", "auditlog-viewer", "automationpilot", "Backend-service", "c4-distributed-order-management-app", "categorymanagement-o2-s2", "cias", "cicd-app", "content-agent-ui", "custom-domain-manager", "data-privacy-integration-application", "document-information-extraction-application", "dqmmicroui", "eadesigner", "edge-services", "enterprise-messaging-hub", "extension-center", "feature-flags-dashboard", "hana-cloud-tools", "integration-suite-advanced-event-mesh", "integrationsuite", "intelligent-situation-automation-app", "iotas", "IRPA", "it-prod", "LandscapePortal", "market-rates-ux", "MDMBusinessPartnerApplication", "mdo-one-mds-master", "MDOrchestrationApplication", "ocnselfserviceagent", "PersonalDataManagerApp", "PortalApplication", "print-app", "process-automation", "procurement", "responsibility-management-application-beta", "responsibilitymanagement-application", "retention-manager-app", "sap-build-apps", "sap-cai-onboarding", "sap-identity-services-onboarding", "sapappgyver", "sapappstudio", "SAPLaunchpad", "SAPWebAnalytics", "SAPWorkZone", "sdm-web", "spatialservices-app", "tnt-onboard-dataenrichment-dcp", "WorkflowManagementSaaS", "wums-c4re-beta"] } },
+                                    "properties": { "name": { "enum": ["abapcp-web-router", "ads-configui", "ai-launchpad", "alm-ts", "api-management-apiportal", "api-management-devportal", "auditlog-viewer", "automationpilot", "Backend-service", "c4-distributed-order-management-app", "categorymanagement-o2-s2", "cias", "cicd-app", "content-agent-ui", "custom-domain-manager", "data-privacy-integration-application", "document-information-extraction-application", "dqmmicroui", "eadesigner", "edge-services", "enterprise-messaging-hub", "extension-center", "feature-flags-dashboard", "hana-cloud-tools", "integration-suite-advanced-event-mesh", "integrationsuite", "intelligent-situation-automation-app", "iotas", "IRPA", "it-prod", "LandscapePortal", "market-rates-ux", "MDMBusinessPartnerApplication", "mdo-one-mds-master", "MDOrchestrationApplication", "ocnselfserviceagent", "PersonalDataManagerApp", "PortalApplication", "print-app", "prism-api", "process-automation", "procurement", "responsibility-management-application-beta", "responsibilitymanagement-application", "retention-manager-app", "sap-build-apps", "sap-cai-onboarding", "sap-identity-services-onboarding", "sapappgyver", "sapappstudio", "SAPLaunchpad", "SAPWebAnalytics", "SAPWorkZone", "sdm-web", "spatialservices-app", "tnt-onboard-dataenrichment-dcp", "WorkflowManagementSaaS", "wums-c4re-beta"] } },
                                     "allOf": [
                                         {
                                             "if": { "properties": { "name": { "const": "abapcp-web-router"} } },
@@ -3711,7 +3757,7 @@
                                                         "if": { "properties": { "plan": { "const": "default"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "application plan >default< for >ads-configui< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "application plan >default< for >ads-configui< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -3835,7 +3881,7 @@
                                                         "if": { "properties": { "plan": { "const": "free"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "application plan >free< for >automationpilot< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "application plan >free< for >automationpilot< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
                                                                 
                                                             }
                                                         }
@@ -3843,7 +3889,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "application plan >standard< for >automationpilot< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "application plan >standard< for >automationpilot< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
                                                                 
                                                             }
                                                         }
@@ -4003,7 +4049,7 @@
                                                         "if": { "properties": { "plan": { "const": "default"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "application plan >default< for >data-privacy-integration-application< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "application plan >default< for >data-privacy-integration-application< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -4447,7 +4493,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "application plan >standard< for >PersonalDataManagerApp< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "application plan >standard< for >PersonalDataManagerApp< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -4465,7 +4511,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "application plan >standard< for >PortalApplication< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'eu30', 'name': 'Europe (Frankfurt)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "application plan >standard< for >PortalApplication< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'eu30', 'name': 'Europe (Frankfurt)'}\n- {'region': 'in30', 'name': 'India (Mumbai)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
                                                                 
                                                             }
                                                         }
@@ -4484,6 +4530,24 @@
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "application plan >standard< for >print-app< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }]
+                                            }
+                                        }, {
+                                            "if": { "properties": { "name": { "const": "prism-api"} } },
+                                            "then" :{
+                                                "properties": {
+                                                    "plan": { "enum": ["default"] },
+                                                    "name": { "description": "procurement data warehouse API: Provides access to procurement data warehouse API."}
+                                                },
+                                                "allOf": [
+                                                    {
+                                                        "if": { "properties": { "plan": { "const": "default"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "application plan >default< for >prism-api< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}" }
                                                                 
                                                             }
                                                         }
@@ -4581,7 +4645,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "application plan >standard< for >retention-manager-app< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "application plan >standard< for >retention-manager-app< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -4643,7 +4707,7 @@
                                                         "if": { "properties": { "plan": { "const": "additional-tenant"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "application plan >additional-tenant< for >sap-identity-services-onboarding< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'ch20', 'name': 'cf-ch20'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "application plan >additional-tenant< for >sap-identity-services-onboarding< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'ch20', 'name': 'cf-ch20'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'in30', 'name': 'India (Mumbai)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
                                                                 , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_show_form_view": true, "additionalProperties": true, "properties": {"cloud_service": {"_enumDisplayName": {"PRODUCTIVE": "PRODUCTIVE", "TEST": "TEST"}, "default": "PRODUCTIVE", "description": "Choose a productive or test service type from the drop down.", "enum": ["PRODUCTIVE", "TEST"], "title": "Service type", "type": "string"}}, "type": "object"}
 
                                                             }, "required" : ["parameters"]
@@ -4653,7 +4717,7 @@
                                                         "if": { "properties": { "plan": { "const": "connectivity"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "application plan >connectivity< for >sap-identity-services-onboarding< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'ch20', 'name': 'cf-ch20'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}" }
+                                                                "plan": { "description": "application plan >connectivity< for >sap-identity-services-onboarding< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'ch20', 'name': 'cf-ch20'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'in30', 'name': 'India (Mumbai)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}" }
                                                                 , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_show_form_view": true, "additionalProperties": true, "properties": {"cloud_service": {"_enumDisplayName": {"PRODUCTIVE": "PRODUCTIVE", "TEST": "TEST"}, "default": "PRODUCTIVE", "description": "Choose a productive or test service type from the drop down.", "enum": ["PRODUCTIVE", "TEST"], "title": "Service type", "type": "string"}}, "type": "object"}
 
                                                             }, "required" : ["parameters"]
@@ -4663,7 +4727,7 @@
                                                         "if": { "properties": { "plan": { "const": "default"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "application plan >default< for >sap-identity-services-onboarding< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'ch20', 'name': 'cf-ch20'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "application plan >default< for >sap-identity-services-onboarding< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'ch20', 'name': 'cf-ch20'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'in30', 'name': 'India (Mumbai)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
                                                                 , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_show_form_view": true, "additionalProperties": true, "properties": {"cloud_service": {"_enumDisplayName": {"PRODUCTIVE": "PRODUCTIVE", "TEST": "TEST"}, "default": "PRODUCTIVE", "description": "Choose a productive or test service type from the drop down.", "enum": ["PRODUCTIVE", "TEST"], "title": "Service type", "type": "string"}}, "type": "object"}
 
                                                             }, "required" : ["parameters"]

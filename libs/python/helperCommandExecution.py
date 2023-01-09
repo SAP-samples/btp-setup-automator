@@ -33,6 +33,8 @@ def login_cf(btpUsecase):
             command = "cf login -a '" + cfApiEndpoint + "' -o '" + org + "' --sso"
             pipe = True
         else:
+            password = escapePassword(password)
+            
             command = "cf login -a '" + cfApiEndpoint + "' -o '" + org + "' -u '" + \
                 myemail + "' -p '" + password + "'"
         runShellCommandFlex(btpUsecase, command, "INFO", "Logging-in to your CF environment in the org >" +
@@ -53,6 +55,9 @@ def login_btp(btpUsecase):
         runShellCommandFlex(btpUsecase, command, "INFO", message, True, True)
         fetchEmailAddressFromBtpConfigFile(btpUsecase)
     else:
+
+        password = escapePassword(password)
+        
         message = "Logging-in to your global account with subdomain ID >" + \
             str(globalaccount) + "< for your user >" + str(myemail) + "<"
         command = command + " --user '" + \
@@ -196,3 +201,13 @@ def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):
                 if p is not None and p.stdout is not None:
                     result = p.stdout.decode()
                     log.success(result)
+
+
+def escapePassword(password) -> str:
+
+    if '"' in password or "'" in password:
+        log.info("escaping special characters in password")
+        password = password.replace('"', '\"')
+        password = password.replace("'", "\'")
+
+    return password
