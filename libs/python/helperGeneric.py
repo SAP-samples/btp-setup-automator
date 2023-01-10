@@ -46,7 +46,7 @@ def getNamingPattern(btpUsecase, prefix, suffix):
     if suffix is None:
         suffix = ""
     result = prefix + suffix
-    result = re.sub(r"[^\w\s]", '-', result)
+    result = re.sub(r"[^\w\s]", "-", result)
     result = result.replace(" ", "-").lower()
     result = result.replace("_", "-").lower()
 
@@ -66,7 +66,8 @@ def createDirectoryName(btpUsecase):
         result = "BTP setup automator (Directory)"
 
     btpUsecase.accountMetadata = addKeyValuePair(
-        btpUsecase.accountMetadata, "directory", result)
+        btpUsecase.accountMetadata, "directory", result
+    )
 
     return result
 
@@ -79,7 +80,8 @@ def createSubaccountName(btpUsecase):
         result = "BTP setup automator (" + btpUsecase.region + ")"
 
     btpUsecase.accountMetadata = addKeyValuePair(
-        btpUsecase.accountMetadata, "subaccount", result)
+        btpUsecase.accountMetadata, "subaccount", result
+    )
 
     return result
 
@@ -90,9 +92,11 @@ def createInstanceName(btpUsecase, service):
         if service.instancename is not None:
             return service.instancename
         else:
-            result = service.name + "-" + service.plan + "-" + btpUsecase.suffixinstancename
+            result = (
+                service.name + "-" + service.plan + "-" + btpUsecase.suffixinstancename
+            )
 
-        result = re.sub(r"[^\w\s]", '-', result)
+        result = re.sub(r"[^\w\s]", "-", result)
         result = result.replace("--", "-")
         result = result.replace("_", "-")
         if result[len(result) - 1] == "-":
@@ -110,10 +114,13 @@ def createSubdomainID(btpUsecase):
     if btpUsecase.subdomain is not None and btpUsecase.subdomain != "":
         result = btpUsecase.subdomain.strip()
     else:
-        result = btpUsecase.accountMetadata["subaccount"] + \
-            "-" + btpUsecase.accountMetadata["global_account_id"]
+        result = (
+            btpUsecase.accountMetadata["subaccount"]
+            + "-"
+            + btpUsecase.accountMetadata["global_account_id"]
+        )
 
-    result = re.sub(r"[^\w\s]", '-', result)
+    result = re.sub(r"[^\w\s]", "-", result)
     result = result.replace(" ", "-")
     result = result.replace("_", "-")
     result = result.replace("--", "-")
@@ -123,7 +130,8 @@ def createSubdomainID(btpUsecase):
     result = result[:60].lower()
 
     btpUsecase.accountMetadata = addKeyValuePair(
-        btpUsecase.accountMetadata, "subdomain", result)
+        btpUsecase.accountMetadata, "subdomain", result
+    )
 
     return result
 
@@ -140,7 +148,7 @@ def createOrgName(btpUsecase, envName):
     if envName != "kymaruntime" and envName != "cloudfoundry":
         result = envName + "-" + btpUsecase.accountMetadata["subdomain"]
 
-    result = re.sub(r"[^\w\s]", '-', result)
+    result = re.sub(r"[^\w\s]", "-", result)
     result = result.replace(" ", "-").lower()
     result = result.replace("_", "-").lower()
     result = result.replace("--", "-").lower()
@@ -158,10 +166,12 @@ def buildUrltoSubaccount(btpUsecase):
     else:
         url = "https://cockpit." + region + ".hana.ondemand.com/cockpit/#/"
 
-    url += "globalaccount/" + \
-        btpUsecase.accountMetadata["global_account_id"] + "/"
-    url += "subaccount/" + \
-        btpUsecase.accountMetadata["subaccountid"] + "/service-instances"
+    url += "globalaccount/" + btpUsecase.accountMetadata["global_account_id"] + "/"
+    url += (
+        "subaccount/"
+        + btpUsecase.accountMetadata["subaccountid"]
+        + "/service-instances"
+    )
 
     return url
 
@@ -182,7 +192,7 @@ def getDictWithEnvVariables(btpUsecase):
 
 def getEnvVariableValue(variable):
     result = None
-    if (os.environ.get(variable)):
+    if os.environ.get(variable):
         result = os.environ[variable]
     return result
 

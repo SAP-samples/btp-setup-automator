@@ -11,7 +11,13 @@ import os.path
 log = logging.getLogger(__name__)
 
 
-def getJsonFromFile(filename, externalConfigAuthMethod=None, externalConfigUserName=None, externalConfigPassword=None, externalConfigToken=None):
+def getJsonFromFile(
+    filename,
+    externalConfigAuthMethod=None,
+    externalConfigUserName=None,
+    externalConfigPassword=None,
+    externalConfigToken=None,
+):
     data = None
     thisRequest = None
     foundError = False
@@ -25,15 +31,27 @@ def getJsonFromFile(filename, externalConfigAuthMethod=None, externalConfigUserN
 
     if "http://" in filename or "https://" in filename:
         if "http://" in filename:
-            log.warning("Using http instead of https for url: " + filename + ". This is not recommended. Support will be removed in next major release!")
+            log.warning(
+                "Using http instead of https for url: "
+                + filename
+                + ". This is not recommended. Support will be removed in next major release!"
+            )
 
         data = None
         try:
-            if externalConfigAuthMethod == "basicAuthentication" and externalConfigUserName is not None and externalConfigPassword is not None:    
+            if (
+                externalConfigAuthMethod == "basicAuthentication"
+                and externalConfigUserName is not None
+                and externalConfigPassword is not None
+            ):
                 basic = HTTPBasicAuth(externalConfigUserName, externalConfigPassword)
                 thisRequest = requests.get(filename, auth=basic)
-            elif externalConfigAuthMethod == "token" and externalConfigToken is not None:
-                thisRequest = requests.get(filename, headers={'Authorization': 'Bearer ' + externalConfigToken})
+            elif (
+                externalConfigAuthMethod == "token" and externalConfigToken is not None
+            ):
+                thisRequest = requests.get(
+                    filename, headers={"Authorization": "Bearer " + externalConfigToken}
+                )
             else:
                 thisRequest = requests.get(filename)
         except Exception as e:
@@ -56,9 +74,14 @@ def getJsonFromFile(filename, externalConfigAuthMethod=None, externalConfigUserN
             print(message)
         foundError = True
     except ValueError as err:
-        message = "There is an issue in the json file >" + filename + \
-            "<. Issue starts on character position " + \
-            str(err.pos) + ": " + err.msg
+        message = (
+            "There is an issue in the json file >"
+            + filename
+            + "<. Issue starts on character position "
+            + str(err.pos)
+            + ": "
+            + err.msg
+        )
         if log is not None:
             log.error(message)
         else:
@@ -69,7 +92,9 @@ def getJsonFromFile(filename, externalConfigAuthMethod=None, externalConfigUserN
             f.close()
 
     if foundError is True:
-        message = "Can't run the use case before the error(s) mentioned above are not fixed"
+        message = (
+            "Can't run the use case before the error(s) mentioned above are not fixed"
+        )
         if log is not None:
             log.error(message)
         else:
@@ -97,7 +122,7 @@ def addKeyValuePair(json, key, value):
 
 
 def saveJsonToFile(filename, jsonData):
-    with open(filename, 'w') as outfile:
+    with open(filename, "w") as outfile:
         json.dump(jsonData, outfile, indent=2)
     return True
 
@@ -113,18 +138,18 @@ def convertCloudFoundryCommandOutputToJson(lines):
     positions = []
     keys = []
     # Remove the first 2 lines of the output (don't contain necessary information)
-    lines = lines.split('\n', 2)[-1]
+    lines = lines.split("\n", 2)[-1]
 
     # Detect the columns of the text table
     # Simply look for three whitespaces as separator
     for line in lines.splitlines():
-        keys = re.split(r'\s{3,}', line)
+        keys = re.split(r"\s{3,}", line)
         for key in keys:
             pos = line.find(key)
             positions.append(pos)
         break
     # Remove the first line (the one with the keys)
-    dataRows = lines.split('\n', 1)[-1]
+    dataRows = lines.split("\n", 1)[-1]
 
     for row in dataRows.splitlines():
         i = 0
@@ -147,7 +172,7 @@ def convertCloudFoundryCommandOutputToJson(lines):
 
 def convertCloudFoundryCommandForSingleServiceToJson(lines):
     # Remove the first 2 lines of the output (don't contain neccessary information)
-    lines = lines.split('\n', 2)[-1]
+    lines = lines.split("\n", 2)[-1]
 
     # Detect the columns of the text table
     # Simply look for three whitespaces as separator

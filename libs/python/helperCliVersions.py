@@ -17,7 +17,12 @@ def getAllCliVersions():
     # so that it's printed out in an aligned manner inside the log
     maxLenInfoString = max(len(x.get("name")) for x in result)
     for item in result:
-        log.info(item.get("name") + " " * (maxLenInfoString - len(item.get("name"))) + ": " + item.get("version"))
+        log.info(
+            item.get("name")
+            + " " * (maxLenInfoString - len(item.get("name")))
+            + ": "
+            + item.get("version")
+        )
     return result
 
 
@@ -48,7 +53,7 @@ def getVersionKubectl():
     # As the output from the version is currently piped out through stderr
     # the code checks both (stdout and stderr)
     output = p.stdout.decode().strip().split("\n")
-    info = ', '.join(output)
+    info = ", ".join(output)
     item = {"name": "kubectl", "version": info}
     return item
 
