@@ -2,12 +2,10 @@ name: Build Python Project and Docker Image
 
 on:
   push:
-    branches:
-      - main
+    branches: ["main", "dev"]
   pull_request:
     types: [opened, edited, synchronize, reopened]
-    branches:
-      - main
+    branches: ["main", "dev"]
   workflow_dispatch:
 
 env:
