@@ -2,24 +2,31 @@ name: Periodic Link Checker
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 permissions:
-    contents: read
-    pull-requests: write
+  contents: read
+  issues: write
 
 jobs:
-    link-checker:
-        runs-on: ubuntu-latest
-        steps:
-            - name: 'Checkout source code'
-              uses: actions/checkout@v3
-            - name: Link Checker
-              id: lychee
-              uses: lycheeverse/lychee-action@v1.5.4
-              with:
-                fail: true
-                args: --verbose --no-progress --exclude-mail --exclude-loopback .
-              env:
-                GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  link-checker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout source code"
+        uses: actions/checkout@v3
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v1.5.4
+        with:
+          args: --verbose --no-progress --max-concurrency 2 --exclude-mail --exclude-loopback './**/*.md'
+          output: ./lychee/out.md
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Create issue when fail
+        uses: peter-evans/create-issue-from-file@v4
+        if: ${{ steps.lychee.outputs.exit_code }} != 0
+        with:
+          title: Link Checker Report
+          content-filepath: ./lychee/out.md
+          labels: broken link, automated issue
