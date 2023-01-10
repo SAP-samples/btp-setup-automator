@@ -4784,7 +4784,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","standard"] },
-                                                    "name": { "description": "Launchpad Service: SAP Launchpad service provides users with a central point of access to applications from different sources. Note: this service is being renamed to SAP Build Work Zone, standard edition in January 2023."}
+                                                    "name": { "description": "SAP Build Work Zone, standard edition : Provides users with a central point of access to applications from different sources. Note: SAP Launchpad service was recently renamed to SAP Build Work Zone, standard edition."}
                                                 },
                                                 "allOf": [
                                                     {
