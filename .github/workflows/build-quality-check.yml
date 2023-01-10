@@ -2,12 +2,10 @@ name: Build Python Project and Docker Image
 
 on:
   push:
-    branches:
-      - main
+    branches: ["main", "dev"]
   pull_request:
     types: [opened, edited, synchronize, reopened]
-    branches:
-      - main
+    branches: ["main", "dev"]
   workflow_dispatch:
 
 env:
@@ -22,7 +20,7 @@ jobs:
       packages: write
     strategy:
       matrix:
-        python-version: [3.10]
+        python-version: ["3.10"]
 
     steps:
       - uses: actions/checkout@v3
