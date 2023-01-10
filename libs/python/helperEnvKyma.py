@@ -1,6 +1,9 @@
 from libs.python.helperGeneric import getTimingsForStatusRequest
 from libs.python.helperJson import convertStringToJson
-from libs.python.helperYaml import build_and_store_service_binding_yaml_from_parameters, build_and_store_service_instance_yaml_from_parameters
+from libs.python.helperYaml import (
+    build_and_store_service_binding_yaml_from_parameters,
+    build_and_store_service_instance_yaml_from_parameters,
+)
 from libs.python.helperCommandExecution import runShellCommand, runShellCommandFlex
 import os
 import sys
@@ -12,16 +15,36 @@ log = logging.getLogger(__name__)
 
 def create_kyma_service(btpUsecase, service):
 
-    filepath = "logs/k8s/service-instance/service-instance-" + \
-        btpUsecase.accountMetadata.get("subaccountid") + "-" + service.instancename + ".yaml"
+    filepath = (
+        "logs/k8s/service-instance/service-instance-"
+        + btpUsecase.accountMetadata.get("subaccountid")
+        + "-"
+        + service.instancename
+        + ".yaml"
+    )
 
     build_and_store_service_instance_yaml_from_parameters(service, filepath)
 
-    command = "kubectl apply -f " + filepath + " -n " + \
-        btpUsecase.k8snamespace + " --kubeconfig " + btpUsecase.kubeconfigpath
-    message = "Create instance >" + service.instancename + "< for service >" + service.name + \
-        "< and plan >" + service.plan + "<" + \
-        " in namespace >" + btpUsecase.k8snamespace + "<"
+    command = (
+        "kubectl apply -f "
+        + filepath
+        + " -n "
+        + btpUsecase.k8snamespace
+        + " --kubeconfig "
+        + btpUsecase.kubeconfigpath
+    )
+    message = (
+        "Create instance >"
+        + service.instancename
+        + "< for service >"
+        + service.name
+        + "< and plan >"
+        + service.plan
+        + "<"
+        + " in namespace >"
+        + btpUsecase.k8snamespace
+        + "<"
+    )
 
     runShellCommandFlex(btpUsecase, command, "INFO", message, True, True)
 
@@ -29,23 +52,40 @@ def create_kyma_service(btpUsecase, service):
 
 
 def createKymaServiceBinding(btpUsecase, service, keyName, keyLabels):
-    filepath = "logs/k8s/service-binding/service-binding-" + \
-        btpUsecase.accountMetadata.get("subaccountid") + ".yaml"
+    filepath = (
+        "logs/k8s/service-binding/service-binding-"
+        + btpUsecase.accountMetadata.get("subaccountid")
+        + ".yaml"
+    )
 
     build_and_store_service_binding_yaml_from_parameters(
-        keyName, service, filepath, keyLabels)
+        keyName, service, filepath, keyLabels
+    )
 
-    command = "kubectl apply -f " + filepath + " -n " + \
-        btpUsecase.k8snamespace + " --kubeconfig " + btpUsecase.kubeconfigpath
-    message = "Create service binding for service instance> " + \
-        service.instancename + " <"
+    command = (
+        "kubectl apply -f "
+        + filepath
+        + " -n "
+        + btpUsecase.k8snamespace
+        + " --kubeconfig "
+        + btpUsecase.kubeconfigpath
+    )
+    message = (
+        "Create service binding for service instance> " + service.instancename + " <"
+    )
 
     p = runShellCommandFlex(btpUsecase, command, "INFO", message, True, True)
 
     if p.returncode == 0:
-        command = "kubectl get ServiceBinding " + keyName + " -n " + \
-            btpUsecase.k8snamespace + " --kubeconfig " + \
-            btpUsecase.kubeconfigpath + " -o json"
+        command = (
+            "kubectl get ServiceBinding "
+            + keyName
+            + " -n "
+            + btpUsecase.k8snamespace
+            + " --kubeconfig "
+            + btpUsecase.kubeconfigpath
+            + " -o json"
+        )
 
         p = runShellCommand(btpUsecase, command, "INFO", None)
 
@@ -57,21 +97,29 @@ def createKymaServiceBinding(btpUsecase, service, keyName, keyLabels):
 
 
 def deleteKymaServiceBindingAndWait(key, service, btpUsecase):
-    deleteKymaServiceBinding(
-        key["keyname"], service["instancename"], btpUsecase)
+    deleteKymaServiceBinding(key["keyname"], service["instancename"], btpUsecase)
 
     search_every_x_seconds, usecaseTimeout = getTimingsForStatusRequest(
-        btpUsecase, service)
+        btpUsecase, service
+    )
     current_time = 0
     while usecaseTimeout > current_time:
-        message = "check if service binding >" + \
-            key["keyname"] + "< for service instance >" + \
-            service["instancename"] + "< is deleted"
-        command = "kubectl get ServiceBinding " + \
-            key["keyname"] + " -n " + btpUsecase.k8snamespace + \
-            " --kubeconfig " + btpUsecase.kubeconfigpath
-        p = runShellCommandFlex(btpUsecase, command,
-                                "CHECK", message, False, False)
+        message = (
+            "check if service binding >"
+            + key["keyname"]
+            + "< for service instance >"
+            + service["instancename"]
+            + "< is deleted"
+        )
+        command = (
+            "kubectl get ServiceBinding "
+            + key["keyname"]
+            + " -n "
+            + btpUsecase.k8snamespace
+            + " --kubeconfig "
+            + btpUsecase.kubeconfigpath
+        )
+        p = runShellCommandFlex(btpUsecase, command, "CHECK", message, False, False)
 
         output = p.stdout.decode()
         err = p.stderr.decode()
@@ -82,21 +130,38 @@ def deleteKymaServiceBindingAndWait(key, service, btpUsecase):
 
 
 def deleteKymaServiceBinding(keyName, instanceName, btpUsecase):
-    command = "kubectl delete ServiceBinding " + keyName + " -n " + \
-        btpUsecase.k8snamespace + " --kubeconfig " + btpUsecase.kubeconfigpath
-    message = "Delete Kyma service binding >" + keyName + \
-        "< for service instance >" + instanceName + "< from subaccount"
+    command = (
+        "kubectl delete ServiceBinding "
+        + keyName
+        + " -n "
+        + btpUsecase.k8snamespace
+        + " --kubeconfig "
+        + btpUsecase.kubeconfigpath
+    )
+    message = (
+        "Delete Kyma service binding >"
+        + keyName
+        + "< for service instance >"
+        + instanceName
+        + "< from subaccount"
+    )
     result = runShellCommand(btpUsecase, command, "INFO", message)
 
     return result
 
 
 def deleteKymaServiceInstance(service, btpUsecase):
-    command = "kubectl delete ServiceInstance " + \
-        service["instancename"] + " -n " + btpUsecase.k8snamespace + \
-        " --kubeconfig " + btpUsecase.kubeconfigpath
-    message = "Delete Kyma service instance >" + \
-        service["instancename"] + "< from subaccount"
+    command = (
+        "kubectl delete ServiceInstance "
+        + service["instancename"]
+        + " -n "
+        + btpUsecase.k8snamespace
+        + " --kubeconfig "
+        + btpUsecase.kubeconfigpath
+    )
+    message = (
+        "Delete Kyma service instance >" + service["instancename"] + "< from subaccount"
+    )
     result = runShellCommand(btpUsecase, command, "INFO", message)
 
     return result
@@ -114,7 +179,10 @@ def extractKymaKubeConfigUrlFromEnvironmentDataEntry(environmentDataEntry):
 def getKymaEnvironmentInfoByClusterName(environmentData, kymaClusterName):
     for entry in environmentData["environmentInstances"]:
         parametersFromEntry = convertStringToJson(entry["parameters"])
-        if entry["environmentType"] == "kyma" and parametersFromEntry["name"] == kymaClusterName:
+        if (
+            entry["environmentType"] == "kyma"
+            and parametersFromEntry["name"] == kymaClusterName
+        ):
             return entry
 
 
@@ -125,17 +193,26 @@ def getKymaEnvironmentStatusFromEnvironmentDataEntry(environmentDataEntry):
 def getKymaEnvironmentIdByClusterName(environmentData, kymaClusterName):
     for entry in environmentData["environmentInstances"]:
         parametersFromEntry = convertStringToJson(entry["parameters"])
-        if entry["environmentType"] == "kyma" and parametersFromEntry["name"] == kymaClusterName:
+        if (
+            entry["environmentType"] == "kyma"
+            and parametersFromEntry["name"] == kymaClusterName
+        ):
             return entry["id"]
 
 
 def get_kyma_service_status(btpUsecase, service):
 
-    command = "kubectl get ServiceInstance " + service.instanceName + " -n " + \
-        btpUsecase.k8snamespace + " --kubeconfig " + \
-        btpUsecase.kubeconfigpath + " | jq .status.ready"
+    command = (
+        "kubectl get ServiceInstance "
+        + service.instanceName
+        + " -n "
+        + btpUsecase.k8snamespace
+        + " --kubeconfig "
+        + btpUsecase.kubeconfigpath
+        + " | jq .status.ready"
+    )
     message = "Get creation status for service instance >" + service.instanceName + "<"
-   
+
     p = runShellCommand(btpUsecase, command, "INFO", message)
 
     if p.stdout.decode() == "TRUE":
@@ -145,9 +222,15 @@ def get_kyma_service_status(btpUsecase, service):
 
 
 def getStatusResponseFromCreatedKymaInstance(btpUsecase, instanceName):
-    command = "kubectl get ServiceInstance " + instanceName + " -n " + \
-        btpUsecase.k8snamespace + " --kubeconfig " + \
-        btpUsecase.kubeconfigpath + " -o json"
+    command = (
+        "kubectl get ServiceInstance "
+        + instanceName
+        + " -n "
+        + btpUsecase.k8snamespace
+        + " --kubeconfig "
+        + btpUsecase.kubeconfigpath
+        + " -o json"
+    )
 
     p = runShellCommand(btpUsecase, command, "INFO", None)
 
@@ -157,10 +240,17 @@ def getStatusResponseFromCreatedKymaInstance(btpUsecase, instanceName):
 
 
 def getKymaServiceDeletionStatus(service, btpUsecase):
-    command = "kubectl get ServiceInstance " + \
-        service["instancename"] + " -n " + btpUsecase.k8snamespace + \
-        " --kubeconfig " + btpUsecase.kubeconfigpath
-    message = "Get deletion status for service instance >" + service["instancename"] + "<"
+    command = (
+        "kubectl get ServiceInstance "
+        + service["instancename"]
+        + " -n "
+        + btpUsecase.k8snamespace
+        + " --kubeconfig "
+        + btpUsecase.kubeconfigpath
+    )
+    message = (
+        "Get deletion status for service instance >" + service["instancename"] + "<"
+    )
 
     p = runShellCommandFlex(btpUsecase, command, "CHECK", message, False, False)
     output = p.stdout.decode()

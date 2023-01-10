@@ -29,16 +29,24 @@ def getUseCaseDataFromDrawIoFile(filename):
             compressed = tree.attrib.get("compressed")
             myDict = None
             if compressed == "true":
-                data = base64.b64decode(tree.find('diagram').text)
+                data = base64.b64decode(tree.find("diagram").text)
                 rawXml = zlib.decompress(data, wbits=-15)
                 xmlData = unquote(rawXml)
                 myDict = xmltodict.parse(xmlData)
 
                 objectModel = myDict.get("mxGraphModel")
-                if objectModel.get("root") and objectModel.get("root").get("object") and objectModel.get("root").get("object").get("@btpsa-usecase"):
+                if (
+                    objectModel.get("root")
+                    and objectModel.get("root").get("object")
+                    and objectModel.get("root").get("object").get("@btpsa-usecase")
+                ):
                     result = objectModel.get("root").get("object").get("@btpsa-usecase")
         else:
-            log.error("can't read the draw.io file >" + filename + "<. As of now only compressed draw.io files are accepted.")
+            log.error(
+                "can't read the draw.io file >"
+                + filename
+                + "<. As of now only compressed draw.io files are accepted."
+            )
             sys.exit(os.EX_DATAERR)
     except Exception as e:
         log.error("please check the draw.io file >" + filename + "<: " + str(e))

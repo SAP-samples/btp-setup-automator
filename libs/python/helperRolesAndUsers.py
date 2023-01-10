@@ -1,4 +1,8 @@
-from libs.python.helperCommandExecution import runCommandAndGetJsonResult, runShellCommandFlex, runShellCommand
+from libs.python.helperCommandExecution import (
+    runCommandAndGetJsonResult,
+    runShellCommandFlex,
+    runShellCommand,
+)
 from libs.python.helperCommandExecution import login_cf
 from libs.python.helperJson import getJsonFromFile
 import logging
@@ -17,16 +21,26 @@ def getMembersForRolecollection(btpUsecase, rolecollection):
                 for member in members:
                     users.append(member)
             else:
-                log.warning("Didn't find any members for user group >" + usergroup +
-                            '<. Check the section "usergroups" in your parameters file >' + btpUsecase.parameterfile + "<")
+                log.warning(
+                    "Didn't find any members for user group >"
+                    + usergroup
+                    + '<. Check the section "usergroups" in your parameters file >'
+                    + btpUsecase.parameterfile
+                    + "<"
+                )
         users = list(dict.fromkeys(users))
     return users
 
 
 def getRoleCollectionsOfServices(btpUsecase):
     # Use case file can be remote, so we need to provide authentication information
-    usecase = getJsonFromFile(btpUsecase.usecasefile, btpUsecase.externalConfigAuthMethod,
-                              btpUsecase.externalConfigUserName, btpUsecase.externalConfigPassword, btpUsecase.externalConfigToken)
+    usecase = getJsonFromFile(
+        btpUsecase.usecasefile,
+        btpUsecase.externalConfigAuthMethod,
+        btpUsecase.externalConfigUserName,
+        btpUsecase.externalConfigPassword,
+        btpUsecase.externalConfigToken,
+    )
     items = []
     if usecase.get("services") is not None:
         for service in usecase.get("services"):
@@ -55,11 +69,21 @@ def getMembersOfUserGroup(btpUsecase, usergroup):
                         members = list(dict.fromkeys(members))
 
             if usergroupExists is False:
-                log.error("you didn't define a usergroup >" + usergroup + "< in your parameters file >" +
-                          btpUsecase.parameterfile + "<. Therefore no members where found.")
+                log.error(
+                    "you didn't define a usergroup >"
+                    + usergroup
+                    + "< in your parameters file >"
+                    + btpUsecase.parameterfile
+                    + "<. Therefore no members where found."
+                )
         else:
-            log.warning("didn't find user group >" + usergroup +
-                        "< as no usergroups defined in your parameters file >" + btpUsecase.parameterfile + "<")
+            log.warning(
+                "didn't find user group >"
+                + usergroup
+                + "< as no usergroups defined in your parameters file >"
+                + btpUsecase.parameterfile
+                + "<"
+            )
 
     return members
 
@@ -73,7 +97,8 @@ def assignUsergroupsToRoleCollection(btpUsecase, rolecollection):
 
     if roleCollectionIsList:
         assignedUserGroupsFromParameterFile = rolecollection.get(
-            "assignedUserGroupsFromParameterFile")
+            "assignedUserGroupsFromParameterFile"
+        )
 
         idp = determineIdpForRoleCollection(btpUsecase, rolecollection)
 
@@ -81,24 +106,34 @@ def assignUsergroupsToRoleCollection(btpUsecase, rolecollection):
             members = getMembersOfUserGroup(btpUsecase, usergroup)
             if members:
                 rolecollectioname = rolecollection.get("name")
-                log.info("assign users the role collection >" +
-                         rolecollectioname + "<")
+                log.info("assign users the role collection >" + rolecollectioname + "<")
                 for userEmail in members:
                     message = " - user >" + userEmail + "<"
-                    command = "btp --format json assign security/role-collection '" + rolecollectioname + "' --to-user '" + userEmail + \
-                        "' --create-user-if-missing --subaccount '" + subaccountid + "'"
+                    command = (
+                        "btp --format json assign security/role-collection '"
+                        + rolecollectioname
+                        + "' --to-user '"
+                        + userEmail
+                        + "' --create-user-if-missing --subaccount '"
+                        + subaccountid
+                        + "'"
+                    )
                     if idp is not None:
                         command += " --of-idp '" + idp + "'"
                     thisResult = runCommandAndGetJsonResult(
-                        btpUsecase, command, "INFO", message)
+                        btpUsecase, command, "INFO", message
+                    )
                     thisResult = thisResult
     if roleCollectionIsString:
         log.warning(
-            "YOU ARE USING A LEGACY CONFIGURATION FOR ASSIGING USERS TO ROLE COLLECTIONS!")
+            "YOU ARE USING A LEGACY CONFIGURATION FOR ASSIGING USERS TO ROLE COLLECTIONS!"
+        )
         log.warning(
-            "Please change your parameters file and your usecase file accordingly.")
+            "Please change your parameters file and your usecase file accordingly."
+        )
         log.warning(
-            "Checkout the default parameters file and the other released use cases to understand how to do it.")
+            "Checkout the default parameters file and the other released use cases to understand how to do it."
+        )
 
 
 def getRoleCollectionsOfTypeAndLevel(btpUsecase, type, level):
@@ -135,7 +170,8 @@ def assignUsersToGlobalAndSubaccount(btpUsecase):
 
     log.header("Set administrators for BTP global account")
     rolecollectionsGlobalAccount = getRoleCollectionsOfTypeAndLevel(
-        btpUsecase, "account", "global account")
+        btpUsecase, "account", "global account"
+    )
     if rolecollectionsGlobalAccount:
         for rolecollection in rolecollectionsGlobalAccount:
             members = getMembersForRolecollection(btpUsecase, rolecollection)
@@ -145,16 +181,21 @@ def assignUsersToGlobalAndSubaccount(btpUsecase):
             idp = determineIdpForRoleCollection(btpUsecase, rolecollection)
             for userEmail in members:
                 message = " - assign user >" + userEmail + "<"
-                command = "btp --format json assign security/role-collection '" + \
-                    role + "' --to-user '" + userEmail + "' --create-user-if-missing -ga"
+                command = (
+                    "btp --format json assign security/role-collection '"
+                    + role
+                    + "' --to-user '"
+                    + userEmail
+                    + "' --create-user-if-missing -ga"
+                )
                 if idp is not None:
                     command += " --of-idp '" + idp + "'"
-                runCommandAndGetJsonResult(
-                    btpUsecase, command, "INFO", message)
+                runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
 
     log.header("Set administrators for sub account")
     rolecollectionsSubAccount = getRoleCollectionsOfTypeAndLevel(
-        btpUsecase, "account", "sub account")
+        btpUsecase, "account", "sub account"
+    )
     if rolecollectionsSubAccount:
         for rolecollection in rolecollectionsSubAccount:
             members = getMembersForRolecollection(btpUsecase, rolecollection)
@@ -164,49 +205,72 @@ def assignUsersToGlobalAndSubaccount(btpUsecase):
             idp = determineIdpForRoleCollection(btpUsecase, rolecollection)
             for userEmail in members:
                 message = " - assign user >" + userEmail + "<"
-                command = "btp --format json assign security/role-collection '" + role + "' --to-user '" + \
-                    userEmail + "' --create-user-if-missing --subaccount '" + subaccountid + "'"
+                command = (
+                    "btp --format json assign security/role-collection '"
+                    + role
+                    + "' --to-user '"
+                    + userEmail
+                    + "' --create-user-if-missing --subaccount '"
+                    + subaccountid
+                    + "'"
+                )
                 if idp is not None:
                     command += " --of-idp '" + idp + "'"
-                runCommandAndGetJsonResult(
-                    btpUsecase, command, "INFO", message)
+                runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
 
 
 def assignUsersToCustomRoleCollections(btpUsecase):
 
     subaccountid = btpUsecase.subaccountid
 
-    rolecollectionsCustom = getRoleCollectionsOfTypeAndLevel(
-        btpUsecase, "custom", None)
+    rolecollectionsCustom = getRoleCollectionsOfTypeAndLevel(btpUsecase, "custom", None)
     if rolecollectionsCustom:
         for rolecollection in rolecollectionsCustom:
             members = getMembersForRolecollection(btpUsecase, rolecollection)
             rolecollectioname = rolecollection.get("name")
-            log.info("assign users to custom role collection >" +
-                     rolecollectioname + "<")
+            log.info(
+                "assign users to custom role collection >" + rolecollectioname + "<"
+            )
 
-            message = "Check if role collection >" + rolecollectioname + "< already exists"
+            message = (
+                "Check if role collection >" + rolecollectioname + "< already exists"
+            )
             command = "btp get security/role-collection '" + rolecollectioname + "'"
-            p = runShellCommandFlex(
-                btpUsecase, command, "INFO", message, False, False)
+            p = runShellCommandFlex(btpUsecase, command, "INFO", message, False, False)
             result = p.stdout.decode()
             if not result:
                 errormessage = p.stderr.decode()
                 if "error: No entity found with values" in errormessage:
                     message = "Assign role collection >" + rolecollectioname
-                    command = "btp create security/role-collection '" + rolecollectioname + \
-                        "' --description  '" + rolecollectioname + \
-                        "' --subaccount '" + subaccountid + "'"
+                    command = (
+                        "btp create security/role-collection '"
+                        + rolecollectioname
+                        + "' --description  '"
+                        + rolecollectioname
+                        + "' --subaccount '"
+                        + subaccountid
+                        + "'"
+                    )
                     runShellCommand(btpUsecase, command, "INFO", message)
 
                     if rolecollection["assignedRoles"]:
                         # Get role data from btp for subaccount
-                        command = "btp --format json list security/role --subaccount '" + subaccountid + "'"
+                        command = (
+                            "btp --format json list security/role --subaccount '"
+                            + subaccountid
+                            + "'"
+                        )
                         roleSecDataJson = runCommandAndGetJsonResult(
-                            btpUsecase, command, "INFO", "Get roles for subaccount")
+                            btpUsecase, command, "INFO", "Get roles for subaccount"
+                        )
 
                     for role in rolecollection["assignedRoles"]:
-                        message = "Assign role " + role + " to role collection " + rolecollectioname
+                        message = (
+                            "Assign role "
+                            + role
+                            + " to role collection "
+                            + rolecollectioname
+                        )
 
                         roleAppId = None
                         roleTemplate = None
@@ -219,15 +283,25 @@ def assignUsersToCustomRoleCollections(btpUsecase):
                                 break
 
                         if roleAppId is None or roleTemplate is None:
-                            log.error(
-                                "Could not find role data for role " + role)
+                            log.error("Could not find role data for role " + role)
                             break
 
-                        command = "btp add security/role '" + role + "' --to-role-collection  '" + rolecollectioname + \
-                            "' --of-role-template '" + roleTemplate + "' --of-app '" + \
-                            roleAppId + "' --subaccount '" + subaccountid + "'"
+                        command = (
+                            "btp add security/role '"
+                            + role
+                            + "' --to-role-collection  '"
+                            + rolecollectioname
+                            + "' --of-role-template '"
+                            + roleTemplate
+                            + "' --of-app '"
+                            + roleAppId
+                            + "' --subaccount '"
+                            + subaccountid
+                            + "'"
+                        )
                         p = runShellCommandFlex(
-                            btpUsecase, command, "INFO", message, False, False)
+                            btpUsecase, command, "INFO", message, False, False
+                        )
                         resultErr = p.stderr.decode()
                         resultSuc = p.stdout.decode()
                         if resultErr and "OK" in resultErr:
@@ -241,14 +315,25 @@ def assignUsersToCustomRoleCollections(btpUsecase):
             idp = determineIdpForRoleCollection(btpUsecase, rolecollection)
 
             for userEmail in members:
-                message = "assign user >" + userEmail + \
-                    "< the role collection >" + rolecollectioname + "<"
-                command = "btp --format json assign security/role-collection '" + rolecollectioname + "' --to-user '" + userEmail + \
-                    "' --create-user-if-missing --subaccount '" + subaccountid + "'"
+                message = (
+                    "assign user >"
+                    + userEmail
+                    + "< the role collection >"
+                    + rolecollectioname
+                    + "<"
+                )
+                command = (
+                    "btp --format json assign security/role-collection '"
+                    + rolecollectioname
+                    + "' --to-user '"
+                    + userEmail
+                    + "' --create-user-if-missing --subaccount '"
+                    + subaccountid
+                    + "'"
+                )
                 if idp is not None:
                     command += " --of-idp '" + idp + "'"
-                runCommandAndGetJsonResult(
-                    btpUsecase, command, "INFO", message)
+                runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
 
 
 def assignUsersToRoleCollectionsForServices(btpUsecase):
@@ -273,52 +358,72 @@ def assignUsersToEnvironments(btpUsecase):
                 cfspacename = btpUsecase.cfspacename
 
                 rolecollectionsCloudFoundryOrg = getRoleCollectionsOfTypeAndLevel(
-                    btpUsecase, "cloudfoundry", "org")
+                    btpUsecase, "cloudfoundry", "org"
+                )
                 if rolecollectionsCloudFoundryOrg:
                     log.header("Set members for Cloudfoundry org")
                     for rolecollection in rolecollectionsCloudFoundryOrg:
                         members = getMembersForRolecollection(
-                            btpUsecase, rolecollection)
-                        idp = determineIdpForRoleCollection(
-                            btpUsecase, rolecollection)
+                            btpUsecase, rolecollection
+                        )
+                        idp = determineIdpForRoleCollection(btpUsecase, rolecollection)
                         orgRole = rolecollection.get("name")
                         log.info("assign users to org role >" + orgRole + "<")
                         for user in members:
                             message = " - user >" + user + "<"
-                            command = "cf set-org-role '" + user + "' '" + org + "' '" + orgRole + "'"
+                            command = (
+                                "cf set-org-role '"
+                                + user
+                                + "' '"
+                                + org
+                                + "' '"
+                                + orgRole
+                                + "'"
+                            )
                             if idp is not None:
                                 command += " --origin '" + idp + "'"
                             p = runShellCommandFlex(
-                                btpUsecase, command, "INFO", message, False, False)
-                            result = ''.join(p.stdout.decode().splitlines())
+                                btpUsecase, command, "INFO", message, False, False
+                            )
+                            result = "".join(p.stdout.decode().splitlines())
                             if "FAILED" in result:
-                                error = ''.join(p.stderr.decode().splitlines())
+                                error = "".join(p.stderr.decode().splitlines())
                                 log.error(result)
                                 log.error(error)
 
                 rolecollectionsCloudFoundrySpace = getRoleCollectionsOfTypeAndLevel(
-                    btpUsecase, "cloudfoundry", "space")
+                    btpUsecase, "cloudfoundry", "space"
+                )
                 if rolecollectionsCloudFoundrySpace:
                     log.header("Set members for Cloudfoundry space")
                     for rolecollection in rolecollectionsCloudFoundrySpace:
                         members = getMembersForRolecollection(
-                            btpUsecase, rolecollection)
-                        idp = determineIdpForRoleCollection(
-                            btpUsecase, rolecollection)
+                            btpUsecase, rolecollection
+                        )
+                        idp = determineIdpForRoleCollection(btpUsecase, rolecollection)
                         spaceRole = rolecollection.get("name")
-                        log.info("assign users to space role >" +
-                                 spaceRole + "<")
+                        log.info("assign users to space role >" + spaceRole + "<")
                         for user in members:
                             message = " - user >" + user + "<"
-                            command = "cf set-space-role '" + user + "' '" + \
-                                org + "' '" + cfspacename + "' '" + spaceRole + "'"
+                            command = (
+                                "cf set-space-role '"
+                                + user
+                                + "' '"
+                                + org
+                                + "' '"
+                                + cfspacename
+                                + "' '"
+                                + spaceRole
+                                + "'"
+                            )
                             if idp is not None:
                                 command += " --origin '" + idp + "'"
                             p = runShellCommandFlex(
-                                btpUsecase, command, "INFO", message, False, False)
-                            result = ''.join(p.stdout.decode().splitlines())
+                                btpUsecase, command, "INFO", message, False, False
+                            )
+                            result = "".join(p.stdout.decode().splitlines())
                             if "FAILED" in result:
-                                error = ''.join(p.stderr.decode().splitlines())
+                                error = "".join(p.stderr.decode().splitlines())
                                 log.error(result)
                                 log.error(error)
 

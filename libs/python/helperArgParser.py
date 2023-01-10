@@ -40,32 +40,55 @@ def setupParams(myArguments):
 
             if type == "string":
                 if "acceptedvalues" in value:
-                    parser.add_argument('-' + argument, type=str, help=help, choices=value["acceptedvalues"])
+                    parser.add_argument(
+                        "-" + argument,
+                        type=str,
+                        help=help,
+                        choices=value["acceptedvalues"],
+                    )
                 else:
-                    parser.add_argument('-' + argument, type=str, help=help)
+                    parser.add_argument("-" + argument, type=str, help=help)
             if type == "boolean":
-                parser.add_argument('-' + argument, type=bool, help=help)
+                parser.add_argument("-" + argument, type=bool, help=help)
             if type == "integer":
-                parser.add_argument('-' + argument, type=int, help=help)
+                parser.add_argument("-" + argument, type=int, help=help)
             if type == "object":
-                parser.add_argument('-' + argument, type=str, help=help)
+                parser.add_argument("-" + argument, type=str, help=help)
             if type == "array":
-                parser.add_argument('-' + argument, type=str, help=help)
+                parser.add_argument("-" + argument, type=str, help=help)
 
         args = parser.parse_args()
         parameterfile = None
         if args.parameterfile is not None and args.parameterfile != "":
             parameterfile = args.parameterfile
         else:
-            parameterfile = getDefaultValueForParameter(allJsonParameters, "parameterfile")
+            parameterfile = getDefaultValueForParameter(
+                allJsonParameters, "parameterfile"
+            )
 
         if parameterfile is not None and parameterfile != "":
             # Distinguish remote access when provisioning of parameters is done via CLI
-            if args.externalConfigAuthMethod == "basicAuthentication" and args.externalConfigUserName is not None and args.externalConfigPassword is not None:
-                myParameters = getJsonFromFile(filename=parameterfile, externalConfigAuthMethod=args.externalConfigAuthMethod, externalConfigUserName=args.externalConfigUserName, externalConfigPassword=args.externalConfigPassword)
-            elif args.externalConfigAuthMethod == "token" and args.externalConfigToken is not None: 
-                myParameters = getJsonFromFile(filename=parameterfile, externalConfigAuthMethod=args.externalConfigAuthMethod, externalConfigToken=args.externalConfigToken)
-            else:   
+            if (
+                args.externalConfigAuthMethod == "basicAuthentication"
+                and args.externalConfigUserName is not None
+                and args.externalConfigPassword is not None
+            ):
+                myParameters = getJsonFromFile(
+                    filename=parameterfile,
+                    externalConfigAuthMethod=args.externalConfigAuthMethod,
+                    externalConfigUserName=args.externalConfigUserName,
+                    externalConfigPassword=args.externalConfigPassword,
+                )
+            elif (
+                args.externalConfigAuthMethod == "token"
+                and args.externalConfigToken is not None
+            ):
+                myParameters = getJsonFromFile(
+                    filename=parameterfile,
+                    externalConfigAuthMethod=args.externalConfigAuthMethod,
+                    externalConfigToken=args.externalConfigToken,
+                )
+            else:
                 myParameters = getJsonFromFile(filename=parameterfile)
 
             for key in myParameters:
@@ -78,9 +101,14 @@ def setupParams(myArguments):
                     valueInParametersFile = myParameters[key]
 
                 valueToSet = None
-                valueDefaultFromParamJson = getDefaultValueForParameter(allJsonParameters, key)
+                valueDefaultFromParamJson = getDefaultValueForParameter(
+                    allJsonParameters, key
+                )
 
-                if valueThroughDirectParameter is not None and valueThroughDirectParameter != "":
+                if (
+                    valueThroughDirectParameter is not None
+                    and valueThroughDirectParameter != ""
+                ):
                     valueToSet = valueThroughDirectParameter
                 else:
                     valueToSet = valueInParametersFile
@@ -127,7 +155,13 @@ def setupParamsBtpsa():
 
 
 def checkProvidedArguments(btpUsecase):
-    usecaseInfo = getJsonFromFile(btpUsecase.usecasefile, externalConfigAuthMethod=btpUsecase.externalConfigAuthMethod, externalConfigUserName=btpUsecase.externalConfigUserName, externalConfigPassword=btpUsecase.externalConfigPassword, externalConfigToken=btpUsecase.externalConfigToken)
+    usecaseInfo = getJsonFromFile(
+        btpUsecase.usecasefile,
+        externalConfigAuthMethod=btpUsecase.externalConfigAuthMethod,
+        externalConfigUserName=btpUsecase.externalConfigUserName,
+        externalConfigPassword=btpUsecase.externalConfigPassword,
+        externalConfigToken=btpUsecase.externalConfigToken,
+    )
     if "aboutThisUseCase" in usecaseInfo:
         info = usecaseInfo["aboutThisUseCase"]
         log.header("Info about use case to be executed")
@@ -151,7 +185,11 @@ def checkProvidedArguments(btpUsecase):
             if paramValue is not None and len(paramValue) > 0:
                 btpUsecase.myemail = paramValue
             else:
-                log.error("env variable " + param + " for parameter >myemail< was not set. Please set it, or change loginmethod")
+                log.error(
+                    "env variable "
+                    + param
+                    + " for parameter >myemail< was not set. Please set it, or change loginmethod"
+                )
                 sys.exit(os.EX_DATAERR)
 
         if btpUsecase.mypassword is None or btpUsecase.mypassword == "":
@@ -160,7 +198,11 @@ def checkProvidedArguments(btpUsecase):
             if paramValue is not None and len(paramValue) > 0:
                 btpUsecase.mypassword = paramValue
             else:
-                log.error("env variable " + param + " for parameter >mypassword< was not set. Please set it, or change loginmethod")
+                log.error(
+                    "env variable "
+                    + param
+                    + " for parameter >mypassword< was not set. Please set it, or change loginmethod"
+                )
                 sys.exit(os.EX_DATAERR)
 
         if btpUsecase.globalaccount is None or btpUsecase.globalaccount == "":
@@ -169,28 +211,42 @@ def checkProvidedArguments(btpUsecase):
             if paramValue is not None and len(paramValue) > 0:
                 btpUsecase.globalaccount = paramValue
             else:
-                log.error("env variable " + param + " for parameter >globalaccount< was not set. Please set it, or change loginmethod")
+                log.error(
+                    "env variable "
+                    + param
+                    + " for parameter >globalaccount< was not set. Please set it, or change loginmethod"
+                )
                 sys.exit(os.EX_DATAERR)
 
     if btpUsecase.loginmethod == "basicAuthentication":
         # Check CREDENTIALS: EMAIL
         while btpUsecase.myemail is None or btpUsecase.myemail == "":
             log.warning("EMAIL ADDRESS MISSING")
-            inputMessage = "                      " + "\033[38;5;51m" + \
-                "Please enter your email address (hit Enter when done):"
+            inputMessage = (
+                "                      "
+                + "\033[38;5;51m"
+                + "Please enter your email address (hit Enter when done):"
+            )
             value = checkUserInput(inputMessage, "text")
             if value is not None:
                 btpUsecase.myemail = value
                 addKeyValuePairToJsonFile(btpUsecase.parameterfile, "myemail", value)
-                log.success("added your email address into your parameters file >" + btpUsecase.parameterfile + "<")
+                log.success(
+                    "added your email address into your parameters file >"
+                    + btpUsecase.parameterfile
+                    + "<"
+                )
             else:
                 btpUsecase.myemail = ""
 
         # INPUT CREDENTIALS: PASSWORD
         while btpUsecase.mypassword is None or btpUsecase.mypassword == "":
             log.warning("YOU NEED TO PROVIDE YOUR BTP PASSWORD")
-            inputMessage = "                      " + "\033[38;5;51m" + \
-                "Please enter your BTP password (hit Enter when done):"
+            inputMessage = (
+                "                      "
+                + "\033[38;5;51m"
+                + "Please enter your BTP password (hit Enter when done):"
+            )
             value = checkUserInput(inputMessage, "password")
             if value is not None:
                 btpUsecase.mypassword = value
@@ -199,14 +255,25 @@ def checkProvidedArguments(btpUsecase):
 
     # Check GLOBAL ACCOUNT SUBDOMAIN
     while btpUsecase.globalaccount is None or btpUsecase.globalaccount == "":
-        log.warning("GLOBAL ACCOUNT SUBDOMAIN MISSING in your parameter file >" + btpUsecase.parameterfile + "<")
-        inputMessage = "                      " + "\033[38;5;51m" + \
-            "Please enter your global account subdomain (hit Enter when done):"
+        log.warning(
+            "GLOBAL ACCOUNT SUBDOMAIN MISSING in your parameter file >"
+            + btpUsecase.parameterfile
+            + "<"
+        )
+        inputMessage = (
+            "                      "
+            + "\033[38;5;51m"
+            + "Please enter your global account subdomain (hit Enter when done):"
+        )
         value = checkUserInput(inputMessage, "text")
         if value is not None:
             btpUsecase.globalaccount = value
             addKeyValuePairToJsonFile(btpUsecase.parameterfile, "globalaccount", value)
-            log.success("added your global account subdomain into your parameters file >" + btpUsecase.parameterfile + "<")
+            log.success(
+                "added your global account subdomain into your parameters file >"
+                + btpUsecase.parameterfile
+                + "<"
+            )
         else:
             btpUsecase.globalaccount = ""
 

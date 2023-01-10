@@ -1,8 +1,16 @@
 import os
 import sys
-from libs.python.helperCommandExecution import runShellCommand, runCommandAndGetJsonResult, runShellCommandFlex
+from libs.python.helperCommandExecution import (
+    runShellCommand,
+    runCommandAndGetJsonResult,
+    runShellCommandFlex,
+)
 from libs.python.helperGeneric import getTimingsForStatusRequest
-from libs.python.helperJson import convertCloudFoundryCommandForSingleServiceToJson, convertStringToJson, dictToString
+from libs.python.helperJson import (
+    convertCloudFoundryCommandForSingleServiceToJson,
+    convertStringToJson,
+    dictToString,
+)
 import time
 import logging
 
@@ -27,19 +35,29 @@ def get_cf_service_key(btpUsecase, instanceName, keyName):
     result = None
 
     command = "cf create-service-key '" + instanceName + "' '" + keyName + "'"
-    message = "create service key from XSUAA instance >" + \
-        instanceName + "< for keyname >" + keyName + "<"
+    message = (
+        "create service key from XSUAA instance >"
+        + instanceName
+        + "< for keyname >"
+        + keyName
+        + "<"
+    )
     p = runShellCommand(btpUsecase, command, "INFO", message)
     returnCode = p.returncode
 
     if returnCode == 0:
         command = "cf service-key '" + instanceName + "' '" + keyName + "'"
-        message = "get service key for instance >" + \
-            instanceName + "< and keyname >" + keyName + "<"
+        message = (
+            "get service key for instance >"
+            + instanceName
+            + "< and keyname >"
+            + keyName
+            + "<"
+        )
         response = runShellCommand(btpUsecase, command, "CHECK", message)
         # Delete the first 2 lines of the CF result string as they don't contain json data
         result = response.stdout.decode()
-        result = result.split('\n', 2)[-1]
+        result = result.split("\n", 2)[-1]
         result = convertStringToJson(result)
     else:
         log.error("can't create service key!")
@@ -51,18 +69,21 @@ def deleteCFServiceKeysAndWait(key, service, btpUsecase):
     delete_cf_service_key(btpUsecase, service["instancename"], key["keyname"])
 
     search_every_x_seconds, usecaseTimeout = getTimingsForStatusRequest(
-        btpUsecase, service)
+        btpUsecase, service
+    )
     current_time = 0
     while usecaseTimeout > current_time:
-        command = "cf service-key '" + \
-            service["instancename"] + "' " + key["keyname"]
+        command = "cf service-key '" + service["instancename"] + "' " + key["keyname"]
         # Calling the command with the goal to get back the "FAILED" status, as this means that the service key was not found (because deletion was successfull)
         # If the status is not "FAILED", this means that the deletion hasn't been finished so far
-        message = "check if service key >" + \
-            key["keyname"] + "< for service instance >" + \
-            service["instancename"] + "< is deleted"
-        p = runShellCommandFlex(btpUsecase, command,
-                                "CHECK", message, False, False)
+        message = (
+            "check if service key >"
+            + key["keyname"]
+            + "< for service instance >"
+            + service["instancename"]
+            + "< is deleted"
+        )
+        p = runShellCommandFlex(btpUsecase, command, "CHECK", message, False, False)
         result = p.stdout.decode()
         if "FAILED" in result:
             usecaseTimeout = current_time - 1
@@ -72,15 +93,21 @@ def deleteCFServiceKeysAndWait(key, service, btpUsecase):
 
 def delete_cf_service_key(btpUsecase, instanceName, keyName):
     command = "cf delete-service-key '" + instanceName + "' '" + keyName + "' -f"
-    message = "delete service key from instance >" + \
-        instanceName + "< for key >" + keyName + "<"
+    message = (
+        "delete service key from instance >"
+        + instanceName
+        + "< for key >"
+        + keyName
+        + "<"
+    )
     runShellCommand(btpUsecase, command, "INFO", message)
 
 
 def deleteCFServiceInstance(service, btpUsecase):
     command = "cf delete-service '" + service["instancename"] + "' -f"
-    message = "Delete CF service instance >" + \
-        service["instancename"] + "< from subaccount"
+    message = (
+        "Delete CF service instance >" + service["instancename"] + "< from subaccount"
+    )
     result = runShellCommand(btpUsecase, command, "INFO", message)
 
     return result
@@ -91,8 +118,11 @@ def checkIfCFEnvironmentAlreadyExists(btpUsecase):
     orgid = None
     org = None
 
-    command = "btp --format json list account/environment-instance --subaccount '" + \
-        accountMetadata["subaccountid"] + "'"
+    command = (
+        "btp --format json list account/environment-instance --subaccount '"
+        + accountMetadata["subaccountid"]
+        + "'"
+    )
     result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", None)
 
     if "orgid" in accountMetadata:
@@ -100,7 +130,10 @@ def checkIfCFEnvironmentAlreadyExists(btpUsecase):
 
     # If the for loop didn't return any value, the orgid wasn't found
     for instance in result["environmentInstances"]:
-        if instance["subaccountGUID"] == btpUsecase.subaccountid and instance["environmentType"] == "cloudfoundry":
+        if (
+            instance["subaccountGUID"] == btpUsecase.subaccountid
+            and instance["environmentType"] == "cloudfoundry"
+        ):
             labels = convertStringToJson(instance["labels"])
             org = labels.get("Org Name:")
             if org is None:
@@ -129,12 +162,18 @@ def getCfApiEndpointByUseCase(btpUsecase):
     accountMetadata = btpUsecase.accountMetadata
     cf_api_endpoint = None
 
-    command = "btp --format json list account/environment-instance --subaccount '" + \
-        accountMetadata["subaccountid"] + "'"
+    command = (
+        "btp --format json list account/environment-instance --subaccount '"
+        + accountMetadata["subaccountid"]
+        + "'"
+    )
     result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", None)
 
     for instance in result["environmentInstances"]:
-        if instance["subaccountGUID"] == btpUsecase.subaccountid and instance["environmentType"] == "cloudfoundry":
+        if (
+            instance["subaccountGUID"] == btpUsecase.subaccountid
+            and instance["environmentType"] == "cloudfoundry"
+        ):
             labels = convertStringToJson(instance["labels"])
 
             if labels.get("API Endpoint"):
@@ -153,7 +192,7 @@ def getCfApiEndpointFromLabels(labelsAsJson):
     if labelsAsJson.get("API Endpoint"):
         cf_api_endpoint = labelsAsJson.get("API Endpoint")
     elif labelsAsJson.get("API Endpoint:"):
-        cf_api_endpoint = labelsAsJson.get("API Endpoint:")    
+        cf_api_endpoint = labelsAsJson.get("API Endpoint:")
 
     return cf_api_endpoint
 
@@ -166,7 +205,14 @@ def getStatusResponseFromCreatedInstance(btpUsecase, instancename):
     return jsonResults
 
 
-def try_until_cf_space_done(btpUsecase, command, message, spacename, search_every_x_seconds, timeout_after_x_seconds):
+def try_until_cf_space_done(
+    btpUsecase,
+    command,
+    message,
+    spacename,
+    search_every_x_seconds,
+    timeout_after_x_seconds,
+):
     result = "ERROR"
 
     current_time = 0
@@ -189,7 +235,14 @@ def try_until_cf_space_done(btpUsecase, command, message, spacename, search_ever
     return result
 
 
-def try_until_space_quota_created(btpUsecase, command, message, quotaname, search_every_x_seconds, timeout_after_x_seconds):
+def try_until_space_quota_created(
+    btpUsecase,
+    command,
+    message,
+    quotaname,
+    search_every_x_seconds,
+    timeout_after_x_seconds,
+):
     result = "ERROR"
 
     current_time = 0
@@ -220,16 +273,24 @@ def create_cf_service(btpUsecase, service):
     if service.planCatalogName is not None:
         plan = service.planCatalogName
 
-    command = "cf create-service '" + service.name + \
-        "' '" + plan + "' '" + instancename + "'"
+    command = (
+        "cf create-service '" + service.name + "' '" + plan + "' '" + instancename + "'"
+    )
 
     if service.parameters is not None:
         thisParameter = dictToString(service.parameters)
         command += " -c '" + thisParameter + "'"
     elif service.serviceparameterfile is not None:
         command += f" -c {service.serviceparameterfile}"
-    message = "Create instance >" + instancename + \
-        "< for service >" + service.name + "< and plan >" + plan + "<"
+    message = (
+        "Create instance >"
+        + instancename
+        + "< for service >"
+        + service.name
+        + "< and plan >"
+        + plan
+        + "<"
+    )
     runShellCommand(btpUsecase, command, "INFO", message)
     return service
 
@@ -246,8 +307,7 @@ def cf_cup_service_already_exists(btpUsecase, instance_name):
 
 def create_cf_cup_service(btpUsecase, service):
     instance_name = service.name
-    cfCupServiceAlreadyExists = cf_cup_service_already_exists(
-        btpUsecase, instance_name)
+    cfCupServiceAlreadyExists = cf_cup_service_already_exists(btpUsecase, instance_name)
 
     if cfCupServiceAlreadyExists is False:
         command = "cf cups '" + instance_name + "' "
@@ -256,16 +316,21 @@ def create_cf_cup_service(btpUsecase, service):
             thisParameter = str(service.parameters)
             command += thisParameter
             message = "Create CF cups instance for service >" + instance_name + "<"
-            runShellCommandFlex(btpUsecase, command,
-                                "INFO", message, True, True)
+            runShellCommandFlex(btpUsecase, command, "INFO", message, True, True)
             log.info("created CF cup service >" + instance_name + "<")
         else:
-            message = "missing parameter for the CF cups service >" + \
-                instance_name + "<. Won't create the CF cup service."
+            message = (
+                "missing parameter for the CF cups service >"
+                + instance_name
+                + "<. Won't create the CF cup service."
+            )
             log.warning(message)
     else:
-        log.info("the user provided service >" + instance_name +
-                 "< already exists and won't be created newly.")
+        log.info(
+            "the user provided service >"
+            + instance_name
+            + "< already exists and won't be created newly."
+        )
 
     return service
 
@@ -288,8 +353,7 @@ def get_cf_service_deletion_status(btpUsecase, service):
     command = "cf service '" + instance_name + "'"
     message = "Get deletion status for service instance >" + instance_name + "<"
 
-    p = runShellCommandFlex(btpUsecase, command,
-                            "CHECK", message, False, False)
+    p = runShellCommandFlex(btpUsecase, command, "CHECK", message, False, False)
     result = p.stdout.decode()
     if "delete failed" in result:
         return "delete failed"
@@ -304,7 +368,11 @@ def handleLabelsForCF(btpUsecase):
     # see https://cli.cloudfoundry.org/en-US/v8/set-label.html
 
     for serviceInstance in btpUsecase.accountMetadata.get("createdServiceInstances"):
-        if serviceInstance.get("entitleonly") is not False or serviceInstance.get("category") != "SERVICE" or serviceInstance.get("targetenvironment") != "cloudfoundry":
+        if (
+            serviceInstance.get("entitleonly") is not False
+            or serviceInstance.get("category") != "SERVICE"
+            or serviceInstance.get("targetenvironment") != "cloudfoundry"
+        ):
             # Basic check if service is in scope of attaching labels => Only CF services
             continue
 
@@ -314,16 +382,25 @@ def handleLabelsForCF(btpUsecase):
 
         labelString = transformLabelJsonToCFString(serviceInstance.get("labels"))
 
-        command = "cf set-label service-instance " + serviceInstance.get("instancename") + " " + labelString
-        message = "Set labels for CF service instance >" + serviceInstance.get("instancename") + "<"
+        command = (
+            "cf set-label service-instance "
+            + serviceInstance.get("instancename")
+            + " "
+            + labelString
+        )
+        message = (
+            "Set labels for CF service instance >"
+            + serviceInstance.get("instancename")
+            + "<"
+        )
         runShellCommand(btpUsecase, command, "INFO", message)
 
         # !!! SERVICE KEYS ARE NOT SUPPORTED BY CF API V8!!!
-        #if serviceInstance.get("serviceKeyLabels") is None:
+        # if serviceInstance.get("serviceKeyLabels") is None:
         #    # Check for label that s should be put on service key
         #    continue
 
-        #for serviceKeyLabelEntry in serviceInstance.get("serviceKeyLabels"):
+        # for serviceKeyLabelEntry in serviceInstance.get("serviceKeyLabels"):
         #    labelString = transformLabelJsonToCFString(serviceKeyLabelEntry.get("labels"))
 
         #    command = "cf set-label service-key " + serviceKeyLabelEntry.get("name") + " " + labelString
@@ -334,6 +411,6 @@ def handleLabelsForCF(btpUsecase):
 def transformLabelJsonToCFString(labelJson):
     labelString = ""
     for key in labelJson:
-        value = ' ,'.join(labelJson[key])
+        value = " ,".join(labelJson[key])
         labelString += key + "='" + value + "' "
     return labelString.strip()
