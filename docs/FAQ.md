@@ -252,7 +252,7 @@ You can now download the `kubeconfig`file either via the Kyma dashboard or via t
   * Open the Service Account created by you in the previous step.
   * Download kubeconfig and store it
   
-* Via the script 
+* Via the script
 
   * If using Mac set the execute permission on the file `templates/kubeconfig-sa-mac.sh` and run it:
   
