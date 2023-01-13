@@ -12,7 +12,11 @@ def runTrustFlow(btpUsecase):
 
     if "createdServiceInstances" in accountMetadata:
         for service in accountMetadata["createdServiceInstances"]:
-            if service["name"] == "xsuaa" and service["plan"] == "apiaccess":
+            if (
+                service["name"] == "xsuaa"
+                and service["plan"] == "apiaccess"
+                and service["skipTrustSetupForXSUAA"] is False
+            ):
                 log.info("SETTING UP TRUST")
                 log.header("SETTING UP TRUST")
                 if "instancename" in service and "createdServiceKeys" in service:
