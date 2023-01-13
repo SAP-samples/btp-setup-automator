@@ -24,6 +24,7 @@ unknown
 | `"autoscaler"`                             |             |
 | `"blockchain-services"`                    |             |
 | `"build-workzone-advanced"`                |             |
+| `"build-workzone-standard"`                |             |
 | `"business-entity-recognition"`            |             |
 | `"business-rules"`                         |             |
 | `"c4-distributed-order-management"`        |             |
@@ -119,7 +120,6 @@ unknown
 | `"sap-calm"`                               |             |
 | `"sap-document-information-extraction"`    |             |
 | `"sap-graph"`                              |             |
-| `"scp-launchpad"`                          |             |
 | `"sdm"`                                    |             |
 | `"sdm-repository"`                         |             |
 | `"service-manager"`                        |             |
