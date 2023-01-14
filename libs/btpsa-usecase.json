@@ -804,7 +804,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP Build Work Zone, standard edition : Provides users with a central point of access to applications from different sources. Note: SAP Launchpad service was recently renamed to SAP Build Work Zone, standard edition."}
+                                                    "name": { "description": "SAP Build Work Zone, standard edition: Provides users with a central point of access to applications from different sources. Note: SAP Launchpad service was recently renamed to SAP Build Work Zone, standard edition."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -1062,16 +1062,20 @@
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "service plan >application< for >content-agent< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'ch20', 'name': 'cf-ch20'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'eu30', 'name': 'Europe (Frankfurt)'}\n- {'region': 'in30', 'name': 'India (Mumbai)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
-                                                                
-                                                            }
+                                                                , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_show_form_view": true, "additionalProperties": false, "properties": {"roles": {"default": ["Admin"], "description": "List of Roles for Current Instance", "items": {"enum": ["Admin", "Read", "Import", "Export", "Activities"]}, "minItems": 1, "title": "roles", "type": "array"}}, "type": "object"}
+
+                                                            }, "required" : ["parameters"]
+
                                                         }
                                                     }, {
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "service plan >standard< for >content-agent< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'ch20', 'name': 'cf-ch20'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'eu30', 'name': 'Europe (Frankfurt)'}\n- {'region': 'in30', 'name': 'India (Mumbai)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
-                                                                
-                                                            }
+                                                                , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_show_form_view": true, "additionalProperties": false, "properties": {"roles": {"default": ["Assemble"], "description": "List of Roles for Current Instance", "items": {"const": "Assemble"}, "minItems": 1, "title": "roles", "type": "array"}}, "type": "object"}
+
+                                                            }, "required" : ["parameters"]
+
                                                         }
                                                     }]
                                             }
