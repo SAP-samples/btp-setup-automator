@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value           | Explanation |
-| :-------------- | :---------- |
-| `"application"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"standard"` |             |
 
 ## name
 
-SAP Software-as-a-Service Provisioning service: Service for application providers to register multitenant applications and services.
+SAP Analytics Cloud, embedded edition: With SAP Analytics Cloud, embedded edition, you can build and embed reports, dashboards, and visuals into your business application to make confident decisions. Explore your business data via live connection between your SAP Analytics Cloud tenant and the remote SAP HANA database on SAP Business Technology Platform.
 
 `name`
 

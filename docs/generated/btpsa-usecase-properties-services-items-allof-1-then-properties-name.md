@@ -107,7 +107,6 @@ unknown
 | `"quorum"`                                 |             |
 | `"rabbitmq"`                               |             |
 | `"recommendation-systems-production"`      |             |
-| `"redis"`                                  |             |
 | `"redis-cache"`                            |             |
 | `"responsibility-management-service-beta"` |             |
 | `"responsibilitymanagement-service"`       |             |
