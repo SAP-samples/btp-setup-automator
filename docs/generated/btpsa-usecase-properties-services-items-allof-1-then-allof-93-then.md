@@ -6,8 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-93-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-93-then-allof-1.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -40,11 +38,10 @@ unknown
 | Value        | Explanation |
 | :----------- | :---------- |
 | `"standard"` |             |
-| `"workflow"` |             |
 
 ## name
 
-Process Visibility: Provides end-to-end visibility into processes that run in cloud, on-premise & in hybrid environments
+SAP Build Process Automation: SAP Build Process Automation is a citizen development solution to adapt, improve, and innovate business processes with the low-code/no-code capabilities of SAP Workflow Management and SAP Intelligent RPA.
 
 `name`
 

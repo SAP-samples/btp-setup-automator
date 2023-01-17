@@ -256,8 +256,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-125.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-126.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                |
@@ -304,6 +302,7 @@ unknown
 | `"autoscaler"`                             |             |
 | `"blockchain-services"`                    |             |
 | `"build-workzone-advanced"`                |             |
+| `"build-workzone-standard"`                |             |
 | `"business-entity-recognition"`            |             |
 | `"business-rules"`                         |             |
 | `"c4-distributed-order-management"`        |             |
@@ -386,7 +385,6 @@ unknown
 | `"quorum"`                                 |             |
 | `"rabbitmq"`                               |             |
 | `"recommendation-systems-production"`      |             |
-| `"redis"`                                  |             |
 | `"redis-cache"`                            |             |
 | `"responsibility-management-service-beta"` |             |
 | `"responsibilitymanagement-service"`       |             |
@@ -399,7 +397,6 @@ unknown
 | `"sap-calm"`                               |             |
 | `"sap-document-information-extraction"`    |             |
 | `"sap-graph"`                              |             |
-| `"scp-launchpad"`                          |             |
 | `"sdm"`                                    |             |
 | `"sdm-repository"`                         |             |
 | `"service-manager"`                        |             |

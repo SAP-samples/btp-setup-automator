@@ -9,3 +9,4 @@ unknown
 | Value                  | Explanation |
 | :--------------------- | :---------- |
 | `"connectivity_proxy"` |             |
+| `"lite"`               |             |

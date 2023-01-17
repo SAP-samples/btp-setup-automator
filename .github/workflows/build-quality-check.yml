@@ -1,13 +1,11 @@
 name: Build Python Project and Docker Image
 
-on: 
+on:
   push:
-    branches:
-      - main
+    branches: ["main", "dev"]
   pull_request:
-    types: [opened, edited, synchronize, reopened] 
-    branches: 
-      - main
+    types: [opened, edited, synchronize, reopened]
+    branches: ["main", "dev"]
   workflow_dispatch:
 
 env:
@@ -16,15 +14,13 @@ env:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
     strategy:
       matrix:
-        # Currently only support for Python 3.9, maybe add more later      
-        python-version: [3.9]
+        python-version: ["3.10"]
 
     steps:
       - uses: actions/checkout@v3
@@ -58,7 +54,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
       - name: Build Docker image
-        uses: docker/build-push-action@v3.2.0
+        uses: docker/build-push-action@v3.3.0
         with:
           context: .
           file: ./config/Dockerfile
@@ -66,4 +62,4 @@ jobs:
             BTPSA_VERSION_GIT_ARG=${{ github.sha }}
           push: false
           tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}          
+          labels: ${{ steps.meta.outputs.labels }}

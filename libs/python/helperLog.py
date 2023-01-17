@@ -12,11 +12,11 @@ CHECK = SUCCESS + 1
 COMMAND = CHECK + 1
 
 config = {
-    'USERINPUT': USERINPUT,
-    'HEADER': HEADER,
+    "USERINPUT": USERINPUT,
+    "HEADER": HEADER,
     "SUCCESS": SUCCESS,
     "COMMAND": COMMAND,
-    "CHECK": CHECK
+    "CHECK": CHECK,
 }
 
 
@@ -37,12 +37,15 @@ def set_custom_logging_levels(config={}):
             if self.isEnabledFor(level_num):
                 # Yes, logger takes its '*args' as 'args'.
                 self._log(level_num, message, args, **kws)
+
         _blank.__name__ = level_name.lower()
         return _blank
 
     for level_name, level_num in config.items():
         logging.addLevelName(level_num, level_name.upper())
-        setattr(logging.Logger, level_name.lower(), get_level_func(level_name, level_num))
+        setattr(
+            logging.Logger, level_name.lower(), get_level_func(level_name, level_num)
+        )
 
 
 # Custom formatter
@@ -61,19 +64,83 @@ class MyFormatterStream(logging.Formatter):
     COLOR_WARNING = "\033[38;5;11m"
     COLOR_USERINPUT = "\033[38;5;51m"
 
-    format_HEADER = COLOR_RESET_COLORS + "#" * 100 + "\n# %(msg)s\n" + "#" * 100 + COLOR_RESET_COLORS
-    format_ERROR = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_ERROR + "ERROR      : %(msg)s" + COLOR_RESET_COLORS
-    format_CHECK = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_CHECK + "CHECK      : %(msg)s" + COLOR_RESET_COLORS
-    format_INFO = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_INFO + "INFO       : %(msg)s" + COLOR_RESET_COLORS
-    format_DEBUG = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_INFO + "DEBUG       : %(msg)s" + COLOR_RESET_COLORS
-    format_COMMAND = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_COMMAND + "RUN COMMAND: %(msg)s" + COLOR_RESET_COLORS
-    format_SUCCESS = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_SUCCESS + "SUCCESS    : %(msg)s" + COLOR_RESET_COLORS
-    format_WARNING = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_WARNING + "WARNING    : %(msg)s" + COLOR_RESET_COLORS
-    format_USERINPUT = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_USERINPUT + "INPUT      : %(msg)s" + COLOR_RESET_COLORS
-    format_CRITICAL = COLOR_TIMESTAMP + "[%(asctime)s] " + COLOR_CRITICAL + "CRITICAL     : %(msg)s" + COLOR_RESET_COLORS
+    format_HEADER = (
+        COLOR_RESET_COLORS
+        + "#" * 100
+        + "\n# %(msg)s\n"
+        + "#" * 100
+        + COLOR_RESET_COLORS
+    )
+    format_ERROR = (
+        COLOR_TIMESTAMP
+        + "[%(asctime)s] "
+        + COLOR_ERROR
+        + "ERROR      : %(msg)s"
+        + COLOR_RESET_COLORS
+    )
+    format_CHECK = (
+        COLOR_TIMESTAMP
+        + "[%(asctime)s] "
+        + COLOR_CHECK
+        + "CHECK      : %(msg)s"
+        + COLOR_RESET_COLORS
+    )
+    format_INFO = (
+        COLOR_TIMESTAMP
+        + "[%(asctime)s] "
+        + COLOR_INFO
+        + "INFO       : %(msg)s"
+        + COLOR_RESET_COLORS
+    )
+    format_DEBUG = (
+        COLOR_TIMESTAMP
+        + "[%(asctime)s] "
+        + COLOR_INFO
+        + "DEBUG       : %(msg)s"
+        + COLOR_RESET_COLORS
+    )
+    format_COMMAND = (
+        COLOR_TIMESTAMP
+        + "[%(asctime)s] "
+        + COLOR_COMMAND
+        + "RUN COMMAND: %(msg)s"
+        + COLOR_RESET_COLORS
+    )
+    format_SUCCESS = (
+        COLOR_TIMESTAMP
+        + "[%(asctime)s] "
+        + COLOR_SUCCESS
+        + "SUCCESS    : %(msg)s"
+        + COLOR_RESET_COLORS
+    )
+    format_WARNING = (
+        COLOR_TIMESTAMP
+        + "[%(asctime)s] "
+        + COLOR_WARNING
+        + "WARNING    : %(msg)s"
+        + COLOR_RESET_COLORS
+    )
+    format_USERINPUT = (
+        COLOR_TIMESTAMP
+        + "[%(asctime)s] "
+        + COLOR_USERINPUT
+        + "INPUT      : %(msg)s"
+        + COLOR_RESET_COLORS
+    )
+    format_CRITICAL = (
+        COLOR_TIMESTAMP
+        + "[%(asctime)s] "
+        + COLOR_CRITICAL
+        + "CRITICAL     : %(msg)s"
+        + COLOR_RESET_COLORS
+    )
 
     def __init__(self):
-        super().__init__(fmt=MyFormatterStream.COLOR_TIMESTAMP + "[%(asctime)s] %(msg)s", datefmt="%Y-%m-%d %H:%M:%S", style='%')
+        super().__init__(
+            fmt=MyFormatterStream.COLOR_TIMESTAMP + "[%(asctime)s] %(msg)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
+            style="%",
+        )
 
     def format(self, record):
 
@@ -138,7 +205,11 @@ class MyFormatterFile(logging.Formatter):
     format_CRITICAL = "[%(asctime)s] " + "CRITICAL     : %(msg)s"
 
     def __init__(self):
-        super().__init__(fmt=MyFormatterStream.COLOR_TIMESTAMP + "[%(asctime)s] %(msg)s", datefmt="%Y-%m-%d %H:%M:%S", style='%')
+        super().__init__(
+            fmt=MyFormatterStream.COLOR_TIMESTAMP + "[%(asctime)s] %(msg)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
+            style="%",
+        )
 
     def format(self, record):
 

@@ -1,9 +1,41 @@
 from libs.python.helperCommandExecution import runShellCommand
-from libs.python.helperGeneric import getServiceByServiceName, createInstanceName, getTimingsForStatusRequest
-from libs.python.helperJson import convertCloudFoundryCommandOutputToJson, convertStringToJson
-from libs.python.helperEnvCF import deleteCFServiceInstance, deleteCFServiceKeysAndWait, get_cf_service_deletion_status, get_cf_service_key, get_cf_service_status, create_cf_service, create_cf_cup_service, getStatusResponseFromCreatedInstance
-from libs.python.helperEnvBTP import get_btp_service_status, create_btp_service, getStatusResponseFromCreatedBTPInstance, createBtpServiceBinding, deleteBtpServiceBindingAndWait, deleteBtpServiceInstance, getBtpServiceDeletionStatus
-from libs.python.helperEnvKyma import createKymaServiceBinding, deleteKymaServiceBindingAndWait, deleteKymaServiceInstance, get_kyma_service_status, create_kyma_service, getKymaServiceDeletionStatus, getStatusResponseFromCreatedKymaInstance
+from libs.python.helperGeneric import (
+    getServiceByServiceName,
+    createInstanceName,
+    getTimingsForStatusRequest,
+)
+from libs.python.helperJson import (
+    convertCloudFoundryCommandOutputToJson,
+    convertStringToJson,
+)
+from libs.python.helperEnvCF import (
+    deleteCFServiceInstance,
+    deleteCFServiceKeysAndWait,
+    get_cf_service_deletion_status,
+    get_cf_service_key,
+    get_cf_service_status,
+    create_cf_service,
+    create_cf_cup_service,
+    getStatusResponseFromCreatedInstance,
+)
+from libs.python.helperEnvBTP import (
+    get_btp_service_status,
+    create_btp_service,
+    getStatusResponseFromCreatedBTPInstance,
+    createBtpServiceBinding,
+    deleteBtpServiceBindingAndWait,
+    deleteBtpServiceInstance,
+    getBtpServiceDeletionStatus,
+)
+from libs.python.helperEnvKyma import (
+    createKymaServiceBinding,
+    deleteKymaServiceBindingAndWait,
+    deleteKymaServiceInstance,
+    get_kyma_service_status,
+    create_kyma_service,
+    getKymaServiceDeletionStatus,
+    getStatusResponseFromCreatedKymaInstance,
+)
 import time
 import os
 import sys
@@ -36,7 +68,7 @@ def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
 
         command = "cf services"
         message = "Checking creation status of service instances in Cloud Foundry"
-       
+
         p = runShellCommand(btpUsecase, command, "CHECK", message)
         result = p.stdout.decode()
         jsonResultsCF = convertCloudFoundryCommandOutputToJson(result)
@@ -51,24 +83,42 @@ def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
             status = thisJson.get("last operation")
             servicebroker = thisJson.get("broker")
             for service in btpUsecase.definedServices:
-                if service.name == name and service.plan == plan and service.instancename == instancename and service.successInfoShown is False:
+                if (
+                    service.name == name
+                    and service.plan == plan
+                    and service.instancename == instancename
+                    and service.successInfoShown is False
+                ):
                     if status != "create succeeded" and status != "update succeeded":
                         allServicesCreated = False
                         service.status = "NOT READY"
                         service.successInfoShown = False
                     else:
-                        log.success("Service instance for service >" + service.name +
-                                    "< (plan " + service.plan + ") is now available")
+                        log.success(
+                            "Service instance for service >"
+                            + service.name
+                            + "< (plan "
+                            + service.plan
+                            + ") is now available"
+                        )
                         service.servicebroker = servicebroker
                         service.successInfoShown = True
                         service.status = "create succeeded"
-                        service.statusResponse = getStatusResponseFromCreatedInstanceGen(
-                            btpUsecase, instancename, service)
+                        service.statusResponse = (
+                            getStatusResponseFromCreatedInstanceGen(
+                                btpUsecase, instancename, service
+                            )
+                        )
 
     if kubernetesServices:
 
-        command = "kubectl get ServiceInstance -n " + btpUsecase.k8snamespace + \
-            " --kubeconfig " + btpUsecase.kubeconfigpath + " --output json"
+        command = (
+            "kubectl get ServiceInstance -n "
+            + btpUsecase.k8snamespace
+            + " --kubeconfig "
+            + btpUsecase.kubeconfigpath
+            + " --output json"
+        )
         message = "Checking creation status of service instances in Kyma"
 
         p = runShellCommand(btpUsecase, command, "CHECK", message)
@@ -84,22 +134,37 @@ def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
             instancename = thisJson.get("metadata").get("name")
             status = thisJson.get("status").get("ready")
             for service in btpUsecase.definedServices:
-                if service.name == name and service.plan == plan and service.instancename == instancename and service.successInfoShown is False:
+                if (
+                    service.name == name
+                    and service.plan == plan
+                    and service.instancename == instancename
+                    and service.successInfoShown is False
+                ):
                     if status != "True":
                         allServicesCreated = False
                         service.status = "NOT READY"
                         service.successInfoShown = False
                     else:
-                        log.success("Service instance for service >" + service.name +
-                                    "< (plan " + service.plan + ") is now available")
+                        log.success(
+                            "Service instance for service >"
+                            + service.name
+                            + "< (plan "
+                            + service.plan
+                            + ") is now available"
+                        )
                         service.successInfoShown = True
                         service.status = "create succeeded"
-                        service.statusResponse = getStatusResponseFromCreatedInstanceGen(
-                            btpUsecase, instancename, service)
+                        service.statusResponse = (
+                            getStatusResponseFromCreatedInstanceGen(
+                                btpUsecase, instancename, service
+                            )
+                        )
 
     if otherServices:
-        command = "btp --format json list services/instance --subaccount " + \
-            btpUsecase.accountMetadata.get("subaccountid")
+        command = (
+            "btp --format json list services/instance --subaccount "
+            + btpUsecase.accountMetadata.get("subaccountid")
+        )
         message = "Checking creation status of service instances in BTP"
 
         p = runShellCommand(btpUsecase, command, "CHECK", message)
@@ -115,8 +180,12 @@ def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
                 subaccountId = thisJson.get("context").get("subaccount_id")
                 serviceplanId = thisJson.get("service_plan_id")
 
-                command = "btp --format json get services/plan --id " + \
-                    serviceplanId + " --subaccount " + subaccountId
+                command = (
+                    "btp --format json get services/plan --id "
+                    + serviceplanId
+                    + " --subaccount "
+                    + subaccountId
+                )
 
                 q = runShellCommand(btpUsecase, command, "INFO", None)
 
@@ -125,27 +194,45 @@ def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
                 servicePlanName = jsonResultServicePlan.get("name")
 
                 for service in btpUsecase.definedServices:
-                    if service.id == serviceId and service.plan == servicePlanName and service.instancename == instancename and service.successInfoShown is False:
+                    if (
+                        service.id == serviceId
+                        and service.plan == servicePlanName
+                        and service.instancename == instancename
+                        and service.successInfoShown is False
+                    ):
                         if status != "True":
                             allServicesCreated = False
                             service.status = "NOT READY"
                             service.successInfoShown = False
                         else:
-                            log.success("Service instance for service >" + service.name +
-                                        "< (plan " + service.plan + ") is now available")
+                            log.success(
+                                "Service instance for service >"
+                                + service.name
+                                + "< (plan "
+                                + service.plan
+                                + ") is now available"
+                            )
                             service.successInfoShown = True
                             service.status = "create succeeded"
-                            service.statusResponse = getStatusResponseFromCreatedInstanceGen(
-                                btpUsecase, instancename, service)
+                            service.statusResponse = (
+                                getStatusResponseFromCreatedInstanceGen(
+                                    btpUsecase, instancename, service
+                                )
+                            )
     if allServicesCreated is False:
-        log.info("Not all service instances are available yet. Checking again in " + str(checkIntervalInSeconds) + " seconds.")
-        
+        log.info(
+            "Not all service instances are available yet. Checking again in "
+            + str(checkIntervalInSeconds)
+            + " seconds."
+        )
+
     return allServicesCreated
 
 
 def initiateCreationOfServiceInstances(btpUsecase):
-    createServiceInstances = btpUsecase.definedServices is not None and len(
-        btpUsecase.definedServices) > 0
+    createServiceInstances = (
+        btpUsecase.definedServices is not None and len(btpUsecase.definedServices) > 0
+    )
 
     if createServiceInstances is True:
         log.header("Initiate creation of service instances")
@@ -165,8 +252,11 @@ def initiateCreationOfServiceInstances(btpUsecase):
                 if thisInstanceName == instanceName:
                     counter += 1
             if counter > 1:
-                log.error("there is more than one service with the instance name >" +
-                          instanceName + "<. Please fix that before moving on.")
+                log.error(
+                    "there is more than one service with the instance name >"
+                    + instanceName
+                    + "<. Please fix that before moving on."
+                )
                 sys.exit(os.EX_DATAERR)
 
         serviceInstancesToBeCreated = []
@@ -180,41 +270,79 @@ def initiateCreationOfServiceInstances(btpUsecase):
         for service in serviceInstancesToBeCreated:
             serviceName = service.name
             # Quickly initiate the creation of all service instances (without waiting until they are all created)
-            if service.requiredServices is not None and len(service.requiredServices) > 0:
+            if (
+                service.requiredServices is not None
+                and len(service.requiredServices) > 0
+            ):
                 for requiredService in service.requiredServices:
-                    thisService = getServiceByServiceName(
-                        btpUsecase, requiredService)
+                    thisService = getServiceByServiceName(btpUsecase, requiredService)
                     if thisService is not None:
                         current_time = 0
-                        search_every_x_seconds, usecaseTimeout = getTimingsForStatusRequest(
-                            btpUsecase, thisService)
+                        (
+                            search_every_x_seconds,
+                            usecaseTimeout,
+                        ) = getTimingsForStatusRequest(btpUsecase, thisService)
                         # Wait until thisService has been created and is available
                         while usecaseTimeout > current_time:
                             status = get_service_status(
-                                btpUsecase, thisService, service.targetenvironment)
-                            if (status == "create succeeded" or status == "update succeeded"):
+                                btpUsecase, thisService, service.targetenvironment
+                            )
+                            if (
+                                status == "create succeeded"
+                                or status == "update succeeded"
+                            ):
                                 log.success(
-                                    "service >" + requiredService + "< now ready as pre-requisite for service >" + serviceName + "<")
-                                if service.category == "SERVICE" or service.category == "ELASTIC_SERVICE":
+                                    "service >"
+                                    + requiredService
+                                    + "< now ready as pre-requisite for service >"
+                                    + serviceName
+                                    + "<"
+                                )
+                                if (
+                                    service.category == "SERVICE"
+                                    or service.category == "ELASTIC_SERVICE"
+                                ):
                                     service = createServiceInstance(
-                                        btpUsecase, service, service.targetenvironment, service.category)
+                                        btpUsecase,
+                                        service,
+                                        service.targetenvironment,
+                                        service.category,
+                                    )
                                 else:
                                     log.info(
-                                        "this service >" + serviceName + "< is not of type SERVICE or ELASTIC_SERVICE and a service instance won't be created")
+                                        "this service >"
+                                        + serviceName
+                                        + "< is not of type SERVICE or ELASTIC_SERVICE and a service instance won't be created"
+                                    )
                                     service.status = "create succeeded"
                                 break
                             else:
-                                log.check("waiting for service >" + requiredService + "< (status >" + status +
-                                          "<) to finish as pre-requisite for service >" + serviceName + "< (trying again in " + str(search_every_x_seconds) + "s)")
+                                log.check(
+                                    "waiting for service >"
+                                    + requiredService
+                                    + "< (status >"
+                                    + status
+                                    + "<) to finish as pre-requisite for service >"
+                                    + serviceName
+                                    + "< (trying again in "
+                                    + str(search_every_x_seconds)
+                                    + "s)"
+                                )
 
                             time.sleep(search_every_x_seconds)
                             current_time += search_every_x_seconds
                     else:
-                        log.error("did not find the defined required service >" + requiredService +
-                                  "<, which is a pre-requisite for the service >" + serviceName + "<. Please check your configuration file!")
+                        log.error(
+                            "did not find the defined required service >"
+                            + requiredService
+                            + "<, which is a pre-requisite for the service >"
+                            + serviceName
+                            + "<. Please check your configuration file!"
+                        )
             else:
                 service = createServiceInstance(
-                    btpUsecase, service, service.targetenvironment, service.category)
+                    btpUsecase, service, service.targetenvironment, service.category
+                )
 
 
 def get_service_status(btpUsecase, service, targetEnvironment):
@@ -227,8 +355,7 @@ def get_service_status(btpUsecase, service, targetEnvironment):
     elif targetEnvironment == "sapbtp":
         status = get_btp_service_status(btpUsecase, service)
     else:
-        log.error(
-            "The targetenvironment is not supported ")
+        log.error("The targetenvironment is not supported ")
         sys.exit(os.EX_DATAERR)
 
     return status
@@ -245,8 +372,7 @@ def createServiceInstance(btpUsecase, service, targetEnvironment, serviceCategor
     elif targetEnvironment == "sapbtp":
         service = create_btp_service(btpUsecase, service)
     else:
-        log.error(
-            "The targetenvironment is not supported ")
+        log.error("The targetenvironment is not supported ")
         sys.exit(os.EX_DATAERR)
 
     return service
@@ -256,14 +382,15 @@ def getStatusResponseFromCreatedInstanceGen(btpUsecase, instancename, service):
     statusResponse = None
 
     if service.targetenvironment == "cloudfoundry":
-        statusResponse = getStatusResponseFromCreatedInstance(
-            btpUsecase, instancename)
+        statusResponse = getStatusResponseFromCreatedInstance(btpUsecase, instancename)
     elif service.targetenvironment == "kymaruntime":
         statusResponse = getStatusResponseFromCreatedKymaInstance(
-            btpUsecase, instancename)
+            btpUsecase, instancename
+        )
     elif service.targetenvironment == "sapbtp":
         statusResponse = getStatusResponseFromCreatedBTPInstance(
-            btpUsecase, instancename, service)
+            btpUsecase, instancename, service
+        )
     else:
         log.error("The targetenvironment is not supported ")
         sys.exit(os.EX_DATAERR)
@@ -326,12 +453,16 @@ def createServiceKey(serviceKey, service, btpUsecase):
 
     if targetenvironment == "cloudfoundry":
         statusResponse = get_cf_service_key(
-            btpUsecase, service.instancename, serviceKey)
+            btpUsecase, service.instancename, serviceKey
+        )
     elif targetenvironment == "kymaruntime":
         statusResponse = createKymaServiceBinding(
-            btpUsecase, service, serviceKey, labels)
+            btpUsecase, service, serviceKey, labels
+        )
     elif targetenvironment == "sapbtp":
-        statusResponse = createBtpServiceBinding(btpUsecase, service.id, service.instancename, serviceKey, labels)
+        statusResponse = createBtpServiceBinding(
+            btpUsecase, service.id, service.instancename, serviceKey, labels
+        )
     else:
         log.error("The targetenvironment is not supported ")
         sys.exit(os.EX_DATAERR)

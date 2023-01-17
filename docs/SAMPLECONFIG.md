@@ -229,14 +229,13 @@ btpsa will expose account metadata as environment variables to allow you to refe
 - `$SUBDOMAIN`: Subaccount subdomain
 - `$SUBACCOUNT`: Subaccount name
 
-
 If the usecase involves Kyma, `$KYMAKUBECONFIGURL` is also available (e.g.: `https://kyma-env-broker.cp.kyma.cloud.sap/kubeconfig/<UUID>`).
 
 And for Cloud Foundry:
 
 - `$CFAPIENDPOINT`: e.g.: `https://api.cf.us10-001.hana.ondemand.com`
 - `$ORG`: Org name
-- `$ORGID`: Org ID 
+- `$ORGID`: Org ID
 
 The only environment variable available for `executeBeforeAccountSetup` is `$GLOBAL_ACCOUNT_ID`.
 

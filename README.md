@@ -27,7 +27,7 @@ Started as a small helper for basic SAP BTP setups the tool has grown since its 
 
 - [Overview](./docs/OVERVIEW.md)
 - [Basic setup](./docs/BASIC_SETUP.md) incl. the prerequisites
-- [Detailed walk-though](./docs/README.md)
+- [Detailed walk-through](./docs/README.md)
 - [Detailed configuration](./docs/SAMPLECONFIG.md)
 - [Overview of btpsa parameters](./docs/PARAMETERS_OVERVIEW.md)
 - [FAQ](./docs/FAQ.md)

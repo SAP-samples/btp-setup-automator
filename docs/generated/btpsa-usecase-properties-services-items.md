@@ -35,6 +35,7 @@ all of
 | [requiredServices](#requiredservices)               | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-list-of-services-that-need-to-be-instantiated-before-instantiating-this-service.md "undefined#/properties/services/items/properties/requiredServices") |
 | [serviceKeyLabels](#servicekeylabels)               | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-labels-for-service-keys.md "undefined#/properties/services/items/properties/serviceKeyLabels")                                                         |
 | [serviceparameterfile](#serviceparameterfile)       | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-parameter-file-for-the-service.md "undefined#/properties/services/items/properties/serviceparameterfile")                                              |
+| [skipTrustSetupForXSUAA](#skiptrustsetupforxsuaa)   | `boolean` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-skip-trust-setup-to-idp-for-xsuaa-plan-apiaccess.md "undefined#/properties/services/items/properties/skipTrustSetupForXSUAA")                          |
 | [statusResponse](#statusresponse)                   | `object`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-creation-info.md "undefined#/properties/services/items/properties/statusResponse")                                                                     |
 | [targetenvironment](#targetenvironment)             | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-environment-in-which-the-service-should-be-created.md "undefined#/properties/services/items/properties/targetenvironment")                             |
 
@@ -455,6 +456,24 @@ parameter file for the service in case you want to provide the parameters via a 
 ### serviceparameterfile Type
 
 `string` ([parameter file for the service](btpsa-usecase-properties-services-items-properties-parameter-file-for-the-service.md))
+
+## skipTrustSetupForXSUAA
+
+skip the trust setup to an IdP for XSUAA. Only relevant for the plan apiaccess!
+
+`skipTrustSetupForXSUAA`
+
+*   is optional
+
+*   Type: `boolean` ([skip trust setup to IdP for XSUAA (plan apiaccess)](btpsa-usecase-properties-services-items-properties-skip-trust-setup-to-idp-for-xsuaa-plan-apiaccess.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-properties-skip-trust-setup-to-idp-for-xsuaa-plan-apiaccess.md "undefined#/properties/services/items/properties/skipTrustSetupForXSUAA")
+
+### skipTrustSetupForXSUAA Type
+
+`boolean` ([skip trust setup to IdP for XSUAA (plan apiaccess)](btpsa-usecase-properties-services-items-properties-skip-trust-setup-to-idp-for-xsuaa-plan-apiaccess.md))
 
 ## statusResponse
 

@@ -333,6 +333,12 @@
                         "description": "parameter file for the service in case you want to provide the parameters via a file",
                         "title": "parameter file for the service"
                     },
+                    "skipTrustSetupForXSUAA": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "skip the trust setup to an IdP for XSUAA. Only relevant for the plan apiaccess!",
+                        "title": "skip trust setup to IdP for XSUAA (plan apiaccess)"
+                    },
                     "statusResponse": {
                         "type": "object",
                         "description": "information that is available only durng the execution of the script (should not be set in the usecase.json file)",

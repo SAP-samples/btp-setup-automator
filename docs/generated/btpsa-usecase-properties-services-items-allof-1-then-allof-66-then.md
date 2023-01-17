@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Content: Mobile Content
+Mobile App Update: Mobile App Update
 
 `name`
 

@@ -11,7 +11,7 @@ ENV TOOLS_URL=tools.hana.ondemand.com
 ENV CPCLI_URL=cpcli.cf.eu10.hana.ondemand.com
 
 ## Install necessary packages to donwload and install tools
-RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
+RUN echo "http://dl-4.alpinelinux.org/alpine/latest-stable/community" >> /etc/apk/repositories \
     && apk update \
     && apk upgrade \
     && apk add --no-cache curl jq \
@@ -20,7 +20,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/reposit
 ##########################################################################################
 # Retrieve the CloudFoundry CLI
 ##########################################################################################
-FROM cloudfoundry/cli:8.4.0 as cf_cli
+FROM cloudfoundry/cli:8.5.0 as cf_cli
 
 ##########################################################################################
 ## Retrieve the SAP btp CLI
@@ -32,7 +32,7 @@ FROM base AS btp_cli
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 WORKDIR /tmp/tools
 #RUN BTP_CLI_VERSION="$(curl --silent --url "https://$CPCLI_URL/actuator/info" | jq --raw-output '.app.version')" \
-RUN BTP_CLI_VERSION="2.24.0" \
+RUN BTP_CLI_VERSION="2.33.0" \
   && curl --fail --silent --location --cookie eula_3_1_agreed="$TOOLS_URL/developer-license-3_1.txt" \
     --url "https://$TOOLS_URL/additional/btp-cli-$ARCH-$BTP_CLI_VERSION.tar.gz" \
     | tar -xzf - --strip-components 1 "$ARCH/btp"
@@ -43,7 +43,7 @@ RUN BTP_CLI_VERSION="2.24.0" \
 FROM base AS mta_build_tool
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 WORKDIR /tmp/tools
-RUN MBT_VERSION="1.2.18" \
+RUN MBT_VERSION="1.2.21" \
   && curl --fail --silent --location --url "https://github.com/SAP/cloud-mta-build-tool/releases/download/v${MBT_VERSION}/cloud-mta-build-tool_${MBT_VERSION}_Linux_amd64.tar.gz" \
     | tar -xzf - mbt
 
@@ -97,7 +97,7 @@ ARG BTPSA_VERSION_GIT_ARG=default
 ##################################################################################################################################################
 # Now putting all pieces together
 ##################################################################################################################################################
-FROM python:3.9-alpine3.16 AS final_build
+FROM python:3.10-alpine3.16 AS final_build
 ENV USERNAME=user
 ENV HOME_FOLDER /home/$USERNAME
 ENV LIBS_FOLDER $HOME_FOLDER/libs
@@ -141,7 +141,7 @@ RUN adduser \
 # - currently (Jun 7th, 2022) it's no longer possible to install CDS
 # - to be determined what the root cause is (seems related to deprecation of v1.x Cloud SDK)
 ##########################################################################################
-    && npm install -g @sap/cds-dk --allow-root \
+    && npm install -g @sap/cds-dk@6.4.0 --allow-root \
     && npm cache clean --force \
 ##########################################################################################
 # Add user to sudo user

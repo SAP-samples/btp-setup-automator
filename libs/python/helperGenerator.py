@@ -40,7 +40,9 @@ def fetchEntitledServiceList(mainDataJsonFilesFolder):
                 if region and region not in regions:
                     regions.add(region)
                     allDataCenters.append(dataCenter)
-    allDataCenters = sorted(allDataCenters, key=lambda d: (d['region'].lower()), reverse=False)
+    allDataCenters = sorted(
+        allDataCenters, key=lambda d: (d["region"].lower()), reverse=False
+    )
 
     addManuallyMaintainedServiceSchema(btpServiceList)
 
@@ -52,7 +54,9 @@ def fetchEntitledServiceList(mainDataJsonFilesFolder):
 # in case they are not provided in the fetched metadata
 # and manually maintained in the folder config/services-jsonschemas
 def addManuallyMaintainedServiceSchema(btpServiceList):
-    FOLDER_WITH_MANUAL_SCHEMAS = Path(__file__, "..", "..", "..", "config", "services-jsonschemas").resolve()
+    FOLDER_WITH_MANUAL_SCHEMAS = Path(
+        __file__, "..", "..", "..", "config", "services-jsonschemas"
+    ).resolve()
 
     # first get the manually maintained json schemas
     manuallyMaintainedSchemaFiles = []
@@ -70,13 +74,20 @@ def addManuallyMaintainedServiceSchema(btpServiceList):
     for serviceType in btpServiceList:
         for service in serviceType.get("list"):
             for plan in service.get("servicePlans"):
-                resultingSchemas = [thisSchema for thisSchema in manuallyMaintainedSchemas if thisSchema.get("name") == service.get("name") and thisSchema.get("plan") == plan.get("name")]
+                resultingSchemas = [
+                    thisSchema
+                    for thisSchema in manuallyMaintainedSchemas
+                    if thisSchema.get("name") == service.get("name")
+                    and thisSchema.get("plan") == plan.get("name")
+                ]
                 if resultingSchemas and len(resultingSchemas) > 0:
                     if len(resultingSchemas) == 1:
                         plan["schemas"] = resultingSchemas[0].get("schemas")
                         resultingSchemas = resultingSchemas
                     else:
-                        print("ERROR: Can't add multiple schema info to a service plan!")
+                        print(
+                            "ERROR: Can't add multiple schema info to a service plan!"
+                        )
 
 
 def renderTemplateWithJson(templateFilename, targetFilename, parameters):
@@ -88,9 +99,11 @@ def renderTemplateWithJson(templateFilename, targetFilename, parameters):
     templateEnv = jinja2.Environment(loader=templateLoader)
     template = templateEnv.get_template(templateBasename)
 
-    renderedText = template.render(parameters)  # this is where to put args to the template renderer
+    renderedText = template.render(
+        parameters
+    )  # this is where to put args to the template renderer
 
-    with open(targetFilename, 'w') as f:
+    with open(targetFilename, "w") as f:
         f.write(renderedText)
 
 
@@ -122,9 +135,14 @@ def getJsonFromFile(filename):
             print(message)
         foundError = True
     except ValueError as err:
-        message = "There is an issue in the json file >" + filename + \
-            "<. Issue starts on character position " + \
-            str(err.pos) + ": " + err.msg
+        message = (
+            "There is an issue in the json file >"
+            + filename
+            + "<. Issue starts on character position "
+            + str(err.pos)
+            + ": "
+            + err.msg
+        )
         if log is not None:
             log.error(message)
         else:
@@ -135,7 +153,9 @@ def getJsonFromFile(filename):
             f.close()
 
     if foundError is True:
-        message = "Can't run the use case before the error(s) mentioned above are not fixed"
+        message = (
+            "Can't run the use case before the error(s) mentioned above are not fixed"
+        )
         if log is not None:
             log.error(message)
         else:
@@ -165,8 +185,11 @@ def getBtpCategory(category, rawData):
     if category in CATEGORIES["ENVIRONMENT"]:
         services = getServicesForCategory("ENVIRONMENT", rawData)
     if services is None:
-        print("ERROR: the category >" + category +
-              "< can't be assigned to one of the defined service categories")
+        print(
+            "ERROR: the category >"
+            + category
+            + "< can't be assigned to one of the defined service categories"
+        )
 
     return services
 
@@ -181,8 +204,7 @@ def getServicesForCategory(category, rawData):
             thisService = deepcopy(service)
             thisService["servicePlans"] = servicePlans
             result.append(thisService)
-    sortedResult = sorted(result, key=lambda d: (
-        d['name'].lower()), reverse=False)
+    sortedResult = sorted(result, key=lambda d: (d["name"].lower()), reverse=False)
 
     return sortedResult
 
@@ -212,8 +234,16 @@ def getBtpServicePlan(rawData):
     schemas = rawData.get("schemas")
     dataCenters = rawData.get("dataCenters")
 
-    dataCenters = sorted(dataCenters, key=lambda d: d['region'], reverse=False)
-    result = {"name": name, "displayName": displayName, "description": description, "uniqueIdentifier": uniqueIdentifier,
-              "category": category, "dataCenters": dataCenters, "provisioningMethod": rawData.get("provisioningMethod"), "schemas": schemas}
+    dataCenters = sorted(dataCenters, key=lambda d: d["region"], reverse=False)
+    result = {
+        "name": name,
+        "displayName": displayName,
+        "description": description,
+        "uniqueIdentifier": uniqueIdentifier,
+        "category": category,
+        "dataCenters": dataCenters,
+        "provisioningMethod": rawData.get("provisioningMethod"),
+        "schemas": schemas,
+    }
 
     return result

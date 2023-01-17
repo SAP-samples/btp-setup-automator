@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >standard< for >scp-launchpad< is available in data centers:
+service plan >free< for >sdm< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}
@@ -23,7 +23,6 @@ service plan >standard< for >scp-launchpad< is available in data centers:
 *   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
 *   {'region': 'eu30', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'in30', 'name': 'India (Mumbai)'}
 *   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
 *   {'region': 'jp20', 'name': 'Japan (Tokyo)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}

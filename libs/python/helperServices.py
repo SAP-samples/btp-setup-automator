@@ -28,11 +28,27 @@ class BTPSERVICE:
             if argument in definedUsecaseService.keys():
                 value = definedUsecaseService[argument]
                 if acceptedvalues is not None and value not in acceptedvalues:
-                    message = "parameter >" + argument + "< for service >" + serviceName + "< was set to >" + value + "<, but allowed values are >" + str(acceptedvalues) + "<\nPlease correct the parameter!"
+                    message = (
+                        "parameter >"
+                        + argument
+                        + "< for service >"
+                        + serviceName
+                        + "< was set to >"
+                        + value
+                        + "<, but allowed values are >"
+                        + str(acceptedvalues)
+                        + "<\nPlease correct the parameter!"
+                    )
                     log.error(message)
                     sys.exit(os.EX_DATAERR)
                 if mandatory is True and value is None:
-                    message = "parameter >" + argument + "< for service >" + serviceName + "< is mandatory, but was not set.\nPlease correct the parameter!"
+                    message = (
+                        "parameter >"
+                        + argument
+                        + "< for service >"
+                        + serviceName
+                        + "< is mandatory, but was not set.\nPlease correct the parameter!"
+                    )
                     log.error(message)
                     sys.exit(os.EX_DATAERR)
                 typeParameter = type(value).__name__
@@ -40,7 +56,17 @@ class BTPSERVICE:
                 if type(paramType).__name__ == "str":
                     thisType = getPythonClassForJsonSchemaType(paramType)
                     if thisType != typeParameter:
-                        message = "parameter >" + argument + "< for service >" + serviceName + "< should be a >" + paramType + "<, but it's >" + typeParameter + "<\nPlease correct the parameter!"
+                        message = (
+                            "parameter >"
+                            + argument
+                            + "< for service >"
+                            + serviceName
+                            + "< should be a >"
+                            + paramType
+                            + "<, but it's >"
+                            + typeParameter
+                            + "<\nPlease correct the parameter!"
+                        )
                         log.error(message)
                         sys.exit(os.EX_DATAERR)
 
@@ -52,14 +78,30 @@ class BTPSERVICE:
                             foundType = True
                             break
                     if foundType is False:
-                        message = "parameter >" + argument + "< for service >" + serviceName + "< is of type >" + typeParameter + "<, but only the following types are allowed >" + str(paramType) + "<\nPlease correct the parameter!"
+                        message = (
+                            "parameter >"
+                            + argument
+                            + "< for service >"
+                            + serviceName
+                            + "< is of type >"
+                            + typeParameter
+                            + "<, but only the following types are allowed >"
+                            + str(paramType)
+                            + "<\nPlease correct the parameter!"
+                        )
                         log.error(message)
                         sys.exit(os.EX_DATAERR)
 
                 setattr(self, argument, value)
             else:
                 if mandatory is True and default is None:
-                    message = "parameter >" + argument + "< for service >" + serviceName + "< is mandatory, but was not set.\nPlease correct the parameter!"
+                    message = (
+                        "parameter >"
+                        + argument
+                        + "< for service >"
+                        + serviceName
+                        + "< is mandatory, but was not set.\nPlease correct the parameter!"
+                    )
                     log.error(message)
                     sys.exit(os.EX_DATAERR)
 
@@ -94,11 +136,19 @@ def readAllServicesFromUsecaseFile(btpUsecase):
     # local access no auth needed
     paramDefinitionServices = getJsonFromFile(jsonSchema)
 
-    usecase = getJsonFromFile(filename=btpUsecase.usecasefile, externalConfigAuthMethod=btpUsecase.externalConfigAuthMethod, externalConfigUserName=btpUsecase.externalConfigUserName, externalConfigPassword=btpUsecase.externalConfigPassword, externalConfigToken=btpUsecase.externalConfigToken)
+    usecase = getJsonFromFile(
+        filename=btpUsecase.usecasefile,
+        externalConfigAuthMethod=btpUsecase.externalConfigAuthMethod,
+        externalConfigUserName=btpUsecase.externalConfigUserName,
+        externalConfigPassword=btpUsecase.externalConfigPassword,
+        externalConfigToken=btpUsecase.externalConfigToken,
+    )
     items = []
     if "services" in usecase:
         for usecaseService in usecase.get("services"):
-            serviceParameterDefinition = getServiceParameterDefinition(paramDefinitionServices)
+            serviceParameterDefinition = getServiceParameterDefinition(
+                paramDefinitionServices
+            )
             service = BTPSERVICE(serviceParameterDefinition, usecaseService, btpUsecase)
             items.append(service)
     return items
