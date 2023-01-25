@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Build Apps: SAP Build Apps is a full stack no-code development platform for creating Web and native mobile applications.
+SAP Build Apps: SAP Build Apps is a full stack no-code development platform for creating Web and native mobile applications. Please note that an instance of Cloud Identity Services is required to successfully create a subscription. See Documentation for more information.
 
 `name`
 

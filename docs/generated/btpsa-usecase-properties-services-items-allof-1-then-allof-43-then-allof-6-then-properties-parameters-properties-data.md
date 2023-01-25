@@ -22,7 +22,6 @@
 | [storage\_service\_tier](#storage_service_tier)         | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-6-then-properties-parameters-properties-data-properties-storage_service_tier.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/6/then/properties/parameters/properties/data/properties/storage_service_tier")         |
 | [systempassword](#systempassword)                       | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-6-then-properties-parameters-properties-data-properties-systempassword.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/6/then/properties/parameters/properties/data/properties/systempassword")                     |
 | [template\_name](#template_name)                        | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-6-then-properties-parameters-properties-data-properties-template_name.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/6/then/properties/parameters/properties/data/properties/template_name")                       |
-| [template\_subaccount](#template_subaccount)            | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-6-then-properties-parameters-properties-data-properties-template_subaccount.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/6/then/properties/parameters/properties/data/properties/template_subaccount")           |
 | [updateStrategy](#updatestrategy)                       | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-6-then-properties-parameters-properties-data-properties-updatestrategy.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/6/then/properties/parameters/properties/data/properties/updateStrategy")                     |
 | [versionIndicator](#versionindicator)                   | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-6-then-properties-parameters-properties-data-properties-versionindicator.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/6/then/properties/parameters/properties/data/properties/versionIndicator")                 |
 | [whitelistIPs](#whitelistips)                           | `array`       | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-6-then-properties-parameters-properties-data-properties-whitelistips.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/6/then/properties/parameters/properties/data/properties/whitelistIPs")                         |
@@ -365,24 +364,6 @@ Password to be set for tenant
 *   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-6-then-properties-parameters-properties-data-properties-template_name.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/6/then/properties/parameters/properties/data/properties/template_name")
 
 ### template\_name Type
-
-`string`
-
-## template\_subaccount
-
-
-
-`template_subaccount`
-
-*   is optional
-
-*   Type: `string`
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-6-then-properties-parameters-properties-data-properties-template_subaccount.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/6/then/properties/parameters/properties/data/properties/template_subaccount")
-
-### template\_subaccount Type
 
 `string`
 
