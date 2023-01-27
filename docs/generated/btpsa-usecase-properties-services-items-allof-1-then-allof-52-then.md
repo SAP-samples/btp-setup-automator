@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP S/4HANA Cloud for intelligent intercompany reconciliation: Intelligent Intercompany Reconciliation is introduced to speed up your intercompany reconciliation process from company close to corporate close. The service is based on Artificial Intelligence in order to reconcile your financial data with high accuracy.
+SAP S/4HANA Cloud for intelligent intercompany reconciliation: ICR is a service that covers intelligent intercompany reconciliation use case.
 
 `name`
 

@@ -47,7 +47,7 @@ unknown
 
 ## name
 
-SAP Credential Store: The Credential Store provides a secure repository for passwords and keys to applications that are running on SAP Business Technology Platform. It enables the applications to retrieve credentials and use them for authentication to external services, or to perform cryptographic operations and TLS communication.
+SAP Credential Store: Secure repository for credentials, cryptographic keys and certificates.
 
 `name`
 

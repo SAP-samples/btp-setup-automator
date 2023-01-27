@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Business Rules Management: SAP Business Rules service translates business-decision logic into natural language that is configurable directly by line-of-business key users or knowledge experts without IT or developer intervention. It provides web-based tools to solution architects and developers, enabling them to model, author, and simulate business rules independent of the backend system.
+SAP Business Rules Management: Enrich cloud offerings with decision modelling and business rule management service
 
 `name`
 

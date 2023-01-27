@@ -47,7 +47,7 @@ unknown
 
 ## name
 
-Quorum on SAP BTP: The Quorum service lets you create, delete, monitor and maintain individual Quorum nodes and connect them to a blockchain network.
+Quorum on SAP BTP: Quorum
 
 `name`
 

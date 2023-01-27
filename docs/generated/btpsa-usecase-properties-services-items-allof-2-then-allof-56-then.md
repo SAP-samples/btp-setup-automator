@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Workflow Management: Digitize workflows, manage decisions and gain end-to-end process visibility
+SAP Workflow Management: Digitize workflows, manage decisions and gain end-to-end process visibility.
 
 `name`
 

@@ -53,7 +53,7 @@ unknown
 
 ## name
 
-SAP ASE service: The SAP ASE service on SAP Business Technology Platform lets you consume SAP ASE databases from your applications running on SAP Business Technology Platform or on-premise via Java APIs. It offers variousself-services, for example, that let you create or update databases, whileSAPis providing infrastructure and database platform operations.
+SAP ASE service: SAP ASE
 
 `name`
 

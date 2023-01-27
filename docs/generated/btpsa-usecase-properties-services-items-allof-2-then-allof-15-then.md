@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Data Privacy Integration: Data Privacy Integration (DPI) is a service that supports applications realize their data privacy functions i.e Business Purpose Management ( Ensure Data is processed in a compliant manner based on valid Business Purpose ), Data Deletion and Retrieval of personal data. Applications that are part of an end to end business process can integrate with DPI to provide a centralized management of data privacy.
+SAP Data Privacy Integration: Data Privacy Integration
 
 `name`
 

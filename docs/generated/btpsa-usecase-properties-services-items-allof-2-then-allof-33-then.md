@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Master Data Integration (Orchestration): Master data application that allows master data replication according to predetermined master data distribution models. SAP Master Data Orchestration can only be used in combination with the SAP Master Data Integration service.
+Master Data Integration (Orchestration): Orchestrate master data distribution
 
 `name`
 

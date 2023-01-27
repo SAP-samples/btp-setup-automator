@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP AppGyver: Low-code / no-code tools from SAP that accelerate SAP business applications development.
+SAP AppGyver: No-code development of sophisticated web and mobile apps.
 
 `name`
 

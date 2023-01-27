@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Landscape Portal: The Landscape Portal acts as a central tool that allows SaaS providers to keep track of the distribution of their consumers across their systems as well as perform lifecycle management operations such as updating add-ons, creating new tenants, and more.
+Landscape Portal: Perform lifecycle operations and keep track of the distribution of consumers and systems.
 
 `name`
 

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Date and Time: Get default date format for a given country, timezone details and time difference between two provided time values.
+Date and Time: Date and Time
 
 `name`
 

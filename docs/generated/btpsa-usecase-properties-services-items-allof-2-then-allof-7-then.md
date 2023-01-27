@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Automation Pilot: SAP Automation Pilot provides out-of-the-box high-quality automation such as application restarts and reconfigurations, database restarts and updates, application and database health statuses, RCA, recommended actions, and more. Complex DevOps tasks are made simple without the need of having deep SAP Business Technology Platform knowledge. In addition, recommended actions are automated by using the SAP Alert Notification service for SAP BTP (sophisticated integration to immediately react on incoming alerts) or any other alerting system.
+SAP Automation Pilot: Automation Pilot
 
 `name`
 

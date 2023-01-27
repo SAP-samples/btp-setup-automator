@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Destination service: The Destination service lets you retrieve the backend destination details you need to configure applications in the Cloud Foundry environment.
+SAP Destination service: Provides a secure and reliable access to destination and certificate configurations
 
 `name`
 

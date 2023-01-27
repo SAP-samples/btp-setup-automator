@@ -47,7 +47,7 @@ unknown
 
 ## name
 
-Intelligent Situation Automation: Intelligent Situation Automation is an extension of Situation Handling. It processes situations raised and resolves them automatically using business rules, thus reducing the time users spend on routine manual and repetitive tasks.
+Intelligent Situation Automation: Extension of Situation Handling - automate situation resolution using business rules
 
 `name`
 

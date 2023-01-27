@@ -53,7 +53,7 @@ unknown
 
 ## name
 
-RabbitMQ: RabbitMQ on SAP BTP includes a message broker that implements message queues for application-to-application messaging. Supports Advanced Message Queuing Protocol (AMQP).
+RabbitMQ: RabbitMQ
 
 `name`
 

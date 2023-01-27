@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Data Retention Manager: The SAP Business Technology Platform Data Retention Manager lets you block or delete personal data based on the residence and retention rules maintained.
+SAP Data Retention Manager: Manage retention and residence rules to block or delete personal data.
 
 `name`
 

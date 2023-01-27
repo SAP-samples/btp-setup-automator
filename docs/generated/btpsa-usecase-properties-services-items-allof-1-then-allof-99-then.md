@@ -47,7 +47,7 @@ unknown
 
 ## name
 
-Redis on SAP BTP, hyperscaler option: The Redis service on SAP BTP provides a way to directly consume the Redis cache service provided by the Infrastructure providers such as AWS and Azure.
+Redis on SAP BTP, hyperscaler option: Redis Cache service on SAP BTP
 
 `name`
 

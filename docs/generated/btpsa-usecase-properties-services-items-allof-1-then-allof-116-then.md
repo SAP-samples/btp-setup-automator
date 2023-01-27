@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-UI theme designer: The UI theme designer lets you apply your corporate branding to applications built with SAP UI technologies. You can make changes to theme templates supplied by SAP to create custom themes that use your own color scheme, background images, and company logo. You can apply a custom theme to various SAP UI clients and technologies. Additionally, you can include your own custom CSS files without having to modify any of your applications.
+UI theme designer: Create custom themes for your Cloud Platform Portal based applications.
 
 `name`
 

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Content Agent service: SAP Content Agent service is a tool for SAP BTP applications offering generic content management operations such as view, export and import content with inter-dependencies and integration with SAP Cloud Transport Management service. It offers a view to track all activities along with logs, status and other information.
+SAP Content Agent service: Standard User Interface for managing content operations for SAP BTP applications
 
 `name`
 

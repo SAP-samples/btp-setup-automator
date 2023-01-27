@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Audit Log Service API: SAP Audit Log service API
+DEPRECATED Audit Log Retrieval: DEPRECATED Retrieve the audit logs.
 
 `name`
 

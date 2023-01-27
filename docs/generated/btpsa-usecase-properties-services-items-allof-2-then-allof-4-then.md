@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-API Management, API portal: API Management technology helps you to share digital assets and enables consumption of these assets in new user interfaces. An API Portal application in SAP API Management helps you grow new revenue streams. You can not only configure and share but also monetize you digital assets, enabling up-sell and cross-sell though your eco-system.
+API Management-API Portal: API Management-API Portal
 
 `name`
 

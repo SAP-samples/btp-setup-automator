@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Connectivity service: SAP BTP Connectivity service allows you to establish secure and reliable connectivity between your cloud applications and on-premise systems running in isolated networks.
+SAP Connectivity service: Establish connections to on-premise systems through the Cloud Connector
 
 `name`
 

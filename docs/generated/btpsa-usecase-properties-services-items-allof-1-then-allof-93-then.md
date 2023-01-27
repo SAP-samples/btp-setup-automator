@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Build Process Automation: SAP Build Process Automation is a citizen development solution to adapt, improve, and innovate business processes with the low-code/no-code capabilities of SAP Workflow Management and SAP Intelligent RPA.
+SAP Build Process Automation Service: Automate processes and tasks without requiring any coding skills
 
 `name`
 
