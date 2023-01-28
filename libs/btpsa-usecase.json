@@ -717,7 +717,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "Application Autoscaler: Automatically increase or decrease the number of application instances."}
+                                                    "name": { "description": "Application Autoscaler: The Application Autoscaler lets you automatically increase or decrease the number of application instances based on a policy you define."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -2778,7 +2778,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "procurement data warehouse service: Provides access to procurement data warehouse service."}
+                                                    "name": { "description": "SAP Procurement Analytics Warehouse Service: SAP Procurement Analytics Warehouse Service"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3226,7 +3226,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP Build Apps runtime: The runtime service for SAP Build Apps. Allows connectivity to visual cloud functions applications developed and deployed on the SAP Build Apps runtime. A subscription to SAP Build Apps is required to use this service."}
+                                                    "name": { "description": "SAP Build Apps runtime service: SAP Build Apps runtime internal reuse service"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3564,7 +3564,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "Work Calendar: Work Calendar"}
+                                                    "name": { "description": "Work Calendar: Get details of factory calendar such as weekday, holiday, workday for a country."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3640,7 +3640,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "SAP BTP, serverless runtime: Allows you to create, manage, configure extensions on SAP Business Technology Platform"}
+                                                    "name": { "description": "SAP BTP, serverless runtime: Build, run, and manage your cloud extensions in a fully-managed environment"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4578,7 +4578,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["beta"] },
-                                                    "name": { "description": "SAP Responsibility Management service: Determine the user responsible in Responsibility Rules app using Business Rules or an External API ( write your own code)"}
+                                                    "name": { "description": "SAP Responsibility Management service: Provides APIs for DetermineAgents using responsibility rules or external APIs(bring your own code) and AgentDeterminationRequest."}
                                                 },
                                                 "allOf": [
                                                     {
