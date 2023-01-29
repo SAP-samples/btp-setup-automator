@@ -431,7 +431,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP Forms service by Adobe: Generate print and interactive forms using Adobe Document Services."}
+                                                    "name": { "description": "SAP Forms service by Adobe: SAP Forms service by Adobe lets you generate print and interactive forms using Adobe Document Services (ADS). Call the service from your application using a REST API for rendering documents and for managing form templates in the template store. Configure ADS and access the template store via service-offered UIs. To use Forms service by Adobe, you must subscribe to the application (ads-configui) and set entitlements to both, the ADS (ads) and the REST API template store (adsrestapi) service. In the Service Marketplace, find all two tiles easily by entering 'adobe' into the search field."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -717,7 +717,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "Application Autoscaler: The Application Autoscaler lets you automatically increase or decrease the number of application instances based on a policy you define."}
+                                                    "name": { "description": "Application Autoscaler: Automatically increase or decrease the number of application instances."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -2076,7 +2076,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default","free"] },
-                                                    "name": { "description": "SAP Market Rates Management: Market Rates Management - Bring Your Own Rates Option"}
+                                                    "name": { "description": "SAP Market Rates Management: The Market Rates Management, Bring Your Own Rates data option allows you to upload and download your own market rates licensed from third party data providers"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -2646,7 +2646,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["large","medium","small","xsmall","xxsmall"] },
-                                                    "name": { "description": "PostgreSQL on SAP BTP: Relational database with an object-oriented model."}
+                                                    "name": { "description": "PostgreSQL on SAP BTP: PostgreSQL on SAP BTP offers an object-relational database management system with many advanced features, such as user-defined types, table inheritance, foreign key referential integrity, Multiversion Concurrency Control (MVCC), and so on."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3200,7 +3200,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["additional-active-users","additional-capacity-units"] },
-                                                    "name": { "description": "SAP Build Apps: SAP Build Apps no-code development environment"}
+                                                    "name": { "description": "SAP Build Apps: SAP Build Apps is a full stack no-code development platform for creating Web and native mobile applications. Please note that an instance of Cloud Identity Services is required to successfully create a subscription. See Documentation for more information."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3416,7 +3416,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["blocks_of_100","free","standard"] },
-                                                    "name": { "description": "Service Ticket Intelligence: Build a self-driven customer service powered by machine learning with Service Ticket Intelligence"}
+                                                    "name": { "description": "Service Ticket Intelligence: With Service Ticket Intelligence, incoming customers service tickets are automatically classified into their categories, and routed to the right agent. The agent is then provided with recommended solutions to improve operational efficiency. Service Ticket Intelligence leverages deep learning neural networks trained on large amounts of historical data. The model understands the semantics of unstructured ticket messages, classifies the ticket into their most likely categories and recommends solutions or knowledge base articles from similar previously answered tickets for the agent. With more processed service tickets and users feedback, the model improves over time."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3564,7 +3564,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "Work Calendar: Get details of factory calendar such as weekday, holiday, workday for a country."}
+                                                    "name": { "description": "Work Calendar: Work Calendar"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3640,7 +3640,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "SAP BTP, serverless runtime: Build, run, and manage your cloud extensions in a fully-managed environment"}
+                                                    "name": { "description": "SAP BTP, serverless runtime: Allows you to create, manage, configure extensions on SAP Business Technology Platform"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4018,7 +4018,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "SAP Data Privacy Integration: Data Privacy Integration"}
+                                                    "name": { "description": "SAP Data Privacy Integration: Data Privacy Integration (DPI) is a service that supports applications realize their data privacy functions i.e Business Purpose Management ( Ensure Data is processed in a compliant manner based on valid Business Purpose ), Data Deletion and Retrieval of personal data. Applications that are part of an end to end business process can integrate with DPI to provide a centralized management of data privacy."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4578,7 +4578,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["beta"] },
-                                                    "name": { "description": "SAP Responsibility Management service: Provides APIs for DetermineAgents using responsibility rules or external APIs(bring your own code) and AgentDeterminationRequest."}
+                                                    "name": { "description": "SAP Responsibility Management service: Determine the user responsible in Responsibility Rules app using Business Rules or an External API ( write your own code)"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4632,7 +4632,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","standard"] },
-                                                    "name": { "description": "SAP Build Apps: SAP Build Apps no-code development environment"}
+                                                    "name": { "description": "SAP Build Apps: SAP Build Apps is a full stack no-code development platform for creating Web and native mobile applications. Please note that an instance of Cloud Identity Services is required to successfully create a subscription. See Documentation for more information."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4734,7 +4734,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","standard-edition"] },
-                                                    "name": { "description": "SAP Business Application Studio: Develop, debug, test, and deploy SAP business applications."}
+                                                    "name": { "description": "SAP Business Application Studio: SAP Business Application Studio is the next generation of SAP Web IDE, offering a modular development environment tailored for efficient development of business applications for the SAP Intelligent Enterprise. It provides pre-configured environments where you can develop, build, test and run using pre-installed runtimes and tools tailored for key scenarios such as: S/4HANA extensions, full stack business applications, Fiori applications and more. It supports quick integration with SAP solutions and services to allow building smarter and more intelligent applications."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4928,7 +4928,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free"] },
-                                                    "name": { "description": "SAP BTP, Cloud Foundry runtime: The Cloud Foundry environment enables you to develop new business applications and business services, supporting multiple runtimes, programming languages, libraries, and services. You can leverage a multitude of buildpacks, including community innovations and self-developed buildpacks."}
+                                                    "name": { "description": "SAP BTP, Cloud Foundry runtime: The SAP BTP, Cloud Foundry runtime lets you develop polyglot cloud-native applications and run them on the SAP BTP Cloud Foundry environment."}
                                                 },
                                                 "allOf": [
                                                     {
