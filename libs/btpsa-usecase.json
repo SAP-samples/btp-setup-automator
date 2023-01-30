@@ -431,7 +431,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP Forms service by Adobe: SAP Forms service by Adobe lets you generate print and interactive forms using Adobe Document Services (ADS). Call the service from your application using a REST API for rendering documents and for managing form templates in the template store. Configure ADS and access the template store via service-offered UIs. To use Forms service by Adobe, you must subscribe to the application (ads-configui) and set entitlements to both, the ADS (ads) and the REST API template store (adsrestapi) service. In the Service Marketplace, find all two tiles easily by entering 'adobe' into the search field."}
+                                                    "name": { "description": "SAP Forms service by Adobe: Generate print and interactive forms using Adobe Document Services."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -691,7 +691,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["central","default"] },
-                                                    "name": { "description": "SAP Audit Log Management service: Retrieve the audit logs for your account."}
+                                                    "name": { "description": "SAP Audit Log Management service: SAP Audit Log Management service helps to retrieve logs and change retention."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -830,7 +830,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","standard"] },
-                                                    "name": { "description": "Business Entity Recognition: Detect and highlight entities from unstructured text using machine learning"}
+                                                    "name": { "description": "Business Entity Recognition: Business Entity Recognition helps you to detect and highlight any given type of named entity in unstructured text into pre-defined categories. You can use Business Entity Recognition, for example, to automatically extract the context from incoming emails with invoice inquiries, automating recurring tasks of answering to status and payment of invoices."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -889,7 +889,7 @@
                                                         "if": { "properties": { "plan": { "const": "default"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >default< for >c4-distributed-order-management< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}" }
+                                                                "plan": { "description": "service plan >default< for >c4-distributed-order-management< is available in data centers:\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}" }
                                                                 
                                                             }
                                                         }
@@ -1430,7 +1430,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["lite","standard"] },
-                                                    "name": { "description": "SAP Feature Flags service: Control the rollout of new features."}
+                                                    "name": { "description": "SAP Feature Flags service: The Feature Flags service allows you to enable or disable new features at runtime without redeploying or restarting the application. You can use feature flags to control code delivery, synchronized rollout, direct shipment, and fast rollback of features."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -2076,7 +2076,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default","free"] },
-                                                    "name": { "description": "SAP Market Rates Management: The Market Rates Management, Bring Your Own Rates data option allows you to upload and download your own market rates licensed from third party data providers"}
+                                                    "name": { "description": "SAP Market Rates Management: Market Rates Management - Bring Your Own Rates Option"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -2518,7 +2518,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["azure-standard","gcs-standard","s3-standard"] },
-                                                    "name": { "description": "Object Store on SAP BTP: Provides a bucket that applications can use to store and manage objects."}
+                                                    "name": { "description": "Object Store on SAP BTP: Object Store on SAP BTP provisions an object storage space that can be used by applications to store and manage objects."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -2646,7 +2646,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["large","medium","small","xsmall","xxsmall"] },
-                                                    "name": { "description": "PostgreSQL on SAP BTP: PostgreSQL on SAP BTP offers an object-relational database management system with many advanced features, such as user-defined types, table inheritance, foreign key referential integrity, Multiversion Concurrency Control (MVCC), and so on."}
+                                                    "name": { "description": "PostgreSQL on SAP BTP: Relational database with an object-oriented model."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3102,7 +3102,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP Responsibility Management service: Provides APIs for DetermineAgents using responsibility rules or external APIs(bring your own code) and AgentDeterminationRequest"}
+                                                    "name": { "description": "SAP Responsibility Management service: As we move toward an intelligent enterprise, intelligent systems need to determine agents who are responsible for business processes and objects, and automatically notify them. It is essential to define and manage these responsibilities for various contexts and retrieve responsible agents who can respond to tasks and activities."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3200,7 +3200,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["additional-active-users","additional-capacity-units"] },
-                                                    "name": { "description": "SAP Build Apps: SAP Build Apps is a full stack no-code development platform for creating Web and native mobile applications. Please note that an instance of Cloud Identity Services is required to successfully create a subscription. See Documentation for more information."}
+                                                    "name": { "description": "SAP Build Apps: SAP Build Apps no-code development environment"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3416,7 +3416,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["blocks_of_100","free","standard"] },
-                                                    "name": { "description": "Service Ticket Intelligence: With Service Ticket Intelligence, incoming customers service tickets are automatically classified into their categories, and routed to the right agent. The agent is then provided with recommended solutions to improve operational efficiency. Service Ticket Intelligence leverages deep learning neural networks trained on large amounts of historical data. The model understands the semantics of unstructured ticket messages, classifies the ticket into their most likely categories and recommends solutions or knowledge base articles from similar previously answered tickets for the agent. With more processed service tickets and users feedback, the model improves over time."}
+                                                    "name": { "description": "Service Ticket Intelligence: Build a self-driven customer service powered by machine learning with Service Ticket Intelligence"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3640,7 +3640,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "SAP BTP, serverless runtime: Allows you to create, manage, configure extensions on SAP Business Technology Platform"}
+                                                    "name": { "description": "SAP BTP, serverless runtime: Build, run, and manage your cloud extensions in a fully-managed environment"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3894,14 +3894,14 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "SAP Order Management Foundation: Consolidate and manage your orders and order-related data in a central solution"}
+                                                    "name": { "description": "SAP Order Management Foundation: The SAP Order Management foundation solution, including the application and service, provides order management functionality along with business configuration settings that allow you to create a customized solution. You can also integrate various systems and solutions to support your order management processes. This allows you to leverage, for example, your existing master data, order capture, and fulfillment systems while consolidating all of your orders and order-related data in a convenient cloud-based solution."}
                                                 },
                                                 "allOf": [
                                                     {
                                                         "if": { "properties": { "plan": { "const": "default"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "application plan >default< for >c4-distributed-order-management-app< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}" }
+                                                                "plan": { "description": "application plan >default< for >c4-distributed-order-management-app< is available in data centers:\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}" }
                                                                 
                                                             }
                                                         }
@@ -4632,7 +4632,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","standard"] },
-                                                    "name": { "description": "SAP Build Apps: SAP Build Apps is a full stack no-code development platform for creating Web and native mobile applications. Please note that an instance of Cloud Identity Services is required to successfully create a subscription. See Documentation for more information."}
+                                                    "name": { "description": "SAP Build Apps: SAP Build Apps no-code development environment"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4734,7 +4734,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","standard-edition"] },
-                                                    "name": { "description": "SAP Business Application Studio: SAP Business Application Studio is the next generation of SAP Web IDE, offering a modular development environment tailored for efficient development of business applications for the SAP Intelligent Enterprise. It provides pre-configured environments where you can develop, build, test and run using pre-installed runtimes and tools tailored for key scenarios such as: S/4HANA extensions, full stack business applications, Fiori applications and more. It supports quick integration with SAP solutions and services to allow building smarter and more intelligent applications."}
+                                                    "name": { "description": "SAP Business Application Studio: Develop, debug, test, and deploy SAP business applications."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4928,7 +4928,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free"] },
-                                                    "name": { "description": "SAP BTP, Cloud Foundry runtime: The SAP BTP, Cloud Foundry runtime lets you develop polyglot cloud-native applications and run them on the SAP BTP Cloud Foundry environment."}
+                                                    "name": { "description": "SAP BTP, Cloud Foundry runtime: The Cloud Foundry environment enables you to develop new business applications and business services, supporting multiple runtimes, programming languages, libraries, and services. You can leverage a multitude of buildpacks, including community innovations and self-developed buildpacks."}
                                                 },
                                                 "allOf": [
                                                     {
