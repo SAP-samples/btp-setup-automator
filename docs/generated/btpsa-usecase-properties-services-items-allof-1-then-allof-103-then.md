@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Software-as-a-Service Provisioning service: Manage the registration and provisioning of multitenant application and service subscriptions.
+SAP Software-as-a-Service Provisioning service: Service for application providers to register multitenant applications and services.
 
 `name`
 

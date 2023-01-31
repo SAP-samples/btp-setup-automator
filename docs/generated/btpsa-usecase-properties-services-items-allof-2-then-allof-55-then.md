@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Data Enrichment service: Data Enrichment
+SAP Data Enrichment service: Provides Business Partner data from third-party data providers
 
 `name`
 

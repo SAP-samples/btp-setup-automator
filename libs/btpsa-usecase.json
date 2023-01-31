@@ -431,7 +431,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP Forms service by Adobe: Generate print and interactive forms using Adobe Document Services."}
+                                                    "name": { "description": "SAP Forms service by Adobe: SAP Forms service by Adobe lets you generate print and interactive forms using Adobe Document Services (ADS). Call the service from your application using a REST API for rendering documents and for managing form templates in the template store. Configure ADS and access the template store via service-offered UIs. To use Forms service by Adobe, you must subscribe to the application (ads-configui) and set entitlements to both, the ADS (ads) and the REST API template store (adsrestapi) service. In the Service Marketplace, find all two tiles easily by entering 'adobe' into the search field."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -537,7 +537,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["apim-as-route-service","apiportal-apiaccess","on-premise-connectivity"] },
-                                                    "name": { "description": "API Management, API portal: API Management, API portal service drives innovation in modern business models. Based on APIs and digital assets, the service facilitates unified access from new channels and diverse user interfaces"}
+                                                    "name": { "description": "API Management, API portal: API Management, API portal service drives innovation in modern business models. Based on APIs and digital assets, the service facilitates unified access from new channels and diverse user interfaces. This is possible by enabling developer communities to connect to your enterprise information and processes securely. Here, the access to backend services and complex landscapes are simplified with easy to consume APIs while protecting your systems from threats and overloaded access."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -691,7 +691,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["central","default"] },
-                                                    "name": { "description": "SAP Audit Log Management service: SAP Audit Log Management service helps to retrieve logs and change retention."}
+                                                    "name": { "description": "SAP Audit Log Management service: Retrieve the audit logs for your account."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -736,7 +736,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["blockchain-hana-integration","blockchain-proof-of-history","blockchain-proof-of-state","blockchain-timestamp"] },
-                                                    "name": { "description": "Blockchain Application Enablement: Blockchain Application Enablement"}
+                                                    "name": { "description": "Blockchain Application Enablement: Deliver blockchain-based services on any connected blockchain network."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -786,7 +786,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["advanced","standard"] },
-                                                    "name": { "description": "SAP Build Work Zone, advanced edition: Enable integration with other services."}
+                                                    "name": { "description": "SAP Build Work Zone, advanced edition: Centralizes access to relevant business applications, processes, information, and communication in a unified entry point that users can access from any device. Note: SAP Work Zone was recently renamed to SAP Build Work Zone, advanced edition."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -830,7 +830,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","standard"] },
-                                                    "name": { "description": "Business Entity Recognition: Business Entity Recognition helps you to detect and highlight any given type of named entity in unstructured text into pre-defined categories. You can use Business Entity Recognition, for example, to automatically extract the context from incoming emails with invoice inquiries, automating recurring tasks of answering to status and payment of invoices."}
+                                                    "name": { "description": "Business Entity Recognition: Detect and highlight entities from unstructured text using machine learning"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -1062,7 +1062,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["application","standard"] },
-                                                    "name": { "description": "SAP Content Agent service: Cloud Foundry based utility service that like an agent for content operations like assembly, export and import"}
+                                                    "name": { "description": "SAP Content Agent service: SAP Content Agent service is a tool for SAP BTP applications offering generic content management operations such as view, export and import content with inter-dependencies and integration with SAP Cloud Transport Management service. It offers a view to track all activities along with logs, status and other information."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -1262,7 +1262,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "Data Enrichment: Data Enrichment"}
+                                                    "name": { "description": "Data Enrichment: Industrializes the use of third-party data for enterprise applications, and makes it economical to find, procure and consume relevant datasets in timely fashion. Offers pre-built integrations with SAP S/4HANA Cloud and on-premise, and SAP Master Data Governance. Centrally links data from external data providers such as Dun & Bradstreet and CDQ into SAP enterprise applications, reducing overall TCO for data brokerage needs. Data Enrichment will be a one stop shop for multiple data augmentation needs."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -1368,7 +1368,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","standard"] },
-                                                    "name": { "description": "data quality service: Embed data quality services to validate addresses and enrich with geocodes."}
+                                                    "name": { "description": "data quality service: SAP Data Quality Management offers cloud-based services that let you embed address cleansing, geocoding, and reverse geocoding within any business process orapplication,so that you can reap the value of complete and accurate address data."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -1966,7 +1966,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["concurrent-attended","concurrent-unattended"] },
-                                                    "name": { "description": "SAP Intelligent Robotic Process Automation: Design, configure, and execute automation projects."}
+                                                    "name": { "description": "SAP Intelligent Robotic Process Automation: SAP Intelligent Robotic Process Automation lets you automate enterprise business processes. Design process automations with the Desktop Studio by creating end-to-end scenarios. Import these scenarios into the cloud Factory to configure and execute them with Agents. An Agent can work as a Digital Assistant (attended automation) or as a Digital Worker (unattended automation)."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -2040,7 +2040,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP Job Scheduling service: Job Scheduler"}
+                                                    "name": { "description": "SAP Job Scheduling service: The Job Scheduling Service allows you to define and manage jobs that run once or on recurring schedules. Use this runtime-agnostic service to schedule REST endpoint actions in your application or to schedule long-running processes using Cloud Foundry tasks. Use REST APIs to schedule your jobs, including long-running jobs asynchronously, and create multiple schedule formats for both simple and complex recurring schedules. The service dashboard is a web interface that lets you manage jobs and schedules."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -2102,7 +2102,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "Market Rates, Refinitiv : Market Rates, Refinitiv Standard plan"}
+                                                    "name": { "description": "Market Rates, Refinitiv: The Market Rates Management, Refinitiv data option is a reuse service that allows you to import daily and historical Exchange Rates & Interest Rates from Refinitiv."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -2476,7 +2476,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["cyon","large","medium","small"] },
-                                                    "name": { "description": "MultiChain on SAP BTP: MultiChain"}
+                                                    "name": { "description": "MultiChain on SAP BTP: The MultiChain service lets you create, delete, monitor and maintain individual MultiChain nodes and connect them to a blockchain network."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -2518,7 +2518,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["azure-standard","gcs-standard","s3-standard"] },
-                                                    "name": { "description": "Object Store on SAP BTP: Object Store on SAP BTP provisions an object storage space that can be used by applications to store and manage objects."}
+                                                    "name": { "description": "Object Store on SAP BTP: Provides a bucket that applications can use to store and manage objects."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3102,7 +3102,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP Responsibility Management service: As we move toward an intelligent enterprise, intelligent systems need to determine agents who are responsible for business processes and objects, and automatically notify them. It is essential to define and manage these responsibilities for various contexts and retrieve responsible agents who can respond to tasks and activities."}
+                                                    "name": { "description": "SAP Responsibility Management service: Provides APIs for DetermineAgents using responsibility rules or external APIs(bring your own code) and AgentDeterminationRequest"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3120,7 +3120,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","standard"] },
-                                                    "name": { "description": "SAP Data Retention Manager: Manage retention and residence rules to block or delete personal data."}
+                                                    "name": { "description": "SAP Data Retention Manager: The SAP Business Technology Platform Data Retention Manager lets you block or delete personal data based on the residence and retention rules maintained."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3146,7 +3146,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["application"] },
-                                                    "name": { "description": "SAP Software-as-a-Service Provisioning service: Manage the registration and provisioning of multitenant application and service subscriptions."}
+                                                    "name": { "description": "SAP Software-as-a-Service Provisioning service: Service for application providers to register multitenant applications and services."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3450,7 +3450,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["lite","standard"] },
-                                                    "name": { "description": "SAP HANA spatial services: SAP HANA spatial services provides a set of APIs for location-based services."}
+                                                    "name": { "description": "SAP HANA spatial services: SAP HANA spatial services provides a unified access layer for location-based services, including maps for visualization, geocoding and routing capabilities. It integrates location-based content and services from external providers into SAP products and customer applications."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3538,7 +3538,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","keyuser"] },
-                                                    "name": { "description": "UI5 flexibility for key users: Add UI adaptation to your UI5 applications"}
+                                                    "name": { "description": "UI5 flexibility for key users: The UI5 flexibility service for key users lets you provide UI adaptation capabilites for your UI5 applications on Cloud Foundry. Users of your applications can change the user interface of your applications in an upgrade-safe and modification-free way, without affecting any other customer."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3850,7 +3850,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","standard"] },
-                                                    "name": { "description": "SAP Automation Pilot: Automation Pilot"}
+                                                    "name": { "description": "SAP Automation Pilot: SAP Automation Pilot provides out-of-the-box high-quality automation such as application restarts and reconfigurations, database restarts and updates, application and database health statuses, RCA, recommended actions, and more. Complex DevOps tasks are made simple without the need of having deep SAP Business Technology Platform knowledge. In addition, recommended actions are automated by using the SAP Alert Notification service for SAP BTP (sophisticated integration to immediately react on incoming alerts) or any other alerting system."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3956,7 +3956,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default","free"] },
-                                                    "name": { "description": "SAP Continuous Integration and Delivery: Create and run jobs for continuous integration and delivery."}
+                                                    "name": { "description": "SAP Continuous Integration and Delivery: SAP Continuous Integration and Delivery lets you configure and run predefined continuous integration and delivery (CI/CD) pipelines that automatically build, test and deploy your code changes to speed up your development and delivery cycles."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4018,7 +4018,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "SAP Data Privacy Integration: Data Privacy Integration (DPI) is a service that supports applications realize their data privacy functions i.e Business Purpose Management ( Ensure Data is processed in a compliant manner based on valid Business Purpose ), Data Deletion and Retrieval of personal data. Applications that are part of an end to end business process can integrate with DPI to provide a centralized management of data privacy."}
+                                                    "name": { "description": "SAP Data Privacy Integration: Data Privacy Integration"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4036,7 +4036,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "Document Information Extraction UI: Document Information Extraction Application"}
+                                                    "name": { "description": "Document Information Extraction UI: UI Application to upload document for extraction to Document Information Extraction and correct the results."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4170,7 +4170,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["tools"] },
-                                                    "name": { "description": "SAP HANA Cloud: A single gateway to all your data."}
+                                                    "name": { "description": "SAP HANA Cloud: SAP HANA Cloud provides a single place to access, store, and process all enterprise data in real time. It is a cloud-native platform that reduces the complexity of multi-cloud or hybrid system landscapes. SAP HANA Cloud provides all of the advanced SAP HANA technologies for multi-model data processing in-memory or on disk. You can benefit from cloud qualities such as automatic software updates, elasticity, and low total cost of ownership by using SAP HANA Cloud either as a stand-alone solution or as an extension to your existing on-premise environment."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4234,7 +4234,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["beta","free","standard"] },
-                                                    "name": { "description": "Intelligent Situation Automation: Extension of Situation Handling - automate situation resolution using business rules"}
+                                                    "name": { "description": "Intelligent Situation Automation: Intelligent Situation Automation is an extension of Situation Handling. It processes situations raised and resolves them automatically using business rules, thus reducing the time users spend on routine manual and repetitive tasks."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4294,7 +4294,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["concurrent","default","free"] },
-                                                    "name": { "description": "SAP Intelligent Robotic Process Automation: Design, configure, and execute automation projects."}
+                                                    "name": { "description": "SAP Intelligent Robotic Process Automation: SAP Intelligent Robotic Process Automation lets you automate enterprise business processes. Design process automations with the Desktop Studio by creating end-to-end scenarios. Import these scenarios into the cloud Factory to configure and execute them with Agents. An Agent can work as a Digital Assistant (attended automation) or as a Digital Worker (unattended automation)."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4444,7 +4444,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "Open Connectors: Open Connectors Live"}
+                                                    "name": { "description": "Open Connectors: Open Connectors provides pre-built and feature-rich connectors to simplify the connectivity and seamless integration with over 150 non-SAP cloud applications. Customers benefit from connectivity to third-party APIs via harmonized RESTful APIs and can develop and map canonical data models to extend pre-built connectors. Furthermore customers can easily build API compositions across the different connectors."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4516,7 +4516,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "SAP Procurement Analytics Warehouse: SAP Procurement Analytics Warehouse"}
+                                                    "name": { "description": "procurement data warehouse API: Provides access to procurement data warehouse API."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4760,7 +4760,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","standard"] },
-                                                    "name": { "description": "SAP Launchpad: SAPLaunchpad"}
+                                                    "name": { "description": "SAP Build Work Zone, standard edition : Provides users with a central point of access to applications from different sources. Note: SAP Launchpad service was recently renamed to SAP Build Work Zone, standard edition."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4822,7 +4822,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "Document Management, application option: Organize your documents with ready-to-use document management capabilities."}
+                                                    "name": { "description": "Document Management Service, Application Option: Benefit from the standalone, ready-to-use web application of SAP Document Management service that provides document management capabilities."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4866,7 +4866,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["saas-application"] },
-                                                    "name": { "description": "SAP Data Enrichment service: Data Enrichment"}
+                                                    "name": { "description": "SAP Data Enrichment service: Provides Business Partner data from third-party data providers"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4946,7 +4946,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["aws","azure","free","gcp"] },
-                                                    "name": { "description": "SAP BTP, Kyma runtime: Kyma environment is a runtime you can use to build cloud-native Kubernetes-based applications by using microservices and serverless functions."}
+                                                    "name": { "description": "SAP BTP, Kyma runtime: SAP Business Technology Platform, Kyma runtime is a fully managed Kubernetes runtime based on the open-source project Kyma. This cloud-native solution allows the developers to extend SAP solutions with serverless Functions and combine them with containerized microservices. The offered functionality ensures smooth consumption of SAP and non-SAP applications, running workloads in a highly scalable environment, and building event- and API-based extensions."}
                                                 },
                                                 "allOf": [
                                                     {

@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Continuous Integration and Delivery: Create and run jobs for continuous integration and delivery.
+SAP Continuous Integration and Delivery: SAP Continuous Integration and Delivery lets you configure and run predefined continuous integration and delivery (CI/CD) pipelines that automatically build, test and deploy your code changes to speed up your development and delivery cycles.
 
 `name`
 

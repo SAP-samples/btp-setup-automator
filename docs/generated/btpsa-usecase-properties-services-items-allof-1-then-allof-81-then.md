@@ -50,7 +50,7 @@ unknown
 
 ## name
 
-MultiChain on SAP BTP: MultiChain
+MultiChain on SAP BTP: The MultiChain service lets you create, delete, monitor and maintain individual MultiChain nodes and connect them to a blockchain network.
 
 `name`
 
