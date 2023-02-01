@@ -47,7 +47,7 @@ unknown
 
 ## name
 
-Object Store on SAP BTP: Provides a bucket that applications can use to store and manage objects.
+Object Store on SAP BTP: Object Store on SAP BTP provisions an object storage space that can be used by applications to store and manage objects.
 
 `name`
 

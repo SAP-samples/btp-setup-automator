@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Build Work Zone, advanced edition: Centralizes access to relevant business applications, processes, information, and communication in a unified entry point that users can access from any device. Note: SAP Work Zone was recently renamed to SAP Build Work Zone, advanced edition.
+SAP Build Work Zone, advanced edition: Enable integration with other services.
 
 `name`
 

@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Intelligent Robotic Process Automation: SAP Intelligent Robotic Process Automation lets you automate enterprise business processes. Design process automations with the Desktop Studio by creating end-to-end scenarios. Import these scenarios into the cloud Factory to configure and execute them with Agents. An Agent can work as a Digital Assistant (attended automation) or as a Digital Worker (unattended automation).
+SAP Intelligent Robotic Process Automation: Design, configure, and execute automation projects.
 
 `name`
 
