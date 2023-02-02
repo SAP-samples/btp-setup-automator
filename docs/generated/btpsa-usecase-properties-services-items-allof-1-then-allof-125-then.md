@@ -50,7 +50,7 @@ unknown
 
 ## name
 
-SAP Authorization and Trust Management service: The Authorization and Trust Management service lets you manage user authorizations and trust to identity providers. Identity providers are the user base for applications. You can use an identity authentication tenant, an SAP on-premise system, or a custom corporate identity provider. User authorizations are managed using technical roles at the application level, which can be aggregated into business-level groups and role collections for large-scale cloud scenarios.
+SAP Authorization and Trust Management service: Lets you manage user authorizations and trust to identity providers.
 
 `name`
 

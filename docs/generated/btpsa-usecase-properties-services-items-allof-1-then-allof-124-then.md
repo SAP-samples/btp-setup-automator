@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP BTP, serverless runtime: Allows you to create, manage, configure extensions on SAP Business Technology Platform
+SAP BTP, serverless runtime: Build, run, and manage your cloud extensions in a fully-managed environment
 
 `name`
 

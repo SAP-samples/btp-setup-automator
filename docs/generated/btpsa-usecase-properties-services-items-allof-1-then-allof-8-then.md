@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-API Management, developer portal: API Management, developer portal service simplifies sharing managed APIs and enables collaborations with customers, partners, and developers, providing a common platform for application developers to consume APIs. It offers capabilities for onboarding application developers, exploring and testing APIs, and creating and subscribing to applications.This service provides the plan which allows you to access APIs in the developer portal.
+API Management, API Business Hub Enterprise: API Management, API Business Hub Enterprise service simplifies sharing managed APIs and enables collaborations with customers, partners, and developers; providing a common platform for application developers to consume APIs.
 
 `name`
 

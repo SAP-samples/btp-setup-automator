@@ -9,6 +9,7 @@
 | [application](#application)                   | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-application.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/application")                   |
 | [businessSystemId](#businesssystemid)         | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-businesssystemid.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/businessSystemId")         |
 | [enableTenantDeletion](#enabletenantdeletion) | `boolean` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-enabletenantdeletion.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/enableTenantDeletion") |
+| [globalTenantId](#globaltenantid)             | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-globaltenantid.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/globalTenantId")             |
 | [logSys](#logsys)                             | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-logsys.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/logSys")                             |
 | [writePermissions](#writepermissions)         | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-writepermissions.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/writePermissions")         |
 
@@ -50,7 +51,7 @@ Name of the application you are connecting to MDI. Allowed values are: "ariba", 
 
 ## businessSystemId
 
-Name to be displayed in Master Data Orchestration UI. If not provided, a random UUID will be assigned.
+Name to be displayed in SAP Master Data Orchestration UI. If not provided, a random UUID will be assigned.
 
 `businessSystemId`
 
@@ -93,6 +94,34 @@ Boolean flag to be set to true for confirming deletion of last service instance 
 ### enableTenantDeletion Type
 
 `boolean`
+
+## globalTenantId
+
+A name for the last significant writer (client) following the Globally Unique Tenant ID (GTID) specification.
+
+`globalTenantId`
+
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-globaltenantid.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/globalTenantId")
+
+### globalTenantId Type
+
+`string`
+
+### globalTenantId Constraints
+
+**pattern**: the string must match the following regular expression:&#x20;
+
+```regexp
+^[A-Za-z0-9-._~]{1,40}$
+```
+
+[try pattern](https://regexr.com/?expression=%5E%5BA-Za-z0-9-._~%5D%7B1%2C40%7D%24 "try regular expression with regexr.com")
 
 ## logSys
 

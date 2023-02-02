@@ -6,7 +6,7 @@ idna==3.4
 inquirer==3.1.2
 Jinja2==3.1.2
 jsonschema==4.17.3
-MarkupSafe==2.1.1
+MarkupSafe==2.1.2
 mccabe==0.7.0
 ninja2==0.1
 pycodestyle==2.10.0

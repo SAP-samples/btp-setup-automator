@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Malware Scanning service: Scan business documents uploaded by your custom-developed apps for malware
+SAP Malware Scanning service: Malware Scanning
 
 `name`
 

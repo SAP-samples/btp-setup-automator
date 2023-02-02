@@ -12,15 +12,12 @@
 | [num\_coordinators](#num_coordinators)                  | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-num_coordinators.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/num_coordinators")                 |
 | [num\_readers](#num_readers)                            | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-num_readers.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/num_readers")                           |
 | [num\_writers](#num_writers)                            | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-num_writers.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/num_writers")                           |
-| [project\_name](#project_name)                          | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-project_name.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/project_name")                         |
 | [provisioned\_size\_gib](#provisioned_size_gib)         | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-provisioned_size_gib.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/provisioned_size_gib")         |
 | [reader\_type](#reader_type)                            | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-reader_type.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/reader_type")                           |
 | [serviceStopped](#servicestopped)                       | `boolean`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-servicestopped.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/serviceStopped")                     |
 | [storage\_service\_provider](#storage_service_provider) | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-storage_service_provider.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/storage_service_provider") |
 | [storage\_service\_tier](#storage_service_tier)         | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-storage_service_tier.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/storage_service_tier")         |
 | [systempassword](#systempassword)                       | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-systempassword.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/systempassword")                     |
-| [template\_name](#template_name)                        | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-template_name.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/template_name")                       |
-| [template\_subaccount](#template_subaccount)            | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-template_subaccount.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/template_subaccount")           |
 | [updateStrategy](#updatestrategy)                       | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-updatestrategy.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/updateStrategy")                     |
 | [versionIndicator](#versionindicator)                   | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-versionindicator.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/versionIndicator")                 |
 | [whitelistIPs](#whitelistips)                           | `array`       | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-whitelistips.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/whitelistIPs")                         |
@@ -160,24 +157,6 @@ Whether to provision an iq instance for the datalake or not.
 
 **minimum**: the value of this number must greater than or equal to: `1`
 
-## project\_name
-
-
-
-`project_name`
-
-*   is optional
-
-*   Type: `string`
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-project_name.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/project_name")
-
-### project\_name Type
-
-`string`
-
 ## provisioned\_size\_gib
 
 Size of IQ persistence in GB
@@ -303,42 +282,6 @@ Password to be set for tenant
 ### systempassword Constraints
 
 **minimum length**: the minimum number of characters for this string is: `6`
-
-## template\_name
-
-
-
-`template_name`
-
-*   is optional
-
-*   Type: `string`
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-template_name.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/template_name")
-
-### template\_name Type
-
-`string`
-
-## template\_subaccount
-
-
-
-`template_subaccount`
-
-*   is optional
-
-*   Type: `string`
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-7-then-properties-parameters-properties-data-properties-template_subaccount.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/7/then/properties/parameters/properties/data/properties/template_subaccount")
-
-### template\_subaccount Type
-
-`string`
 
 ## updateStrategy
 

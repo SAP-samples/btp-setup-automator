@@ -8,6 +8,7 @@
 | :------------------------------------------------------ | :------------ | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [additionalWorkers](#additionalworkers)                 | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-additionalworkers.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/additionalWorkers")                 |
 | [availabilityZonePlacement](#availabilityzoneplacement) | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-availabilityzoneplacement.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/availabilityZonePlacement") |
+| [databaseMappings](#databasemappings)                   | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-databasemappings.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/databaseMappings")                   |
 | [disasterRecoveryMode](#disasterrecoverymode)           | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-disasterrecoverymode.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/disasterRecoveryMode")           |
 | [edition](#edition)                                     | `string`      | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-edition.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/edition")                                     |
 | [enabledservices](#enabledservices)                     | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-enabledservices.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/enabledservices")                     |
@@ -15,10 +16,12 @@
 | [memory](#memory)                                       | `integer`     | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-memory.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/memory")                                       |
 | [memoryScaleOut](#memoryscaleout)                       | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-memoryscaleout.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/memoryScaleOut")                       |
 | [productVersion](#productversion)                       | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-productversion.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/productVersion")                       |
+| [project\_name](#project_name)                          | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-project_name.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/project_name")                           |
 | [serviceStopped](#servicestopped)                       | `boolean`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-servicestopped.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/serviceStopped")                       |
 | [slaLevel](#slalevel)                                   | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-slalevel.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/slaLevel")                                   |
 | [storage](#storage)                                     | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-storage.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/storage")                                     |
 | [systempassword](#systempassword)                       | `string`      | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-systempassword.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/systempassword")                       |
+| [template\_name](#template_name)                        | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-template_name.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/template_name")                         |
 | [update\_strategy](#update_strategy)                    | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-update_strategy.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/update_strategy")                     |
 | [vcpu](#vcpu)                                           | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-vcpu.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/vcpu")                                           |
 | [versionIndicator](#versionindicator)                   | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-versionindicator.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/versionIndicator")                   |
@@ -67,6 +70,24 @@ Settings that enable the customer to ensure spatial proximity between their appl
 ### availabilityZonePlacement Type
 
 `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-availabilityzoneplacement.md))
+
+## databaseMappings
+
+
+
+`databaseMappings`
+
+*   is optional
+
+*   Type: unknown
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-databasemappings.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/databaseMappings")
+
+### databaseMappings Type
+
+unknown
 
 ## disasterRecoveryMode
 
@@ -228,6 +249,24 @@ HANA Product Version
 
 `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-productversion.md))
 
+## project\_name
+
+
+
+`project_name`
+
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-project_name.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/project_name")
+
+### project\_name Type
+
+`string`
+
 ## serviceStopped
 
 Describes if the system should be running or stopped
@@ -293,7 +332,7 @@ Size of the Storage in GB
 
 ### storage Constraints
 
-**maximum**: the value of this number must smaller than or equal to: `16384`
+**maximum**: the value of this number must smaller than or equal to: `16000`
 
 **minimum**: the value of this number must greater than or equal to: `120`
 
@@ -320,6 +359,24 @@ Password to be set for tenant
 ### systempassword Constraints
 
 **minimum length**: the minimum number of characters for this string is: `8`
+
+## template\_name
+
+
+
+`template_name`
+
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-43-then-allof-2-then-properties-parameters-properties-data-properties-template_name.md "undefined#/properties/services/items/allOf/1/then/allOf/43/then/allOf/2/then/properties/parameters/properties/data/properties/template_name")
+
+### template\_name Type
+
+`string`
 
 ## update\_strategy
 

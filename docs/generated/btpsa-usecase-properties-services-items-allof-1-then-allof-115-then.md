@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP HANA spatial services: SAP HANA spatial services provides a unified access layer for location-based services, including maps for visualization, geocoding and routing capabilities. It integrates location-based content and services from external providers into SAP products and customer applications.
+SAP HANA spatial services: SAP HANA spatial services provides a set of APIs for location-based services.
 
 `name`
 

@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Build Apps: SAP Build Apps is a full stack no-code development platform for creating Web and native mobile applications.
+SAP Build Apps: SAP Build Apps no-code development environment
 
 `name`
 

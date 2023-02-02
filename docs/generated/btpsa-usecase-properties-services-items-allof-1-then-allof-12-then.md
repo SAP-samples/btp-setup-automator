@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Audit Log Management service: SAP Audit Log Management service helps to retrieve logs and change retention.
+SAP Audit Log Management service: Retrieve the audit logs for your account.
 
 `name`
 

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-procurement data warehouse API: Provides access to procurement data warehouse API.
+SAP Procurement Analytics Warehouse: SAP Procurement Analytics Warehouse
 
 `name`
 

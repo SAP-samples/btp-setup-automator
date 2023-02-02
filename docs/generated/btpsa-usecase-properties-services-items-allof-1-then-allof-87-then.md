@@ -53,7 +53,7 @@ unknown
 
 ## name
 
-PostgreSQL on SAP BTP: PostgreSQL on SAP BTP offers an object-relational database management system with many advanced features, such as user-defined types, table inheritance, foreign key referential integrity, Multiversion Concurrency Control (MVCC), and so on.
+PostgreSQL on SAP BTP: Relational database with an object-oriented model.
 
 `name`
 
