@@ -83,6 +83,8 @@ Enter the following command into the terminal and press the `ENTER` key. This wi
 docker container run --rm -it -d --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:latest"
 ```
 
+> ⚠ NOTE: If you are running on an ARM based platform like a Mac M1 or M2 and are facing issues with the image, add the `--platform linux/amd64` option to the `docker container run command`. The image we provide is built for `linux/amd64` and due to some implicit dependencies we cannot perform a built for `linux/arm64` with the alpine linux as base image.
+
 Attach to the running container in VS Code as described in the SAP BTP Setup Automator documentation ([click here](https://github.com/SAP-samples/btp-setup-automator#get-the-docker-container-up-and-running)). Alternatively, you can also remove the **"-d"** parameter (detached mode) in the above command and execute the next steps (updating the parameters and usecase files) using your command line. 
 
 Once you are started your container in the foreground or detached mode (and attached in VS Code in that case), please update the *parameters.json* and *uscase_basic_free_tier.json* files as described in the [**Change the configuration**](#change-the-configuration) section. You can find both files in the */home/user/usecases/released/discoverycenter/4064-cap-saas-cf/* directory of your container instance. After updating the files, you can run the main script `btpsa` with the following command (in case of **Basic Scope** deployment to **Free Tier**).

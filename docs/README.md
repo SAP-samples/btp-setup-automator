@@ -138,6 +138,8 @@ docker container rm -f  test01
 docker image     rmi -f test01
 ```
 
+> ⚠ NOTE: If you are running on an ARM based platform like a Mac M1 or M2 and are facing issues with the image, add the `--platform linux/amd64` option to the `docker container run command`. The image we provide is built for `linux/amd64` and due to some implicit dependencies we cannot perform a built for `linux/arm64` with the alpine linux as base image.
+
 Let's go through this example step-by-step.
 
 ### Step1: Create a local folder for the logs
