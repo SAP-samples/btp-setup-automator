@@ -2518,7 +2518,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["azure-standard","gcs-standard","s3-standard"] },
-                                                    "name": { "description": "Object Store on SAP BTP: Object Store on SAP BTP provisions an object storage space that can be used by applications to store and manage objects."}
+                                                    "name": { "description": "Object Store on SAP BTP: Provides a bucket that applications can use to store and manage objects."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -2628,7 +2628,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP Cloud Portal service: SAP Business Technology Platform Portal lets you build digital experience portals for employees, customers, and partners. You can streamline access to business data so that your employees can execute their daily business tasks securely, from any device."}
+                                                    "name": { "description": "SAP Cloud Portal service: SAP Cloud Portal Service lets you build digital experience portals for employees, customers, and partners. You can streamline access to business data so that your employees can execute their daily business tasks securely, from any device."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3582,7 +3582,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP Workflow Management: SAP Workflow service allows you to build, run, and manage workflows, from simple approvals to end-to-end processes that span across different organizations and applications. With an inbox application and custom-built user interfaces, you involve end users into business processes for decision making and data entry. The workflow service comes with web-based tools for workflow modeling, APIs for consumption in custom applications, monitoring tools, and a set of Fiori-based applications for end-user access. You can use JavaScript to embed custom business logic."}
+                                                    "name": { "description": "SAP Workflow Management: Automate business processes using workflow technology."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3770,7 +3770,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","standard"] },
-                                                    "name": { "description": "SAP Cloud Transport Management: SAP Cloud Transport Management service lets you manage software deliverables between accounts of different environments (such as Neo and Cloud Foundry), by transporting them across various runtimes. This includes application artifacts as well as their respective application-specific content."}
+                                                    "name": { "description": "SAP Cloud Transport Management: Cloud Transport Management Application"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4760,7 +4760,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","standard"] },
-                                                    "name": { "description": "SAP Build Work Zone, standard edition : Provides users with a central point of access to applications from different sources. Note: SAP Launchpad service was recently renamed to SAP Build Work Zone, standard edition."}
+                                                    "name": { "description": "SAP Launchpad: SAPLaunchpad"}
                                                 },
                                                 "allOf": [
                                                     {

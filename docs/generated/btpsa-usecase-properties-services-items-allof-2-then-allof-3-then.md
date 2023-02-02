@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Cloud Transport Management: SAP Cloud Transport Management service lets you manage software deliverables between accounts of different environments (such as Neo and Cloud Foundry), by transporting them across various runtimes. This includes application artifacts as well as their respective application-specific content.
+SAP Cloud Transport Management: Cloud Transport Management Application
 
 `name`
 
