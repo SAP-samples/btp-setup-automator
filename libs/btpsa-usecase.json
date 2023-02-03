@@ -589,7 +589,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["large","lite","standard"] },
-                                                    "name": { "description": "SAP Application Logging service for SAP BTP: Stream logs of bound applications to a central application logging stack."}
+                                                    "name": { "description": "SAP Application Logging service for SAP BTP: In the Cloud Foundry environment, the SAP Application Logging service for SAP BTP lets you stream logs of bound applications to a central application logging stack. SAP Application Logging service for SAP BTP uses Elastic Stack to store and visualize your application log data. To fully leverage this service, please also consider using one of SAP&apos;s open source libraries (for example, cf-java-logging-support or cf-nodejs-logging-support). In the Neo environment, the application logging allows you to configure loggers for Java applications through the cockpit or the console client. Furthermore, you can retrieve default trace logs, HTTP access logs, and garbage collection logs for the last 7 days."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -1110,7 +1110,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","proxy","standard"] },
-                                                    "name": { "description": "SAP Credential Store: Secure repository for credentials, cryptographic keys and certificates."}
+                                                    "name": { "description": "SAP Credential Store: The Credential Store provides a secure repository for passwords and keys to applications that are running on SAP Business Technology Platform. It enables the applications to retrieve credentials and use them for authentication to external services, or to perform cryptographic operations and TLS communication."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -1236,7 +1236,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["application","free"] },
-                                                    "name": { "description": "SAP Data Privacy Integration: Integrate the data privacy services with the external applications."}
+                                                    "name": { "description": "SAP Data Privacy Integration: Data Privacy Integration (DPI) is a service that supports applications realize their data privacy functions i.e Business Purpose Management ( Ensure Data is processed in a compliant manner based on valid Business Purpose ), Data Deletion and Retrieval of personal data. Applications that are part of an end to end business process can integrate with DPI to provide a centralized management of data privacy."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -1262,7 +1262,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "Data Enrichment: Data Enrichment"}
+                                                    "name": { "description": "Data Enrichment: Industrializes the use of third-party data for enterprise applications, and makes it economical to find, procure and consume relevant datasets in timely fashion. Offers pre-built integrations with SAP S/4HANA Cloud and on-premise, and SAP Master Data Governance. Centrally links data from external data providers such as Dun & Bradstreet and CDQ into SAP enterprise applications, reducing overall TCO for data brokerage needs. Data Enrichment will be a one stop shop for multiple data augmentation needs."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -1280,7 +1280,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "Date and Time: Date and Time"}
+                                                    "name": { "description": "Date and Time: Get default date format for a given country, timezone details and time difference between two provided time values."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -1498,7 +1498,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["adaptive-server-enterprise","adaptive-server-enterprise-replication","hana","hana-cloud-connection","hana-cloud-connection-free","hana-free","relational-data-lake","relational-data-lake-free"] },
-                                                    "name": { "description": "SAP HANA Cloud: Leverage the in-memory data processing capabilities of SAP HANA in the cloud as one simple gateway"}
+                                                    "name": { "description": "SAP HANA Cloud: SAP HANA Cloud provides a single place to access, store, and process all enterprise data in real time. It is a cloud-native platform that reduces the complexity of multi-cloud or hybrid system landscapes. SAP HANA Cloud provides all of the advanced SAP HANA technologies for multi-model data processing in-memory or on disk. You can benefit from cloud qualities such as automatic software updates, elasticity, and low total cost of ownership by using SAP HANA Cloud either as a stand-alone solution or as an extension to your existing on-premise environment."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -1922,7 +1922,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP Cloud Platform Internet of Things: SAP Business Technology Platform Internet of Things"}
+                                                    "name": { "description": "Internet of Things: The SAP Business Technology Platform Internet of Things service for the Cloud Foundry environment connects devices to SAP Business Technology Platform to provide scalable ingestion of IoT data and device management. The respective services provide a secure connection to remote devices using a broad variety of IoT protocols and manage the device lifecycle from onboarding to decommissioning."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -2572,7 +2572,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["s4hana-onpremise","sap-integration"] },
-                                                    "name": { "description": "SAP Master Data Integration: Service for master data integration"}
+                                                    "name": { "description": "SAP Master Data Integration: SAP Business Technology Platform Master Data Integration service offers master data synchronization across SAP solutions and is a central access layer for data sharing and distribution. The service can only be used for SAP to SAP Integration, and must not be directly accessed for 3rd party master data integration scenarios with SAP. SAP Business Technology Platform Master Data Orchestration is part of the master data integration service, and can only be used in conjunction with SAP Master Data Integration service."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3374,7 +3374,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["container","service-operator-access","subaccount-admin","subaccount-audit"] },
-                                                    "name": { "description": "SAP Service Manager: The central registry for service brokers and platforms in SAP Business Technology Platform"}
+                                                    "name": { "description": "SAP Service Manager: SAP Service Manager service allows you to consume platform services in any connected runtime environment, track service instances creation, and share services and service instances between different environments."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3726,7 +3726,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "SAP Forms Service by Adobe: Configure Adobe Document Services. Access the template store UI."}
+                                                    "name": { "description": "Forms Service by Adobe: SAP Forms service by Adobe lets you generate print and interactive forms using Adobe Document Services (ADS). Call the service from your application using a REST API for rendering documents and for managing form templates in the template store. Configure ADS and access the template store via service-offered UIs. To use Forms service by Adobe, you must subscribe to the application (ads-configui) and set entitlements to both, the ADS (ads) and the REST API template store (adsrestapi) service. In the Service Marketplace, find all two tiles easily by entering 'adobe' into the search field."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3796,7 +3796,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "API Management-API Portal: API Management-API Portal"}
+                                                    "name": { "description": "API Management, API portal: API Management technology helps you to share digital assets and enables consumption of these assets in new user interfaces. An API Portal application in SAP API Management helps you grow new revenue streams. You can not only configure and share but also monetize you digital assets, enabling up-sell and cross-sell though your eco-system."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3956,7 +3956,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default","free"] },
-                                                    "name": { "description": "SAP Continuous Integration and Delivery: Create and run jobs for continuous integration and delivery."}
+                                                    "name": { "description": "SAP Continuous Integration and Delivery: SAP Continuous Integration and Delivery lets you configure and run predefined continuous integration and delivery (CI/CD) pipelines that automatically build, test and deploy your code changes to speed up your development and delivery cycles."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4462,7 +4462,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP Personal Data Manager: Manage requests and inform data subjects about their personal data in processing."}
+                                                    "name": { "description": "SAP Personal Data Manager: SAP Personal Data Manager provides the capability to generate reports showing the personal data stored in an application point of view with the help of a CSR. The reports can be generated and exported either in machine readable form (JSON) or human readable form (PDF). Data subjects can request the correction and deletion of personal data that is stored in an application point of view."}
                                                 },
                                                 "allOf": [
                                                     {

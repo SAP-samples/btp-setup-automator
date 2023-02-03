@@ -50,7 +50,7 @@ unknown
 
 ## name
 
-SAP Service Manager: The central registry for service brokers and platforms in SAP Business Technology Platform
+SAP Service Manager: SAP Service Manager service allows you to consume platform services in any connected runtime environment, track service instances creation, and share services and service instances between different environments.
 
 `name`
 
