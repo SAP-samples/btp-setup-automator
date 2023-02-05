@@ -47,7 +47,7 @@ unknown
 
 ## name
 
-Service Ticket Intelligence: Build a self-driven customer service powered by machine learning with Service Ticket Intelligence
+Service Ticket Intelligence: With Service Ticket Intelligence, incoming customers service tickets are automatically classified into their categories, and routed to the right agent. The agent is then provided with recommended solutions to improve operational efficiency. Service Ticket Intelligence leverages deep learning neural networks trained on large amounts of historical data. The model understands the semantics of unstructured ticket messages, classifies the ticket into their most likely categories and recommends solutions or knowledge base articles from similar previously answered tickets for the agent. With more processed service tickets and users feedback, the model improves over time.
 
 `name`
 
