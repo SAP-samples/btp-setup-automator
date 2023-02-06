@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-Document Translation: Translate your documents into multiple languages
+Document Translation: Provides an API that allows you to translate documents of various formats into multiple languages.
 
 `name`
 

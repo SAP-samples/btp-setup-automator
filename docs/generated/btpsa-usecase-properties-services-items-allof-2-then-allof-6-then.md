@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Audit Log Viewer service for SAP BTP: Audit Log Viewer
+SAP Audit Log Viewer service for SAP BTP: SAP Audit Log Viewer service for SAP BTP helps to view and manage audit logs.
 
 `name`
 
