@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-data quality service: Embed data quality services to validate addresses and enrich with geocodes.
+data quality service: SAP Data Quality Management offers cloud-based services that let you embed address cleansing, geocoding, and reverse geocoding within any business process orapplication,so that you can reap the value of complete and accurate address data.
 
 `name`
 
