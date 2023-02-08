@@ -56,7 +56,7 @@ unknown
 
 ## name
 
-Hyperledger Fabric on SAP BTP: The Hyperledger Fabric service on SAP BTP lets you provision a Hyperledger Fabric node and join it to a network of nodes. Hyperledger Fabric supports Enterprise ready blockchain with smart contracts.
+Hyperledger Fabric on SAP BTP: Hyperledger Fabric
 
 `name`
 

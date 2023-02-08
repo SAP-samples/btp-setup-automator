@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Build Work Zone, advanced edition: SAP Build Work Zone, advanced edition
+SAP Web Analytics: Web Analytics
 
 `name`
 

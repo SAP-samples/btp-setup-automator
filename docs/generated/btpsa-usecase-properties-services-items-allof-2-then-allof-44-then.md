@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Data Retention Manager: Manage retention and residence rules to block or delete personal data.
+Responsibility Management Service: As we move toward an intelligent enterprise, intelligent systems need to determine agents who are responsible for business processes and objects, and automatically notify them. It is essential to define and manage these responsibilities for various contexts and retrieve responsible agents who can respond to tasks and activities.
 
 `name`
 

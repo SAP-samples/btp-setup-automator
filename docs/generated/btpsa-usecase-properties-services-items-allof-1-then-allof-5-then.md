@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Alert Notification service for SAP BTP: SAP Business Technology Platform Alert Notification offers a common API for providers to publish alerts and for consumers to subscribe to these alerts. It is designed to send automatically real-time notifications and alerts about SAP Cloud events that may be of interest to the business and operations.<br/><br/>SAP does not support EU Access for this service. By activating the service, you are accepting this limitation.
+SAP Alert Notification service for SAP BTP: Service that exposes platform alerts and offers APIs for producing/consuming custom alerts
 
 `name`
 

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Cloud Portal service: SAP Cloud Portal service lets you build digital experience portals for employees, customers, and partners. You can streamline access to business data so that your employees can execute their daily business tasks securely, from any device.
+SAP Personal Data Manager: Manage requests and inform data subjects about their personal data in processing.
 
 `name`
 

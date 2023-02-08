@@ -6,8 +6,8 @@ unknown
 
 | Property                  | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                                  |
 | :------------------------ | :------------ | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [plan](#plan)             | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-47-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/47/then/allOf/1/then/properties/plan")             |
-| [parameters](#parameters) | `object`      | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-47-then-allof-1-then-properties-parameters.md "undefined#/properties/services/items/allOf/2/then/allOf/47/then/allOf/1/then/properties/parameters") |
+| [plan](#plan)             | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-48-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/48/then/allOf/1/then/properties/plan")             |
+| [parameters](#parameters) | `object`      | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-48-then-allof-1-then-properties-parameters.md "undefined#/properties/services/items/allOf/2/then/allOf/48/then/allOf/1/then/properties/parameters") |
 
 ## plan
 
@@ -33,7 +33,7 @@ application plan >connectivity< for >sap-identity-services-onboarding< is availa
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-47-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/47/then/allOf/1/then/properties/plan")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-48-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/48/then/allOf/1/then/properties/plan")
 
 ### plan Type
 
@@ -47,12 +47,12 @@ unknown
 
 *   is required
 
-*   Type: `object` ([Details](btpsa-usecase-properties-services-items-allof-2-then-allof-47-then-allof-1-then-properties-parameters.md))
+*   Type: `object` ([Details](btpsa-usecase-properties-services-items-allof-2-then-allof-48-then-allof-1-then-properties-parameters.md))
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-47-then-allof-1-then-properties-parameters.md "undefined#/properties/services/items/allOf/2/then/allOf/47/then/allOf/1/then/properties/parameters")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-48-then-allof-1-then-properties-parameters.md "undefined#/properties/services/items/allOf/2/then/allOf/48/then/allOf/1/then/properties/parameters")
 
 ### parameters Type
 
-`object` ([Details](btpsa-usecase-properties-services-items-allof-2-then-allof-47-then-allof-1-then-properties-parameters.md))
+`object` ([Details](btpsa-usecase-properties-services-items-allof-2-then-allof-48-then-allof-1-then-properties-parameters.md))

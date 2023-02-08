@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value       | Explanation |
-| :---------- | :---------- |
-| `"default"` |             |
+| Value                | Explanation |
+| :------------------- | :---------- |
+| `"saas-application"` |             |
 
 ## name
 
-Workspace Utilization: SAP Cloud for Real Estate Workspace Utilization Management (BETA)
+SAP Workflow Management: Digitize workflows, manage decisions and gain end-to-end process visibility.
 
 `name`
 

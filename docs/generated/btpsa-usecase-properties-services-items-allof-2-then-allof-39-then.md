@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value       | Explanation |
-| :---------- | :---------- |
-| `"default"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"standard"` |             |
 
 ## name
 
-SAP Procurement Analytics Warehouse: SAP Procurement Analytics Warehouse
+SAP Print service: Manage print queues, connect print clients and monitor print status
 
 `name`
 

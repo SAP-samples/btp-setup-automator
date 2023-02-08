@@ -10,9 +10,10 @@ unknown
 
 ## plan
 
-application plan >beta< for >responsibility-management-application-beta< is available in data centers:
+application plan >standard< for >procurement< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
 
