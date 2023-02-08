@@ -39,7 +39,7 @@ The services and subscriptions that are created are:
 * Enterprise Messaging
 * CI/CD Service
 
-The code of the application is pulled from the GitHub repository <https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension>.
+The code of the application is pulled from the GitHub repository <https://github.com/SAP-samples/btp-build-resilient-apps>.
 
 The use case is referenced from the parameters file [/tests/integrationtests/parameterfiles/integrationtest03.json](../tests/integrationtests/parameterfiles/integrationtest03.json).
 
