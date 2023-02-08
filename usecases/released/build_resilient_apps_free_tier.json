@@ -32,16 +32,6 @@
             "category": "SERVICE"
         },
         {
-            "name": "xsuaa",
-            "plan": "apiaccess",
-            "category": "SERVICE"
-        },
-        {
-            "name": "autoscaler",
-            "plan": "standard",
-            "category": "SERVICE"
-        },
-        {
             "name": "hana-cloud",
             "plan": "hana-free",
             "category": "SERVICE",
@@ -62,6 +52,16 @@
                     ]
                 }
             }
+        },
+        {
+            "name": "xsuaa",
+            "plan": "apiaccess",
+            "category": "SERVICE"
+        },
+        {
+            "name": "autoscaler",
+            "plan": "standard",
+            "category": "SERVICE"
         },
         {
             "name": "hana",
@@ -128,7 +128,7 @@
                 },
                 "version": "1.1.0",
                 "emname": "bpem",
-                "namespace": "tfe/bpem/em"
+                "namespace": "tfe/bpem/em12"
             }
         },
         {
@@ -157,11 +157,11 @@
         },
         {
             "description": "Building artefacts for the CAP and HTML5 application",
-            "command": "npm install & npm run build:cf"
+            "command": "cd tutorial && npm install && npm run build:cf"
         },
         {
             "description": "Deploy application to SAP BTP, Cloud Foundry Runtime",
-            "command": "npm run deploy:live"
+            "command": "cd tutorial && npm run deploy:live"
         },
         {
             "description": "Activating OData Services in SAP S/4HANA System",
