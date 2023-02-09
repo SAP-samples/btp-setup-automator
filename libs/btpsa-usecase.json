@@ -1196,7 +1196,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["dedicated","enterprise","tenant"] },
-                                                    "name": { "description": "SAP Data Intelligence Cloud: SAP Data Intelligence is the all-in-one data orchestration solution to discover, refine, enriche and govern any type, variety, and volume of data across your entire distributed data landscape. Deliver on the promise of AI with enterprise scale, trust, and transparency driving significant new business value and insights."}
+                                                    "name": { "description": "SAP Data Intelligence Cloud: Orchestrate, refine, enrich, apply intelligence on your governed data across your entire distributed data landscape."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4614,7 +4614,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "Responsibility Management Service: As we move toward an intelligent enterprise, intelligent systems need to determine agents who are responsible for business processes and objects, and automatically notify them. It is essential to define and manage these responsibilities for various contexts and retrieve responsible agents who can respond to tasks and activities."}
+                                                    "name": { "description": "Responsibility Management Service: None"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4902,7 +4902,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["saas-application"] },
-                                                    "name": { "description": "SAP Workflow Management: Digitize workflows, manage decisions and gain end-to-end process visibility."}
+                                                    "name": { "description": "SAP Workflow Management: Digitize workflows, manage decisions and gain end-to-end process visibility"}
                                                 },
                                                 "allOf": [
                                                     {
