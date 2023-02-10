@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Procurement Analytics Warehouse Service: SAP Procurement Analytics Warehouse Service
+procurement data warehouse service: Provides access to procurement data warehouse service.
 
 `name`
 

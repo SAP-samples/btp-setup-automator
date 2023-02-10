@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Work Calendar: Work Calendar
+Work Calendar: Get details of factory calendar such as weekday, holiday, workday for a country.
 
 `name`
 

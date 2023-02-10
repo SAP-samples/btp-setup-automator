@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Responsibility Management Service: None
+Responsibility Management Service: Determine responsible agents for a business process
 
 `name`
 

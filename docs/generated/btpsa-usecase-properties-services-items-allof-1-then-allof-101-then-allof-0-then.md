@@ -14,6 +14,7 @@ service plan >standard< for >responsibilitymanagement-service< is available in d
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
+*   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
 

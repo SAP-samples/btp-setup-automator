@@ -50,7 +50,7 @@ unknown
 
 ## name
 
-SAP BTP, Kyma runtime: Kyma environment is a runtime you can use to build cloud-native Kubernetes-based applications by using microservices and serverless functions.
+SAP BTP, Kyma runtime: SAP Business Technology Platform, Kyma runtime is a fully managed Kubernetes runtime based on the open-source project Kyma. This cloud-native solution allows the developers to extend SAP solutions with serverless Functions and combine them with containerized microservices. The offered functionality ensures smooth consumption of SAP and non-SAP applications, running workloads in a highly scalable environment, and building event- and API-based extensions.
 
 `name`
 

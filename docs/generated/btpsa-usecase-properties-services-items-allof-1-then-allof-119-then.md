@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-UI5 flexibility for key users: Add UI adaptation to your UI5 applications
+UI5 flexibility for key users: The UI5 flexibility service for key users lets you provide UI adaptation capabilites for your UI5 applications on Cloud Foundry. Users of your applications can change the user interface of your applications in an upgrade-safe and modification-free way, without affecting any other customer.
 
 `name`
 

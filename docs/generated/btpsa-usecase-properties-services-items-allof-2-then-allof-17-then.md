@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Data Quality Services UI: Manage configurations and view usage of the Data Quality Services service.
+Data Quality Services UI: Manage settings and field mappings using configurations. View number of transactions performed over a spefici time period.
 
 `name`
 

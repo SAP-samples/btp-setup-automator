@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP IoT: Put raw sensor data into business context and leverage it in analytical or transactional applications
+SAP IoT: SAP IoT business services allow you to put raw sensor data into business object context and then use query models, rules, events and actions to leverage the data near real-time in analytical or transactional business applications.
 
 `name`
 
