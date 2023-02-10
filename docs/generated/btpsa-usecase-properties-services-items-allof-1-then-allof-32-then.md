@@ -47,7 +47,7 @@ unknown
 
 ## name
 
-SAP Data Intelligence Cloud: Orchestrate, refine, enrich, apply intelligence on your governed data across your entire distributed data landscape.
+SAP Data Intelligence Cloud: SAP Data Intelligence is the all-in-one data orchestration solution to discover, refine, enriche and govern any type, variety, and volume of data across your entire distributed data landscape. Deliver on the promise of AI with enterprise scale, trust, and transparency driving significant new business value and insights.
 
 `name`
 

@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value    | Explanation |
-| :------- | :---------- |
-| `"beta"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"standard"` |             |
 
 ## name
 
-SAP Responsibility Management service: Determine the user responsible in Responsibility Rules app using Business Rules or an External API ( write your own code)
+Guided Buying: Guided Buying allows you to integrate procurement solutions with SAP S/4HANA Cloud.
 
 `name`
 

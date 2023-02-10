@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Document Management, application option: Organize your documents with ready-to-use document management capabilities.
+SAP Build Work Zone, advanced edition: SAP Build Work Zone, advanced edition
 
 `name`
 

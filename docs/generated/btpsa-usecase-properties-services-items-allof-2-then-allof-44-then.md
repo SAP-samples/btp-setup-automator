@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Data Retention Manager: Manage retention and residence rules to block or delete personal data.
+Responsibility Management Service: Determine responsible agents for a business process
 
 `name`
 

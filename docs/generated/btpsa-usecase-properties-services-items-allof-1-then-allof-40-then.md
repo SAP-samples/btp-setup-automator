@@ -47,7 +47,7 @@ unknown
 
 ## name
 
-SAP Event Mesh: Event Mesh
+SAP Event Mesh: The SAP Event Mesh service decouples communication and allows for event-driven business processes.
 
 `name`
 

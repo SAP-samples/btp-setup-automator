@@ -1,6 +1,6 @@
 ## cloud\_service Type
 
-`string` ([Service type](btpsa-usecase-properties-services-items-allof-2-then-allof-47-then-allof-0-then-properties-parameters-properties-service-type.md))
+`string` ([Service type](btpsa-usecase-properties-services-items-allof-2-then-allof-48-then-allof-0-then-properties-parameters-properties-service-type.md))
 
 ## cloud\_service Constraints
 

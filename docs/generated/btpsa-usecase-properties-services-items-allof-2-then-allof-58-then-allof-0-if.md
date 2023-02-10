@@ -6,7 +6,7 @@ unknown
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                  |
 | :------------ | :------------ | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-45-then-allof-1-if-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/45/then/allOf/1/if/properties/plan") |
+| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-58-then-allof-0-if-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/58/then/allOf/0/if/properties/plan") |
 
 ## plan
 
@@ -20,7 +20,7 @@ unknown
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-45-then-allof-1-if-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/45/then/allOf/1/if/properties/plan")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-58-then-allof-0-if-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/58/then/allOf/0/if/properties/plan")
 
 ### plan Type
 
@@ -31,5 +31,5 @@ unknown
 **constant**: the value of this property must be equal to:
 
 ```json
-"standard"
+"default"
 ```

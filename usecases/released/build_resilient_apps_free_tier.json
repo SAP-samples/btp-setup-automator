@@ -7,7 +7,7 @@
         "testStatus": "tested successfully",
         "usageStatus": "READY TO BE USED",
         "relatedLinks": [
-            "https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension"
+            "https://github.com/SAP-samples/btp-build-resilient-apps"
         ]
     },
     "services": [
@@ -32,16 +32,6 @@
             "category": "SERVICE"
         },
         {
-            "name": "xsuaa",
-            "plan": "apiaccess",
-            "category": "SERVICE"
-        },
-        {
-            "name": "autoscaler",
-            "plan": "standard",
-            "category": "SERVICE"
-        },
-        {
             "name": "hana-cloud",
             "plan": "hana-free",
             "category": "SERVICE",
@@ -62,6 +52,16 @@
                     ]
                 }
             }
+        },
+        {
+            "name": "xsuaa",
+            "plan": "apiaccess",
+            "category": "SERVICE"
+        },
+        {
+            "name": "autoscaler",
+            "plan": "standard",
+            "category": "SERVICE"
         },
         {
             "name": "hana",
@@ -128,7 +128,7 @@
                 },
                 "version": "1.1.0",
                 "emname": "bpem",
-                "namespace": "tfe/bpem/em"
+                "namespace": "tfe/bpem/em12"
             }
         },
         {
@@ -153,51 +153,51 @@
     "executeAfterAccountSetup": [
         {
             "description": "Get the tutorial code",
-            "command": "rm -rf /home/user/tutorial && git clone https://github.com/SAP-samples/btp-build-resilient-apps.git -b extension  /home/user/tutorial && cd /home/user/tutorial/ "
+            "command": "rm -rf /home/user/tutorial && git clone https://github.com/SAP-samples/btp-build-resilient-apps  /home/user/tutorial && cd /home/user/tutorial/ "
         },
         {
-            "description": "Building multi target application assets",
-            "command": "cd tutorial/ && mbt build -e live.mtaext "
+            "description": "Building artefacts for the CAP and HTML5 application",
+            "command": "cd tutorial && npm install && npm run build:cf"
         },
         {
-            "description": "Deploy app",
-            "command": "cd tutorial/ && cf deploy mta_archives/BusinessPartnerVerification_1.2.0.mtar -f"
+            "description": "Deploy application to SAP BTP, Cloud Foundry Runtime",
+            "command": "cd tutorial && npm run deploy:live"
         },
         {
             "description": "Activating OData Services in SAP S/4HANA System",
-            "command": "echo 'YOUR MANUAL TODO 1 - Activate OData Services in SAP S/4HANA: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/02-configure-oData-Service'"
+            "command": "echo 'YOUR MANUAL TODO 1 - Activate OData Services in SAP S/4HANA: https://github.com/SAP-samples/btp-build-resilient-apps/tree/main/tutorials/01_enable_odata_apis'"
         },
         {
             "description": "Setup SAP Cloud Connector",
-            "command": "echo 'YOUR MANUAL TODO 2 - Setup SAP Cloud Connector: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/05-CloudConnector'"
+            "command": "echo 'YOUR MANUAL TODO 2 - Setup Connectivity between SAP S/4HANA and SAP BTP: https://github.com/SAP-samples/btp-build-resilient-apps/blob/main/tutorials/05_setupconnectivity/README.md'"
         },
         {
             "description": "Configure SAP Event Mesh in SAP S/4HANA",
-            "command": "echo 'YOUR MANUAL TODO 3 - Configure SAP Event Mesh in SAP S/4HANA: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/07-SetupEventMesh'"
+            "command": "echo 'YOUR MANUAL TODO 3 - Configure SAP Event Mesh in SAP S/4HANA: https://github.com/SAP-samples/btp-build-resilient-apps/blob/main/tutorials/07_setupeventmesh'"
         },
         {
             "description": "Test Scenario End-2-End",
-            "command": "echo 'YOUR MANUAL TODO 4 - Test Application: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/08-TestApplication'"
+            "command": "echo 'YOUR MANUAL TODO 4 - Test Application: https://github.com/SAP-samples/btp-build-resilient-apps/tree/main/tutorials/08_testappe2e'"
         },
         {
             "description": "Access and Discover Application Logs",
-            "command": "echo 'YOUR MANUAL TODO 5 - Access application logs: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/09-ApplicationLogging'"
+            "command": "echo 'YOUR MANUAL TODO 5 - Access application logs: https://github.com/SAP-samples/btp-build-resilient-apps/blob/main/tutorials/09_setuplogging'"
         },
         {
             "description": "Setup CI/CD Pipeline",
-            "command": "echo 'YOUR MANUAL TODO 6 - Setup CI/CD Pipeline: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/10-SetupCICD'"
+            "command": "echo 'YOUR MANUAL TODO 6 - Setup CI/CD Pipeline: https://github.com/SAP-samples/btp-build-resilient-apps/blob/main/tutorials/10_setupcicd'"
         },
         {
             "description": "Setup Cloud Transport Management",
-            "command": "echo 'YOUR MANUAL TODO 7 - Setup Cloud Transport Management: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/11-SetupTMS'"
+            "command": "echo 'YOUR MANUAL TODO 7 - Setup Cloud Transport Management: https://github.com/SAP-samples/btp-build-resilient-apps/blob/main/tutorials/11_setuptms'"
         },
         {
             "description": "Setup Alert Notifications",
-            "command": "echo 'YOUR MANUAL TODO 8 - Setup Alert Notifications: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/12-SetupANS'"
+            "command": "echo 'YOUR MANUAL TODO 8 - Setup Alert Notifications: https://github.com/SAP-samples/btp-build-resilient-apps/blob/main/tutorials/12_setupans'"
         },
         {
             "description": "Setup Application Autoscaler",
-            "command": "echo 'YOUR MANUAL TODO 9 - Setup Application Autoscaler: https://github.com/SAP-samples/btp-build-resilient-apps/tree/extension/tutorials/13-SetupAppAutoscaler'"
+            "command": "echo 'YOUR MANUAL TODO 9 - Setup Application Autoscaler: https://github.com/SAP-samples/btp-build-resilient-apps/blob/main/tutorials/13_setupautoscaler'"
         }
     ],
     "executeToPruneUseCase": [

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Responsibility Management service: Provides APIs for DetermineAgents using responsibility rules or external APIs(bring your own code) and AgentDeterminationRequest
+SAP Responsibility Management service: Determine responsible agents for a business process
 
 `name`
 

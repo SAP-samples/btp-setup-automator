@@ -37,14 +37,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"free"`     |             |
-| `"standard"` |             |
+| Value                | Explanation |
+| :------------------- | :---------- |
+| `"free"`             |             |
+| `"standard-edition"` |             |
 
 ## name
 
-SAP Launchpad: SAPLaunchpad
+SAP Business Application Studio: Develop, debug, test, and deploy SAP business applications.
 
 `name`
 

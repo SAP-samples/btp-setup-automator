@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Print service: Manage print queues, connect print clients and monitor print status
+SAP Cloud Portal service: PortalApplication
 
 `name`
 
