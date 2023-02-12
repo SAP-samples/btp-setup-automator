@@ -431,7 +431,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP Forms service by Adobe: Generate print and interactive forms using Adobe Document Services."}
+                                                    "name": { "description": "SAP Forms service by Adobe: SAP Forms service by Adobe lets you generate print and interactive forms using Adobe Document Services (ADS). Call the service from your application using a REST API for rendering documents and for managing form templates in the template store. Configure ADS and access the template store via service-offered UIs. To use Forms service by Adobe, you must subscribe to the application (ads-configui) and set entitlements to both, the ADS (ads) and the REST API template store (adsrestapi) service. In the Service Marketplace, find all two tiles easily by entering 'adobe' into the search field."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -786,7 +786,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["advanced","standard"] },
-                                                    "name": { "description": "SAP Build Work Zone, advanced edition: Enable integration with other services."}
+                                                    "name": { "description": "SAP Build Work Zone, advanced edition: Centralizes access to relevant business applications, processes, information, and communication in a unified entry point that users can access from any device. Note: SAP Work Zone was recently renamed to SAP Build Work Zone, advanced edition."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -1456,7 +1456,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["hdi-shared","sbss","schema","securestore"] },
-                                                    "name": { "description": "SAP HANA Schemas & HDI Containers: SAP HANA Schemas & HDI Containers"}
+                                                    "name": { "description": "SAP HANA Schemas & HDI Containers: Use the SAP HANA schemas & HDI containers service to create service instances on SAP HANA databases and bind them to cloud applications. To create schemas and HDI containers, an SAP HANA database must be available in your space. The SAP HANA schemas & HDI containers service is part of the SAP HANA service."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3640,7 +3640,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "SAP BTP, serverless runtime: Allows you to create, manage, configure extensions on SAP Business Technology Platform"}
+                                                    "name": { "description": "SAP BTP, serverless runtime: Build, run, and manage your cloud extensions in a fully-managed environment"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3708,7 +3708,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "Web access for ABAP: Web access for ABAP"}
+                                                    "name": { "description": "Web access for ABAP: Get web access to your instances in the ABAP Environment including access to administrative UIs"}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4364,7 +4364,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["mror","mrtr"] },
-                                                    "name": { "description": "SAP Market Rates Management: SAP Market Rates Management"}
+                                                    "name": { "description": "SAP Market Rates Management: The Manage Market Rates application enables you to read and manage market data you have uploaded by using the data options available with the SAP Market Rates Management service"}
                                                 },
                                                 "allOf": [
                                                     {
