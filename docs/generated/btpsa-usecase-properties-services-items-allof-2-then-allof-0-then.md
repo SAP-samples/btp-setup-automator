@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Web access for ABAP: Get web access to your instances in the ABAP Environment including access to administrative UIs
+Web access for ABAP: Web access for ABAP
 
 `name`
 
