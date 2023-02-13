@@ -1,5 +1,7 @@
 # Setup Automator for SAP Business Technology Platform
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/) 
+
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-setup-automator)](https://api.reuse.software/info/github.com/SAP-samples/btp-setup-automator) [![Release Docker Image](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-release-build-and-push.yml/badge.svg)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-release-build-and-push.yml)[![Dev Docker Image](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-dev-build-and-push.yml/badge.svg)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-dev-build-and-push.yml)
 
 ## Description
