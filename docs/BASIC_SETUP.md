@@ -18,14 +18,44 @@ In case you are new to the containers topic, we **strongly recommend** that you 
 
 Once the pre-requisites above are all met, you can either use one of the pre-built Docker images for the `btp-setup-automator`, or build it yourself.
 
-### Option 1: Start Docker Container via Pre-Built Image (recommended)
+### Option 1: Start the btpsa via Dev Container (recommended)
 
-This is the fastest way to use the `btp-setup-automator`. We offer two images for the `btp-setup-automator`:
+We provide two configurations for Dev Containers to start the `btp-setup-automator` based on the two pre-built images we serve on GitHub:
 
-- The **release** image: This is a stable version of the `btp-setup-automator` and corresponds to the latest release visible on the [release section](https://github.com/SAP-samples/btp-setup-automator/releases) of the repository. The corresponding code is taken from the [`main branch`](https://github.com/SAP-samples/btp-setup-automator/tree/main) of the repository.
+- The **release**/**stable** image: This is a *stable* version of the `btp-setup-automator` and corresponds to the latest release visible on the [release section](https://github.com/SAP-samples/btp-setup-automator/releases) of the repository. The corresponding code is taken from the [`main branch`](https://github.com/SAP-samples/btp-setup-automator/tree/main) of the repository.
 - The **dev** image: This is an up-to-date version of the `btp-setup-automator`. It usually contains newer features and fixes but was not yet officially released. The corresponding code is taken from the [`dev branch`](https://github.com/SAP-samples/btp-setup-automator/tree/dev) of the repository.
 
-Open a terminal window on your machine and run the following command to pull the Docker image from the GitHub repository and start a container based upon it.
+To start a Dev Container in VS Code the easiest way is to click on the "Open a remote Window" button in the footer of VS Code:
+
+![open in remote window](pics/open-in-remote-window.png)
+
+This opens the command palette. Select `Reopen in Container` in the Dev Container section:
+
+![reopen in container](pics/command-palette-devcontainer.png)
+
+Select the configuration you want to use (*stable* or *dev*):
+
+![devcontainer config options](pics/devcontainer-config-options.png)
+
+VS Code will reopen in the Dev Container and you can start using the  `btp-setup-automator`.
+
+> 📝 Tip - You can also use the VS Code command palette (in the menu "View" select "Command Palette" or press the key combination `Ctrl+Shift+P` for Windows or `Cmd+Shift+P` for Mac) and use the "Dev Container: Reopen in Container" option from there.
+
+#### Alternative GitHub Codespaces
+
+Defining Dev Container configurations opens up the option to use [GitHub Codespaces](https://docs.github.com/en/codespaces) as you execution environment for the `btp-setup-automator`.
+
+To open the btpsa in GitHub Codespaces use the badges provided on the [main page](https://github.com/SAP-samples/btp-setup-automator) of the repository.
+
+> ⚠ NOTE: Cost might occur on your personal or organizational account when using GitHub Codespaces. You find more information on that topic [here](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
+
+In case you are using SSO as login option when execution use cases, be aware that there might be issues when it comes to [forwarded ports](https://docs.github.com/en/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports) depending on your organizational settings.
+
+### Option 2: Start Docker Container with Pre-Built Images via scripts
+
+As an alternative to Dev Containers you can also directly spin up the `btpsa` container via Docker CLI or via `run` scripts that we provide. This sections guides you through this setup.
+
+To leverage the Docker CLI, open a terminal window on your machine and run the following command to pull the Docker image from the GitHub repository and start a container based upon it.
 
 - For the **release** image:
 
@@ -111,7 +141,7 @@ You can also use the provided `run` files to pull the image from the registry an
       .\run.ps1 -RunDevFromRegistry $True
       ```
 
-### Option 2: Start Docker Container With Self-Built Image
+### Option 3: Start Docker Container With Self-Built Image
 
 To create the Docker image yourself you need to execute these steps:
 

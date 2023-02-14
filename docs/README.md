@@ -1,30 +1,35 @@
-# Detailed walk-though
+# Detailed walk-through
 
-In case you are using VS Code (recommended), you need to open the Command Palette (in the menu "View" select "Command Palette") or press the key combination `Ctrl+Shift+P` (Windows) or `Cmd+Shift+P` (Mac). Then enter the command:
+To edit the `parameters.json` as well as the `usecase.json` files and to execute them you must connect to the `btp-setup-automator` container.
 
-```text
-Remote-Containers: Attach to Running Container
-```
+In case you are using VS Code (recommended), you have the following options:
 
-![command in VS Code to attach it to a running container](pics/quick-guide-step00.png)
+* Use the [Dev Container](./BASIC_SETUP.md#option-1-start-the-btpsa-via-dev-container-recommended) that opens VS Code inside of the container.
+* Attach to a running container (e.g. when [started via Docker CLI](./BASIC_SETUP.md#option-2-start-docker-container-with-pre-built-images-via-scripts))need to open the Command Palette (in the menu "View" select "Command Palette") or press the key combination `Ctrl+Shift+P` (Windows) or `Cmd+Shift+P` (Mac). Then enter the command:
 
-Now you should see the running container. Click on it, and a new window will pop-up with the content of the Docker container.
+   ```text
+   Remote-Containers: Attach to Running Container
+   ```
 
-![select running container in VS Code](pics/quick-guide-step01.png)
+   ![command in VS Code to attach it to a running container](pics/quick-guide-step00.png)
 
-You might have to select folder with the content in navigation panel of VS Code via `Open Folder`:
-
-![open folder](pics/quick-guide-step02.png)
-
-Select the `/home/user` folder:
-
-![select folder](pics/quick-guide-step03.png)
-
-You can also open a new terminal in the container via the menu `Terminal` - `New Terminal`. This will open an `ash` shell.
-
+   Now you should see the running container. Click on it, and a new window will pop-up with the content of the Docker container.
+   
+   ![select running container in VS Code](pics/quick-guide-step01.png)
+   
+   You might have to select folder with the content in navigation panel of VS Code via `Open Folder`:
+   
+   ![open folder](pics/quick-guide-step02.png)
+   
+   Select the `/home/user` folder:
+   
+   ![select folder](pics/quick-guide-step03.png)
+   
+After connecting to the container, open a new terminal in the container via the menu `Terminal` - `New Terminal`. This will open an `ash` shell.
+   
 ![open new terminal](pics/quick-guide-step04.png)
 
-The last step is to run the main script `btpsa` with the following command:
+The last step is to run the main script `btpsa` via the command:
 
 ```bash
 ./btpsa
