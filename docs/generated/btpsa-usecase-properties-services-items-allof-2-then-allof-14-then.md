@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Custom Domain service: Configure and expose your application under your own domain.
+SAP Custom Domain service: The SAP Business Technology Platform Custom Domain service lets you configure your own custom domain to expose publicly your SAP Business Technology Platform application instead of using the default subdomain.
 
 `name`
 

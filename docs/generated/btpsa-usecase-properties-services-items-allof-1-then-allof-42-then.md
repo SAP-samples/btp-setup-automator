@@ -50,7 +50,7 @@ unknown
 
 ## name
 
-SAP HANA Schemas & HDI Containers: SAP HANA Schemas & HDI Containers
+SAP HANA Schemas & HDI Containers: Use the SAP HANA schemas & HDI containers service to create service instances on SAP HANA databases and bind them to cloud applications. To create schemas and HDI containers, an SAP HANA database must be available in your space. The SAP HANA schemas & HDI containers service is part of the SAP HANA service.
 
 `name`
 

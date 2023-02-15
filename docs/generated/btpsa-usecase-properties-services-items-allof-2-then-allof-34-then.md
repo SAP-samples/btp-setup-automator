@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Master Data Orchestration: Master Data Orchestration
+SAP Master Data Orchestration: Master data application for existing customers of SAP Master Data service for business partners and SAP Master Data service for products. New customers should use the Master Data Integration (Orchestration) tile. SAP Master Data Orchestration should only be used in combination with the SAP Master Data Integration service.
 
 `name`
 

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Cloud for Real Estate Workspace Utilization Management API (BETA): SAP Cloud for Real Estate Workspace Utilization Management API (BETA)
+Workspace Utilization: The Workspace Utilization Management service lets you write sensor measurements to the Workspace Utilization Management API. Sensor platform providers use this API to integrate with the Workspace Utilization Management solution of SAP Cloud for Real Estate.
 
 `name`
 

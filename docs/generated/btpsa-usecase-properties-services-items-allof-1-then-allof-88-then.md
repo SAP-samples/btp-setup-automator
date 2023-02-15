@@ -53,7 +53,7 @@ unknown
 
 ## name
 
-PostgreSQL on SAP BTP, hyperscaler option: PostgreSQL service on SAP Business Technology Platform
+PostgreSQL on SAP BTP, hyperscaler option: The PostgreSQL service on SAP BTP provides a way to directly consume the PostgreSQL service provided by the infrastructure providers such as AWS and Azure.
 
 `name`
 

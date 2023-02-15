@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-IBAN service: IBAN service
+IBAN service: Check validity and get details of given IBAN number.
 
 `name`
 

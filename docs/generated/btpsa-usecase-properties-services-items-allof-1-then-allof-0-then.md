@@ -53,7 +53,7 @@ unknown
 
 ## name
 
-SAP BTP, ABAP environment: Develop ABAP cloud apps and extensions, leveraging innovations of SAP HANA
+SAP BTP, ABAP environment: Access an instance to build custom ABAP cloud apps, leveraging newest innovations powered by SAP HANA.
 
 `name`
 

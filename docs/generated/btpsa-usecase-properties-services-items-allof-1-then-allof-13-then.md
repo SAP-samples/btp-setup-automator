@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Application Autoscaler: Automatically increase or decrease the number of application instances.
+Application Autoscaler: The Application Autoscaler lets you automatically increase or decrease the number of application instances based on a policy you define.
 
 `name`
 

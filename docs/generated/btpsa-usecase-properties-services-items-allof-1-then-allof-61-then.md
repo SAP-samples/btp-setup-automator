@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Market Rates Management: Market Rates Management - Bring Your Own Rates Option
+SAP Market Rates Management: The Market Rates Management, Bring Your Own Rates data option allows you to upload and download your own market rates licensed from third party data providers
 
 `name`
 

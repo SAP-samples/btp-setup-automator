@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-Personalized Recommendation: Personalized Recommendation is a generic reusable service, which draws insights from historical user behavior and item attribute data to deliver highly personalized recommendation
+Personalized Recommendation: Personalized Recommendation is a generic reusable service. It uses state-of-the-art machine learning techniques to give visitors to your website highly personalized recommendations based on their browsing history and/or item description. Train and use machine learning models to deliver these recommendations across a wide range of business scenarios. Personalized Recommendation is part of the SAP AI Business Services portfolio.
 
 `name`
 

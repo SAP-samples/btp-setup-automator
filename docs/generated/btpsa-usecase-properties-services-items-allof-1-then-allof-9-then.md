@@ -47,7 +47,7 @@ unknown
 
 ## name
 
-SAP Application Logging service for SAP BTP: Stream logs of bound applications to a central application logging stack.
+SAP Application Logging service for SAP BTP: In the Cloud Foundry environment, the SAP Application Logging service for SAP BTP lets you stream logs of bound applications to a central application logging stack. SAP Application Logging service for SAP BTP uses Elastic Stack to store and visualize your application log data. To fully leverage this service, please also consider using one of SAP's open source libraries (for example, cf-java-logging-support or cf-nodejs-logging-support). In the Neo environment, the application logging allows you to configure loggers for Java applications through the cockpit or the console client. Furthermore, you can retrieve default trace logs, HTTP access logs, and garbage collection logs for the last 7 days.
 
 `name`
 

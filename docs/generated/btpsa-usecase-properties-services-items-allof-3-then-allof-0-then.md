@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP BTP, Cloud Foundry runtime: The Cloud Foundry environment enables you to develop new business applications and business services, supporting multiple runtimes, programming languages, libraries, and services. You can leverage a multitude of buildpacks, including community innovations and self-developed buildpacks.
+SAP BTP, Cloud Foundry runtime: The SAP BTP, Cloud Foundry runtime lets you develop polyglot cloud-native applications and run them on the SAP BTP Cloud Foundry environment.
 
 `name`
 

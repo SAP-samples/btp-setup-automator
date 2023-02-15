@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Business Application Studio: Develop, debug, test, and deploy SAP business applications.
+SAP Business Application Studio: SAP Business Application Studio is the next generation of SAP Web IDE, offering a modular development environment tailored for efficient development of business applications for the SAP Intelligent Enterprise. It provides pre-configured environments where you can develop, build, test and run using pre-installed runtimes and tools tailored for key scenarios such as: S/4HANA extensions, full stack business applications, Fiori applications and more. It supports quick integration with SAP solutions and services to allow building smarter and more intelligent applications.
 
 `name`
 

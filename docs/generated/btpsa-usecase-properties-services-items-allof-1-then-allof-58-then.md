@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-Process Integration Runtime: Provides access to SAP Cloud Integration runtime (integration flows) and APIs
+Process Integration Runtime: Provides access to SAP Business Technology Platform Integration runtime (integration flows) and APIs.
 
 `name`
 

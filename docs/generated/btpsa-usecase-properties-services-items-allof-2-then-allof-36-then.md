@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-procurement data warehouse: None
+procurement data warehouse: Onboarding application for procurement data warehouse.
 
 `name`
 

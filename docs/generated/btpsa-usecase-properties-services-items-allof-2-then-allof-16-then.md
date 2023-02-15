@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Document Information Extraction UI: Document Information Extraction Application
+Document Information Extraction UI: UI Application to upload document for extraction to Document Information Extraction and correct the results.
 
 `name`
 

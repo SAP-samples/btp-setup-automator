@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Launchpad: SAPLaunchpad
+SAP Build Work Zone, standard edition : Provides users with a central point of access to applications from different sources. Note: SAP Launchpad service was recently renamed to SAP Build Work Zone, standard edition.
 
 `name`
 

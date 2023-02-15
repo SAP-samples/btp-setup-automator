@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-Process Visibility: Provides end-to-end visibility into processes that run in cloud, on-premise and in hybrid environments.
+Process Visibility: Provides end-to-end visibility into processes that run in cloud, on-premise & in hybrid environments
 
 `name`
 

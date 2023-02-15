@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Cloud Integration Automation: Provides guided workflow to integrate SAP Cloud and On-Premise solutions
+Cloud Integration Automation: Cloud Integration Automation service provides you a guided workflow to integrate SAP cloud solutions to On-Premise and other SAP Cloud solutions. The guided workflow contains instructions for manual and automated tasks to enable a simpler and faster integration configuration setup
 
 `name`
 

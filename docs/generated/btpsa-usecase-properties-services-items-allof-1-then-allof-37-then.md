@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-Document Classification: Classify business documents automatically using machine learning.
+Document Classification: Document Classification helps you to automate the management and processing of large amounts of business documents by applying machine learning. Based on customer specific classification models, Document Classification can be utilized in a wide range of business scenarios and adapted to special requirements. Document Classification is targeting organizations and business units struggling with the fast, economic, high quality and efficient processing of documents used in critical business processes like Enterprise Mail-Inbox Processing, Contract Management or Invoice Processing.
 
 `name`
 

@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Feature Flags service: Control the rollout of new features.
+SAP Feature Flags service: The Feature Flags service allows you to enable or disable new features at runtime without redeploying or restarting the application. You can use feature flags to control code delivery, synchronized rollout, direct shipment, and fast rollback of features.
 
 `name`
 
