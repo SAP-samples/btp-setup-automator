@@ -1780,6 +1780,17 @@ def doAllEntitlements(btpUsecase: BTPUSECASE, allItems):
         assign_entitlement(btpUsecase, service)
 
 
+def isProvisioningRequired(service, allEntitlements):
+    for entitlement in allEntitlements.get("quotas"):
+        if entitlement.get("service") == service.name and entitlement.get("plan") == service.plan: 
+            if entitlement.get("provisioningMethod") == "NONE_REQUIRED":
+                return False
+            if entitlement.get("provisioningMethod") == "SERVICE_BROKER":
+                return True
+    
+    return None
+        
+
 def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
     if (
         btpUsecase.definedAppSubscriptions is not None
@@ -1971,7 +1982,7 @@ def pruneSubaccount(btpUsecase: BTPUSECASE):
         + accountMetadata["subaccountid"]
         + "' --global-account '"
         + btpUsecase.globalaccount
-        + "' --confirm"
+        + "' --confirm --force-delete"
     )
     message = "Delete sub account"
     result = runShellCommand(btpUsecase, command, "INFO", message)
@@ -2192,7 +2203,7 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
     for environment in btpUsecase.definedEnvironments:
         if environment.name == "cloudfoundry":
             log.info(
-                "Cloud Foundry envorinment will be deleted automatically with the deletion of the sub account. No separate deletion needed."
+                "Cloud Foundry envorinment will be deleted automatically with the deletion of the sub account (prunesubaccount was set to true)"
             )
 
         if environment.name == "kymaruntime":
