@@ -31,7 +31,7 @@ def create_btp_service(btpUsecase, service):
 
     if is_service_instance_already_existing(btpUsecase, service) is True:
         log.info(
-            "the service >"
+            "The service >"
             + service.instancename
             + "< already exists and won't be created newly."
         )
@@ -89,7 +89,7 @@ def createBtpServiceBinding(btpUsecase, instanceName, keyName, keyLabels):
 
     if is_service_key_already_existing(btpUsecase, keyName) is True:
         log.info(
-            "the service key>"
+            "The service key>"
             + keyName
             + "< already exists and won't be created newly."
         )
@@ -243,10 +243,10 @@ def is_service_instance_already_existing(btpUsecase, service):
         + btpUsecase.accountMetadata.get("subaccountid")
     )
 
-    p = runShellCommand(btpUsecase, command, "CHECK", message)
+    p = runShellCommandFlex(btpUsecase, command, "CHECK", message, False, False)
     err = p.stderr.decode()
 
-    if err != "" and "Conflict" in err:
+    if err != "" and "FAILED" in err:
         return False
     else:
         return True
@@ -263,10 +263,10 @@ def is_service_key_already_existing(btpUsecase, keyName):
         + btpUsecase.accountMetadata.get("subaccountid")
     )
 
-    p = runShellCommand(btpUsecase, command, "CHECK", message)
+    p = runShellCommandFlex(btpUsecase, command, "CHECK", message, False, False)
     err = p.stderr.decode()
 
-    if err != "" and "Conflict" in err:
+    if err != "" and "FAILED" in err:
         return False
     else:
         return True
