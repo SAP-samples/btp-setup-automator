@@ -1780,6 +1780,36 @@ def doAllEntitlements(btpUsecase: BTPUSECASE, allItems):
         assign_entitlement(btpUsecase, service)
 
 
+def getListOfAvailableServicesAndAppsInSubaccount(btpUsecase):
+    accountMetadata = btpUsecase.accountMetadata
+    subaccountid = accountMetadata["subaccountid"]
+
+    command = (
+        "btp --format json list accounts/entitlement --subaccount '"
+        + subaccountid
+        + "'"
+    )
+    message = (
+        "Get list of available services and app subsciptions for defined subaccount >"
+        + subaccountid
+        + "<"
+    )
+    result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
+
+    return result
+
+
+def isProvisioningRequired(service, allEntitlements):
+    for entitlement in allEntitlements.get("quotas"):
+        if entitlement.get("service") == service.name and entitlement.get("plan") == service.plan: 
+            if entitlement.get("provisioningMethod") == "NONE_REQUIRED":
+                return False
+            if entitlement.get("provisioningMethod") == "SERVICE_BROKER":
+                return True
+    
+    return None
+        
+
 def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
     if (
         btpUsecase.definedAppSubscriptions is not None
@@ -1787,6 +1817,7 @@ def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
     ):
 
         log.header("Initiate subscriptions to apps")
+        entitlements = getListOfAvailableServicesAndAppsInSubaccount(btpUsecase)
 
         # Now do all the subscriptions
         for appSubscription in btpUsecase.definedAppSubscriptions:
@@ -1794,7 +1825,14 @@ def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
             appPlan = appSubscription.plan
             parameters = appSubscription.parameters
             if appSubscription.entitleonly is False:
-                subscribe_app_to_subaccount(btpUsecase, appName, appPlan, parameters)
+                provisioningRequired = isProvisioningRequired(appSubscription, allEntitlements=entitlements)
+                if provisioningRequired is True:
+                    subscribe_app_to_subaccount(btpUsecase, appName, appPlan, parameters)
+                if isProvisioningRequired(appSubscription, allEntitlements=entitlements) is False:
+                    log.warning("Creation of subscription not required for app >" + appSubscription.name + "< and plan >" + appSubscription.plan  + "<. Skipping.")
+                if isProvisioningRequired(appSubscription, allEntitlements=entitlements) is None:
+                    log.error("Something wrong with entitlement for app >" + appSubscription.name + "< and plan >" + appSubscription.plan  + "<. Please cross-check!")
+                    sys.exit(os.EX_DATAERR)
 
 
 def get_subscription_deletion_status(btpUsecase: BTPUSECASE, app):
