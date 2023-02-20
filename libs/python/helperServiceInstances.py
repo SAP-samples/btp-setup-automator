@@ -195,8 +195,7 @@ def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
 
                 for service in btpUsecase.definedServices:
                     if (
-                        service.id == serviceId
-                        and service.plan == servicePlanName
+                        service.plan == servicePlanName
                         and service.instancename == instancename
                         and service.successInfoShown is False
                     ):
@@ -212,6 +211,7 @@ def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
                                 + service.plan
                                 + ") is now available"
                             )
+                            service.id = serviceId
                             service.successInfoShown = True
                             service.status = "create succeeded"
                             service.statusResponse = (
@@ -461,7 +461,7 @@ def createServiceKey(serviceKey, service, btpUsecase):
         )
     elif targetenvironment == "sapbtp":
         statusResponse = createBtpServiceBinding(
-            btpUsecase, service.id, service.instancename, serviceKey, labels
+            btpUsecase, service.instancename, serviceKey, labels
         )
     else:
         log.error("The targetenvironment is not supported ")
