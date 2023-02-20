@@ -2009,7 +2009,7 @@ def pruneSubaccount(btpUsecase: BTPUSECASE):
         + accountMetadata["subaccountid"]
         + "' --global-account '"
         + btpUsecase.globalaccount
-        + "' --confirm"
+        + "' --confirm --force-delete"
     )
     message = "Delete sub account"
     result = runShellCommand(btpUsecase, command, "INFO", message)
@@ -2230,7 +2230,7 @@ def pruneUseCaseAssets(btpUsecase: BTPUSECASE):
     for environment in btpUsecase.definedEnvironments:
         if environment.name == "cloudfoundry":
             log.info(
-                "Cloud Foundry envorinment will be deleted automatically with the deletion of the sub account. No separate deletion needed."
+                "Cloud Foundry envorinment will be deleted automatically with the deletion of the sub account (prunesubaccount was set to true)"
             )
 
         if environment.name == "kymaruntime":
