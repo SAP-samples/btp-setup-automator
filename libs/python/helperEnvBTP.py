@@ -11,12 +11,10 @@ log = logging.getLogger(__name__)
 
 def get_btp_service_status(btpUsecase, service):
     instanceName = service.instancename
-    instanceId = service.id
 
     message = "Get creation status for service instance >" + instanceName + "<"
     command = (
-        "btp --format json get services/instance --id "
-        + instanceId
+        "btp --format json get services/instance "
         + " --name "
         + instanceName
         + +" --subaccount "
@@ -30,6 +28,15 @@ def get_btp_service_status(btpUsecase, service):
 
 
 def create_btp_service(btpUsecase, service):
+
+    if is_service_instance_already_existing(btpUsecase, service) is True:
+        log.info(
+            "the service >"
+            + service.instancename
+            + "< already exists and won't be created newly."
+        )
+        return
+
     command = (
         "btp --format json create services/instance --subaccount "
         + btpUsecase.accountMetadata.get("subaccountid")
@@ -58,19 +65,15 @@ def create_btp_service(btpUsecase, service):
         + " via BTP CLI"
     )
 
-    p = runShellCommand(btpUsecase, command, "INFO", message)
-
-    result = convertStringToJson(p.stdout.decode())
-
-    service.id = result.get("id")
+    runShellCommand(btpUsecase, command, "INFO", message)
 
     return service
 
 
 def getStatusResponseFromCreatedBTPInstance(btpUsecase, instancename, service):
     command = (
-        "btp --format json get services/instance --id "
-        + service.id
+        "btp --format json get services/instance --name "
+        + instancename
         + " --subaccount "
         + btpUsecase.accountMetadata.get("subaccountid")
     )
@@ -81,14 +84,22 @@ def getStatusResponseFromCreatedBTPInstance(btpUsecase, instancename, service):
     return jsonResult
 
 
-def createBtpServiceBinding(btpUsecase, instanceId, instanceName, keyName, keyLabels):
+def createBtpServiceBinding(btpUsecase, instanceName, keyName, keyLabels):
     result = None
+
+    if is_service_key_already_existing(btpUsecase, keyName) is True:
+        log.info(
+            "the service key>"
+            + keyName
+            + "< already exists and won't be created newly."
+        )
+        return
 
     command = (
         "btp --format JSON create services/binding --name "
         + keyName
-        + " --service-instance "
-        + instanceId
+        + " --instance-name "
+        + instanceName
         + " --subaccount "
         + btpUsecase.accountMetadata.get("subaccountid")
     )
@@ -218,3 +229,44 @@ def getBtpServiceDeletionStatus(service, btpUsecase):
         return "deleted"
     else:
         return "not deleted"
+
+
+def is_service_instance_already_existing(btpUsecase, service):
+    instanceName = service.instancename
+
+    message = "Check if service instance >" + instanceName + "< already exists"
+    command = (
+        "btp --format json get services/instance "
+        + " --name "
+        + instanceName
+        + " --subaccount "
+        + btpUsecase.accountMetadata.get("subaccountid")
+    )
+
+    p = runShellCommand(btpUsecase, command, "CHECK", message)
+    err = p.stderr.decode()
+
+    if err != "" and "Conflict" in err:
+        return False
+    else:
+        return True
+
+
+def is_service_key_already_existing(btpUsecase, keyName):
+
+    message = "Check if service key >" + keyName + "< already exists"
+    command = (
+        "btp --format json get services/binding "
+        + " --name "
+        + keyName
+        + " --subaccount "
+        + btpUsecase.accountMetadata.get("subaccountid")
+    )
+
+    p = runShellCommand(btpUsecase, command, "CHECK", message)
+    err = p.stderr.decode()
+
+    if err != "" and "Conflict" in err:
+        return False
+    else:
+        return True
