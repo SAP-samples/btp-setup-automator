@@ -1,0 +1,36 @@
+// For format details, see https://aka.ms/devcontainer.json.
+{
+    "name": "BTP Setup Automator (Stable)",
+    "image": "ghcr.io/sap-samples/btp-setup-automator:latest",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python3",
+                "python.linting.enabled": true,
+                "python.formatting.provider": "black",
+                "python.linting.flake8Enabled": true,
+                "python.linting.flake8Args": [
+                    "--ignore=E501,F405,W504"
+                ],
+                "python.linting.pylintEnabled": false
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance"
+            ]
+        },
+        "codespaces": {
+            "openFiles": [
+                "parameters.json"
+            ]
+        }
+    },
+    "remoteUser": "user",
+    "postCreateCommand": "cd /home/user && echo 'export PATH=\"$HOME/.local/bin:$PATH\"' >> ~/.profile && pip install flake8 black && source ~/.profile",
+    "workspaceFolder": "/home/user",
+    "hostRequirements": {
+        "cpus": 2,
+        "memory": "4gb",
+        "storage": "32gb"
+    }
+}
