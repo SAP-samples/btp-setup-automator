@@ -1,4 +1,4 @@
-from libs.python.helperCommandExecution import runShellCommand, runCommandAndGetJsonResult
+from libs.python.helperCommandExecution import runShellCommand
 from libs.python.helperGeneric import (
     getServiceByServiceName,
     createInstanceName,
@@ -27,7 +27,6 @@ from libs.python.helperEnvBTP import (
     deleteBtpServiceInstance,
     getBtpServiceDeletionStatus,
 )
-
 from libs.python.helperEnvKyma import (
     createKymaServiceBinding,
     deleteKymaServiceBindingAndWait,
@@ -230,17 +229,6 @@ def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
     return allServicesCreated
 
 
-def isProvisioningRequired(service, allEntitlements):
-    for entitlement in allEntitlements.get("quotas"):
-        if entitlement.get("service") == service.name and entitlement.get("plan") == service.plan: 
-            if entitlement.get("provisioningMethod") == "NONE_REQUIRED":
-                return False
-            if entitlement.get("provisioningMethod") == "SERVICE_BROKER":
-                return True
-    
-    return None
-        
-
 def initiateCreationOfServiceInstances(btpUsecase):
     createServiceInstances = (
         btpUsecase.definedServices is not None and len(btpUsecase.definedServices) > 0
@@ -248,8 +236,6 @@ def initiateCreationOfServiceInstances(btpUsecase):
 
     if createServiceInstances is True:
         log.header("Initiate creation of service instances")
-
-
 
         # First add all instance names to the services
         for service in btpUsecase.definedServices:
@@ -273,23 +259,12 @@ def initiateCreationOfServiceInstances(btpUsecase):
                 )
                 sys.exit(os.EX_DATAERR)
 
-        entitlements = getListOfAvailableServicesAndAppsInSubaccount(btpUsecase)
-
         serviceInstancesToBeCreated = []
         # Restrict the creation of service instances to those
         # that have been set to entitleOnly to False (default)
         for service in btpUsecase.definedServices:
-
-            # Check whether the creation of a service instance is required at all
-            provisioningRequired = isProvisioningRequired(service, allEntitlements=entitlements)
             if service.entitleonly is False:
-                if isProvisioningRequired(service, allEntitlements=entitlements) is True:
-                    serviceInstancesToBeCreated.append(service)
-                if isProvisioningRequired(service, allEntitlements=entitlements) is False:
-                    log.warning("Creation of service instance not required for service >" + service.name + "< and plan >" + service.plan  + "<. Skipping.")
-                if isProvisioningRequired(service, allEntitlements=entitlements) is None:
-                    log.error("Something wrong with entitlement for service >" + service.name + "< and plan >" + service.plan  + "<. Please cross-check!")
-                    sys.exit(os.EX_DATAERR)
+                serviceInstancesToBeCreated.append(service)
 
         # Now create all the service instances
         for service in serviceInstancesToBeCreated:
@@ -385,24 +360,6 @@ def get_service_status(btpUsecase, service, targetEnvironment):
 
     return status
 
-
-def getListOfAvailableServicesAndAppsInSubaccount(btpUsecase):
-    accountMetadata = btpUsecase.accountMetadata
-    subaccountid = accountMetadata["subaccountid"]
-
-    command = (
-        "btp --format json list accounts/entitlement --subaccount '"
-        + subaccountid
-        + "'"
-    )
-    message = (
-        "Get list of available services and app subsciptions for defined subaccount >"
-        + subaccountid
-        + "<"
-    )
-    result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
-
-    return result
 
 def createServiceInstance(btpUsecase, service, targetEnvironment, serviceCategory):
     if targetEnvironment == "cloudfoundry":
