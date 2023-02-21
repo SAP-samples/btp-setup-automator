@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Print service: Manage print queues, connect print clients and monitor print status
+SAP Print service: Allows you to manage print queue and monitor the print status
 
 `name`
 

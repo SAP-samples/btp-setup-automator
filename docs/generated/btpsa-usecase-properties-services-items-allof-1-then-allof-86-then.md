@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Cloud Portal service: SAP Cloud Portal Service lets you build digital experience portals for employees, customers, and partners. You can streamline access to business data so that your employees can execute their daily business tasks securely, from any device.
+SAP Cloud Portal service: SAP Business Technology Platform Portal lets you build digital experience portals for employees, customers, and partners. You can streamline access to business data so that your employees can execute their daily business tasks securely, from any device.
 
 `name`
 

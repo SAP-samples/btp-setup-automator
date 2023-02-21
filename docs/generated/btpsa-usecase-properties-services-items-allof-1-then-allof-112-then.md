@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Document Management service: Use a CMIS complaint repository provided internally with all Document Management capabilities.
+SAP Document Management service: Use a CMIS complaint repository provided internally with all SAP Document Management service capabilities.
 
 `name`
 

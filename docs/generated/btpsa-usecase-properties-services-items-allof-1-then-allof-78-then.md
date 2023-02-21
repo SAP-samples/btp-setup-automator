@@ -50,7 +50,7 @@ unknown
 
 ## name
 
-SAP Mobile Services: Use Mobile Services to provide mobile access to enterprise information. Key features include app content lifecycle management, push notifications and support for offline apps, app security, app monitoring and usage reporting. This includes native build apps, MDK and SAP Mobile Cards. You need this to run apps based on the SAP Business Technology Platform SDK for iOS. Get started by clicking on the Support link below.
+SAP Mobile Services: Use Mobile Services to provide mobile access to enterprise information. Key features include app content lifecycle management, push notifications and support for offline apps, app security, app monitoring and usage reporting. Mobile Services can be used for native built apps, Mobile Development Kit apps and SAP Mobile Cards. Get started by clicking on the Support link below.
 
 `name`
 

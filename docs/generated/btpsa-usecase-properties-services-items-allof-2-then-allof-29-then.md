@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Process Integration: Seamlessly orchestrate business processes and integrate data in real time
+Process Integration: The SAP Cloud Integration connects cloud applications with other SAP and non-SAP cloud and on-premise apps.
 
 `name`
 

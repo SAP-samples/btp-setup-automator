@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Category Management : Provides tools and data insights across all phases of category strategy development and execution.
+SAP Category Management: SAP Category Management provides the fundamental tools and data insights across all the phases of the development, execution, and monitoring of the category strategy with seamless integration to the source-to-pay processes.
 
 `name`
 

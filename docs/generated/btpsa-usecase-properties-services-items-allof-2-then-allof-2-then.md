@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP AI Launchpad: SAP AI Launchpad is a central vehicle to manage AI Functions across all landscapes and deployments.
+SAP AI Launchpad: SAP AI Launchpad is an application layer for AI Foundation. It is a one-stop-shop to access tooling around ML lifecycle management & Data Science activity. It is a container to access both SAP and open sourced integrated apps and tools. It is connected to a number of ML runtimes with an AI API. It allows users to get an overview over all ML Scenarios in all connected ML runtimes and manage the lifecycle of these.
 
 `name`
 

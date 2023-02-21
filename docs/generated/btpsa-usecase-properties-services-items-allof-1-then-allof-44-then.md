@@ -80,7 +80,7 @@ unknown
 
 ## name
 
-SAP HANA service for SAP BTP: SAP HANA
+SAP HANA service for SAP BTP: The SAP HANA service allows you to leverage the in-memory data processing capabilities of SAP HANA in the cloud. As a managed database service, backups are fully automated and service availability guaranteed. Using the SAP HANA service, you can set up and manage SAP HANA databases and bind them to applications running on SAP Business Technology Platform. You can access SAP HANA databases using a variety of languages and interfaces, as well as build applications and models using tools provided with SAP HANA.
 
 `name`
 

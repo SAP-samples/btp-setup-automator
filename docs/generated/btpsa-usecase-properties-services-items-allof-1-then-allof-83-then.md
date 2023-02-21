@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Task Center: Integrate all tasks into SAP Task Center
+SAP Task Center: The SAP Task Center service only enables, but does not include the integration implementation from the supported SAP solutions. The SAP Task Center service enables integration with SAP applications to provide a single entry point for end users to access all their assigned workflow tasks. The tasks can be accessed by end users through the SAP Task Center Web application.
 
 `name`
 

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-API Management-Developer Portal: API Management-Developer Portal
+API Management, API Business Hub Enterprise: API Management technology helps you to share digital assets and enables consumption of these assets in new user interfaces. API Business Hub Enterprise application provides a common platform for application developers to consume APIs. It offers capabilities for onboarding application developers, exploring and testing APIs, and creating and subscribing to applications.
 
 `name`
 

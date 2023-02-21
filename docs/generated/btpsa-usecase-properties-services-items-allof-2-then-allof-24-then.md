@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Integration Suite, advanced event mesh: Enterprise grade messaging as a service ondemand in public, virtual private clouds of your choice.
+SAP Integration Suite, advanced event mesh: Advanced event mesh for SAP Integration Suite is a complete event streaming, event management, and monitoring platform that incorporates best practices, expertise, and technology for event-driven architecture (EDA) on a single platform.
 
 `name`
 

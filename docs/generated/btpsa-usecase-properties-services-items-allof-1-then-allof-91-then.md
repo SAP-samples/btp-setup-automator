@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Private Link service: SAP Private Link service (beta) establishes a private connection between selected SAP BTP services and selected services in your own IaaS provider accounts.
+SAP Private Link service: SAP Private Link service establishes a private connection between selected SAP BTP services and selected services in your own IaaS provider accounts.
 
 `name`
 

@@ -50,7 +50,7 @@ unknown
 
 ## name
 
-Blockchain Application Enablement: Blockchain Application Enablement
+Blockchain Application Enablement: Deliver blockchain-based services on any connected blockchain network.
 
 `name`
 

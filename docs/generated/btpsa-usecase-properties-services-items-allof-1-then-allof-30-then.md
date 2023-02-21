@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Data Warehouse Cloud: SAP Data Warehouse Cloud
+SAP Data Warehouse Cloud: SAP Data Warehouse Cloud provides a single, fully-managed cloud environment to allow your organization to acquire, combine, prepare, and model data for consumption in analytics clients.
 
 `name`
 

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Category Management: SAP Category Management API Access
+SAP Category Management: SAP Category Management provides the fundamental tools and data insights across all the phases of the development, execution, and monitoring of the category strategy with seamless integration to the source-to-pay processes.
 
 `name`
 
