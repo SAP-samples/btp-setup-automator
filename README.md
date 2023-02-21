@@ -2,6 +2,10 @@
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-setup-automator)](https://api.reuse.software/info/github.com/SAP-samples/btp-setup-automator) [![Release Docker Image](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-release-build-and-push.yml/badge.svg)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-release-build-and-push.yml)[![Dev Docker Image](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-dev-build-and-push.yml/badge.svg)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-dev-build-and-push.yml)
 
+[![Open Stable in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=460942707&machine=basicLinux32gb&devcontainer_path=.devcontainer%2Fstable%2Fdevcontainer.json&location=WestEurope)
+
+[![Open Dev in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/https://github.com/codespaces/new?hide_repo_select=true&ref=dev&repo=460942707&machine=basicLinux32gb&devcontainer_path=.devcontainer%2Fdev%2Fdevcontainer.json&location=WestEurope)
+
 ## Description
 
 This repository provides the user with a script to **automate the setup** of an [SAP Business Technology Platform (SAP BTP) account](https://account.hana.ondemand.com/) and to **learn** how this is done with the various command line interfaces and tools that run inside a [Docker](https://www.docker.com/) container.
