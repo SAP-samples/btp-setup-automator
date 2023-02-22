@@ -66,4 +66,4 @@ Copyright (c) 2022 SAP SE or an SAP affiliate company. All rights reserved. This
 
 ### Dev image
 
-[![Open Dev in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/https://github.com/codespaces/new?hide_repo_select=true&ref=dev&repo=460942707&machine=basicLinux32gb&devcontainer_path=.devcontainer%2Fdev%2Fdevcontainer.json&location=WestEurope)
+[![Open Dev in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=dev&repo=460942707&machine=basicLinux32gb&devcontainer_path=.devcontainer%2Fdev%2Fdevcontainer.json&location=WestEurope)
