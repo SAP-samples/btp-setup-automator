@@ -1602,7 +1602,7 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service):
             + "< and plan >"
             + servicePlan
             + " with amount set to >"
-            + serviceAmount
+            + str(serviceAmount)
             + "<"
         )
 
@@ -1621,7 +1621,7 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service):
         messageFormat = "INFO"
 
         # Distinguish messaging if amount is set or not
-        if service.amount is not None and service.amount > 0:
+        if serviceAmount is not None and serviceAmount > 0:
             # Assign entitlement with amount failed, fallback to enable and distribute
             message = (
                 "Try again to assign entitlement for >"
