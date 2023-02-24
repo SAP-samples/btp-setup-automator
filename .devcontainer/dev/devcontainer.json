@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json.
 {
     "name": "BTP Setup Automator (Dev)",
-    "image": "ghcr.io/sap-samples/btp-setup-automator:latest",
+    "image": "ghcr.io/sap-samples/btp-setup-automator-dev:dev",
     "customizations": {
         "vscode": {
             "settings": {
