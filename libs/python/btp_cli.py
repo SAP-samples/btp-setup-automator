@@ -1806,7 +1806,10 @@ def doAllEntitlements(btpUsecase: BTPUSECASE, allItems):
         for service in allItems:
             serviceName = service.name
             servicePlan = service.plan
-            serviceAmount = service.amount
+            if service.amount is None:
+                serviceAmount = 0
+            else:
+                serviceAmount = service.amount
             if serviceName == thisName and servicePlan == thisPlan:
                 amount += serviceAmount
         entitlement.amount = amount
