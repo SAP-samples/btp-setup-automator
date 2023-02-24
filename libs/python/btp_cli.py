@@ -1601,7 +1601,7 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service):
             + serviceName
             + "< and plan >"
             + servicePlan
-            + " with amount set to >"
+            + "< with amount set to >"
             + str(serviceAmount)
             + "<"
         )
@@ -1638,7 +1638,7 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service):
                 + serviceName
                 + "< and plan >"
                 + servicePlan
-                + " with --distribute --enable<"
+                + "< with --distribute --enable<"
             )
 
         command = baseCommand + " --distribute --enable"
@@ -1663,33 +1663,7 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service):
         p = runShellCommand(btpUsecase, command, "INFO", message)
         returnCode = p.returncode
 
-    if returnCode != 0:
-        log.warning(
-            "this entitlement wasn't successful. Trying to entitle with amount parameter instead."
-        )
-
-        if service.amount is not None and service.amount > 0:
-            command = (
-                baseCommand
-                + " --auto-distribute-amount "
-                + str(service.amount)
-                + " --amount "
-                + str(service.amount)
-            )
-        else:
-            command = baseCommand + " --auto-distribute-amount 1  --amount 1"
-
-        message = (
-            "Try again to assign entitlement for >"
-            + serviceName
-            + "< and plan >"
-            + servicePlan
-            + "< with amount parameter set to 1."
-        )
-        p = runShellCommand(btpUsecase, command, "INFO", message)
-        returnCode = p.returncode
-
-    # Wait untile the service and service plan is entitled in the subaccount
+    # Wait until the service and service plan is entitled in the subaccount
     if returnCode == 0:
         command = (
             "btp --format json list accounts/entitlement \

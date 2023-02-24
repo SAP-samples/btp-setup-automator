@@ -201,8 +201,7 @@
                     "amount": {
                         "type": "integer",
                         "description": "amount to be used for the service",
-                        "title": "amount to be used for the service",
-                        "default": 1
+                        "title": "amount to be used for the service"
                     },
                     "assignrolecollections": {
                         "type": "array",
