@@ -1797,23 +1797,6 @@ def doAllEntitlements(btpUsecase: BTPUSECASE, allItems):
         ):
             entitlements.append(service)
 
-    # Now set the amount for the entitlement right
-    # Simply sum-up all amounts to one amount per name/plan combination
-    for entitlement in entitlements:
-        amount = 0
-        thisName = entitlement.name
-        thisPlan = entitlement.plan
-        for service in allItems:
-            serviceName = service.name
-            servicePlan = service.plan
-            if service.amount is None:
-                serviceAmount = 0
-            else:
-                serviceAmount = service.amount
-            if serviceName == thisName and servicePlan == thisPlan:
-                amount += serviceAmount
-        entitlement.amount = amount
-
     for service in entitlements:
         # Quickly assign all entitlements (without waiting until they are all done)
         assign_entitlement(btpUsecase, service)
