@@ -420,7 +420,6 @@ class BTPUSECASE:
         log.header("Entitle sub account to use services and/or app subscriptions")
         envsToEntitle = []
         for myEnv in self.definedEnvironments:
-            # if myEnv.name != "cloudfoundry" and myEnv.name != "sapbtp":
             if myEnv.name != "sapbtp":
                 if myEnv.name == "cloudfoundry" and myEnv.plan == "standard":
                     continue
@@ -1578,6 +1577,7 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service):
 
     serviceName = service.name
     servicePlan = service.plan
+    serviceAmount = service.amount
 
     baseCommand = (
         "btp --format json assign accounts/entitlement \
@@ -1592,31 +1592,64 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service):
         + "'"
     )
 
-    command = baseCommand + " --distribute --enable"
+    returnCode = 1
 
-    message = (
-        "Assign entitlement for >" + serviceName + "< and plan >" + servicePlan + "<"
-    )
-    # Run script, but don't exit, if not successfull
-    p = runShellCommandFlex(btpUsecase, command, "INFO", message, False, False)
-    returnCode = p.returncode
-
-    if returnCode != 0:
-        log.warning(
-            "this entitlement wasn't successful. Trying to entitle with amount parameter instead."
+    # If amount is set, use the setup with the given amount
+    if serviceAmount is not None and serviceAmount > 0:
+        message = (
+            "Assign entitlement for >"
+            + serviceName
+            + "< and plan >"
+            + servicePlan
+            + "< with amount set to >"
+            + str(serviceAmount)
+            + "<"
         )
 
-        if service.amount is not None and service.amount > 0:
-            command = (
-                baseCommand
-                + " --auto-distribute-amount "
-                + str(service.amount)
-                + " --amount "
-                + str(service.amount)
-            )
-        else:
-            command = baseCommand + " --auto-distribute-amount 1  --amount 1"
+        command = (
+            baseCommand
+            + " --auto-distribute-amount "
+            + str(serviceAmount)
+            + " --amount "
+            + str(serviceAmount)
+        )
+        # Run script, but don't exit, if not successfull
+        p = runShellCommandFlex(btpUsecase, command, "INFO", message, False, False)
+        returnCode = p.returncode
 
+    if returnCode != 0:
+        messageFormat = "INFO"
+
+        # Distinguish messaging if amount is set or not
+        if serviceAmount is not None and serviceAmount > 0:
+            # Assign entitlement with amount failed, fallback to enable and distribute
+            message = (
+                "Try again to assign entitlement for >"
+                + serviceName
+                + "< and plan >"
+                + servicePlan
+                + "< with --distribute --enable"
+            )
+            messageFormat = "WARN"
+        else:
+            # Assign entitlements by default with enable and distribute
+            message = (
+                "Assign entitlement for >"
+                + serviceName
+                + "< and plan >"
+                + servicePlan
+                + "< with --distribute --enable<"
+            )
+
+        command = baseCommand + " --distribute --enable"
+        # Run script, but don't exit, if not successfull
+        p = runShellCommandFlex(
+            btpUsecase, command, messageFormat, message, False, False
+        )
+        returnCode = p.returncode
+
+    if returnCode != 0:
+        # Last exit: try entitlement with amount parameter set to 1
         message = (
             "Try again to assign entitlement for >"
             + serviceName
@@ -1624,10 +1657,13 @@ def assign_entitlement(btpUsecase: BTPUSECASE, service):
             + servicePlan
             + "< with amount parameter set to 1."
         )
+
+        command = baseCommand + " --auto-distribute-amount 1  --amount 1"
+        # Last fallback, we exit, if not successfull
         p = runShellCommand(btpUsecase, command, "INFO", message)
         returnCode = p.returncode
 
-    # Wait untile the service and service plan is entitled in the subaccount
+    # Wait until the service and service plan is entitled in the subaccount
     if returnCode == 0:
         command = (
             "btp --format json list accounts/entitlement \
@@ -1761,20 +1797,6 @@ def doAllEntitlements(btpUsecase: BTPUSECASE, allItems):
         ):
             entitlements.append(service)
 
-    # Now set the amount for the entitlement right
-    # Simply sum-up all amounts to one amount per name/plan combination
-    for entitlement in entitlements:
-        amount = 0
-        thisName = entitlement.name
-        thisPlan = entitlement.plan
-        for service in allItems:
-            serviceName = service.name
-            servicePlan = service.plan
-            serviceAmount = service.amount
-            if serviceName == thisName and servicePlan == thisPlan:
-                amount += serviceAmount
-        entitlement.amount = amount
-
     for service in entitlements:
         # Quickly assign all entitlements (without waiting until they are all done)
         assign_entitlement(btpUsecase, service)
@@ -1782,14 +1804,17 @@ def doAllEntitlements(btpUsecase: BTPUSECASE, allItems):
 
 def isProvisioningRequired(service, allEntitlements):
     for entitlement in allEntitlements.get("quotas"):
-        if entitlement.get("service") == service.name and entitlement.get("plan") == service.plan: 
+        if (
+            entitlement.get("service") == service.name
+            and entitlement.get("plan") == service.plan
+        ):
             if entitlement.get("provisioningMethod") == "NONE_REQUIRED":
                 return False
             if entitlement.get("provisioningMethod") == "SERVICE_BROKER":
                 return True
-    
+
     return None
-        
+
 
 def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
     if (

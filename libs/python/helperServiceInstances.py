@@ -1,4 +1,7 @@
-from libs.python.helperCommandExecution import runShellCommand, runCommandAndGetJsonResult
+from libs.python.helperCommandExecution import (
+    runShellCommand,
+    runCommandAndGetJsonResult,
+)
 from libs.python.helperGeneric import (
     getServiceByServiceName,
     createInstanceName,
@@ -232,14 +235,17 @@ def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
 
 def isProvisioningRequired(service, allEntitlements):
     for entitlement in allEntitlements.get("quotas"):
-        if entitlement.get("service") == service.name and entitlement.get("plan") == service.plan: 
+        if (
+            entitlement.get("service") == service.name
+            and entitlement.get("plan") == service.plan
+        ):
             if entitlement.get("provisioningMethod") == "NONE_REQUIRED":
                 return False
             if entitlement.get("provisioningMethod") == "SERVICE_BROKER":
                 return True
-    
+
     return None
-        
+
 
 def initiateCreationOfServiceInstances(btpUsecase):
     createServiceInstances = (
@@ -248,8 +254,6 @@ def initiateCreationOfServiceInstances(btpUsecase):
 
     if createServiceInstances is True:
         log.header("Initiate creation of service instances")
-
-
 
         # First add all instance names to the services
         for service in btpUsecase.definedServices:
@@ -281,14 +285,37 @@ def initiateCreationOfServiceInstances(btpUsecase):
         for service in btpUsecase.definedServices:
 
             # Check whether the creation of a service instance is required at all
-            provisioningRequired = isProvisioningRequired(service, allEntitlements=entitlements)
+            provisioningRequired = isProvisioningRequired(
+                service, allEntitlements=entitlements
+            )
             if service.entitleonly is False:
-                if isProvisioningRequired(service, allEntitlements=entitlements) is True:
+                if (
+                    isProvisioningRequired(service, allEntitlements=entitlements)
+                    is True
+                ):
                     serviceInstancesToBeCreated.append(service)
-                if isProvisioningRequired(service, allEntitlements=entitlements) is False:
-                    log.warning("Creation of service instance not required for service >" + service.name + "< and plan >" + service.plan  + "<. Skipping.")
-                if isProvisioningRequired(service, allEntitlements=entitlements) is None:
-                    log.error("Something wrong with entitlement for service >" + service.name + "< and plan >" + service.plan  + "<. Please cross-check!")
+                if (
+                    isProvisioningRequired(service, allEntitlements=entitlements)
+                    is False
+                ):
+                    log.warning(
+                        "Creation of service instance not required for service >"
+                        + service.name
+                        + "< and plan >"
+                        + service.plan
+                        + "<. Skipping."
+                    )
+                if (
+                    isProvisioningRequired(service, allEntitlements=entitlements)
+                    is None
+                ):
+                    log.error(
+                        "Something wrong with entitlement for service >"
+                        + service.name
+                        + "< and plan >"
+                        + service.plan
+                        + "<. Please cross-check!"
+                    )
                     sys.exit(os.EX_DATAERR)
 
         # Now create all the service instances
@@ -403,6 +430,7 @@ def getListOfAvailableServicesAndAppsInSubaccount(btpUsecase):
     result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
 
     return result
+
 
 def createServiceInstance(btpUsecase, service, targetEnvironment, serviceCategory):
     if targetEnvironment == "cloudfoundry":

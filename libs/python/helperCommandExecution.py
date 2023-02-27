@@ -125,6 +125,8 @@ def runShellCommandFlex(btpUsecase, command, format, info, exitIfError, noPipe):
             log.info(info)
         if format == "CHECK":
             log.check(info)
+        if format == "WARN":
+            log.warning(info)
 
     # Check whether we are calling a btp or cf command
     # If yes, we should initiate first a re-login, if necessary
