@@ -28,7 +28,6 @@ def get_btp_service_status(btpUsecase, service):
 
 
 def create_btp_service(btpUsecase, service):
-
     if is_service_instance_already_existing(btpUsecase, service) is True:
         log.info(
             "The service >"
@@ -197,7 +196,8 @@ def deleteBtpServiceBinding(keyName, instanceName, btpUsecase):
 def deleteBtpServiceInstance(service, btpUsecase):
     command = (
         "btp --format JSON delete services/instance "
-        + service["id"]
+        + "--name "
+        + service["instancename"]
         + " -sa "
         + btpUsecase.accountMetadata.get("subaccountid")
         + " --confirm"
@@ -213,7 +213,8 @@ def deleteBtpServiceInstance(service, btpUsecase):
 def getBtpServiceDeletionStatus(service, btpUsecase):
     command = (
         "btp --format JSON get services/instance "
-        + service["id"]
+        + "--name "
+        + service["instancename"]
         + " -sa "
         + btpUsecase.accountMetadata.get("subaccountid")
     )
@@ -253,7 +254,6 @@ def is_service_instance_already_existing(btpUsecase, service):
 
 
 def is_service_key_already_existing(btpUsecase, keyName):
-
     message = "Check if service key >" + keyName + "< already exists"
     command = (
         "btp --format json get services/binding "
