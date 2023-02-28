@@ -11,7 +11,7 @@
 
 ## grantType
 
-Use the Password grant type for Cloud Foundry and Password, or Client Credentials grant type for Other Environments.
+Use the Password grant type for Cloud Foundry and Kubernetes, or Client Credentials grant type for Other Environments.
 
 `grantType`
 
