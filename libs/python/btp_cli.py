@@ -1109,7 +1109,7 @@ class BTPUSECASE:
         accountMetadata = self.accountMetadata
 
         if (
-            "createdServiceInstances" in accountMetadata
+            accountMetadata is not None and "createdServiceInstances" in accountMetadata
             and len(accountMetadata["createdServiceInstances"]) > 0
         ):
             log.header("Create service keys if configured")
@@ -1961,6 +1961,7 @@ def track_creation_of_subscriptions_and_services(btpUsecase: BTPUSECASE):
     log.error(
         "Could not get all services and/or app subscriptions up and running. Sorry."
     )
+    sys.exit(os.EX_NOTFOUND)
 
 
 def addCreatedServicesToMetadata(btpUsecase: BTPUSECASE):
