@@ -57,14 +57,6 @@ amount to be used for the service
 
 `integer` ([amount to be used for the service](btpsa-usecase-properties-services-items-properties-amount-to-be-used-for-the-service.md))
 
-### amount Default Value
-
-The default value is:
-
-```json
-1
-```
-
 ## assignrolecollections
 
 list of role collections to be created within the btp account
