@@ -270,9 +270,9 @@ def try_until_space_quota_created(
 def check_if_service_plan_supported_in_cf(btpUsecase, service):
     # Defines how often we should ask CF whether the plan is
     # available or not
-    MAX_TRIES = 3
+    MAX_TRIES = 4
     # Seconds after which we should try again
-    SEARCH_EVERY_X_SECONDS = 3
+    SEARCH_EVERY_X_SECONDS = 10
 
     result = False
 
@@ -296,13 +296,14 @@ def check_if_service_plan_supported_in_cf(btpUsecase, service):
     for x in range(MAX_TRIES):
         p = runShellCommand(btpUsecase, command, "INFO", message)
         shellResult = p.stdout.decode()
-        jsonResults = convertCloudFoundryCommandOutputToJson(shellResult, numberOfLinesToRemove=3)
+        jsonResult = convertCloudFoundryCommandOutputToJson(shellResult, numberOfLinesToRemove=3)
 
-        for entry in jsonResults:
+        for entry in jsonResult:
             if entry.get("plan") == plan:
                 return True
-        log.info(jsonResults)
+        log.info(jsonResult)
         # In case the search was not successful, sleep a few seconds before trying again
+        log.info("Plan not found, yet. Trying again (" + str(x) + "/" + str(MAX_TRIES) + ") in " + str(SEARCH_EVERY_X_SECONDS) + "seconds.")
         time.sleep(SEARCH_EVERY_X_SECONDS)
 
     return result
