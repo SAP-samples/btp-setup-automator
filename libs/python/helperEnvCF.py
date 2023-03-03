@@ -318,7 +318,7 @@ def create_cf_service(btpUsecase, service):
 
     if check_if_service_plan_supported_in_cf(btpUsecase, service) is False:
         log.error(
-            ">cloudfoundry< ENVIRONMENT NOT SUPPORTED for service >" + service.name
+            "Plan not found in CF marketplace for service >" + service.name
             + "< and plan >" + plan + "< in this sub account."
         )
         sys.exit(os.EX_DATAERR)
