@@ -299,19 +299,16 @@ def check_if_service_plan_supported_in_cf(btpUsecase, service):
 def create_cf_service(btpUsecase, service):
     instancename = service.instancename
 
-    if check_if_service_plan_supported_in_cf(btpUsecase, service) is False:
-        log.error(
-            "The service >" + service.name
-            + "< and plan >"
-            + service.plan
-            + "<"
-            + " is not available in this sub account for the environment >cloudfoundryc<"
-        )
-        sys.exit(os.EX_DATAERR)
-
     plan = service.plan
     if service.planCatalogName is not None:
         plan = service.planCatalogName
+
+    if check_if_service_plan_supported_in_cf(btpUsecase, service) is False:
+        log.error(
+            ">cloudfoundry< ENVIRONMENT NOT SUPPORTED for service >" + service.name
+            + "< and plan >" + plan + "< in this sub account."
+        )
+        sys.exit(os.EX_DATAERR)
 
     command = (
         "cf create-service '" + service.name + "' '" + plan + "' '" + instancename + "'"
