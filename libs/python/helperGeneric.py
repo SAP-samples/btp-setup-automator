@@ -201,5 +201,3 @@ def save_collected_metadata(btpUsecase):
     accountMetadata = btpUsecase.accountMetadata
     filename = btpUsecase.metadatafile
     saveJsonToFile(filename, accountMetadata)
-
-

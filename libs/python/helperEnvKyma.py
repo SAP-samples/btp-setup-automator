@@ -3,29 +3,35 @@ import os
 import sys
 import time
 
-from libs.python.helperCommandExecution import (runShellCommand,
-                                                runShellCommandFlex)
-from libs.python.helperEnvironments import \
-    check_if_service_plan_supported_in_environment
+from libs.python.helperCommandExecution import runShellCommand, runShellCommandFlex
+from libs.python.helperEnvironments import (
+    check_if_service_plan_supported_in_environment,
+)
 from libs.python.helperGeneric import getTimingsForStatusRequest
 from libs.python.helperJson import convertStringToJson
 from libs.python.helperYaml import (
     build_and_store_service_binding_yaml_from_parameters,
-    build_and_store_service_instance_yaml_from_parameters)
+    build_and_store_service_instance_yaml_from_parameters,
+)
 
 log = logging.getLogger(__name__)
 
 
 def check_if_service_plan_supported_in_kyma(btpUsecase, service):
-    result = check_if_service_plan_supported_in_environment(btpUsecase, service, "kubernetes")
+    result = check_if_service_plan_supported_in_environment(
+        btpUsecase, service, "kubernetes"
+    )
     return result
 
-def create_kyma_service(btpUsecase, service):
 
+def create_kyma_service(btpUsecase, service):
     if check_if_service_plan_supported_in_kyma(btpUsecase, service) is False:
         log.error(
-            "Plan not supported in environment >kyma<: service >" + service.name
-            + "< and plan >" + service.plan + "<."
+            "Plan not supported in environment >kyma<: service >"
+            + service.name
+            + "< and plan >"
+            + service.plan
+            + "<."
         )
         sys.exit(os.EX_DATAERR)
 
@@ -215,7 +221,6 @@ def getKymaEnvironmentIdByClusterName(environmentData, kymaClusterName):
 
 
 def get_kyma_service_status(btpUsecase, service):
-
     command = (
         "kubectl get ServiceInstance "
         + service.instanceName

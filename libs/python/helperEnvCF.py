@@ -3,15 +3,21 @@ import os
 import sys
 import time
 
-from libs.python.helperCommandExecution import (runCommandAndGetJsonResult,
-                                                runShellCommand,
-                                                runShellCommandFlex)
-from libs.python.helperEnvironments import \
-    check_if_service_plan_supported_in_environment
+from libs.python.helperCommandExecution import (
+    runCommandAndGetJsonResult,
+    runShellCommand,
+    runShellCommandFlex,
+)
+from libs.python.helperEnvironments import (
+    check_if_service_plan_supported_in_environment,
+)
 from libs.python.helperGeneric import getTimingsForStatusRequest
 from libs.python.helperJson import (
     convertCloudFoundryCommandForSingleServiceToJson,
-    convertCloudFoundryCommandOutputToJson, convertStringToJson, dictToString)
+    convertCloudFoundryCommandOutputToJson,
+    convertStringToJson,
+    dictToString,
+)
 
 log = logging.getLogger(__name__)
 
@@ -266,8 +272,11 @@ def try_until_space_quota_created(
 
 
 def check_if_service_plan_supported_in_cloudfoundry(btpUsecase, service):
-    result = check_if_service_plan_supported_in_environment(btpUsecase, service, "cloudfoundry")
+    result = check_if_service_plan_supported_in_environment(
+        btpUsecase, service, "cloudfoundry"
+    )
     return result
+
 
 def check_if_service_plan_in_cf_marketplace(btpUsecase, service):
     # Defines how often we should ask CF whether the plan is
@@ -291,21 +300,29 @@ def check_if_service_plan_in_cf_marketplace(btpUsecase, service):
         + " is supported in this sub account for the environment >cloudfoundry<"
     )
 
-    command = (
-        "cf marketplace -e " + service.name
-    )
+    command = "cf marketplace -e " + service.name
 
     for x in range(1, MAX_TRIES):
         p = runShellCommand(btpUsecase, command, "INFO", message)
         shellResult = p.stdout.decode()
-        jsonResult = convertCloudFoundryCommandOutputToJson(shellResult, numberOfLinesToRemove=3)
+        jsonResult = convertCloudFoundryCommandOutputToJson(
+            shellResult, numberOfLinesToRemove=3
+        )
 
         for entry in jsonResult:
             if entry.get("plan") == plan:
                 return True
         log.info(shellResult)
         # In case the search was not successful, sleep a few seconds before trying again
-        log.info("Plan not found, yet. Trying again (" + str(x) + "/" + str(MAX_TRIES) + ") in " + str(SEARCH_EVERY_X_SECONDS) + "seconds.")
+        log.info(
+            "Plan not found, yet. Trying again ("
+            + str(x)
+            + "/"
+            + str(MAX_TRIES)
+            + ") in "
+            + str(SEARCH_EVERY_X_SECONDS)
+            + "seconds."
+        )
         time.sleep(SEARCH_EVERY_X_SECONDS)
 
     return result
@@ -320,15 +337,21 @@ def create_cf_service(btpUsecase, service):
 
     if check_if_service_plan_supported_in_cloudfoundry(btpUsecase, service) is False:
         log.error(
-            "Plan not supported in environment >cloudfoundry<: service >" + service.name
-            + "< and plan >" + plan + "<."
+            "Plan not supported in environment >cloudfoundry<: service >"
+            + service.name
+            + "< and plan >"
+            + plan
+            + "<."
         )
         sys.exit(os.EX_DATAERR)
 
     if check_if_service_plan_in_cf_marketplace(btpUsecase, service) is False:
         log.error(
-            "Plan not found in cloudfoundry marketplace: service >" + service.name
-            + "< and plan >" + plan + "<."
+            "Plan not found in cloudfoundry marketplace: service >"
+            + service.name
+            + "< and plan >"
+            + plan
+            + "<."
         )
         sys.exit(os.EX_DATAERR)
 

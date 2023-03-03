@@ -3,37 +3,52 @@ import os
 import sys
 import time
 
-from libs.python.helperCommandExecution import (runCommandAndGetJsonResult,
-                                                runShellCommand)
-from libs.python.helperEnvBTP import (create_btp_service,
-                                      createBtpServiceBinding,
-                                      deleteBtpServiceBindingAndWait,
-                                      deleteBtpServiceInstance,
-                                      get_btp_service_status,
-                                      getBtpServiceDeletionStatus,
-                                      getStatusResponseFromCreatedBTPInstance)
-from libs.python.helperEnvCF import (create_cf_cup_service, create_cf_service,
-                                     deleteCFServiceInstance,
-                                     deleteCFServiceKeysAndWait,
-                                     get_cf_service_deletion_status,
-                                     get_cf_service_key, get_cf_service_status,
-                                     getStatusResponseFromCreatedInstance)
+from libs.python.helperCommandExecution import (
+    runCommandAndGetJsonResult,
+    runShellCommand,
+)
+from libs.python.helperEnvBTP import (
+    create_btp_service,
+    createBtpServiceBinding,
+    deleteBtpServiceBindingAndWait,
+    deleteBtpServiceInstance,
+    get_btp_service_status,
+    getBtpServiceDeletionStatus,
+    getStatusResponseFromCreatedBTPInstance,
+)
+from libs.python.helperEnvCF import (
+    create_cf_cup_service,
+    create_cf_service,
+    deleteCFServiceInstance,
+    deleteCFServiceKeysAndWait,
+    get_cf_service_deletion_status,
+    get_cf_service_key,
+    get_cf_service_status,
+    getStatusResponseFromCreatedInstance,
+)
 from libs.python.helperEnvKyma import (
-    create_kyma_service, createKymaServiceBinding,
-    deleteKymaServiceBindingAndWait, deleteKymaServiceInstance,
-    get_kyma_service_status, getKymaServiceDeletionStatus,
-    getStatusResponseFromCreatedKymaInstance)
-from libs.python.helperGeneric import (createInstanceName,
-                                       getServiceByServiceName,
-                                       getTimingsForStatusRequest)
-from libs.python.helperJson import (convertCloudFoundryCommandOutputToJson,
-                                    convertStringToJson)
+    create_kyma_service,
+    createKymaServiceBinding,
+    deleteKymaServiceBindingAndWait,
+    deleteKymaServiceInstance,
+    get_kyma_service_status,
+    getKymaServiceDeletionStatus,
+    getStatusResponseFromCreatedKymaInstance,
+)
+from libs.python.helperGeneric import (
+    createInstanceName,
+    getServiceByServiceName,
+    getTimingsForStatusRequest,
+)
+from libs.python.helperJson import (
+    convertCloudFoundryCommandOutputToJson,
+    convertStringToJson,
+)
 
 log = logging.getLogger(__name__)
 
 
 def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
-
     cloudfoundryServices = []
     kubernetesServices = []
     otherServices = []
@@ -53,7 +68,6 @@ def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
                 otherServices.append(service)
 
     if cloudfoundryServices:
-
         command = "cf services"
         message = "Checking creation status of service instances in Cloud Foundry"
 
@@ -99,7 +113,6 @@ def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
                         )
 
     if kubernetesServices:
-
         command = (
             "kubectl get ServiceInstance -n "
             + btpUsecase.k8snamespace
@@ -160,7 +173,6 @@ def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
         jsonResultsBTP = convertStringToJson(p.stdout.decode())
 
         for thisJson in jsonResultsBTP:
-
             if thisJson.get("context").get("origin") == "sapcp":
                 serviceId = thisJson.get("id")
                 instancename = thisJson.get("context").get("instance_name")
@@ -267,7 +279,6 @@ def initiateCreationOfServiceInstances(btpUsecase):
         # Restrict the creation of service instances to those
         # that have been set to entitleOnly to False (default)
         for service in btpUsecase.definedServices:
-
             # Check whether the creation of a service instance is required at all
             provisioningRequired = isProvisioningRequired(
                 service, allEntitlements=entitlements
