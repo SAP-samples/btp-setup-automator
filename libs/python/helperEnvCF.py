@@ -270,7 +270,7 @@ def try_until_space_quota_created(
 def check_if_service_plan_supported_in_cf(btpUsecase, service):
     # Defines how often we should ask CF whether the plan is
     # available or not
-    MAX_TRIES = 4
+    MAX_TRIES = 6
     # Seconds after which we should try again
     SEARCH_EVERY_X_SECONDS = 10
 
@@ -293,7 +293,7 @@ def check_if_service_plan_supported_in_cf(btpUsecase, service):
         "cf marketplace -e " + service.name
     )
 
-    for x in range(MAX_TRIES):
+    for x in range(1, MAX_TRIES):
         p = runShellCommand(btpUsecase, command, "INFO", message)
         shellResult = p.stdout.decode()
         jsonResult = convertCloudFoundryCommandOutputToJson(shellResult, numberOfLinesToRemove=3)
