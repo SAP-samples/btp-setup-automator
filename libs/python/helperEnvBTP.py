@@ -1,11 +1,14 @@
-from libs.python.helperGeneric import getTimingsForStatusRequest
-from libs.python.helperCommandExecution import runShellCommand, runShellCommandFlex
-from libs.python.helperJson import convertStringToJson, dictToString
-from libs.python.helperServiceInstances import check_if_service_plan_supported_in_environment
 import logging
 import os
 import sys
 import time
+
+from libs.python.helperCommandExecution import (runShellCommand,
+                                                runShellCommandFlex)
+from libs.python.helperEnvironments import \
+    check_if_service_plan_supported_in_environment
+from libs.python.helperGeneric import getTimingsForStatusRequest
+from libs.python.helperJson import convertStringToJson, dictToString
 
 log = logging.getLogger(__name__)
 

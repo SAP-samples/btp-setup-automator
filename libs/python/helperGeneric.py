@@ -1,8 +1,8 @@
-import re
-from libs.python.helperJson import addKeyValuePair, saveJsonToFile
-import os
 import logging
+import os
+import re
 
+from libs.python.helperJson import addKeyValuePair, saveJsonToFile
 from libs.python.helperServices import BTPSERVICE
 
 log = logging.getLogger(__name__)
@@ -201,3 +201,5 @@ def save_collected_metadata(btpUsecase):
     accountMetadata = btpUsecase.accountMetadata
     filename = btpUsecase.metadatafile
     saveJsonToFile(filename, accountMetadata)
+
+

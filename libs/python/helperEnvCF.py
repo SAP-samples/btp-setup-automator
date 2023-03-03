@@ -1,21 +1,17 @@
+import logging
 import os
 import sys
-from libs.python.helperCommandExecution import (
-    runShellCommand,
-    runCommandAndGetJsonResult,
-    runShellCommandFlex,
-)
+import time
+
+from libs.python.helperCommandExecution import (runCommandAndGetJsonResult,
+                                                runShellCommand,
+                                                runShellCommandFlex)
+from libs.python.helperEnvironments import \
+    check_if_service_plan_supported_in_environment
 from libs.python.helperGeneric import getTimingsForStatusRequest
 from libs.python.helperJson import (
     convertCloudFoundryCommandForSingleServiceToJson,
-    convertCloudFoundryCommandOutputToJson,
-    convertStringToJson,
-    dictToString,
-)
-from libs.python.helperServiceInstances import check_if_service_plan_supported_in_environment
-
-import time
-import logging
+    convertCloudFoundryCommandOutputToJson, convertStringToJson, dictToString)
 
 log = logging.getLogger(__name__)
 

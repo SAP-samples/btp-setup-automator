@@ -1,91 +1,36 @@
-from libs.python.helperCommandExecution import (
-    runShellCommand,
-    runCommandAndGetJsonResult,
-)
-from libs.python.helperGeneric import (
-    getServiceByServiceName,
-    createInstanceName,
-    getTimingsForStatusRequest,
-)
-from libs.python.helperJson import (
-    convertCloudFoundryCommandOutputToJson,
-    convertStringToJson,
-)
-from libs.python.helperEnvCF import (
-    deleteCFServiceInstance,
-    deleteCFServiceKeysAndWait,
-    get_cf_service_deletion_status,
-    get_cf_service_key,
-    get_cf_service_status,
-    create_cf_service,
-    create_cf_cup_service,
-    getStatusResponseFromCreatedInstance,
-)
-from libs.python.helperEnvBTP import (
-    get_btp_service_status,
-    create_btp_service,
-    getStatusResponseFromCreatedBTPInstance,
-    createBtpServiceBinding,
-    deleteBtpServiceBindingAndWait,
-    deleteBtpServiceInstance,
-    getBtpServiceDeletionStatus,
-)
-
-from libs.python.helperEnvKyma import (
-    createKymaServiceBinding,
-    deleteKymaServiceBindingAndWait,
-    deleteKymaServiceInstance,
-    get_kyma_service_status,
-    create_kyma_service,
-    getKymaServiceDeletionStatus,
-    getStatusResponseFromCreatedKymaInstance,
-)
-import time
+import logging
 import os
 import sys
-import logging
+import time
+
+from libs.python.helperCommandExecution import (runCommandAndGetJsonResult,
+                                                runShellCommand)
+from libs.python.helperEnvBTP import (create_btp_service,
+                                      createBtpServiceBinding,
+                                      deleteBtpServiceBindingAndWait,
+                                      deleteBtpServiceInstance,
+                                      get_btp_service_status,
+                                      getBtpServiceDeletionStatus,
+                                      getStatusResponseFromCreatedBTPInstance)
+from libs.python.helperEnvCF import (create_cf_cup_service, create_cf_service,
+                                     deleteCFServiceInstance,
+                                     deleteCFServiceKeysAndWait,
+                                     get_cf_service_deletion_status,
+                                     get_cf_service_key, get_cf_service_status,
+                                     getStatusResponseFromCreatedInstance)
+from libs.python.helperEnvKyma import (
+    create_kyma_service, createKymaServiceBinding,
+    deleteKymaServiceBindingAndWait, deleteKymaServiceInstance,
+    get_kyma_service_status, getKymaServiceDeletionStatus,
+    getStatusResponseFromCreatedKymaInstance)
+from libs.python.helperGeneric import (createInstanceName,
+                                       getServiceByServiceName,
+                                       getTimingsForStatusRequest)
+from libs.python.helperJson import (convertCloudFoundryCommandOutputToJson,
+                                    convertStringToJson)
 
 log = logging.getLogger(__name__)
 
-
-
-def check_if_service_plan_supported_in_environment(btpUsecase, service, environment):
-    result = False
-    # Defines how often we should ask sapbtp whether the plan is
-    # available or not
-    MAX_TRIES = 2
-    # Seconds after which we should try again
-    SEARCH_EVERY_X_SECONDS = 5
-
-
-    command = (
-        "btp --format json list services/plan"
-        + " --subaccount " + btpUsecase.accountMetadata.get("subaccountid")
-        + " --environment " + environment
-    )
-    message = (
-        "Check if service >"
-        + service.name
-        + "< and plan >"
-        + service.plan
-        + "<"
-        + " is supported in this sub account for the environment >sapbtp<"
-    )
-
-    for x in range(MAX_TRIES):
-        p = runShellCommand(btpUsecase, command, "INFO", message)
-        returnMessage = p.stdout.decode()
-        jsonResult = convertStringToJson(returnMessage)
-
-        for entry in jsonResult:
-            if entry.get("service_offering_name") == service.name and entry.get("catalog_name") == service.plan:
-                return True
-        log.info(jsonResult)
-        # In case the search was not successful, sleep a few seconds before trying again
-        log.info("Plan not found, yet. Trying again (" + str(x) + "/" + str(MAX_TRIES) + ") in " + str(SEARCH_EVERY_X_SECONDS) + "seconds.")
-        time.sleep(SEARCH_EVERY_X_SECONDS)
-
-    return result
 
 def checkIfAllServiceInstancesCreated(btpUsecase, checkIntervalInSeconds):
 
