@@ -12,6 +12,8 @@ from libs.python.helperJson import (
     convertStringToJson,
     dictToString,
 )
+from libs.python.helperServiceInstances import check_if_service_plan_supported_in_environment
+
 import time
 import logging
 
@@ -267,7 +269,11 @@ def try_until_space_quota_created(
     return result
 
 
-def check_if_service_plan_supported_in_cf(btpUsecase, service):
+def check_if_service_plan_supported_in_cloudfoundry(btpUsecase, service):
+    result = check_if_service_plan_supported_in_environment(btpUsecase, service, "cloudfoundry")
+    return result
+
+def check_if_service_plan_in_cf_marketplace(btpUsecase, service):
     # Defines how often we should ask CF whether the plan is
     # available or not
     MAX_TRIES = 6
@@ -316,10 +322,17 @@ def create_cf_service(btpUsecase, service):
     if service.planCatalogName is not None:
         plan = service.planCatalogName
 
-    if check_if_service_plan_supported_in_cf(btpUsecase, service) is False:
+    if check_if_service_plan_supported_in_cloudfoundry(btpUsecase, service) is False:
         log.error(
-            "Plan not found in CF marketplace for service >" + service.name
-            + "< and plan >" + plan + "< in this sub account."
+            "Plan not supported in environment >cloudfoundry<: service >" + service.name
+            + "< and plan >" + plan + "<."
+        )
+        sys.exit(os.EX_DATAERR)
+
+    if check_if_service_plan_in_cf_marketplace(btpUsecase, service) is False:
+        log.error(
+            "Plan not found in cloudfoundry marketplace: service >" + service.name
+            + "< and plan >" + plan + "<."
         )
         sys.exit(os.EX_DATAERR)
 

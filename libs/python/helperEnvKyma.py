@@ -9,11 +9,23 @@ import os
 import sys
 import logging
 import time
+from libs.python.helperServiceInstances import check_if_service_plan_supported_in_environment
 
 log = logging.getLogger(__name__)
 
 
+def check_if_service_plan_supported_in_kyma(btpUsecase, service):
+    result = check_if_service_plan_supported_in_environment(btpUsecase, service, "kubernetes")
+    return result
+
 def create_kyma_service(btpUsecase, service):
+
+    if check_if_service_plan_supported_in_kyma(btpUsecase, service) is False:
+        log.error(
+            "Plan not supported in environment >kyma<: service >" + service.name
+            + "< and plan >" + service.plan + "<."
+        )
+        sys.exit(os.EX_DATAERR)
 
     filepath = (
         "logs/k8s/service-instance/service-instance-"
