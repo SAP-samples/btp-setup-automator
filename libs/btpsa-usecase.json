@@ -4826,11 +4826,19 @@
                                             "if": { "properties": { "name": { "const": "SAPWorkZone"} } },
                                             "then" :{
                                                 "properties": {
-                                                    "plan": { "enum": ["standard"] },
+                                                    "plan": { "enum": ["advanced","standard"] },
                                                     "name": { "description": "SAP Build Work Zone, advanced edition: Increase the productivity and engagement for your employees as well as interact with partners and customers in a multi-channel digital experience. Note: SAP Work Zone was recently renamed to SAP Build Work Zone, advanced edition."}
                                                 },
                                                 "allOf": [
                                                     {
+                                                        "if": { "properties": { "plan": { "const": "advanced"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "application plan >advanced< for >SAPWorkZone< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }, {
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {

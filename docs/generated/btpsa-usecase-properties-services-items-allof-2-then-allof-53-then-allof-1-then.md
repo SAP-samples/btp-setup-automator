@@ -6,11 +6,11 @@ unknown
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                      |
 | :------------ | :------------ | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-53-then-allof-0-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/53/then/allOf/0/then/properties/plan") |
+| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-53-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/53/then/allOf/1/then/properties/plan") |
 
 ## plan
 
-application plan >advanced< for >SAPWorkZone< is available in data centers:
+application plan >standard< for >SAPWorkZone< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}
@@ -34,7 +34,7 @@ application plan >advanced< for >SAPWorkZone< is available in data centers:
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-53-then-allof-0-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/53/then/allOf/0/then/properties/plan")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-53-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/53/then/allOf/1/then/properties/plan")
 
 ### plan Type
 
