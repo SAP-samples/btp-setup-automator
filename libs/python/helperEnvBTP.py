@@ -27,6 +27,33 @@ def get_btp_service_status(btpUsecase, service):
     return result
 
 
+def check_if_service_plan_supported_in_sapbtp(btpUsecase, service):
+    result = False
+    command = (
+        "btp --format json list services/plan"
+        + " --subaccount " + btpUsecase.accountMetadata.get("subaccountid")
+        + " --environment sapbtp "
+    )
+    message = (
+        "Check if service >"
+        + service.name
+        + "< and plan >"
+        + service.plan
+        + "<"
+        + " is supported in this sub account for the environment >sapbtp<"
+    )
+
+    p = runShellCommand(btpUsecase, command, "INFO", message)
+    returnMessage = p.stdout.decode()
+    jsonResult = convertStringToJson(returnMessage)
+
+    for entry in jsonResult:
+        if entry.get("service_offering_name") == service.name and entry.get("catalog_name") == service.plan:
+            result = True
+
+    return result
+
+
 def create_btp_service(btpUsecase, service):
     if is_service_instance_already_existing(btpUsecase, service) is True:
         log.info(
@@ -35,6 +62,16 @@ def create_btp_service(btpUsecase, service):
             + "< already exists and won't be created newly."
         )
         return
+
+    if check_if_service_plan_supported_in_sapbtp(btpUsecase, service) is False:
+        log.info(
+            "The service >" + service.name
+            + "< and plan >"
+            + service.plan
+            + "<"
+            + " is not available in the environment >sapbtp<"
+        )
+        sys.exit(os.EX_DATAERR)
 
     command = (
         "btp --format json create services/instance --subaccount "
