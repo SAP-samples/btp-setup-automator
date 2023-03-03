@@ -301,7 +301,7 @@ def check_if_service_plan_supported_in_cf(btpUsecase, service):
         for entry in jsonResult:
             if entry.get("plan") == plan:
                 return True
-        log.info(jsonResult)
+        log.info(shellResult)
         # In case the search was not successful, sleep a few seconds before trying again
         log.info("Plan not found, yet. Trying again (" + str(x) + "/" + str(MAX_TRIES) + ") in " + str(SEARCH_EVERY_X_SECONDS) + "seconds.")
         time.sleep(SEARCH_EVERY_X_SECONDS)
