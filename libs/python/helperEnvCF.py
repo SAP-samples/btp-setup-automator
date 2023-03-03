@@ -8,6 +8,7 @@ from libs.python.helperCommandExecution import (
 from libs.python.helperGeneric import getTimingsForStatusRequest
 from libs.python.helperJson import (
     convertCloudFoundryCommandForSingleServiceToJson,
+    convertCloudFoundryCommandOutputToJson,
     convertStringToJson,
     dictToString,
 )
@@ -265,11 +266,50 @@ def try_until_space_quota_created(
     return result
 
 
+def check_if_service_plan_supported_in_cf(btpUsecase, service):
+    result = False
+
+    plan = service.plan
+    if service.planCatalogName is not None:
+        plan = service.planCatalogName
+    
+    message = (
+        "Check if service >"
+        + service.name
+        + "< and plan >"
+        + plan
+        + "<"
+        + " is supported in this sub account for the environment >cloudfoundry<"
+    )
+
+    command = (
+        "cf marketplace -e " + service.name
+    )
+    p = runShellCommand(btpUsecase, command, "INFO", message)
+    shellResult = p.stdout.decode()
+    jsonResults = convertCloudFoundryCommandOutputToJson(shellResult, numberOfLinesToRemove=3)
+
+    for entry in jsonResults:
+        if entry.get("plan") == plan:
+            return True
+
+    return result
+
+
 def create_cf_service(btpUsecase, service):
     instancename = service.instancename
 
-    plan = service.plan
+    if check_if_service_plan_supported_in_cf(btpUsecase, service) is False:
+        log.error(
+            "The service >" + service.name
+            + "< and plan >"
+            + service.plan
+            + "<"
+            + " is not available in this sub account for the environment >cloudfoundryc<"
+        )
+        sys.exit(os.EX_DATAERR)
 
+    plan = service.plan
     if service.planCatalogName is not None:
         plan = service.planCatalogName
 
