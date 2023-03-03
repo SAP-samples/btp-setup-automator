@@ -64,12 +64,12 @@ def create_btp_service(btpUsecase, service):
         return
 
     if check_if_service_plan_supported_in_sapbtp(btpUsecase, service) is False:
-        log.info(
+        log.error(
             "The service >" + service.name
             + "< and plan >"
             + service.plan
             + "<"
-            + " is not available in the environment >sapbtp<"
+            + " is not available in this sub account for the environment >sapbtp<"
         )
         sys.exit(os.EX_DATAERR)
 
