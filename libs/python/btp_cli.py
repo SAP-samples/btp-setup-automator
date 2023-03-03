@@ -1961,7 +1961,7 @@ def track_creation_of_subscriptions_and_services(btpUsecase: BTPUSECASE):
     log.error(
         "Could not get all services and/or app subscriptions up and running. Sorry."
     )
-    sys.exit(os.EX_NOTFOUND)
+    sys.exit(os.EX_DATAERR)
 
 
 def addCreatedServicesToMetadata(btpUsecase: BTPUSECASE):
