@@ -28,7 +28,9 @@ def check_if_service_plan_supported_in_environment(btpUsecase, service, environm
         + "< and plan >"
         + service.plan
         + "<"
-        + " is supported in this sub account for the environment >sapbtp<"
+        + " is supported in this sub account for the environment >"
+        + environment
+        + "<"
     )
 
     for x in range(MAX_TRIES):
