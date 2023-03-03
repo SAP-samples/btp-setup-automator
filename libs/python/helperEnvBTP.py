@@ -49,8 +49,8 @@ def check_if_service_plan_supported_in_sapbtp(btpUsecase, service):
 
     for entry in jsonResult:
         if entry.get("service_offering_name") == service.name and entry.get("catalog_name") == service.plan:
-            result = True
-
+            return True
+    log.info(jsonResult)
     return result
 
 
