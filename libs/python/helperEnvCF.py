@@ -75,7 +75,8 @@ def deleteCFServiceKeysAndWait(key, service, btpUsecase):
     current_time = 0
     while usecaseTimeout > current_time:
         command = "cf service-key '" + service["instancename"] + "' " + key["keyname"]
-        # Calling the command with the goal to get back the "FAILED" status, as this means that the service key was not found (because deletion was successfull)
+        # Calling the command with the goal to get back the "FAILED" status, as this means that the service key was not
+        # found (because deletion was successful)
         # If the status is not "FAILED", this means that the deletion hasn't been finished so far
         message = (
             "check if service key >"
@@ -267,12 +268,18 @@ def try_until_space_quota_created(
 
 
 def check_if_service_plan_supported_in_cf(btpUsecase, service):
+    # Defines how often we should ask CF whether the plan is
+    # available or not
+    MAX_TRIES = 3
+    # Seconds after which we should try again
+    SEARCH_EVERY_X_SECONDS = 3
+
     result = False
 
     plan = service.plan
     if service.planCatalogName is not None:
         plan = service.planCatalogName
-    
+
     message = (
         "Check if service >"
         + service.name
@@ -285,13 +292,17 @@ def check_if_service_plan_supported_in_cf(btpUsecase, service):
     command = (
         "cf marketplace -e " + service.name
     )
-    p = runShellCommand(btpUsecase, command, "INFO", message)
-    shellResult = p.stdout.decode()
-    jsonResults = convertCloudFoundryCommandOutputToJson(shellResult, numberOfLinesToRemove=3)
 
-    for entry in jsonResults:
-        if entry.get("plan") == plan:
-            return True
+    for x in range(MAX_TRIES):
+        p = runShellCommand(btpUsecase, command, "INFO", message)
+        shellResult = p.stdout.decode()
+        jsonResults = convertCloudFoundryCommandOutputToJson(shellResult, numberOfLinesToRemove=3)
+
+        for entry in jsonResults:
+            if entry.get("plan") == plan:
+                return True
+        # In case the search was not successfull, sleep a few seconds before trying again
+        time.sleep(SEARCH_EVERY_X_SECONDS)
 
     return result
 
