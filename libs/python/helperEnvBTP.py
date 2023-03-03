@@ -39,7 +39,7 @@ def check_if_service_plan_supported_in_sapbtp(btpUsecase, service):
     command = (
         "btp --format json list services/plan"
         + " --subaccount " + btpUsecase.accountMetadata.get("subaccountid")
-        + " --environment sapbtp "
+        + " --environment sapbtp"
     )
     message = (
         "Check if service >"
