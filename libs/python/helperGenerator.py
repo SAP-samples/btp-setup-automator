@@ -26,7 +26,6 @@ def loadJSONFiles(folder, pattern):
 
 
 def fetchEntitledServiceList(mainDataJsonFilesFolder):
-
     serviceListRaw = loadJSONFiles(mainDataJsonFilesFolder, "*.json")
     btpServiceList = convertToServiceListByCategory(serviceListRaw)
 
@@ -91,7 +90,6 @@ def addManuallyMaintainedServiceSchema(btpServiceList):
 
 
 def renderTemplateWithJson(templateFilename, targetFilename, parameters):
-
     templateFolder = os.path.dirname(templateFilename)
     templateBasename = os.path.basename(templateFilename)
 
@@ -165,7 +163,6 @@ def getJsonFromFile(filename):
 
 
 def convertToServiceListByCategory(rawData):
-
     result = []
     for category in CATEGORIES:
         list = {"name": category, "list": getBtpCategory(category, rawData)}
@@ -175,7 +172,6 @@ def convertToServiceListByCategory(rawData):
 
 
 def getBtpCategory(category, rawData):
-
     services = None
 
     if category in CATEGORIES["SERVICE"]:
