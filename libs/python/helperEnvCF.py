@@ -281,7 +281,7 @@ def check_if_service_plan_supported_in_cloudfoundry(btpUsecase, service):
 def check_if_service_plan_in_cf_marketplace(btpUsecase, service):
     # Defines how often we should ask CF whether the plan is
     # available or not
-    MAX_TRIES = 6
+    MAX_TRIES = 10
     # Seconds after which we should try again
     SEARCH_EVERY_X_SECONDS = 10
 
@@ -302,7 +302,7 @@ def check_if_service_plan_in_cf_marketplace(btpUsecase, service):
 
     command = "cf marketplace -e " + service.name
 
-    for x in range(1, MAX_TRIES):
+    for x in range(1, MAX_TRIES + 1):
         p = runShellCommand(btpUsecase, command, "INFO", message)
         shellResult = p.stdout.decode()
         jsonResult = convertCloudFoundryCommandOutputToJson(
