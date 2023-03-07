@@ -61,6 +61,6 @@ Now run the main script `btpsa` with the following command:
 ./btpsa -parameterfile 'usecases/released/discoverycenter/3999-kyma-day2-operations/parameters.json' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>'
 ```
 
-> Note: Before the deployment starts you can choose between two options (Mission-start and Mission-end). The Mission-start option will setup the account and neccessary application in order to execute the mission and enhance the existing application with the day2 opteration features. The Mission-end option contains all tasks from the mission itself and you don't need to go through the mission steps. For the complete expirience it is recommended to choose the Mission-start option. 
+> Note: Before the deployment starts you can choose between two options (Mission-start and Mission-end). The Mission-start option will setup the account and necessary application in order to execute the mission and enhance the existing application with the day2 operation features. The Mission-end option contains all tasks from the mission itself and you don't need to go through the mission steps. For the complete experience it is recommended to choose the Mission-start option. 
 
 The btp-setup-automator script will now prepare your SAP BTP account to cover the discovery center mission. You can have a look at the [usecase.json](usecase.json) and [parameters.json](parameters.json) for more details about the used services and configuration parameters (e.g. DB Password for SAP HANA Cloud).

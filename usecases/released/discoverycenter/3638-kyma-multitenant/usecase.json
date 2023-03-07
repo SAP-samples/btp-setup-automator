@@ -25,12 +25,14 @@
             "name": "destination",
             "plan": "lite",
             "entitleonly": true,
+            "targetenvironment": "sapbtp",
             "category": "SERVICE"
         },
         {
             "name": "xsuaa",
             "plan": "broker",
             "entitleonly": true,
+            "targetenvironment": "sapbtp",
             "category": "SERVICE"
         },
         {
@@ -40,6 +42,7 @@
             "repeatstatusrequest": 60,
             "repeatstatustimeout": 3600,
             "instancename": "EasyFranchiseHANADB",
+            "targetenvironment": "sapbtp",
             "parameters": {
                 "data": {
                     "edition": "cloud",
@@ -54,6 +57,22 @@
                     ]
                 }
             }
+        },
+        {
+            "name": "hana-cloud-tools",
+            "plan": "tools",
+            "targetenvironment": "sapbtp",
+            "category": "APPLICATION",
+            "repeatstatusrequest": 10,
+            "repeatstatustimeout": 120,
+            "requiredrolecollections": [
+                {
+                    "name": "SAP HANA Cloud Administrator",
+                    "assignedUserGroupsFromParameterFile": [
+                      "admins"
+                    ]
+                  }                
+            ]
         }
     ], 
     "executeAfterAccountSetup": [        

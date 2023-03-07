@@ -14,6 +14,7 @@
         {
             "name": "easyfranchise-<provider-subdomain>",
             "plan": "default",
+            "targetenvironment": "sapbtp",
             "category": "APPLICATION",
             "repeatstatusrequest": 10,
             "repeatstatustimeout": 120,
