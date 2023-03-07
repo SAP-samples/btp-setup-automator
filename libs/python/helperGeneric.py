@@ -1,6 +1,7 @@
 import logging
 import os
 import re
+import shortuuid
 
 from libs.python.helperJson import addKeyValuePair, saveJsonToFile
 from libs.python.helperServices import BTPSERVICE
@@ -117,7 +118,7 @@ def createSubdomainID(btpUsecase):
         result = (
             btpUsecase.accountMetadata["subaccount"]
             + "-"
-            + btpUsecase.accountMetadata["global_account_id"]
+            + shortuuid.ShortUUID().random(length=10)
         )
 
     result = re.sub(r"[^\w\s]", "-", result)
