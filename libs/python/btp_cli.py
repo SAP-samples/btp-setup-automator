@@ -1836,8 +1836,11 @@ def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
         # Now do all the subscriptions
         for appSubscription in btpUsecase.definedAppSubscriptions:
             commercialAppName = appSubscription.name
+            # Detect whether there is a difference between appName and commercialAppName
             appName = getAppNameForCommercialAppName(btpUsecase, appSubscription.name)
+            # In case the appName and commercialAppName differ ...
             if appName != commercialAppName:
+                # ... use from here on the appName in the tooling (overwrite the configured name)
                 appSubscription.name = appName
             appPlan = appSubscription.plan
             parameters = appSubscription.parameters
