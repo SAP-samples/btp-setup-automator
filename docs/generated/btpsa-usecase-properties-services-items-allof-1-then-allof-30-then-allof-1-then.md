@@ -19,6 +19,7 @@ service plan >standard< for >data-analytics-osb< is available in data centers:
 *   {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}
 *   {'region': 'ca10', 'name': 'Canada (Montreal)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
 
