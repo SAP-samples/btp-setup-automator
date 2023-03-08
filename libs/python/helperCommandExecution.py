@@ -9,8 +9,8 @@ import logging
 log = logging.getLogger(__name__)
 
 
-def runShellCommand(btpUsecase, command, format, info):
-    return runShellCommandFlex(btpUsecase, command, format, info, True, False)
+def runShellCommand(btpUsecase, command, format, info, exitIfError: bool = True):
+    return runShellCommandFlex(btpUsecase, command, format, info, exitIfError, False)
 
 
 def login_cf(btpUsecase):
@@ -235,8 +235,8 @@ def checkIfCfEnvironmentIsDefined(btpUsecase):
     return False
 
 
-def runCommandAndGetJsonResult(btpUsecase, command, format, message):
-    p = runShellCommand(btpUsecase, command, format, message)
+def runCommandAndGetJsonResult(btpUsecase, command, format, message, exitIfError: bool = True):
+    p = runShellCommand(btpUsecase, command, format, message, exitIfError)
     list = p.stdout.decode()
     list = convertStringToJson(list)
     return list

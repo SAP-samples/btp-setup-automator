@@ -1736,7 +1736,29 @@ def subscribe_app_to_subaccount(btpUsecase: BTPUSECASE, app, plan, parameters):
         log.info(message)
 
 
-def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, appName, appPlan):
+# determine the "appName" for a "commercialAppName"
+def getAppNameForCommercialAppName(btpUsecase: BTPUSECASE, commercialAppName: str):
+    result = None
+    accountMetadata = btpUsecase.accountMetadata
+    subaccountid = accountMetadata["subaccountid"]
+
+    command = (
+        "btp --format json list accounts/subscription --subaccount '"
+        + subaccountid + "'"
+    )
+    resultCommand = runCommandAndGetJsonResult(
+        btpUsecase, command, "INFO", "get appName for commercialAppName"
+    )
+
+    if resultCommand is not None and len(resultCommand) > 0 and resultCommand.get("applications"):
+        for entry in resultCommand.get("applications"):
+            if entry.get("commercialAppName") == commercialAppName:
+                result = entry.get("appName")
+
+    return result
+
+
+def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, commercialAppName, appPlan):
     result = False
     accountMetadata = btpUsecase.accountMetadata
     subaccountid = accountMetadata["subaccountid"]
@@ -1745,7 +1767,7 @@ def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, appName, appPlan):
         "btp --format json get accounts/subscription --subaccount '"
         + subaccountid
         + "' --of-app '"
-        + appName
+        + commercialAppName
         + "'"
     )
 
@@ -1754,10 +1776,10 @@ def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, appName, appPlan):
         command = command + " --plan '" + appPlan + "'"
 
     resultCommand = runCommandAndGetJsonResult(
-        btpUsecase, command, "INFO", "check if app already subscribed"
+        btpUsecase, command, "INFO", "check if app already subscribed", False
     )
 
-    if "state" in resultCommand and resultCommand["state"] == "SUBSCRIBED":
+    if resultCommand is not None and "state" in resultCommand and resultCommand["state"] == "SUBSCRIBED":
         result = True
 
     return result
@@ -1804,7 +1826,10 @@ def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
 
         # Now do all the subscriptions
         for appSubscription in btpUsecase.definedAppSubscriptions:
-            appName = appSubscription.name
+            commercialAppName = appSubscription.name
+            appName = getAppNameForCommercialAppName(btpUsecase, appSubscription.name)
+            if appName != commercialAppName:
+                appSubscription.name = appName
             appPlan = appSubscription.plan
             parameters = appSubscription.parameters
             if appSubscription.entitleonly is False:
