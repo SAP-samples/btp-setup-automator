@@ -1744,13 +1744,18 @@ def getAppNameForCommercialAppName(btpUsecase: BTPUSECASE, commercialAppName: st
 
     command = (
         "btp --format json list accounts/subscription --subaccount '"
-        + subaccountid + "'"
+        + subaccountid
+        + "'"
     )
     resultCommand = runCommandAndGetJsonResult(
         btpUsecase, command, "INFO", "get appName for commercialAppName"
     )
 
-    if resultCommand is not None and len(resultCommand) > 0 and resultCommand.get("applications"):
+    if (
+        resultCommand is not None
+        and len(resultCommand) > 0
+        and resultCommand.get("applications")
+    ):
         for entry in resultCommand.get("applications"):
             if entry.get("commercialAppName") == commercialAppName:
                 result = entry.get("appName")
@@ -1779,7 +1784,11 @@ def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, commercialAppName, appPlan):
         btpUsecase, command, "INFO", "check if app already subscribed", False
     )
 
-    if resultCommand is not None and "state" in resultCommand and resultCommand["state"] == "SUBSCRIBED":
+    if (
+        resultCommand is not None
+        and "state" in resultCommand
+        and resultCommand["state"] == "SUBSCRIBED"
+    ):
         result = True
 
     return result

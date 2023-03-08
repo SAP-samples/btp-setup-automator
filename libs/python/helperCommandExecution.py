@@ -137,7 +137,7 @@ def runShellCommandFlex(btpUsecase, command, format, info, exitIfError, noPipe):
         for passwordString in passwordStrings:
             if passwordString in command:
                 commandToBeLogged = (
-                    command[0 : command.index(passwordString) + len(passwordString) + 1]
+                    command[0: command.index(passwordString) + len(passwordString) + 1]
                     + "xxxxxxxxxxxxxxxxx"
                 )
                 log.command(commandToBeLogged)
@@ -235,7 +235,9 @@ def checkIfCfEnvironmentIsDefined(btpUsecase):
     return False
 
 
-def runCommandAndGetJsonResult(btpUsecase, command, format, message, exitIfError: bool = True):
+def runCommandAndGetJsonResult(
+    btpUsecase, command, format, message, exitIfError: bool = True
+):
     p = runShellCommand(btpUsecase, command, format, message, exitIfError)
     list = p.stdout.decode()
     list = convertStringToJson(list)
