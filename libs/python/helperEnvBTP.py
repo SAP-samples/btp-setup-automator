@@ -1,10 +1,14 @@
-from libs.python.helperGeneric import getTimingsForStatusRequest
-from libs.python.helperCommandExecution import runShellCommand, runShellCommandFlex
-from libs.python.helperJson import convertStringToJson, dictToString
 import logging
 import os
 import sys
 import time
+
+from libs.python.helperCommandExecution import runShellCommand, runShellCommandFlex
+from libs.python.helperEnvironments import (
+    check_if_service_plan_supported_in_environment,
+)
+from libs.python.helperGeneric import getTimingsForStatusRequest
+from libs.python.helperJson import convertStringToJson, dictToString
 
 log = logging.getLogger(__name__)
 
@@ -27,6 +31,13 @@ def get_btp_service_status(btpUsecase, service):
     return result
 
 
+def check_if_service_plan_supported_in_sapbtp(btpUsecase, service):
+    result = check_if_service_plan_supported_in_environment(
+        btpUsecase, service, "sapbtp"
+    )
+    return result
+
+
 def create_btp_service(btpUsecase, service):
     if is_service_instance_already_existing(btpUsecase, service) is True:
         log.info(
@@ -35,6 +46,16 @@ def create_btp_service(btpUsecase, service):
             + "< already exists and won't be created newly."
         )
         return
+
+    if check_if_service_plan_supported_in_sapbtp(btpUsecase, service) is False:
+        log.error(
+            "Plan not supported in environment >sapbtp<: service >"
+            + service.name
+            + "< and plan >"
+            + service.plan
+            + "<."
+        )
+        sys.exit(os.EX_DATAERR)
 
     command = (
         "btp --format json create services/instance --subaccount "

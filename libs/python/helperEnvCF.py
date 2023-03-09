@@ -1,18 +1,23 @@
+import logging
 import os
 import sys
+import time
+
 from libs.python.helperCommandExecution import (
-    runShellCommand,
     runCommandAndGetJsonResult,
+    runShellCommand,
     runShellCommandFlex,
+)
+from libs.python.helperEnvironments import (
+    check_if_service_plan_supported_in_environment,
 )
 from libs.python.helperGeneric import getTimingsForStatusRequest
 from libs.python.helperJson import (
     convertCloudFoundryCommandForSingleServiceToJson,
+    convertCloudFoundryCommandOutputToJson,
     convertStringToJson,
     dictToString,
 )
-import time
-import logging
 
 log = logging.getLogger(__name__)
 
@@ -74,7 +79,8 @@ def deleteCFServiceKeysAndWait(key, service, btpUsecase):
     current_time = 0
     while usecaseTimeout > current_time:
         command = "cf service-key '" + service["instancename"] + "' " + key["keyname"]
-        # Calling the command with the goal to get back the "FAILED" status, as this means that the service key was not found (because deletion was successfull)
+        # Calling the command with the goal to get back the "FAILED" status, as this means that the service key was not
+        # found (because deletion was successful)
         # If the status is not "FAILED", this means that the deletion hasn't been finished so far
         message = (
             "check if service key >"
@@ -265,13 +271,89 @@ def try_until_space_quota_created(
     return result
 
 
+def check_if_service_plan_supported_in_cloudfoundry(btpUsecase, service):
+    result = check_if_service_plan_supported_in_environment(
+        btpUsecase, service, "cloudfoundry"
+    )
+    return result
+
+
+def check_if_service_plan_in_cf_marketplace(btpUsecase, service):
+    # Defines how often we should ask CF whether the plan is
+    # available or not
+    MAX_TRIES = 12
+    # Seconds after which we should try again
+    SEARCH_EVERY_X_SECONDS = 10
+
+    result = False
+
+    plan = service.plan
+    if service.planCatalogName is not None:
+        plan = service.planCatalogName
+
+    message = (
+        "Check if service >"
+        + service.name
+        + "< and plan >"
+        + plan
+        + "<"
+        + " is supported in this sub account for the environment >cloudfoundry<"
+    )
+
+    command = "cf marketplace -e " + service.name
+
+    for x in range(1, MAX_TRIES + 1):
+        p = runShellCommand(btpUsecase, command, "INFO", message)
+        shellResult = p.stdout.decode()
+        jsonResult = convertCloudFoundryCommandOutputToJson(
+            shellResult, numberOfLinesToRemove=3
+        )
+
+        for entry in jsonResult:
+            if entry.get("plan") == plan:
+                return True
+        log.info(shellResult)
+        # In case the search was not successful, sleep a few seconds before trying again
+        log.info(
+            "Plan not found, yet. Trying again ("
+            + str(x)
+            + "/"
+            + str(MAX_TRIES)
+            + ") in "
+            + str(SEARCH_EVERY_X_SECONDS)
+            + "seconds."
+        )
+        time.sleep(SEARCH_EVERY_X_SECONDS)
+
+    return result
+
+
 def create_cf_service(btpUsecase, service):
     instancename = service.instancename
 
     plan = service.plan
-
     if service.planCatalogName is not None:
         plan = service.planCatalogName
+
+    if check_if_service_plan_supported_in_cloudfoundry(btpUsecase, service) is False:
+        log.error(
+            "Plan not supported in environment >cloudfoundry<: service >"
+            + service.name
+            + "< and plan >"
+            + plan
+            + "<."
+        )
+        sys.exit(os.EX_DATAERR)
+
+    if check_if_service_plan_in_cf_marketplace(btpUsecase, service) is False:
+        log.error(
+            "Plan not found in cloudfoundry marketplace: service >"
+            + service.name
+            + "< and plan >"
+            + plan
+            + "<."
+        )
+        sys.exit(os.EX_DATAERR)
 
     command = (
         "cf create-service '" + service.name + "' '" + plan + "' '" + instancename + "'"

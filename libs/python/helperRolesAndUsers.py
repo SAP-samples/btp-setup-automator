@@ -57,7 +57,6 @@ def getMembersOfUserGroup(btpUsecase, usergroup):
     usergroupExists = False
 
     if btpUsecase.myusergroups and usergroup:
-
         if btpUsecase.myusergroups:
             for thisUserGroup in btpUsecase.myusergroups:
                 if thisUserGroup.get("name") == usergroup:
@@ -220,7 +219,6 @@ def assignUsersToGlobalAndSubaccount(btpUsecase):
 
 
 def assignUsersToCustomRoleCollections(btpUsecase):
-
     subaccountid = btpUsecase.subaccountid
 
     rolecollectionsCustom = getRoleCollectionsOfTypeAndLevel(btpUsecase, "custom", None)

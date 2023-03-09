@@ -112,8 +112,10 @@ def dictToJson(dict):
 
 
 def convertStringToJson(string):
-    jsonObject = json.loads(string)
-    return jsonObject
+    result = None
+    if string is not None and len(string) > 0:
+        result = json.loads(string)
+    return result
 
 
 def addKeyValuePair(json, key, value):
@@ -133,12 +135,12 @@ def addKeyValuePairToJsonFile(filename, key, value):
     saveJsonToFile(filename, myJson)
 
 
-def convertCloudFoundryCommandOutputToJson(lines):
+def convertCloudFoundryCommandOutputToJson(lines, numberOfLinesToRemove: int = 2):
     dict = []
     positions = []
     keys = []
     # Remove the first 2 lines of the output (don't contain necessary information)
-    lines = lines.split("\n", 2)[-1]
+    lines = lines.split("\n", numberOfLinesToRemove)[-1]
 
     # Detect the columns of the text table
     # Simply look for three whitespaces as separator

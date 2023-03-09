@@ -12,6 +12,7 @@ from libs.python.helperCommandExecution import (
     executeCommandsFromUsecaseFile,
     runShellCommand,
     runCommandAndGetJsonResult,
+    runCommandFlexAndGetJsonResult,
     runShellCommandFlex,
     login_btp,
     login_cf,
@@ -186,7 +187,6 @@ class BTPUSECASE:
                 log.success("Use case supported in your global account!")
 
     def create_directory(self):
-
         if self.usedirectory is False:
             # Do not create a directory for the use case
             return
@@ -202,7 +202,6 @@ class BTPUSECASE:
             or accountMetadata["directoryid"] == ""
             or accountMetadata["directoryid"] is None
         ):
-
             log.warning("no directory id provided and tool will make up one for you")
 
             directory = createDirectoryName(self)
@@ -337,7 +336,6 @@ class BTPUSECASE:
                 environment.name == "kymaruntime"
                 and self.waitForKymaEnvironmentCreation is True
             ):
-
                 accountMetadata = self.accountMetadata
                 kymaClusterName = environment.parameters["name"]
 
@@ -379,7 +377,6 @@ class BTPUSECASE:
                         getKymaEnvironmentStatusFromEnvironmentDataEntry(entryOfKymaEnv)
                         == "OK"
                     ):
-
                         log.info("Kyma Environment created - extracting kubeconfig URL")
                         self.accountMetadata = addKeyValuePair(
                             accountMetadata,
@@ -437,7 +434,6 @@ class BTPUSECASE:
         doAllEntitlements(self, self.definedAppSubscriptions)
 
     def create_subaccount(self):
-
         accountMetadata = self.accountMetadata
         subaccountid = self.subaccountid
         self.accountMetadata = addKeyValuePair(
@@ -453,7 +449,6 @@ class BTPUSECASE:
             or accountMetadata["subaccountid"] == ""
             or accountMetadata["subaccountid"] is None
         ):
-
             log.warning("no subaccount id provided and tool will make up one for you")
             usecaseRegion = self.region
 
@@ -572,11 +567,9 @@ class BTPUSECASE:
         save_collected_metadata(self)
 
     def initialize_environments(self):
-
         self.create_environments()
 
     def create_environments(self):
-
         accountMetadata = self.accountMetadata
         environments = self.definedEnvironments
 
@@ -588,14 +581,11 @@ class BTPUSECASE:
             self.accountMetadata = addKeyValuePair(accountMetadata, "orgid", self.orgid)
 
         if self.orgid is None or self.orgid == "":
-
             for environment in environments:
-
                 if environment.name == "cloudfoundry":
                     orgid, org = checkIfCFEnvironmentAlreadyExists(self)
 
                     if org is None or orgid is None:
-
                         envName = environment.name
                         envPlan = environment.plan
 
@@ -860,7 +850,6 @@ class BTPUSECASE:
             foundOrg = False
             for environment in environments:
                 if environment.name == "cloudfoundry":
-
                     command = (
                         "btp --format json list accounts/environment-instances --subaccount '"
                         + subaccountid
@@ -910,7 +899,6 @@ class BTPUSECASE:
             cfEnvironment = True
 
         if cfEnvironment is True:
-
             accountMetadata = self.accountMetadata
 
             cfspacename = self.cfspacename
@@ -960,7 +948,6 @@ class BTPUSECASE:
 
     def create_and_assign_quota_plan(self, environment):
         if environment.name == "cloudfoundry" and self.cfspacequota is not None:
-
             if self.cfspacequota.get("createQuotaPlan") is True:
                 command = "cf create-space-quota " + self.cfspacequota.get(
                     "spaceQuotaName"
@@ -1079,7 +1066,6 @@ class BTPUSECASE:
         assignUsersToCustomRoleCollections(self)
 
     def create_configured_app_subscriptions_and_services(self):
-
         ##################################################################################
         # Initiate all app subscriptions
         ##################################################################################
@@ -1109,7 +1095,8 @@ class BTPUSECASE:
         accountMetadata = self.accountMetadata
 
         if (
-            accountMetadata is not None and "createdServiceInstances" in accountMetadata
+            accountMetadata is not None
+            and "createdServiceInstances" in accountMetadata
             and len(accountMetadata["createdServiceInstances"]) > 0
         ):
             log.header("Create service keys if configured")
@@ -1204,7 +1191,6 @@ def getServiceCategoryItemsFromUsecaseFile(
 def check_if_account_can_cover_use_case_for_serviceType(
     btpUsecase: BTPUSECASE, availableForAccount
 ):
-
     usecaseRegion = btpUsecase.region
     fallbackServicePlan = None
 
@@ -1222,7 +1208,6 @@ def check_if_account_can_cover_use_case_for_serviceType(
         if service.category != "CF_CUP_SERVICE":
             allServices.append(service)
     for app in btpUsecase.definedAppSubscriptions:
-
         if app.customerDeveloped is True:
             continue
 
@@ -1330,18 +1315,15 @@ def check_if_account_can_cover_use_case_for_serviceType(
 def check_if_account_can_cover_use_case_for_customapps(
     btpUsecase: BTPUSECASE, availableCustomApps
 ):
-
     usecaseSupported = True
 
     customApps = []
     # Only check custom apps as they need special handling
     for app in btpUsecase.definedAppSubscriptions:
-
         if app.customerDeveloped is True and app.category == "APPLICATION":
             customApps.append(app)
 
     if len(customApps) != 0 and len(availableCustomApps) != 0:
-
         for customApp in customApps:
             supported = False
 
@@ -1735,7 +1717,7 @@ def subscribe_app_to_subaccount(btpUsecase: BTPUSECASE, app, plan, parameters):
 
     if parameters is not None:
         # For custom apps a plan can be none - this is safeguarded when checking if account is capable of usecase
-        command = command + " --parameters '[" + dictToString(parameters) + "]'"
+        command = command + " --parameters '" + dictToString(parameters) + "'"
 
     isAlreadySubscribed = checkIfAppIsSubscribed(btpUsecase, app, plan)
     if isAlreadySubscribed is False:
@@ -1747,16 +1729,42 @@ def subscribe_app_to_subaccount(btpUsecase: BTPUSECASE, app, plan, parameters):
 
         runShellCommand(btpUsecase, command, "INFO", message)
     else:
-
         message = "subscription already there for >" + app + "<"
         if plan is not None:
             # (Optional) The subscription plan of the multitenant application. You can omit this parameter if the multitenant application is in the current global account.
             message = message + " and plan >" + plan + "<"
 
-        log.info(message)
+        log.success(message)
 
 
-def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, appName, appPlan):
+# determine the "appName" for a "commercialAppName"
+def getAppNameForCommercialAppName(btpUsecase: BTPUSECASE, commercialAppName: str):
+    result = None
+    accountMetadata = btpUsecase.accountMetadata
+    subaccountid = accountMetadata["subaccountid"]
+
+    command = (
+        "btp --format json list accounts/subscription --subaccount '"
+        + subaccountid
+        + "'"
+    )
+    resultCommand = runCommandFlexAndGetJsonResult(
+        btpUsecase, command, "INFO", "get appName for commercialAppName"
+    )
+
+    if (
+        resultCommand is not None
+        and len(resultCommand) > 0
+        and resultCommand.get("applications")
+    ):
+        for entry in resultCommand.get("applications"):
+            if entry.get("commercialAppName") == commercialAppName:
+                result = str(entry.get("appName"))
+
+    return result
+
+
+def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, commercialAppName, appPlan):
     result = False
     accountMetadata = btpUsecase.accountMetadata
     subaccountid = accountMetadata["subaccountid"]
@@ -1765,7 +1773,7 @@ def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, appName, appPlan):
         "btp --format json get accounts/subscription --subaccount '"
         + subaccountid
         + "' --of-app '"
-        + appName
+        + commercialAppName
         + "'"
     )
 
@@ -1777,14 +1785,17 @@ def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, appName, appPlan):
         btpUsecase, command, "INFO", "check if app already subscribed"
     )
 
-    if "state" in resultCommand and resultCommand["state"] == "SUBSCRIBED":
+    if (
+        resultCommand is not None
+        and "state" in resultCommand
+        and resultCommand["state"] == "SUBSCRIBED"
+    ):
         result = True
 
     return result
 
 
 def doAllEntitlements(btpUsecase: BTPUSECASE, allItems):
-
     # Ensure to have a list of all entitlements as combination of service name and plan
     entitlements = []
     for service in allItems:
@@ -1821,12 +1832,31 @@ def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
         btpUsecase.definedAppSubscriptions is not None
         and len(btpUsecase.definedAppSubscriptions) > 0
     ):
-
         log.header("Initiate subscriptions to apps")
 
         # Now do all the subscriptions
         for appSubscription in btpUsecase.definedAppSubscriptions:
-            appName = appSubscription.name
+            commercialAppName = appSubscription.name
+            # Detect whether there is a difference between appName and commercialAppName
+            appName = getAppNameForCommercialAppName(btpUsecase, appSubscription.name)
+            # In case the appName and commercialAppName differ ...
+            if appName != commercialAppName:
+                log.success(
+                    "appName for app subscription >"
+                    + commercialAppName
+                    + "< is called >"
+                    + appName
+                    + "<"
+                )
+                # ... use from here on the appName in the tooling (overwrite the configured name)
+                appSubscription.name = appName
+            else:
+                log.success(
+                    "appName and commercialAppName are the same for >"
+                    + commercialAppName
+                    + "<"
+                )
+
             appPlan = appSubscription.plan
             parameters = appSubscription.parameters
             if appSubscription.entitleonly is False:
@@ -1874,7 +1904,6 @@ def checkIfAllSubscriptionsAreAvailable(btpUsecase: BTPUSECASE):
 
     allSubscriptionsAvailable = True
     for app in btpUsecase.definedAppSubscriptions:
-
         if app.entitleonly is False:
             for thisJson in resultCommand["applications"]:
                 name = thisJson.get("appName")
@@ -1961,7 +1990,7 @@ def track_creation_of_subscriptions_and_services(btpUsecase: BTPUSECASE):
     log.error(
         "Could not get all services and/or app subscriptions up and running. Sorry."
     )
-    sys.exit(os.EX_NOTFOUND)
+    sys.exit(os.EX_DATAERR)
 
 
 def addCreatedServicesToMetadata(btpUsecase: BTPUSECASE):
@@ -1995,7 +2024,6 @@ def addCreatedServicesToMetadata(btpUsecase: BTPUSECASE):
 
 
 def checkConfigurationInfo(btpUsecase: BTPUSECASE):
-
     # checkEmailsinUsecaseConfig(btpUsecase)
     None
 

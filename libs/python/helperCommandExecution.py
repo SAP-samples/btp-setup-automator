@@ -14,7 +14,6 @@ def runShellCommand(btpUsecase, command, format, info):
 
 
 def login_cf(btpUsecase):
-
     cfDefined = checkIfCfEnvironmentIsDefined(btpUsecase)
     if cfDefined is True:
         accountMetadata = btpUsecase.accountMetadata
@@ -83,7 +82,6 @@ def login_btp(btpUsecase):
         runShellCommandFlex(btpUsecase, command, "INFO", message, True, True)
         fetchEmailAddressFromBtpConfigFile(btpUsecase)
     else:
-
         password = escapePassword(password)
 
         message = (
@@ -237,6 +235,15 @@ def checkIfCfEnvironmentIsDefined(btpUsecase):
     return False
 
 
+def runCommandFlexAndGetJsonResult(
+    btpUsecase, command, format, message, exitIfError: bool = True
+):
+    p = runShellCommandFlex(btpUsecase, command, format, message, exitIfError, False)
+    list = p.stdout.decode()
+    list = convertStringToJson(list)
+    return list
+
+
 def runCommandAndGetJsonResult(btpUsecase, command, format, message):
     p = runShellCommand(btpUsecase, command, format, message)
     list = p.stdout.decode()
@@ -277,7 +284,6 @@ def executeCommandsFromUsecaseFile(btpUsecase, message, jsonSection):
 
 
 def escapePassword(password) -> str:
-
     if '"' in password or "'" in password:
         log.info("escaping special characters in password")
         password = password.replace('"', '"')

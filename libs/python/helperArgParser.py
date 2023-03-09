@@ -15,7 +15,6 @@ log = logging.getLogger(__name__)
 def setupParams(myArguments):
     parser = argparse.ArgumentParser()
     if myArguments is not None and myArguments != "":
-
         # local arguments: no remote file access possible, no authentication parameters needed
         allJsonParameters = getJsonFromFile(myArguments)
         for key, value in allJsonParameters.get("properties").items():
@@ -178,7 +177,6 @@ def checkProvidedArguments(btpUsecase):
     log.header("Checking provided arguments and files")
 
     if btpUsecase.loginmethod == "envVariables":
-
         if btpUsecase.myemail is None or btpUsecase.myemail == "":
             param = "BTPSA_PARAM_MYEMAIL"
             paramValue = getEnvVariableValue(param)

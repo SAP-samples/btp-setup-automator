@@ -50,7 +50,6 @@ def set_custom_logging_levels(config={}):
 
 # Custom formatter
 class MyFormatterStream(logging.Formatter):
-
     COLOR_RESET_COLORS = "\033[0;0m"
     COLOR_TIMESTAMP = "\033[38;5;241m"
 
@@ -143,7 +142,6 @@ class MyFormatterStream(logging.Formatter):
         )
 
     def format(self, record):
-
         # Save the original format configured by the user
         # when the logger formatter was instantiated
 
@@ -192,7 +190,6 @@ class MyFormatterStream(logging.Formatter):
 
 # Custom formatter
 class MyFormatterFile(logging.Formatter):
-
     format_HEADER = "#" * 100 + "\n# %(msg)s\n" + "#" * 100
     format_ERROR = "[%(asctime)s] " + "ERROR      : %(msg)s"
     format_CHECK = "[%(asctime)s] " + "CHECK      : %(msg)s"
@@ -212,7 +209,6 @@ class MyFormatterFile(logging.Formatter):
         )
 
     def format(self, record):
-
         # Save the original format configured by the user
         # when the logger formatter was instantiated
         format_orig = self._style._fmt

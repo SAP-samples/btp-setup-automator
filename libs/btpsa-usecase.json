@@ -1143,14 +1143,14 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","standard"] },
-                                                    "name": { "description": "SAP Data Warehouse Cloud: SAP Data Warehouse Cloud provides a single, fully-managed cloud environment to allow your organization to acquire, combine, prepare, and model data for consumption in analytics clients."}
+                                                    "name": { "description": "SAP Data Warehouse Cloud: SAP Datasphere provides a single, fully-managed cloud environment to allow your organization to acquire, combine, prepare, and model data for consumption in analytics clients."}
                                                 },
                                                 "allOf": [
                                                     {
                                                         "if": { "properties": { "plan": { "const": "free"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >free< for >data-analytics-osb< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >free< for >data-analytics-osb< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_show_form_view": true, "properties": {"email": {"description": "email of the user", "format": "email", "minLength": 1, "type": "string"}, "first_name": {"description": "first name of the user", "minLength": 1, "type": "string"}, "last_name": {"description": "last name of the user", "minLength": 1, "type": "string"}}, "type": "object"}
 
                                                             }, "required" : ["parameters"]
@@ -1160,7 +1160,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >standard< for >data-analytics-osb< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >standard< for >data-analytics-osb< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_show_form_view": true, "properties": {"email": {"description": "email of the user", "format": "email", "minLength": 1, "type": "string"}, "first_name": {"description": "first name of the user", "minLength": 1, "type": "string"}, "last_name": {"description": "last name of the user", "minLength": 1, "type": "string"}}, "type": "object"}
 
                                                             }, "required" : ["parameters"]
@@ -2763,8 +2763,10 @@
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "service plan >receiver< for >print< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
-                                                                
-                                                            }
+                                                                , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "properties": {"notifications": {"default": [{"destinationName": "", "usage": ""}], "items": {"additionalProperties": false, "properties": {"destinationName": {"default": "", "pattern": "^[\\w-]{0,200}$", "type": "string"}, "usage": {"default": "", "enum": ["OMS", "ISN", ""], "type": "string"}}, "type": "object"}, "maxItems": 1, "minItems": 0, "type": "array"}}, "type": "object"}
+
+                                                            }, "required" : ["parameters"]
+
                                                         }
                                                     }, {
                                                         "if": { "properties": { "plan": { "const": "sender"} } },
@@ -4824,11 +4826,19 @@
                                             "if": { "properties": { "name": { "const": "SAPWorkZone"} } },
                                             "then" :{
                                                 "properties": {
-                                                    "plan": { "enum": ["standard"] },
+                                                    "plan": { "enum": ["advanced","standard"] },
                                                     "name": { "description": "SAP Build Work Zone, advanced edition: Increase the productivity and engagement for your employees as well as interact with partners and customers in a multi-channel digital experience. Note: SAP Work Zone was recently renamed to SAP Build Work Zone, advanced edition."}
                                                 },
                                                 "allOf": [
                                                     {
+                                                        "if": { "properties": { "plan": { "const": "advanced"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "application plan >advanced< for >SAPWorkZone< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }, {
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
