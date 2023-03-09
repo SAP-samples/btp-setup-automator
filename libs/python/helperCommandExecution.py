@@ -235,6 +235,15 @@ def checkIfCfEnvironmentIsDefined(btpUsecase):
     return False
 
 
+def runCommandFlexAndGetJsonResult(
+    btpUsecase, command, format, message, exitIfError: bool = True
+):
+    p = runShellCommandFlex(btpUsecase, command, format, message, exitIfError, False)
+    list = p.stdout.decode()
+    list = convertStringToJson(list)
+    return list
+
+
 def runCommandAndGetJsonResult(btpUsecase, command, format, message):
     p = runShellCommand(btpUsecase, command, format, message)
     list = p.stdout.decode()

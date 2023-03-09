@@ -12,6 +12,7 @@ from libs.python.helperCommandExecution import (
     executeCommandsFromUsecaseFile,
     runShellCommand,
     runCommandAndGetJsonResult,
+    runCommandFlexAndGetJsonResult,
     runShellCommandFlex,
     login_btp,
     login_cf,
@@ -1733,10 +1734,37 @@ def subscribe_app_to_subaccount(btpUsecase: BTPUSECASE, app, plan, parameters):
             # (Optional) The subscription plan of the multitenant application. You can omit this parameter if the multitenant application is in the current global account.
             message = message + " and plan >" + plan + "<"
 
-        log.info(message)
+        log.success(message)
 
 
-def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, appName, appPlan):
+# determine the "appName" for a "commercialAppName"
+def getAppNameForCommercialAppName(btpUsecase: BTPUSECASE, commercialAppName: str):
+    result = None
+    accountMetadata = btpUsecase.accountMetadata
+    subaccountid = accountMetadata["subaccountid"]
+
+    command = (
+        "btp --format json list accounts/subscription --subaccount '"
+        + subaccountid
+        + "'"
+    )
+    resultCommand = runCommandFlexAndGetJsonResult(
+        btpUsecase, command, "INFO", "get appName for commercialAppName"
+    )
+
+    if (
+        resultCommand is not None
+        and len(resultCommand) > 0
+        and resultCommand.get("applications")
+    ):
+        for entry in resultCommand.get("applications"):
+            if entry.get("commercialAppName") == commercialAppName:
+                result = str(entry.get("appName"))
+
+    return result
+
+
+def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, commercialAppName, appPlan):
     result = False
     accountMetadata = btpUsecase.accountMetadata
     subaccountid = accountMetadata["subaccountid"]
@@ -1745,7 +1773,7 @@ def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, appName, appPlan):
         "btp --format json get accounts/subscription --subaccount '"
         + subaccountid
         + "' --of-app '"
-        + appName
+        + commercialAppName
         + "'"
     )
 
@@ -1757,7 +1785,11 @@ def checkIfAppIsSubscribed(btpUsecase: BTPUSECASE, appName, appPlan):
         btpUsecase, command, "INFO", "check if app already subscribed"
     )
 
-    if "state" in resultCommand and resultCommand["state"] == "SUBSCRIBED":
+    if (
+        resultCommand is not None
+        and "state" in resultCommand
+        and resultCommand["state"] == "SUBSCRIBED"
+    ):
         result = True
 
     return result
@@ -1804,7 +1836,27 @@ def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
 
         # Now do all the subscriptions
         for appSubscription in btpUsecase.definedAppSubscriptions:
-            appName = appSubscription.name
+            commercialAppName = appSubscription.name
+            # Detect whether there is a difference between appName and commercialAppName
+            appName = getAppNameForCommercialAppName(btpUsecase, appSubscription.name)
+            # In case the appName and commercialAppName differ ...
+            if appName != commercialAppName:
+                log.success(
+                    "appName for app subscription >"
+                    + commercialAppName
+                    + "< is called >"
+                    + appName
+                    + "<"
+                )
+                # ... use from here on the appName in the tooling (overwrite the configured name)
+                appSubscription.name = appName
+            else:
+                log.success(
+                    "appName and commercialAppName are the same for >"
+                    + commercialAppName
+                    + "<"
+                )
+
             appPlan = appSubscription.plan
             parameters = appSubscription.parameters
             if appSubscription.entitleonly is False:

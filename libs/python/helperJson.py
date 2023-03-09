@@ -112,8 +112,10 @@ def dictToJson(dict):
 
 
 def convertStringToJson(string):
-    jsonObject = json.loads(string)
-    return jsonObject
+    result = None
+    if string is not None and len(string) > 0:
+        result = json.loads(string)
+    return result
 
 
 def addKeyValuePair(json, key, value):
