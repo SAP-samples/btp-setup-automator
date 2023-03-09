@@ -9,8 +9,8 @@ import logging
 log = logging.getLogger(__name__)
 
 
-def runShellCommand(btpUsecase, command, format, info, exitIfError: bool = True):
-    return runShellCommandFlex(btpUsecase, command, format, info, exitIfError, False)
+def runShellCommand(btpUsecase, command, format, info):
+    return runShellCommandFlex(btpUsecase, command, format, info, True, False)
 
 
 def login_cf(btpUsecase):
@@ -137,7 +137,7 @@ def runShellCommandFlex(btpUsecase, command, format, info, exitIfError, noPipe):
         for passwordString in passwordStrings:
             if passwordString in command:
                 commandToBeLogged = (
-                    command[0: command.index(passwordString) + len(passwordString) + 1]
+                    command[0 : command.index(passwordString) + len(passwordString) + 1]
                     + "xxxxxxxxxxxxxxxxx"
                 )
                 log.command(commandToBeLogged)
@@ -243,8 +243,8 @@ def runCommandFlexAndGetJsonResult(
     list = convertStringToJson(list)
     return list
 
-def runCommandAndGetJsonResult(
-    btpUsecase, command, format, message):
+
+def runCommandAndGetJsonResult(btpUsecase, command, format, message):
     p = runShellCommand(btpUsecase, command, format, message)
     list = p.stdout.decode()
     list = convertStringToJson(list)

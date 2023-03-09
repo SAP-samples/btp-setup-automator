@@ -1841,11 +1841,21 @@ def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
             appName = getAppNameForCommercialAppName(btpUsecase, appSubscription.name)
             # In case the appName and commercialAppName differ ...
             if appName != commercialAppName:
-                log.success("appName for app subscription >" + commercialAppName + "< is called >" + appName + "<")
+                log.success(
+                    "appName for app subscription >"
+                    + commercialAppName
+                    + "< is called >"
+                    + appName
+                    + "<"
+                )
                 # ... use from here on the appName in the tooling (overwrite the configured name)
                 appSubscription.name = appName
             else:
-                log.success("appName and commercialAppName are the same for >" + commercialAppName + "<")
+                log.success(
+                    "appName and commercialAppName are the same for >"
+                    + commercialAppName
+                    + "<"
+                )
 
             appPlan = appSubscription.plan
             parameters = appSubscription.parameters
