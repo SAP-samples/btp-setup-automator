@@ -11,7 +11,7 @@ def check_if_service_plan_supported_in_environment(btpUsecase, service, environm
     result = False
     # Defines how often we should ask sapbtp whether the plan is
     # available or not
-    MAX_TRIES = 12
+    MAX_TRIES = 25
     # Seconds after which we should try again
     SEARCH_EVERY_X_SECONDS = 10
 
