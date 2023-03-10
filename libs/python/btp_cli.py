@@ -724,6 +724,15 @@ class BTPUSECASE:
                         self.create_and_assign_quota_plan(environment)
 
                 elif environment.name == "kymaruntime":
+                    # Support load via dynamic parameter file as well
+                    if environment.parameters is None:
+                        # try via serviceparameter file
+                        command = f'cat "{environment.serviceparameterfile}"'
+                        message = "Read out environment parameter file"
+                        environment.parameters = runCommandAndGetJsonResult(
+                            self, command, "INFO", message
+                        )
+
                     kymaClusterName = environment.parameters["name"]
 
                     # Set Cluster region: the cluster region can be globally defined via the parameters file
