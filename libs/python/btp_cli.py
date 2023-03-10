@@ -727,9 +727,11 @@ class BTPUSECASE:
                     # Support load via dynamic parameter file as well
                     if environment.parameters is None:
                         # try via serviceparameter file
-                        command = f"cat \"{environment.serviceparameterfile}\""
-                        message = "Read out environment parameter fie"
-                        environment.parameters = runCommandAndGetJsonResult(self, command, "INFO", message)
+                        command = f'cat "{environment.serviceparameterfile}"'
+                        message = "Read out environment parameter file"
+                        environment.parameters = runCommandAndGetJsonResult(
+                            self, command, "INFO", message
+                        )
 
                     kymaClusterName = environment.parameters["name"]
 
