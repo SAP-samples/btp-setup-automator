@@ -1,0 +1,171 @@
+name: VT034 - Sample landscape setup
+# This file creates an account structure for a company with three
+# business units (HR, IT, SALES) and subaccounts for dev, test and prod
+
+on:
+  workflow_dispatch:
+
+    inputs:
+      DIRECTORY_NAME:
+        description: 'Directory to be created'
+        default: 'DSAG TT 2023 - VT034'
+        required: true
+
+env:
+  LOGIN_METHOD: envVariables
+  REGION: us10
+
+jobs:
+    setup-directory:
+        runs-on: ubuntu-latest
+        container:
+          image: ghcr.io/sap-samples/btp-setup-automator-dev:dev
+          options: --user root
+        env: 
+            BTPSA_PARAM_MYEMAIL: ${{ secrets.BTPSA_PARAM_MYEMAIL }}
+            BTPSA_PARAM_GLOBALACCOUNT: ${{ secrets.BTPSA_PARAM_GLOBALACCOUNT }}
+            BTPSA_PARAM_MYPASSWORD: ${{ secrets.BTPSA_PARAM_MYPASSWORD }}
+        steps:
+            - name: 'Login to btp and create directory'
+              if: ${{ always() }}
+              working-directory: /home/user
+              shell: bash
+              run: |
+                btp login --url 'https://cpcli.cf.eu10.hana.ondemand.com' --subdomain '${{ secrets.BTPSA_PARAM_GLOBALACCOUNT }}' --user '${{ secrets.BTPSA_PARAM_MYEMAIL }}' --password '${{ secrets.BTPSA_PARAM_MYPASSWORD }}'
+                btp create accounts/directory --global-account '${{ secrets.BTPSA_PARAM_GLOBALACCOUNT }}' --display-name '${{ github.event.inputs.DIRECTORY_NAME }}'
+
+    landscape-setup-hr:
+        needs: setup-directory
+        runs-on: ubuntu-latest
+        container:
+          image: ghcr.io/sap-samples/btp-setup-automator-dev:dev
+          options: --user root
+        env: 
+            BTPSA_PARAM_MYEMAIL: ${{ secrets.BTPSA_PARAM_MYEMAIL }}
+            BTPSA_PARAM_GLOBALACCOUNT: ${{ secrets.BTPSA_PARAM_GLOBALACCOUNT }}
+            BTPSA_PARAM_MYPASSWORD: ${{ secrets.BTPSA_PARAM_MYPASSWORD }}
+        steps:
+            - name: 'Setup landscape for HR DEV'
+              if: ${{ always() }}
+              working-directory: /home/user
+              shell: bash
+              run: |
+                ./btpsa \
+                -parameterfile 'https://raw.githubusercontent.com/rui1610/dsag_tt_2023/main/vt034_landscape/hr/dev/parameters.json' \
+                -region '${{ env.REGION }}' \
+                -directoryname '${{ github.event.inputs.DIRECTORY_NAME }}' \
+                -loginmethod '${{ env.LOGIN_METHOD }}' \
+                -usedirectory true
+            - name: 'Setup landscape for HR TEST'
+              if: ${{ always() }}
+              working-directory: /home/user
+              shell: bash
+              run: |
+                ./btpsa \
+                -parameterfile 'https://raw.githubusercontent.com/rui1610/dsag_tt_2023/main/vt034_landscape/hr/test/parameters.json' \
+                -region '${{ env.REGION }}' \
+                -directoryname '${{ github.event.inputs.DIRECTORY_NAME }}' \
+                -loginmethod '${{ env.LOGIN_METHOD }}' \
+                -usedirectory true
+            - name: 'Setup landscape for HR PROD'
+              if: ${{ always() }}
+              working-directory: /home/user
+              shell: bash
+              run: |
+                ./btpsa \
+                -parameterfile 'https://raw.githubusercontent.com/rui1610/dsag_tt_2023/main/vt034_landscape/hr/prod/parameters.json' \
+                -region '${{ env.REGION }}' \
+                -directoryname '${{ github.event.inputs.DIRECTORY_NAME }}' \
+                -loginmethod '${{ env.LOGIN_METHOD }}' \
+                -usedirectory true
+
+    landscape-setup-it:
+        needs: setup-directory
+        runs-on: ubuntu-latest
+        container:
+          image: ghcr.io/sap-samples/btp-setup-automator-dev:dev
+          options: --user root
+        env: 
+            BTPSA_PARAM_MYEMAIL: ${{ secrets.BTPSA_PARAM_MYEMAIL }}
+            BTPSA_PARAM_GLOBALACCOUNT: ${{ secrets.BTPSA_PARAM_GLOBALACCOUNT }}
+            BTPSA_PARAM_MYPASSWORD: ${{ secrets.BTPSA_PARAM_MYPASSWORD }}
+        steps:
+            - name: 'Setup landscape for IT DEV'
+              if: ${{ always() }}
+              working-directory: /home/user
+              shell: bash
+              run: |
+                ./btpsa \
+                -parameterfile 'https://raw.githubusercontent.com/rui1610/dsag_tt_2023/main/vt034_landscape/it/dev/parameters.json' \
+                -region '${{ env.REGION }}' \
+                -directoryname '${{ github.event.inputs.DIRECTORY_NAME }}' \
+                -loginmethod '${{ env.LOGIN_METHOD }}' \
+                -usedirectory true
+            - name: 'Setup landscape for IT TEST'
+              if: ${{ always() }}
+              working-directory: /home/user
+              shell: bash
+              run: |
+                ./btpsa \
+                -parameterfile 'https://raw.githubusercontent.com/rui1610/dsag_tt_2023/main/vt034_landscape/it/test/parameters.json' \
+                -region '${{ env.REGION }}' \
+                -directoryname '${{ github.event.inputs.DIRECTORY_NAME }}' \
+                -loginmethod '${{ env.LOGIN_METHOD }}' \
+                -usedirectory true
+            - name: 'Setup landscape for IT PROD'
+              if: ${{ always() }}
+              working-directory: /home/user
+              shell: bash
+              run: |
+                ./btpsa \
+                -parameterfile 'https://raw.githubusercontent.com/rui1610/dsag_tt_2023/main/vt034_landscape/it/prod/parameters.json' \
+                -region '${{ env.REGION }}' \
+                -directoryname '${{ github.event.inputs.DIRECTORY_NAME }}' \
+                -loginmethod '${{ env.LOGIN_METHOD }}' \
+                -usedirectory true
+
+    landscape-setup-sales:
+        needs: landscape-setup-it
+        runs-on: ubuntu-latest
+        container:
+          image: ghcr.io/sap-samples/btp-setup-automator-dev:dev
+          options: --user root
+        env: 
+            BTPSA_PARAM_MYEMAIL: ${{ secrets.BTPSA_PARAM_MYEMAIL }}
+            BTPSA_PARAM_GLOBALACCOUNT: ${{ secrets.BTPSA_PARAM_GLOBALACCOUNT }}
+            BTPSA_PARAM_MYPASSWORD: ${{ secrets.BTPSA_PARAM_MYPASSWORD }}
+        steps:
+            - name: 'Setup landscape for SALES DEV'
+              if: ${{ always() }}
+              working-directory: /home/user
+              shell: bash
+              run: |
+                ./btpsa \
+                -parameterfile 'https://raw.githubusercontent.com/rui1610/dsag_tt_2023/main/vt034_landscape/sales/dev/parameters.json' \
+                -region '${{ env.REGION }}' \
+                -directoryname '${{ github.event.inputs.DIRECTORY_NAME }}' \
+                -loginmethod '${{ env.LOGIN_METHOD }}' \
+                -usedirectory true
+            - name: 'Setup landscape for IT TEST'
+              if: ${{ always() }}
+              working-directory: /home/user
+              shell: bash
+              run: |
+                ./btpsa \
+                -parameterfile 'https://raw.githubusercontent.com/rui1610/dsag_tt_2023/main/vt034_landscape/sales/test/parameters.json' \
+                -region '${{ env.REGION }}' \
+                -directoryname '${{ github.event.inputs.DIRECTORY_NAME }}' \
+                -loginmethod '${{ env.LOGIN_METHOD }}' \
+                -usedirectory true
+            - name: 'Setup landscape for IT PROD'
+              if: ${{ always() }}
+              working-directory: /home/user
+              shell: bash
+              run: |
+                ./btpsa \
+                -parameterfile 'https://raw.githubusercontent.com/rui1610/dsag_tt_2023/main/vt034_landscape/sales/prod/parameters.json' \
+                -region '${{ env.REGION }}' \
+                -directoryname '${{ github.event.inputs.DIRECTORY_NAME }}' \
+                -loginmethod '${{ env.LOGIN_METHOD }}' \
+                -usedirectory true
+

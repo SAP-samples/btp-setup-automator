@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
+  "usecasefile": "https://raw.githubusercontent.com/rui1610/dsag_tt_2023/main/vt034_landscape/hr/dev/usecase.json",
+  "subaccountname": "DSAG 2023 TT - HR - DEV",
+  "myusergroups": [
+    {
+      "name": "admins",
+      "members": [
+        "jenny.admin@hr.test.com",
+        "sue.boss@hr.test.com"
+      ]
+    },
+    {
+      "name": "developers",
+      "members": [
+        "jane.smith@hr.test.com",
+        "john.doe@hr.test.com"
+      ]
+    }
+  ]
+}

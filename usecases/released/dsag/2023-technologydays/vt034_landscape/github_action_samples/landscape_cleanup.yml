@@ -1,0 +1,34 @@
+name: VT034 - Sample landscape cleanup
+# This file helps to delete a BTP directory including all related 
+# sub accounts and data. USE WITH CAUTION!
+
+env:
+  LOGIN_METHOD: envVariables
+  REGION: us10
+
+on:
+  workflow_dispatch:
+
+    inputs:
+      DIRECTORY_ID:
+        description: 'ID of BTP directory to delete. CAUTION! All sub accounts and data will be deleted!'
+        required: true
+
+jobs:
+    setup-directory:
+        runs-on: ubuntu-latest
+        container:
+          image: ghcr.io/sap-samples/btp-setup-automator-dev:dev
+          options: --user root
+        env: 
+            BTPSA_PARAM_MYEMAIL: ${{ secrets.BTPSA_PARAM_MYEMAIL }}
+            BTPSA_PARAM_GLOBALACCOUNT: ${{ secrets.BTPSA_PARAM_GLOBALACCOUNT }}
+            BTPSA_PARAM_MYPASSWORD: ${{ secrets.BTPSA_PARAM_MYPASSWORD }}
+        steps:
+            - name: 'Setup directory for all landscapes'
+              if: ${{ always() }}
+              working-directory: /home/user
+              shell: bash
+              run: |
+                btp login --url 'https://cpcli.cf.eu10.hana.ondemand.com' --subdomain '${{ secrets.BTPSA_PARAM_GLOBALACCOUNT }}' --user '${{ secrets.BTPSA_PARAM_MYEMAIL }}' --password '${{ secrets.BTPSA_PARAM_MYPASSWORD }}'
+                btp delete accounts/directory ${{ github.event.inputs.DIRECTORY_ID }} --global-account '${{ secrets.BTPSA_PARAM_GLOBALACCOUNT }}' --force-delete --confirm
