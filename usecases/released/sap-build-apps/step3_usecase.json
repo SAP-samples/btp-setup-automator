@@ -10,24 +10,28 @@
       "requiredrolecollections": [
         {
           "name": "BuildAppsAdmin",
+          "idp": "my-trust-config",
           "assignedUserGroupsFromParameterFile": [
             "developers"
           ]
         },
         {
           "name": "BuildAppsDeveloper",
+          "idp": "my-trust-config",
           "assignedUserGroupsFromParameterFile": [
             "developers"
           ]
         },
         {
           "name": "RegistryAdmin",
+          "idp": "my-trust-config",
           "assignedUserGroupsFromParameterFile": [
             "developers"
           ]
         },
         {
           "name": "RegistryDeveloper",
+          "idp": "my-trust-config",
           "assignedUserGroupsFromParameterFile": [
             "developers"
           ]
