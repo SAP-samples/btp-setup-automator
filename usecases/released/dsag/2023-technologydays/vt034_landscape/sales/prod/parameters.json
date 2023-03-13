@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
-  "usecasefile": "https://raw.githubusercontent.com/rui1610/dsag_tt_2023/main/vt034_landscape/sales/prod/usecase.json",
+  "usecasefile": "https://raw.githubusercontent.com//SAP-samples/btp-setup-automator/main/usecases/released/dsag/2023-technologydays/vt034_landscape/sales/prod/usecase.json",
   "subaccountname": "DSAG 2023 TT - SALES - PROD",
   "myusergroups": [
     {

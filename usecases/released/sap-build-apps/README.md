@@ -4,6 +4,6 @@ The files provided in this directory contain the necessary configuration to setu
 
 ## Scenario
 
-## Usecase.json and parameter.json
+## Setup in BTP Setup Automator
 
 ## Github Action Sample
