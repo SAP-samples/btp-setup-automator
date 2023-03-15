@@ -1,6 +1,0 @@
-{
-  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
-  "usecasefile": "usecases/released/discoverycenter/3774-taskcenter/usecase.json",
-  "region": "us10",
-  "subaccountname": "SAP Discovery Center Missions"
-}

@@ -1,0 +1,113 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
+  "services": [
+    {
+      "name": "sap-build-apps",
+      "plan": "free",
+      "category": "APPLICATION",
+      "targetenvironment": "sapbtp",
+      "instancename": "sapbuildapps-instance",
+      "requiredrolecollections": [
+        {
+          "name": "BuildAppsAdmin",
+          "idp": "sap.custom",
+          "assignedUserGroupsFromParameterFile": [
+            "developers"
+          ]
+        },
+        {
+          "name": "BuildAppsDeveloper",
+          "idp": "sap.custom",
+          "assignedUserGroupsFromParameterFile": [
+            "developers"
+          ]
+        },
+        {
+          "name": "RegistryAdmin",
+          "idp": "sap.custom",
+          "assignedUserGroupsFromParameterFile": [
+            "developers"
+          ]
+        },
+        {
+          "name": "RegistryDeveloper",
+          "idp": "sap.custom",
+          "assignedUserGroupsFromParameterFile": [
+            "developers"
+          ]
+        }
+      ]
+    }
+  ],
+  "assignrolecollections": [
+    {
+      "name": "Global Account Administrator",
+      "type": "account",
+      "level": "global account",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ]
+    },
+    {
+      "name": "Subaccount Administrator",
+      "type": "account",
+      "level": "sub account",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ]
+    },
+    {
+      "name": "Subaccount Service Administrator",
+      "type": "account",
+      "level": "sub account",
+      "assignedUserGroupsFromParameterFile": [
+        "admins"
+      ]
+    },
+    {
+      "name": "SpaceManager",
+      "type": "cloudfoundry",
+      "level": "space",
+      "assignedUserGroupsFromParameterFile": [
+        "admins",
+        "developers"
+      ]
+    },
+    {
+      "name": "SpaceDeveloper",
+      "type": "cloudfoundry",
+      "level": "space",
+      "assignedUserGroupsFromParameterFile": [
+        "admins",
+        "developers"
+      ]
+    },
+    {
+      "name": "SpaceAuditor",
+      "type": "cloudfoundry",
+      "level": "space",
+      "assignedUserGroupsFromParameterFile": [
+        "admins",
+        "developers"
+      ]
+    },
+    {
+      "name": "OrgManager",
+      "type": "cloudfoundry",
+      "level": "org",
+      "assignedUserGroupsFromParameterFile": [
+        "admins",
+        "testers"
+      ]
+    },
+    {
+      "name": "OrgAuditor",
+      "type": "cloudfoundry",
+      "level": "org",
+      "assignedUserGroupsFromParameterFile": [
+        "admins",
+        "auditors"
+      ]
+    }
+  ]
+}
