@@ -1849,7 +1849,7 @@ def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
             # Detect whether there is a difference between appName and commercialAppName
             appName = getAppNameForCommercialAppName(btpUsecase, appSubscription.name)
             # In case the appName and commercialAppName differ ...
-            if appName != commercialAppName:
+            if appName is not None and appName != commercialAppName:
                 log.success(
                     "appName for app subscription >"
                     + commercialAppName
