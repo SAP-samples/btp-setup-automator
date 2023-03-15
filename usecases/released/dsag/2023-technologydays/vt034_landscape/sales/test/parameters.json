@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
+  "usecasefile": "https://raw.githubusercontent.com//SAP-samples/btp-setup-automator/main/usecases/released/dsag/2023-technologydays/vt034_landscape/sales/test/usecase.json",
+  "subaccountname": "DSAG 2023 TT - SALES - TEST",
+  "myusergroups": [
+    {
+      "name": "admins",
+      "members": [
+        "jenny.admin@sales.test.com",
+        "sue.boss@sales.test.com"
+      ]
+    },
+    {
+      "name": "developers",
+      "members": [
+        "jane.smith@sales.test.com",
+        "john.doe@sales.test.com"
+      ]
+    }
+  ]
+}

@@ -7,8 +7,10 @@
 | Property                                            | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                |
 | :-------------------------------------------------- | :-------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [admin\_email](#admin_email)                        | `string`  | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-admin-email-address.md "undefined#/properties/services/items/allOf/1/then/allOf/0/then/allOf/0/then/properties/parameters/properties/admin_email")           |
+| [admin\_user\_name](#admin_user_name)               | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-admin-user-name.md "undefined#/properties/services/items/allOf/1/then/allOf/0/then/allOf/0/then/properties/parameters/properties/admin_user_name")           |
 | [description](#description)                         | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-abap-system-description.md "undefined#/properties/services/items/allOf/1/then/allOf/0/then/allOf/0/then/properties/parameters/properties/description")       |
 | [is\_development\_allowed](#is_development_allowed) | `boolean` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-development-system.md "undefined#/properties/services/items/allOf/1/then/allOf/0/then/allOf/0/then/properties/parameters/properties/is_development_allowed") |
+| [login\_attribute](#login_attribute)                | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-login-attribute.md "undefined#/properties/services/items/allOf/1/then/allOf/0/then/allOf/0/then/properties/parameters/properties/login_attribute")           |
 | [sapsystemname](#sapsystemname)                     | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-abap-system-id.md "undefined#/properties/services/items/allOf/1/then/allOf/0/then/allOf/0/then/properties/parameters/properties/sapsystemname")              |
 | [size\_of\_persistence](#size_of_persistence)       | `integer` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-hana-memory-size.md "undefined#/properties/services/items/allOf/1/then/allOf/0/then/allOf/0/then/properties/parameters/properties/size_of_persistence")      |
 | [size\_of\_runtime](#size_of_runtime)               | `integer` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-abap-runtime-size.md "undefined#/properties/services/items/allOf/1/then/allOf/0/then/allOf/0/then/properties/parameters/properties/size_of_runtime")         |
@@ -44,6 +46,38 @@ Enter the administrator's email address
 ```
 
 [try pattern](https://regexr.com/?expression=%5E%5B%5E%3C%3E\(\)%5C%5B%5C%5D%5C%5C%2C%3B%3A%5Cs%40%22%60%5D%2B%40\(%5Ba-zA-Z%5C-0-9%5D%2B%5C.\)%2B%5Ba-zA-Z%5D%7B2%2C%7D%24 "try regular expression with regexr.com")
+
+## admin\_user\_name
+
+Optionally enter the username of the administrator. The username must not begin with SAP\_ or \_, must only contain uppercase letters, digits, underscores, hyphens and periods, and must not be longer than 40 characters.
+
+`admin_user_name`
+
+*   is optional
+
+*   Type: `string` ([Admin User Name](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-admin-user-name.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-admin-user-name.md "undefined#/properties/services/items/allOf/1/then/allOf/0/then/allOf/0/then/properties/parameters/properties/admin_user_name")
+
+### admin\_user\_name Type
+
+`string` ([Admin User Name](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-admin-user-name.md))
+
+### admin\_user\_name Constraints
+
+**maximum length**: the maximum number of characters for this string is: `40`
+
+**minimum length**: the minimum number of characters for this string is: `0`
+
+**pattern**: the string must match the following regular expression:&#x20;
+
+```regexp
+^(?!SAP_|_)[\.A-Z0-9_-]{0,40}$
+```
+
+[try pattern](https://regexr.com/?expression=%5E\(%3F!SAP_%7C_\)%5B%5C.A-Z0-9_-%5D%7B0%2C40%7D%24 "try regular expression with regexr.com")
 
 ## description
 
@@ -99,6 +133,41 @@ The default value is:
 
 ```json
 true
+```
+
+## login\_attribute
+
+Which attribute should be used for login.
+
+`login_attribute`
+
+*   is optional
+
+*   Type: `string` ([Login Attribute](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-login-attribute.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-login-attribute.md "undefined#/properties/services/items/allOf/1/then/allOf/0/then/allOf/0/then/properties/parameters/properties/login_attribute")
+
+### login\_attribute Type
+
+`string` ([Login Attribute](btpsa-usecase-properties-services-items-allof-1-then-allof-0-then-allof-0-then-properties-parameters-properties-login-attribute.md))
+
+### login\_attribute Constraints
+
+**enum**: the value of this property must be equal to one of the following values:
+
+| Value         | Explanation |
+| :------------ | :---------- |
+| `"email"`     |             |
+| `"user_name"` |             |
+
+### login\_attribute Default Value
+
+The default value is:
+
+```json
+"email"
 ```
 
 ## sapsystemname

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-parameters.json",
+  "usecasefile": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/usecases/released/sap-build-apps/step3_usecase.json",
+  "myusergroups": [
+    {
+      "name": "admins",
+      "members": [
+        "rui.nogueira@sap.com"
+      ]
+    },
+    {
+      "name": "developers",
+      "members": [
+        "rui.nogueira@sap.com"
+      ]
+    }
+  ]
+}

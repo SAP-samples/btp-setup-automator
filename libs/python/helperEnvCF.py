@@ -281,7 +281,7 @@ def check_if_service_plan_supported_in_cloudfoundry(btpUsecase, service):
 def check_if_service_plan_in_cf_marketplace(btpUsecase, service):
     # Defines how often we should ask CF whether the plan is
     # available or not
-    MAX_TRIES = 12
+    MAX_TRIES = 25
     # Seconds after which we should try again
     SEARCH_EVERY_X_SECONDS = 10
 

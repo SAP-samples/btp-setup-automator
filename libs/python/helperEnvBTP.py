@@ -70,6 +70,8 @@ def create_btp_service(btpUsecase, service):
 
     if service.parameters is not None:
         command = command + " --parameters '" + dictToString(service.parameters) + "'"
+    elif service.serviceparameterfile is not None:
+        command += f" --parameters {service.serviceparameterfile}"
 
     if service.labels is not None:
         command = command + " --labels '" + dictToString(service.labels) + "'"
