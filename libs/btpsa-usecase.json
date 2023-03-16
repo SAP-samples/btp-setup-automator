@@ -456,8 +456,10 @@
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "service plan >standard< for >adsrestapi< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
-                                                                
-                                                            }
+                                                                , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "properties": {"readOnly": {"default": false, "description": "read Only scope for restrictive access", "type": "boolean"}}, "type": "object"}
+
+                                                            }, "required" : ["parameters"]
+
                                                         }
                                                     }]
                                             }
