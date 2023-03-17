@@ -81,6 +81,24 @@
                         "description": "user groups to be assigned from the parameter file",
                         "title": "user groups from parameter file"
                     },
+                    "attribute": {
+                        "type": "string",
+                        "description": "the name of the attribute. To be found in the identity provider.",
+                        "title": "attribute name (custom IdP)",
+                        "default": null
+                    },
+                    "attributeValue": {
+                        "type": "string",
+                        "description": "the value of the attribute. To be found in the identity provider.",
+                        "title": "attribute value  (custom IdP)",
+                        "default": null
+                    },
+                    "group":{
+                        "type": "string",
+                        "description": "the name of the user group. To be found in the identity provider.",
+                        "title": "group name (custom IdP)",
+                        "default": null
+                    },
                     "idp":{
                         "type": "string",
                         "description": "the identity provider that hosts the user. ",
@@ -288,6 +306,24 @@
                                     "description": "list of user groups to assign the role collection",
                                     "title": "list of user groups to assign the role collection"
                                 },
+                                "attribute": {
+                                    "type": "string",
+                                    "description": "the name of the attribute. To be found in the identity provider.",
+                                    "title": "attribute name (custom IdP)",
+                                    "default": null
+                                },
+                                "attributeValue": {
+                                    "type": "string",
+                                    "description": "the value of the attribute. To be found in the identity provider.",
+                                    "title": "attribute value  (custom IdP)",
+                                    "default": null
+                                },
+                                "group":{
+                                    "type": "string",
+                                    "description": "the name of the user group. To be found in the identity provider.",
+                                    "title": "group name (custom IdP)",
+                                    "default": null
+                                },            
                                 "idp":{
                                     "type": "string",
                                     "description": "the identity provider that hosts the user. ",

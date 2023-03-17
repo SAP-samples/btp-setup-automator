@@ -6,6 +6,8 @@ from libs.python.helperCommandExecution import (
 from libs.python.helperCommandExecution import login_cf
 from libs.python.helperJson import getJsonFromFile
 import logging
+import sys
+import os
 
 log = logging.getLogger(__name__)
 
@@ -119,6 +121,32 @@ def assignUsergroupsToRoleCollection(btpUsecase, rolecollection):
                     )
                     if idp is not None:
                         command += " --of-idp '" + idp + "'"
+
+                        # Additional mapping for custom IdP only relevant if custom IdP is used
+                        (
+                            groupForIdp,
+                            attributeForIdp,
+                            attributeValueForIdp,
+                        ) = getCustomIdpMapping(rolecollection)
+
+                        if isMappingForIdpValid(
+                            groupForIdp, attributeForIdp, attributeValueForIdp
+                        ):
+
+                            if groupForIdp is not None:
+                                command += " --to-group '" + groupForIdp + "'"
+
+                            if attributeForIdp is not None:
+                                command += " --to-attribute '" + attributeForIdp + "'"
+                                command += (
+                                    " --attribute-value '" + attributeValueForIdp + "'"
+                                )
+                        else:
+                            log.error(
+                                "Custom IdP configuration is not valid. Please check."
+                            )
+                            sys.exit(os.EX_DATAERR)
+
                     thisResult = runCommandAndGetJsonResult(
                         btpUsecase, command, "INFO", message
                     )
@@ -189,6 +217,32 @@ def assignUsersToGlobalAndSubaccount(btpUsecase):
                 )
                 if idp is not None:
                     command += " --of-idp '" + idp + "'"
+
+                    # Additional mapping for custom IdP only relevant if custom IdP is used
+                    (
+                        groupForIdp,
+                        attributeForIdp,
+                        attributeValueForIdp,
+                    ) = getCustomIdpMapping(rolecollection)
+
+                    if isMappingForIdpValid(
+                        groupForIdp, attributeForIdp, attributeValueForIdp
+                    ):
+
+                        if groupForIdp is not None:
+                            command += " --to-group '" + groupForIdp + "'"
+
+                        if attributeForIdp is not None:
+                            command += " --to-attribute '" + attributeForIdp + "'"
+                            command += (
+                                " --attribute-value '" + attributeValueForIdp + "'"
+                            )
+                    else:
+                        log.error(
+                            "Custom IdP configuration is not valid. Please check."
+                        )
+                        sys.exit(os.EX_DATAERR)
+
                 runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
 
     log.header("Set administrators for sub account")
@@ -215,6 +269,32 @@ def assignUsersToGlobalAndSubaccount(btpUsecase):
                 )
                 if idp is not None:
                     command += " --of-idp '" + idp + "'"
+
+                    # Additional mapping for custom IdP only relevant if custom IdP is used
+                    (
+                        groupForIdp,
+                        attributeForIdp,
+                        attributeValueForIdp,
+                    ) = getCustomIdpMapping(rolecollection)
+
+                    if isMappingForIdpValid(
+                        groupForIdp, attributeForIdp, attributeValueForIdp
+                    ):
+
+                        if groupForIdp is not None:
+                            command += " --to-group '" + groupForIdp + "'"
+
+                        if attributeForIdp is not None:
+                            command += " --to-attribute '" + attributeForIdp + "'"
+                            command += (
+                                " --attribute-value '" + attributeValueForIdp + "'"
+                            )
+                    else:
+                        log.error(
+                            "Custom IdP configuration is not valid. Please check."
+                        )
+                        sys.exit(os.EX_DATAERR)
+
                 runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
 
 
@@ -331,6 +411,32 @@ def assignUsersToCustomRoleCollections(btpUsecase):
                 )
                 if idp is not None:
                     command += " --of-idp '" + idp + "'"
+
+                    # Additional mapping for custom IdP only relevant if custom IdP is used
+                    (
+                        groupForIdp,
+                        attributeForIdp,
+                        attributeValueForIdp,
+                    ) = getCustomIdpMapping(rolecollection)
+
+                    if isMappingForIdpValid(
+                        groupForIdp, attributeForIdp, attributeValueForIdp
+                    ):
+
+                        if groupForIdp is not None:
+                            command += " --to-group '" + groupForIdp + "'"
+
+                        if attributeForIdp is not None:
+                            command += " --to-attribute '" + attributeForIdp + "'"
+                            command += (
+                                " --attribute-value '" + attributeValueForIdp + "'"
+                            )
+                    else:
+                        log.error(
+                            "Custom IdP configuration is not valid. Please check."
+                        )
+                        sys.exit(os.EX_DATAERR)
+
                 runCommandAndGetJsonResult(btpUsecase, command, "INFO", message)
 
 
@@ -380,6 +486,7 @@ def assignUsersToEnvironments(btpUsecase):
                             )
                             if idp is not None:
                                 command += " --origin '" + idp + "'"
+
                             p = runShellCommandFlex(
                                 btpUsecase, command, "INFO", message, False, False
                             )
@@ -438,3 +545,36 @@ def determineIdpForRoleCollection(btpUsecase, rolecollection):
         idp = rolecollection.get("idp")
 
     return idp
+
+
+def getCustomIdpMapping(rolecollection):
+    groupForIdp = None
+    attributeForIdp = None
+    attributeValueForIdp = None
+
+    if rolecollection.get("group"):
+        groupForIdp = rolecollection.get("group")
+
+    if rolecollection.get("attribute"):
+        attributeForIdp = rolecollection.get("attribute")
+
+    if rolecollection.get("attributeValue"):
+        attributeValueForIdp = rolecollection.get("attributeValue")
+
+    return groupForIdp, attributeForIdp, attributeValueForIdp
+
+
+def isMappingForIdpValid(groupForIdp, attributeForIdp, attributeValueForIdp):
+    if groupForIdp is not None and attributeForIdp is not None:
+        log.error(
+            "A group and an attribute is configured for the IdP mapping. Only one is allowed."
+        )
+        return False
+    if (attributeForIdp is None and attributeValueForIdp is not None) or (
+        attributeForIdp is not None and attributeValueForIdp is None
+    ):
+        log.error(
+            "Attribute and attributeValue are both required for the IdP mapping. One is missing."
+        )
+        return False
+    return True
