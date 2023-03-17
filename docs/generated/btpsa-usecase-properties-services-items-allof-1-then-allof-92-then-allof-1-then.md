@@ -17,6 +17,7 @@ service plan >automation-attended< for >process-automation< is available in data
 *   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
+*   {'region': 'us30', 'name': 'US Central (IA)'}
 
 `plan`
 
