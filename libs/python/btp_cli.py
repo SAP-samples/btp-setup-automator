@@ -1865,6 +1865,8 @@ def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
                     + commercialAppName
                     + "<"
                 )
+                # appname might be none, so we override it with the commercialAppName
+                appName = commercialAppName
 
             appPlan = appSubscription.plan
             parameters = appSubscription.parameters
