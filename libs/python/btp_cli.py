@@ -454,7 +454,7 @@ class BTPUSECASE:
 
             subaccount = createSubaccountName(self)
             subdomain = createSubdomainID(self)
-
+            
             log.success("using subaccount name >" + subaccount + "<")
             log.success("using subaccount domain >" + subdomain + "<")
 
@@ -468,9 +468,9 @@ class BTPUSECASE:
                 "Create sub account >" + subaccount + "< (if not already existing)"
             )
 
-            subaccountid = checkIfSubaccountAlreadyExists(self)
-
-            if subaccountid is None:
+            subaccountExist = checkIfSubaccountAlreadyExists(self)
+                                    
+            if subaccountExist is None:
                 command = (
                     "btp --format json create accounts/subaccount \
                     --display-name '"
@@ -532,19 +532,29 @@ class BTPUSECASE:
                     + "<"
                 )
             else:
+                subaccountid = subaccountExist[0]
+                subdomain = subaccountExist[1]
                 log.success(
                     "subaccount >"
                     + subaccount
                     + "< already exists with id >"
                     + subaccountid
+                    + "< and subdomain >"
+                    + subdomain
                     + "<"
                 )
                 self.subaccountid = subaccountid
+                self.subdomain = subdomain            
 
             self.accountMetadata = addKeyValuePair(
-                accountMetadata, "subaccountid", subaccountid
+                accountMetadata, "subaccountid", subaccountid            
             )
+            self.accountMetadata = addKeyValuePair(
+                accountMetadata, "subdomain", subdomain            
+            )
+
             self.subaccountid = subaccountid
+            self.subdomain = subdomain
         else:
             log.header(
                 "USING CONFIGURED SUBACCOUNT WITH ID >" + self.subaccountid + "<"
@@ -1387,13 +1397,13 @@ def checkIfSubaccountAlreadyExists(btpUsecase: BTPUSECASE):
         + "'"
     )
     result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", None)
-
+    
     if "subaccount" in accountMetadata:
         subaccountName = accountMetadata["subaccount"]
 
         for account in result["value"]:
             if account["displayName"] == subaccountName:
-                return account["guid"]
+                return account["guid"], account["subdomain"]
         # If the for loop didn't return any value, the subaccount wasn't found
         return None
     else:
