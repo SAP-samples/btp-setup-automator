@@ -67,7 +67,7 @@ def login_cf(btpUsecase):
             runShellCommandFlex(btpUsecase, command, "INFO", message, True, pipe)
 
             # Step 2 - login
-            command = "cf auth " + myemail + " " + password + " -s " + org + " -o " + org
+            command = "cf auth " + myemail + " " + password
             message = (
                 "Non-interactive login step 2: authenticate to CF with user >"
                 + myemail
