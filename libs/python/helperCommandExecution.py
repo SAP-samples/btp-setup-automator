@@ -165,6 +165,9 @@ def runShellCommandFlex(btpUsecase, command, format, info, exitIfError, noPipe):
                 log.command(commandToBeLogged)
                 foundPassword = True
                 break
+        if "cf auth" in command:
+            log.command("cf auth xxxxxxxxxxxxxxxxx")
+            foundPassword = True
         if foundPassword is False:
             log.command(command)
     p = None
