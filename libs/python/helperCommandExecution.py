@@ -26,37 +26,59 @@ def login_cf(btpUsecase):
 
         cfApiEndpoint = accountMetadata["cfapiendpoint"]
 
-        command = None
-        pipe = False
-        if btpUsecase.loginmethod == "sso":
-            command = "cf login -a '" + cfApiEndpoint + "' -o '" + org + "' --sso"
-            pipe = True
-        else:
-            password = escapePassword(password)
-
-            command = (
-                "cf login -a '"
-                + cfApiEndpoint
-                + "' -o '"
-                + org
-                + "' -u '"
-                + myemail
-                + "' -p '"
-                + password
-                + "'"
-            )
-        runShellCommandFlex(
-            btpUsecase,
-            command,
-            "INFO",
+        message = (
             "Logging-in to your CF environment in the org >"
             + org
             + "< for your user >"
             + myemail
             + "<",
-            True,
-            pipe,
         )
+
+        command = None
+        pipe = False
+        if btpUsecase.loginmethod == "sso":
+            # Interactive login with SSO
+            # Limitation: If more than one CF space exists, the execution will fail due to interactive data entry
+            # error message is: "inappropriate ioctl for device"
+            # This is an issue with the CF API and not with the script
+            command = "cf login -a '" + cfApiEndpoint + "' -o '" + org + "' --sso"
+            pipe = True
+
+            runShellCommandFlex(
+                btpUsecase,
+                command,
+                "INFO",
+                message,
+                True,
+                pipe,
+            )
+
+        else:
+            password = escapePassword(password)
+            # NON-Interactive login with user and password
+            # To avoid failure due to interaction in case of multiple spaces, we use the manual authentication flow
+            # Step 1 - set api endpoint
+            command = "cf api " + cfApiEndpoint
+            message = (
+                "Non-interactive login step 1: set CF API endpoint to >"
+                + cfApiEndpoint
+                + "<"
+            )
+            runShellCommandFlex(btpUsecase, command, "INFO", message, True, pipe)
+
+            # Step 2 - login
+            command = "cf auth " + myemail + " " + password + " -s " + org + " -o " + org
+            message = (
+                "Non-interactive login step 2: authenticate to CF with user >"
+                + myemail
+                + "<"
+            )
+            runShellCommandFlex(btpUsecase, command, "INFO", message, True, pipe)
+
+            # Step 3 - set org
+            command = "cf target -o " + org
+            message = "Non-interactive login step 3: set CF org to >" + org + "<"
+            runShellCommandFlex(btpUsecase, command, "INFO", message, True, pipe)
 
 
 def login_btp(btpUsecase):
