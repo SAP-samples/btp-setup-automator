@@ -454,7 +454,7 @@ class BTPUSECASE:
 
             subaccount = createSubaccountName(self)
             subdomain = createSubdomainID(self)
-            
+
             log.success("using subaccount name >" + subaccount + "<")
             log.success("using subaccount domain >" + subdomain + "<")
 
@@ -469,7 +469,7 @@ class BTPUSECASE:
             )
 
             subaccountExist = checkIfSubaccountAlreadyExists(self)
-                                    
+
             if subaccountExist is None:
                 command = (
                     "btp --format json create accounts/subaccount \
@@ -544,13 +544,13 @@ class BTPUSECASE:
                     + "<"
                 )
                 self.subaccountid = subaccountid
-                self.subdomain = subdomain            
+                self.subdomain = subdomain
 
             self.accountMetadata = addKeyValuePair(
-                accountMetadata, "subaccountid", subaccountid            
+                accountMetadata, "subaccountid", subaccountid
             )
             self.accountMetadata = addKeyValuePair(
-                accountMetadata, "subdomain", subdomain            
+                accountMetadata, "subdomain", subdomain
             )
 
             self.subaccountid = subaccountid
@@ -1397,7 +1397,7 @@ def checkIfSubaccountAlreadyExists(btpUsecase: BTPUSECASE):
         + "'"
     )
     result = runCommandAndGetJsonResult(btpUsecase, command, "INFO", None)
-    
+
     if "subaccount" in accountMetadata:
         subaccountName = accountMetadata["subaccount"]
 
