@@ -9,3 +9,4 @@ unknown
 | Value        | Explanation |
 | :----------- | :---------- |
 | `"standard"` |             |
+| `"workflow"` |             |

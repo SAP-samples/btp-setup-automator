@@ -10,11 +10,15 @@ unknown
 
 ## plan
 
-application plan >standard< for >SAPWebAnalytics< is available in data centers:
+application plan >advanced< for >SAPWorkZone< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
+*   {'region': 'ap11', 'name': 'Singapore'}
 *   {'region': 'ap21', 'name': 'Singapore'}
+*   {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}
+*   {'region': 'ca10', 'name': 'Canada (Montreal)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
 *   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
 *   {'region': 'jp20', 'name': 'Japan (Tokyo)'}
