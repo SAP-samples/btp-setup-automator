@@ -1,0 +1,3 @@
+## readOnly Type
+
+`boolean`

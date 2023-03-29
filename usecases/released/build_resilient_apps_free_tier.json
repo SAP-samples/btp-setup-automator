@@ -61,7 +61,14 @@
         {
             "name": "autoscaler",
             "plan": "standard",
-            "category": "SERVICE"
+            "category": "SERVICE",
+            "entitleonly": true
+        },
+        {
+            "name": "enterprise-messaging",
+            "plan": "default",
+            "category": "SERVICE",
+            "entitleonly": true
         },
         {
             "name": "hana",
@@ -93,43 +100,6 @@
             "name": "enterprise-messaging-hub",
             "plan": "standard",
             "category": "APPLICATION"
-        },
-        {
-            "name": "enterprise-messaging",
-            "plan": "default",
-            "instancename": "BusinessPartnerVerification-ems",
-            "category": "SERVICE",
-            "parameters": {
-                "resources": {
-                    "units": "10"
-                },
-                "options": {
-                    "management": true,
-                    "messagingrest": true,
-                    "messaging": true
-                },
-                "rules": {
-                    "topicRules": {
-                        "publishFilter": [
-                            "${namespace}/*"
-                        ],
-                        "subscribeFilter": [
-                            "${namespace}/*"
-                        ]
-                    },
-                    "queueRules": {
-                        "publishFilter": [
-                            "${namespace}/*"
-                        ],
-                        "subscribeFilter": [
-                            "${namespace}/*"
-                        ]
-                    }
-                },
-                "version": "1.1.0",
-                "emname": "bpem",
-                "namespace": "tfe/bpem/em12"
-            }
         },
         {
             "name": "cicd-app",

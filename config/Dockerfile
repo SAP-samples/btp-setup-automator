@@ -31,8 +31,8 @@ FROM cloudfoundry/cli:8.5.0 as cf_cli
 FROM base AS btp_cli
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 WORKDIR /tmp/tools
-#RUN BTP_CLI_VERSION="$(curl --silent --url "https://$CPCLI_URL/actuator/info" | jq --raw-output '.app.version')" \
-RUN BTP_CLI_VERSION="2.33.0" \
+
+RUN BTP_CLI_VERSION="2.38.0" \
   && curl --fail --silent --location --cookie eula_3_1_agreed="$TOOLS_URL/developer-license-3_1.txt" \
     --url "https://$TOOLS_URL/additional/btp-cli-$ARCH-$BTP_CLI_VERSION.tar.gz" \
     | tar -xzf - --strip-components 1 "$ARCH/btp"

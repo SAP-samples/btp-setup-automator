@@ -468,9 +468,9 @@ class BTPUSECASE:
                 "Create sub account >" + subaccount + "< (if not already existing)"
             )
 
-            subaccountid = checkIfSubaccountAlreadyExists(self)
+            subaccountExist = checkIfSubaccountAlreadyExists(self)
 
-            if subaccountid is None:
+            if subaccountExist is None:
                 command = (
                     "btp --format json create accounts/subaccount \
                     --display-name '"
@@ -532,19 +532,29 @@ class BTPUSECASE:
                     + "<"
                 )
             else:
+                subaccountid = subaccountExist[0]
+                subdomain = subaccountExist[1]
                 log.success(
                     "subaccount >"
                     + subaccount
                     + "< already exists with id >"
                     + subaccountid
+                    + "< and subdomain >"
+                    + subdomain
                     + "<"
                 )
                 self.subaccountid = subaccountid
+                self.subdomain = subdomain
 
             self.accountMetadata = addKeyValuePair(
                 accountMetadata, "subaccountid", subaccountid
             )
+            self.accountMetadata = addKeyValuePair(
+                accountMetadata, "subdomain", subdomain
+            )
+
             self.subaccountid = subaccountid
+            self.subdomain = subdomain
         else:
             log.header(
                 "USING CONFIGURED SUBACCOUNT WITH ID >" + self.subaccountid + "<"
@@ -1393,7 +1403,7 @@ def checkIfSubaccountAlreadyExists(btpUsecase: BTPUSECASE):
 
         for account in result["value"]:
             if account["displayName"] == subaccountName:
-                return account["guid"]
+                return account["guid"], account["subdomain"]
         # If the for loop didn't return any value, the subaccount wasn't found
         return None
     else:
@@ -1865,6 +1875,8 @@ def initiateAppSubscriptions(btpUsecase: BTPUSECASE):
                     + commercialAppName
                     + "<"
                 )
+                # appname might be none, so we override it with the commercialAppName
+                appName = commercialAppName
 
             appPlan = appSubscription.plan
             parameters = appSubscription.parameters

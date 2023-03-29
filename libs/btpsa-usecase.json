@@ -81,6 +81,24 @@
                         "description": "user groups to be assigned from the parameter file",
                         "title": "user groups from parameter file"
                     },
+                    "attribute": {
+                        "type": "string",
+                        "description": "the name of the attribute. To be found in the identity provider.",
+                        "title": "attribute name (custom IdP)",
+                        "default": null
+                    },
+                    "attributeValue": {
+                        "type": "string",
+                        "description": "the value of the attribute. To be found in the identity provider.",
+                        "title": "attribute value  (custom IdP)",
+                        "default": null
+                    },
+                    "group":{
+                        "type": "string",
+                        "description": "the name of the user group. To be found in the identity provider.",
+                        "title": "group name (custom IdP)",
+                        "default": null
+                    },
                     "idp":{
                         "type": "string",
                         "description": "the identity provider that hosts the user. ",
@@ -288,6 +306,24 @@
                                     "description": "list of user groups to assign the role collection",
                                     "title": "list of user groups to assign the role collection"
                                 },
+                                "attribute": {
+                                    "type": "string",
+                                    "description": "the name of the attribute. To be found in the identity provider.",
+                                    "title": "attribute name (custom IdP)",
+                                    "default": null
+                                },
+                                "attributeValue": {
+                                    "type": "string",
+                                    "description": "the value of the attribute. To be found in the identity provider.",
+                                    "title": "attribute value  (custom IdP)",
+                                    "default": null
+                                },
+                                "group":{
+                                    "type": "string",
+                                    "description": "the name of the user group. To be found in the identity provider.",
+                                    "title": "group name (custom IdP)",
+                                    "default": null
+                                },            
                                 "idp":{
                                     "type": "string",
                                     "description": "the identity provider that hosts the user. ",
@@ -351,7 +387,7 @@
                     {
                         "if": { "properties": { "category": { "const": "SERVICE"} } },
                         "then" :{
-                                    "properties": { "name": { "enum": ["abap", "abap-solution", "ads", "adsrestapi", "aicore", "alert-notification", "api-management", "apimanagement-apiportal", "apimanagement-devportal", "application-logs", "ASE_PROVISIONING", "auditlog-api", "auditlog-management", "autoscaler", "blockchain-services", "build-workzone-advanced", "build-workzone-standard", "business-entity-recognition", "business-rules", "c4-distributed-order-management", "category-management-api", "cias", "cicd-service", "cis", "COMPUTE_UNIT", "connectivity", "connectivity-central", "content-agent", "conversational-ai", "credstore", "data-analytics-osb", "data-attribute-recommendation", "data-intelligence", "data-privacy-integration-service", "dataenrichment-business-partner", "dateandtime", "destination", "document-classification", "document-translation", "dq-services", "enterprise-messaging", "feature-flags", "hana", "hana-cloud", "hana-db", "hana-tenant-db", "html5-apps-repo", "hyperledger-fabric", "ibanservice", "identity", "INFRA", "integrationsuite", "intercompany-reconciliation", "invoice-object-recommendation", "iot", "iotae", "IRPA", "irpa-service", "it-rt", "jobscheduler", "malware-scanner", "market-rates-byor", "market-rates-thr", "MDMBusinessPartnerService", "ml-foundation", "mobile-app-catalog", "mobile-app-update", "mobile-c2g", "mobile-cbms", "mobile-client-log-upload", "mobile-client-resource", "mobile-client-usage", "mobile-discovery", "mobile-network-trace", "mobile-offline", "mobile-proxy", "mobile-push", "mobile-sample-odata-v2-espm", "mobile-services", "mobile-services-preview", "mobile-settings-exchange", "multichain", "objectstore", "one-inbox-service", "one-mds", "personal-data-manager-service", "portal", "postgresql", "postgresql-db", "print", "prism-api-service", "privatelink", "process-automation", "process-automation-service", "processvisibility", "procurement-service", "quorum", "rabbitmq", "recommendation-systems-production", "redis-cache", "responsibility-management-service-beta", "responsibilitymanagement-service", "retention-manager", "saas-registry", "sap-analytics-cloud-embedded-edition", "sap-bigdataservices", "sap-build-apps", "sap-build-apps-runtime", "sap-calm", "sap-document-information-extraction", "sap-graph", "sdm", "sdm-repository", "service-manager", "service-ticket-intelligence", "spatialservices", "theming", "transport", "uas", "ui5-flexibility-keyuser", "workcalendar", "workflow", "workflowmanagement", "wums-partner-api-beta", "xfs-runtime", "xsuaa"] } },
+                                    "properties": { "name": { "enum": ["abap", "abap-solution", "ads", "adsrestapi", "aicore", "alert-notification", "api-management", "apimanagement-apiportal", "apimanagement-devportal", "application-logs", "ASE_PROVISIONING", "auditlog-api", "auditlog-management", "autoscaler", "blockchain-services", "build-workzone-advanced", "build-workzone-standard", "business-entity-recognition", "business-rules", "c4-distributed-order-management", "category-management-api", "cias", "cicd-service", "cis", "COMPUTE_UNIT", "connectivity", "connectivity-central", "content-agent", "conversational-ai", "credstore", "data-analytics-osb", "data-attribute-recommendation", "data-intelligence", "data-privacy-integration-service", "dataenrichment-business-partner", "dateandtime", "destination", "document-classification", "document-translation", "dq-services", "enterprise-messaging", "feature-flags", "hana", "hana-cloud", "hana-db", "hana-tenant-db", "html5-apps-repo", "hyperledger-fabric", "ibanservice", "identity", "INFRA", "integrationsuite", "intercompany-reconciliation", "invoice-object-recommendation", "iot", "iotae", "IRPA", "irpa-service", "it-rt", "jobscheduler", "malware-scanner", "market-rates-byor", "market-rates-thr", "MDMBusinessPartnerService", "ml-foundation", "mobile-app-catalog", "mobile-app-update", "mobile-c2g", "mobile-cbms", "mobile-client-log-upload", "mobile-client-resource", "mobile-client-usage", "mobile-discovery", "mobile-network-trace", "mobile-offline", "mobile-proxy", "mobile-push", "mobile-sample-odata-v2-espm", "mobile-services", "mobile-services-preview", "mobile-settings-exchange", "multichain", "objectstore", "one-inbox-service", "one-mds", "personal-data-manager-service", "portal", "postgresql", "postgresql-db", "print", "privatelink", "process-automation", "process-automation-service", "processvisibility", "procurement-service", "quorum", "rabbitmq", "recommendation-systems-production", "redis-cache", "responsibility-management-service-beta", "responsibilitymanagement-service", "retention-manager", "saas-registry", "sap-analytics-cloud-embedded-edition", "sap-bigdataservices", "sap-build-apps", "sap-build-apps-runtime", "sap-calm", "sap-document-information-extraction", "sap-graph", "sdm", "sdm-repository", "service-manager", "service-ticket-intelligence", "spatialservices", "theming", "transport", "uas", "ui5-flexibility-keyuser", "workcalendar", "workflow", "workflowmanagement", "wums-partner-api-beta", "xfs-runtime", "xsuaa"] } },
                                     "allOf": [
                                         {
                                             "if": { "properties": { "name": { "const": "abap"} } },
@@ -437,7 +473,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >standard< for >ads< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >standard< for >ads< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -455,9 +491,11 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >standard< for >adsrestapi< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
-                                                                
-                                                            }
+                                                                "plan": { "description": "service plan >standard< for >adsrestapi< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "properties": {"readOnly": {"default": false, "description": "read Only scope for restrictive access", "type": "boolean"}}, "type": "object"}
+
+                                                            }, "required" : ["parameters"]
+
                                                         }
                                                     }]
                                             }
@@ -1246,7 +1284,7 @@
                                                         "if": { "properties": { "plan": { "const": "application"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >application< for >data-privacy-integration-service< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >application< for >data-privacy-integration-service< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'eu30', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -1254,7 +1292,7 @@
                                                         "if": { "properties": { "plan": { "const": "free"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >free< for >data-privacy-integration-service< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "service plan >free< for >data-privacy-integration-service< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'eu30', 'name': 'Europe (Frankfurt)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
                                                                 
                                                             }
                                                         }
@@ -2779,24 +2817,6 @@
                                                     }]
                                             }
                                         }, {
-                                            "if": { "properties": { "name": { "const": "prism-api-service"} } },
-                                            "then" :{
-                                                "properties": {
-                                                    "plan": { "enum": ["default"] },
-                                                    "name": { "description": "procurement data warehouse service: Provides access to procurement data warehouse service."}
-                                                },
-                                                "allOf": [
-                                                    {
-                                                        "if": { "properties": { "plan": { "const": "default"} } },
-                                                        "then" :{
-                                                            "properties": {
-                                                                "plan": { "description": "service plan >default< for >prism-api-service< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}" }
-                                                                
-                                                            }
-                                                        }
-                                                    }]
-                                            }
-                                        }, {
                                             "if": { "properties": { "name": { "const": "privatelink"} } },
                                             "then" :{
                                                 "properties": {
@@ -2838,7 +2858,7 @@
                                                         "if": { "properties": { "plan": { "const": "advanced-user"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >advanced-user< for >process-automation< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >advanced-user< for >process-automation< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
                                                                 
                                                             }
                                                         }
@@ -2846,7 +2866,7 @@
                                                         "if": { "properties": { "plan": { "const": "automation-attended"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >automation-attended< for >process-automation< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >automation-attended< for >process-automation< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
                                                                 
                                                             }
                                                         }
@@ -2854,7 +2874,7 @@
                                                         "if": { "properties": { "plan": { "const": "automation-unattended"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >automation-unattended< for >process-automation< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >automation-unattended< for >process-automation< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
                                                                 
                                                             }
                                                         }
@@ -2862,7 +2882,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard-user"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >standard-user< for >process-automation< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >standard-user< for >process-automation< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
                                                                 
                                                             }
                                                         }
@@ -3706,7 +3726,7 @@
                     {
                         "if": { "properties": { "category": { "const": "APPLICATION"} } },
                         "then" :{
-                                    "properties": { "name": { "enum": ["abapcp-web-router", "ads-configui", "ai-launchpad", "alm-ts", "api-management-apiportal", "api-management-devportal", "auditlog-viewer", "automationpilot", "Backend-service", "c4-distributed-order-management-app", "categorymanagement-o2-s2", "cias", "cicd-app", "content-agent-ui", "custom-domain-manager", "data-privacy-integration-application", "document-information-extraction-application", "dqmmicroui", "eadesigner", "edge-services", "enterprise-messaging-hub", "extension-center", "feature-flags-dashboard", "hana-cloud-tools", "integration-suite-advanced-event-mesh", "integrationsuite", "intelligent-situation-automation-app", "iotas", "IRPA", "it-prod", "LandscapePortal", "market-rates-ux", "MDMBusinessPartnerApplication", "mdo-one-mds-master", "MDOrchestrationApplication", "ocnselfserviceagent", "onboarding-app", "PersonalDataManagerApp", "PortalApplication", "print-app", "prism-api", "process-automation", "procurement", "responsibility-management-application-beta", "responsibilitymanagement-application", "retention-manager-app", "sap-build-apps", "sap-cai-onboarding", "sap-identity-services-onboarding", "sapappgyver", "sapappstudio", "SAPLaunchpad", "SAPWebAnalytics", "SAPWorkZone", "sdm-web", "spatialservices-app", "tnt-onboard-dataenrichment-dcp", "WorkflowManagementSaaS", "wums-c4re-beta"] } },
+                                    "properties": { "name": { "enum": ["abapcp-web-router", "ads-configui", "ai-launchpad", "alm-ts", "api-management-apiportal", "api-management-devportal", "auditlog-viewer", "automationpilot", "Backend-service", "c4-distributed-order-management-app", "categorymanagement-o2-s2", "cias", "cicd-app", "content-agent-ui", "custom-domain-manager", "data-privacy-integration-application", "document-information-extraction-application", "dqmmicroui", "eadesigner", "edge-services", "enterprise-messaging-hub", "extension-center", "feature-flags-dashboard", "hana-cloud-tools", "integration-suite-advanced-event-mesh", "integrationsuite", "intelligent-situation-automation-app", "iotas", "IRPA", "it-prod", "LandscapePortal", "market-rates-ux", "MDMBusinessPartnerApplication", "mdo-one-mds-master", "MDOrchestrationApplication", "ocnselfserviceagent", "onboarding-app", "PersonalDataManagerApp", "PortalApplication", "print-app", "process-automation", "procurement", "responsibility-management-application-beta", "responsibilitymanagement-application", "retention-manager-app", "sap-build-apps", "sap-cai-onboarding", "sap-identity-services-onboarding", "sapappgyver", "sapappstudio", "SAPLaunchpad", "SAPWebAnalytics", "SAPWorkZone", "sdm-web", "spatialservices-app", "tnt-onboard-dataenrichment-dcp", "WorkflowManagementSaaS", "wums-c4re-beta"] } },
                                     "allOf": [
                                         {
                                             "if": { "properties": { "name": { "const": "abapcp-web-router"} } },
@@ -3738,7 +3758,7 @@
                                                         "if": { "properties": { "plan": { "const": "default"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "application plan >default< for >ads-configui< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "application plan >default< for >ads-configui< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -3917,7 +3937,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["CategoryManagement","OpportunityAnalysis"] },
-                                                    "name": { "description": "SAP Category Management: SAP Category Management provides the fundamental tools and data insights across all the phases of the development, execution, and monitoring of the category strategy with seamless integration to the source-to-pay processes."}
+                                                    "name": { "description": "SAP Category Management: Provides tools and data insights across all phases of category strategy development and execution."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4529,24 +4549,6 @@
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "application plan >standard< for >print-app< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
-                                                                
-                                                            }
-                                                        }
-                                                    }]
-                                            }
-                                        }, {
-                                            "if": { "properties": { "name": { "const": "prism-api"} } },
-                                            "then" :{
-                                                "properties": {
-                                                    "plan": { "enum": ["default"] },
-                                                    "name": { "description": "procurement data warehouse API: Provides access to procurement data warehouse API."}
-                                                },
-                                                "allOf": [
-                                                    {
-                                                        "if": { "properties": { "plan": { "const": "default"} } },
-                                                        "then" :{
-                                                            "properties": {
-                                                                "plan": { "description": "application plan >default< for >prism-api< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}" }
                                                                 
                                                             }
                                                         }

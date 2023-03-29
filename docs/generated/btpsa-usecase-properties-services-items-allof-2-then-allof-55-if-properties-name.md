@@ -7,5 +7,5 @@ unknown
 **constant**: the value of this property must be equal to:
 
 ```json
-"spatialservices-app"
+"tnt-onboard-dataenrichment-dcp"
 ```

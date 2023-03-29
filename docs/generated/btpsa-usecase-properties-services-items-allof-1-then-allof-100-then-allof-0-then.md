@@ -10,9 +10,11 @@ unknown
 
 ## plan
 
-service plan >beta< for >responsibility-management-service-beta< is available in data centers:
+service plan >standard< for >responsibilitymanagement-service< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
+*   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
 

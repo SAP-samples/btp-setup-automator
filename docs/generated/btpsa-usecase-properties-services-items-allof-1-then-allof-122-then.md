@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"workflow"` |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"default"` |             |
 
 ## name
 
-SAP Workflow Management: Digitize workflows, manage decisions and gain end-to-end process visibility
+Workspace Utilization: The Workspace Utilization Management service lets you write sensor measurements to the Workspace Utilization Management API. Sensor platform providers use this API to integrate with the Workspace Utilization Management solution of SAP Cloud for Real Estate.
 
 `name`
 
