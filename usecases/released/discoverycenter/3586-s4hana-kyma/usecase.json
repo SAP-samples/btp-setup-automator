@@ -103,6 +103,14 @@
             "assignedUserGroupsFromParameterFile": [
               "admins"
             ]
+          },
+          {
+            "name": "Launchpad_Admin",
+            "type": "account",
+            "level": "sub account",
+            "assignedUserGroupsFromParameterFile": [
+              "admins"
+            ]
           }
     ]
 }

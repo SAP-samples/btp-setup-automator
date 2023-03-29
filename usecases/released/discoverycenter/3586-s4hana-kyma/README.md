@@ -54,6 +54,10 @@ docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/
 > ⚠ NOTE: If you are running on an ARM based platform like a Mac M1 or M2 and are facing issues with the image, add the `--platform linux/amd64` option to the `docker container run command`. The image we provide is built for `linux/amd64` and due to some implicit dependencies we cannot perform a built for `linux/arm64` with the alpine linux as base image.
 
 You'll notice that the prompt in your terminal has changed, because you are now working inside the docker container, that you just started.
+
+Before you start the SAP BTP Setup Automator, please update the parameters.json file. Therefore, you either need to [attach to the running container instance](../../../../docs/README.md#detailed-walk-through) or edit the files in your command line terminal.
+
+Open the parameters.json file and update the `myusergroups` with the corresponding emailids.
 Now run the main script `btpsa` with the following command:
 
 ```bash
