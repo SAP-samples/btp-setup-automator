@@ -3,5 +3,6 @@
     "usecasefile": "usecases/released/discoverycenter/3586-s4hana-kyma/usecase.json",
     "region": "us10",
     "subaccountname": "s4hanakyma",
-    "loginmethod": "sso"
+    "loginmethod": "sso",
+    "myusergroups": [ { "name": "admins", "members": [ "<email_id1>", "<email_id2>" ] } ]
   }
