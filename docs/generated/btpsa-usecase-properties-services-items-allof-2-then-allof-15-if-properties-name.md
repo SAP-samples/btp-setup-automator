@@ -7,5 +7,5 @@ unknown
 **constant**: the value of this property must be equal to:
 
 ```json
-"data-privacy-integration-application"
+"document-information-extraction-application"
 ```

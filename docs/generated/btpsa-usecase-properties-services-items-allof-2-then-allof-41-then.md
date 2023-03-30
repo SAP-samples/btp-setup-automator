@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"standard"` |             |
+| Value    | Explanation |
+| :------- | :---------- |
+| `"beta"` |             |
 
 ## name
 
-Guided Buying: Guided Buying allows you to integrate procurement solutions with SAP S/4HANA Cloud.
+SAP Responsibility Management service: Provides APIs for DetermineAgents using responsibility rules or external APIs(bring your own code) and AgentDeterminationRequest.
 
 `name`
 

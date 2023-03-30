@@ -8,4 +8,5 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
+| `"b2c"`      |             |
 | `"standard"` |             |

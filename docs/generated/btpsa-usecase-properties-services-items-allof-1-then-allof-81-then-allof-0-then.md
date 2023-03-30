@@ -10,10 +10,15 @@ unknown
 
 ## plan
 
-service plan >cyon< for >multichain< is available in data centers:
+service plan >azure-standard< for >objectstore< is available in data centers:
 
-*   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'us10', 'name': 'US East (VA)'}
+*   {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}
+*   {'region': 'ap21', 'name': 'Singapore'}
+*   {'region': 'ch20', 'name': 'cf-ch20'}
+*   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
+*   {'region': 'jp20', 'name': 'Japan (Tokyo)'}
+*   {'region': 'us20', 'name': 'US West (WA)'}
+*   {'region': 'us21', 'name': 'US East (VA)'}
 
 `plan`
 

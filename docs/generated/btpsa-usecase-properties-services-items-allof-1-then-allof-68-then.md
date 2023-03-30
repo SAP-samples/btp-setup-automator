@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Cloud Build: Mobile Cloud Build
+Mobile Client Log Upload Service: Mobile Client Log Upload Service
 
 `name`
 

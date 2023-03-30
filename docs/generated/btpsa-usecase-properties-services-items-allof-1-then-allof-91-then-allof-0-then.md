@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >advanced-user< for >process-automation< is available in data centers:
+service plan >standard< for >process-automation-service< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}

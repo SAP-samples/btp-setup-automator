@@ -43,17 +43,17 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value       | Explanation |
-| :---------- | :---------- |
-| `"large"`   |             |
-| `"medium"`  |             |
-| `"small"`   |             |
-| `"xsmall"`  |             |
-| `"xxsmall"` |             |
+| Value          | Explanation |
+| :------------- | :---------- |
+| `"free"`       |             |
+| `"premium"`    |             |
+| `"standard"`   |             |
+| `"storage"`    |             |
+| `"storage_ha"` |             |
 
 ## name
 
-PostgreSQL on SAP BTP: PostgreSQL on SAP BTP offers an object-relational database management system with many advanced features, such as user-defined types, table inheritance, foreign key referential integrity, Multiversion Concurrency Control (MVCC), and so on.
+PostgreSQL on SAP BTP, hyperscaler option: The PostgreSQL service on SAP BTP provides a way to directly consume the PostgreSQL service provided by the infrastructure providers such as AWS and Azure.
 
 `name`
 

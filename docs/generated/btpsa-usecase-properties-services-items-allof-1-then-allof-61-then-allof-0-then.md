@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >default< for >market-rates-byor< is available in data centers:
+service plan >default< for >market-rates-thr< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
