@@ -2,7 +2,7 @@
 
 ## Architecture
 
-The btp-setup-automator enables you to configure the setup of the SAP BTP without the hazel to install and understand several CLIs in order to achieve this. The architectural diagram gives you an overview of what the tool contains:
+The btp-setup-automator enables you to configure the setup of the SAP BTP without the hassel to install and understand several CLIs in order to achieve this. The architectural diagram gives you an overview of what the tool contains:
 
 ![architectural overview](./pics/overview.png)
 
