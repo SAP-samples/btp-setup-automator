@@ -116,8 +116,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-55.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-56.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                |
@@ -183,7 +181,6 @@ unknown
 | `"mdo-one-mds-master"`                          |             |
 | `"MDOrchestrationApplication"`                  |             |
 | `"ocnselfserviceagent"`                         |             |
-| `"onboarding-app"`                              |             |
 | `"PersonalDataManagerApp"`                      |             |
 | `"PortalApplication"`                           |             |
 | `"print-app"`                                   |             |

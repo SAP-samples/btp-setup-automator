@@ -6,11 +6,11 @@ unknown
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                      |
 | :------------ | :------------ | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-56-then-allof-0-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/56/then/allOf/0/then/properties/plan") |
+| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-52-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/52/then/allOf/1/then/properties/plan") |
 
 ## plan
 
-application plan >default< for >wums-c4re-beta< is available in data centers:
+application plan >starter< for >spatialservices-app< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 
@@ -22,7 +22,7 @@ application plan >default< for >wums-c4re-beta< is available in data centers:
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-56-then-allof-0-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/56/then/allOf/0/then/properties/plan")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-52-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/52/then/allOf/1/then/properties/plan")
 
 ### plan Type
 

@@ -43,7 +43,6 @@ unknown
 | `"mdo-one-mds-master"`                          |             |
 | `"MDOrchestrationApplication"`                  |             |
 | `"ocnselfserviceagent"`                         |             |
-| `"onboarding-app"`                              |             |
 | `"PersonalDataManagerApp"`                      |             |
 | `"PortalApplication"`                           |             |
 | `"print-app"`                                   |             |
