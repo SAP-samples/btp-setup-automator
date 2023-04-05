@@ -54,13 +54,45 @@ docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/
 
 > ⚠ NOTE: If you are running on an ARM based platform like a Mac M1 or M2 and are facing issues with the image, add the `--platform linux/amd64` option to the `docker container run command`. The image we provide is built for `linux/amd64` and due to some implicit dependencies we cannot perform a built for `linux/arm64` with the alpine linux as base image.
 
-You'll notice that the prompt in your terminal has changed, because you are now working inside the docker container, that you just started.
+You'll notice that the prompt in your terminal has changed, because you are now working inside the docker container, that you just started. 
+
+Before we run the main script you should modify the parameter.json inside the container and add your email address in the member section: 
+1. Navigate to the parameter file 
+```bash
+cd usecases/released/discoverycenter/3999-kyma-day2-operations
+```
+1. Open the parameter.json in vi
+```bash
+vi parameter.json
+```
+1. Search for "myusergroups" and enter your email address in the free line below the members tag:
+```json
+"myusergroups": [                                                                                                     
+    {                                                                                                                   
+      "name": "admins",                                                                                                 
+      "members": [                                                                                                      
+          "your-email@something.com"                                                                                    
+      ]                                                                                                                 
+    }                                                                                                     
+  ]                                                                                                                  
+```
+1. Save your changes
+```bash
+:wq 
+```
+
 Now run the main script `btpsa` with the following command:
 
+There are two variants available, the first one is setting up the account so that you can get started with the mission and perform the necessary actions to complete the mission on your own. The other one will set up the final result of the mission so that you do not need to perform any changes. For best experience the first variant is recommended. 
+
+For setting up the account to get started with the mission use: 
 ```bash
 ./btpsa -parameterfile 'usecases/released/discoverycenter/3999-kyma-day2-operations/parameters.json' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>'
 ```
 
-> Note: Before the deployment starts you can choose between two options (Mission-start and Mission-end). The Mission-start option will setup the account and necessary application in order to execute the mission and enhance the existing application with the day2 operation features. The Mission-end option contains all tasks from the mission itself and you don't need to go through the mission steps. For the complete experience it is recommended to choose the Mission-start option. 
+For setting up the account with all changes performed throughout the mission use: 
+```bash
+./btpsa -parameterfile 'usecases/released/discoverycenter/3999-kyma-day2-operations/parameters.json' -usecasefile 'usecases/released/discoverycenter/3999-kyma-day2-operations/usecase-final.json' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>'
+```
 
-The btp-setup-automator script will now prepare your SAP BTP account to cover the discovery center mission. You can have a look at the [usecase.json](usecase.json) and [parameters.json](parameters.json) for more details about the used services and configuration parameters (e.g. DB Password for SAP HANA Cloud).
+The btp-setup-automator script will now prepare your SAP BTP account to cover the discovery center mission. You can have a look at the [usecase.json](usecase.json)/[usecase-final.json](usecase-final.json) and [parameters.json](parameters.json) for more details about the used services and configuration parameters (e.g. DB Password for SAP HANA Cloud).

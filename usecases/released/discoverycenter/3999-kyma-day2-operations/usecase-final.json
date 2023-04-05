@@ -106,12 +106,16 @@
         },
         {
             "description": "Run deployment script",
-            "command": "/home/user/tutorial/btpsa-deployment.sh -v=1"            
+            "command": "/home/user/tutorial/btpsa-deployment.sh -v=2"            
         },       
         {
             "description": "Create the customer usecasefile",
             "command": "rm /home/user/usecases/released/discoverycenter/3999-kyma-day2-operations/usecase-customer.json -f && SUBDOMAIN=$(jq -r '.\"subdomain\"' /home/user/log/metadata_log.json) && sed \"s~<provider-subdomain>~$SUBDOMAIN~g\" \"/home/user/usecases/released/discoverycenter/3999-kyma-day2-operations/usecase-customer-template.json\" >> \"/home/user/usecases/released/discoverycenter/3999-kyma-day2-operations/usecase-customer.json\""            
-        },                
+        },
+        {
+          "description": "Execute day2 role assignment usecase",
+          "command": "GLOBALACCOUNT=$(jq -r '.\"globalaccount\"' /home/user/log/metadata_log.json) && ./btpsa -parameterfile 'usecases/released/discoverycenter/3999-kyma-day2-operations/parameters.json' -usecasefile 'usecases/released/discoverycenter/3999-kyma-day2-operations/usecase-day2role.json' -globalaccount $GLOBALACCOUNT -myemail $MYEMAIL"
+        },        
         {
             "description": "Execute customer usercase",
             "command": "GLOBALACCOUNT=$(jq -r '.\"globalaccount\"' /home/user/log/metadata_log.json) && MYEMAIL=$(jq -r '.\"myemail\"' /home/user/log/metadata_log.json) && SUBACCOUNT=$(jq -r '.\"subaccount\"' /home/user/log/metadata_log.json) && SUBACCOUNTID=$(jq -r '.\"subaccountid\"' /home/user/log/metadata_log.json) && ./btpsa -parameterfile 'usecases/released/discoverycenter/3999-kyma-day2-operations/parameters.json' -usecasefile 'usecases/released/discoverycenter/3999-kyma-day2-operations/usecase-customer.json' -globalaccount $GLOBALACCOUNT -myemail $MYEMAIL -subaccountname CityScooter -customAppProviderSubaccountId $SUBACCOUNTID"            

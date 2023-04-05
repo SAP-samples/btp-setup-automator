@@ -56,6 +56,32 @@ docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/
 > ⚠ NOTE: If you are running on an ARM based platform like a Mac M1 or M2 and are facing issues with the image, add the `--platform linux/amd64` option to the `docker container run command`. The image we provide is built for `linux/amd64` and due to some implicit dependencies we cannot perform a built for `linux/arm64` with the alpine linux as base image.
 
 You'll notice that the prompt in your terminal has changed, because you are now working inside the docker container, that you just started.
+
+Before we run the main script you should modify the parameter.json inside the container and add your email address in the member section: 
+1. Navigate to the parameter file 
+```bash
+cd usecases/released/discoverycenter/3999-kyma-day2-operations
+```
+1. Open the parameter.json in vi
+```bash
+vi parameter.json
+```
+1. Search for "myusergroups" and enter your email address in the free line below the members tag:
+```json
+"myusergroups": [                                                                                                     
+    {                                                                                                                   
+      "name": "admins",                                                                                                 
+      "members": [                                                                                                      
+          "your-email@something.com"                                                                                    
+      ]                                                                                                                 
+    }                                                                                                     
+  ]                                                                                                                  
+```
+1. Save your changes
+```bash
+:wq 
+```
+
 Now run the main script `btpsa` with the following command:
 
 ```bash
