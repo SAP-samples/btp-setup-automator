@@ -6,8 +6,8 @@
 
 | Property                            | Type    | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                                                                                      |
 | :---------------------------------- | :------ | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [publishFilter](#publishfilter)     | `array` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-39-then-allof-0-then-properties-parameters-properties-rules-properties-topicrules-properties-publishfilter.md "undefined#/properties/services/items/allOf/1/then/allOf/39/then/allOf/0/then/properties/parameters/properties/rules/properties/topicRules/properties/publishFilter")     |
-| [subscribeFilter](#subscribefilter) | `array` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-39-then-allof-0-then-properties-parameters-properties-rules-properties-topicrules-properties-subscribefilter.md "undefined#/properties/services/items/allOf/1/then/allOf/39/then/allOf/0/then/properties/parameters/properties/rules/properties/topicRules/properties/subscribeFilter") |
+| [publishFilter](#publishfilter)     | `array` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-39-then-allof-0-then-properties-parameters-properties-rules-properties-topicrules-properties-publishfilter.md "undefined#/properties/services/items/allOf/1/then/allOf/39/then/allOf/0/then/properties/parameters/properties/rules/properties/topicRules/properties/publishFilter")     |
+| [subscribeFilter](#subscribefilter) | `array` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-39-then-allof-0-then-properties-parameters-properties-rules-properties-topicrules-properties-subscribefilter.md "undefined#/properties/services/items/allOf/1/then/allOf/39/then/allOf/0/then/properties/parameters/properties/rules/properties/topicRules/properties/subscribeFilter") |
 
 ## publishFilter
 
@@ -15,7 +15,7 @@
 
 `publishFilter`
 
-*   is required
+*   is optional
 
 *   Type: an array where each item follows the corresponding schema in the following list:
 
@@ -37,7 +37,7 @@ an array where each item follows the corresponding schema in the following list:
 
 `subscribeFilter`
 
-*   is required
+*   is optional
 
 *   Type: an array where each item follows the corresponding schema in the following list:
 

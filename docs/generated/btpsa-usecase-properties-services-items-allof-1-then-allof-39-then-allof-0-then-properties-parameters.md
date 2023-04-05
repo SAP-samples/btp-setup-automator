@@ -6,7 +6,6 @@
 
 | Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                |
 | :-------------------------- | :------- | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [authorities](#authorities) | `array`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-39-then-allof-0-then-properties-parameters-properties-authorities.md "undefined#/properties/services/items/allOf/1/then/allOf/39/then/allOf/0/then/properties/parameters/properties/authorities") |
 | [emname](#emname)           | `string` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-39-then-allof-0-then-properties-parameters-properties-emname.md "undefined#/properties/services/items/allOf/1/then/allOf/39/then/allOf/0/then/properties/parameters/properties/emname")           |
 | [namespace](#namespace)     | `string` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-39-then-allof-0-then-properties-parameters-properties-namespace.md "undefined#/properties/services/items/allOf/1/then/allOf/39/then/allOf/0/then/properties/parameters/properties/namespace")     |
 | [options](#options)         | `object` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-39-then-allof-0-then-properties-parameters-properties-options.md "undefined#/properties/services/items/allOf/1/then/allOf/39/then/allOf/0/then/properties/parameters/properties/options")         |
@@ -14,28 +13,6 @@
 | [rules](#rules)             | `object` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-39-then-allof-0-then-properties-parameters-properties-rules.md "undefined#/properties/services/items/allOf/1/then/allOf/39/then/allOf/0/then/properties/parameters/properties/rules")             |
 | [version](#version)         | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-39-then-allof-0-then-properties-parameters-properties-version.md "undefined#/properties/services/items/allOf/1/then/allOf/39/then/allOf/0/then/properties/parameters/properties/version")         |
 | [xs-security](#xs-security) | `object` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-39-then-allof-0-then-properties-parameters-properties-xs-security.md "undefined#/properties/services/items/allOf/1/then/allOf/39/then/allOf/0/then/properties/parameters/properties/xs-security") |
-
-## authorities
-
-
-
-`authorities`
-
-*   is optional
-
-*   Type: an array where each item follows the corresponding schema in the following list:
-
-    1.  [Untitled string in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-39-then-allof-0-then-properties-parameters-properties-authorities-items-0.md "check type definition")
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-39-then-allof-0-then-properties-parameters-properties-authorities.md "undefined#/properties/services/items/allOf/1/then/allOf/39/then/allOf/0/then/properties/parameters/properties/authorities")
-
-### authorities Type
-
-an array where each item follows the corresponding schema in the following list:
-
-1.  [Untitled string in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-39-then-allof-0-then-properties-parameters-properties-authorities-items-0.md "check type definition")
 
 ## emname
 
