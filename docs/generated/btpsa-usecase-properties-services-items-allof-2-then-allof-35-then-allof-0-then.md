@@ -21,6 +21,7 @@ application plan >standard< for >PersonalDataManagerApp< is available in data ce
 *   {'region': 'us10', 'name': 'US East (VA)'}
 *   {'region': 'us20', 'name': 'US West (WA)'}
 *   {'region': 'us21', 'name': 'US East (VA)'}
+*   {'region': 'us30', 'name': 'US Central (IA)'}
 
 `plan`
 
