@@ -39,12 +39,12 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"free"`     |             |
+| `"advanced"` |             |
 | `"standard"` |             |
 
 ## name
 
-SAP Build Work Zone, standard edition : Provides users with a central point of access to applications from different sources. Note: SAP Launchpad service was recently renamed to SAP Build Work Zone, standard edition.
+SAP Build Work Zone, advanced edition: Increase the productivity and engagement for your employees as well as interact with partners and customers in a multi-channel digital experience. Note: SAP Work Zone was recently renamed to SAP Build Work Zone, advanced edition.
 
 `name`
 

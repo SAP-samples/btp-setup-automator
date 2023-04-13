@@ -6,8 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-25-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-25-then-allof-1.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -40,11 +38,10 @@ unknown
 | Value                  | Explanation |
 | :--------------------- | :---------- |
 | `"connectivity_proxy"` |             |
-| `"lite"`               |             |
 
 ## name
 
-SAP Connectivity service: SAP BTP Connectivity service allows you to establish secure and reliable connectivity between your cloud applications and on-premise systems running in isolated networks.
+Connectivity (for scale-out build-out): Connectivity (for scale-out build-out)
 
 `name`
 

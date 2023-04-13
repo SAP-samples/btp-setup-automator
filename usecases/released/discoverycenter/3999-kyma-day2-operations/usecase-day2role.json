@@ -1,0 +1,23 @@
+{
+    "$schema": "https://raw.githubusercontent.com/SAP-samples/btp-setup-automator/main/libs/btpsa-usecase.json",
+    "aboutThisUseCase": {
+        "name": "Develop a Multitenant Extension Application in SAP BTP, Kyma Runtime - Consumer Account creation",
+        "description": "This project contains a reference application, showcasing an end-to-end development scenario for a multitenant extension on SAP BTP Kyma runtime, which has an SAP partner as focus persona.",
+        "author": "alexander.rieder@sap.com",
+        "testStatus": "tested successfully",
+        "usageStatus": "READY TO BE USED",
+        "relatedLinks": [
+            "https://github.com/SAP-samples/btp-kyma-multitenant-extension"
+        ]
+    },
+    "assignrolecollections": [
+        {
+          "name": "Easy Franchise Day 2 Operator",
+          "type": "account",
+          "level": "sub account",
+          "assignedUserGroupsFromParameterFile": [
+            "admins"
+          ]
+        }
+      ]
+}

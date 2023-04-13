@@ -10,11 +10,8 @@ unknown
 
 ## plan
 
-application plan >standard< for >PersonalDataManagerApp< is available in data centers:
+application plan >standard< for >print-app< is available in data centers:
 
-*   {'region': 'ap10', 'name': 'Australia (Sydney)'}
-*   {'region': 'ap11', 'name': 'Singapore'}
-*   {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'eu20', 'name': 'Europe (Netherlands)'}

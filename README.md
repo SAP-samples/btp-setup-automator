@@ -4,7 +4,7 @@
 
 ## Description
 
-This repository provides the user with a script to **automate the setup** of an [SAP Business Technology Platform (SAP BTP) account](https://account.hana.ondemand.com/) and to **learn** how this is done with the various command line interfaces and tools that run inside a [Docker](https://www.docker.com/) container.
+This repository provides the user with a script to **automate the setup** of an [SAP Business Technology Platform (SAP BTP) account](https://account.hana.ondemand.com/) and to **learn** how this is done with the various command line interfaces and tools that run inside a [Docker](https://www.docker.com/) container. It uses  JSON configuration files to automate this setup of SAP BTP accounts or do other administrative tasks.
 
 This includes:
 

@@ -10,8 +10,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-81-then-allof-2.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-81-then-allof-3.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -41,16 +39,15 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value      | Explanation |
-| :--------- | :---------- |
-| `"cyon"`   |             |
-| `"large"`  |             |
-| `"medium"` |             |
-| `"small"`  |             |
+| Value              | Explanation |
+| :----------------- | :---------- |
+| `"azure-standard"` |             |
+| `"gcs-standard"`   |             |
+| `"s3-standard"`    |             |
 
 ## name
 
-MultiChain on SAP BTP: The MultiChain service lets you create, delete, monitor and maintain individual MultiChain nodes and connect them to a blockchain network.
+Object Store on SAP BTP: Object Store on SAP BTP provisions an object storage space that can be used by applications to store and manage objects.
 
 `name`
 

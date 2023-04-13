@@ -10,10 +10,11 @@ unknown
 
 ## plan
 
-service plan >large< for >multichain< is available in data centers:
+service plan >gcs-standard< for >objectstore< is available in data centers:
 
-*   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'us10', 'name': 'US East (VA)'}
+*   {'region': 'eu30', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'in30', 'name': 'India (Mumbai)'}
+*   {'region': 'us30', 'name': 'US Central (IA)'}
 
 `plan`
 

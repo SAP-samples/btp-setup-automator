@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value                | Explanation |
-| :------------------- | :---------- |
-| `"saas-application"` |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"default"` |             |
 
 ## name
 
-SAP Data Enrichment service: Provides Business Partner data from third-party data providers
+Workspace Utilization: The Workspace Utilization Management application lets you assign sensors to workplaces and spaces. These sensors measure how your workspaces are used. The Workspace Utilization Management application integrates with SAP Cloud for Real Estate and SAP Analytics Cloud to analyze, manage, and optimize your workspaces.
 
 `name`
 

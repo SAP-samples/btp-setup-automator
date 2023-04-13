@@ -18,7 +18,6 @@ unknown
 | `"automationpilot"`                             |             |
 | `"Backend-service"`                             |             |
 | `"c4-distributed-order-management-app"`         |             |
-| `"categorymanagement-o2-s2"`                    |             |
 | `"cias"`                                        |             |
 | `"cicd-app"`                                    |             |
 | `"content-agent-ui"`                            |             |
@@ -44,7 +43,6 @@ unknown
 | `"mdo-one-mds-master"`                          |             |
 | `"MDOrchestrationApplication"`                  |             |
 | `"ocnselfserviceagent"`                         |             |
-| `"onboarding-app"`                              |             |
 | `"PersonalDataManagerApp"`                      |             |
 | `"PortalApplication"`                           |             |
 | `"print-app"`                                   |             |

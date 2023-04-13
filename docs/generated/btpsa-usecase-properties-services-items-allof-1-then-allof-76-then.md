@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Push Notification: Mobile Push Notification
+Mobile Sample OData: Mobile Sample OData
 
 `name`
 

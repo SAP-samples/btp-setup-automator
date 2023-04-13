@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"standard"` |             |
+| Value                | Explanation |
+| :------------------- | :---------- |
+| `"saas-application"` |             |
 
 ## name
 
-Document Management Service, Application Option: Benefit from the standalone, ready-to-use web application of SAP Document Management service that provides document management capabilities.
+SAP Data Enrichment service: Provides Business Partner data from third-party data providers
 
 `name`
 

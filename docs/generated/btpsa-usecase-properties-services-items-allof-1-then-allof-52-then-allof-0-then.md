@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >standard< for >intercompany-reconciliation< is available in data centers:
+service plan >standard< for >invoice-object-recommendation< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 

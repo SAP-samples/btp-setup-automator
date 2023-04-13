@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Print service: Allows you to manage print queue and monitor the print status
+Guided Buying: Guided Buying allows you to integrate procurement solutions with SAP S/4HANA Cloud.
 
 `name`
 

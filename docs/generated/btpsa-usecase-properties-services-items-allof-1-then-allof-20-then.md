@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value    | Explanation |
-| :------- | :---------- |
-| `"scim"` |             |
+| Value      | Explanation |
+| :--------- | :---------- |
+| `"oauth2"` |             |
 
 ## name
 
-SAP Category Management: SAP Category Management provides the fundamental tools and data insights across all the phases of the development, execution, and monitoring of the category strategy with seamless integration to the source-to-pay processes.
+Cloud Integration Automation: Cloud Integration Automation service provides you a guided workflow to integrate SAP cloud solutions to On-Premise and other SAP Cloud solutions. The guided workflow contains instructions for manual and automated tasks to enable a simpler and faster integration configuration setup
 
 `name`
 

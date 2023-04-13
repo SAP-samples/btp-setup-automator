@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Web Analytics: SAP Web Analytics enables the collection and analysis of website data for understanding and optimizing web usage to measure organizational goals, drive strategy and improve the user's experience.
+Document Management Service, Application Option: Benefit from the standalone, ready-to-use web application of SAP Document Management service that provides document management capabilities.
 
 `name`
 

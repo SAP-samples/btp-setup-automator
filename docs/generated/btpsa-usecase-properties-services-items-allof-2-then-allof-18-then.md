@@ -6,6 +6,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-18-then-allof-0.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-18-then-allof-1.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -37,11 +39,12 @@ unknown
 
 | Value          | Explanation |
 | :------------- | :---------- |
-| `"eadesigner"` |             |
+| `"Enterprise"` |             |
+| `"Standard"`   |             |
 
 ## name
 
-SAP Enterprise Architecture Designer, cloud edition: SAP Enterprise Architecture Designer, Cloud Edition (SAP EA Designer) lets you capture, analyze, and present your organization's landscapes, strategies, requirements, processes, data, and other artifacts in a shared environment. Using industry-standard notations and techniques, organizations can leverage rich metadata and use models and diagrams to drive understanding and promote shared outcomes in creating innovative systems, information sets, and processes to support goals and capabilities.
+SAP Edge Services: SAP Edge Services
 
 `name`
 

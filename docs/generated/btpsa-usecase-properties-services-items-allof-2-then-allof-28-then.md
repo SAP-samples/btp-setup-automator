@@ -6,10 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-28-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-28-then-allof-1.md "check type definition")
-
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-28-then-allof-2.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -41,13 +37,11 @@ unknown
 
 | Value          | Explanation |
 | :------------- | :---------- |
-| `"concurrent"` |             |
-| `"default"`    |             |
-| `"free"`       |             |
+| `"enterprise"` |             |
 
 ## name
 
-SAP Intelligent Robotic Process Automation: SAP Intelligent Robotic Process Automation lets you automate enterprise business processes. Design process automations with the Desktop Studio by creating end-to-end scenarios. Import these scenarios into the cloud Factory to configure and execute them with Agents. An Agent can work as a Digital Assistant (attended automation) or as a Digital Worker (unattended automation).
+Process Integration: The SAP Cloud Integration connects cloud applications with other SAP and non-SAP cloud and on-premise apps.
 
 `name`
 
