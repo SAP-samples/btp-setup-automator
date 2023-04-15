@@ -22,6 +22,7 @@ application plan >default< for >data-privacy-integration-application< is availab
 *   {'region': 'us10', 'name': 'US East (VA)'}
 *   {'region': 'us20', 'name': 'US West (WA)'}
 *   {'region': 'us21', 'name': 'US East (VA)'}
+*   {'region': 'us30', 'name': 'US Central (IA)'}
 
 `plan`
 

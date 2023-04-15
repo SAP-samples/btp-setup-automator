@@ -22,6 +22,7 @@ service plan >application< for >data-privacy-integration-service< is available i
 *   {'region': 'us10', 'name': 'US East (VA)'}
 *   {'region': 'us20', 'name': 'US West (WA)'}
 *   {'region': 'us21', 'name': 'US East (VA)'}
+*   {'region': 'us30', 'name': 'US Central (IA)'}
 
 `plan`
 
