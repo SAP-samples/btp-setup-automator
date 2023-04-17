@@ -31,5 +31,5 @@ unknown
 **constant**: the value of this property must be equal to:
 
 ```json
-"iot"
+"invoice-object-recommendation"
 ```

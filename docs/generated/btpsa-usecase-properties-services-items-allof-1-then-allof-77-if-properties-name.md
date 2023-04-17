@@ -7,5 +7,5 @@ unknown
 **constant**: the value of this property must be equal to:
 
 ```json
-"mobile-services"
+"mobile-sample-odata-v2-espm"
 ```

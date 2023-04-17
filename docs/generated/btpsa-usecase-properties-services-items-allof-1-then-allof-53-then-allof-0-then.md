@@ -10,10 +10,9 @@ unknown
 
 ## plan
 
-service plan >standard< for >iot< is available in data centers:
+service plan >standard< for >invoice-object-recommendation< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
 
