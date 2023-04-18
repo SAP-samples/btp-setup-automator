@@ -20,7 +20,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/latest-stable/community" >> /etc/ap
 ##########################################################################################
 # Retrieve the CloudFoundry CLI
 ##########################################################################################
-FROM cloudfoundry/cli:8.5.0 as cf_cli
+FROM cloudfoundry/cli:8.6.1 as cf_cli
 
 ##########################################################################################
 ## Retrieve the SAP btp CLI
