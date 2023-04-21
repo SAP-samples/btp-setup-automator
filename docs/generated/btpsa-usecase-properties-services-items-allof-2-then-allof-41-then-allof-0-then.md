@@ -10,11 +10,9 @@ unknown
 
 ## plan
 
-application plan >standard< for >responsibilitymanagement-application< is available in data centers:
+application plan >beta< for >responsibility-management-application-beta< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
-*   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
 

@@ -6,13 +6,15 @@ unknown
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                      |
 | :------------ | :------------ | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-52-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/52/then/allOf/1/then/properties/plan") |
+| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-31-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/31/then/allOf/1/then/properties/plan") |
 
 ## plan
 
-application plan >starter< for >spatialservices-app< is available in data centers:
+application plan >standard< for >mdgce< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
+*   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
 
@@ -22,7 +24,7 @@ application plan >starter< for >spatialservices-app< is available in data center
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-52-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/52/then/allOf/1/then/properties/plan")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-31-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/31/then/allOf/1/then/properties/plan")
 
 ### plan Type
 

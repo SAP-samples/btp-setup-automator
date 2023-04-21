@@ -1200,7 +1200,7 @@
                                                         "if": { "properties": { "plan": { "const": "free"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >free< for >data-attribute-recommendation< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >free< for >data-attribute-recommendation< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -1208,7 +1208,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >standard< for >data-attribute-recommendation< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >standard< for >data-attribute-recommendation< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -3726,7 +3726,7 @@
                     {
                         "if": { "properties": { "category": { "const": "APPLICATION"} } },
                         "then" :{
-                                    "properties": { "name": { "enum": ["abapcp-web-router", "ads-configui", "ai-launchpad", "alm-ts", "api-management-apiportal", "api-management-devportal", "auditlog-viewer", "automationpilot", "Backend-service", "c4-distributed-order-management-app", "cias", "cicd-app", "content-agent-ui", "custom-domain-manager", "data-privacy-integration-application", "document-information-extraction-application", "dqmmicroui", "eadesigner", "edge-services", "enterprise-messaging-hub", "extension-center", "feature-flags-dashboard", "hana-cloud-tools", "integration-suite-advanced-event-mesh", "integrationsuite", "intelligent-situation-automation-app", "iotas", "IRPA", "it-prod", "LandscapePortal", "market-rates-ux", "MDMBusinessPartnerApplication", "mdo-one-mds-master", "MDOrchestrationApplication", "ocnselfserviceagent", "PersonalDataManagerApp", "PortalApplication", "print-app", "process-automation", "procurement", "responsibility-management-application-beta", "responsibilitymanagement-application", "retention-manager-app", "sap-build-apps", "sap-cai-onboarding", "sap-identity-services-onboarding", "sapappgyver", "sapappstudio", "SAPLaunchpad", "SAPWebAnalytics", "SAPWorkZone", "sdm-web", "spatialservices-app", "tnt-onboard-dataenrichment-dcp", "WorkflowManagementSaaS", "wums-c4re-beta"] } },
+                                    "properties": { "name": { "enum": ["abapcp-web-router", "ads-configui", "ai-launchpad", "alm-ts", "api-management-apiportal", "api-management-devportal", "auditlog-viewer", "automationpilot", "Backend-service", "c4-distributed-order-management-app", "cias", "cicd-app", "content-agent-ui", "custom-domain-manager", "data-privacy-integration-application", "document-information-extraction-application", "dqmmicroui", "eadesigner", "edge-services", "enterprise-messaging-hub", "extension-center", "feature-flags-dashboard", "hana-cloud-tools", "integration-suite-advanced-event-mesh", "integrationsuite", "intelligent-situation-automation-app", "iotas", "IRPA", "it-prod", "LandscapePortal", "market-rates-ux", "mdgce", "MDMBusinessPartnerApplication", "mdo-one-mds-master", "MDOrchestrationApplication", "ocnselfserviceagent", "PersonalDataManagerApp", "PortalApplication", "print-app", "process-automation", "procurement", "responsibility-management-application-beta", "responsibilitymanagement-application", "retention-manager-app", "sap-build-apps", "sap-cai-onboarding", "sap-identity-services-onboarding", "sapappgyver", "sapappstudio", "SAPLaunchpad", "SAPWebAnalytics", "SAPWorkZone", "sdm-web", "spatialservices-app", "tnt-onboard-dataenrichment-dcp", "WorkflowManagementSaaS", "wums-c4re-beta"] } },
                                     "allOf": [
                                         {
                                             "if": { "properties": { "name": { "const": "abapcp-web-router"} } },
@@ -4379,6 +4379,32 @@
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "application plan >mrtr< for >market-rates-ux< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }]
+                                            }
+                                        }, {
+                                            "if": { "properties": { "name": { "const": "mdgce"} } },
+                                            "then" :{
+                                                "properties": {
+                                                    "plan": { "enum": ["free","standard"] },
+                                                    "name": { "description": "SAP Master Data Governance, cloud edition: SAP Master Data Governance, cloud edition supports you in maintaining a high level of master data quality, offering capabilities to manage core attributes of business partners and to evaluate their quality."}
+                                                },
+                                                "allOf": [
+                                                    {
+                                                        "if": { "properties": { "plan": { "const": "free"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "application plan >free< for >mdgce< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }, {
+                                                        "if": { "properties": { "plan": { "const": "standard"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "application plan >standard< for >mdgce< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
