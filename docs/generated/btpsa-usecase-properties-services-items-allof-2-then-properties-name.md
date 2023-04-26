@@ -39,6 +39,7 @@ unknown
 | `"it-prod"`                                     |             |
 | `"LandscapePortal"`                             |             |
 | `"market-rates-ux"`                             |             |
+| `"mdgce"`                                       |             |
 | `"MDMBusinessPartnerApplication"`               |             |
 | `"mdo-one-mds-master"`                          |             |
 | `"MDOrchestrationApplication"`                  |             |

@@ -53,6 +53,7 @@ unknown
 | `"hana-cloud"`                             |             |
 | `"hana-db"`                                |             |
 | `"hana-tenant-db"`                         |             |
+| `"hl7-fhir-service"`                       |             |
 | `"html5-apps-repo"`                        |             |
 | `"hyperledger-fabric"`                     |             |
 | `"ibanservice"`                            |             |

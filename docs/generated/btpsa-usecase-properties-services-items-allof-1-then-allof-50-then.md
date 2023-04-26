@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"messages"` |             |
+| Value              | Explanation |
+| :----------------- | :---------- |
+| `"custom_domains"` |             |
 
 ## name
 
-SAP Integration Suite: The SAP Integration Suite helps you to quickly develop and manage reliable communication between applications, services, and systems across heterogeneous landscapes.
+SAP Custom Domain service: The SAP Business Technology Platform Custom Domain service lets you configure your own custom domain to expose publicly your SAP Business Technology Platform application instead of using the default subdomain.
 
 `name`
 

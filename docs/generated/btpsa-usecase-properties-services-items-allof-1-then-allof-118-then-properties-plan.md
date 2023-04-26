@@ -8,4 +8,5 @@ unknown
 
 | Value       | Explanation |
 | :---------- | :---------- |
-| `"default"` |             |
+| `"free"`    |             |
+| `"keyuser"` |             |

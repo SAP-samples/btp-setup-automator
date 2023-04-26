@@ -20,7 +20,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/latest-stable/community" >> /etc/ap
 ##########################################################################################
 # Retrieve the CloudFoundry CLI
 ##########################################################################################
-FROM --platform=linux/amd64 cloudfoundry/cli:8.5.0 as cf_cli
+FROM --platform=linux/amd64 cloudfoundry/cli:8.6.1 as cf_cli
 
 ##########################################################################################
 ## Retrieve the SAP btp CLI
@@ -43,7 +43,7 @@ RUN BTP_CLI_VERSION="2.38.0" \
 FROM base AS mta_build_tool
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 WORKDIR /tmp/tools
-RUN MBT_VERSION="1.2.21" \
+RUN MBT_VERSION="1.2.23" \
   && curl --fail --silent --location --url "https://github.com/SAP/cloud-mta-build-tool/releases/download/v${MBT_VERSION}/cloud-mta-build-tool_${MBT_VERSION}_Linux_amd64.tar.gz" \
     | tar -xzf - mbt
 
@@ -74,7 +74,7 @@ RUN apk update upgrade \
 FROM base as utilities
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 WORKDIR /tmp/tools
-ENV VER_FX=24.0.0
+ENV VER_FX=24.1.0
 ENV VER_IJQ=0.4.1
 RUN curl -fsSL -o fx --url "https://github.com/antonmedv/fx/releases/download/${VER_FX}/fx_${ARCH//-/_}" \
   && chmod +x fx
