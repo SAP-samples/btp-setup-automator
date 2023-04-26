@@ -5,7 +5,7 @@
 ##################################################################################################################################################
 # STARTING WITH ALL THE SAP TOOLS FIRST
 ##################################################################################################################################################
-FROM alpine:3 AS base
+FROM --platform=linux/amd64 alpine:3 AS base
 ENV ARCH=linux-amd64
 ENV TOOLS_URL=tools.hana.ondemand.com
 ENV CPCLI_URL=cpcli.cf.eu10.hana.ondemand.com
@@ -20,7 +20,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/latest-stable/community" >> /etc/ap
 ##########################################################################################
 # Retrieve the CloudFoundry CLI
 ##########################################################################################
-FROM cloudfoundry/cli:8.6.1 as cf_cli
+FROM --platform=linux/amd64 cloudfoundry/cli:8.6.1 as cf_cli
 
 ##########################################################################################
 ## Retrieve the SAP btp CLI
@@ -84,7 +84,7 @@ RUN curl -fsSL --url "https://git.sr.ht/~gpanders/ijq/refs/download/v${VER_IJQ}/
 ########################################################################################
 # Bring the tools together into the final base stage
 ########################################################################################
-FROM alpine:3 as tools
+FROM --platform=linux/amd64 alpine:3 as tools
 WORKDIR /usr/local/bin
 COPY --from=cf_cli                 /usr/local/bin/cf8  .
 COPY --from=btp_cli                /tmp/tools/         .
@@ -97,7 +97,7 @@ ARG BTPSA_VERSION_GIT_ARG=default
 ##################################################################################################################################################
 # Now putting all pieces together
 ##################################################################################################################################################
-FROM python:3.10-alpine3.16 AS final_build
+FROM --platform=linux/amd64 python:3.10-alpine3.16 AS final_build
 ENV USERNAME=user
 ENV HOME_FOLDER /home/$USERNAME
 ENV LIBS_FOLDER $HOME_FOLDER/libs
@@ -132,6 +132,7 @@ RUN adduser \
                nodejs \
                npm \
                sudo \
+               libc6-compat \
     && pip install --no-cache-dir -r /tmp/pip-tmp/requirements.txt \
     && rm -rf /tmp/pip-tmp \
     ## Set the right timezone in the container image
@@ -166,7 +167,7 @@ COPY --chown=root:root --from=tools /usr/local/bin/fx      /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/ijq     /usr/local/bin
 
 ## Install the CF plugin for deploying MTAs on Cloudfoundry
-RUN cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/latest/download/multiapps-plugin.linux32
+RUN cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/latest/download/multiapps-plugin.linux64
 
 ## Install krew and the oidc-login plugin
 RUN    OS="$(uname | tr '[:upper:]' '[:lower:]')" \
