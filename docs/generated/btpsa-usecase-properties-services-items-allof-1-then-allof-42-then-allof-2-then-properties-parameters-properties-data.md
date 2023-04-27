@@ -17,6 +17,7 @@
 | [memoryScaleOut](#memoryscaleout)                       | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-2-then-properties-parameters-properties-data-properties-memoryscaleout.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/2/then/properties/parameters/properties/data/properties/memoryScaleOut")                       |
 | [productVersion](#productversion)                       | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-2-then-properties-parameters-properties-data-properties-productversion.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/2/then/properties/parameters/properties/data/properties/productVersion")                       |
 | [project\_name](#project_name)                          | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-2-then-properties-parameters-properties-data-properties-project_name.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/2/then/properties/parameters/properties/data/properties/project_name")                           |
+| [requestedOperation](#requestedoperation)               | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-2-then-properties-parameters-properties-data-properties-requestedoperation.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/2/then/properties/parameters/properties/data/properties/requestedOperation")               |
 | [serviceStopped](#servicestopped)                       | `boolean`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-2-then-properties-parameters-properties-data-properties-servicestopped.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/2/then/properties/parameters/properties/data/properties/serviceStopped")                       |
 | [slaLevel](#slalevel)                                   | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-2-then-properties-parameters-properties-data-properties-slalevel.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/2/then/properties/parameters/properties/data/properties/slaLevel")                                   |
 | [storage](#storage)                                     | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-2-then-properties-parameters-properties-data-properties-storage.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/2/then/properties/parameters/properties/data/properties/storage")                                     |
@@ -205,6 +206,14 @@ HANA memory size (RAM) in GB
 
 **unknown format**: the value of this string must follow the format: `int64`
 
+### memory Default Value
+
+The default value is:
+
+```json
+30
+```
+
 ## memoryScaleOut
 
 HANA memory size (RAM) in GB for scale out systems
@@ -266,6 +275,24 @@ HANA Product Version
 ### project\_name Type
 
 `string`
+
+## requestedOperation
+
+
+
+`requestedOperation`
+
+*   is optional
+
+*   Type: `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-2-then-properties-parameters-properties-data-properties-requestedoperation.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-2-then-properties-parameters-properties-data-properties-requestedoperation.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/2/then/properties/parameters/properties/data/properties/requestedOperation")
+
+### requestedOperation Type
+
+`object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-2-then-properties-parameters-properties-data-properties-requestedoperation.md))
 
 ## serviceStopped
 
@@ -337,6 +364,14 @@ Size of the Storage in GB
 **minimum**: the value of this number must greater than or equal to: `120`
 
 **unknown format**: the value of this string must follow the format: `int64`
+
+### storage Default Value
+
+The default value is:
+
+```json
+120
+```
 
 ## systempassword
 
@@ -426,6 +461,14 @@ Number of vCPUs used by HANA
 ### vcpu Constraints
 
 **minimum**: the value of this number must greater than or equal to: `2`
+
+### vcpu Default Value
+
+The default value is:
+
+```json
+2
+```
 
 ## versionIndicator
 
