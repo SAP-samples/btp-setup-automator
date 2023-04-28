@@ -9,3 +9,11 @@
 **minimum**: the value of this number must greater than or equal to: `120`
 
 **unknown format**: the value of this string must follow the format: `int64`
+
+## storage Default Value
+
+The default value is:
+
+```json
+120
+```

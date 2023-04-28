@@ -6,8 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-45-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-45-then-allof-1.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -37,14 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value           | Explanation |
-| :-------------- | :---------- |
-| `"app-host"`    |             |
-| `"app-runtime"` |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"default"` |             |
 
 ## name
 
-SAP HTML5 Application Repository service for SAP BTP: The HTML5 Application Repository service enables central storage of HTML5 applications in SAP BTP. In runtime, the service enables the consuming application, typically the application router, to access HTML5 application static content in a secure and efficient manner.
+SAP Health Data Services for FHIR: SAP Health Data Services for FHIR supports you in designing, implementing, and operating an application or service relying on health-related data. At its core, it is a cloud-native implementation of the HL7® FHIR® standard.The service allows the profiling and storing of resources according to your business and localization needs. It lets you manage health data using provided REST APIs and messaging endpoints, and offers extensibility with custom resources, FHIR extensions, and business rules.
 
 `name`
 
