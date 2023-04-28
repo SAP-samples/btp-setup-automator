@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Health Data Services for FHIR: SAP Health Data Services for FHIR supports you in designing, implementing, and operating an application or service relying on health-related data. At its core, it is a cloud-native implementation of the HL7Â® FHIRÂ® standard.The service allows the profiling and storing of resources according to your business and localization needs. It lets you manage health data using provided REST APIs and messaging endpoints, and offers extensibility with custom resources, FHIR extensions, and business rules.
+SAP Health Data Services for FHIR: SAP Health Data Services for FHIR supports you in designing, implementing, and operating an application or service relying on health-related data. At its core, it is a cloud-native implementation of the HL7® FHIR® standard.The service allows the profiling and storing of resources according to your business and localization needs. It lets you manage health data using provided REST APIs and messaging endpoints, and offers extensibility with custom resources, FHIR extensions, and business rules.
 
 `name`
 

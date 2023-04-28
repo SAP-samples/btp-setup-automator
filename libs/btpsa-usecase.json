@@ -944,7 +944,7 @@
                                                         "if": { "properties": { "plan": { "const": "oauth2"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >oauth2< for >cias< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >oauth2< for >cias< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -1749,7 +1749,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "SAP Health Data Services for FHIR: SAP Health Data Services for FHIR supports you in designing, implementing, and operating an application or service relying on health-related data. At its core, it is a cloud-native implementation of the HL7Â® FHIRÂ® standard.The service allows the profiling and storing of resources according to your business and localization needs. It lets you manage health data using provided REST APIs and messaging endpoints, and offers extensibility with custom resources, FHIR extensions, and business rules."}
+                                                    "name": { "description": "SAP Health Data Services for FHIR: SAP Health Data Services for FHIR supports you in designing, implementing, and operating an application or service relying on health-related data. At its core, it is a cloud-native implementation of the HL7® FHIR® standard.The service allows the profiling and storing of resources according to your business and localization needs. It lets you manage health data using provided REST APIs and messaging endpoints, and offers extensibility with custom resources, FHIR extensions, and business rules."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3944,7 +3944,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "application plan >standard< for >cias< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "application plan >standard< for >cias< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
