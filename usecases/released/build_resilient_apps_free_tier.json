@@ -45,7 +45,7 @@
                     "serviceStopped": false,
                     "storage": 120,
                     "systempassword": "PleaseChangeBeforeRunningScript12345",
-                    "vcpu": 0,
+                    "vcpu": 2,
                     "versionIndicator": "",
                     "whitelistIPs": [
                         "0.0.0.0/0"
@@ -56,7 +56,10 @@
         {
             "name": "xsuaa",
             "plan": "apiaccess",
-            "category": "SERVICE"
+            "category": "SERVICE",
+            "createServiceKeys": [
+                "myServiceKey1"
+            ]
         },
         {
             "name": "autoscaler",
