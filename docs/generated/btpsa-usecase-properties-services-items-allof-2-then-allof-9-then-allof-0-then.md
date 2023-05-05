@@ -12,6 +12,7 @@ unknown
 
 application plan >default< for >c4-distributed-order-management-app< is available in data centers:
 
+*   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
 
 `plan`
