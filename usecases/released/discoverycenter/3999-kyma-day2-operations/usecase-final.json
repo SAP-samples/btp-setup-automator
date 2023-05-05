@@ -50,7 +50,7 @@
                     "serviceStopped": false,
                     "storage": 120,
                     "systempassword": "mySAP123",
-                    "vcpu": 0,
+                    "vcpu": 2,
                     "versionIndicator": "",
                     "whitelistIPs": [
                         "0.0.0.0/0"

@@ -18,10 +18,12 @@
       "plan": "free",
       "category": "APPLICATION",
       "requiredrolecollections": [
-          {
-            "name": "Launchpad_Admin",
-            "assignedUserGroupsFromParameterFile": ["admins"]
-          }
+        {
+          "name": "Launchpad_Admin",
+          "assignedUserGroupsFromParameterFile": [
+            "admins"
+          ]
+        }
       ]
     },
     {
@@ -29,16 +31,20 @@
       "plan": "free",
       "category": "APPLICATION",
       "requiredrolecollections": [
-          {
-            "name": "Business_Application_Studio_Administrator",
-            "assignedUserGroupsFromParameterFile": ["admins"]
-          },
-          {
-            "name": "Business_Application_Studio_Developer",
-            "assignedUserGroupsFromParameterFile": ["admins"]
-          }
+        {
+          "name": "Business_Application_Studio_Administrator",
+          "assignedUserGroupsFromParameterFile": [
+            "admins"
+          ]
+        },
+        {
+          "name": "Business_Application_Studio_Developer",
+          "assignedUserGroupsFromParameterFile": [
+            "admins"
+          ]
+        }
       ]
-    },      
+    },
     {
       "name": "enterprise-messaging",
       "plan": "default",
@@ -53,15 +59,21 @@
       "requiredrolecollections": [
         {
           "name": "Enterprise Messaging Administrator",
-          "assignedUserGroupsFromParameterFile": ["admins"]
+          "assignedUserGroupsFromParameterFile": [
+            "admins"
+          ]
         },
         {
           "name": "Enterprise Messaging Developer",
-          "assignedUserGroupsFromParameterFile": ["admins"]
+          "assignedUserGroupsFromParameterFile": [
+            "admins"
+          ]
         },
         {
           "name": "Enterprise Messaging Subscription Administrator",
-          "assignedUserGroupsFromParameterFile": ["admins"]
+          "assignedUserGroupsFromParameterFile": [
+            "admins"
+          ]
         }
       ]
     },
@@ -79,18 +91,20 @@
           "serviceStopped": false,
           "storage": 120,
           "systempassword": "PleaseChangeBeforeRunningScript12345",
-          "vcpu": 0,
+          "vcpu": 2,
           "versionIndicator": "",
-          "whitelistIPs": []
+          "whitelistIPs": [
+            "0.0.0.0/0"
+          ]
         }
       }
     },
     {
-        "name": "hana",
-        "plan": "hdi-shared",
-        "category": "SERVICE",
-        "entitleonly": true
-    }  
+      "name": "hana",
+      "plan": "hdi-shared",
+      "category": "SERVICE",
+      "entitleonly": true
+    }
   ],
   "executeBeforeAccountSetup": [
     {
