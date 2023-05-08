@@ -926,7 +926,7 @@
                                                         "if": { "properties": { "plan": { "const": "default"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >default< for >c4-distributed-order-management< is available in data centers:\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}" }
+                                                                "plan": { "description": "service plan >default< for >c4-distributed-order-management< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}" }
                                                                 
                                                             }
                                                         }
