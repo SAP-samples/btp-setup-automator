@@ -7,11 +7,11 @@
 | Property                              | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                                          |
 | :------------------------------------ | :------- | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [datalakeID](#datalakeid)             | `string` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-3-then-properties-parameters-properties-data-properties-datalakeid.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/3/then/properties/parameters/properties/data/properties/datalakeID")             |
-| [datalakePassword](#datalakepassword) | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-3-then-properties-parameters-properties-data-properties-datalakepassword.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/3/then/properties/parameters/properties/data/properties/datalakePassword") |
-| [datalakeUser](#datalakeuser)         | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-3-then-properties-parameters-properties-data-properties-datalakeuser.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/3/then/properties/parameters/properties/data/properties/datalakeUser")         |
+| [datalakePassword](#datalakepassword) | `string` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-3-then-properties-parameters-properties-data-properties-datalakepassword.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/3/then/properties/parameters/properties/data/properties/datalakePassword") |
+| [datalakeUser](#datalakeuser)         | `string` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-3-then-properties-parameters-properties-data-properties-datalakeuser.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/3/then/properties/parameters/properties/data/properties/datalakeUser")         |
 | [hanaID](#hanaid)                     | `string` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-3-then-properties-parameters-properties-data-properties-hanaid.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/3/then/properties/parameters/properties/data/properties/hanaID")                     |
-| [hanaPassword](#hanapassword)         | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-3-then-properties-parameters-properties-data-properties-hanapassword.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/3/then/properties/parameters/properties/data/properties/hanaPassword")         |
-| [hanaUser](#hanauser)                 | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-3-then-properties-parameters-properties-data-properties-hanauser.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/3/then/properties/parameters/properties/data/properties/hanaUser")                 |
+| [hanaPassword](#hanapassword)         | `string` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-3-then-properties-parameters-properties-data-properties-hanapassword.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/3/then/properties/parameters/properties/data/properties/hanaPassword")         |
+| [hanaUser](#hanauser)                 | `string` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-3-then-properties-parameters-properties-data-properties-hanauser.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/3/then/properties/parameters/properties/data/properties/hanaUser")                 |
 
 ## datalakeID
 
@@ -41,7 +41,7 @@ Password in the data lake instance
 
 `datalakePassword`
 
-*   is optional
+*   is required
 
 *   Type: `string`
 
@@ -63,7 +63,7 @@ User ID in the data lake instance
 
 `datalakeUser`
 
-*   is optional
+*   is required
 
 *   Type: `string`
 
@@ -107,7 +107,7 @@ Password for the HANA user
 
 `hanaPassword`
 
-*   is optional
+*   is required
 
 *   Type: `string`
 
@@ -129,7 +129,7 @@ User ID for HANA (for example, SYSTEM)
 
 `hanaUser`
 
-*   is optional
+*   is required
 
 *   Type: `string`
 

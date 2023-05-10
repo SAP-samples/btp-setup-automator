@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Connectivity (for scale-out build-out): Connectivity (for scale-out build-out)
+Connectivity (for scale-out build-out): Pair Connectivity Proxy with SAP CP Connectivity service
 
 `name`
 
