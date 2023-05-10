@@ -8,14 +8,14 @@
 
 | Value               | Explanation |
 | :------------------ | :---------- |
-| `"allkeys-lru"`     |             |
-| `"volatile-lru"`    |             |
 | `"allkeys-lfu"`     |             |
-| `"volatile-lfu"`    |             |
+| `"allkeys-lru"`     |             |
 | `"allkeys-random"`  |             |
+| `"noeviction"`      |             |
+| `"volatile-lfu"`    |             |
+| `"volatile-lru"`    |             |
 | `"volatile-random"` |             |
 | `"volatile-ttl"`    |             |
-| `"noeviction"`      |             |
 
 ## eviction\_policy Default Value
 

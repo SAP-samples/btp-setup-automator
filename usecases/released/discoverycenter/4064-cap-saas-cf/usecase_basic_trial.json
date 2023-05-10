@@ -49,8 +49,8 @@
             "entitleonly": true
         },
         {
-            "name": "hana-cloud-trial",
-            "plan": "hana",
+            "name": "hana-cloud",
+            "plan": "hana-free",
             "category": "SERVICE",
             "repeatstatusrequest": 60,
             "repeatstatustimeout": 3600,
@@ -120,7 +120,7 @@
             "plan": "broker",
             "category": "SERVICE",
             "entitleonly": true
-        }        
+        }
     ],
     "executeAfterAccountSetup": [
         {
@@ -144,8 +144,8 @@
             "command": "cd ./tutorial && cf deploy ./mta_archives/susaas_0.0.1.mtar -f"
         },
         {
-            "description":"Initializing credstore",
-            "command":" cd ./tutorial && sh configs/automator/init-cred-store.sh"
+            "description": "Initializing credstore",
+            "command": " cd ./tutorial && sh configs/automator/init-cred-store.sh"
         },
         {
             "description": "Create the consumer usecase file",
