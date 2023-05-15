@@ -27,7 +27,6 @@ unknown
 | `"build-workzone-standard"`                |             |
 | `"business-entity-recognition"`            |             |
 | `"business-rules"`                         |             |
-| `"c4-distributed-order-management"`        |             |
 | `"cias"`                                   |             |
 | `"cicd-service"`                           |             |
 | `"cis"`                                    |             |

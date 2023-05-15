@@ -4,74 +4,43 @@
 
 # parameters Properties
 
-| Property                           | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                                                 |
-| :--------------------------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [engine\_version](#engine_version) | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-0-then-properties-parameters-properties-engine_version.md "http://example.com/schemas/postgres-free-create.json#/properties/services/items/allOf/1/then/allOf/88/then/allOf/0/then/properties/parameters/properties/engine_version") |
-| [locale](#locale)                  | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-0-then-properties-parameters-properties-locale.md "http://example.com/schemas/postgres-free-create.json#/properties/services/items/allOf/1/then/allOf/88/then/allOf/0/then/properties/parameters/properties/locale")                 |
-| Additional Properties              | Any      | Optional | can be null    |                                                                                                                                                                                                                                                                                                                                                            |
+| Property                        | Type    | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                    |
+| :------------------------------ | :------ | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [notifications](#notifications) | `array` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-0-then-properties-parameters-properties-notifications.md "undefined#/properties/services/items/allOf/1/then/allOf/88/then/allOf/0/then/properties/parameters/properties/notifications") |
 
-## engine\_version
+## notifications
 
-The major version of the PostgreSQL database to use. If not provided, the major version is defaulted to 12
 
-`engine_version`
+
+`notifications`
 
 *   is optional
 
-*   Type: `string`
+*   Type: `object[]` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-0-then-properties-parameters-properties-notifications-items.md))
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-0-then-properties-parameters-properties-engine_version.md "http://example.com/schemas/postgres-free-create.json#/properties/services/items/allOf/1/then/allOf/88/then/allOf/0/then/properties/parameters/properties/engine_version")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-0-then-properties-parameters-properties-notifications.md "undefined#/properties/services/items/allOf/1/then/allOf/88/then/allOf/0/then/properties/parameters/properties/notifications")
 
-### engine\_version Type
+### notifications Type
 
-`string`
+`object[]` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-0-then-properties-parameters-properties-notifications-items.md))
 
-### engine\_version Constraints
+### notifications Constraints
 
-**enum**: the value of this property must be equal to one of the following values:
+**maximum number of items**: the maximum number of items for this array is: `1`
 
-| Value  | Explanation |
-| :----- | :---------- |
-| `"11"` |             |
-| `"12"` |             |
-| `"13"` |             |
+**minimum number of items**: the minimum number of items for this array is: `0`
 
-### engine\_version Default Value
+### notifications Default Value
 
 The default value is:
 
 ```json
-"12"
+[
+  {
+    "destinationName": "",
+    "usage": ""
+  }
+]
 ```
-
-## locale
-
-Indicates the locale for the instance (TODO)
-
-`locale`
-
-*   is optional
-
-*   Type: `string`
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-0-then-properties-parameters-properties-locale.md "http://example.com/schemas/postgres-free-create.json#/properties/services/items/allOf/1/then/allOf/88/then/allOf/0/then/properties/parameters/properties/locale")
-
-### locale Type
-
-`string`
-
-### locale Default Value
-
-The default value is:
-
-```json
-"en_US"
-```
-
-## Additional Properties
-
-Additional properties are allowed and do not have to follow a specific schema

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Data Enrichment: Industrializes the use of third-party data for enterprise applications, and makes it economical to find, procure and consume relevant datasets in timely fashion. Offers pre-built integrations with SAP S/4HANA Cloud and on-premise, and SAP Master Data Governance. Centrally links data from external data providers such as Dun & Bradstreet and CDQ into SAP enterprise applications, reducing overall TCO for data brokerage needs. Data Enrichment will be a one stop shop for multiple data augmentation needs.
+Date and Time: Get default date format for a given country, timezone details and time difference between two provided time values.
 
 `name`
 

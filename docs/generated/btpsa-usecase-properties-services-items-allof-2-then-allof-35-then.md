@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Open Connectors: Open Connectors provides pre-built and feature-rich connectors to simplify the connectivity and seamless integration with over 150 non-SAP cloud applications. Customers benefit from connectivity to third-party APIs via harmonized RESTful APIs and can develop and map canonical data models to extend pre-built connectors. Furthermore customers can easily build API compositions across the different connectors.
+SAP Personal Data Manager: SAP Personal Data Manager provides the capability to generate reports showing the personal data stored in an application point of view with the help of a CSR. The reports can be generated and exported either in machine readable form (JSON) or human readable form (PDF). Data subjects can request the correction and deletion of personal data that is stored in an application point of view.
 
 `name`
 

@@ -17,7 +17,6 @@ unknown
 | `"auditlog-viewer"`                             |             |
 | `"automationpilot"`                             |             |
 | `"Backend-service"`                             |             |
-| `"c4-distributed-order-management-app"`         |             |
 | `"cias"`                                        |             |
 | `"cicd-app"`                                    |             |
 | `"content-agent-ui"`                            |             |

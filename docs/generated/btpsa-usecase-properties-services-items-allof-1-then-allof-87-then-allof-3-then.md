@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >xsmall< for >postgresql< is available in data centers:
+service plan >storage< for >postgresql-db< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}

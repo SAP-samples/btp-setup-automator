@@ -37,11 +37,11 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"messages"` |             |
+| `"standard"` |             |
 
 ## name
 
-SAP Integration Suite: The SAP Integration Suite helps you to quickly develop and manage reliable communication between applications, services, and systems across heterogeneous landscapes.
+SAP S/4HANA Cloud for intelligent intercompany reconciliation: Intelligent Intercompany Reconciliation is introduced to speed up your intercompany reconciliation process from company close to corporate close. The service is based on Artificial Intelligence in order to reconcile your financial data with high accuracy.
 
 `name`
 
