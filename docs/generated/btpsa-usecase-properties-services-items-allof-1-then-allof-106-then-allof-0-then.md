@@ -12,8 +12,10 @@ unknown
 
 service plan >default< for >sap-calm< is available in data centers:
 
+*   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
+*   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
