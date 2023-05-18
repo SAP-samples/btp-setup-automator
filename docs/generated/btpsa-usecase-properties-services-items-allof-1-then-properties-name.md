@@ -58,6 +58,7 @@ unknown
 | `"ibanservice"`                            |             |
 | `"identity"`                               |             |
 | `"INFRA"`                                  |             |
+| `"integration-assessment"`                 |             |
 | `"integrationsuite"`                       |             |
 | `"intercompany-reconciliation"`            |             |
 | `"invoice-object-recommendation"`          |             |

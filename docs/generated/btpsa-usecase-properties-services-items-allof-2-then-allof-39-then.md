@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Guided Buying: Guided Buying allows you to integrate procurement solutions with SAP S/4HANA Cloud.
+SAP Ariba Buying: SAP Ariba Buying allows you to integrate procurement solutions with SAP S/4HANA Cloud.
 
 `name`
 
