@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value       | Explanation |
-| :---------- | :---------- |
-| `"default"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"standard"` |             |
 
 ## name
 
-Document Information Extraction UI: UI Application to upload document for extraction to Document Information Extraction and correct the results.
+Data Quality Services UI: Manage settings and field mappings using configurations. View number of transactions performed over a spefici time period.
 
 `name`
 

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Data Enrichment service: Provides Business Partner data from third-party data providers
+SAP Workflow Management: Digitize workflows, manage decisions and gain end-to-end process visibility
 
 `name`
 

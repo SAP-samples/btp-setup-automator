@@ -7,6 +7,7 @@
 | Property                                   | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                                                             |
 | :----------------------------------------- | :-------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [audit\_log\_level](#audit_log_level)      | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-2-then-properties-parameters-properties-audit_log_level.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/88/then/allOf/2/then/properties/parameters/properties/audit_log_level")       |
+| [db\_parameters](#db_parameters)           | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-2-then-properties-parameters-properties-db_parameters.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/88/then/allOf/2/then/properties/parameters/properties/db_parameters")           |
 | [engine\_version](#engine_version)         | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-2-then-properties-parameters-properties-engine_version.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/88/then/allOf/2/then/properties/parameters/properties/engine_version")         |
 | [locale](#locale)                          | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-2-then-properties-parameters-properties-locale.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/88/then/allOf/2/then/properties/parameters/properties/locale")                         |
 | [maintenance\_window](#maintenance_window) | `object`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-2-then-properties-parameters-properties-maintenance_window.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/88/then/allOf/2/then/properties/parameters/properties/maintenance_window") |
@@ -49,6 +50,28 @@ The default value is:
   "DDL"
 ]
 ```
+
+## db\_parameters
+
+Database system configurations
+
+`db_parameters`
+
+*   is optional
+
+*   Type: `object[]` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-2-then-properties-parameters-properties-db_parameters-items.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-2-then-properties-parameters-properties-db_parameters.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/88/then/allOf/2/then/properties/parameters/properties/db_parameters")
+
+### db\_parameters Type
+
+`object[]` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-2-then-properties-parameters-properties-db_parameters-items.md))
+
+### db\_parameters Constraints
+
+**unique items**: all items in this array must be unique. Duplicates are not allowed.
 
 ## engine\_version
 

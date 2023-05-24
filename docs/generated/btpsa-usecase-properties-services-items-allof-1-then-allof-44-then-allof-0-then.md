@@ -10,13 +10,9 @@ unknown
 
 ## plan
 
-service plan >standard< for >hana-tenant-db< is available in data centers:
+service plan >default< for >hl7-fhir-service< is available in data centers:
 
-*   {'region': 'ap21', 'name': 'Singapore'}
-*   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
-*   {'region': 'jp20', 'name': 'Japan (Tokyo)'}
-*   {'region': 'us20', 'name': 'US West (WA)'}
-*   {'region': 'us21', 'name': 'US East (VA)'}
+*   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 
 `plan`
 

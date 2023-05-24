@@ -10,3 +10,11 @@
 | :--------- | :---------- |
 | `"own"`    |             |
 | `"shared"` |             |
+
+## defaultCollectionQueryFilter Default Value
+
+The default value is:
+
+```json
+"own"
+```

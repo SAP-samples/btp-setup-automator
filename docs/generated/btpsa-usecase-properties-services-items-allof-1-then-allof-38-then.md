@@ -8,6 +8,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-38-then-allof-1.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-38-then-allof-2.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -37,14 +39,15 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"free"`     |             |
-| `"standard"` |             |
+| Value                            | Explanation |
+| :------------------------------- | :---------- |
+| `"default"`                      |             |
+| `"event-mesh-connectivity"`      |             |
+| `"event-mesh-connectivity-beta"` |             |
 
 ## name
 
-data quality service: SAP Data Quality Management offers cloud-based services that let you embed address cleansing, geocoding, and reverse geocoding within any business process orapplication,so that you can reap the value of complete and accurate address data.
+SAP Event Mesh: The SAP Event Mesh service decouples communication and allows for event-driven business processes.
 
 `name`
 

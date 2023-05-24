@@ -6,11 +6,6 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"backbone"` |             |
-| `"channel"`  |             |
-| `"cyon"`     |             |
-| `"dev"`      |             |
-| `"node"`     |             |
-| `"testnet"`  |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"default"` |             |

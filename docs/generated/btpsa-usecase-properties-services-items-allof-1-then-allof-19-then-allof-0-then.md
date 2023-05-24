@@ -10,10 +10,14 @@ unknown
 
 ## plan
 
-service plan >default< for >c4-distributed-order-management< is available in data centers:
+service plan >oauth2< for >cias< is available in data centers:
 
+*   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
+*   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
+*   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
 

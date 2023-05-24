@@ -27,6 +27,14 @@ Configures scopes that are available in the client credentials flow.
 
 `string[]`
 
+### authorities Default Value
+
+The default value is:
+
+```json
+[]
+```
+
 ## defaultCollectionQueryFilter
 
 Configures the default behavior of queries that return a collection of Workflow entities.
@@ -53,3 +61,11 @@ Configures the default behavior of queries that return a collection of Workflow 
 | :--------- | :---------- |
 | `"own"`    |             |
 | `"shared"` |             |
+
+### defaultCollectionQueryFilter Default Value
+
+The default value is:
+
+```json
+"own"
+```

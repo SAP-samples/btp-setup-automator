@@ -9,5 +9,4 @@ unknown
 | Value        | Explanation |
 | :----------- | :---------- |
 | `"free"`     |             |
-| `"proxy"`    |             |
 | `"standard"` |             |

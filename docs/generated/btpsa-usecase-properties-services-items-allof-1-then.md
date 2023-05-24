@@ -303,7 +303,6 @@ unknown
 | `"build-workzone-standard"`                |             |
 | `"business-entity-recognition"`            |             |
 | `"business-rules"`                         |             |
-| `"c4-distributed-order-management"`        |             |
 | `"cias"`                                   |             |
 | `"cicd-service"`                           |             |
 | `"cis"`                                    |             |
@@ -335,6 +334,7 @@ unknown
 | `"ibanservice"`                            |             |
 | `"identity"`                               |             |
 | `"INFRA"`                                  |             |
+| `"integration-assessment"`                 |             |
 | `"integrationsuite"`                       |             |
 | `"intercompany-reconciliation"`            |             |
 | `"invoice-object-recommendation"`          |             |

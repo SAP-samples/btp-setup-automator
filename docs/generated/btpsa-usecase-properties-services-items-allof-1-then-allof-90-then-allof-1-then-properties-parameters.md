@@ -4,103 +4,87 @@
 
 # parameters Properties
 
-| Property                          | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                       |
-| :-------------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [cosmosDb](#cosmosdb)             | `object` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-cosmosdb-specific-creation-parameters.md "undefined#/properties/services/items/allOf/1/then/allOf/90/then/allOf/1/then/properties/parameters/properties/cosmosDb") |
-| [requestMessage](#requestmessage) | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-request-message.md "undefined#/properties/services/items/allOf/1/then/allOf/90/then/allOf/1/then/properties/parameters/properties/requestMessage")                 |
-| [resourceId](#resourceid)         | `string` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-resource-id.md "undefined#/properties/services/items/allOf/1/then/allOf/90/then/allOf/1/then/properties/parameters/properties/resourceId")                         |
-| [subResource](#subresource)       | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-subresource.md "undefined#/properties/services/items/allOf/1/then/allOf/90/then/allOf/1/then/properties/parameters/properties/subResource")                        |
+| Property                          | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                |
+| :-------------------------------- | :-------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [desiredAZs](#desiredazs)         | `integer` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-desired-azs.md "undefined#/properties/services/items/allOf/1/then/allOf/90/then/allOf/1/then/properties/parameters/properties/desiredAZs")                  |
+| [policyDocument](#policydocument) | `object`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-endpoint-policy-document.md "undefined#/properties/services/items/allOf/1/then/allOf/90/then/allOf/1/then/properties/parameters/properties/policyDocument") |
+| [serviceName](#servicename)       | `string`  | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-service-name.md "undefined#/properties/services/items/allOf/1/then/allOf/90/then/allOf/1/then/properties/parameters/properties/serviceName")                |
 
-## cosmosDb
+## desiredAZs
 
-Specifies CosmosDB-specific creation parameters.
+Specifies the desired number of Availability Zones of the endpoint.
 
-`cosmosDb`
+Example: 2
 
-*   is optional
+By default, SAP Private Link service only creates the endpoint if the endpoint service is deployed in the same AZs as SAP BTP, to maximize High Availability.
+In case fewer AZs than SAP BTPs should be allowed (i.e. only one or two AZs), please explicitly allow it by specifying the desired number of AZs via this parameter.
 
-*   Type: `object` ([CosmosDB-specific creation parameters](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-cosmosdb-specific-creation-parameters.md))
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-cosmosdb-specific-creation-parameters.md "undefined#/properties/services/items/allOf/1/then/allOf/90/then/allOf/1/then/properties/parameters/properties/cosmosDb")
-
-### cosmosDb Type
-
-`object` ([CosmosDB-specific creation parameters](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-cosmosdb-specific-creation-parameters.md))
-
-## requestMessage
-
-Specifies the request message which is displayed to the approver.
-
-`requestMessage`
+`desiredAZs`
 
 *   is optional
 
-*   Type: `string` ([Request Message](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-request-message.md))
+*   Type: `integer` ([Desired AZs](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-desired-azs.md))
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-request-message.md "undefined#/properties/services/items/allOf/1/then/allOf/90/then/allOf/1/then/properties/parameters/properties/requestMessage")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-desired-azs.md "undefined#/properties/services/items/allOf/1/then/allOf/90/then/allOf/1/then/properties/parameters/properties/desiredAZs")
 
-### requestMessage Type
+### desiredAZs Type
 
-`string` ([Request Message](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-request-message.md))
+`integer` ([Desired AZs](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-desired-azs.md))
 
-### requestMessage Constraints
+### desiredAZs Default Value
 
-**maximum length**: the maximum number of characters for this string is: `60`
+The default value is:
 
-## resourceId
+```json
+3
+```
 
-Specifies the Azure Resource ID of the service for which the private endpoint should be created.
+## policyDocument
 
-Example: /subscriptions/<subscription>/resourceGroups/<rg>/providers/Microsoft.Network/privateLinkServices/<myPrivateLinkService>
+Specifies the Endpoint Policy.\n\nThe endpoint policy controls which AWS principals (AWS accounts, IAM users, and IAM roles) can use the VPC endpoint to access the endpoint service.
 
-`resourceId`
+`policyDocument`
+
+*   is optional
+
+*   Type: `object` ([Endpoint Policy Document](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-endpoint-policy-document.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-endpoint-policy-document.md "undefined#/properties/services/items/allOf/1/then/allOf/90/then/allOf/1/then/properties/parameters/properties/policyDocument")
+
+### policyDocument Type
+
+`object` ([Endpoint Policy Document](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-endpoint-policy-document.md))
+
+## serviceName
+
+Specifies the service name for which the VPC Endpoint should be created.\n\nExample: "com.amazonaws.us-east-1.monitoring" or "com.amazonaws.vpce.us-east-1.vpce-svc-09ac27c2a0cd319fa" for AWS or custom VPC Endpoint Services respectively
+
+`serviceName`
 
 *   is required
 
-*   Type: `string` ([Resource ID](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-resource-id.md))
+*   Type: `string` ([Service Name](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-service-name.md))
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-resource-id.md "undefined#/properties/services/items/allOf/1/then/allOf/90/then/allOf/1/then/properties/parameters/properties/resourceId")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-service-name.md "undefined#/properties/services/items/allOf/1/then/allOf/90/then/allOf/1/then/properties/parameters/properties/serviceName")
 
-### resourceId Type
+### serviceName Type
 
-`string` ([Resource ID](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-resource-id.md))
+`string` ([Service Name](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-service-name.md))
 
-### resourceId Constraints
+### serviceName Constraints
 
 **minimum length**: the minimum number of characters for this string is: `1`
 
 **pattern**: the string must match the following regular expression:&#x20;
 
 ```regexp
-/subscriptions/.+/resourceGroups/.+/providers/.+?/.+?/[^/#?]+
+com\.amazonaws\..+
 ```
 
-[try pattern](https://regexr.com/?expression=%2Fsubscriptions%2F.%2B%2FresourceGroups%2F.%2B%2Fproviders%2F.%2B%3F%2F.%2B%3F%2F%5B%5E%2F%23%3F%5D%2B "try regular expression with regexr.com")
-
-## subResource
-
-Specifies the subresource for a specific Resource ID. Note that subresource is not required for Azure Private Link resources.
-
-Example: mysqlServer
-
-All supported native Azure services including subresources can be found here: <https://help.sap.com/viewer/product/PRIVATE_LINK/CLOUD/en-US>
-
-`subResource`
-
-*   is optional
-
-*   Type: `string` ([Subresource](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-subresource.md))
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-subresource.md "undefined#/properties/services/items/allOf/1/then/allOf/90/then/allOf/1/then/properties/parameters/properties/subResource")
-
-### subResource Type
-
-`string` ([Subresource](btpsa-usecase-properties-services-items-allof-1-then-allof-90-then-allof-1-then-properties-parameters-properties-subresource.md))
+[try pattern](https://regexr.com/?expression=com%5C.amazonaws%5C..%2B "try regular expression with regexr.com")
