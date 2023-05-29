@@ -20,8 +20,10 @@ service plan >free< for >data-analytics-osb< is available in data centers:
 *   {'region': 'ca10', 'name': 'Canada (Montreal)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
+*   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
 *   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
+*   {'region': 'us20', 'name': 'US West (WA)'}
 
 `plan`
 
