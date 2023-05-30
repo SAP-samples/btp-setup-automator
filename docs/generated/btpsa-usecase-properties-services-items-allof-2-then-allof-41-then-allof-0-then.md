@@ -15,6 +15,7 @@ application plan >standard< for >responsibilitymanagement-application< is availa
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
+*   {'region': 'us20', 'name': 'US West (WA)'}
 
 `plan`
 
