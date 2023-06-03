@@ -1891,7 +1891,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "Integration Assessment APIs: Provides technical access to SAP Integration Suite Integration Assessment"}
+                                                    "name": { "description": "Integration Assessment: Provides technical access to SAP Integration Assessment."}
                                                 },
                                                 "allOf": [
                                                     {

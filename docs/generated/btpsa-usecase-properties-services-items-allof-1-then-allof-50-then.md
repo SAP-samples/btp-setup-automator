@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Integration Assessment APIs: Provides technical access to SAP Integration Suite Integration Assessment
+Integration Assessment: Provides technical access to SAP Integration Assessment.
 
 `name`
 
