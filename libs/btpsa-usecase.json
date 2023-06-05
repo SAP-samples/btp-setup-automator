@@ -1398,7 +1398,7 @@
                                             "if": { "properties": { "name": { "const": "enterprise-messaging"} } },
                                             "then" :{
                                                 "properties": {
-                                                    "plan": { "enum": ["default","event-mesh-connectivity","event-mesh-connectivity-beta"] },
+                                                    "plan": { "enum": ["default"] },
                                                     "name": { "description": "SAP Event Mesh: The SAP Event Mesh service decouples communication and allows for event-driven business processes."}
                                                 },
                                                 "allOf": [
@@ -1411,22 +1411,6 @@
 
                                                             }, "required" : ["parameters"]
 
-                                                        }
-                                                    }, {
-                                                        "if": { "properties": { "plan": { "const": "event-mesh-connectivity"} } },
-                                                        "then" :{
-                                                            "properties": {
-                                                                "plan": { "description": "service plan >event-mesh-connectivity< for >enterprise-messaging< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}" }
-                                                                
-                                                            }
-                                                        }
-                                                    }, {
-                                                        "if": { "properties": { "plan": { "const": "event-mesh-connectivity-beta"} } },
-                                                        "then" :{
-                                                            "properties": {
-                                                                "plan": { "description": "service plan >event-mesh-connectivity-beta< for >enterprise-messaging< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us20', 'name': 'US West (WA)'}" }
-                                                                
-                                                            }
                                                         }
                                                     }]
                                             }
