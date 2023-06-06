@@ -1,0 +1,3 @@
+## serviceGuid Type
+
+`string`
