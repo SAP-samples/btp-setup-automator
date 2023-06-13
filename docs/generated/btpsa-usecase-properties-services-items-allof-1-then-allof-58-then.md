@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-Process Integration Runtime: Provides access to SAP Business Technology Platform Integration runtime (integration flows) and APIs.
+Process Integration Runtime: Provides access to the integration flow endpoints and public APIs of the Cloud Integration capability of Integration Suite. You need this service instance only if you want to execute the integration flows or access Cloud Integration resources via APIs.
 
 `name`
 
