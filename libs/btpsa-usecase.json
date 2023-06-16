@@ -2128,7 +2128,7 @@
                                             "if": { "properties": { "name": { "const": "market-rates-thr"} } },
                                             "then" :{
                                                 "properties": {
-                                                    "plan": { "enum": ["default"] },
+                                                    "plan": { "enum": ["default","standard"] },
                                                     "name": { "description": "Market Rates, Refinitiv: The Market Rates Management, Refinitiv data option is a reuse service that allows you to import daily and historical Exchange Rates & Interest Rates from Refinitiv."}
                                                 },
                                                 "allOf": [
@@ -2137,6 +2137,14 @@
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "service plan >default< for >market-rates-thr< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }, {
+                                                        "if": { "properties": { "plan": { "const": "standard"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "service plan >standard< for >market-rates-thr< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
