@@ -6,17 +6,14 @@ unknown
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                      |
 | :------------ | :------------ | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-10-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/10/then/allOf/1/then/properties/plan") |
+| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-62-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/62/then/allOf/1/then/properties/plan") |
 
 ## plan
 
-application plan >free< for >cicd-app< is available in data centers:
+service plan >standard< for >market-rates-thr< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
-*   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
-*   {'region': 'us20', 'name': 'US West (WA)'}
 
 `plan`
 
@@ -26,7 +23,7 @@ application plan >free< for >cicd-app< is available in data centers:
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-10-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/10/then/allOf/1/then/properties/plan")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-62-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/62/then/allOf/1/then/properties/plan")
 
 ### plan Type
 
