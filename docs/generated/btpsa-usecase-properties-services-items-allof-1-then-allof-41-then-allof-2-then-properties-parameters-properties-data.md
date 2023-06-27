@@ -8,7 +8,6 @@
 | :------------------------------------------------------ | :------------ | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [additionalWorkers](#additionalworkers)                 | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-additionalworkers.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/additionalWorkers")                 |
 | [availabilityZonePlacement](#availabilityzoneplacement) | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-availabilityzoneplacement.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/availabilityZonePlacement") |
-| [backup](#backup)                                       | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-backup.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/backup")                                       |
 | [databaseMappings](#databasemappings)                   | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-databasemappings.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/databaseMappings")                   |
 | [disasterRecoveryMode](#disasterrecoverymode)           | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-disasterrecoverymode.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/disasterRecoveryMode")           |
 | [edition](#edition)                                     | `string`      | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-edition.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/edition")                                     |
@@ -72,24 +71,6 @@ Settings that enable the customer to ensure spatial proximity between their appl
 ### availabilityZonePlacement Type
 
 `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-availabilityzoneplacement.md))
-
-## backup
-
-Backup service properties
-
-`backup`
-
-*   is optional
-
-*   Type: `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-backup.md))
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-backup.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/backup")
-
-### backup Type
-
-`object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-backup.md))
 
 ## databaseMappings
 
