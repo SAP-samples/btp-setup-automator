@@ -15,6 +15,7 @@ application plan >free< for >auditlog-viewer< is available in data centers:
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}
 *   {'region': 'ap12', 'name': 'South Korea (Seoul)'}
+*   {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}
 *   {'region': 'ap21', 'name': 'Singapore'}
 *   {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}
 *   {'region': 'ca10', 'name': 'Canada (Montreal)'}
