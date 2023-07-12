@@ -6,6 +6,7 @@
 
 | Property                                                | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                                                          |
 | :------------------------------------------------------ | :------------ | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [backup](#backup)                                       | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-6-then-properties-parameters-properties-data-properties-backup.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/6/then/properties/parameters/properties/data/properties/backup")                                     |
 | [coordinator\_type](#coordinator_type)                  | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-6-then-properties-parameters-properties-data-properties-coordinator_type.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/6/then/properties/parameters/properties/data/properties/coordinator_type")                 |
 | [enableBackups](#enablebackups)                         | `boolean`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-6-then-properties-parameters-properties-data-properties-enablebackups.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/6/then/properties/parameters/properties/data/properties/enableBackups")                       |
 | [fileContainer](#filecontainer)                         | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-6-then-properties-parameters-properties-data-properties-filecontainer.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/6/then/properties/parameters/properties/data/properties/fileContainer")                       |
@@ -19,11 +20,29 @@
 | [serviceStopped](#servicestopped)                       | `boolean`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-6-then-properties-parameters-properties-data-properties-servicestopped.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/6/then/properties/parameters/properties/data/properties/serviceStopped")                     |
 | [storage\_service\_provider](#storage_service_provider) | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-6-then-properties-parameters-properties-data-properties-storage_service_provider.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/6/then/properties/parameters/properties/data/properties/storage_service_provider") |
 | [storage\_service\_tier](#storage_service_tier)         | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-6-then-properties-parameters-properties-data-properties-storage_service_tier.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/6/then/properties/parameters/properties/data/properties/storage_service_tier")         |
-| [systempassword](#systempassword)                       | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-6-then-properties-parameters-properties-data-properties-systempassword.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/6/then/properties/parameters/properties/data/properties/systempassword")                     |
+| [systempassword](#systempassword)                       | `string`      | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-6-then-properties-parameters-properties-data-properties-systempassword.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/6/then/properties/parameters/properties/data/properties/systempassword")                     |
 | [updateStrategy](#updatestrategy)                       | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-6-then-properties-parameters-properties-data-properties-updatestrategy.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/6/then/properties/parameters/properties/data/properties/updateStrategy")                     |
 | [versionIndicator](#versionindicator)                   | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-6-then-properties-parameters-properties-data-properties-versionindicator.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/6/then/properties/parameters/properties/data/properties/versionIndicator")                 |
 | [whitelistIPs](#whitelistips)                           | `array`       | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-6-then-properties-parameters-properties-data-properties-whitelistips.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/6/then/properties/parameters/properties/data/properties/whitelistIPs")                         |
 | [writer\_type](#writer_type)                            | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-6-then-properties-parameters-properties-data-properties-writer_type.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/6/then/properties/parameters/properties/data/properties/writer_type")                           |
+
+## backup
+
+Backup service properties
+
+`backup`
+
+*   is optional
+
+*   Type: `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-6-then-properties-parameters-properties-data-properties-backup.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-6-then-properties-parameters-properties-data-properties-backup.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/6/then/properties/parameters/properties/data/properties/backup")
+
+### backup Type
+
+`object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-6-then-properties-parameters-properties-data-properties-backup.md))
 
 ## coordinator\_type
 
@@ -313,7 +332,7 @@ Password to be set for tenant
 
 `systempassword`
 
-*   is optional
+*   is required
 
 *   Type: `string`
 
