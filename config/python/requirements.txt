@@ -5,7 +5,7 @@ charset-normalizer==3.1.0
 idna==3.4
 inquirer==3.1.3
 Jinja2==3.1.2
-jsonschema==4.17.3
+jsonschema==4.18.3
 MarkupSafe==2.1.3
 mccabe==0.7.0
 ninja2==0.1
