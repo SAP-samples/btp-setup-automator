@@ -14,7 +14,6 @@ unknown
 application plan >default< for >integration-suite-advanced-event-mesh< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'us20', 'name': 'US West (WA)'}
 
 `plan`
 

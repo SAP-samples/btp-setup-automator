@@ -163,6 +163,14 @@ Image edition (cloud vs. orange)
 | `"cloud"`  |             |
 | `"orange"` |             |
 
+### edition Default Value
+
+The default value is:
+
+```json
+"cloud"
+```
+
 ## enabledservices
 
 List of services of the HANA to be enabled
@@ -384,14 +392,6 @@ Size of the Storage in GB
 
 **unknown format**: the value of this string must follow the format: `int64`
 
-### storage Default Value
-
-The default value is:
-
-```json
-120
-```
-
 ## systempassword
 
 Password to be set for tenant
@@ -480,14 +480,6 @@ Number of vCPUs used by HANA
 ### vcpu Constraints
 
 **minimum**: the value of this number must greater than or equal to: `2`
-
-### vcpu Default Value
-
-The default value is:
-
-```json
-2
-```
 
 ## versionIndicator
 
