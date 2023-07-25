@@ -252,8 +252,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-123.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-124.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                |
@@ -378,7 +376,6 @@ unknown
 | `"process-automation"`                     |             |
 | `"process-automation-service"`             |             |
 | `"processvisibility"`                      |             |
-| `"procurement-service"`                    |             |
 | `"quorum"`                                 |             |
 | `"rabbitmq"`                               |             |
 | `"recommendation-systems-production"`      |             |

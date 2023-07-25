@@ -47,7 +47,6 @@ unknown
 | `"PortalApplication"`                           |             |
 | `"print-app"`                                   |             |
 | `"process-automation"`                          |             |
-| `"procurement"`                                 |             |
 | `"responsibility-management-application-beta"`  |             |
 | `"responsibilitymanagement-application"`        |             |
 | `"retention-manager-app"`                       |             |

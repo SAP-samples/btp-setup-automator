@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Integration Assessment: Provides technical access to SAP Integration Assessment.
+Integration Assessment: Provides technical access to Integration Assessment.
 
 `name`
 

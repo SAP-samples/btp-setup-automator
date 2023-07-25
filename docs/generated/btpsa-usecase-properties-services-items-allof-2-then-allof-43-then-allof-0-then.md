@@ -10,9 +10,10 @@ unknown
 
 ## plan
 
-application plan >free< for >sap-build-apps< is available in data centers:
+application plan >standard< for >sap-cai-onboarding< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
