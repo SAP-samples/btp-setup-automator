@@ -1,3 +1,0 @@
-## landscape Type
-
-`string`

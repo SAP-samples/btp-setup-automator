@@ -10,3 +10,11 @@
 | :--------- | :---------- |
 | `"cloud"`  |             |
 | `"orange"` |             |
+
+## edition Default Value
+
+The default value is:
+
+```json
+"cloud"
+```
