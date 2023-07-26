@@ -919,7 +919,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["oauth2"] },
-                                                    "name": { "description": "Cloud Integration Automation: Cloud Integration Automation service provides you a guided workflow to integrate SAP cloud solutions to On-Premise and other SAP Cloud solutions. The guided workflow contains instructions for manual and automated tasks to enable a simpler and faster integration configuration setup"}
+                                                    "name": { "description": "Cloud Integration Automation: Cloud Integration Automation service provides you a guided workflow to integrate SAP cloud solutions to On-Premise and other SAP Cloud solutions. The guided workflow contains instructions for manual and automated tasks to enable a simpler and faster integration configuration setup."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3895,7 +3895,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "Cloud Integration Automation: Cloud Integration Automation service provides you a guided workflow to integrate SAP cloud solutions to On-Premise and other SAP Cloud solutions. The guided workflow contains instructions for manual and automated tasks to enable a simpler and faster integration configuration setup"}
+                                                    "name": { "description": "Cloud Integration Automation: Cloud Integration Automation service provides you a guided workflow to integrate SAP cloud solutions to On-Premise and other SAP Cloud solutions. The guided workflow contains instructions for manual and automated tasks to enable a simpler and faster integration configuration setup."}
                                                 },
                                                 "allOf": [
                                                     {
