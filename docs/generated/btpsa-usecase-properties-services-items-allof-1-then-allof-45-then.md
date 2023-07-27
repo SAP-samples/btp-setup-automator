@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP HTML5 Application Repository service for SAP BTP: The HTML5 Application Repository service enables central storage of HTML5 applications in SAP BTP. In runtime, the service enables the consuming application, typically the application router, to access HTML5 application static content in a secure and efficient manner.
+SAP HTML5 Application Repository service for SAP BTP: The HTML5 Application Repository service for SAP BTP enables central storage of HTML5 applications on SAP BTP. The service allows application developers to manage the lifecycle of their HTML5 applications. In runtime, the service enables the consuming application, typically the application router, to access HTML5 application static content in a secure and efficient manner.
 
 `name`
 

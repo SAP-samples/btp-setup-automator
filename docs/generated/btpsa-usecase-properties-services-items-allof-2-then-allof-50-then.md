@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Document Management Service, Application Option: Benefit from the standalone, ready-to-use web application of SAP Document Management service that provides document management capabilities.
+Document Management Service, Application Option: Document Management Service, Application Option is a standalone, ready-to-use web application that provides document management capabilities for your enterprise content.
 
 `name`
 

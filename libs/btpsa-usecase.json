@@ -1735,7 +1735,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["app-host","app-runtime"] },
-                                                    "name": { "description": "SAP HTML5 Application Repository service for SAP BTP: The HTML5 Application Repository service enables central storage of HTML5 applications in SAP BTP. In runtime, the service enables the consuming application, typically the application router, to access HTML5 application static content in a secure and efficient manner."}
+                                                    "name": { "description": "SAP HTML5 Application Repository service for SAP BTP: The HTML5 Application Repository service for SAP BTP enables central storage of HTML5 applications on SAP BTP. The service allows application developers to manage the lifecycle of their HTML5 applications. In runtime, the service enables the consuming application, typically the application router, to access HTML5 application static content in a secure and efficient manner."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3349,7 +3349,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","standard"] },
-                                                    "name": { "description": "SAP Document Management service: Use a CMIS complaint repository provided internally with all SAP Document Management service capabilities."}
+                                                    "name": { "description": "SAP Document Management service: Use Document Management Service, Repository Option to securely store and manage your business documents and attachments."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3993,7 +3993,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default"] },
-                                                    "name": { "description": "Document Information Extraction UI: UI Application to upload document for extraction to Document Information Extraction and correct the results."}
+                                                    "name": { "description": "Document Information Extraction UI: Document Information Extraction helps you to process various documents that have content in headers and tables. You can use the extracted information, for example, to automatically process payables, invoices, or payment notes while making sure that invoices and payables match."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4109,7 +4109,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["dashboard"] },
-                                                    "name": { "description": "SAP Feature Flags service: View and manage Feature Flags Service instances. Get information about flags status, usage and history. Also perform tasks, such as enabling, disabling, adding and removing flags."}
+                                                    "name": { "description": "SAP Feature Flags service: The Feature Flags service allows you to enable or disable new features at runtime without redeploying or restarting the application. You can use feature flags to control code delivery, synchronized rollout, direct shipment, and fast rollback of features."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4777,7 +4777,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "Document Management Service, Application Option: Benefit from the standalone, ready-to-use web application of SAP Document Management service that provides document management capabilities."}
+                                                    "name": { "description": "Document Management Service, Application Option: Document Management Service, Application Option is a standalone, ready-to-use web application that provides document management capabilities for your enterprise content."}
                                                 },
                                                 "allOf": [
                                                     {

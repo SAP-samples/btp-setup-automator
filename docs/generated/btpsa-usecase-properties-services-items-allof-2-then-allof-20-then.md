@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Feature Flags service: View and manage Feature Flags Service instances. Get information about flags status, usage and history. Also perform tasks, such as enabling, disabling, adding and removing flags.
+SAP Feature Flags service: The Feature Flags service allows you to enable or disable new features at runtime without redeploying or restarting the application. You can use feature flags to control code delivery, synchronized rollout, direct shipment, and fast rollback of features.
 
 `name`
 

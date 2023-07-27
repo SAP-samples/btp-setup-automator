@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Document Management service: Use a CMIS complaint repository provided internally with all SAP Document Management service capabilities.
+SAP Document Management service: Use Document Management Service, Repository Option to securely store and manage your business documents and attachments.
 
 `name`
 
