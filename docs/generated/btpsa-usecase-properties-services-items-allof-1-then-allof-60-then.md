@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Malware Scanning service: Scan business documents uploaded by your custom-developed apps for malware
+SAP Malware Scanning service: Use SAP Malware Scanning service to scan business documents for malware. Integrate this service with your custom-developed apps running on Cloud Foundry. When your apps upload business documents, your apps can call the SAP Malware Scanning service to check for viruses or other malware.
 
 `name`
 

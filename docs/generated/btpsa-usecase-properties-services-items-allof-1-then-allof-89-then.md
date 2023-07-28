@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Print service: Manage print queues, connect print clients and monitor print status
+SAP Print service: SAP Print service is used in business applications that are based on SAP Business Technology Platform (BTP) as well as other SAP Cloud products across SAP Intelligent Enterprise Suite. Using this service, the business application's development team can easily establish the connection between SAP Print service and the customer’s local printers. This means you can significantly reduce the development effort.
 
 `name`
 
