@@ -10,7 +10,4 @@ unknown
 | :----------- | :---------- |
 | `"backbone"` |             |
 | `"channel"`  |             |
-| `"cyon"`     |             |
 | `"dev"`      |             |
-| `"node"`     |             |
-| `"testnet"`  |             |

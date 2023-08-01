@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >free< for >sdm< is available in data centers:
+service plan >free< for >sdm-repository< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}
