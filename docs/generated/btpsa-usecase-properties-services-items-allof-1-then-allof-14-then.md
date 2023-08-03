@@ -10,8 +10,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-14-then-allof-2.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-14-then-allof-3.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -43,7 +41,6 @@ unknown
 
 | Value                           | Explanation |
 | :------------------------------ | :---------- |
-| `"blockchain-hana-integration"` |             |
 | `"blockchain-proof-of-history"` |             |
 | `"blockchain-proof-of-state"`   |             |
 | `"blockchain-timestamp"`        |             |

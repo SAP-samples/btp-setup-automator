@@ -39,12 +39,12 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
+| `"free"`     |             |
 | `"standard"` |             |
-| `"workflow"` |             |
 
 ## name
 
-Process Visibility: Provides end-to-end visibility into processes that run in cloud, on-premise & in hybrid environments
+Personalized Recommendation: Personalized Recommendation is a generic reusable service. It uses state-of-the-art machine learning techniques to give visitors to your website highly personalized recommendations based on their browsing history and/or item description. Train and use machine learning models to deliver these recommendations across a wide range of business scenarios. Personalized Recommendation is part of the SAP AI Business Services portfolio.
 
 `name`
 

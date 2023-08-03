@@ -37,11 +37,11 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"messages"` |             |
+| `"standard"` |             |
 
 ## name
 
-SAP Integration Suite: The SAP Integration Suite helps you to quickly develop and manage reliable communication between applications, services, and systems across heterogeneous landscapes.
+Invoice Object Recommendation: The Invoice Object Recommendation services provides the functionality to train a machine learning model with customer specific data that can give recommendations on G/L Accounts for incoming invoices without a purchase order reference attached. The service therefore provides a training call as described and an inference call that gives back recommendations based on a trained model to semi-automate the invoice processing in the area of accounts payable.
 
 `name`
 

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Cloud Build: Mobile Cloud Build
+Mobile Client Resource Service: Mobile Client Resource Service
 
 `name`
 

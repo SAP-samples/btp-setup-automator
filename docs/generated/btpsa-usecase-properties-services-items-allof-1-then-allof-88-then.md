@@ -12,8 +12,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-3.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-88-then-allof-4.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -43,17 +41,16 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value          | Explanation |
-| :------------- | :---------- |
-| `"free"`       |             |
-| `"premium"`    |             |
-| `"standard"`   |             |
-| `"storage"`    |             |
-| `"storage_ha"` |             |
+| Value                     | Explanation |
+| :------------------------ | :---------- |
+| `"advanced-user"`         |             |
+| `"automation-attended"`   |             |
+| `"automation-unattended"` |             |
+| `"standard-user"`         |             |
 
 ## name
 
-PostgreSQL on SAP BTP, hyperscaler option: The PostgreSQL service on SAP BTP provides a way to directly consume the PostgreSQL service provided by the infrastructure providers such as AWS and Azure.
+SAP Build Process Automation: SAP Build Process Automation combines capabilities from SAP Workflow Management and SAP Intelligent RPA with a powerful, yet intuitive no-code development experience. SAP Build Process Automation enables business users and technologists to become citizen developers. With powerful yet intuitive low-code and no-code capabilities, the solution supports you in driving automation by tapping into the expertise of citizen developers.
 
 `name`
 

@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >standard< for >mobile-client-usage< is available in data centers:
+service plan >standard< for >mobile-network-trace< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}

@@ -39,12 +39,12 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"beta"`     |             |
 | `"standard"` |             |
+| `"workflow"` |             |
 
 ## name
 
-SAP Private Link service: SAP Private Link service establishes a private connection between selected SAP BTP services and selected services in your own IaaS provider accounts. By reusing the private link functionality of our partner IaaS providers, it lets you access your services through private network connections to avoid data transfer via the public Internet.
+Process Visibility: Provides end-to-end visibility into processes that run in cloud, on-premise & in hybrid environments
 
 `name`
 

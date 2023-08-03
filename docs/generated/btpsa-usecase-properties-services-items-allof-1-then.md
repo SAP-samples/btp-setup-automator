@@ -244,12 +244,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-119.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-120.md "check type definition")
-
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-121.md "check type definition")
-
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-122.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                |
@@ -324,9 +318,7 @@ unknown
 | `"hana-cloud"`                             |             |
 | `"hana-db"`                                |             |
 | `"hana-tenant-db"`                         |             |
-| `"hl7-fhir-service"`                       |             |
 | `"html5-apps-repo"`                        |             |
-| `"hyperledger-fabric"`                     |             |
 | `"ibanservice"`                            |             |
 | `"identity"`                               |             |
 | `"INFRA"`                                  |             |
@@ -361,7 +353,6 @@ unknown
 | `"mobile-services"`                        |             |
 | `"mobile-services-preview"`                |             |
 | `"mobile-settings-exchange"`               |             |
-| `"multichain"`                             |             |
 | `"objectstore"`                            |             |
 | `"one-inbox-service"`                      |             |
 | `"one-mds"`                                |             |

@@ -39,15 +39,15 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value       | Explanation |
-| :---------- | :---------- |
-| `"cyon"`    |             |
-| `"dev"`     |             |
-| `"testnet"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"free"`     |             |
+| `"premium"`  |             |
+| `"standard"` |             |
 
 ## name
 
-Quorum on SAP BTP: The Quorum service lets you create, delete, monitor and maintain individual Quorum nodes and connect them to a blockchain network.
+Redis on SAP BTP, hyperscaler option: The Redis service on SAP BTP provides a way to directly consume the Redis cache service provided by the Infrastructure providers such as AWS and Azure.
 
 `name`
 

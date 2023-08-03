@@ -10,15 +10,18 @@ unknown
 
 ## plan
 
-service plan >azure-standard< for >objectstore< is available in data centers:
+service plan >free< for >personal-data-manager-service< is available in data centers:
 
-*   {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}
-*   {'region': 'ap21', 'name': 'Singapore'}
-*   {'region': 'ch20', 'name': 'cf-ch20'}
+*   {'region': 'ap10', 'name': 'Australia (Sydney)'}
+*   {'region': 'ap11', 'name': 'Singapore'}
+*   {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}
+*   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
-*   {'region': 'jp20', 'name': 'Japan (Tokyo)'}
+*   {'region': 'us10', 'name': 'US East (VA)'}
 *   {'region': 'us20', 'name': 'US West (WA)'}
 *   {'region': 'us21', 'name': 'US East (VA)'}
+*   {'region': 'us30', 'name': 'US Central (IA)'}
 
 `plan`
 

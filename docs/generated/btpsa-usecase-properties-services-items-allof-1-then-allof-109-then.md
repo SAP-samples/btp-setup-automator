@@ -39,12 +39,12 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"free"`     |             |
+| `"lite"`     |             |
 | `"standard"` |             |
 
 ## name
 
-SAP Document Management service: Use Document Management Service, Repository Option to securely store and manage your business documents and attachments.
+SAP HANA spatial services: SAP HANA spatial services provides a unified access layer for location-based services, including maps for visualization, geocoding and routing capabilities. It integrates location-based content and services from external providers into SAP products and customer applications.
 
 `name`
 

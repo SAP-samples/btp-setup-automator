@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Network Trace: Mobile Network Trace
+Mobile Connectivity Service: Mobile Connectivity Service
 
 `name`
 

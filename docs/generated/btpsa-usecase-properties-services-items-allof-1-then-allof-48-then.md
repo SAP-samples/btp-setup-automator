@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value           | Explanation |
-| :-------------- | :---------- |
-| `"application"` |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"default"` |             |
 
 ## name
 
-SAP Cloud Identity Services: Cloud Identity Services provide basic capabilities for user authentication.
+Integration Assessment: Provides technical access to Integration Assessment.
 
 `name`
 

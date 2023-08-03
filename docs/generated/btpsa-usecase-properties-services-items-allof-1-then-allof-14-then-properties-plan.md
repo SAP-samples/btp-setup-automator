@@ -8,7 +8,6 @@ unknown
 
 | Value                           | Explanation |
 | :------------------------------ | :---------- |
-| `"blockchain-hana-integration"` |             |
 | `"blockchain-proof-of-history"` |             |
 | `"blockchain-proof-of-state"`   |             |
 | `"blockchain-timestamp"`        |             |

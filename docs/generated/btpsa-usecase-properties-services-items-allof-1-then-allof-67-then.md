@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Content: Mobile Content
+Mobile Client Log Upload Service: Mobile Client Log Upload Service
 
 `name`
 

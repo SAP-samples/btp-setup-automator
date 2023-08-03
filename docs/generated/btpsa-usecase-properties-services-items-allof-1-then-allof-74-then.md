@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Offline: Mobile Offline
+Mobile Push Notification: Mobile Push Notification
 
 `name`
 

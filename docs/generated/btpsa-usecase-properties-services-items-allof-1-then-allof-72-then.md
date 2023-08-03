@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Discovery: Mobile Discovery
+Mobile Offline: Mobile Offline
 
 `name`
 

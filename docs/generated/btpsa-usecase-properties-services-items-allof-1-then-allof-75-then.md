@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Connectivity Service: Mobile Connectivity Service
+Mobile Sample OData: Mobile Sample OData
 
 `name`
 

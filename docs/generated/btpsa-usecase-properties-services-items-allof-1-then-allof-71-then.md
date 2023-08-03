@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Client Usage Service: Mobile Client Usage Service
+Mobile Network Trace: Mobile Network Trace
 
 `name`
 

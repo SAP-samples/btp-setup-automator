@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Work Calendar: Get details of factory calendar such as weekday, holiday, workday for a country.
+Workspace Utilization: The Workspace Utilization Management service lets you write sensor measurements to the Workspace Utilization Management API. Sensor platform providers use this API to integrate with the Workspace Utilization Management solution of SAP Cloud for Real Estate.
 
 `name`
 

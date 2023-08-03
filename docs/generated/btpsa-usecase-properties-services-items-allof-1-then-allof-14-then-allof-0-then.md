@@ -11,7 +11,7 @@ unknown
 
 ## plan
 
-service plan >blockchain-hana-integration< for >blockchain-services< is available in data centers:
+service plan >blockchain-proof-of-history< for >blockchain-services< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}

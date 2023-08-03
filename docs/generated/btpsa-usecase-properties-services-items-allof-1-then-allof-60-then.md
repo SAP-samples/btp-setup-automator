@@ -6,6 +6,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-60-then-allof-0.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-60-then-allof-1.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -35,13 +37,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value      | Explanation |
-| :--------- | :---------- |
-| `"clamav"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"default"`  |             |
+| `"standard"` |             |
 
 ## name
 
-SAP Malware Scanning service: Use SAP Malware Scanning service to scan business documents for malware. Integrate this service with your custom-developed apps running on Cloud Foundry. When your apps upload business documents, your apps can call the SAP Malware Scanning service to check for viruses or other malware.
+Market Rates, Refinitiv: The Market Rates Management, Refinitiv data option is a reuse service that allows you to import daily and historical Exchange Rates & Interest Rates from Refinitiv.
 
 `name`
 

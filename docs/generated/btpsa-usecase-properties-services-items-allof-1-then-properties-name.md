@@ -52,9 +52,7 @@ unknown
 | `"hana-cloud"`                             |             |
 | `"hana-db"`                                |             |
 | `"hana-tenant-db"`                         |             |
-| `"hl7-fhir-service"`                       |             |
 | `"html5-apps-repo"`                        |             |
-| `"hyperledger-fabric"`                     |             |
 | `"ibanservice"`                            |             |
 | `"identity"`                               |             |
 | `"INFRA"`                                  |             |
@@ -89,7 +87,6 @@ unknown
 | `"mobile-services"`                        |             |
 | `"mobile-services-preview"`                |             |
 | `"mobile-settings-exchange"`               |             |
-| `"multichain"`                             |             |
 | `"objectstore"`                            |             |
 | `"one-inbox-service"`                      |             |
 | `"one-mds"`                                |             |

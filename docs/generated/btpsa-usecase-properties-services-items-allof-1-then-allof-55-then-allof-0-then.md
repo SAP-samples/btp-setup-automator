@@ -10,12 +10,13 @@ unknown
 
 ## plan
 
-service plan >default< for >iotae< is available in data centers:
+service plan >standard< for >irpa-service< is available in data centers:
 
+*   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
+*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
+*   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
-*   {'region': 'us20', 'name': 'US West (WA)'}
 
 `plan`
 

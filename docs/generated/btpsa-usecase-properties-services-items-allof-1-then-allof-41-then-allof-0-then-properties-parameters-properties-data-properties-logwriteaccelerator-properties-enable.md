@@ -1,3 +1,0 @@
-## enable Type
-
-`boolean`

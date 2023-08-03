@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >application< for >identity< is available in data centers:
+service plan >default< for >integration-assessment< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}
