@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Connectivity Service: Mobile Connectivity Service
+Mobile Push Notification: Mobile Push Notification
 
 `name`
 

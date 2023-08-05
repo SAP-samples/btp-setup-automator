@@ -6,7 +6,9 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"lite"`     |             |
-| `"standard"` |             |
+| Value           | Explanation |
+| :-------------- | :---------- |
+| `"hdi-shared"`  |             |
+| `"sbss"`        |             |
+| `"schema"`      |             |
+| `"securestore"` |             |

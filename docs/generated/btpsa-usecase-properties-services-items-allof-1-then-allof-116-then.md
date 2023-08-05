@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"workflow"` |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"default"` |             |
 
 ## name
 
-SAP Workflow Management: Digitize workflows, manage decisions and gain end-to-end process visibility
+SAP BTP, serverless runtime: Allows you to create, manage, configure extensions on SAP Business Technology Platform
 
 `name`
 

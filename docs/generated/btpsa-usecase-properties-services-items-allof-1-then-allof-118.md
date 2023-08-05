@@ -1,3 +1,0 @@
-## 118 Type
-
-unknown

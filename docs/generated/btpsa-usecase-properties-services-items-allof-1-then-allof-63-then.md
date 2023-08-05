@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile App Catalog: Mobile App Catalog
+Mobile App Update: Mobile App Update
 
 `name`
 

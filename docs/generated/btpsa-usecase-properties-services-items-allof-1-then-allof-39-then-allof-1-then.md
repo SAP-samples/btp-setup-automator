@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >standard< for >feature-flags< is available in data centers:
+service plan >sbss< for >hana< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}

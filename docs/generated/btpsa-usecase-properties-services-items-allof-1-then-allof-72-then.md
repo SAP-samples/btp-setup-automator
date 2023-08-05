@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Offline: Mobile Offline
+Mobile Connectivity Service: Mobile Connectivity Service
 
 `name`
 

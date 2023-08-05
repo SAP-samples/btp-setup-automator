@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Content: Mobile Content
+Mobile Cloud Build: Mobile Cloud Build
 
 `name`
 

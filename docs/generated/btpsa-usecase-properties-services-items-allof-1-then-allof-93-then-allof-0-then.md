@@ -10,11 +10,9 @@ unknown
 
 ## plan
 
-service plan >free< for >recommendation-systems-production< is available in data centers:
+service plan >beta< for >responsibility-management-service-beta< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
-*   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
 

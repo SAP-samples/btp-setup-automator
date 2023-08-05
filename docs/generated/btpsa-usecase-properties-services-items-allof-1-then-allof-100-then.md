@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"standard"` |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"default"` |             |
 
 ## name
 
-SAP Big Data Services: Big Data Services
+SAP Cloud ALM, memory extension: Add extensions for special use cases that exceed the standard functions of SAP Cloud ALM under Enterprise Support. Excessively store and extend data, e.g. to upload additional data, increase run retention time, add process management assets and tenants. Leverage the development environment of SAP BTP, for example, by your own, dashboards, or enhancements.
 
 `name`
 

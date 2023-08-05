@@ -22,7 +22,6 @@ unknown
 | `"auditlog-api"`                           |             |
 | `"auditlog-management"`                    |             |
 | `"autoscaler"`                             |             |
-| `"blockchain-services"`                    |             |
 | `"build-workzone-advanced"`                |             |
 | `"build-workzone-standard"`                |             |
 | `"business-entity-recognition"`            |             |
@@ -99,7 +98,6 @@ unknown
 | `"process-automation"`                     |             |
 | `"process-automation-service"`             |             |
 | `"processvisibility"`                      |             |
-| `"quorum"`                                 |             |
 | `"rabbitmq"`                               |             |
 | `"recommendation-systems-production"`      |             |
 | `"redis-cache"`                            |             |

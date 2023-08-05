@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value       | Explanation |
-| :---------- | :---------- |
-| `"default"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"workflow"` |             |
 
 ## name
 
-Work Calendar: Get details of factory calendar such as weekday, holiday, workday for a country.
+SAP Workflow Management: Digitize workflows, manage decisions and gain end-to-end process visibility
 
 `name`
 

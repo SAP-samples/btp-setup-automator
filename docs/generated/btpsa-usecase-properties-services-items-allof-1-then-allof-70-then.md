@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Discovery: Mobile Discovery
+Mobile Network Trace: Mobile Network Trace
 
 `name`
 
