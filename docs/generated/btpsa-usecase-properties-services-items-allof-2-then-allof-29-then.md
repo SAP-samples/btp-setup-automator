@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Market Rates Management: The Manage Market Rates application enables you to read and manage market data you have uploaded by using the data options available with the SAP Market Rates Management service
+SAP Market Rates Management: The Manage Market Rates application enables you to read and manage market data you have uploaded by using the data options available with the SAP Market Rates Management service.
 
 `name`
 
