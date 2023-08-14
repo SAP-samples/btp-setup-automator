@@ -1969,7 +1969,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default","free"] },
-                                                    "name": { "description": "SAP Market Rates Management: The Market Rates Management, Bring Your Own Rates data option allows you to upload and download your own market rates licensed from third party data providers"}
+                                                    "name": { "description": "SAP Market Rates Management: The SAP Market Rates Management, Bring Your Own Rates data option allows you to upload and download your own market rates licensed from third party data providers. It includes upload and download APIs that enable you to upload and download market data in a format compatible with an SAP S/4HANA system."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -1995,7 +1995,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default","standard"] },
-                                                    "name": { "description": "Market Rates, Refinitiv: The Market Rates Management, Refinitiv data option is a reuse service that allows you to import daily and historical Exchange Rates & Interest Rates from Refinitiv."}
+                                                    "name": { "description": "Market Rates, Refinitiv: The Refinitiv data option for SAP Market Rates Management provides market rates on a daily basis or for a specified date range that you can use in SAP S/4HANA systems. It includes the Download Market Data service, which is a reuse service that allows you to import market data."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -2555,7 +2555,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["free","premium","standard","storage","storage_ha"] },
-                                                    "name": { "description": "PostgreSQL on SAP BTP, hyperscaler option: The PostgreSQL service on SAP BTP provides a way to directly consume the PostgreSQL service provided by the infrastructure providers such as AWS and Azure."}
+                                                    "name": { "description": "PostgreSQL on SAP BTP, hyperscaler option: PostgreSQL on SAP BTP, hyperscaler option provides a managed relational database service, based on native PostgreSQL offerings from cloud providers AWS, Microsoft Azure, Google Cloud Platform and Alicloud."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -4089,7 +4089,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["mror","mrtr"] },
-                                                    "name": { "description": "SAP Market Rates Management: The Manage Market Rates application enables you to read and manage market data you have uploaded by using the data options available with the SAP Market Rates Management service."}
+                                                    "name": { "description": "SAP Market Rates Management: SAP Market Rates Management application enables you to read and manage market data you have uploaded by using the data options available with the SAP Market Rates Management service."}
                                                 },
                                                 "allOf": [
                                                     {
