@@ -17,6 +17,15 @@
             "title": "host region for the BTP CLI calls",
             "default": "eu10"
         },
+        "btplogonidp": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "The tenant ID of a custom identity provider if configured for the global account. To be found in the cockpit under Trust Configuration.",
+            "title": "custom IDP for BTP logon",
+            "default": null
+        },
         "cfcliapihostregion": {
             "type": [
                 "string",
