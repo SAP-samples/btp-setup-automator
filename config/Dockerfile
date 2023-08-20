@@ -97,7 +97,7 @@ ARG BTPSA_VERSION_GIT_ARG=default
 ##################################################################################################################################################
 # Now putting all pieces together
 ##################################################################################################################################################
-FROM --platform=linux/amd64 python:3.10-alpine3.16 AS final_build
+FROM --platform=linux/amd64 python:3.10-alpine3.18 AS final_build
 ENV USERNAME=user
 ENV HOME_FOLDER /home/$USERNAME
 ENV LIBS_FOLDER $HOME_FOLDER/libs
