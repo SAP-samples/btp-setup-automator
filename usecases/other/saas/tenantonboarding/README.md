@@ -68,9 +68,9 @@ For the Onboarding, the usage of the **btp-setup-automator** includes a plethora
 7) Creating a **Service Instance** for the Service Broker registration configured during the SaaS subscription
 8) Creating a **Service Binding** for the new Service Instance consumable by the SaaS subscriber
 
-You can find further details in the following CAP Service of our sample project, covering the described steps as part of the **onboardTenant** function. 
+You can find further details in the following CAP Service of our sample project, covering the described steps as part of the **onboardTenant** function.
 
-https://github.com/SAP-samples/btp-kyma-cap-multitenant-susaas/blob/main/code/obd/srv/obd-service.js
+<https://github.com/SAP-samples/btp-cap-multitenant-saas/blob/main/docu/4-expert/-Kyma-/saas-self-onboarding/files/code/srv/obd-service.js>
 
 ```yaml
 command: [
@@ -104,7 +104,7 @@ command: [
 
 Upon successful completion of the Job, which encompasses the setup of the new Subaccount along with all the necessary objects and configurations, an automated cleanup process takes place within the Kyma cluster. This process ensures the removal of both the Kubernetes Job and the associated Pod, thereby maintaining a clean and efficient environment. Also the Offboarding process for SaaS customers is supported in a Self-Service manner. Once a SaaS customer decides to offboard and delete his SaaS subscription, a similar Kubernetes Job is spinned up by CAP (leveraging the Kubernetes API), which will run the following tasks:
 
-1) Deleting the **Service Binding** that was created for the Service Instance 
+1) Deleting the **Service Binding** that was created for the Service Instance
 2) Deleting the **Service Instance** before the actual SaaS solution is unsubscribed
 3) Pruning the **Subaccount**, which will automatically delete the SaaS subscription
 
@@ -112,20 +112,19 @@ Upon successful completion of the Job, which encompasses the setup of the new Su
 
 You can find further details in the following CAP Service of our sample project, covering the described steps as part of the **offboardTenant** function. 
 
-https://github.com/SAP-samples/btp-kyma-cap-multitenant-susaas/blob/main/code/obd/srv/obd-service.js
+<https://github.com/SAP-samples/btp-cap-multitenant-saas/blob/main/docu/4-expert/-Kyma-/saas-self-onboarding/files/code/srv/obd-service.js>
 
 This is a streamlined method for offboarding a SaaS tenant, employing the **btp-setup-automator** with a nearly empty **usecase.json** file. The effective "offboarding" and deletion of the SaaS subscription and the associated consumer Subaccount are facilitated through the **pruneSubaccount** flag in the **parameters.json** file. In a sophisticated setup where a subscriber Subaccount serves multiple SaaS solutions, the option of deleting the entire Subaccount may not align with your requirements.
-
 
 **Further information**
 
 To explore further details on using the btp-setup-automator, we recommend referring to the SAP-samples GitHub repository. Within the repository, you will find a comprehensive step-by-step guide that walks you through the process. Additionally, a SaaS sample application is provided, which serves as a practical example for implementing the automation using the btp-setup-automator.
 
-The guide in the repository offers detailed instructions, ensuring a clear understanding of the setup and usage of the btp-setup-automator. By following the steps outlined in the guide, you can effectively leverage the automation capabilities and adapt them to your specific requirements. We encourage you to explore the SAP-samples repository for a hands-on experience with the **btp-setup-automator**. 
+The guide in the repository offers detailed instructions, ensuring a clear understanding of the setup and usage of the btp-setup-automator. By following the steps outlined in the guide, you can effectively leverage the automation capabilities and adapt them to your specific requirements. We encourage you to explore the SAP-samples repository for a hands-on experience with the **btp-setup-automator**.
 
-[SAP-samples - Develop a multitenant Software as a Service application in SAP BTP using CAP](https://github.com/SAP-samples/btp-kyma-cap-multitenant-susaas/)
+[SAP-samples - Develop a multitenant Software as a Service application in SAP BTP using CAP](https://github.com/SAP-samples/btp-cap-multitenant-saas)
 
-[Expert Scope - Self-Registration, Onboarding Automation and One-Domain Concept](https://github.com/SAP-samples/btp-kyma-cap-multitenant-susaas/tree/main/docu/4-expert/onboard-automation-domain)
+[Expert Scope - Self-Registration, Onboarding Automation and One-Domain Concept](https://github.com/SAP-samples/btp-cap-multitenant-saas/tree/main/docu/4-expert/-Kyma-/saas-self-onboarding)
 
 We invite you to explore the corresponding blog post, which offers valuable insights into the Subaccount onboarding automation and self-registration process and the workings of the btp-setup-automator when integrated into a new Kyma/Kubernetes Job. The blog post includes a collection of screenshots that provide a visual representation of the self-registration experience and offer a glimpse into the underlying processes.
 
@@ -144,4 +143,3 @@ POST https://api.cf.eu10.hana.ondemand.com/v3/apps/8dd76b82-aeca-4bfb-aec5-21a0f
     "memory_in_mb": 256
 }
 ```
-
