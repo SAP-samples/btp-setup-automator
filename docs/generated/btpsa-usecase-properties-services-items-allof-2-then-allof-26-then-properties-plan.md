@@ -8,6 +8,5 @@ unknown
 
 | Value          | Explanation |
 | :------------- | :---------- |
-| `"concurrent"` |             |
-| `"default"`    |             |
-| `"free"`       |             |
+| `"oneproduct"` |             |
+| `"standard"`   |             |

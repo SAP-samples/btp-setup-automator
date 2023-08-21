@@ -10,10 +10,9 @@ unknown
 
 ## plan
 
-application plan >standard< for >mdgce< is available in data centers:
+application plan >mrtr< for >market-rates-ux< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
