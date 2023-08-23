@@ -47,7 +47,7 @@ unknown
 
 ## name
 
-Object Store on SAP BTP: Object Store on SAP BTP provisions an object storage space that can be used by applications to store and manage objects.
+Object Store on SAP BTP: Object Store service on SAP BTP lets you store and manage objects, which involves creation, upload, download, and deletion. This service is specific to the IaaS layer such as Azure Blob Storage, Amazon Web Services, and Google Cloud Platform.
 
 `name`
 

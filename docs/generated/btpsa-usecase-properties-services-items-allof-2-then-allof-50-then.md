@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-SAP Build Work Zone, advanced edition: Increase the productivity and engagement for your employees as well as interact with partners and customers in a multi-channel digital experience. Note: SAP Work Zone was recently renamed to SAP Build Work Zone, advanced edition.
+SAP Build Work Zone, advanced edition: SAP Build Work Zone, advanced edition lets you build digital workplace solutions to increase user productivity and engagement. It centralizes access to relevant business applications, processes, information, and communication in a unified entry point that your users can access from any device. Note: SAP Work Zone was recently renamed to SAP Build Work Zone, advanced edition.
 
 `name`
 
