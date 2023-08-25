@@ -120,6 +120,7 @@ The major version of the PostgreSQL database to use. If not provided, the major 
 | `"11"` |             |
 | `"12"` |             |
 | `"13"` |             |
+| `"14"` |             |
 
 ### engine\_version Default Value
 
