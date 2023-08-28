@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Workspace Utilization: The Workspace Utilization Management service lets you write sensor measurements to the Workspace Utilization Management API. Sensor platform providers use this API to integrate with the Workspace Utilization Management solution of SAP Cloud for Real Estate.
+Workspace Utilization: The Workspace Utilization service lets you assign sensors to workplaces and spaces. These sensors measure how your workspaces are used. The Workspace Utilization service integrates with SAP Cloud for Real Estate and SAP Analytics Cloud to analyze, manage, and optimize your workspaces.
 
 `name`
 
