@@ -3822,7 +3822,7 @@
                                                         "if": { "properties": { "plan": { "const": "Enterprise"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "application plan >Enterprise< for >edge-services< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us20', 'name': 'US West (WA)'}" }
+                                                                "plan": { "description": "application plan >Enterprise< for >edge-services< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}" }
                                                                 
                                                             }
                                                         }
@@ -3866,7 +3866,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "application plan >standard< for >event-mesh-sap2sap< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "application plan >standard< for >event-mesh-sap2sap< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }

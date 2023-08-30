@@ -14,6 +14,7 @@ application plan >standard< for >event-mesh-sap2sap< is available in data center
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
+*   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
