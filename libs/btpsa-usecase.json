@@ -2619,7 +2619,7 @@
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "service plan >receiver< for >print< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
-                                                                , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "properties": {"notifications": {"default": [{"destinationName": "", "usage": ""}], "items": {"additionalProperties": false, "properties": {"destinationName": {"default": "", "pattern": "^[\\w-]{0,200}$", "type": "string"}, "usage": {"default": "", "enum": ["OMS", "ISN", ""], "type": "string"}}, "type": "object"}, "maxItems": 1, "minItems": 0, "type": "array"}}, "type": "object"}
+                                                                , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "properties": {"notifications": {"default": [{"destinationName": "", "usage": ""}], "items": {"additionalProperties": false, "properties": {"destinationName": {"default": "", "pattern": "^[\\w-]{0,200}$", "type": "string"}, "usage": {"default": "", "enum": ["OMS", "ISN", "EDGE", ""], "type": "string"}}, "type": "object"}, "maxItems": 1, "minItems": 0, "type": "array"}}, "type": "object"}
 
                                                             }, "required" : ["parameters"]
 
