@@ -4,11 +4,12 @@
 
 # parameters Properties
 
-| Property                        | Type    | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                    |
-| :------------------------------ | :------ | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [grant-types](#grant-types)     | `array` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-55-then-allof-1-then-properties-parameters-properties-grant-types.md "undefined#/properties/services/items/allOf/1/then/allOf/55/then/allOf/1/then/properties/parameters/properties/grant-types")     |
-| [redirect-uris](#redirect-uris) | `array` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-55-then-allof-1-then-properties-parameters-properties-redirect-uris.md "undefined#/properties/services/items/allOf/1/then/allOf/55/then/allOf/1/then/properties/parameters/properties/redirect-uris") |
-| [roles](#roles)                 | `array` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-55-then-allof-1-then-properties-parameters-properties-roles.md "undefined#/properties/services/items/allOf/1/then/allOf/55/then/allOf/1/then/properties/parameters/properties/roles")                 |
+| Property                          | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                        |
+| :-------------------------------- | :-------- | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [grant-types](#grant-types)       | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-55-then-allof-1-then-properties-parameters-properties-grant-types.md "undefined#/properties/services/items/allOf/1/then/allOf/55/then/allOf/1/then/properties/parameters/properties/grant-types")                         |
+| [redirect-uris](#redirect-uris)   | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-55-then-allof-1-then-properties-parameters-properties-redirect-uris.md "undefined#/properties/services/items/allOf/1/then/allOf/55/then/allOf/1/then/properties/parameters/properties/redirect-uris")                     |
+| [roles](#roles)                   | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-55-then-allof-1-then-properties-parameters-properties-roles.md "undefined#/properties/services/items/allOf/1/then/allOf/55/then/allOf/1/then/properties/parameters/properties/roles")                                     |
+| [token-validity](#token-validity) | `integer` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-55-then-allof-1-then-properties-parameters-properties-access-token-validity-in-seconds.md "undefined#/properties/services/items/allOf/1/then/allOf/55/then/allOf/1/then/properties/parameters/properties/token-validity") |
 
 ## grant-types
 
@@ -108,4 +109,36 @@ The default value is:
 [
   "ESBMessaging.send"
 ]
+```
+
+## token-validity
+
+Defines the validity of the access token
+
+`token-validity`
+
+*   is optional
+
+*   Type: `integer` ([Access Token Validity (in seconds)](btpsa-usecase-properties-services-items-allof-1-then-allof-55-then-allof-1-then-properties-parameters-properties-access-token-validity-in-seconds.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-55-then-allof-1-then-properties-parameters-properties-access-token-validity-in-seconds.md "undefined#/properties/services/items/allOf/1/then/allOf/55/then/allOf/1/then/properties/parameters/properties/token-validity")
+
+### token-validity Type
+
+`integer` ([Access Token Validity (in seconds)](btpsa-usecase-properties-services-items-allof-1-then-allof-55-then-allof-1-then-properties-parameters-properties-access-token-validity-in-seconds.md))
+
+### token-validity Constraints
+
+**maximum**: the value of this number must smaller than or equal to: `86400`
+
+**minimum**: the value of this number must greater than or equal to: `3600`
+
+### token-validity Default Value
+
+The default value is:
+
+```json
+3600
 ```
