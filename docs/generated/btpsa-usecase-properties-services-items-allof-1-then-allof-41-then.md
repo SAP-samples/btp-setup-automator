@@ -20,6 +20,18 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-7.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-8.md "check type definition")
+
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-9.md "check type definition")
+
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-10.md "check type definition")
+
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-11.md "check type definition")
+
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-12.md "check type definition")
+
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-13.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -49,20 +61,26 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value                                      | Explanation |
-| :----------------------------------------- | :---------- |
-| `"adaptive-server-enterprise"`             |             |
-| `"adaptive-server-enterprise-replication"` |             |
-| `"hana"`                                   |             |
-| `"hana-cloud-connection"`                  |             |
-| `"hana-cloud-connection-free"`             |             |
-| `"hana-free"`                              |             |
-| `"relational-data-lake"`                   |             |
-| `"relational-data-lake-free"`              |             |
+| Value            | Explanation |
+| :--------------- | :---------- |
+| `"1024premium"`  |             |
+| `"1024standard"` |             |
+| `"128premium"`   |             |
+| `"128standard"`  |             |
+| `"2048premium"`  |             |
+| `"2048standard"` |             |
+| `"256premium"`   |             |
+| `"256standard"`  |             |
+| `"512premium"`   |             |
+| `"512standard"`  |             |
+| `"64premium"`    |             |
+| `"64standard"`   |             |
+| `"enterprise"`   |             |
+| `"standard"`     |             |
 
 ## name
 
-SAP HANA Cloud: SAP HANA Cloud provides a single place to access, store, and process all enterprise data in real time. It is a cloud-native platform that reduces the complexity of multi-cloud or hybrid system landscapes. SAP HANA Cloud provides all of the advanced SAP HANA technologies for multi-model data processing in-memory or on disk. You can benefit from cloud qualities such as automatic software updates, elasticity, and low total cost of ownership by using SAP HANA Cloud either as a stand-alone solution or as an extension to your existing on-premise environment.
+SAP HANA service for SAP BTP: The SAP HANA service allows you to leverage the in-memory data processing capabilities of SAP HANA in the cloud. As a managed database service, backups are fully automated and service availability guaranteed. Using the SAP HANA service, you can set up and manage SAP HANA databases and bind them to applications running on SAP Business Technology Platform. You can access SAP HANA databases using a variety of languages and interfaces, as well as build applications and models using tools provided with SAP HANA.
 
 `name`
 

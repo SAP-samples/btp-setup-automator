@@ -8,6 +8,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-25-then-allof-1.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-25-then-allof-2.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -37,14 +39,15 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value          | Explanation |
-| :------------- | :---------- |
-| `"oneproduct"` |             |
-| `"standard"`   |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"beta"`     |             |
+| `"free"`     |             |
+| `"standard"` |             |
 
 ## name
 
-SAP IoT: SAP IoT business services allow you to put raw sensor data into business object context and then use query models, rules, events and actions to leverage the data near real-time in analytical or transactional business applications.
+Intelligent Situation Automation: Intelligent Situation Automation is an extension of Situation Handling. It processes situations raised and resolves them automatically using business rules, thus reducing the time users spend on routine manual and repetitive tasks.
 
 `name`
 

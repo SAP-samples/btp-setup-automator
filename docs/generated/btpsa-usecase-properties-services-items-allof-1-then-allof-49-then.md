@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value              | Explanation |
-| :----------------- | :---------- |
-| `"custom_domains"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"standard"` |             |
 
 ## name
 
-SAP Custom Domain service: The SAP Business Technology Platform Custom Domain service lets you configure your own custom domain to expose publicly your SAP Business Technology Platform application instead of using the default subdomain.
+SAP S/4HANA Cloud for intelligent intercompany reconciliation: Intelligent Intercompany Reconciliation is introduced to speed up your intercompany reconciliation process from company close to corporate close. The service is based on Artificial Intelligence in order to reconcile your financial data with high accuracy.
 
 `name`
 

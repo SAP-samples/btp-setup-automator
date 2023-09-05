@@ -37,14 +37,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value                | Explanation |
-| :------------------- | :---------- |
-| `"api"`              |             |
-| `"integration-flow"` |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"default"` |             |
+| `"free"`    |             |
 
 ## name
 
-Process Integration Runtime: Provides access to the integration flow endpoints and public APIs of the Cloud Integration capability of Integration Suite. You need this service instance only if you want to execute the integration flows or access Cloud Integration resources via APIs.
+SAP Market Rates Management: The SAP Market Rates Management, Bring Your Own Rates data option allows you to upload and download your own market rates licensed from third party data providers. It includes upload and download APIs that enable you to upload and download market data in a format compatible with an SAP S/4HANA system.
 
 `name`
 

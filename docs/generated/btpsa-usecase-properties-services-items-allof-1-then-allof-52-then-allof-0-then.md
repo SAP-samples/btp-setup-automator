@@ -10,9 +10,12 @@ unknown
 
 ## plan
 
-service plan >standard< for >intercompany-reconciliation< is available in data centers:
+service plan >default< for >iotae< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
+*   {'region': 'us10', 'name': 'US East (VA)'}
+*   {'region': 'us20', 'name': 'US West (WA)'}
 
 `plan`
 

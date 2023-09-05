@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Client Resource Service: Mobile Client Resource Service
+Mobile Network Trace: Mobile Network Trace
 
 `name`
 

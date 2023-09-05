@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Discovery: Mobile Discovery
+Mobile Connectivity Service: Mobile Connectivity Service
 
 `name`
 

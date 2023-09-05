@@ -6,8 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-108-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-108-then-allof-1.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                              |
@@ -37,14 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value    | Explanation |
-| :------- | :---------- |
-| `"api"`  |             |
-| `"free"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"standard"` |             |
 
 ## name
 
-SAP Graph: SAP Graph is a new unified API for SAP, using modern open standards like OData v4. With SAP Graph, developers access SAP-managed business data as a single semantically connected data graph, spanning the suite of SAP products. Targeting SAP's ecosystem of developers and customers, SAP Graph's one API and Business Data Graph reduce the cost and complexity of creating and deploying reusable extension applications. The unified API exposes a unified graph-like model of business objects (entities) and relationships. As a BTP service, SAP Graph is compatible with SAP Cloud Application Programming (CAP) extension solutions, events managed via SAP Event Mesh, and No-Code/Low-Code applications like SAP AppGyver. SAP Graph uses open standards, such as OData v.4 and OAuth, thus allowing you to easily build applications and extensions for the SAP Intelligent Enterprise.
+UI theme designer: The UI theme designer lets you apply your corporate branding to applications built with SAP UI technologies. You can make changes to theme templates supplied by SAP to create custom themes that use your own color scheme, background images, and company logo. You can apply a custom theme to various SAP UI clients and technologies. Additionally, you can include your own custom CSS files without having to modify any of your applications.
 
 `name`
 

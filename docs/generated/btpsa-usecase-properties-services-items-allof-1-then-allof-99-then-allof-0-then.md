@@ -10,14 +10,10 @@ unknown
 
 ## plan
 
-service plan >standard< for >responsibilitymanagement-service< is available in data centers:
+service plan >standard< for >sap-build-apps-runtime< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
-*   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
-*   {'region': 'us20', 'name': 'US West (WA)'}
-*   {'region': 'us21', 'name': 'US East (VA)'}
 
 `plan`
 

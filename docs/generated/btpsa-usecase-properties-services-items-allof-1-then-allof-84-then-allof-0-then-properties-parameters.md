@@ -4,65 +4,19 @@
 
 # parameters Properties
 
-| Property                                      | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                  |
-| :-------------------------------------------- | :-------- | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [businessSystemId](#businesssystemid)         | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-businesssystemid.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/businessSystemId")         |
-| [enableTenantDeletion](#enabletenantdeletion) | `boolean` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-enabletenantdeletion.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/enableTenantDeletion") |
-| [globalTenantId](#globaltenantid)             | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-globaltenantid.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/globalTenantId")             |
-| [logSys](#logsys)                             | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-logsys.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/logSys")                             |
-| [writePermissions](#writepermissions)         | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-writepermissions.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/writePermissions")         |
+| Property                           | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                                                 |
+| :--------------------------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [allow\_access](#allow_access)     | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-allow_access.md "http://example.com/schemas/postgres-free-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/allow_access")     |
+| [engine\_version](#engine_version) | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-engine_version.md "http://example.com/schemas/postgres-free-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/engine_version") |
+| [locale](#locale)                  | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-locale.md "http://example.com/schemas/postgres-free-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/locale")                 |
+| [region](#region)                  | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-region.md "http://example.com/schemas/postgres-free-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/region")                 |
+| Additional Properties              | Any      | Optional | can be null    |                                                                                                                                                                                                                                                                                                                                                            |
 
-## businessSystemId
+## allow\_access
 
-Name to be displayed in SAP Master Data Orchestration UI. If not provided, a random UUID will be assigned.
+Comma separated list of IPs and CF landscape domains from which connectivity to the instance can be established. Default behaviour will be to block all access to the instance from any public IP or CF Domain.
 
-`businessSystemId`
-
-*   is optional
-
-*   Type: `string`
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-businesssystemid.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/businessSystemId")
-
-### businessSystemId Type
-
-`string`
-
-### businessSystemId Constraints
-
-**pattern**: the string must match the following regular expression:&#x20;
-
-```regexp
-^.{1,60}$
-```
-
-[try pattern](https://regexr.com/?expression=%5E.%7B1%2C60%7D%24 "try regular expression with regexr.com")
-
-## enableTenantDeletion
-
-Boolean flag to be set to true for confirming deletion of last service instance for the tenant.
-
-`enableTenantDeletion`
-
-*   is optional
-
-*   Type: `boolean`
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-enabletenantdeletion.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/enableTenantDeletion")
-
-### enableTenantDeletion Type
-
-`boolean`
-
-## globalTenantId
-
-A name for the last significant writer (client) following the Globally Unique Tenant ID (GTID) specification.
-
-`globalTenantId`
+`allow_access`
 
 *   is optional
 
@@ -70,27 +24,17 @@ A name for the last significant writer (client) following the Globally Unique Te
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-globaltenantid.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/globalTenantId")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-allow_access.md "http://example.com/schemas/postgres-free-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/allow_access")
 
-### globalTenantId Type
+### allow\_access Type
 
 `string`
 
-### globalTenantId Constraints
+## engine\_version
 
-**pattern**: the string must match the following regular expression:&#x20;
+The major version of the PostgreSQL database to use. If not provided, the major version is defaulted to 12
 
-```regexp
-^[A-Za-z0-9-._~]{1,40}$
-```
-
-[try pattern](https://regexr.com/?expression=%5E%5BA-Za-z0-9-._~%5D%7B1%2C40%7D%24 "try regular expression with regexr.com")
-
-## logSys
-
-The logical system.
-
-`logSys`
+`engine_version`
 
 *   is optional
 
@@ -98,36 +42,99 @@ The logical system.
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-logsys.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/logSys")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-engine_version.md "http://example.com/schemas/postgres-free-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/engine_version")
 
-### logSys Type
+### engine\_version Type
 
 `string`
 
-### logSys Constraints
+### engine\_version Constraints
 
-**pattern**: the string must match the following regular expression:&#x20;
+**enum**: the value of this property must be equal to one of the following values:
 
-```regexp
-^.{1,10}$
+| Value  | Explanation |
+| :----- | :---------- |
+| `"11"` |             |
+| `"12"` |             |
+| `"13"` |             |
+| `"14"` |             |
+
+### engine\_version Default Value
+
+The default value is:
+
+```json
+"12"
 ```
 
-[try pattern](https://regexr.com/?expression=%5E.%7B1%2C10%7D%24 "try regular expression with regexr.com")
+## locale
 
-## writePermissions
+Indicates the locale for the instance (TODO)
 
-Array of entities the service instance has write permission for
-
-`writePermissions`
+`locale`
 
 *   is optional
 
-*   Type: `object[]` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-writepermissions-items.md))
+*   Type: `string`
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-writepermissions.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/writePermissions")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-locale.md "http://example.com/schemas/postgres-free-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/locale")
 
-### writePermissions Type
+### locale Type
 
-`object[]` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-writepermissions-items.md))
+`string`
+
+### locale Default Value
+
+The default value is:
+
+```json
+"en_US"
+```
+
+## region
+
+The infrastructure region where the instance will be deployed.
+
+`region`
+
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-0-then-properties-parameters-properties-region.md "http://example.com/schemas/postgres-free-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/0/then/properties/parameters/properties/region")
+
+### region Type
+
+`string`
+
+### region Constraints
+
+**enum**: the value of this property must be equal to one of the following values:
+
+| Value              | Explanation |
+| :----------------- | :---------- |
+| `"ap-northeast-1"` |             |
+| `"ap-northeast-2"` |             |
+| `"ap-northeast-3"` |             |
+| `"ap-south-1"`     |             |
+| `"ap-southeast-1"` |             |
+| `"ap-southeast-2"` |             |
+| `"ca-central-1"`   |             |
+| `"eu-central-1"`   |             |
+| `"eu-north-1"`     |             |
+| `"eu-west-1"`      |             |
+| `"eu-west-2"`      |             |
+| `"eu-west-3"`      |             |
+| `"sa-east-1"`      |             |
+| `"us-east-1"`      |             |
+| `"us-east-2"`      |             |
+| `"us-west-1"`      |             |
+| `"us-west-2"`      |             |
+
+## Additional Properties
+
+Additional properties are allowed and do not have to follow a specific schema

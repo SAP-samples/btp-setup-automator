@@ -37,14 +37,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"default"`  |             |
-| `"standard"` |             |
+| Value                | Explanation |
+| :------------------- | :---------- |
+| `"api"`              |             |
+| `"integration-flow"` |             |
 
 ## name
 
-SAP IoT: SAP IoT business services allow you to put raw sensor data into business object context and then use query models, rules, events and actions to leverage the data near real-time in analytical or transactional business applications.
+Process Integration Runtime: Provides access to the integration flow endpoints and public APIs of the Cloud Integration capability of Integration Suite. You need this service instance only if you want to execute the integration flows or access Cloud Integration resources via APIs.
 
 `name`
 

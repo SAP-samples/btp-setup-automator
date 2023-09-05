@@ -8,4 +8,6 @@ unknown
 
 | Value          | Explanation |
 | :------------- | :---------- |
-| `"enterprise"` |             |
+| `"concurrent"` |             |
+| `"default"`    |             |
+| `"free"`       |             |

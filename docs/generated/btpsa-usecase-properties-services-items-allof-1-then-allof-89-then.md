@@ -39,12 +39,12 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"receiver"` |             |
-| `"sender"`   |             |
+| `"standard"` |             |
+| `"workflow"` |             |
 
 ## name
 
-SAP Print service: Manage print queues, connect print clients and monitor print status
+Process Visibility: Provides end-to-end visibility into processes that run in cloud, on-premise & in hybrid environments
 
 `name`
 

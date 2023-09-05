@@ -37,14 +37,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"free"`     |             |
-| `"standard"` |             |
+| Value    | Explanation |
+| :------- | :---------- |
+| `"mror"` |             |
+| `"mrtr"` |             |
 
 ## name
 
-SAP Master Data Governance, cloud edition: SAP Master Data Governance, cloud edition supports you in maintaining a high level of master data quality, offering capabilities to manage core attributes of business partners and to evaluate their quality.
+SAP Market Rates Management: SAP Market Rates Management application enables you to read and manage market data you have uploaded by using the data options available with the SAP Market Rates Management service.
 
 `name`
 

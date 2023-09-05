@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-application plan >tools< for >hana-cloud-tools< is available in data centers:
+application plan >dashboard< for >feature-flags-dashboard< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}

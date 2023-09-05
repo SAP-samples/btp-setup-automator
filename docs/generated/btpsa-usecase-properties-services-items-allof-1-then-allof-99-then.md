@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Responsibility Management service: As we move toward an intelligent enterprise, intelligent systems need to determine agents who are responsible for business processes and objects, and automatically notify them. It is essential to define and manage these responsibilities for various contexts and retrieve responsible agents who can respond to tasks and activities.
+SAP Build Apps runtime: The runtime service for SAP Build Apps. Allows connectivity to visual cloud functions applications developed and deployed on the SAP Build Apps runtime. A subscription to SAP Build Apps is required to use this service.
 
 `name`
 

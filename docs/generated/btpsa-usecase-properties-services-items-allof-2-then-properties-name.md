@@ -27,6 +27,7 @@ unknown
 | `"eadesigner"`                                  |             |
 | `"edge-services"`                               |             |
 | `"enterprise-messaging-hub"`                    |             |
+| `"event-mesh-sap2sap"`                          |             |
 | `"extension-center"`                            |             |
 | `"feature-flags-dashboard"`                     |             |
 | `"hana-cloud-tools"`                            |             |

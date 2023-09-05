@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Offline: Mobile Offline
+Mobile Sample OData: Mobile Sample OData
 
 `name`
 

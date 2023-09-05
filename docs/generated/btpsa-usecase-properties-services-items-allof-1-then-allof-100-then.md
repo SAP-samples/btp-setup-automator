@@ -6,8 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-100-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-100-then-allof-1.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                              |
@@ -37,14 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"free"`     |             |
-| `"standard"` |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"default"` |             |
 
 ## name
 
-SAP Data Retention Manager: The SAP Business Technology Platform Data Retention Manager lets you block or delete personal data based on the residence and retention rules maintained.
+SAP Cloud ALM, memory extension: Add extensions for special use cases that exceed the standard functions of SAP Cloud ALM under Enterprise Support. Excessively store and extend data, e.g. to upload additional data, increase run retention time, add process management assets and tenants. Leverage the development environment of SAP BTP, for example, by your own, dashboards, or enhancements.
 
 `name`
 

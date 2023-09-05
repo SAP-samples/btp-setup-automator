@@ -1,0 +1,3 @@
+## dpserver Type
+
+`boolean`

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Document Information Extraction UI: UI Application to upload document for extraction to Document Information Extraction and correct the results.
+Document Information Extraction UI: Document Information Extraction helps you to process various documents that have content in headers and tables. You can use the extracted information, for example, to automatically process payables, invoices, or payment notes while making sure that invoices and payables match.
 
 `name`
 

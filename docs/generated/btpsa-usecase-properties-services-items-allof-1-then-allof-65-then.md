@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile App Catalog: Mobile App Catalog
+Mobile Cloud Build: Mobile Cloud Build
 
 `name`
 

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Services, preview: Mobile Services Preview gives you an opportunity to test new features a couple of weeks before their production release of Mobile Services. Mobile Services Preview is not intended as a production environment. Use Mobile Services Preview to provide mobile access to enterprise information. Key features include app content lifecycle management, push notifications and support for offline apps, app security, app monitoring and usage reporting. Mobile Services Preview can be used for native built apps, Mobile Development Kit apps and SAP Mobile Cards. Get started by clicking on the Support link below.
+SAP Task Center: The SAP Task Center service enables integration with SAP applications to provide a single entry point for end users to access all their assigned approval tasks. The tasks can be accessed by end users through the SAP Task Center Web application.
 
 `name`
 

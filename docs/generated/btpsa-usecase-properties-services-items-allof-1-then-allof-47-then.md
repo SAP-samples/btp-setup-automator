@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-IBAN service: Check validity and get details of given IBAN number.
+Integration Assessment: Provides technical access to Integration Assessment.
 
 `name`
 

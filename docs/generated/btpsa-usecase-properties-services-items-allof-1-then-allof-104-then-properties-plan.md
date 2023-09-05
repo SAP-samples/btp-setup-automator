@@ -6,7 +6,7 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value                         | Explanation |
-| :---------------------------- | :---------- |
-| `"additional-active-users"`   |             |
-| `"additional-capacity-units"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"free"`     |             |
+| `"standard"` |             |

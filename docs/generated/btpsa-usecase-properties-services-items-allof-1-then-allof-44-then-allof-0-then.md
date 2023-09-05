@@ -10,9 +10,10 @@ unknown
 
 ## plan
 
-service plan >default< for >hl7-fhir-service< is available in data centers:
+service plan >default< for >ibanservice< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
 

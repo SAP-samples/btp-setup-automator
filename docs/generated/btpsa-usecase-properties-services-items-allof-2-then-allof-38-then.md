@@ -6,8 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-38-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-38-then-allof-1.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -39,12 +37,11 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"free"`     |             |
 | `"standard"` |             |
 
 ## name
 
-SAP Build Process Automation: SAP Build Process Automation combines capabilities from SAP Workflow Management and SAP Intelligent RPA with a powerful, yet intuitive no-code development experience. SAP Build Process Automation enables business users and technologists to become citizen developers. With powerful yet intuitive low-code and no-code capabilities, the solution supports you in driving automation by tapping into the expertise of citizen developers.
+SAP Print service: SAP Print service is used in business applications that are based on SAP Business Technology Platform (BTP) as well as other SAP Cloud products across SAP Intelligent Enterprise Suite. Using this service, the business application's development team can easily establish the connection between SAP Print service and the customer’s local printers. This means you can significantly reduce the development effort.
 
 `name`
 

@@ -6,6 +6,12 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-105-then-allof-0.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-105-then-allof-1.md "check type definition")
+
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-105-then-allof-2.md "check type definition")
+
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-105-then-allof-3.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                              |
@@ -35,13 +41,16 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"standard"` |             |
+| Value                       | Explanation |
+| :-------------------------- | :---------- |
+| `"container"`               |             |
+| `"service-operator-access"` |             |
+| `"subaccount-admin"`        |             |
+| `"subaccount-audit"`        |             |
 
 ## name
 
-SAP Build Apps runtime: The runtime service for SAP Build Apps. Allows connectivity to visual cloud functions applications developed and deployed on the SAP Build Apps runtime. A subscription to SAP Build Apps is required to use this service.
+SAP Service Manager: SAP Service Manager service allows you to consume platform services in any connected runtime environment, track service instances creation, and share services and service instances between different environments.
 
 `name`
 

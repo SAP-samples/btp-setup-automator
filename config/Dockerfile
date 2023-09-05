@@ -32,7 +32,7 @@ FROM base AS btp_cli
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 WORKDIR /tmp/tools
 
-RUN BTP_CLI_VERSION="2.38.0" \
+RUN BTP_CLI_VERSION="2.49.0" \
   && curl --fail --silent --location --cookie eula_3_1_agreed="$TOOLS_URL/developer-license-3_1.txt" \
     --url "https://$TOOLS_URL/additional/btp-cli-$ARCH-$BTP_CLI_VERSION.tar.gz" \
     | tar -xzf - --strip-components 1 "$ARCH/btp"
@@ -97,7 +97,7 @@ ARG BTPSA_VERSION_GIT_ARG=default
 ##################################################################################################################################################
 # Now putting all pieces together
 ##################################################################################################################################################
-FROM --platform=linux/amd64 python:3.10-alpine3.16 AS final_build
+FROM --platform=linux/amd64 python:3.10-alpine3.18 AS final_build
 ENV USERNAME=user
 ENV HOME_FOLDER /home/$USERNAME
 ENV LIBS_FOLDER $HOME_FOLDER/libs

@@ -13,7 +13,6 @@ unknown
 application plan >Standard< for >edge-services< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
 
 `plan`
 

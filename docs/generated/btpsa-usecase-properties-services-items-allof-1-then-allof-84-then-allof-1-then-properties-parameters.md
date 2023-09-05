@@ -4,20 +4,25 @@
 
 # parameters Properties
 
-| Property                                      | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                  |
-| :-------------------------------------------- | :-------- | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [application](#application)                   | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-application.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/application")                   |
-| [businessSystemId](#businesssystemid)         | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-businesssystemid.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/businessSystemId")         |
-| [enableTenantDeletion](#enabletenantdeletion) | `boolean` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-enabletenantdeletion.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/enableTenantDeletion") |
-| [globalTenantId](#globaltenantid)             | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-globaltenantid.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/globalTenantId")             |
-| [logSys](#logsys)                             | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-logsys.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/logSys")                             |
-| [writePermissions](#writepermissions)         | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-writepermissions.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/writePermissions")         |
+| Property                                   | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                                                            |
+| :----------------------------------------- | :-------- | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [allow\_access](#allow_access)             | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-allow_access.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/allow_access")             |
+| [audit\_log\_level](#audit_log_level)      | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-audit_log_level.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/audit_log_level")       |
+| [db\_parameters](#db_parameters)           | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-db_parameters.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/db_parameters")           |
+| [engine\_version](#engine_version)         | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-engine_version.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/engine_version")         |
+| [locale](#locale)                          | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-locale.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/locale")                         |
+| [maintenance\_window](#maintenance_window) | `object`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-maintenance_window.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/maintenance_window") |
+| [memory](#memory)                          | `integer` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-memory.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/memory")                         |
+| [multi\_az](#multi_az)                     | `boolean` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-multi_az.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/multi_az")                     |
+| [region](#region)                          | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-region.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/region")                         |
+| [storage](#storage)                        | `integer` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-storage.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/storage")                       |
+| Additional Properties                      | Any       | Optional | can be null    |                                                                                                                                                                                                                                                                                                                                                                       |
 
-## application
+## allow\_access
 
-Name of the application you are connecting to MDI. Allowed values are: "ariba", "c4c", "cdc", "commerceCloud", "concur", "fieldglass", "hrc", "mdg", "s4", "cpq", sfsf".
+Comma separated list of IPs and CF landscape domains from which connectivity to the instance can be established. Default behaviour will be to block all access to the instance from any public IP or CF Domain.
 
-`application`
+`allow_access`
 
 *   is optional
 
@@ -25,35 +30,111 @@ Name of the application you are connecting to MDI. Allowed values are: "ariba", 
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-application.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/application")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-allow_access.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/allow_access")
 
-### application Type
+### allow\_access Type
 
 `string`
 
-### application Constraints
+## audit\_log\_level
+
+Defines which classes of statements will be logged by session audit logging
+
+`audit_log_level`
+
+*   is optional
+
+*   Type: `string[]`
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-audit_log_level.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/audit_log_level")
+
+### audit\_log\_level Type
+
+`string[]`
+
+### audit\_log\_level Constraints
+
+**minimum number of items**: the minimum number of items for this array is: `1`
+
+**unique items**: all items in this array must be unique. Duplicates are not allowed.
+
+### audit\_log\_level Default Value
+
+The default value is:
+
+```json
+[
+  "ROLE",
+  "DDL"
+]
+```
+
+## db\_parameters
+
+Database system configurations
+
+`db_parameters`
+
+*   is optional
+
+*   Type: `object[]` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-db_parameters-items.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-db_parameters.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/db_parameters")
+
+### db\_parameters Type
+
+`object[]` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-db_parameters-items.md))
+
+### db\_parameters Constraints
+
+**unique items**: all items in this array must be unique. Duplicates are not allowed.
+
+## engine\_version
+
+The major version of the PostgreSQL database to use. If not provided, the major version is defaulted to 12
+
+`engine_version`
+
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-engine_version.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/engine_version")
+
+### engine\_version Type
+
+`string`
+
+### engine\_version Constraints
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value             | Explanation |
-| :---------------- | :---------- |
-| `"ariba"`         |             |
-| `"c4c"`           |             |
-| `"cdc"`           |             |
-| `"commerceCloud"` |             |
-| `"concur"`        |             |
-| `"fieldglass"`    |             |
-| `"hrc"`           |             |
-| `"mdg"`           |             |
-| `"s4"`            |             |
-| `"cpq"`           |             |
-| `"sfsf"`          |             |
+| Value  | Explanation |
+| :----- | :---------- |
+| `"11"` |             |
+| `"12"` |             |
+| `"13"` |             |
+| `"14"` |             |
 
-## businessSystemId
+### engine\_version Default Value
 
-Name to be displayed in SAP Master Data Orchestration UI. If not provided, a random UUID will be assigned.
+The default value is:
 
-`businessSystemId`
+```json
+"12"
+```
+
+## locale
+
+Indicates the locale for the instance (TODO)
+
+`locale`
 
 *   is optional
 
@@ -61,27 +142,82 @@ Name to be displayed in SAP Master Data Orchestration UI. If not provided, a ran
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-businesssystemid.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/businessSystemId")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-locale.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/locale")
 
-### businessSystemId Type
+### locale Type
 
 `string`
 
-### businessSystemId Constraints
+### locale Default Value
 
-**pattern**: the string must match the following regular expression:&#x20;
+The default value is:
 
-```regexp
-^.{1,60}$
+```json
+"en_US"
 ```
 
-[try pattern](https://regexr.com/?expression=%5E.%7B1%2C60%7D%24 "try regular expression with regexr.com")
+## maintenance\_window
 
-## enableTenantDeletion
+Indicates the preferred maintenance window for the PostgreSQL database instance. The 30-minute maintenance window is selected at random from the specified block of time.
 
-Boolean flag to be set to true for confirming deletion of last service instance for the tenant.
+`maintenance_window`
 
-`enableTenantDeletion`
+*   is optional
+
+*   Type: `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-maintenance_window.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-maintenance_window.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/maintenance_window")
+
+### maintenance\_window Type
+
+`object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-maintenance_window.md))
+
+## memory
+
+Defines amount of memory (in GB) to be used for the instance. The number of CPU cores is also derived from the value based on the standard plan's semantics
+
+`memory`
+
+*   is optional
+
+*   Type: `integer`
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-memory.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/memory")
+
+### memory Type
+
+`integer`
+
+### memory Constraints
+
+**enum**: the value of this property must be equal to one of the following values:
+
+| Value | Explanation |
+| :---- | :---------- |
+| `8`   |             |
+| `16`  |             |
+| `32`  |             |
+| `64`  |             |
+| `128` |             |
+| `256` |             |
+
+### memory Default Value
+
+The default value is:
+
+```json
+8
+```
+
+## multi\_az
+
+Indicates whether the instance is a multi-AZ deployment. If not provided, it is defaulted to true. For a multi-AZ instance, twice the number of storage SKU units are deducted from available entitlements
+
+`multi_az`
 
 *   is optional
 
@@ -89,17 +225,25 @@ Boolean flag to be set to true for confirming deletion of last service instance 
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-enabletenantdeletion.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/enableTenantDeletion")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-multi_az.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/multi_az")
 
-### enableTenantDeletion Type
+### multi\_az Type
 
 `boolean`
 
-## globalTenantId
+### multi\_az Default Value
 
-A name for the last significant writer (client) following the Globally Unique Tenant ID (GTID) specification.
+The default value is:
 
-`globalTenantId`
+```json
+true
+```
+
+## region
+
+The infrastructure region where the instance will be deployed.
+
+`region`
 
 *   is optional
 
@@ -107,64 +251,62 @@ A name for the last significant writer (client) following the Globally Unique Te
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-globaltenantid.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/globalTenantId")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-region.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/region")
 
-### globalTenantId Type
-
-`string`
-
-### globalTenantId Constraints
-
-**pattern**: the string must match the following regular expression:&#x20;
-
-```regexp
-^[A-Za-z0-9-._~]{1,40}$
-```
-
-[try pattern](https://regexr.com/?expression=%5E%5BA-Za-z0-9-._~%5D%7B1%2C40%7D%24 "try regular expression with regexr.com")
-
-## logSys
-
-The logical system.
-
-`logSys`
-
-*   is optional
-
-*   Type: `string`
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-logsys.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/logSys")
-
-### logSys Type
+### region Type
 
 `string`
 
-### logSys Constraints
+### region Constraints
 
-**pattern**: the string must match the following regular expression:&#x20;
+**enum**: the value of this property must be equal to one of the following values:
 
-```regexp
-^.{1,10}$
-```
+| Value              | Explanation |
+| :----------------- | :---------- |
+| `"ap-northeast-1"` |             |
+| `"ap-northeast-2"` |             |
+| `"ap-northeast-3"` |             |
+| `"ap-south-1"`     |             |
+| `"ap-southeast-1"` |             |
+| `"ap-southeast-2"` |             |
+| `"ca-central-1"`   |             |
+| `"eu-central-1"`   |             |
+| `"eu-north-1"`     |             |
+| `"eu-west-1"`      |             |
+| `"eu-west-2"`      |             |
+| `"eu-west-3"`      |             |
+| `"sa-east-1"`      |             |
+| `"us-east-1"`      |             |
+| `"us-east-2"`      |             |
+| `"us-west-1"`      |             |
+| `"us-west-2"`      |             |
 
-[try pattern](https://regexr.com/?expression=%5E.%7B1%2C10%7D%24 "try regular expression with regexr.com")
+## storage
 
-## writePermissions
+Amount of storage in GB to be allocated to the instance
 
-Array of entities the service instance has write permission for
-
-`writePermissions`
+`storage`
 
 *   is optional
 
-*   Type: `object[]` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-writepermissions-items.md))
+*   Type: `integer`
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-writepermissions.md "undefined#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/writePermissions")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-storage.md "http://example.com/schemas/postgres-premium-create.json#/properties/services/items/allOf/1/then/allOf/84/then/allOf/1/then/properties/parameters/properties/storage")
 
-### writePermissions Type
+### storage Type
 
-`object[]` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-84-then-allof-1-then-properties-parameters-properties-writepermissions-items.md))
+`integer`
+
+### storage Default Value
+
+The default value is:
+
+```json
+5
+```
+
+## Additional Properties
+
+Additional properties are allowed and do not have to follow a specific schema

@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Content: Mobile Content
+Mobile Client Resource Service: Mobile Client Resource Service
 
 `name`
 

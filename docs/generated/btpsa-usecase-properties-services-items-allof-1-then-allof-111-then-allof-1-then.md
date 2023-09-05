@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >service-operator-access< for >service-manager< is available in data centers:
+service plan >keyuser< for >ui5-flexibility-keyuser< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}
@@ -19,7 +19,6 @@ service plan >service-operator-access< for >service-manager< is available in dat
 *   {'region': 'ap21', 'name': 'Singapore'}
 *   {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}
 *   {'region': 'ca10', 'name': 'Canada (Montreal)'}
-*   {'region': 'ch20', 'name': 'cf-ch20'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'eu20', 'name': 'Europe (Netherlands)'}

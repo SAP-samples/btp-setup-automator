@@ -37,14 +37,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"free"`     |             |
-| `"standard"` |             |
+| Value                   | Explanation |
+| :---------------------- | :---------- |
+| `"reporting-directory"` |             |
+| `"reporting-ga-admin"`  |             |
 
 ## name
 
-SAP Document Management service: Use a CMIS complaint repository provided internally with all SAP Document Management service capabilities.
+SAP Usage Data Management service for SAP BTP: The SAP Usage Data Management service for SAP BTP provides REST APIs that are responsible for gathering, storing, and making usage information available for all services and applications in all regions in a cloud deployment, for the purpose of central analysis, reporting, and license auditing. The service accumulates the information and provides reports in several business systems (reporting and operations) for resource planning and cross billing purposes.
 
 `name`
 

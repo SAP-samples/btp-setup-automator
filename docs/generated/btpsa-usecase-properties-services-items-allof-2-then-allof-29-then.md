@@ -6,8 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-29-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-29-then-allof-1.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -37,14 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value    | Explanation |
-| :------- | :---------- |
-| `"mror"` |             |
-| `"mrtr"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"standard"` |             |
 
 ## name
 
-SAP Market Rates Management: The Manage Market Rates application enables you to read and manage market data you have uploaded by using the data options available with the SAP Market Rates Management service
+Landscape Portal: The Landscape Portal acts as a central tool that allows SaaS providers to keep track of the distribution of their consumers across their systems as well as perform lifecycle management operations such as updating add-ons, creating new tenants, and more.
 
 `name`
 

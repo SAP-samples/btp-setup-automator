@@ -8,5 +8,4 @@ unknown
 
 | Value           | Explanation |
 | :-------------- | :---------- |
-| `"app-host"`    |             |
-| `"app-runtime"` |             |
+| `"application"` |             |

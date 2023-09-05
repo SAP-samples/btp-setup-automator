@@ -8,8 +8,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-107-then-allof-1.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-107-then-allof-2.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                              |
@@ -39,15 +37,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value             | Explanation |
-| :---------------- | :---------- |
-| `"blocks_of_100"` |             |
-| `"default"`       |             |
-| `"free"`          |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"lite"`     |             |
+| `"standard"` |             |
 
 ## name
 
-Document Information Extraction: Document Information Extraction helps you to process various documents that have content in headers and tables. You can use the extracted information, for example, to automatically process payables, invoices, or payment notes while making sure that invoices and payables match.
+SAP HANA spatial services: SAP HANA spatial services provides a unified access layer for location-based services, including maps for visualization, geocoding and routing capabilities. It integrates location-based content and services from external providers into SAP products and customer applications.
 
 `name`
 

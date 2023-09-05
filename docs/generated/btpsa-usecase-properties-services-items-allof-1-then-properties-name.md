@@ -22,7 +22,6 @@ unknown
 | `"auditlog-api"`                           |             |
 | `"auditlog-management"`                    |             |
 | `"autoscaler"`                             |             |
-| `"blockchain-services"`                    |             |
 | `"build-workzone-advanced"`                |             |
 | `"build-workzone-standard"`                |             |
 | `"business-entity-recognition"`            |             |
@@ -52,9 +51,7 @@ unknown
 | `"hana-cloud"`                             |             |
 | `"hana-db"`                                |             |
 | `"hana-tenant-db"`                         |             |
-| `"hl7-fhir-service"`                       |             |
 | `"html5-apps-repo"`                        |             |
-| `"hyperledger-fabric"`                     |             |
 | `"ibanservice"`                            |             |
 | `"identity"`                               |             |
 | `"INFRA"`                                  |             |
@@ -89,7 +86,6 @@ unknown
 | `"mobile-services"`                        |             |
 | `"mobile-services-preview"`                |             |
 | `"mobile-settings-exchange"`               |             |
-| `"multichain"`                             |             |
 | `"objectstore"`                            |             |
 | `"one-inbox-service"`                      |             |
 | `"one-mds"`                                |             |
@@ -102,7 +98,6 @@ unknown
 | `"process-automation"`                     |             |
 | `"process-automation-service"`             |             |
 | `"processvisibility"`                      |             |
-| `"quorum"`                                 |             |
 | `"rabbitmq"`                               |             |
 | `"recommendation-systems-production"`      |             |
 | `"redis-cache"`                            |             |
@@ -112,7 +107,6 @@ unknown
 | `"saas-registry"`                          |             |
 | `"sap-analytics-cloud-embedded-edition"`   |             |
 | `"sap-bigdataservices"`                    |             |
-| `"sap-build-apps"`                         |             |
 | `"sap-build-apps-runtime"`                 |             |
 | `"sap-calm"`                               |             |
 | `"sap-document-information-extraction"`    |             |

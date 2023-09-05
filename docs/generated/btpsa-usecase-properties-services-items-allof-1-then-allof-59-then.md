@@ -6,6 +6,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-59-then-allof-0.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-59-then-allof-1.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -37,11 +39,12 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
+| `"default"`  |             |
 | `"standard"` |             |
 
 ## name
 
-SAP Job Scheduling service: The Job Scheduling Service allows you to define and manage jobs that run once or on recurring schedules. Use this runtime-agnostic service to schedule REST endpoint actions in your application or to schedule long-running processes using Cloud Foundry tasks. Use REST APIs to schedule your jobs, including long-running jobs asynchronously, and create multiple schedule formats for both simple and complex recurring schedules. The service dashboard is a web interface that lets you manage jobs and schedules.
+Market Rates, Refinitiv: The Refinitiv data option for SAP Market Rates Management provides market rates on a daily basis or for a specified date range that you can use in SAP S/4HANA systems. It includes the Download Market Data service, which is a reuse service that allows you to import market data.
 
 `name`
 

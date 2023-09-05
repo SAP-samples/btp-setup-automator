@@ -6,8 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-45-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-45-then-allof-1.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -39,12 +37,11 @@ unknown
 
 | Value           | Explanation |
 | :-------------- | :---------- |
-| `"app-host"`    |             |
-| `"app-runtime"` |             |
+| `"application"` |             |
 
 ## name
 
-SAP HTML5 Application Repository service for SAP BTP: The HTML5 Application Repository service enables central storage of HTML5 applications in SAP BTP. In runtime, the service enables the consuming application, typically the application router, to access HTML5 application static content in a secure and efficient manner.
+SAP Cloud Identity Services: Cloud Identity Services provide basic capabilities for user authentication.
 
 `name`
 

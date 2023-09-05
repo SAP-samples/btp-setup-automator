@@ -37,11 +37,11 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"messages"` |             |
+| `"standard"` |             |
 
 ## name
 
-SAP Integration Suite: The SAP Integration Suite helps you to quickly develop and manage reliable communication between applications, services, and systems across heterogeneous landscapes.
+Internet of Things: The SAP Business Technology Platform Internet of Things service for the Cloud Foundry environment connects devices to SAP Business Technology Platform to provide scalable ingestion of IoT data and device management. The respective services provide a secure connection to remote devices using a broad variety of IoT protocols and manage the device lifecycle from onboarding to decommissioning.
 
 `name`
 

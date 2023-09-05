@@ -16,6 +16,7 @@ all of
 | :---------------------------------------------------------------------------------------------- | :-------- | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [$schema](#schema)                                                                              | `string`  | Optional | cannot be null | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-schema.md "undefined#/properties/$schema")                                                                                                                                          |
 | [btpcliapihostregion](#btpcliapihostregion)                                                     | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-host-region-for-the-btp-cli-calls.md "undefined#/properties/btpcliapihostregion")                                                                                                   |
+| [btplogonidp](#btplogonidp)                                                                     | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-custom-idp-for-btp-logon.md "undefined#/properties/btplogonidp")                                                                                                                    |
 | [cfcliapihostregion](#cfcliapihostregion)                                                       | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-host-region-for-the-cloud-foundry-cli-calls.md "undefined#/properties/cfcliapihostregion")                                                                                          |
 | [cfLandscape](#cflandscape)                                                                     | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-landscape-of-the-cf-environment-for-use-case.md "undefined#/properties/cfLandscape")                                                                                                |
 | [cfspacename](#cfspacename)                                                                     | `string`  | Optional | can be null    | [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-name-for-the-cf-space.md "undefined#/properties/cfspacename")                                                                                                                       |
@@ -110,6 +111,24 @@ The default value is:
 ```json
 "eu10"
 ```
+
+## btplogonidp
+
+The tenant ID of a custom identity provider if configured for the global account. To be found in the cockpit under Trust Configuration.
+
+`btplogonidp`
+
+*   is optional
+
+*   Type: `string` ([custom IDP for BTP logon](btpsa-parameters-properties-custom-idp-for-btp-logon.md))
+
+*   can be null
+
+*   defined in: [JSON Schema for service parameters used in BTPSA](btpsa-parameters-properties-custom-idp-for-btp-logon.md "undefined#/properties/btplogonidp")
+
+### btplogonidp Type
+
+`string` ([custom IDP for BTP logon](btpsa-parameters-properties-custom-idp-for-btp-logon.md))
 
 ## cfcliapihostregion
 

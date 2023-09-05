@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >standard< for >mobile-sample-odata-v2-espm< is available in data centers:
+service plan >b2c< for >mobile-settings-exchange< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}

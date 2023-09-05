@@ -1,3 +1,0 @@
-## 120 Type
-
-unknown

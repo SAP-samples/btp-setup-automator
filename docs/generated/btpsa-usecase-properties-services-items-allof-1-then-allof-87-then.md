@@ -12,8 +12,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-87-then-allof-3.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-87-then-allof-4.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -43,17 +41,16 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value       | Explanation |
-| :---------- | :---------- |
-| `"large"`   |             |
-| `"medium"`  |             |
-| `"small"`   |             |
-| `"xsmall"`  |             |
-| `"xxsmall"` |             |
+| Value                     | Explanation |
+| :------------------------ | :---------- |
+| `"advanced-user"`         |             |
+| `"automation-attended"`   |             |
+| `"automation-unattended"` |             |
+| `"standard-user"`         |             |
 
 ## name
 
-PostgreSQL on SAP BTP: PostgreSQL on SAP BTP offers an object-relational database management system with many advanced features, such as user-defined types, table inheritance, foreign key referential integrity, Multiversion Concurrency Control (MVCC), and so on.
+SAP Build Process Automation: SAP Build Process Automation combines capabilities from SAP Workflow Management and SAP Intelligent RPA with a powerful, yet intuitive no-code development experience. SAP Build Process Automation enables business users and technologists to become citizen developers. With powerful yet intuitive low-code and no-code capabilities, the solution supports you in driving automation by tapping into the expertise of citizen developers.
 
 `name`
 

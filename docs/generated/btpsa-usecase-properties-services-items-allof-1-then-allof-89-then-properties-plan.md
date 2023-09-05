@@ -8,5 +8,5 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"receiver"` |             |
-| `"sender"`   |             |
+| `"standard"` |             |
+| `"workflow"` |             |

@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >standard< for >mobile-client-log-upload< is available in data centers:
+service plan >standard< for >mobile-discovery< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}

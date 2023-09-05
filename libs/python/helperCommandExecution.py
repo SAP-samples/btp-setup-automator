@@ -86,6 +86,7 @@ def login_btp(btpUsecase):
     password = btpUsecase.mypassword
     globalaccount = btpUsecase.globalaccount
     btpCliRegion = btpUsecase.btpcliapihostregion
+    btplogonidp = btpUsecase.btplogonidp
 
     command = (
         "btp login --url 'https://cpcli.cf."
@@ -94,6 +95,10 @@ def login_btp(btpUsecase):
         + globalaccount
         + "'"
     )
+
+    if btplogonidp is not None and btplogonidp != "":
+        command = command + " --idp '" + btplogonidp + "'"
+
     if btpUsecase.loginmethod == "sso":
         message = (
             "Logging-in to your global account with subdomain ID >"

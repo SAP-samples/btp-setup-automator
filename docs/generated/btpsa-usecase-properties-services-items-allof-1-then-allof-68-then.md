@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Mobile Cloud Build: Mobile Cloud Build
+Mobile Client Usage Service: Mobile Client Usage Service
 
 `name`
 
