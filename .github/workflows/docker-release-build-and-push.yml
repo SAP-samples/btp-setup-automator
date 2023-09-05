@@ -28,6 +28,7 @@ jobs:
         with:
           driver-opts: |
             image=moby/buildkit:v0.12.2
+            network=host
         #with:
         #  buildkitd-flags: --debug
 
