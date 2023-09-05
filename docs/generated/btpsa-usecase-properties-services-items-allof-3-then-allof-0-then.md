@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP BTP, Cloud Foundry runtime: The SAP BTP, Cloud Foundry runtime lets you develop polyglot cloud-native applications and run them on the SAP BTP Cloud Foundry environment.
+SAP BTP, Cloud Foundry runtime: SAP BTP Cloud Foundry environment lets you develop polyglot cloud-native applications.
 
 `name`
 
