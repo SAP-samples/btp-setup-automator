@@ -10,13 +10,18 @@ unknown
 
 ## plan
 
-application plan >default< for >document-information-extraction-application< is available in data centers:
+application plan >default< for >data-privacy-integration-application< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
+*   {'region': 'ap11', 'name': 'Singapore'}
+*   {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
-*   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
+*   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
+*   {'region': 'us20', 'name': 'US West (WA)'}
+*   {'region': 'us21', 'name': 'US East (VA)'}
+*   {'region': 'us30', 'name': 'US Central (IA)'}
 
 `plan`
 

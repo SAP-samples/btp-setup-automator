@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-Extension Center: Allows you to create, manage, configure extensions on SAP Business Technology Platform
+SAP Event Broker for SAP cloud applications: This service supports SAP's strategic event-driven architecture initiative to create a well-defined, easily consumable and extensible ecosystem for exchanging SAP business events between SAP cloud applications, including those built on SAP BTP (SAP, customers and partners).
 
 `name`
 

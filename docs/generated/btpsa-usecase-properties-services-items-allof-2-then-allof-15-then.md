@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"standard"` |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"default"` |             |
 
 ## name
 
-Data Quality Services UI: Manage settings and field mappings using configurations. View number of transactions performed over a spefici time period.
+Document Information Extraction UI: Document Information Extraction helps you to process various documents that have content in headers and tables. You can use the extracted information, for example, to automatically process payables, invoices, or payment notes while making sure that invoices and payables match.
 
 `name`
 

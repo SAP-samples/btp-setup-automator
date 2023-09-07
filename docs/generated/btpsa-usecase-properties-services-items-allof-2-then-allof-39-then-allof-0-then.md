@@ -10,14 +10,14 @@ unknown
 
 ## plan
 
-application plan >free< for >process-automation< is available in data centers:
+application plan >standard< for >print-app< is available in data centers:
 
-*   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
-*   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
+*   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
-*   {'region': 'us30', 'name': 'US Central (IA)'}
+*   {'region': 'us20', 'name': 'US West (WA)'}
+*   {'region': 'us21', 'name': 'US East (VA)'}
 
 `plan`
 

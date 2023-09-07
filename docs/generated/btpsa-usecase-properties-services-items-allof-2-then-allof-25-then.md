@@ -8,8 +8,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-25-then-allof-1.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-25-then-allof-2.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -39,15 +37,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"beta"`     |             |
-| `"free"`     |             |
-| `"standard"` |             |
+| Value                    | Explanation |
+| :----------------------- | :---------- |
+| `"enterprise_agreement"` |             |
+| `"free"`                 |             |
 
 ## name
 
-Intelligent Situation Automation: Intelligent Situation Automation is an extension of Situation Handling. It processes situations raised and resolves them automatically using business rules, thus reducing the time users spend on routine manual and repetitive tasks.
+SAP Integration Suite: The SAP Integration Suite helps you to quickly develop and manage reliable communication between applications, services, and systems across heterogeneous landscapes.
 
 `name`
 

@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"standard"` |             |
+| Value    | Explanation |
+| :------- | :---------- |
+| `"free"` |             |
 
 ## name
 
-Cloud Integration Automation: Cloud Integration Automation service provides you a guided workflow to integrate SAP cloud solutions to On-Premise and other SAP Cloud solutions. The guided workflow contains instructions for manual and automated tasks to enable a simpler and faster integration configuration setup.
+business process model connector for SAP Signavio solutions: Synchronize business process models between SAP Signavio Process Manager and SAP Solution Manager
 
 `name`
 

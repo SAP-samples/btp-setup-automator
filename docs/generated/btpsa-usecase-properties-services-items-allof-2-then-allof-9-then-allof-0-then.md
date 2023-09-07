@@ -10,13 +10,9 @@ unknown
 
 ## plan
 
-application plan >standard< for >cias< is available in data centers:
+application plan >free< for >bmb-app< is available in data centers:
 
-*   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
-*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
-*   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
-*   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
