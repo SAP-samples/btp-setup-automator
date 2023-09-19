@@ -2638,25 +2638,15 @@
                                             "if": { "properties": { "name": { "const": "privatelink"} } },
                                             "then" :{
                                                 "properties": {
-                                                    "plan": { "enum": ["beta","standard"] },
+                                                    "plan": { "enum": ["standard"] },
                                                     "name": { "description": "SAP Private Link service: SAP Private Link service establishes a private connection between selected SAP BTP services and selected services in your own IaaS provider accounts. By reusing the private link functionality of our partner IaaS providers, it lets you access your services through private network connections to avoid data transfer via the public Internet."}
                                                 },
                                                 "allOf": [
                                                     {
-                                                        "if": { "properties": { "plan": { "const": "beta"} } },
-                                                        "then" :{
-                                                            "properties": {
-                                                                "plan": { "description": "service plan >beta< for >privatelink< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
-                                                                , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_controlsOrder": ["serviceName", "desiredAZs"], "_show_form_view": true, "additionalProperties": false, "properties": {"desiredAZs": {"default": 3, "description": "Specifies the desired number of Availability Zones of the endpoint.\n\nExample: 2\n\nBy default, SAP Private Link service only creates the endpoint if the endpoint service is deployed in the same AZs as SAP BTP, to maximize High Availability.\nIn case fewer AZs than SAP BTPs should be allowed (i.e. only one or two AZs), please explicitly allow it by specifying the desired number of AZs via this parameter.", "title": "Desired AZs", "type": "integer"}, "policyDocument": {"description": "Specifies the Endpoint Policy.\\n\\nThe endpoint policy controls which AWS principals (AWS accounts, IAM users, and IAM roles) can use the VPC endpoint to access the endpoint service.", "properties": {}, "title": "Endpoint Policy Document", "type": "object"}, "serviceName": {"description": "Specifies the service name for which the VPC Endpoint should be created.\\n\\nExample: \"com.amazonaws.us-east-1.monitoring\" or \"com.amazonaws.vpce.us-east-1.vpce-svc-09ac27c2a0cd319fa\" for AWS or custom VPC Endpoint Services respectively", "minLength": 1, "pattern": "com\\.amazonaws\\..+", "title": "Service Name", "type": "string"}}, "required": ["serviceName"], "type": "object"}
-
-                                                            }, "required" : ["parameters"]
-
-                                                        }
-                                                    }, {
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >standard< for >privatelink< is available in data centers:\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >standard< for >privatelink< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
                                                                 , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_controlsOrder": ["serviceName", "desiredAZs"], "_show_form_view": true, "additionalProperties": false, "properties": {"desiredAZs": {"default": 3, "description": "Specifies the desired number of Availability Zones of the endpoint.\n\nExample: 2\n\nBy default, SAP Private Link service only creates the endpoint if the endpoint service is deployed in the same AZs as SAP BTP, to maximize High Availability.\nIn case fewer AZs than SAP BTPs should be allowed (i.e. only one or two AZs), please explicitly allow it by specifying the desired number of AZs via this parameter.", "title": "Desired AZs", "type": "integer"}, "policyDocument": {"description": "Specifies the Endpoint Policy.\\n\\nThe endpoint policy controls which AWS principals (AWS accounts, IAM users, and IAM roles) can use the VPC endpoint to access the endpoint service.", "properties": {}, "title": "Endpoint Policy Document", "type": "object"}, "serviceName": {"description": "Specifies the service name for which the VPC Endpoint should be created.\\n\\nExample: \"com.amazonaws.us-east-1.monitoring\" or \"com.amazonaws.vpce.us-east-1.vpce-svc-09ac27c2a0cd319fa\" for AWS or custom VPC Endpoint Services respectively", "minLength": 1, "pattern": "com\\.amazonaws\\..+", "title": "Service Name", "type": "string"}}, "required": ["serviceName"], "type": "object"}
 
                                                             }, "required" : ["parameters"]
@@ -3470,7 +3460,7 @@
                     {
                         "if": { "properties": { "category": { "const": "APPLICATION"} } },
                         "then" :{
-                                    "properties": { "name": { "enum": ["abapcp-web-router", "ads-configui", "ai-launchpad", "alm-ts", "api-management-apiportal", "api-management-devportal", "auditlog-viewer", "automationpilot", "Backend-service", "cias", "cicd-app", "content-agent-ui", "custom-domain-manager", "data-privacy-integration-application", "document-information-extraction-application", "dqmmicroui", "eadesigner", "edge-services", "enterprise-messaging-hub", "event-mesh-sap2sap", "extension-center", "feature-flags-dashboard", "hana-cloud-tools", "integration-suite-advanced-event-mesh", "integrationsuite", "intelligent-situation-automation-app", "iotas", "IRPA", "it-prod", "LandscapePortal", "market-rates-ux", "mdgce", "MDMBusinessPartnerApplication", "mdo-one-mds-master", "MDOrchestrationApplication", "ocnselfserviceagent", "PersonalDataManagerApp", "PortalApplication", "print-app", "process-automation", "responsibility-management-application-beta", "responsibilitymanagement-application", "retention-manager-app", "sap-build-apps", "sap-cai-onboarding", "sap-identity-services-onboarding", "sapappgyver", "sapappstudio", "SAPLaunchpad", "SAPWebAnalytics", "SAPWorkZone", "sdm-web", "spatialservices-app", "tnt-onboard-dataenrichment-dcp", "WorkflowManagementSaaS", "wums-c4re-beta"] } },
+                                    "properties": { "name": { "enum": ["abapcp-web-router", "ads-configui", "ai-launchpad", "alm-ts", "api-management-apiportal", "api-management-devportal", "auditlog-viewer", "automationpilot", "Backend-service", "bmb-app", "cias", "cicd-app", "content-agent-ui", "custom-domain-manager", "data-privacy-integration-application", "document-information-extraction-application", "dqmmicroui", "eadesigner", "edge-services", "enterprise-messaging-hub", "event-mesh-sap2sap", "extension-center", "feature-flags-dashboard", "hana-cloud-tools", "integration-suite-advanced-event-mesh", "integrationsuite", "intelligent-situation-automation-app", "iotas", "IRPA", "it-prod", "LandscapePortal", "market-rates-ux", "mdgce", "MDMBusinessPartnerApplication", "mdo-one-mds-master", "MDOrchestrationApplication", "ocnselfserviceagent", "PersonalDataManagerApp", "PortalApplication", "print-app", "process-automation", "responsibility-management-application-beta", "responsibilitymanagement-application", "retention-manager-app", "sap-build-apps", "sap-cai-onboarding", "sap-identity-services-onboarding", "sapappgyver", "sapappstudio", "SAPLaunchpad", "SAPWebAnalytics", "SAPWorkZone", "sdm-web", "spatialservices-app", "tnt-onboard-dataenrichment-dcp", "WorkflowManagementSaaS", "wums-c4re-beta"] } },
                                     "allOf": [
                                         {
                                             "if": { "properties": { "name": { "const": "abapcp-web-router"} } },
@@ -3653,6 +3643,24 @@
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "application plan >standard< for >Backend-service< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }]
+                                            }
+                                        }, {
+                                            "if": { "properties": { "name": { "const": "bmb-app"} } },
+                                            "then" :{
+                                                "properties": {
+                                                    "plan": { "enum": ["free"] },
+                                                    "name": { "description": "business process model connector for SAP Signavio solutions: Synchronize business process models between SAP Signavio Process Manager and SAP Solution Manager"}
+                                                },
+                                                "allOf": [
+                                                    {
+                                                        "if": { "properties": { "plan": { "const": "free"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "application plan >free< for >bmb-app< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -3938,7 +3946,7 @@
                                                         "if": { "properties": { "plan": { "const": "default"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "application plan >default< for >integration-suite-advanced-event-mesh< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us20', 'name': 'US West (WA)'}" }
+                                                                "plan": { "description": "application plan >default< for >integration-suite-advanced-event-mesh< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'in30', 'name': 'India (Mumbai)'}\n- {'region': 'us20', 'name': 'US West (WA)'}" }
                                                                 , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_show_standard_config_view": true, "additionalProperties": false, "properties": {"admin_user_email": {"description": "Provide an email that belongs to a user who is onboarded on IAS. This user gets access to the subscribed application and can provide access to other users.", "minLength": 1, "title": "Admin User Email", "type": "string"}}, "type": "object"}
 
                                                             }, "required" : ["parameters"]

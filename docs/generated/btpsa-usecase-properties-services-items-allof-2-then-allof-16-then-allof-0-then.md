@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-application plan >eadesigner< for >eadesigner< is available in data centers:
+application plan >standard< for >dqmmicroui< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 

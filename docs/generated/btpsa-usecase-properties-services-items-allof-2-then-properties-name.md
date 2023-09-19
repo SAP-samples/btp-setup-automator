@@ -17,6 +17,7 @@ unknown
 | `"auditlog-viewer"`                             |             |
 | `"automationpilot"`                             |             |
 | `"Backend-service"`                             |             |
+| `"bmb-app"`                                     |             |
 | `"cias"`                                        |             |
 | `"cicd-app"`                                    |             |
 | `"content-agent-ui"`                            |             |
