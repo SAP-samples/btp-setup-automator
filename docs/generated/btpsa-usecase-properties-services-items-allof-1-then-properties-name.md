@@ -19,6 +19,7 @@ unknown
 | `"apimanagement-devportal"`                |             |
 | `"application-logs"`                       |             |
 | `"ASE_PROVISIONING"`                       |             |
+| `"auditlog"`                               |             |
 | `"auditlog-api"`                           |             |
 | `"auditlog-management"`                    |             |
 | `"autoscaler"`                             |             |

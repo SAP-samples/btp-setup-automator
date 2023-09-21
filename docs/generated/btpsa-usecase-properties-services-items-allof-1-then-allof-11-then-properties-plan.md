@@ -8,4 +8,4 @@ unknown
 
 | Value       | Explanation |
 | :---------- | :---------- |
-| `"default"` |             |
+| `"premium"` |             |

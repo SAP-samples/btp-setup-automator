@@ -8,6 +8,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-22-then-allof-1.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-22-then-allof-2.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -37,14 +39,15 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value                  | Explanation |
-| :--------------------- | :---------- |
-| `"connectivity_proxy"` |             |
-| `"lite"`               |             |
+| Value            | Explanation |
+| :--------------- | :---------- |
+| `"PREMIUM"`      |             |
+| `"PREMIUM_PLUS"` |             |
+| `"PRO"`          |             |
 
 ## name
 
-SAP Connectivity service: SAP BTP Connectivity service allows you to establish secure and reliable connectivity between your cloud applications and on-premise systems running in isolated networks.
+SAP BTP, Java server: Java Quota
 
 `name`
 

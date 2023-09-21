@@ -8,5 +8,5 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"basic"`    |             |
+| `"free"`     |             |
 | `"standard"` |             |

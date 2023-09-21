@@ -240,6 +240,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-117.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-118.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                |
@@ -281,6 +283,7 @@ unknown
 | `"apimanagement-devportal"`                |             |
 | `"application-logs"`                       |             |
 | `"ASE_PROVISIONING"`                       |             |
+| `"auditlog"`                               |             |
 | `"auditlog-api"`                           |             |
 | `"auditlog-management"`                    |             |
 | `"autoscaler"`                             |             |

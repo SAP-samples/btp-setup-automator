@@ -44,7 +44,7 @@ unknown
 
 ## name
 
-Data Attribute Recommendation: Data Attribute Recommendation uses free text, numbers and categories as input to classify entities such as products, stores and users into multiple classes and also to predict the value of missing numerical attributes in your data records. You can use Data Attribute Recommendation, for example, to classify incoming product information and predict the price of commodities based on their description.
+SAP Datasphere: SAP Datasphere provides a single, fully-managed cloud environment to allow your organization to acquire, combine, prepare, and model data for consumption in analytics clients.
 
 `name`
 
