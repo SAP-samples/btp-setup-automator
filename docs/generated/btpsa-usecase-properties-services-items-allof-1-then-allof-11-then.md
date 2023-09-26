@@ -37,11 +37,11 @@ unknown
 
 | Value       | Explanation |
 | :---------- | :---------- |
-| `"default"` |             |
+| `"premium"` |             |
 
 ## name
 
-DEPRECATED Audit Log Retrieval: DEPRECATED Retrieve the audit logs.
+SAP Audit Log service: Allow users to ingest compliance audit data from SAP BTP services and applications and store it for a default retention time of 90 days (with no additional costs applied). The ability to retrieve and download this data within this period is part of Auditlog Management Service. The service serves to support audit activities by prove wrongdoing and identifying malicious activities and provision of forensic evidence that can be used at Court. The scope of the service are secure and configuration change information records, data privacy specific logs, logs motivated by Multiple Regulations. The service is following each SAP Product standards and GDPR Compliance regulations.
 
 `name`
 

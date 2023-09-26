@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Build Apps runtime: The runtime service for SAP Build Apps. Allows connectivity to visual cloud functions applications developed and deployed on the SAP Build Apps runtime. A subscription to SAP Build Apps is required to use this service.
+SAP Big Data Services: Big Data Services
 
 `name`
 

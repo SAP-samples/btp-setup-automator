@@ -6,8 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-14-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-14-then-allof-1.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -39,12 +37,11 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"advanced"` |             |
 | `"standard"` |             |
 
 ## name
 
-SAP Build Work Zone, advanced edition: SAP Build Work Zone, advanced edition lets you build digital workplace solutions to increase user productivity and engagement. It centralizes access to relevant business applications, processes, information, and communication in a unified entry point that your users can access from any device. Note: SAP Work Zone was recently renamed to SAP Build Work Zone, advanced edition.
+Application Autoscaler: The Application Autoscaler lets you automatically increase or decrease the number of application instances based on a policy you define.
 
 `name`
 

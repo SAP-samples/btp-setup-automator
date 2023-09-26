@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >default< for >integration-assessment< is available in data centers:
+service plan >custom\_domains< for >INFRA< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}

@@ -6,8 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-58-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-58-then-allof-1.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -37,14 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value       | Explanation |
-| :---------- | :---------- |
-| `"default"` |             |
-| `"free"`    |             |
+| Value      | Explanation |
+| :--------- | :---------- |
+| `"clamav"` |             |
 
 ## name
 
-SAP Market Rates Management: The SAP Market Rates Management, Bring Your Own Rates data option allows you to upload and download your own market rates licensed from third party data providers. It includes upload and download APIs that enable you to upload and download market data in a format compatible with an SAP S/4HANA system.
+SAP Malware Scanning service: Use SAP Malware Scanning service to scan business documents for malware. Integrate this service with your custom-developed apps running on Cloud Foundry. When your apps upload business documents, your apps can call the SAP Malware Scanning service to check for viruses or other malware.
 
 `name`
 

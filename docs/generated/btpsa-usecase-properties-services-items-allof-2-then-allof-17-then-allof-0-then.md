@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-application plan >Enterprise< for >edge-services< is available in data centers:
+application plan >eadesigner< for >eadesigner< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 

@@ -8,5 +8,5 @@ unknown
 
 | Value        | Explanation |
 | :----------- | :---------- |
-| `"beta"`     |             |
-| `"standard"` |             |
+| `"receiver"` |             |
+| `"sender"`   |             |

@@ -10,11 +10,12 @@ unknown
 
 ## plan
 
-service plan >lite< for >spatialservices< is available in data centers:
+service plan >blocks\_of\_100< for >service-ticket-intelligence< is available in data centers:
 
-*   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
+*   {'region': 'us30', 'name': 'US Central (IA)'}
 
 `plan`
 
