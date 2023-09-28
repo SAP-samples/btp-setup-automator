@@ -12,6 +12,7 @@ unknown
 
 service plan >free< for >data-attribute-recommendation< is available in data centers:
 
+*   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
