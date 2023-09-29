@@ -4,13 +4,14 @@ unknown
 
 # then Properties
 
-| Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                      |
-| :------------ | :------------ | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-5-then-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/5/then/properties/plan") |
+| Property                  | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                                  |
+| :------------------------ | :------------ | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [plan](#plan)             | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-5-then-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/5/then/properties/plan")             |
+| [parameters](#parameters) | `object`      | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-5-then-properties-parameters.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/5/then/properties/parameters") |
 
 ## plan
 
-service plan >hana-free< for >hana-cloud< is available in data centers:
+service plan >relational-data-lake-free< for >hana-cloud< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}
@@ -40,3 +41,21 @@ service plan >hana-free< for >hana-cloud< is available in data centers:
 ### plan Type
 
 unknown
+
+## parameters
+
+
+
+`parameters`
+
+*   is required
+
+*   Type: `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-5-then-properties-parameters.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-5-then-properties-parameters.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/5/then/properties/parameters")
+
+### parameters Type
+
+`object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-5-then-properties-parameters.md))

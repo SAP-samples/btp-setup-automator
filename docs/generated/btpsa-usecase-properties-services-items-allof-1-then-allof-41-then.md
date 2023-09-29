@@ -16,10 +16,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-5.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-6.md "check type definition")
-
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-7.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -49,16 +45,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value                                      | Explanation |
-| :----------------------------------------- | :---------- |
-| `"adaptive-server-enterprise"`             |             |
-| `"adaptive-server-enterprise-replication"` |             |
-| `"hana"`                                   |             |
-| `"hana-cloud-connection"`                  |             |
-| `"hana-cloud-connection-free"`             |             |
-| `"hana-free"`                              |             |
-| `"relational-data-lake"`                   |             |
-| `"relational-data-lake-free"`              |             |
+| Value                          | Explanation |
+| :----------------------------- | :---------- |
+| `"hana"`                       |             |
+| `"hana-cloud-connection"`      |             |
+| `"hana-cloud-connection-free"` |             |
+| `"hana-free"`                  |             |
+| `"relational-data-lake"`       |             |
+| `"relational-data-lake-free"`  |             |
 
 ## name
 

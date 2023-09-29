@@ -4,143 +4,20 @@
 
 # data Properties
 
-| Property                                                | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                                                            |
-| :------------------------------------------------------ | :------------ | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [additionalWorkers](#additionalworkers)                 | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-additionalworkers.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/additionalWorkers")                 |
-| [availabilityZonePlacement](#availabilityzoneplacement) | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-availabilityzoneplacement.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/availabilityZonePlacement") |
-| [backup](#backup)                                       | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-backup.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/backup")                                       |
-| [databaseMappings](#databasemappings)                   | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-databasemappings.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/databaseMappings")                   |
-| [disasterRecoveryMode](#disasterrecoverymode)           | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-disasterrecoverymode.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/disasterRecoveryMode")           |
-| [edition](#edition)                                     | `string`      | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-edition.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/edition")                                     |
-| [enabledservices](#enabledservices)                     | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-enabledservices.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/enabledservices")                     |
-| [extensionservices](#extensionservices)                 | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-extensionservices.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/extensionservices")                 |
-| [memory](#memory)                                       | `integer`     | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-memory.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/memory")                                       |
-| [memoryScaleOut](#memoryscaleout)                       | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-memoryscaleout.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/memoryScaleOut")                       |
-| [productVersion](#productversion)                       | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-productversion.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/productVersion")                       |
-| [project\_name](#project_name)                          | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-project_name.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/project_name")                           |
-| [requestedOperation](#requestedoperation)               | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-requestedoperation.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/requestedOperation")               |
-| [serviceStopped](#servicestopped)                       | `boolean`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-servicestopped.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/serviceStopped")                       |
-| [slaLevel](#slalevel)                                   | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-slalevel.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/slaLevel")                                   |
-| [storage](#storage)                                     | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-storage.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/storage")                                     |
-| [systempassword](#systempassword)                       | `string`      | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-systempassword.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/systempassword")                       |
-| [template\_name](#template_name)                        | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-template_name.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/template_name")                         |
-| [update\_strategy](#update_strategy)                    | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-update_strategy.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/update_strategy")                     |
-| [vcpu](#vcpu)                                           | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-vcpu.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/vcpu")                                           |
-| [versionIndicator](#versionindicator)                   | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-versionindicator.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/versionIndicator")                   |
-| [whitelistIPs](#whitelistips)                           | `array`       | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-whitelistips.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/whitelistIPs")                           |
+| Property                              | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                                          |
+| :------------------------------------ | :------- | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [datalakeID](#datalakeid)             | `string` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-datalakeid.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/datalakeID")             |
+| [datalakePassword](#datalakepassword) | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-datalakepassword.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/datalakePassword") |
+| [datalakeUser](#datalakeuser)         | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-datalakeuser.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/datalakeUser")         |
+| [hanaID](#hanaid)                     | `string` | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-hanaid.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/hanaID")                     |
+| [hanaPassword](#hanapassword)         | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-hanapassword.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/hanaPassword")         |
+| [hanaUser](#hanauser)                 | `string` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-hanauser.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/hanaUser")                 |
 
-## additionalWorkers
+## datalakeID
 
-Number of additional workers for scale out systems
+Service instance GUID of the data-lake instance
 
-`additionalWorkers`
-
-*   is optional
-
-*   Type: `integer`
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-additionalworkers.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/additionalWorkers")
-
-### additionalWorkers Type
-
-`integer`
-
-### additionalWorkers Constraints
-
-**maximum**: the value of this number must smaller than or equal to: `0`
-
-**minimum**: the value of this number must greater than or equal to: `0`
-
-**unknown format**: the value of this string must follow the format: `int64`
-
-## availabilityZonePlacement
-
-Settings that enable the customer to ensure spatial proximity between their applications and the HANA instance
-
-`availabilityZonePlacement`
-
-*   is optional
-
-*   Type: `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-availabilityzoneplacement.md))
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-availabilityzoneplacement.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/availabilityZonePlacement")
-
-### availabilityZonePlacement Type
-
-`object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-availabilityzoneplacement.md))
-
-## backup
-
-Backup service properties
-
-`backup`
-
-*   is optional
-
-*   Type: `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-backup.md))
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-backup.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/backup")
-
-### backup Type
-
-`object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-backup.md))
-
-## databaseMappings
-
-
-
-`databaseMappings`
-
-*   is optional
-
-*   Type: unknown
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-databasemappings.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/databaseMappings")
-
-### databaseMappings Type
-
-unknown
-
-## disasterRecoveryMode
-
-Disaster Recovery of the HANA instance
-
-`disasterRecoveryMode`
-
-*   is optional
-
-*   Type: `string`
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-disasterrecoverymode.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/disasterRecoveryMode")
-
-### disasterRecoveryMode Type
-
-`string`
-
-### disasterRecoveryMode Constraints
-
-**enum**: the value of this property must be equal to one of the following values:
-
-| Value                    | Explanation |
-| :----------------------- | :---------- |
-| `"no_disaster_recovery"` |             |
-| `"one_secondary_async"`  |             |
-
-## edition
-
-Image edition (cloud vs. orange)
-
-`edition`
+`datalakeID`
 
 *   is required
 
@@ -148,148 +25,21 @@ Image edition (cloud vs. orange)
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-edition.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/edition")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-datalakeid.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/datalakeID")
 
-### edition Type
+### datalakeID Type
 
 `string`
 
-### edition Constraints
+### datalakeID Constraints
 
-**enum**: the value of this property must be equal to one of the following values:
+**minimum length**: the minimum number of characters for this string is: `1`
 
-| Value      | Explanation |
-| :--------- | :---------- |
-| `"cloud"`  |             |
-| `"orange"` |             |
+## datalakePassword
 
-### edition Default Value
+Password in the data lake instance
 
-The default value is:
-
-```json
-"cloud"
-```
-
-## enabledservices
-
-List of services of the HANA to be enabled
-
-`enabledservices`
-
-*   is optional
-
-*   Type: `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-enabledservices.md))
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-enabledservices.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/enabledservices")
-
-### enabledservices Type
-
-`object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-enabledservices.md))
-
-## extensionservices
-
-
-
-`extensionservices`
-
-*   is optional
-
-*   Type: unknown
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-extensionservices.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/extensionservices")
-
-### extensionservices Type
-
-unknown
-
-## memory
-
-HANA memory size (RAM) in GB
-
-`memory`
-
-*   is required
-
-*   Type: `integer`
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-memory.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/memory")
-
-### memory Type
-
-`integer`
-
-### memory Constraints
-
-**maximum**: the value of this number must smaller than or equal to: `5970`
-
-**minimum**: the value of this number must greater than or equal to: `30`
-
-**unknown format**: the value of this string must follow the format: `int64`
-
-### memory Default Value
-
-The default value is:
-
-```json
-30
-```
-
-## memoryScaleOut
-
-HANA memory size (RAM) in GB for scale out systems
-
-`memoryScaleOut`
-
-*   is optional
-
-*   Type: `integer`
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-memoryscaleout.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/memoryScaleOut")
-
-### memoryScaleOut Type
-
-`integer`
-
-### memoryScaleOut Constraints
-
-**maximum**: the value of this number must smaller than or equal to: `0`
-
-**minimum**: the value of this number must greater than or equal to: `0`
-
-**unknown format**: the value of this string must follow the format: `int64`
-
-## productVersion
-
-HANA Product Version
-
-`productVersion`
-
-*   is optional
-
-*   Type: `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-productversion.md))
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-productversion.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/productVersion")
-
-### productVersion Type
-
-`object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-productversion.md))
-
-## project\_name
-
-
-
-`project_name`
+`datalakePassword`
 
 *   is optional
 
@@ -297,53 +47,21 @@ HANA Product Version
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-project_name.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/project_name")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-datalakepassword.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/datalakePassword")
 
-### project\_name Type
+### datalakePassword Type
 
 `string`
 
-## requestedOperation
+### datalakePassword Constraints
 
+**minimum length**: the minimum number of characters for this string is: `1`
 
+## datalakeUser
 
-`requestedOperation`
+User ID in the data lake instance
 
-*   is optional
-
-*   Type: `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-requestedoperation.md))
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-requestedoperation.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/requestedOperation")
-
-### requestedOperation Type
-
-`object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-requestedoperation.md))
-
-## serviceStopped
-
-Describes if the system should be running or stopped
-
-`serviceStopped`
-
-*   is optional
-
-*   Type: `boolean`
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-servicestopped.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/serviceStopped")
-
-### serviceStopped Type
-
-`boolean`
-
-## slaLevel
-
-Availability of the HANA instance
-
-`slaLevel`
+`datalakeUser`
 
 *   is optional
 
@@ -351,52 +69,21 @@ Availability of the HANA instance
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-slalevel.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/slaLevel")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-datalakeuser.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/datalakeUser")
 
-### slaLevel Type
+### datalakeUser Type
 
 `string`
 
-### slaLevel Constraints
+### datalakeUser Constraints
 
-**enum**: the value of this property must be equal to one of the following values:
+**minimum length**: the minimum number of characters for this string is: `1`
 
-| Value        | Explanation |
-| :----------- | :---------- |
-| `"standard"` |             |
-| `"elevated"` |             |
+## hanaID
 
-## storage
+Service instance GUID of the HANA instance
 
-Size of the Storage in GB
-
-`storage`
-
-*   is optional
-
-*   Type: `integer`
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-storage.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/storage")
-
-### storage Type
-
-`integer`
-
-### storage Constraints
-
-**maximum**: the value of this number must smaller than or equal to: `16000`
-
-**minimum**: the value of this number must greater than or equal to: `120`
-
-**unknown format**: the value of this string must follow the format: `int64`
-
-## systempassword
-
-Password to be set for tenant
-
-`systempassword`
+`hanaID`
 
 *   is required
 
@@ -404,21 +91,21 @@ Password to be set for tenant
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-systempassword.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/systempassword")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-hanaid.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/hanaID")
 
-### systempassword Type
+### hanaID Type
 
 `string`
 
-### systempassword Constraints
+### hanaID Constraints
 
-**minimum length**: the minimum number of characters for this string is: `8`
+**minimum length**: the minimum number of characters for this string is: `1`
 
-## template\_name
+## hanaPassword
 
+Password for the HANA user
 
-
-`template_name`
+`hanaPassword`
 
 *   is optional
 
@@ -426,66 +113,21 @@ Password to be set for tenant
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-template_name.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/template_name")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-hanapassword.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/hanaPassword")
 
-### template\_name Type
+### hanaPassword Type
 
 `string`
 
-## update\_strategy
+### hanaPassword Constraints
 
-preferred behaviour for version upgrades. with\_restart: the database will be shut down and started again during the upgrade; without\_restart: at some point active write transactions will be cancelled, after that the upgrade is effective without further downtime
+**minimum length**: the minimum number of characters for this string is: `1`
 
-`update_strategy`
+## hanaUser
 
-*   is optional
+User ID for HANA (for example, SYSTEM)
 
-*   Type: unknown
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-update_strategy.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/update_strategy")
-
-### update\_strategy Type
-
-unknown
-
-### update\_strategy Constraints
-
-**enum**: the value of this property must be equal to one of the following values:
-
-| Value               | Explanation |
-| :------------------ | :---------- |
-| `"with_restart"`    |             |
-| `"without_restart"` |             |
-
-## vcpu
-
-Number of vCPUs used by HANA
-
-`vcpu`
-
-*   is optional
-
-*   Type: `integer`
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-vcpu.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/vcpu")
-
-### vcpu Type
-
-`integer`
-
-### vcpu Constraints
-
-**minimum**: the value of this number must greater than or equal to: `2`
-
-## versionIndicator
-
-The version of the service to use
-
-`versionIndicator`
+`hanaUser`
 
 *   is optional
 
@@ -493,30 +135,12 @@ The version of the service to use
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-versionindicator.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/versionIndicator")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-hanauser.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/hanaUser")
 
-### versionIndicator Type
+### hanaUser Type
 
 `string`
 
-## whitelistIPs
+### hanaUser Constraints
 
-
-
-`whitelistIPs`
-
-*   is optional
-
-*   Type: `string[]`
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters-properties-data-properties-whitelistips.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters/properties/data/properties/whitelistIPs")
-
-### whitelistIPs Type
-
-`string[]`
-
-### whitelistIPs Constraints
-
-**maximum number of items**: the maximum number of items for this array is: `250`
+**minimum length**: the minimum number of characters for this string is: `1`

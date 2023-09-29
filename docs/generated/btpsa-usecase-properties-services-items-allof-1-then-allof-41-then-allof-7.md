@@ -1,3 +1,0 @@
-## 7 Type
-
-unknown
