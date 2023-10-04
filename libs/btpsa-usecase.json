@@ -3752,7 +3752,7 @@
                                             "if": { "properties": { "name": { "const": "data-privacy-integration-application"} } },
                                             "then" :{
                                                 "properties": {
-                                                    "plan": { "enum": ["default"] },
+                                                    "plan": { "enum": ["default","ngdpi"] },
                                                     "name": { "description": "SAP Data Privacy Integration: SAP Data Privacy Integration service supports applications realize their data privacy functions i.e Business Purpose Management ( Ensure Data is processed in a compliant manner based on valid Business Purpose ), Data Deletion and Retrieval of personal data. Applications that are part of an end to end business process can integrate with DPI to provide a centralized management of data privacy."}
                                                 },
                                                 "allOf": [
@@ -3761,6 +3761,14 @@
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "application plan >default< for >data-privacy-integration-application< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }, {
+                                                        "if": { "properties": { "plan": { "const": "ngdpi"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "application plan >ngdpi< for >data-privacy-integration-application< is available in data centers:\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
