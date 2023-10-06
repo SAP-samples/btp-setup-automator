@@ -212,7 +212,7 @@ The default value is:
 
 ## size\_of\_persistence
 
-Enter the size of the HANA memory in blocks of 15 GB on AWS
+Enter the size of the HANA memory in blocks of 15 GB on AWS or 16 GB on Azure
 
 `size_of_persistence`
 
