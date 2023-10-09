@@ -160,7 +160,6 @@ COPY --chown=root:root --from=tools /usr/local/bin/btp     /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/mbt     /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/kubectl /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/helm    /usr/local/bin
-COPY --chown=root:root --from=tools /usr/local/bin/fx      /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/ijq     /usr/local/bin
 
 ## Install the CF plugin for deploying MTAs on Cloudfoundry
