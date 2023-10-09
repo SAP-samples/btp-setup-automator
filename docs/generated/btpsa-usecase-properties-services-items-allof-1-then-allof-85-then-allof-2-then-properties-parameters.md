@@ -4,19 +4,20 @@
 
 # parameters Properties
 
-| Property                                   | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                                                             |
-| :----------------------------------------- | :-------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [allow\_access](#allow_access)             | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-allow_access.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/allow_access")             |
-| [audit\_log\_level](#audit_log_level)      | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-audit_log_level.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/audit_log_level")       |
-| [db\_parameters](#db_parameters)           | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-db_parameters.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/db_parameters")           |
-| [engine\_version](#engine_version)         | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-engine_version.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/engine_version")         |
-| [locale](#locale)                          | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-locale.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/locale")                         |
-| [maintenance\_window](#maintenance_window) | `object`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-maintenance_window.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/maintenance_window") |
-| [memory](#memory)                          | `integer` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-memory.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/memory")                         |
-| [multi\_az](#multi_az)                     | `boolean` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-multi_az.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/multi_az")                     |
-| [region](#region)                          | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-region.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/region")                         |
-| [storage](#storage)                        | `integer` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-storage.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/storage")                       |
-| Additional Properties                      | Any       | Optional | can be null    |                                                                                                                                                                                                                                                                                                                                                                        |
+| Property                                              | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                                                                       |
+| :---------------------------------------------------- | :-------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [allow\_access](#allow_access)                        | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-allow_access.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/allow_access")                       |
+| [audit\_log\_level](#audit_log_level)                 | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-audit_log_level.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/audit_log_level")                 |
+| [backup\_retention\_period](#backup_retention_period) | `integer` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-backup_retention_period.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/backup_retention_period") |
+| [db\_parameters](#db_parameters)                      | `array`   | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-db_parameters.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/db_parameters")                     |
+| [engine\_version](#engine_version)                    | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-engine_version.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/engine_version")                   |
+| [locale](#locale)                                     | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-locale.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/locale")                                   |
+| [maintenance\_window](#maintenance_window)            | `object`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-maintenance_window.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/maintenance_window")           |
+| [memory](#memory)                                     | `integer` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-memory.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/memory")                                   |
+| [multi\_az](#multi_az)                                | `boolean` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-multi_az.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/multi_az")                               |
+| [region](#region)                                     | `string`  | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-region.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/region")                                   |
+| [storage](#storage)                                   | `integer` | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-storage.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/storage")                                 |
+| Additional Properties                                 | Any       | Optional | can be null    |                                                                                                                                                                                                                                                                                                                                                                                  |
 
 ## allow\_access
 
@@ -69,6 +70,38 @@ The default value is:
   "ROLE",
   "DDL"
 ]
+```
+
+## backup\_retention\_period
+
+Defines backup retention period for the PostgreSQL database instance
+
+`backup_retention_period`
+
+*   is optional
+
+*   Type: `integer`
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-85-then-allof-2-then-properties-parameters-properties-backup_retention_period.md "http://example.com/schemas/postgres-standard-create.json#/properties/services/items/allOf/1/then/allOf/85/then/allOf/2/then/properties/parameters/properties/backup_retention_period")
+
+### backup\_retention\_period Type
+
+`integer`
+
+### backup\_retention\_period Constraints
+
+**maximum**: the value of this number must smaller than or equal to: `35`
+
+**minimum**: the value of this number must greater than or equal to: `14`
+
+### backup\_retention\_period Default Value
+
+The default value is:
+
+```json
+14
 ```
 
 ## db\_parameters

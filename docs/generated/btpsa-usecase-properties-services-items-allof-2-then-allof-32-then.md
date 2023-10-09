@@ -8,6 +8,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-32-then-allof-1.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-32-then-allof-2.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -41,6 +43,7 @@ unknown
 | :----------- | :---------- |
 | `"free"`     |             |
 | `"standard"` |             |
+| `"test"`     |             |
 
 ## name
 
