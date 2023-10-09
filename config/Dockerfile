@@ -20,7 +20,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/latest-stable/community" >> /etc/ap
 ##########################################################################################
 # Retrieve the CloudFoundry CLI
 ##########################################################################################
-FROM --platform=linux/amd64 cloudfoundry/cli:8.6.1 as cf_cli
+FROM --platform=linux/amd64 cloudfoundry/cli:8.7.3 as cf_cli
 
 ##########################################################################################
 ## Retrieve the SAP btp CLI
@@ -74,10 +74,7 @@ RUN apk update upgrade \
 FROM base as utilities
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 WORKDIR /tmp/tools
-ENV VER_FX=24.1.0
 ENV VER_IJQ=0.4.1
-RUN curl -fsSL -o fx --url "https://github.com/antonmedv/fx/releases/download/${VER_FX}/fx_${ARCH//-/_}" \
-  && chmod +x fx
 RUN curl -fsSL --url "https://git.sr.ht/~gpanders/ijq/refs/download/v${VER_IJQ}/ijq-${VER_IJQ}-${ARCH}.tar.gz" \
   | tar --extract -z --file - --strip-components 1 "ijq-${VER_IJQ}/ijq"
 
@@ -163,7 +160,6 @@ COPY --chown=root:root --from=tools /usr/local/bin/btp     /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/mbt     /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/kubectl /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/helm    /usr/local/bin
-COPY --chown=root:root --from=tools /usr/local/bin/fx      /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/ijq     /usr/local/bin
 
 ## Install the CF plugin for deploying MTAs on Cloudfoundry
