@@ -10,6 +10,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-79-then-allof-2.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-79-then-allof-3.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -44,6 +46,7 @@ unknown
 | `"azure-standard"` |             |
 | `"gcs-standard"`   |             |
 | `"s3-standard"`    |             |
+| `"standard"`       |             |
 
 ## name
 
