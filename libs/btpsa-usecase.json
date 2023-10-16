@@ -3776,7 +3776,7 @@
                                                         "if": { "properties": { "plan": { "const": "ngdpi"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "application plan >ngdpi< for >data-privacy-integration-application< is available in data centers:\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "application plan >ngdpi< for >data-privacy-integration-application< is available in data centers:\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us21', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
