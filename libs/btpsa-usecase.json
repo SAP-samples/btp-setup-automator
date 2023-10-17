@@ -4524,11 +4524,19 @@
                                             "if": { "properties": { "name": { "const": "SAPLaunchpad"} } },
                                             "then" :{
                                                 "properties": {
-                                                    "plan": { "enum": ["free","standard"] },
+                                                    "plan": { "enum": ["foundation","free","standard"] },
                                                     "name": { "description": "SAP Build Work Zone, standard edition: Provides users with a central point of access to applications from different sources. Note: SAP Launchpad service was recently renamed to SAP Build Work Zone, standard edition."}
                                                 },
                                                 "allOf": [
                                                     {
+                                                        "if": { "properties": { "plan": { "const": "foundation"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "application plan >foundation< for >SAPLaunchpad< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }, {
                                                         "if": { "properties": { "plan": { "const": "free"} } },
                                                         "then" :{
                                                             "properties": {
