@@ -6,7 +6,7 @@
 
 **maximum**: the value of this number must smaller than or equal to: `35`
 
-**minimum**: the value of this number must greater than or equal to: `14`
+**minimum**: the value of this number must greater than or equal to: `1`
 
 ## backup\_retention\_period Default Value
 

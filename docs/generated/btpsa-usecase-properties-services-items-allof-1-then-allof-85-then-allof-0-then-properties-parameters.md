@@ -32,7 +32,7 @@ Comma separated list of IPs and CF landscape domains from which connectivity to 
 
 ## engine\_version
 
-The major version of the PostgreSQL database to use. If not provided, the major version is defaulted to 12
+The major version of the PostgreSQL database to use. If not provided, the major version is defaulted to 14
 
 `engine_version`
 
@@ -64,7 +64,7 @@ The major version of the PostgreSQL database to use. If not provided, the major 
 The default value is:
 
 ```json
-"12"
+"14"
 ```
 
 ## locale
