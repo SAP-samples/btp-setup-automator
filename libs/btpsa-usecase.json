@@ -1317,7 +1317,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["default","free"] },
-                                                    "name": { "description": "Document Translation: Provides an API that allows you to translate documents of various formats into multiple languages."}
+                                                    "name": { "description": "Document Translation: Provides functionality that allows you to translate content in various formats into multiple languages."}
                                                 },
                                                 "allOf": [
                                                     {
