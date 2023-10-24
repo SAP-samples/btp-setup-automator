@@ -14,6 +14,7 @@ application plan >ngdpi< for >data-privacy-integration-application< is available
 
 *   {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
 *   {'region': 'us21', 'name': 'US East (VA)'}
 
 `plan`

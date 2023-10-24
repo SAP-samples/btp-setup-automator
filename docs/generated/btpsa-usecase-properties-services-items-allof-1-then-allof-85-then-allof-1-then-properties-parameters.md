@@ -94,7 +94,7 @@ Defines backup retention period for the PostgreSQL database instance
 
 **maximum**: the value of this number must smaller than or equal to: `35`
 
-**minimum**: the value of this number must greater than or equal to: `14`
+**minimum**: the value of this number must greater than or equal to: `1`
 
 ### backup\_retention\_period Default Value
 
@@ -128,7 +128,7 @@ Database system configurations
 
 ## engine\_version
 
-The major version of the PostgreSQL database to use. If not provided, the major version is defaulted to 12
+The major version of the PostgreSQL database to use. If not provided, the major version is defaulted to 14
 
 `engine_version`
 
@@ -160,7 +160,7 @@ The major version of the PostgreSQL database to use. If not provided, the major 
 The default value is:
 
 ```json
-"12"
+"14"
 ```
 
 ## locale

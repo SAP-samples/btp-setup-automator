@@ -11,3 +11,4 @@ unknown
 | `"azure-standard"` |             |
 | `"gcs-standard"`   |             |
 | `"s3-standard"`    |             |
+| `"standard"`       |             |
