@@ -41,7 +41,7 @@ unknown
 
 ## name
 
-SAP Integration Suite: The SAP Integration Suite helps you to quickly develop and manage reliable communication between applications, services, and systems across heterogeneous landscapes.
+SAP Integration Suite: SAP Integration Suite helps you to quickly develop and manage reliable communication between applications, services, and systems across heterogeneous landscapes.
 
 `name`
 
