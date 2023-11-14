@@ -103,7 +103,7 @@ jobs:
     needs: [build-temporary-image, integration-test-for-pr-slim]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v6
+      - uses: actions/github-script@v7
         env:
           IMAGE: ${{ needs.build-temporary-image.outputs.image_path }}
         with:
