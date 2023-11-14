@@ -6,9 +6,10 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value      | Explanation |
-| :--------- | :---------- |
-| `"Admin"`  |             |
-| `"Read"`   |             |
-| `"Import"` |             |
-| `"Export"` |             |
+| Value                 | Explanation |
+| :-------------------- | :---------- |
+| `"Admin"`             |             |
+| `"Read"`              |             |
+| `"Import"`            |             |
+| `"Export"`            |             |
+| `"Security Operator"` |             |

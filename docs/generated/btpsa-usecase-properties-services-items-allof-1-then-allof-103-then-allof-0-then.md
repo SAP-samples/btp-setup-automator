@@ -13,8 +13,11 @@ unknown
 service plan >api< for >sap-graph< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
+*   {'region': 'ap11', 'name': 'Singapore'}
+*   {'region': 'ca10', 'name': 'Canada (Montreal)'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu30', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
 *   {'region': 'us30', 'name': 'US Central (IA)'}
 
