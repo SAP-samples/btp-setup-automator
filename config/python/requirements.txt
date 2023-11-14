@@ -11,7 +11,7 @@ mccabe==0.7.0
 ninja2==0.1
 pycodestyle==2.11.1
 pyflakes==3.0.1
-pyrsistent==0.19.3
+pyrsistent==0.20.0
 python-dateutil==2.8.2
 python-editor==1.0.4
 readchar==4.0.5
