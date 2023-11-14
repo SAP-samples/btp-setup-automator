@@ -1039,7 +1039,7 @@
                                                         "then" :{
                                                             "properties": {
                                                                 "plan": { "description": "service plan >application< for >content-agent< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'ch20', 'name': 'cf-ch20'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'eu30', 'name': 'Europe (Frankfurt)'}\n- {'region': 'in30', 'name': 'India (Mumbai)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
-                                                                , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_show_form_view": true, "additionalProperties": false, "properties": {"roles": {"description": "List of Roles for Current Instance", "items": {"enum": ["Admin", "Read", "Import", "Export"]}, "minItems": 1, "title": "roles", "type": "array"}}, "type": "object"}
+                                                                , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_show_form_view": true, "additionalProperties": false, "properties": {"roles": {"description": "List of Roles for Current Instance", "items": {"enum": ["Admin", "Read", "Import", "Export", "Security Operator"]}, "minItems": 1, "title": "roles", "type": "array"}}, "type": "object"}
 
                                                             }, "required" : ["parameters"]
 
@@ -1122,7 +1122,7 @@
                                                         "if": { "properties": { "plan": { "const": "free"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >free< for >data-analytics-osb< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "service plan >free< for >data-analytics-osb< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'eu30', 'name': 'Europe (Frankfurt)'}\n- {'region': 'in30', 'name': 'India (Mumbai)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
                                                                 , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_show_form_view": true, "properties": {"email": {"description": "email of the user", "format": "email", "minLength": 1, "type": "string"}, "first_name": {"description": "first name of the user", "minLength": 1, "type": "string"}, "last_name": {"description": "last name of the user", "minLength": 1, "type": "string"}}, "type": "object"}
 
                                                             }, "required" : ["parameters"]
@@ -1132,7 +1132,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >standard< for >data-analytics-osb< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "service plan >standard< for >data-analytics-osb< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'eu30', 'name': 'Europe (Frankfurt)'}\n- {'region': 'in30', 'name': 'India (Mumbai)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
                                                                 , "parameters" : {"$schema": "http://json-schema.org/draft-07/schema", "_show_form_view": true, "properties": {"email": {"description": "email of the user", "format": "email", "minLength": 1, "type": "string"}, "first_name": {"description": "first name of the user", "minLength": 1, "type": "string"}, "last_name": {"description": "last name of the user", "minLength": 1, "type": "string"}}, "type": "object"}
 
                                                             }, "required" : ["parameters"]
@@ -1762,11 +1762,19 @@
                                             "if": { "properties": { "name": { "const": "integrationsuite"} } },
                                             "then" :{
                                                 "properties": {
-                                                    "plan": { "enum": ["messages"] },
-                                                    "name": { "description": "SAP Integration Suite: The SAP Integration Suite helps you to quickly develop and manage reliable communication between applications, services, and systems across heterogeneous landscapes."}
+                                                    "plan": { "enum": ["edge_integration_cell","messages"] },
+                                                    "name": { "description": "SAP Integration Suite: SAP Integration Suite helps you to quickly develop and manage reliable communication between applications, services, and systems across heterogeneous landscapes."}
                                                 },
                                                 "allOf": [
                                                     {
+                                                        "if": { "properties": { "plan": { "const": "edge_integration_cell"} } },
+                                                        "then" :{
+                                                            "properties": {
+                                                                "plan": { "description": "service plan >edge_integration_cell< for >integrationsuite< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ap12', 'name': 'South Korea (Seoul)'}\n- {'region': 'ap20', 'name': 'Australia (Sydney) Azure'}\n- {'region': 'ap21', 'name': 'Singapore'}\n- {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'ch20', 'name': 'cf-ch20'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'eu20', 'name': 'Europe (Netherlands)'}\n- {'region': 'in30', 'name': 'India (Mumbai)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'jp20', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us20', 'name': 'US West (WA)'}\n- {'region': 'us21', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                
+                                                            }
+                                                        }
+                                                    }, {
                                                         "if": { "properties": { "plan": { "const": "messages"} } },
                                                         "then" :{
                                                             "properties": {
@@ -2497,7 +2505,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["standard"] },
-                                                    "name": { "description": "SAP Cloud Portal service: SAP Business Technology Platform Portal lets you build digital experience portals for employees, customers, and partners. You can streamline access to business data so that your employees can execute their daily business tasks securely, from any device."}
+                                                    "name": { "description": "SAP Cloud Portal service: SAP Cloud Portal service lets you build digital experience portals for employees, customers, and partners. You can streamline access to business data so that your employees can execute their daily business tasks securely, from any device."}
                                                 },
                                                 "allOf": [
                                                     {
@@ -3064,7 +3072,7 @@
                                                         "if": { "properties": { "plan": { "const": "api"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >api< for >sap-graph< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu30', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
+                                                                "plan": { "description": "service plan >api< for >sap-graph< is available in data centers:\n- {'region': 'ap10', 'name': 'Australia (Sydney)'}\n- {'region': 'ap11', 'name': 'Singapore'}\n- {'region': 'ca10', 'name': 'Canada (Montreal)'}\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu30', 'name': 'Europe (Frankfurt)'}\n- {'region': 'jp10', 'name': 'Japan (Tokyo)'}\n- {'region': 'us10', 'name': 'US East (VA)'}\n- {'region': 'us30', 'name': 'US Central (IA)'}" }
                                                                 
                                                             }
                                                         }
@@ -3975,7 +3983,7 @@
                                             "then" :{
                                                 "properties": {
                                                     "plan": { "enum": ["enterprise_agreement","free"] },
-                                                    "name": { "description": "SAP Integration Suite: The SAP Integration Suite helps you to quickly develop and manage reliable communication between applications, services, and systems across heterogeneous landscapes."}
+                                                    "name": { "description": "SAP Integration Suite: SAP Integration Suite helps you to quickly develop and manage reliable communication between applications, services, and systems across heterogeneous landscapes."}
                                                 },
                                                 "allOf": [
                                                     {
