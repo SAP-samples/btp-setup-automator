@@ -8,6 +8,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-111-then-allof-1.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-111-then-allof-2.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                              |
@@ -37,14 +39,15 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value                   | Explanation |
-| :---------------------- | :---------- |
-| `"reporting-directory"` |             |
-| `"reporting-ga-admin"`  |             |
+| Value                  | Explanation |
+| :--------------------- | :---------- |
+| `"export"`             |             |
+| `"standard"`           |             |
+| `"transport_operator"` |             |
 
 ## name
 
-SAP Usage Data Management service for SAP BTP: The SAP Usage Data Management service for SAP BTP provides REST APIs that are responsible for gathering, storing, and making usage information available for all services and applications in all regions in a cloud deployment, for the purpose of central analysis, reporting, and license auditing. The service accumulates the information and provides reports in several business systems (reporting and operations) for resource planning and cross billing purposes.
+SAP Cloud Transport Management: SAP Cloud Transport Management service lets you manage software deliverables between accounts of different environments (such as Neo and Cloud Foundry), by transporting them across various runtimes. This includes application artifacts as well as their respective application-specific content.
 
 `name`
 

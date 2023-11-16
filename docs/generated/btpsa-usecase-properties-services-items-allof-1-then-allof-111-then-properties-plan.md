@@ -6,7 +6,8 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value                   | Explanation |
-| :---------------------- | :---------- |
-| `"reporting-directory"` |             |
-| `"reporting-ga-admin"`  |             |
+| Value                  | Explanation |
+| :--------------------- | :---------- |
+| `"export"`             |             |
+| `"standard"`           |             |
+| `"transport_operator"` |             |

@@ -4,14 +4,13 @@ unknown
 
 # then Properties
 
-| Property                  | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                                  |
-| :------------------------ | :------------ | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [plan](#plan)             | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/plan")             |
-| [parameters](#parameters) | `object`      | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters") |
+| Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                      |
+| :------------ | :------------ | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-plan.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/plan") |
 
 ## plan
 
-service plan >hana-cloud-connection-free< for >hana-cloud< is available in data centers:
+service plan >schema< for >hana< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}
@@ -21,12 +20,17 @@ service plan >hana-cloud-connection-free< for >hana-cloud< is available in data 
 *   {'region': 'br10', 'name': 'Brazil (Sao Paulo)'}
 *   {'region': 'ca10', 'name': 'Canada (Montreal)'}
 *   {'region': 'ch20', 'name': 'cf-ch20'}
+*   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
+*   {'region': 'eu30', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'in30', 'name': 'India (Mumbai)'}
 *   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
 *   {'region': 'jp20', 'name': 'Japan (Tokyo)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
 *   {'region': 'us20', 'name': 'US West (WA)'}
 *   {'region': 'us21', 'name': 'US East (VA)'}
+*   {'region': 'us30', 'name': 'US Central (IA)'}
 
 `plan`
 
@@ -41,21 +45,3 @@ service plan >hana-cloud-connection-free< for >hana-cloud< is available in data 
 ### plan Type
 
 unknown
-
-## parameters
-
-
-
-`parameters`
-
-*   is required
-
-*   Type: `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters.md))
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters.md "undefined#/properties/services/items/allOf/1/then/allOf/41/then/allOf/2/then/properties/parameters")
-
-### parameters Type
-
-`object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-41-then-allof-2-then-properties-parameters.md))

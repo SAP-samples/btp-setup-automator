@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >edge\_integration\_cell< for >integrationsuite< is available in data centers:
+service plan >default< for >integration-assessment< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}
@@ -23,6 +23,7 @@ service plan >edge\_integration\_cell< for >integrationsuite< is available in da
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}
 *   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
+*   {'region': 'eu30', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'in30', 'name': 'India (Mumbai)'}
 *   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
 *   {'region': 'jp20', 'name': 'Japan (Tokyo)'}
