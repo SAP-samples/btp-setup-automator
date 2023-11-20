@@ -60,7 +60,7 @@ You'll notice that the prompt in your terminal has changed, because you are now 
 Before we run the main script you should modify the parameter.json inside the container and add your email address in the member section: 
 1. Navigate to the parameter file 
 ```bash
-cd usecases/released/discoverycenter/3999-kyma-day2-operations
+cd usecases/released/discoverycenter/4000-kyma-identity-management
 ```
 1. Open the parameter.json in vi
 ```bash
