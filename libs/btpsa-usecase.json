@@ -2014,7 +2014,7 @@
                                                         "if": { "properties": { "plan": { "const": "default"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >default< for >market-rates-byor< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >default< for >market-rates-byor< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -2022,7 +2022,7 @@
                                                         "if": { "properties": { "plan": { "const": "free"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >free< for >market-rates-byor< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >free< for >market-rates-byor< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -2040,7 +2040,7 @@
                                                         "if": { "properties": { "plan": { "const": "default"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >default< for >market-rates-thr< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >default< for >market-rates-thr< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
@@ -2048,7 +2048,7 @@
                                                         "if": { "properties": { "plan": { "const": "standard"} } },
                                                         "then" :{
                                                             "properties": {
-                                                                "plan": { "description": "service plan >standard< for >market-rates-thr< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
+                                                                "plan": { "description": "service plan >standard< for >market-rates-thr< is available in data centers:\n- {'region': 'eu10', 'name': 'Europe (Frankfurt)'}\n- {'region': 'eu11', 'name': 'Europe (Frankfurt) EU Access - AWS'}\n- {'region': 'us10', 'name': 'US East (VA)'}" }
                                                                 
                                                             }
                                                         }
