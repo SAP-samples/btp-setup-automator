@@ -9,5 +9,4 @@ unknown
 | Value        | Explanation |
 | :----------- | :---------- |
 | `"free"`     |             |
-| `"premium"`  |             |
 | `"standard"` |             |

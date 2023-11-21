@@ -10,7 +10,7 @@ unknown
 
 ## plan
 
-service plan >standard< for >mobile-app-update< is available in data centers:
+service plan >standard< for >mobile-app-catalog< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}

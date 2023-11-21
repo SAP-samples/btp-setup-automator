@@ -6,6 +6,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-61-then-allof-0.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-61-then-allof-1.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -35,13 +37,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value       | Explanation |
-| :---------- | :---------- |
-| `"default"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"default"`  |             |
+| `"standard"` |             |
 
 ## name
 
-SAP Master Data service for business partners: SAP Business Partner Service
+Market Rates, Refinitiv: The Refinitiv data option for SAP Market Rates Management provides market rates on a daily basis or for a specified date range that you can use in SAP S/4HANA systems. It includes the Download Market Data service, which is a reuse service that allows you to import market data.
 
 `name`
 

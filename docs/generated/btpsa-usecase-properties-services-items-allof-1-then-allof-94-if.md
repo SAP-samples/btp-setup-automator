@@ -31,5 +31,5 @@ unknown
 **constant**: the value of this property must be equal to:
 
 ```json
-"responsibility-management-service-beta"
+"redis-cache"
 ```

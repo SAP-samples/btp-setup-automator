@@ -37,14 +37,14 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value       | Explanation |
-| :---------- | :---------- |
-| `"free"`    |             |
-| `"keyuser"` |             |
+| Value                   | Explanation |
+| :---------------------- | :---------- |
+| `"reporting-directory"` |             |
+| `"reporting-ga-admin"`  |             |
 
 ## name
 
-UI5 flexibility for key users: The UI5 flexibility service for key users lets you provide UI adaptation capabilites for your UI5 applications on Cloud Foundry. Users of your applications can change the user interface of your applications in an upgrade-safe and modification-free way, without affecting any other customer.
+SAP Usage Data Management service for SAP BTP: The SAP Usage Data Management service for SAP BTP provides REST APIs that are responsible for gathering, storing, and making usage information available for all services and applications in all regions in a cloud deployment, for the purpose of central analysis, reporting, and license auditing. The service accumulates the information and provides reports in several business systems (reporting and operations) for resource planning and cross billing purposes.
 
 `name`
 

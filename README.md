@@ -6,6 +6,8 @@
 
 📢 **Please be aware that with release 1.9.0 this tool is in maintenance mode** - see also the corresponding [announcement](https://github.com/SAP-samples/btp-setup-automator/discussions/558)
 
+As an alternative for the btp-setup-automator we recommend to use the [Terraform Provider for SAP BTP](https://github.com/SAP/terraform-provider-btp) as tool for the setup of infrastructure on the SAP BTP available in the [Hashicorp Terraform registry](https://registry.terraform.io/providers/SAP/btp/latest).
+
 ## Description
 
 This repository provides the user with a script to **automate the setup** of an [SAP Business Technology Platform (SAP BTP) account](https://account.hana.ondemand.com/) and to **learn** how this is done with the various command line interfaces and tools that run inside a [Docker](https://www.docker.com/) container. It uses  JSON configuration files to automate this setup of SAP BTP accounts or do other administrative tasks.

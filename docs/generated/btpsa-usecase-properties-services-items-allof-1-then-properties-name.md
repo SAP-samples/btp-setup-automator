@@ -43,6 +43,7 @@ unknown
 | `"dataenrichment-business-partner"`        |             |
 | `"dateandtime"`                            |             |
 | `"destination"`                            |             |
+| `"di-api"`                                 |             |
 | `"document-classification"`                |             |
 | `"document-translation"`                   |             |
 | `"dq-services"`                            |             |

@@ -35,13 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value       | Explanation |
-| :---------- | :---------- |
-| `"default"` |             |
+| Value        | Explanation |
+| :----------- | :---------- |
+| `"standard"` |             |
 
 ## name
 
-SAP Cloud ALM, memory extension: Add extensions for special use cases that exceed the standard functions of SAP Cloud ALM under Enterprise Support. Excessively store and extend data, e.g. to upload additional data, increase run retention time, add process management assets and tenants. Leverage the development environment of SAP BTP, for example, by your own, dashboards, or enhancements.
+SAP Build Apps runtime: The runtime service for SAP Build Apps. Allows connectivity to visual cloud functions applications developed and deployed on the SAP Build Apps runtime. A subscription to SAP Build Apps is required to use this service.
 
 `name`
 

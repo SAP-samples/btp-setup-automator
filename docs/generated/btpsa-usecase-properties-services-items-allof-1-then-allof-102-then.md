@@ -6,10 +6,6 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-102-then-allof-0.md "check type definition")
 
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-102-then-allof-1.md "check type definition")
-
-*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-102-then-allof-2.md "check type definition")
-
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                              |
@@ -39,15 +35,13 @@ unknown
 
 **enum**: the value of this property must be equal to one of the following values:
 
-| Value             | Explanation |
-| :---------------- | :---------- |
-| `"blocks_of_100"` |             |
-| `"default"`       |             |
-| `"free"`          |             |
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"default"` |             |
 
 ## name
 
-Document Information Extraction: Document Information Extraction helps you to process various documents that have content in headers and tables. You can use the extracted information, for example, to automatically process payables, invoices, or payment notes while making sure that invoices and payables match.
+SAP Cloud ALM, memory extension: Add extensions for special use cases that exceed the standard functions of SAP Cloud ALM under Enterprise Support. Excessively store and extend data, e.g. to upload additional data, increase run retention time, add process management assets and tenants. Leverage the development environment of SAP BTP, for example, by your own, dashboards, or enhancements.
 
 `name`
 
