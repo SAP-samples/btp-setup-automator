@@ -10,17 +10,13 @@ unknown
 
 ## plan
 
-application plan >standard< for >SAPWebAnalytics< is available in data centers:
+application plan >foundation< for >SAPLaunchpad< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
-*   {'region': 'ap21', 'name': 'Singapore'}
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
 *   {'region': 'eu20', 'name': 'Europe (Netherlands)'}
-*   {'region': 'jp10', 'name': 'Japan (Tokyo)'}
-*   {'region': 'jp20', 'name': 'Japan (Tokyo)'}
 *   {'region': 'us10', 'name': 'US East (VA)'}
 *   {'region': 'us20', 'name': 'US West (WA)'}
-*   {'region': 'us21', 'name': 'US East (VA)'}
 
 `plan`
 

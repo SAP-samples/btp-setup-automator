@@ -6,7 +6,7 @@ unknown
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                      |
 | :------------ | :------------ | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-51-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/51/then/allOf/1/then/properties/plan") |
+| [plan](#plan) | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-52-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/52/then/allOf/1/then/properties/plan") |
 
 ## plan
 
@@ -34,7 +34,7 @@ application plan >standard< for >SAPWorkZone< is available in data centers:
 
 *   cannot be null
 
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-51-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/51/then/allOf/1/then/properties/plan")
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-52-then-allof-1-then-properties-plan.md "undefined#/properties/services/items/allOf/2/then/allOf/52/then/allOf/1/then/properties/plan")
 
 ### plan Type
 
