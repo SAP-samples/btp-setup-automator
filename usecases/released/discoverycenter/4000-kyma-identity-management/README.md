@@ -53,7 +53,10 @@ Enter the following command into the terminal and press the `ENTER` key:
 docker container run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:latest"
 ```
 
-> ⚠ NOTE: If you are running on an ARM based platform like a Mac M1 or M2 and are facing issues with the image, add the `--platform linux/amd64` option to the `docker container run command`. The image we provide is built for `linux/amd64` and due to some implicit dependencies we cannot perform a built for `linux/arm64` with the alpine linux as base image.
+> Note: If you are running on an ARM based platform like a Mac M1 or M2 and are facing issues with the image, add the `--platform linux/amd64` option to the `docker container run command`. The image we provide is built for `linux/amd64` and due to some implicit dependencies we cannot perform a built for `linux/arm64` with the alpine linux as base image. So the updated command would be as follow:
+```bash
+docker container --platform linux/amd64 run --rm -it --name "btp-setup-automator" "ghcr.io/sap-samples/btp-setup-automator:latest"
+```
 
 You'll notice that the prompt in your terminal has changed, because you are now working inside the docker container, that you just started.
 
@@ -82,7 +85,7 @@ vi parameter.json
 :wq 
 ```
 
-Now run the main script `btpsa` with the following command:
+Now go back to the root and run the main script `btpsa` with the following command:
 
 ```bash
 ./btpsa -parameterfile 'usecases/released/discoverycenter/4000-kyma-identity-management/parameters.json' -globalaccount '<your global account subdomain as shown in the SAP BTP cockpit>' -myemail '<your email address>'
