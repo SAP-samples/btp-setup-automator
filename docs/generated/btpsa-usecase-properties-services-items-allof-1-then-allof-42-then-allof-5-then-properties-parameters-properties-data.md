@@ -7,6 +7,7 @@
 | Property                                                | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                                                          |
 | :------------------------------------------------------ | :------------ | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [coordinator\_type](#coordinator_type)                  | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-coordinator_type.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/coordinator_type")                 |
+| [generateSystemPassword](#generatesystempassword)       | `boolean`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-generatesystempassword.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/generateSystemPassword")     |
 | [initOptions](#initoptions)                             | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-initoptions.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/initOptions")                           |
 | [iqEnabled](#iqenabled)                                 | `boolean`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-iqenabled.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/iqEnabled")                               |
 | [num\_coordinators](#num_coordinators)                  | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-num_coordinators.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/num_coordinators")                 |
@@ -48,6 +49,24 @@ unknown
 ```json
 "small"
 ```
+
+## generateSystemPassword
+
+Describes if the systempassword should be generated or not.
+
+`generateSystemPassword`
+
+*   is optional
+
+*   Type: `boolean`
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-generatesystempassword.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/generateSystemPassword")
+
+### generateSystemPassword Type
+
+`boolean`
 
 ## initOptions
 

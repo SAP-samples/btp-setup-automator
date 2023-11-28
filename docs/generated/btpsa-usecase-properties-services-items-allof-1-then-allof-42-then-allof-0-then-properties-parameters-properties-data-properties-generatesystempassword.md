@@ -1,0 +1,3 @@
+## generateSystemPassword Type
+
+`boolean`

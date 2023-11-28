@@ -14,6 +14,7 @@
 | [edition](#edition)                                     | `string`      | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-0-then-properties-parameters-properties-data-properties-edition.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/0/then/properties/parameters/properties/data/properties/edition")                                     |
 | [enabledservices](#enabledservices)                     | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-0-then-properties-parameters-properties-data-properties-enabledservices.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/0/then/properties/parameters/properties/data/properties/enabledservices")                     |
 | [extensionservices](#extensionservices)                 | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-0-then-properties-parameters-properties-data-properties-extensionservices.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/0/then/properties/parameters/properties/data/properties/extensionservices")                 |
+| [generateSystemPassword](#generatesystempassword)       | `boolean`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-0-then-properties-parameters-properties-data-properties-generatesystempassword.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/0/then/properties/parameters/properties/data/properties/generateSystemPassword")       |
 | [memory](#memory)                                       | `integer`     | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-0-then-properties-parameters-properties-data-properties-memory.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/0/then/properties/parameters/properties/data/properties/memory")                                       |
 | [memoryScaleOut](#memoryscaleout)                       | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-0-then-properties-parameters-properties-data-properties-memoryscaleout.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/0/then/properties/parameters/properties/data/properties/memoryScaleOut")                       |
 | [productVersion](#productversion)                       | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-0-then-properties-parameters-properties-data-properties-productversion.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/0/then/properties/parameters/properties/data/properties/productVersion")                       |
@@ -22,7 +23,7 @@
 | [serviceStopped](#servicestopped)                       | `boolean`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-0-then-properties-parameters-properties-data-properties-servicestopped.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/0/then/properties/parameters/properties/data/properties/serviceStopped")                       |
 | [slaLevel](#slalevel)                                   | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-0-then-properties-parameters-properties-data-properties-slalevel.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/0/then/properties/parameters/properties/data/properties/slaLevel")                                   |
 | [storage](#storage)                                     | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-0-then-properties-parameters-properties-data-properties-storage.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/0/then/properties/parameters/properties/data/properties/storage")                                     |
-| [systempassword](#systempassword)                       | `string`      | Required | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-0-then-properties-parameters-properties-data-properties-systempassword.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/0/then/properties/parameters/properties/data/properties/systempassword")                       |
+| [systempassword](#systempassword)                       | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-0-then-properties-parameters-properties-data-properties-systempassword.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/0/then/properties/parameters/properties/data/properties/systempassword")                       |
 | [template\_name](#template_name)                        | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-0-then-properties-parameters-properties-data-properties-template_name.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/0/then/properties/parameters/properties/data/properties/template_name")                         |
 | [update\_strategy](#update_strategy)                    | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-0-then-properties-parameters-properties-data-properties-update_strategy.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/0/then/properties/parameters/properties/data/properties/update_strategy")                     |
 | [vcpu](#vcpu)                                           | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-0-then-properties-parameters-properties-data-properties-vcpu.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/0/then/properties/parameters/properties/data/properties/vcpu")                                           |
@@ -206,6 +207,24 @@ List of services of the HANA to be enabled
 ### extensionservices Type
 
 unknown
+
+## generateSystemPassword
+
+Describes if the systempassword should be generated or not.
+
+`generateSystemPassword`
+
+*   is optional
+
+*   Type: `boolean`
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-0-then-properties-parameters-properties-data-properties-generatesystempassword.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/0/then/properties/parameters/properties/data/properties/generateSystemPassword")
+
+### generateSystemPassword Type
+
+`boolean`
 
 ## memory
 
@@ -398,7 +417,7 @@ Password to be set for tenant
 
 `systempassword`
 
-*   is required
+*   is optional
 
 *   Type: `string`
 
