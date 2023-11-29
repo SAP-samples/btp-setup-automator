@@ -10,7 +10,6 @@
 | [coordinator\_type](#coordinator_type)                  | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-4-then-properties-parameters-properties-data-properties-coordinator_type.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/4/then/properties/parameters/properties/data/properties/coordinator_type")                 |
 | [enableBackups](#enablebackups)                         | `boolean`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-4-then-properties-parameters-properties-data-properties-enablebackups.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/4/then/properties/parameters/properties/data/properties/enableBackups")                       |
 | [fileContainer](#filecontainer)                         | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-4-then-properties-parameters-properties-data-properties-filecontainer.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/4/then/properties/parameters/properties/data/properties/fileContainer")                       |
-| [generateSystemPassword](#generatesystempassword)       | `boolean`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-4-then-properties-parameters-properties-data-properties-generatesystempassword.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/4/then/properties/parameters/properties/data/properties/generateSystemPassword")     |
 | [initOptions](#initoptions)                             | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-4-then-properties-parameters-properties-data-properties-initoptions.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/4/then/properties/parameters/properties/data/properties/initOptions")                           |
 | [iqEnabled](#iqenabled)                                 | `boolean`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-4-then-properties-parameters-properties-data-properties-iqenabled.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/4/then/properties/parameters/properties/data/properties/iqEnabled")                               |
 | [num\_coordinators](#num_coordinators)                  | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-4-then-properties-parameters-properties-data-properties-num_coordinators.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/4/then/properties/parameters/properties/data/properties/num_coordinators")                 |
@@ -110,24 +109,6 @@ Configuration of the Data Lake's default file container
 ### fileContainer Type
 
 `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-4-then-properties-parameters-properties-data-properties-filecontainer.md))
-
-## generateSystemPassword
-
-Describes if the systempassword should be generated or not.
-
-`generateSystemPassword`
-
-*   is optional
-
-*   Type: `boolean`
-
-*   cannot be null
-
-*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-4-then-properties-parameters-properties-data-properties-generatesystempassword.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/4/then/properties/parameters/properties/data/properties/generateSystemPassword")
-
-### generateSystemPassword Type
-
-`boolean`
 
 ## initOptions
 
