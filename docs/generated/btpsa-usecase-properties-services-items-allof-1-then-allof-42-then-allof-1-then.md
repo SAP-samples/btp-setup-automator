@@ -11,7 +11,7 @@ unknown
 
 ## plan
 
-service plan >hana-cloud-connection< for >hana-cloud< is available in data centers:
+service plan >hana< for >hana-cloud< is available in data centers:
 
 *   {'region': 'ap10', 'name': 'Australia (Sydney)'}
 *   {'region': 'ap11', 'name': 'Singapore'}

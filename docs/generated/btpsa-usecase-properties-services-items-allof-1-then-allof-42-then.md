@@ -16,6 +16,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-6.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                            |
@@ -47,6 +49,7 @@ unknown
 
 | Value                          | Explanation |
 | :----------------------------- | :---------- |
+| `"admin-api-access"`           |             |
 | `"hana"`                       |             |
 | `"hana-cloud-connection"`      |             |
 | `"hana-cloud-connection-free"` |             |
