@@ -10,9 +10,10 @@ unknown
 
 ## plan
 
-application plan >standard< for >sapappgyver< is available in data centers:
+application plan >default< for >sap-translation-hub< is available in data centers:
 
 *   {'region': 'eu10', 'name': 'Europe (Frankfurt)'}
+*   {'region': 'us10', 'name': 'US East (VA)'}
 
 `plan`
 

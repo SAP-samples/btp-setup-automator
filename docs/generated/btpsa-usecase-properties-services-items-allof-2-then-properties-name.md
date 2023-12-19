@@ -55,6 +55,7 @@ unknown
 | `"sap-build-apps"`                              |             |
 | `"sap-cai-onboarding"`                          |             |
 | `"sap-identity-services-onboarding"`            |             |
+| `"sap-translation-hub"`                         |             |
 | `"sapappgyver"`                                 |             |
 | `"sapappstudio"`                                |             |
 | `"SAPLaunchpad"`                                |             |

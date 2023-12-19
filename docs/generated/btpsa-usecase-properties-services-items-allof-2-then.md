@@ -118,6 +118,8 @@ all of
 
 *   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-56.md "check type definition")
 
+*   [Untitled undefined type in JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-2-then-allof-57.md "check type definition")
+
 # then Properties
 
 | Property      | Type          | Required | Nullable       | Defined by                                                                                                                                                                                |
@@ -195,6 +197,7 @@ unknown
 | `"sap-build-apps"`                              |             |
 | `"sap-cai-onboarding"`                          |             |
 | `"sap-identity-services-onboarding"`            |             |
+| `"sap-translation-hub"`                         |             |
 | `"sapappgyver"`                                 |             |
 | `"sapappstudio"`                                |             |
 | `"SAPLaunchpad"`                                |             |
