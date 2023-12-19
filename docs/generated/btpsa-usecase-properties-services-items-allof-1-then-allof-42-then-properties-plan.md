@@ -8,6 +8,7 @@ unknown
 
 | Value                          | Explanation |
 | :----------------------------- | :---------- |
+| `"admin-api-access"`           |             |
 | `"hana"`                       |             |
 | `"hana-cloud-connection"`      |             |
 | `"hana-cloud-connection-free"` |             |

@@ -6,7 +6,10 @@
 
 | Property                                                | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                                                          |
 | :------------------------------------------------------ | :------------ | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [backup](#backup)                                       | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-backup.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/backup")                                     |
 | [coordinator\_type](#coordinator_type)                  | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-coordinator_type.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/coordinator_type")                 |
+| [enableBackups](#enablebackups)                         | `boolean`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-enablebackups.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/enableBackups")                       |
+| [fileContainer](#filecontainer)                         | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-filecontainer.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/fileContainer")                       |
 | [initOptions](#initoptions)                             | `object`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-initoptions.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/initOptions")                           |
 | [iqEnabled](#iqenabled)                                 | `boolean`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-iqenabled.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/iqEnabled")                               |
 | [num\_coordinators](#num_coordinators)                  | `integer`     | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-num_coordinators.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/num_coordinators")                 |
@@ -22,6 +25,24 @@
 | [versionIndicator](#versionindicator)                   | `string`      | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-versionindicator.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/versionIndicator")                 |
 | [whitelistIPs](#whitelistips)                           | `array`       | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-whitelistips.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/whitelistIPs")                         |
 | [writer\_type](#writer_type)                            | Not specified | Optional | cannot be null | [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-writer_type.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/writer_type")                           |
+
+## backup
+
+Backup service properties
+
+`backup`
+
+*   is optional
+
+*   Type: `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-backup.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-backup.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/backup")
+
+### backup Type
+
+`object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-backup.md))
 
 ## coordinator\_type
 
@@ -43,11 +64,51 @@ unknown
 
 ### coordinator\_type Constraints
 
-**constant**: the value of this property must be equal to:
+**enum**: the value of this property must be equal to one of the following values:
 
-```json
-"small"
-```
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"small"`   |             |
+| `"medium"`  |             |
+| `"large"`   |             |
+| `"xlarge"`  |             |
+| `"2xlarge"` |             |
+
+## enableBackups
+
+Describes if IQ backups are enabled or not
+
+`enableBackups`
+
+*   is optional
+
+*   Type: `boolean`
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-enablebackups.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/enableBackups")
+
+### enableBackups Type
+
+`boolean`
+
+## fileContainer
+
+Configuration of the Data Lake's default file container
+
+`fileContainer`
+
+*   is optional
+
+*   Type: `object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-filecontainer.md))
+
+*   cannot be null
+
+*   defined in: [JSON Schema for BTPSA use case definitions](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-filecontainer.md "undefined#/properties/services/items/allOf/1/then/allOf/42/then/allOf/5/then/properties/parameters/properties/data/properties/fileContainer")
+
+### fileContainer Type
+
+`object` ([Details](btpsa-usecase-properties-services-items-allof-1-then-allof-42-then-allof-5-then-properties-parameters-properties-data-properties-filecontainer.md))
 
 ## initOptions
 
@@ -153,7 +214,7 @@ Whether to provision an iq instance for the datalake or not.
 
 ### num\_writers Constraints
 
-**maximum**: the value of this number must smaller than or equal to: `1`
+**maximum**: the value of this number must smaller than or equal to: `10`
 
 **minimum**: the value of this number must greater than or equal to: `1`
 
@@ -177,9 +238,9 @@ Size of IQ persistence in GB
 
 ### provisioned\_size\_gib Constraints
 
-**maximum**: the value of this number must smaller than or equal to: `256`
+**maximum**: the value of this number must smaller than or equal to: `92160`
 
-**minimum**: the value of this number must greater than or equal to: `256`
+**minimum**: the value of this number must greater than or equal to: `1024`
 
 ## reader\_type
 
@@ -201,11 +262,15 @@ unknown
 
 ### reader\_type Constraints
 
-**constant**: the value of this property must be equal to:
+**enum**: the value of this property must be equal to one of the following values:
 
-```json
-"small"
-```
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"small"`   |             |
+| `"medium"`  |             |
+| `"large"`   |             |
+| `"xlarge"`  |             |
+| `"2xlarge"` |             |
 
 ## serviceStopped
 
@@ -370,8 +435,12 @@ unknown
 
 ### writer\_type Constraints
 
-**constant**: the value of this property must be equal to:
+**enum**: the value of this property must be equal to one of the following values:
 
-```json
-"small"
-```
+| Value       | Explanation |
+| :---------- | :---------- |
+| `"small"`   |             |
+| `"medium"`  |             |
+| `"large"`   |             |
+| `"xlarge"`  |             |
+| `"2xlarge"` |             |
