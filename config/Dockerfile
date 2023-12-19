@@ -163,7 +163,9 @@ COPY --chown=root:root --from=tools /usr/local/bin/helm    /usr/local/bin
 COPY --chown=root:root --from=tools /usr/local/bin/ijq     /usr/local/bin
 
 ## Install the CF plugin for deploying MTAs on Cloudfoundry
-RUN cf install-plugin multiapps -f
+# RUN cf install-plugin multiapps -f
+# Pinning version to 3.0.3 due to https://github.com/cloudfoundry/multiapps-cli-plugin/issues/186
+RUN cf install-plugin -f https://github.com/cloudfoundry/multiapps-cli-plugin/releases/download/v3.0.3/multiapps-plugin.linux64
  
 ## Install krew and the oidc-login plugin
 RUN    OS="$(uname | tr '[:upper:]' '[:lower:]')" \
