@@ -1,8 +1,8 @@
-attrs==23.1.0
+attrs==23.2.0
 blessed==1.20.0
 certifi==2023.11.17
 charset-normalizer==3.3.2
-inquirer==3.1.4
+inquirer==3.2.1
 idna==3.6
 Jinja2==3.1.2
 jsonschema==4.20.0
@@ -10,7 +10,7 @@ MarkupSafe==2.1.3
 mccabe==0.7.0
 ninja2==0.1
 pycodestyle==2.11.1
-pyflakes==3.0.1
+pyflakes==3.2.0
 pyrsistent==0.20.0
 python-dateutil==2.8.2
 python-editor==1.0.4
@@ -18,7 +18,7 @@ readchar==4.0.5
 requests==2.31.0
 six==1.16.0
 urllib3==2.1.0
-wcwidth==0.2.12
+wcwidth==0.2.13
 pyyaml==6.0.1
 xmltodict==0.13.0
 shortuuid==1.0.11
