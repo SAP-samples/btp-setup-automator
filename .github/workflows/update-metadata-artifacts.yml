@@ -5,8 +5,8 @@ name: Update metadata artifacts
 
 on:
   workflow_dispatch:
-  repository_dispatch:
-    types: [btp-metadata-update]
+#  repository_dispatch:
+#    types: [btp-metadata-update]
 
 env:
   TARGET_BRANCH: dev

@@ -2,13 +2,14 @@
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-setup-automator)](https://api.reuse.software/info/github.com/SAP-samples/btp-setup-automator) [![Release Docker Image](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-release-build-and-push.yml/badge.svg)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-release-build-and-push.yml)[![Dev Docker Image](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-dev-build-and-push.yml/badge.svg)](https://github.com/SAP-samples/btp-setup-automator/actions/workflows/docker-dev-build-and-push.yml)
 
-## ⚠ Maintenance Mode ⚠
+## ⚠ ARCHIVED - NO MAINTENANCE ⚠
 
-📢 **Please be aware that with release 1.9.0 this tool is in maintenance mode** - see also the corresponding [announcement](https://github.com/SAP-samples/btp-setup-automator/discussions/558)
+📢 **Please be aware that with tool is no longer maintained and the repository is archived**
 
 As an alternative for the btp-setup-automator we recommend to use the [Terraform Provider for SAP BTP](https://github.com/SAP/terraform-provider-btp) as tool for the setup of infrastructure on the SAP BTP available in the [Hashicorp Terraform registry](https://registry.terraform.io/providers/SAP/btp/latest).
 
-## Description
+
+### Description
 
 This repository provides the user with a script to **automate the setup** of an [SAP Business Technology Platform (SAP BTP) account](https://account.hana.ondemand.com/) and to **learn** how this is done with the various command line interfaces and tools that run inside a [Docker](https://www.docker.com/) container. It uses  JSON configuration files to automate this setup of SAP BTP accounts or do other administrative tasks.
 
@@ -22,12 +23,12 @@ This includes:
 - Deployment of complete applications
 - Unrolling created setup
 
-## Quick Overview
+### Quick Overview
 
 Get a quick overview & demo of the btp-setup-automator through this video:
 [![Ask-the-expert video recording](https://img.youtube.com/vi/3pLNXsn-cLM/0.jpg)](https://www.youtube.com/watch?v=3pLNXsn-cLM)
 
-## Documentation
+### Documentation
 
 Started as a small helper for basic SAP BTP setups the tool has grown since its start. This documentation should support you in getting started quickly and then dive into the depths of the btp-setup-automator. The documentation has the following outline:
 
@@ -38,36 +39,10 @@ Started as a small helper for basic SAP BTP setups the tool has grown since its 
 - [Overview of btpsa parameters](./docs/PARAMETERS_OVERVIEW.md)
 - [FAQ](./docs/FAQ.md)
 
-## Known Issues
-
-Checkout [the issues section in this repo](https://github.com/SAP-samples/btp-setup-automator/issues) for known and current issues.
-
-## How to get Support?
-
-❓ - If you have *question* you may use the [Frequently Asked Questions](docs/FAQ.md) document. If you did not find your questions answered there you can [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
-
-🐛 - If you find a bug, feel free to [create a bug report](https://github.com/SAP-samples/btp-setup-automator/issues/new?assignees=&labels=bug&template=bug-report.yml&title=%5BBUG%5D+%3Ctitle%3E).
-
-## Contributions
-
-Checkout the [CONTRIBUTING.md file](CONTRIBUTING.md) for more details on how to contribute to this open source project.
-
-> 📝 Tip - If you provide a pull request make sure that the basis of your work as well as the target for your pull request is the `dev` branch of this repository.
-
-## Code of conduct
+### Code of conduct
 
 Checkout the [CODE_OF_CONDUCT.md file](CODE_OF_CONDUCT.md) for more details on the code of conduct for this open source project.
 
-## License
+### License
 
 Copyright (c) 2023 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.
-
-## Open in GitHub Codespaces
-
-### Stable image
-
-[![Open Stable in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=460942707&machine=basicLinux32gb&devcontainer_path=.devcontainer%2Fstable%2Fdevcontainer.json&location=WestEurope) 
-
-### Dev image
-
-[![Open Dev in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=dev&repo=460942707&machine=basicLinux32gb&devcontainer_path=.devcontainer%2Fdev%2Fdevcontainer.json&location=WestEurope)
